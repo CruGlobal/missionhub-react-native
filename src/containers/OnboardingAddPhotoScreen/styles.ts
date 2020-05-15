@@ -7,8 +7,15 @@ export default StyleSheet.create({
   headerButton: { marginHorizontal: 4 },
   skipText: { color: theme.parakeetBlue },
   contentWrap: { alignItems: 'center' },
-  headerText: {
+  nullHeaderText: {
     marginTop: 48,
+    color: theme.white,
+    fontWeight: '300',
+    fontSize: 24,
+    lineHeight: 30,
+  },
+  imageHeaderText: {
+    marginTop: 24,
     color: theme.white,
     fontWeight: '300',
     fontSize: 24,
@@ -40,7 +47,7 @@ export default StyleSheet.create({
     bottom: -3,
     right: -3,
   },
-  bottomButtonWrapper: {
+  nullBottomButtonWrapper: {
     justifyContent: 'center',
     alignItems: 'center',
     width: theme.fullWidth - 100,
@@ -49,7 +56,6 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 24,
-    margin: 0,
   },
   bottomButtonText: {
     color: theme.white,
@@ -58,5 +64,31 @@ export default StyleSheet.create({
     fontWeight: '500',
     letterSpacing: 1.5,
     backgroundColor: 'rgba(0,0,0,0)',
+  },
+  imageBottomButtonWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: theme.fullWidth - 100,
+    height: 48,
+    backgroundColor: theme.secondaryColor,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 24,
+    marginTop: 44,
+  },
+  image: {
+    marginTop: 48,
+    width: 110,
+    height: 110,
+    borderRadius: 55,
+  },
+  changePhotoButton: {
+    marginTop: 12,
+  },
+  changePhotoText: {
+    color: theme.parakeetBlue,
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '300',
   },
 });

@@ -189,14 +189,12 @@ export default {
     errorSavingPerson: 'Error saving your person. Please try again.',
   },
   onboardingAddPhoto: {
-    header: 'Add Profile Photo',
+    nullHeader: 'Add Profile Photo',
+    imageHeader: 'Profile Photo Added',
     description: "Add a profile photo so your members know it's you",
-    buttonText: 'Add a Profile Photo',
-  },
-  onboardingConfirmPhoto: {
-    header: 'Profile Photo Added',
     changePhoto: 'Change Photo',
-    buttonText: 'Continue',
+    nullButtonText: 'Add a Profile Photo',
+    imageButtonText: 'Continue',
   },
   categories: {
     onboardingPrompt:

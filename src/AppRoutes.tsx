@@ -211,10 +211,6 @@ import {
   OnboardingAddPhotoScreen,
   ONBOARDING_ADD_PHOTO_SCREEN,
 } from './containers/OnboardingAddPhotoScreen';
-import {
-  OnboardingPhotoConfirmScreen,
-  ONBOARDING_PHOTO_CONFIRM_SCREEN,
-} from './containers/OnboardingPhotoConfirmScreen';
 import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
@@ -444,7 +440,6 @@ const screens = {
     { gesturesEnabled: true },
   ),
   [ONBOARDING_ADD_PHOTO_SCREEN]: OnboardingAddPhotoScreen,
-  [ONBOARDING_PHOTO_CONFIRM_SCREEN]: OnboardingPhotoConfirmScreen,
   [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
   [IS_USER_CREATED_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
     IsUserCreatedMemberPersonScreen,

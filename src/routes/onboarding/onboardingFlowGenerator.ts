@@ -22,10 +22,6 @@ import {
   OnboardingAddPhotoScreen,
   ONBOARDING_ADD_PHOTO_SCREEN,
 } from '../../containers/OnboardingAddPhotoScreen';
-import {
-  OnboardingPhotoConfirmScreen,
-  ONBOARDING_PHOTO_CONFIRM_SCREEN,
-} from '../../containers/OnboardingPhotoConfirmScreen';
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
 } from '../../containers/PersonCategoryScreen';
@@ -81,15 +77,8 @@ export const onboardingFlowGenerator = ({
             isMe: true,
           },
         ),
-        [ONBOARDING_ADD_PHOTO_SCREEN]: wrapNextAction(
+        [ONBOARDING_ADD_PHOTO_SCREEN]: wrapNextScreen(
           OnboardingAddPhotoScreen,
-          ({ skip }: { skip: boolean }) =>
-            navigatePush(
-              skip ? GET_STARTED_SCREEN : ONBOARDING_PHOTO_CONFIRM_SCREEN,
-            ),
-        ),
-        [ONBOARDING_PHOTO_CONFIRM_SCREEN]: wrapNextScreen(
-          OnboardingPhotoConfirmScreen,
           GET_STARTED_SCREEN,
         ),
       }
