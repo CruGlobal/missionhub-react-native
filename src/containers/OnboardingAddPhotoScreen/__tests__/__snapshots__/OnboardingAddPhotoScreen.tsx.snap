@@ -1,0 +1,670 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderColor": "#ffffff",
+        "borderRadius": 53,
+        "borderWidth": 1.5,
+        "height": 109,
+        "left": 322,
+        "position": "absolute",
+        "top": 614,
+        "width": 109,
+      }
+    }
+  >
+    <SvgMock
+      style={
+        Object {
+          "left": 0,
+          "position": "absolute",
+          "top": 0,
+        }
+      }
+    />
+    <SvgMock
+      style={
+        Object {
+          "bottom": -3,
+          "position": "absolute",
+          "right": -3,
+        }
+      }
+    />
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="BackButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "marginHorizontal": 4,
+                  },
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#B4B6BA"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="skipButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Array [
+                  Object {
+                    "padding": 15,
+                  },
+                  Object {
+                    "marginHorizontal": 4,
+                  },
+                ],
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "color": "#3CC8E6",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              SKIP
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "marginTop": 48,
+          },
+        ]
+      }
+    >
+      Add Profile Photo
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 14,
+            "lineHeight": 20,
+            "marginTop": 12,
+          },
+        ]
+      }
+    >
+      Add a profile photo so your members know it's you
+    </Text>
+  </View>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="popupMenuButton"
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#52C5DC",
+            "borderRadius": 24,
+            "height": 48,
+            "justifyContent": "center",
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+            "width": 650,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "backgroundColor": "rgba(0,0,0,0)",
+                "color": "#ffffff",
+                "fontSize": 14,
+                "fontWeight": "500",
+                "letterSpacing": 1.5,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          ADD A PROFILE PHOTO
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`OnboardingAddPhotoScreen should change an image 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -119,11 +119,11 @@
+    >
+      <Image
+        resizeMode=\\"cover\\"
+        source={
+          Object {
+-           \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
++           \\"uri\\": \\"data:image/jpeg;base64,base64image2.jpeg\\",
+          }
+        }
+        style={
+          Object {
+            \\"borderRadius\\": 55,"
+`;
+
+exports[`OnboardingAddPhotoScreen should select an image 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -4,43 +4,10 @@
+        \\"backgroundColor\\": \\"#007398\\",
+        \\"flex\\": 1,
+      }
+    }
+  >
+-   <View
+-     style={
+-       Object {
+-         \\"borderColor\\": \\"#ffffff\\",
+-         \\"borderRadius\\": 53,
+-         \\"borderWidth\\": 1.5,
+-         \\"height\\": 109,
+-         \\"left\\": 322,
+-         \\"position\\": \\"absolute\\",
+-         \\"top\\": 614,
+-         \\"width\\": 109,
+-       }
+-     }
+-   >
+-     <SvgMock
+-       style={
+-         Object {
+-           \\"left\\": 0,
+-           \\"position\\": \\"absolute\\",
+-           \\"top\\": 0,
+-         }
+-       }
+-     />
+-     <SvgMock
+-       style={
+-         Object {
+-           \\"bottom\\": -3,
+-           \\"position\\": \\"absolute\\",
+-           \\"right\\": -3,
+-         }
+-       }
+-     />
+-   </View>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          \\"backgroundColor\\": \\"transparent\\",
+@@ -138,144 +105,104 @@
+                \\"flex\\": 1,
+                \\"justifyContent\\": \\"center\\",
+              },
+            ]
+          }
+-       >
++       />
++     </View>
++   </RCTSafeAreaView>
+    <View
+-           accessible={true}
+-           focusable={true}
+-           isTVSelectable={true}
+-           onClick={[Function bound touchableHandlePress]}
+-           onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-           onResponderMove={[Function bound touchableHandleResponderMove]}
+-           onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+      style={
+        Object {
+-               \\"opacity\\": 1,
++         \\"alignItems\\": \\"center\\",
+        }
+      }
+-           testID=\\"skipButton\\"
+    >
+-           <View
++     <Image
++       resizeMode=\\"cover\\"
++       source={
++         Object {
++           \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
++         }
++       }
+        style={
+-               Array [
+          Object {
+-                   \\"backgroundColor\\": \\"transparent\\",
+-                 },
+-                 null,
+-                 Array [
+-                   Object {
+-                     \\"padding\\": 15,
+-                   },
+-                   Object {
+-                     \\"marginHorizontal\\": 4,
+-                   },
+-                 ],
+-                 null,
+-               ]
++           \\"borderRadius\\": 55,
++           \\"height\\": 110,
++           \\"marginTop\\": 48,
++           \\"width\\": 110,
++         }
+        }
+-           >
++     />
+      <Text
+        style={
+          Array [
+            Object {
+              \\"color\\": \\"#505256\\",
+            },
+            Object {
+              \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+            },
+-                   Array [
+            Object {
+-                       \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
+              \\"color\\": \\"#ffffff\\",
+-                       \\"fontSize\\": 14,
+-                       \\"fontWeight\\": \\"500\\",
+-                       \\"letterSpacing\\": 1.5,
+-                       \\"textAlign\\": \\"center\\",
+-                     },
+-                     Array [
+-                       Object {
+-                         \\"color\\": \\"#ffffff\\",
+-                       },
+-                       Object {
+-                         \\"color\\": \\"#3CC8E6\\",
++             \\"fontSize\\": 24,
++             \\"fontWeight\\": \\"300\\",
++             \\"lineHeight\\": 30,
++             \\"marginTop\\": 24,
+            },
+-                     ],
+-                   ],
+          ]
+        }
+      >
+-               SKIP
++       Profile Photo Added
+      </Text>
+-           </View>
+-         </View>
+-       </View>
+-     </View>
+-   </RCTSafeAreaView>
+      <View
++       accessible={true}
++       focusable={true}
++       isTVSelectable={true}
++       onClick={[Function bound touchableHandlePress]}
++       onResponderGrant={[Function bound touchableHandleResponderGrant]}
++       onResponderMove={[Function bound touchableHandleResponderMove]}
++       onResponderRelease={[Function bound touchableHandleResponderRelease]}
++       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+        style={
+          Object {
+-         \\"alignItems\\": \\"center\\",
++           \\"opacity\\": 1,
+          }
+        }
++       testID=\\"popupMenuButton\\"
+      >
+-     <Text
++       <View
+          style={
+-         Array [
+            Object {
+-             \\"color\\": \\"#505256\\",
+-           },
+-           Object {
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           },
+-           Object {
+-             \\"color\\": \\"#ffffff\\",
+-             \\"fontSize\\": 24,
+-             \\"fontWeight\\": \\"300\\",
+-             \\"lineHeight\\": 30,
+-             \\"marginTop\\": 48,
+-           },
+-         ]
++             \\"marginTop\\": 12,
++           }
+          }
+        >
+-       Add Profile Photo
+-     </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  \\"color\\": \\"#505256\\",
+                },
+                Object {
+                  \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                },
+                Object {
+-             \\"color\\": \\"#ffffff\\",
++                 \\"color\\": \\"#3CC8E6\\",
+                  \\"fontSize\\": 14,
++                 \\"fontWeight\\": \\"300\\",
+                  \\"lineHeight\\": 20,
+-             \\"marginTop\\": 12,
+                },
+              ]
+            }
+          >
+-       Add a profile photo so your members know it's you
++           Change Photo
+          </Text>
+        </View>
+-   <RCTSafeAreaView
+-     emulateUnlessSupported={true}
+-     style={
+-       Object {
+-         \\"bottom\\": 20,
+-         \\"left\\": 50,
+-         \\"position\\": \\"absolute\\",
+-       }
+-     }
+-   >
++     </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function bound touchableHandlePress]}
+@@ -288,47 +215,70 @@
+        style={
+          Object {
+            \\"opacity\\": 1,
+          }
+        }
+-       testID=\\"popupMenuButton\\"
++       testID=\\"bottomButton\\"
+      >
+        <View
+          style={
++           Array [
+              Object {
+                \\"alignItems\\": \\"center\\",
+                \\"backgroundColor\\": \\"#52C5DC\\",
++               \\"height\\": 60,
++               \\"justifyContent\\": \\"center\\",
++             },
++             null,
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#52C5DC\\",
+                \\"borderRadius\\": 24,
+                \\"height\\": 48,
+                \\"justifyContent\\": \\"center\\",
++               \\"marginTop\\": 44,
+                \\"paddingHorizontal\\": 20,
+                \\"paddingVertical\\": 10,
+                \\"width\\": 650,
+-           }
++             },
++             Object {
++               \\"borderRadius\\": 50,
++             },
++           ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  \\"color\\": \\"#505256\\",
+                },
+                Object {
+                  \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++               },
++               Array [
++                 Object {
++                   \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontSize\\": 14,
++                   \\"fontWeight\\": \\"500\\",
++                   \\"letterSpacing\\": 1.5,
++                   \\"textAlign\\": \\"center\\",
+                  },
+                  Object {
+                    \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
+                    \\"color\\": \\"#ffffff\\",
+                    \\"fontSize\\": 14,
+                    \\"fontWeight\\": \\"500\\",
+                    \\"letterSpacing\\": 1.5,
+                    \\"textAlign\\": \\"center\\",
+                  },
++               ],
+              ]
+            }
+          >
+-           ADD A PROFILE PHOTO
++           CONTINUE
+          </Text>
++       </View>
+      </View>
+    </View>
+-   </RCTSafeAreaView>
+  </View>"
+`;
