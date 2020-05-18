@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { useMutation } from '@apollo/react-hooks';
 
 import { Text, Button } from '../common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
@@ -15,12 +15,19 @@ import HeartIcon from './heartIcon.svg';
 import PrayerIcon from './prayerIcon.svg';
 import styles from './styles';
 import { CommunityFeedItemCommentLike } from './__generated__/CommunityFeedItemCommentLike';
+import { SET_FEED_ITEM_LIKE_MUTATION } from './queries';
+import {
+  SetFeedItemLike,
+  SetFeedItemLikeVariables,
+} from './__generated__/SetFeedItemLike';
 
 export interface CommentLikeComponentProps {
-  item: CommunityFeedItemCommentLike;
+  feedItem: CommunityFeedItemCommentLike;
 }
 
-export const CommentLikeComponent = ({ item }: CommentLikeComponentProps) => {
+export const CommentLikeComponent = ({
+  feedItem,
+}: CommentLikeComponentProps) => {
   const {
     id,
     comments: {
@@ -30,7 +37,7 @@ export const CommentLikeComponent = ({ item }: CommentLikeComponentProps) => {
     likesCount,
     subject,
     subjectPerson,
-  } = item;
+  } = feedItem;
   const isPrayer =
     subject.__typename === 'Post' &&
     subject.postType === PostTypeEnum.prayer_request;
@@ -39,10 +46,15 @@ export const CommentLikeComponent = ({ item }: CommentLikeComponentProps) => {
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);
   const isMe = useIsMe(subjectPerson?.id || '');
 
+  const [setLike] = useMutation<SetFeedItemLike, SetFeedItemLikeVariables>(
+    SET_FEED_ITEM_LIKE_MUTATION,
+    { variables: { id, liked: !liked } },
+  );
+
   const onPressLikeIcon = async () => {
     try {
       setIsLikeDisabled(true);
-      await dispatch(toggleLike(id, liked, communityId));
+      await setLike();
       !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
     } finally {
       setIsLikeDisabled(false);

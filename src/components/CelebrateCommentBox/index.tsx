@@ -1,10 +1,22 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useMutation } from '@apollo/react-hooks';
 
 import CommentBox, { ActionItem } from '../CommentBox';
 
 import styles from './styles';
 import { FeedItemEditingComment } from './__generated__/FeedItemEditingComment';
+import {
+  CreateFeedItemComment,
+  CreateFeedItemCommentVariables,
+} from './__generated__/CreateFeedItemComment';
+import {
+  CREATE_FEED_ITEM_COMMENT_MUTATION,
+  UPDATE_FEED_ITEM_COMMENT_MUTATION,
+} from './queries';
+import {
+  UpdateFeedItemComment,
+  UpdateFeedItemCommentVariables,
+} from './__generated__/UpdateFeedItemComment';
 
 interface CelebrateCommentBoxProps {
   feedItemId: string;
@@ -19,25 +31,28 @@ const CelebrateCommentBox = ({
   onAddComplete,
   onCancel,
 }: CelebrateCommentBoxProps) => {
-  const dispatch = useDispatch();
+  const [createComment] = useMutation<
+    CreateFeedItemComment,
+    CreateFeedItemCommentVariables
+  >(CREATE_FEED_ITEM_COMMENT_MUTATION);
+
+  const [updateComment] = useMutation<
+    UpdateFeedItemComment,
+    UpdateFeedItemCommentVariables
+  >(UPDATE_FEED_ITEM_COMMENT_MUTATION);
 
   const submitComment = async (_: ActionItem | null, text: string) => {
     if (editingComment) {
       onCancel();
-      return dispatch(
-        updateCelebrateComment(
-          feedItemId,
-          organization.id,
-          editingComment.id,
-          text,
-        ),
-      );
+      await updateComment({
+        variables: { commentId: editingComment.id, content: text },
+      });
+    } else {
+      await createComment({
+        variables: { feedItemId, content: text },
+      });
+      onAddComplete();
     }
-    const results = await dispatch(
-      createCelebrateComment(feedItemId, organization.id, text),
-    );
-    onAddComplete();
-    return results;
   };
 
   return (

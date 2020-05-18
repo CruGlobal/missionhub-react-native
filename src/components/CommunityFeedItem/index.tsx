@@ -141,7 +141,7 @@ export const CommunityFeedItem = ({
   const renderContent = () => (
     <View style={styles.cardContent}>
       <CommunityFeedItemContent
-        item={item}
+        feedItem={item}
         communityId={communityId}
         namePressable={namePressable}
         onRefresh={onRefresh}

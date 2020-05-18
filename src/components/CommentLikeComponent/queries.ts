@@ -3,7 +3,7 @@ import gql from 'graphql-tag';
 export const COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT = gql`
   fragment CommunityFeedItemCommentLike on FeedItem {
     id
-    comments {
+    comments(after: $commentsCursor) {
       pageInfo {
         totalCount
       }
@@ -19,6 +19,18 @@ export const COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT = gql`
     }
     subjectPerson {
       id
+    }
+  }
+`;
+
+export const SET_FEED_ITEM_LIKE_MUTATION = gql`
+  mutation SetFeedItemLike($id: ID!, $liked: Boolean!) {
+    setFeedItemLike(input: { id: $id, status: $liked }) {
+      feedItem {
+        id
+        liked
+        likesCount
+      }
     }
   }
 `;

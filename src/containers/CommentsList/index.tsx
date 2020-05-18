@@ -1,20 +1,29 @@
 import React from 'react';
 import { Alert, FlatList } from 'react-native';
 import { useTranslation } from 'react-i18next';
+import { useMutation } from '@apollo/react-hooks';
 
-import LoadMore from '../../components/LoadMore';
 import { keyExtractorId } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { useMyId } from '../../utils/hooks/useIsMe';
+import { FeedItemCommentItem } from '../CommentItem/__generated__/FeedItemCommentItem';
 
 import styles from './styles';
 import {
-  FeedItemCommentConnection,
-  FeedItemCommentConnection_nodes,
-} from './__generated__/FeedItemCommentConnection';
+  DELETE_FEED_ITEM_COMMENT_MUTATION,
+  REPORT_FEED_ITEM_COMMENT_MUTATION,
+} from './queries';
+import {
+  DeleteFeedItemComment,
+  DeleteFeedItemCommentVariables,
+} from './__generated__/DeleteFeedItemComment';
+import {
+  ReportFeedItemComment,
+  ReportFeedItemCommentVariables,
+} from './__generated__/ReportFeedItemComment';
 
 export interface CommentsListProps {
-  commentsConnection: FeedItemCommentConnection;
+  comments: FeedItemCommentItem[];
   editingCommentId?: string;
   setEditingCommentId: (id?: string) => void;
   isOwner: boolean;
@@ -23,7 +32,7 @@ export interface CommentsListProps {
 }
 
 const CommentsList = ({
-  commentsConnection,
+  comments,
   editingCommentId,
   setEditingCommentId,
   isOwner,
@@ -55,29 +64,35 @@ const CommentsList = ({
     ]);
   };
 
-  const handleDelete = (item: FeedItemCommentConnection_nodes) => {
+  const [deleteComment] = useMutation<
+    DeleteFeedItemComment,
+    DeleteFeedItemCommentVariables
+  >(DELETE_FEED_ITEM_COMMENT_MUTATION);
+
+  const handleDelete = (comment: FeedItemCommentItem) => {
     alert({
       title: 'deletePostHeader',
       message: 'deleteAreYouSure',
       actionText: 'deletePost',
-      action: () => {
-        dispatch(deleteCelebrateComment(organization.id, event.id, item.id));
-      },
+      action: () => deleteComment({ variables: { id: comment.id } }),
     });
   };
 
-  const handleReport = (item: FeedItemCommentConnection_nodes) => {
+  const [reportComment] = useMutation<
+    ReportFeedItemComment,
+    ReportFeedItemCommentVariables
+  >(REPORT_FEED_ITEM_COMMENT_MUTATION);
+
+  const handleReport = (comment: FeedItemCommentItem) => {
     alert({
       title: 'reportToOwnerHeader',
       message: 'reportAreYouSure',
       actionText: 'reportPost',
-      action: () => {
-        dispatch(reportComment(organization.id, item));
-      },
+      action: () => reportComment({ variables: { id: comment.id } }),
     });
   };
 
-  const menuActions = (item: FeedItemCommentConnection_nodes) => {
+  const menuActions = (comment: FeedItemCommentItem) => {
     const actions: {
       text: string;
       onPress: () => void;
@@ -86,14 +101,14 @@ const CommentsList = ({
 
     const deleteAction = {
       text: t('deletePost'),
-      onPress: () => handleDelete(item),
+      onPress: () => handleDelete(comment),
       destructive: true,
     };
 
-    if (myId === item.person.id) {
+    if (myId === comment.person.id) {
       actions.push({
         text: t('editPost'),
-        onPress: () => setEditingCommentId(item.id),
+        onPress: () => setEditingCommentId(comment.id),
       });
       actions.push(deleteAction);
     } else {
@@ -102,7 +117,7 @@ const CommentsList = ({
       } else {
         actions.push({
           text: t('reportToOwner'),
-          onPress: () => handleReport(item),
+          onPress: () => handleReport(comment),
         });
       }
     }
@@ -110,11 +125,7 @@ const CommentsList = ({
     return actions;
   };
 
-  const renderItem = ({
-    item: comment,
-  }: {
-    item: FeedItemCommentConnection_nodes;
-  }) => (
+  const renderItem = ({ item: comment }: { item: FeedItemCommentItem }) => (
     <CommentItem
       testID="CommentItem"
       comment={comment}
@@ -127,17 +138,11 @@ const CommentsList = ({
 
   return (
     <FlatList
-      data={commentsConnection.nodes}
+      data={comments}
       keyExtractor={keyExtractorId}
       renderItem={renderItem}
       style={list}
       contentContainerStyle={listContent}
-      ListFooterComponent={
-        // TODO: add infinite scroll
-        commentsConnection.pageInfo.hasNextPage ? (
-          <LoadMore testID="LoadMore" onPress={handleLoadMore} />
-        ) : null
-      }
       bounces={false}
       {...listProps}
     />

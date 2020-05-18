@@ -1,15 +1,23 @@
 import gql from 'graphql-tag';
 
-import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../CommentItem/queries';
+export { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../CommentItem/queries';
 
-export const FEED_ITEM_COMMENTS_FRAGMENT = gql`
-  fragment FeedItemCommentConnection on FeedItemCommentConnection {
-    nodes {
-      ...FeedItemCommentItem
-    }
-    pageInfo {
-      hasNextPage
+export const DELETE_FEED_ITEM_COMMENT_MUTATION = gql`
+  mutation DeleteFeedItemComment($id: ID!) {
+    deleteFeedItemComment(input: { id: $id }) {
+      id
     }
   }
-  ${FEED_ITEM_COMMENT_ITEM_FRAGMENT}
+`;
+
+export const REPORT_FEED_ITEM_COMMENT_MUTATION = gql`
+  mutation ReportFeedItemComment($id: ID!) {
+    createContentComplaint(
+      input: { subjectId: $id, subjectType: CommunityCelebrationItemComment }
+    ) {
+      contentComplaint {
+        id
+      }
+    }
+  }
 `;

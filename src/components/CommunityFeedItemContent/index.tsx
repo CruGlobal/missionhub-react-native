@@ -33,13 +33,13 @@ import {
 } from './__generated__/CommunityFeedItemContent';
 
 export interface CommunityFeedItemContentProps {
-  item: FeedItem;
+  feedItem: FeedItem;
   namePressable?: boolean;
   style?: StyleProp<ViewStyle>;
 }
 
 export const CommunityFeedItemContent = ({
-  item,
+  feedItem,
   namePressable = false,
   style,
 }: CommunityFeedItemContentProps) => {
@@ -49,7 +49,8 @@ export const CommunityFeedItemContent = ({
   const [imageAspectRatio, changeImageAspectRatio] = useState(2);
 
   const imageData =
-    (item.subject.__typename === 'Post' && item.subject.mediaExpiringUrl) ||
+    (feedItem.subject.__typename === 'Post' &&
+      feedItem.subject.mediaExpiringUrl) ||
     null;
 
   useEffect(() => {
@@ -64,7 +65,7 @@ export const CommunityFeedItemContent = ({
     );
   }, [imageData]);
 
-  const { subject, subjectPerson, subjectPersonName } = item;
+  const { subject, subjectPerson, subjectPersonName } = feedItem;
   const itemType = getFeedItemType(subject);
   const addToSteps = [
     FeedItemSubjectTypeEnum.HELP_REQUEST,
@@ -83,12 +84,12 @@ export const CommunityFeedItemContent = ({
 
   const onPressChallengeLink = async () => {
     const challengeId = subject.id;
-    if (item.community?.id) {
-      await dispatch(reloadGroupChallengeFeed(item.community.id));
+    if (feedItem.community?.id) {
+      await dispatch(reloadGroupChallengeFeed(feedItem.community.id));
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {
           challengeId,
-          orgId: item.community.id,
+          orgId: feedItem.community.id,
         }),
       );
     }
@@ -106,8 +107,8 @@ export const CommunityFeedItemContent = ({
   const handleAddToMySteps = () =>
     dispatch(
       navigatePush(ADD_POST_TO_STEPS_SCREEN, {
-        item,
-        communityId: item.community?.id,
+        item: feedItem,
+        communityId: feedItem.community?.id,
       }),
     );
 
@@ -197,20 +198,20 @@ export const CommunityFeedItemContent = ({
         <PostTypeLabel type={itemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
-        {item.subjectPerson ? (
+        {feedItem.subjectPerson ? (
           <Avatar
             size={'medium'}
-            person={item.subjectPerson}
-            orgId={item.community?.id}
+            person={feedItem.subjectPerson}
+            orgId={feedItem.community?.id}
           />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
-            personId={item.subjectPerson?.id}
+            personId={feedItem.subjectPerson?.id}
             pressable={namePressable}
           />
-          <CardTime date={item.createdAt} style={styles.headerTime} />
+          <CardTime date={feedItem.createdAt} style={styles.headerTime} />
         </View>
       </View>
     </View>
@@ -231,7 +232,7 @@ export const CommunityFeedItemContent = ({
     <View style={styles.footerWrap}>
       {addToSteps ? renderAddToStepsButton() : null}
       <View style={styles.commentLikeWrap}>
-        <CommentLikeComponent item={item} />
+        <CommentLikeComponent feedItem={feedItem} />
       </View>
     </View>
   );

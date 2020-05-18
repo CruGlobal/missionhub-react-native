@@ -6,9 +6,9 @@ import {
 } from '../../components/CommunityFeedItem/queries';
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
-  query GetGlobalCommunityFeed($feedCursor: String) {
+  query GetGlobalCommunityFeed($feedItemsCursor: String) {
     globalCommunity {
-      feedItems(sortBy: createdAt_DESC, first: 25, after: $feedCursor) {
+      feedItems(sortBy: createdAt_DESC, after: $feedItemsCursor) {
         nodes {
           ...GlobalCommunityFeedItem
         }
@@ -26,16 +26,12 @@ export const GET_COMMUNITY_FEED = gql`
   query GetCommunityFeed(
     $communityId: ID!
     $subjectType: FeedItemSubjectTypeEnum = null
-    $feedCursor: String
+    $feedItemsCursor: String
+    $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
   ) {
     community(id: $communityId) {
       id
-      feedItems(
-        subjectType: $subjectType
-        sortBy: createdAt_DESC
-        first: 25
-        after: $feedCursor
-      ) {
+      feedItems(subjectType: $subjectType, sortBy: createdAt_DESC, after: $feedItemsCursor) {
         nodes {
           ...CommunityFeedItem
         }

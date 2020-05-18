@@ -24,8 +24,14 @@ import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
-import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
-import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
+import {
+  GetCommunityFeed,
+  GetCommunityFeedVariables,
+} from './__generated__/GetCommunityFeed';
+import {
+  GetGlobalCommunityFeed,
+  GetGlobalCommunityFeedVariables,
+} from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
@@ -108,10 +114,13 @@ export const CelebrateFeed = ({
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
-    variables: queryVariables,
-    skip: isGlobal,
-  });
+  } = useQuery<GetCommunityFeed, GetCommunityFeedVariables>(
+    GET_COMMUNITY_FEED,
+    {
+      variables: queryVariables,
+      skip: isGlobal,
+    },
+  );
 
   const {
     data: {
@@ -129,9 +138,12 @@ export const CelebrateFeed = ({
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
-    skip: !isGlobal,
-  });
+  } = useQuery<GetGlobalCommunityFeed, GetGlobalCommunityFeedVariables>(
+    GET_GLOBAL_COMMUNITY_FEED,
+    {
+      skip: !isGlobal,
+    },
+  );
 
   const items = sortCommunityFeed(
     (isGlobal ? globalNodes : nodes) as CombinedFeedItem[],
@@ -153,7 +165,6 @@ export const CelebrateFeed = ({
 
     fetchMore({
       variables: {
-        ...queryVariables,
         feedCursor: endCursor,
       },
       updateQuery: (prev, { fetchMoreResult }) =>

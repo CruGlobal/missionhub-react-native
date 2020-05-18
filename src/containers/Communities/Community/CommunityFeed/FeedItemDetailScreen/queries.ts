@@ -1,20 +1,21 @@
 import gql from 'graphql-tag';
 
 import { COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT } from '../../../../../components/CommunityFeedItemContent/queries';
-import { FEED_ITEM_COMMENTS_FRAGMENT } from '../../../../CommentsList/queries';
+import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../../../../CommentsList/queries';
 import { FEED_ITEM_EDITING_COMMENT_FRAGMENT } from '../../../../../components/CelebrateCommentBox/queries';
 
 export const FEED_ITEM_DETAIL_QUERY = gql`
-  query FeedItemDetail ($feedItemId: ID!, $myId:ID!) {
-    feedItem(id: $feedItemId) @client{ #TODO remove client
+  query FeedItemDetail ($feedItemId: ID!, $myId:ID!, $commentsCursor: String) {
+    feedItem (id: $feedItemId) {
       id 
       ...CommunityFeedItemContent
-      comments{
+      comments(after:$commentsCursor){
         nodes {
           id
+          ...FeedItemCommentItem
           ...FeedItemEditingComment
         }
-        ...FeedItemCommentConnection
+        pageInfo{hasNextPage endCursor}
       }
       community{
         id
@@ -29,7 +30,7 @@ export const FEED_ITEM_DETAIL_QUERY = gql`
       }
     }
     ${COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT}
-    ${FEED_ITEM_COMMENTS_FRAGMENT}
+    ${FEED_ITEM_COMMENT_ITEM_FRAGMENT}
     ${FEED_ITEM_EDITING_COMMENT_FRAGMENT}
   }
 `;

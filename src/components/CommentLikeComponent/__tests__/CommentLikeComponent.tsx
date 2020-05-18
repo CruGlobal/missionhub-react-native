@@ -44,7 +44,7 @@ beforeEach(() => {
 it('renders nothing with no subject person', () => {
   renderWithContext(
     <CommentLikeComponent
-      item={{ ...item, subjectPerson: null }}
+      feedItem={{ ...item, subjectPerson: null }}
       communityId={communityId}
       onRefresh={onRefresh}
     />,
@@ -58,7 +58,7 @@ describe('with subject person', () => {
   it('renders for me', () => {
     renderWithContext(
       <CommentLikeComponent
-        item={{
+        feedItem={{
           ...item,
           subjectPerson: mePerson,
         }}
@@ -74,7 +74,7 @@ describe('with subject person', () => {
   it('renders for someone else', () => {
     renderWithContext(
       <CommentLikeComponent
-        item={{
+        feedItem={{
           ...item,
           subjectPerson: otherPerson,
         }}
@@ -90,7 +90,7 @@ describe('with subject person', () => {
   it('renders when not liked', () => {
     renderWithContext(
       <CommentLikeComponent
-        item={{
+        feedItem={{
           ...item,
           subjectPerson: otherPerson,
           liked: false,
@@ -107,7 +107,7 @@ describe('with subject person', () => {
   it('renders 0 comments_count', () => {
     renderWithContext(
       <CommentLikeComponent
-        item={{
+        feedItem={{
           ...item,
           subjectPerson: otherPerson,
           comments: {
@@ -130,7 +130,7 @@ describe('with subject person', () => {
   it('renders 0 likes_count', () => {
     renderWithContext(
       <CommentLikeComponent
-        item={{
+        feedItem={{
           ...item,
           subjectPerson: mePerson,
           likesCount: 0,
@@ -156,7 +156,7 @@ describe('with subject person', () => {
       beforeEach(() => {
         screen = renderWithContext(
           <CommentLikeComponent
-            item={{
+            feedItem={{
               ...item,
               subjectPerson: mePerson,
               liked: false,
@@ -203,7 +203,7 @@ describe('with subject person', () => {
       beforeEach(() => {
         screen = renderWithContext(
           <CommentLikeComponent
-            item={{
+            feedItem={{
               ...item,
               subjectPerson: mePerson,
               liked: true,

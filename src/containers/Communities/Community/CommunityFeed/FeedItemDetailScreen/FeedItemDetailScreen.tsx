@@ -3,7 +3,7 @@ import { View, SafeAreaView, FlatList } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 
 import CommentsList from '../../../../CommentsList';
 import CelebrateCommentBox from '../../../../../components/CelebrateCommentBox';
@@ -17,19 +17,20 @@ import {
   ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_PERMISSION_TYPE,
 } from '../../../../../constants';
-import {
-  getAnalyticsAssignmentType,
-  getAnalyticsPermissionType,
-} from '../../../../../utils/analytics';
+// import {
+//   getAnalyticsAssignmentType,
+//   getAnalyticsPermissionType,
+// } from '../../../../../utils/analytics';
 import { useKeyboardListeners } from '../../../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import BackButton from '../../../../../components/BackButton';
 import Header from '../../../../../components/Header';
 import { ErrorNotice } from '../../../../../components/ErrorNotice/ErrorNotice';
-import { RootState } from '../../../../../reducers';
+// import { RootState } from '../../../../../reducers';
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
-import { FeedItemCommentConnection_nodes } from '../../../../CommentsList/__generated__/FeedItemCommentConnection';
 import { useMyId } from '../../../../../utils/hooks/useIsMe';
+import { FooterLoading } from '../../../../../components/FooterLoading';
+import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 
 import styles from './styles';
 import { FEED_ITEM_DETAIL_QUERY } from './queries';
@@ -41,16 +42,16 @@ import {
 const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
 
-  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-    getAnalyticsAssignmentType(subjectPerson, auth, organization),
-  );
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, organization),
-  );
+  // const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
+  //   getAnalyticsAssignmentType(subjectPerson, auth, organization),
+  // );
+  // const analyticsPermissionType = useSelector(({ auth }: RootState) =>
+  //   getAnalyticsPermissionType(auth, organization),
+  // );
   useAnalytics(['celebrate item', 'comments'], {
     screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+      [ANALYTICS_ASSIGNMENT_TYPE]: '', //analyticsAssignmentType,
+      [ANALYTICS_PERMISSION_TYPE]: '', // analyticsPermissionType,
     },
   });
 
@@ -59,14 +60,43 @@ const FeedItemDetailScreen = () => {
   const [editingCommentId, setEditingCommentId] = useState<string>();
 
   const myId = useMyId();
-  const { data, loading, error, refetch } = useQuery<
+  const { data, loading, error, refetch, fetchMore } = useQuery<
     FeedItemDetail,
     FeedItemDetailVariables
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
   });
 
-  const listRef = useRef<FlatList<FeedItemCommentConnection_nodes>>(null);
+  const handleNextPage = () => {
+    if (loading || !data?.feedItem.comments.pageInfo.hasNextPage) {
+      return;
+    }
+
+    fetchMore({
+      variables: { after: data?.feedItem.comments.pageInfo.endCursor },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              feedItem: {
+                ...prev.feedItem,
+                ...fetchMoreResult.feedItem,
+                comments: {
+                  ...prev.feedItem.comments,
+                  ...fetchMoreResult.feedItem.comments,
+                  nodes: [
+                    ...(prev.feedItem.comments || []),
+                    ...(fetchMoreResult.feedItem.comments || []),
+                  ],
+                },
+              },
+            }
+          : prev,
+    });
+  };
+
+  const listRef = useRef<FlatList<FeedItemCommentItem[]>>(null);
 
   const scrollToEnd = () => listRef.current && listRef.current.scrollToEnd();
 
@@ -101,7 +131,7 @@ const FeedItemDetailScreen = () => {
         error={error}
         refetch={refetch}
       />
-      {data ? <CommunityFeedItemContent item={data?.feedItem} /> : null}
+      {data ? <CommunityFeedItemContent feedItem={data?.feedItem} /> : null}
     </SafeAreaView>
   );
 
@@ -109,7 +139,7 @@ const FeedItemDetailScreen = () => {
     <View style={styles.contentContainer}>
       {data ? (
         <CommentsList
-          commentsConnection={data.feedItem.comments}
+          comments={data.feedItem.comments.nodes}
           editingCommentId={editingCommentId}
           setEditingCommentId={setEditingCommentId}
           isOwner={
@@ -127,10 +157,13 @@ const FeedItemDetailScreen = () => {
             ),
             ListHeaderComponent: () => (
               <CommunityFeedItemContent
-                item={data?.feedItem}
+                feedItem={data?.feedItem}
                 style={styles.itemContent}
               />
             ),
+            onEndReached: handleNextPage,
+            onEndReachedThreshold: 0.2,
+            ListFooterComponent: loading ? <FooterLoading /> : null,
           }}
         />
       ) : (
