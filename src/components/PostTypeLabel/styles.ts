@@ -4,6 +4,12 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: 36,
+    paddingVertical: 10,
+  },
+  buttonWithText: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -45,6 +51,14 @@ export default StyleSheet.create({
   noText: {
     width: 20,
   },
+  smallSize: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   buttonText: {
     fontSize: 14,
     color: theme.white,
@@ -73,5 +87,11 @@ export default StyleSheet.create({
   },
   STEP: {
     backgroundColor: theme.parakeetBlue,
+  },
+  reported: {
+    backgroundColor: theme.red,
+  },
+  comment: {
+    backgroundColor: '#505256',
   },
 });

@@ -22,6 +22,7 @@ export default {
       user: 'User',
       admin: 'Admin',
       owner: 'Owner',
+      aMissionHubUser: 'A MissionHub user',
     },
     gender: {
       male: 'Male',
@@ -80,6 +81,7 @@ export default {
       everyDay: 'Every day',
       every: 'Every',
       onceAMonth: 'Once a month on the',
+      earlier: 'Earlier',
     },
     yes: 'Yes',
     no: 'No',
@@ -967,6 +969,18 @@ export default {
   },
   notificationsCenter: {
     title: 'Notifications',
+    nullTitle: 'No notifications yet',
+    nullDescription:
+      'Stay Tuned! Notifications about your communities will show up here.',
+    STORY: 'God story',
+    PRAYER_REQUEST: 'prayer request',
+    QUESTION: 'spiritual question',
+    HELP_REQUEST: 'care request',
+    THOUGHT: 'shared something',
+    COMMUNITY_CHALLENGE: 'challenge',
+    STEP: 'Step of Faith',
+    reportedActivity: 'Reported Activity',
+    review: 'Please Review.',
   },
   addPostToStepsScreen: {
     addToSteps: 'Add to my steps',
