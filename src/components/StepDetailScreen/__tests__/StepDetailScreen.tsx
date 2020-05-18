@@ -7,6 +7,11 @@ import * as common from '../../../utils/common';
 import StepDetailScreen from '..';
 
 const firstName = 'Christian';
+const mockPost = {
+  author: { fullName: 'Robert Eldredge', id: '2', picture: 'mockpicture.jpeg' },
+  createdAt: '2020-05-18T17:48:43Z',
+  content: 'cool mock post',
+};
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
@@ -24,6 +29,19 @@ const snapshot = (props = {}) => {
     />,
   ).snapshot();
 };
+
+describe('Post is not null', () => {
+  it('renders correctly with post', () => {
+    snapshot({ post: mockPost, stepType: 'care' });
+  });
+
+  it('renders correctly with post with image', () => {
+    snapshot({
+      post: { ...mockPost, mediaExpiringUrl: 'mockImage.jpeg' },
+      stepType: 'care',
+    });
+  });
+});
 
 describe('markdown is not null', () => {
   it('renders correctly', () => {

@@ -65,7 +65,12 @@ const AddPostToStepsScreen = () => {
     });
     dispatch(navigateBack());
   };
-  const post = { ...item.subject, author: { ...person } };
+
+  const post = {
+    ...item.subject,
+    author: { ...person },
+    createdAt: item.createdAt,
+  };
   return (
     <StepDetailScreen
       CenterHeader={null}

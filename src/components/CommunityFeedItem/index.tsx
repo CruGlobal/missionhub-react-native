@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -57,7 +57,6 @@ export const CommunityFeedItem = ({
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
-  const [imageAspectRatio, changeImageAspectRatio] = useState(2);
 
   const FeedItemType = getFeedItemType(subject);
 
@@ -73,18 +72,6 @@ export const CommunityFeedItem = ({
   ): subject is CommunityFeedPost => subject.__typename === 'Post';
 
   const imageData = (isPost(subject) && subject.mediaExpiringUrl) || null;
-
-  useEffect(() => {
-    if (!imageData) {
-      return;
-    }
-
-    Image.getSize(
-      imageData,
-      (width, height) => changeImageAspectRatio(width / height),
-      () => {},
-    );
-  }, [imageData]);
 
   const handlePress = () =>
     dispatch(
@@ -240,7 +227,7 @@ export const CommunityFeedItem = ({
       {imageData ? (
         <Image
           source={{ uri: imageData }}
-          style={{ aspectRatio: imageAspectRatio }}
+          style={{ aspectRatio: 3 / 2 }}
           resizeMode="contain"
         />
       ) : null}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
@@ -101,6 +101,15 @@ const StepDetailScreen = ({
           </>
         ) : null}
       </View>
+      {post?.mediaExpiringUrl ? (
+        <Flex>
+          <Image
+            source={{ uri: post.mediaExpiringUrl }}
+            style={{ aspectRatio: 3 / 2 }}
+            resizeMode="contain"
+          />
+        </Flex>
+      ) : null}
     </>
   );
 

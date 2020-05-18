@@ -545,6 +545,28 @@ exports[`should render correctly post details 1`] = `
           </Text>
         </View>
       </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "iure ut libero",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 1.5,
+            }
+          }
+        />
+      </View>
     </View>
   </RCTScrollView>
   <RCTSafeAreaView
