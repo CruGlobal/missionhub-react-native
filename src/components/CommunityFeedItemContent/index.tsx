@@ -34,17 +34,13 @@ import {
 
 export interface CommunityFeedItemContentProps {
   item: FeedItem;
-  communityId: string;
   namePressable?: boolean;
-  onRefresh?: () => void;
   style?: StyleProp<ViewStyle>;
 }
 
 export const CommunityFeedItemContent = ({
   item,
-  communityId,
   namePressable = false,
-  onRefresh = () => {},
   style,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
@@ -87,12 +83,12 @@ export const CommunityFeedItemContent = ({
 
   const onPressChallengeLink = async () => {
     const challengeId = subject.id;
-    if (communityId) {
-      await dispatch(reloadGroupChallengeFeed(communityId));
+    if (item.community?.id) {
+      await dispatch(reloadGroupChallengeFeed(item.community.id));
       dispatch(
         navigatePush(CHALLENGE_DETAIL_SCREEN, {
           challengeId,
-          orgId: communityId,
+          orgId: item.community.id,
         }),
       );
     }
@@ -111,7 +107,7 @@ export const CommunityFeedItemContent = ({
     dispatch(
       navigatePush(ADD_POST_TO_STEPS_SCREEN, {
         item,
-        communityId,
+        communityId: item.community?.id,
       }),
     );
 
@@ -205,14 +201,13 @@ export const CommunityFeedItemContent = ({
           <Avatar
             size={'medium'}
             person={item.subjectPerson}
-            orgId={communityId}
+            orgId={item.community?.id}
           />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
             personId={item.subjectPerson?.id}
-            communityId={communityId}
             pressable={namePressable}
           />
           <CardTime date={item.createdAt} style={styles.headerTime} />
@@ -236,11 +231,7 @@ export const CommunityFeedItemContent = ({
     <View style={styles.footerWrap}>
       {addToSteps ? renderAddToStepsButton() : null}
       <View style={styles.commentLikeWrap}>
-        <CommentLikeComponent
-          item={item}
-          communityId={communityId}
-          onRefresh={onRefresh}
-        />
+        <CommentLikeComponent item={item} />
       </View>
     </View>
   );

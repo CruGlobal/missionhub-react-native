@@ -1,46 +1,32 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux-legacy';
+import React from 'react';
 import { useDispatch } from 'react-redux';
 
 import CommentBox, { ActionItem } from '../CommentBox';
-import {
-  createCelebrateComment,
-  resetCelebrateEditingComment,
-  updateCelebrateComment,
-} from '../../actions/celebrateComments';
-import { celebrateCommentsCommentSelector } from '../../selectors/celebrateComments';
-import {
-  CelebrateCommentsState,
-  CelebrateComment,
-} from '../../reducers/celebrateComments';
-import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
-import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';
+import { FeedItemEditingComment } from './__generated__/FeedItemEditingComment';
 
 interface CelebrateCommentBoxProps {
-  event: CelebrateItem;
-  organization: Organization;
-  editingComment?: CelebrateComment;
-  onAddComplete?: () => void;
+  feedItemId: string;
+  editingComment?: FeedItemEditingComment;
+  onAddComplete: () => void;
+  onCancel: () => void;
 }
 
 const CelebrateCommentBox = ({
-  event,
-  organization,
+  feedItemId,
   editingComment,
   onAddComplete,
+  onCancel,
 }: CelebrateCommentBoxProps) => {
   const dispatch = useDispatch();
-  // Make sure we run "cancel" when component unmounts
-  useEffect(() => () => cancel(), []);
 
   const submitComment = async (_: ActionItem | null, text: string) => {
     if (editingComment) {
-      cancel();
+      onCancel();
       return dispatch(
         updateCelebrateComment(
-          event.id,
+          feedItemId,
           organization.id,
           editingComment.id,
           text,
@@ -48,14 +34,10 @@ const CelebrateCommentBox = ({
       );
     }
     const results = await dispatch(
-      createCelebrateComment(event.id, organization.id, text),
+      createCelebrateComment(feedItemId, organization.id, text),
     );
-    onAddComplete && onAddComplete();
+    onAddComplete();
     return results;
-  };
-
-  const cancel = () => {
-    dispatch(resetCelebrateEditingComment());
   };
 
   return (
@@ -64,24 +46,10 @@ const CelebrateCommentBox = ({
       placeholderTextKey={'celebrateCommentBox:placeholder'}
       onSubmit={submitComment}
       editingComment={editingComment}
-      onCancel={cancel}
+      onCancel={onCancel}
       containerStyle={styles.container}
     />
   );
 };
 
-const mapStateToProps = (
-  {
-    celebrateComments,
-  }: {
-    celebrateComments: CelebrateCommentsState;
-  },
-  { event }: { event: CelebrateItem },
-) => ({
-  editingComment: celebrateCommentsCommentSelector(
-    { celebrateComments },
-    { eventId: event.id, commentId: celebrateComments.editingCommentId },
-  ),
-});
-
-export default connect(mapStateToProps)(CelebrateCommentBox);
+export default CelebrateCommentBox;

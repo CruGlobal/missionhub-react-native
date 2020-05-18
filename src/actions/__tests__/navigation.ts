@@ -22,7 +22,7 @@ import {
 import { loadHome } from '../auth/userData';
 import { createThunkStore } from '../../../testUtils';
 import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
-import { CELEBRATE_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 
 jest.mock('../auth/userData');
@@ -322,7 +322,7 @@ describe('navigateToCelebrateComments', () => {
             },
             {
               type: 'Navigation/NAVIGATE',
-              routeName: CELEBRATE_DETAIL_SCREEN,
+              routeName: FEED_ITEM_DETAIL_SCREEN,
               params: {
                 event: { id: celebrateItemId },
                 orgId: userCreatedOrgId,

@@ -7,12 +7,10 @@ import ItemHeaderText from '../ItemHeaderText/index';
 import { navToPersonScreen } from '../../actions/person';
 
 import styles from './styles';
-import { CommunityFeedItemNamePerson } from './__generated__/CommunityFeedItemNamePerson';
 
 export interface CommunityFeedItemNameProps {
   name: string | null;
   personId?: string;
-  communityId: string;
   pressable: boolean;
   customContent?: JSX.Element;
 }
@@ -20,7 +18,6 @@ export interface CommunityFeedItemNameProps {
 export const CommunityFeedItemName = ({
   name,
   personId,
-  communityId,
   pressable,
   customContent,
 }: CommunityFeedItemNameProps) => {

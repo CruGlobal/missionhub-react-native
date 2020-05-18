@@ -8,7 +8,6 @@ import { organizationSelector } from '../../selectors/organizations';
 import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { getReportedComments } from '../../actions/reportComments';
 import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';

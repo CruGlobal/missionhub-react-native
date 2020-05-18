@@ -34,6 +34,9 @@ export const COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT = gql`
       lastName
       picture
     }
+    community {
+      id
+    }
     subjectPersonName
     ...CommunityFeedItemCommentLike
   }

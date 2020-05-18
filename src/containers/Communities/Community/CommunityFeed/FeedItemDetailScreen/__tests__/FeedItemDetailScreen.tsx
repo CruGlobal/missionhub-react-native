@@ -25,7 +25,6 @@ import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../../../../components/Commu
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
 import { CommunityFeedItem } from '../../../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { navigateBack } from '../../../../../../actions/navigation';
-
 import CelebrateDetailScreen from '../FeedItemDetailScreen';
 
 jest.mock('../../../utils/hooks/useKeyboardListeners');

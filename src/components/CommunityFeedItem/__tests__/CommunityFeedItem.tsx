@@ -12,7 +12,7 @@ import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
-import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
 import {
@@ -292,7 +292,7 @@ describe('press card', () => {
 
     fireEvent.press(getByTestId('CommunityFeedItem'));
 
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       item: stepItem,
       orgId: communityId,
       onRefreshCelebrateItem: onRefresh,

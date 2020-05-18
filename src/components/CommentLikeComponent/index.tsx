@@ -17,16 +17,10 @@ import styles from './styles';
 import { CommunityFeedItemCommentLike } from './__generated__/CommunityFeedItemCommentLike';
 
 export interface CommentLikeComponentProps {
-  communityId: string;
   item: CommunityFeedItemCommentLike;
-  onRefresh: () => void;
 }
 
-export const CommentLikeComponent = ({
-  communityId,
-  item,
-  onRefresh,
-}: CommentLikeComponentProps) => {
+export const CommentLikeComponent = ({ item }: CommentLikeComponentProps) => {
   const {
     id,
     comments: {
@@ -52,7 +46,6 @@ export const CommentLikeComponent = ({
       !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
     } finally {
       setIsLikeDisabled(false);
-      onRefresh();
     }
   };
 

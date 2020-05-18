@@ -8,7 +8,7 @@ import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Touchable, Icon } from '../common';
 import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
-import { CELEBRATE_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
@@ -61,9 +61,8 @@ export const CommunityFeedItem = ({
 
   const handlePress = () =>
     dispatch(
-      navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        item,
-        orgId: communityId,
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        itemId: item.id,
         onRefreshCelebrateItem: onRefresh,
       }),
     );

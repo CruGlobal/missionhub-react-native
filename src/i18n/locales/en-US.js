@@ -993,4 +993,7 @@ export default {
     careStepMessage: "Help with {{personName}}'s request.",
     errorSavingStep: 'Error saving step',
   },
+  feedItemDetail: {
+    errorLoadingFeedItemDetails: 'Error loading feed item details',
+  },
 };

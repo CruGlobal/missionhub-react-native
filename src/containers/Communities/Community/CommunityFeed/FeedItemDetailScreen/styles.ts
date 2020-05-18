@@ -16,6 +16,10 @@ export default StyleSheet.create({
     padding: 14,
     paddingBottom: 5,
   },
+  headerText: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
   itemContent: {
     backgroundColor: 'white',
     padding: 14,

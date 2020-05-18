@@ -176,9 +176,6 @@ import {
   CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
 import { JourneyEditFlowNavigator } from './routes/journey/journeyEditFlow';
-import CelebrateDetailScreen, {
-  CELEBRATE_DETAIL_SCREEN,
-} from './containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
 import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
 import {
@@ -214,6 +211,7 @@ import CelebrateFeedWithType, {
 import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from './containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -461,16 +459,6 @@ const screens = {
   [DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityAuthenticatedNavigator,
   [DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW]: DeepLinkJoinCommunityUnauthenticatedNavigator,
   [COMPLETE_STEP_FLOW]: CompleteStepFlowNavigator,
-  [CELEBRATE_DETAIL_SCREEN]: buildTrackedScreen(
-    CelebrateDetailScreen,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : celebration : comment',
-      'communities',
-      'celebration',
-    ),
-    { gesturesEnabled: true },
-  ),
   [CREATE_POST_SCREEN]: buildTrackedScreen(
     CreatePostScreen,
     // @ts-ignore
@@ -513,7 +501,10 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, ADD_POST_TO_STEPS_SCREEN];
+const MODAL_SCREENS = [
+  FEED_ITEM_DETAIL_SCREEN,
+  ADD_POST_TO_STEPS_SCREEN,
+];
 
 export const MainStackRoutes = createStackNavigator(
   {

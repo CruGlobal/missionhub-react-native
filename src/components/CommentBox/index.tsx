@@ -21,7 +21,7 @@ import {
   DateComponent,
 } from '../common';
 import theme from '../../theme';
-import { CelebrateComment } from '../../reducers/celebrateComments';
+import { FeedItemEditingComment } from '../CelebrateCommentBox/__generated__/FeedItemEditingComment';
 
 import styles from './styles';
 
@@ -43,7 +43,7 @@ interface CommentBoxProps {
   onSubmit: (action: ActionItem | null, text: string) => void;
   placeholderTextKey: string;
   showInteractions?: boolean;
-  editingComment?: CelebrateComment;
+  editingComment?: FeedItemEditingComment;
   containerStyle?: ViewStyle;
   testID?: string;
 }
@@ -89,7 +89,7 @@ const CommentBox = ({
     actions,
   } = styles;
 
-  const startEdit = (comment: CelebrateComment) => {
+  const startEdit = (comment: FeedItemEditingComment) => {
     setText(comment.content);
     commentInput.current && commentInput.current.focus();
   };
