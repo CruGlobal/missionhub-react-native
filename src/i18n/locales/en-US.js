@@ -904,6 +904,14 @@ export default {
       ANNOUNCEMENT: 'Announcements',
       STEP: 'Celebrate Others',
     },
+    card: {
+      STORY: 'Read a God Story',
+      PRAYER_REQUEST: 'Prayer Requests',
+      QUESTION: 'Answer a Question',
+      HELP_REQUEST: 'Provide Help',
+      ANNOUNCEMENT: 'Announcements',
+      STEP: 'Celebrate Others',
+    },
   },
   createPostScreen: {
     choosePostType: 'Choose a Post Type',

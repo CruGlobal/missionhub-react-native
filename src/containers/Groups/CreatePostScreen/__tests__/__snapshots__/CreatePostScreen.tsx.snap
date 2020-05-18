@@ -67,7 +67,7 @@ exports[`Creating a post user types a post 1`] = `
       contentInset={
         Object {
           \\"bottom\\": 90,
-@@ -282,11 +331,11 @@
+@@ -285,11 +334,11 @@
               },
             ]
           }
@@ -87,7 +87,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -302,63 +302,20 @@
+@@ -305,63 +305,20 @@
               \\"opacity\\": 1,
             }
           }
@@ -163,7 +163,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -331,11 +331,11 @@
+@@ -334,11 +334,11 @@
               },
             ]
           }
@@ -400,10 +400,13 @@ exports[`renders correctly for new post 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -819,10 +822,13 @@ exports[`renders correctly for update post 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -1195,10 +1201,13 @@ exports[`renders correctly on android 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -1522,10 +1531,13 @@ exports[`renders for post types renders for announcement 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -1892,10 +1904,13 @@ exports[`renders for post types renders for help request 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -2262,10 +2277,13 @@ exports[`renders for post types renders for prayer request 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -2632,10 +2650,13 @@ exports[`renders for post types renders for spiritual question 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -3002,10 +3023,13 @@ exports[`renders for post types renders for story 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
@@ -3372,10 +3396,13 @@ exports[`renders for post types renders for thought 1`] = `
             color="#ffffff"
             height={20}
             style={
-              Object {
-                "marginLeft": -10,
-                "marginRight": 10,
-              }
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
             }
             width={20}
           />
