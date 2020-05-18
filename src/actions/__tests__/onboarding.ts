@@ -33,6 +33,7 @@ import { REQUESTS } from '../../api/routes';
 import { rollbar } from '../../utils/rollbar.config';
 import { getMe } from '../person';
 import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
+import { updateLocaleAndTimezone } from '../auth/userData';
 
 jest.mock('../api');
 jest.mock('../notifications');
@@ -40,6 +41,7 @@ jest.mock('../analytics');
 jest.mock('../person');
 jest.mock('../organizations');
 jest.mock('../navigation');
+jest.mock('../auth/userData');
 
 const myId = '1';
 
@@ -141,6 +143,9 @@ describe('createMyPerson', () => {
       last_name,
       type: 'person',
     }));
+    (updateLocaleAndTimezone as jest.Mock).mockReturnValue({
+      type: 'updateLocaleAndTimezone',
+    });
 
     await store.dispatch<any>(createMyPerson('Roger', 'Goers'));
 
@@ -153,9 +158,11 @@ describe('createMyPerson', () => {
         last_name,
       },
     );
+    expect(updateLocaleAndTimezone).toHaveBeenCalled();
     expect(rollbar.setPerson).toHaveBeenCalledWith(myId);
     expect(store.getActions()).toEqual([
       { type: 'callApi' },
+      { type: 'updateLocaleAndTimezone' },
       {
         type: LOAD_PERSON_DETAILS,
         person: {
