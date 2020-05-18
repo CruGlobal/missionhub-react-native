@@ -284,7 +284,6 @@ export const CelebrateFeed = ({
       renderItem={renderItem}
       keyExtractor={keyExtractorId}
       onEndReachedThreshold={0.2}
-      onEndReached={isGlobal ? handleOnEndReachedGlobal : handleOnEndReached}
       onRefresh={handleRefreshing}
       refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}
