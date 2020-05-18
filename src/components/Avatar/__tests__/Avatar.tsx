@@ -68,6 +68,14 @@ it('renders person full_name', () => {
   renders({ person: { id: '123', full_name: 'test' }, size: 'small' });
 });
 
+it('renders person without name', () => {
+  renders({ person: { id: '123' }, size: 'small' });
+});
+
+it('renders person without custom text', () => {
+  renders({ customText: '+5', person: { id: '123' }, size: 'small' });
+});
+
 describe('lookup person by id', () => {
   const initialState = {
     people: { allByOrg: { personal: { people: { [person.id]: person } } } },
