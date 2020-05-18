@@ -23,6 +23,7 @@ import { navigatePush, navigateToCommunity } from './navigation';
 import { checkNotifications } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
+import { updateLocaleAndTimezone } from './auth/userData';
 
 export const START_ONBOARDING = 'START_ONBOARDING';
 export const FINISH_ONBOARDING = 'FINISH_ONBOARDING';
@@ -95,6 +96,7 @@ export function createMyPerson(firstName: string, lastName: string) {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
     // @ts-ignore
     const me = ((await dispatch(getMe())) as unknown) as Person;
+    dispatch(updateLocaleAndTimezone());
 
     rollbar.setPerson(me.id);
 
