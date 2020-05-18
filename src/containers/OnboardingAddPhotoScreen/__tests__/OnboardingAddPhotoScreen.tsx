@@ -47,25 +47,30 @@ describe('OnboardingAddPhotoScreen', () => {
   });
 
   it('skips to next screen', () => {
+    let personUpdated = false;
     const { getByTestId } = renderWithContext(
       <OnboardingAddPhotoScreen next={next} />,
+      {
+        mocks: {
+          Mutation: () => ({
+            updatePerson: () => {
+              personUpdated = true;
+              return;
+            },
+          }),
+        },
+      },
     );
 
     fireEvent.press(getByTestId('skipButton'));
 
     expect(next).toHaveBeenCalledWith();
-    expect(useMutation).not.toHaveBeenMutatedWith(UPDATE_PERSON, {
-      variables: {
-        input: {
-          id: '123',
-          picture: MOCK_IMAGE,
-        },
-      },
-    });
+    expect(personUpdated).toEqual(false);
   });
 
   it('saves image and navigates to next screen', async () => {
     const myId = '1';
+    let personUpdated = false;
 
     const { getByTestId } = renderWithContext(
       <OnboardingAddPhotoScreen next={next} />,
@@ -75,6 +80,12 @@ describe('OnboardingAddPhotoScreen', () => {
             person: () => ({
               id: myId,
             }),
+          }),
+          Mutation: () => ({
+            updatePerson: () => {
+              personUpdated = true;
+              return;
+            },
           }),
         },
       },
@@ -89,6 +100,7 @@ describe('OnboardingAddPhotoScreen', () => {
     fireEvent.press(getByTestId('bottomButton'));
 
     expect(next).toHaveBeenCalledWith();
+    expect(personUpdated).toEqual(true);
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
       variables: {
         input: {
