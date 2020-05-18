@@ -19,6 +19,7 @@ import {
 import {
   GetCommunityPostCards,
   GetCommunityPostCards_community_feedItems_nodes,
+  GetCommunityPostCardsVariables,
 } from './__generated__/GetCommunityPostCards';
 import { FeedItemPostCard_author } from './__generated__/FeedItemPostCard';
 import { FeedItemStepCard_owner } from './__generated__/FeedItemStepCard';
@@ -83,10 +84,10 @@ export const CelebrateFeedPostCards = ({
 }: CelebrateFeedPostCardsProps) => {
   const dispatch = useDispatch();
 
-  const { data, refetch } = useQuery<GetCommunityPostCards>(
-    GET_COMMUNITY_POST_CARDS,
-    { variables: { communityId: community.id } },
-  );
+  const { data, refetch } = useQuery<
+    GetCommunityPostCards,
+    GetCommunityPostCardsVariables
+  >(GET_COMMUNITY_POST_CARDS, { variables: { communityId: community.id } });
 
   const groups = getGroupPostCards(data?.community.feedItems.nodes || []);
 
