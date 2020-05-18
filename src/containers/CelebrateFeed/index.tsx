@@ -8,10 +8,7 @@ import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import { CreatePostButton } from '../Groups/CreatePostButton';
-import {
-  celebrationSelector,
-  CelebrateFeedSection,
-} from '../../selectors/celebration';
+import { CelebrateFeedSection } from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
@@ -123,7 +120,7 @@ export const CelebrateFeed = ({
   const {
     data: {
       globalCommunity: {
-        celebrationItems: {
+        feedItems: {
           nodes: globalNodes = [],
           pageInfo: {
             endCursor: globalEndCursor = null,
@@ -141,9 +138,7 @@ export const CelebrateFeed = ({
     skip: !isGlobal,
   });
 
-  const items = isGlobal
-    ? celebrationSelector({ celebrateItems: globalNodes })
-    : sortCommunityFeed(nodes);
+  const items = sortCommunityFeed(isGlobal ? globalNodes : nodes);
 
   const handleRefreshing = () => {
     isGlobal ? globalRefetch() : refetch();
@@ -196,13 +191,13 @@ export const CelebrateFeed = ({
                 globalCommunity: {
                   ...prev.globalCommunity,
                   ...fetchMoreResult.globalCommunity,
-                  celebrationItems: {
-                    ...prev.globalCommunity.celebrationItems,
-                    ...fetchMoreResult.globalCommunity.celebrationItems,
+                  feedItems: {
+                    ...prev.globalCommunity.feedItems,
+                    ...fetchMoreResult.globalCommunity.feedItems,
                     nodes: [
-                      ...(prev.globalCommunity.celebrationItems.nodes || []),
-                      ...(fetchMoreResult.globalCommunity.celebrationItems
-                        .nodes || []),
+                      ...(prev.globalCommunity.feedItems.nodes || []),
+                      ...(fetchMoreResult.globalCommunity.feedItems.nodes ||
+                        []),
                     ],
                   },
                 },
