@@ -7,6 +7,7 @@ import {
   getMomentDate,
   relativeDateFormat,
   commentDateFormat,
+  postDateFormat,
 } from '../../utils/date';
 
 interface DateComponentProps {
@@ -14,6 +15,7 @@ interface DateComponentProps {
   format?: dateFormat;
   relativeFormatting?: boolean;
   commentFormatting?: boolean;
+  postFormatting?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
 }
@@ -23,6 +25,7 @@ const DateComponent = ({
   format = 'ddd, lll',
   relativeFormatting = false,
   commentFormatting = false,
+  postFormatting = false,
   style,
 }: DateComponentProps) => {
   const momentDate = getMomentDate(date);
@@ -30,6 +33,8 @@ const DateComponent = ({
     ? relativeDateFormat(momentDate)
     : commentFormatting
     ? commentDateFormat(momentDate)
+    : postFormatting
+    ? postDateFormat(momentDate)
     : momentDate.format(format);
 
   return (

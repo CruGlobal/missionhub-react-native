@@ -80,6 +80,8 @@ export default {
       everyDay: 'Every day',
       every: 'Every',
       onceAMonth: 'Once a month on the',
+      earlier: 'Earlier',
+      new: 'New',
     },
     yes: 'Yes',
     no: 'No',

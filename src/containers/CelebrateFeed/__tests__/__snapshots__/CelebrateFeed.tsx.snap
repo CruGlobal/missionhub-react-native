@@ -131,12 +131,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Connor Kihn",
           },
-        ],
-        "date": "2017-09-28T01:02:07.116Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "rerum doloremque officia",
@@ -181,12 +175,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Caesar Feest",
           },
-        ],
-        "date": "2016-01-27T11:31:41.601Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "similique ad sed",
@@ -231,12 +219,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Haylee Klocko",
           },
-        ],
-        "date": "2015-09-24T22:48:18.365Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "ipsum rem eos",
@@ -281,12 +263,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Heather Hahn",
           },
-        ],
-        "date": "2014-10-17T09:34:50.933Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "placeat ex ut",
@@ -331,12 +307,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Chyna Howe",
           },
-        ],
-        "date": "2013-05-05T10:14:48.380Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "ut est sunt",
@@ -381,12 +351,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Gracie Weber",
           },
-        ],
-        "date": "2011-07-30T23:09:48.676Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "et facere placeat",
@@ -431,12 +395,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Alek Lesch",
           },
-        ],
-        "date": "2010-11-26T00:55:36.529Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "doloribus distinctio placeat",
@@ -482,8 +440,8 @@ exports[`renders for Global Community renders correctly 1`] = `
             "subjectPersonName": "Hayden Zieme",
           },
         ],
-        "date": "2010-09-19T03:58:30.504Z",
-        "id": 7,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -561,12 +519,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Connor Kihn",
           },
-        ],
-        "date": "2017-09-28T01:02:07.116Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "rerum doloremque officia",
@@ -611,12 +563,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Caesar Feest",
           },
-        ],
-        "date": "2016-01-27T11:31:41.601Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "similique ad sed",
@@ -661,12 +607,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Haylee Klocko",
           },
-        ],
-        "date": "2015-09-24T22:48:18.365Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "ipsum rem eos",
@@ -711,12 +651,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Heather Hahn",
           },
-        ],
-        "date": "2014-10-17T09:34:50.933Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "placeat ex ut",
@@ -761,12 +695,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Chyna Howe",
           },
-        ],
-        "date": "2013-05-05T10:14:48.380Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "ut est sunt",
@@ -811,12 +739,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Gracie Weber",
           },
-        ],
-        "date": "2011-07-30T23:09:48.676Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "et facere placeat",
@@ -861,12 +783,6 @@ exports[`renders for Global Community renders correctly 1`] = `
             },
             "subjectPersonName": "Alek Lesch",
           },
-        ],
-        "date": "2010-11-26T00:55:36.529Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "CommunityCelebrationItem",
             "adjectiveAttributeName": "doloribus distinctio placeat",
@@ -912,17 +828,14 @@ exports[`renders for Global Community renders correctly 1`] = `
             "subjectPersonName": "Hayden Zieme",
           },
         ],
-        "date": "2010-09-19T03:58:30.504Z",
-        "id": 7,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
   stickyHeaderIndices={
     Array [
       1,
-      4,
-      7,
-      10,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -961,32 +874,23 @@ exports[`renders for Global Community renders correctly 1`] = `
         style={
           Object {
             "alignContent": "center",
-            "alignItems": "center",
             "backgroundColor": "#ECEEF2",
             "flex": 1,
+            "marginLeft": 15,
             "paddingVertical": 10,
           }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "200",
+            }
           }
-          testID="Text"
         >
-          Thursday, September 28 2017
+          Earlier
         </Text>
       </View>
     </View>
@@ -1049,47 +953,6 @@ exports[`renders for Global Community renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Wednesday, January 27 2016
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
     >
       <CommunityFeedItem
         communityId="_global_community_id"
@@ -1142,47 +1005,6 @@ exports[`renders for Global Community renders correctly 1`] = `
         namePressable={true}
         onRefresh={[Function]}
       />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Thursday, September 24 2015
-        </Text>
-      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -1243,44 +1065,287 @@ exports[`renders for Global Community renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
+    >
+      <CommunityFeedItem
+        communityId="_global_community_id"
+        item={
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "ipsum rem eos",
+            "adjectiveAttributeValue": "quod recusandae consectetur",
+            "celebrateableId": "27",
+            "celebrateableType": "JOINED_COMMUNITY",
+            "changedAttributeName": "optio laudantium et",
+            "changedAttributeValue": "2014-10-17T09:34:50.933Z",
+            "commentsCount": 23036,
+            "id": "26",
+            "liked": true,
+            "likesCount": 50824,
+            "objectDescription": "facere quia et",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "29",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "30",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Amara",
+              "fullName": "Amara Rath",
+              "id": "28",
+              "lastName": "Rath",
+              "picture": "occaecati quia ipsum",
+            },
+            "subjectPersonName": "Heather Hahn",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
     <View
       onLayout={[Function]}
       style={null}
     >
-      <View
-        style={
+      <CommunityFeedItem
+        communityId="_global_community_id"
+        item={
           Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "placeat ex ut",
+            "adjectiveAttributeValue": "voluptas enim ex",
+            "celebrateableId": "17",
+            "celebrateableType": "COMPLETED_STEP",
+            "changedAttributeName": "eveniet facere molestiae",
+            "changedAttributeValue": "2013-05-05T10:14:48.380Z",
+            "commentsCount": 88134,
+            "id": "16",
+            "liked": true,
+            "likesCount": 1166,
+            "objectDescription": "nam et dolorum",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "19",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "20",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Anya",
+              "fullName": "Anya Buckridge",
+              "id": "18",
+              "lastName": "Buckridge",
+              "picture": "repellendus hic veritatis",
+            },
+            "subjectPersonName": "Chyna Howe",
           }
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Friday, October 17 2014
-        </Text>
-      </View>
+        namePressable={true}
+        onRefresh={[Function]}
+      />
     </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="_global_community_id"
+        item={
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "ut est sunt",
+            "adjectiveAttributeValue": "corporis alias est",
+            "celebrateableId": "22",
+            "celebrateableType": "CREATED_COMMUNITY",
+            "changedAttributeName": "et sequi voluptas",
+            "changedAttributeValue": "2011-07-30T23:09:48.676Z",
+            "commentsCount": 57863,
+            "id": "21",
+            "liked": true,
+            "likesCount": 900,
+            "objectDescription": "rerum impedit ex",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "24",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "25",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Janick",
+              "fullName": "Janick Upton",
+              "id": "23",
+              "lastName": "Upton",
+              "picture": "voluptas fuga totam",
+            },
+            "subjectPersonName": "Gracie Weber",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="_global_community_id"
+        item={
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "et facere placeat",
+            "adjectiveAttributeValue": "molestiae iste molestiae",
+            "celebrateableId": "37",
+            "celebrateableType": "JOINED_COMMUNITY",
+            "changedAttributeName": "dolores commodi inventore",
+            "changedAttributeValue": "2010-11-26T00:55:36.529Z",
+            "commentsCount": 15333,
+            "id": "36",
+            "liked": false,
+            "likesCount": 93719,
+            "objectDescription": "quae sint odit",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "39",
+                    },
+                    "permission": "owner",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "40",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Oswaldo",
+              "fullName": "Oswaldo Fadel",
+              "id": "38",
+              "lastName": "Fadel",
+              "picture": "et quo aperiam",
+            },
+            "subjectPersonName": "Alek Lesch",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="_global_community_id"
+        item={
+          Object {
+            "__typename": "CommunityCelebrationItem",
+            "adjectiveAttributeName": "doloribus distinctio placeat",
+            "adjectiveAttributeValue": "ullam minima ducimus",
+            "celebrateableId": "2",
+            "celebrateableType": "JOINED_COMMUNITY",
+            "changedAttributeName": "temporibus modi aut",
+            "changedAttributeValue": "2010-09-19T03:58:30.504Z",
+            "commentsCount": 7336,
+            "id": "1",
+            "liked": false,
+            "likesCount": 46923,
+            "objectDescription": "voluptates explicabo exercitationem",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "4",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "5",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Stewart",
+              "fullName": "Stewart Grant",
+              "id": "3",
+              "lastName": "Grant",
+              "picture": "sed magni cupiditate",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
     <View
       style={
         Object {
@@ -1360,12 +1425,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1419,12 +1478,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1478,12 +1531,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1537,12 +1584,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1596,12 +1637,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1666,12 +1701,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1725,12 +1754,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1795,12 +1818,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1865,12 +1882,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -1925,8 +1936,8 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -2013,12 +2024,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2072,12 +2077,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2131,12 +2130,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2190,12 +2183,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2249,12 +2236,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2319,12 +2300,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2378,12 +2353,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2448,12 +2417,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2518,12 +2481,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -2578,17 +2535,14 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
   stickyHeaderIndices={
     Array [
       1,
-      4,
-      7,
-      10,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -2627,32 +2581,23 @@ exports[`renders for Unread Comments renders correctly 1`] = `
         style={
           Object {
             "alignContent": "center",
-            "alignItems": "center",
             "backgroundColor": "#ECEEF2",
             "flex": 1,
+            "marginLeft": 15,
             "paddingVertical": 10,
           }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "200",
+            }
           }
-          testID="Text"
         >
-          Monday, July 15 2019
+          Earlier
         </Text>
       </View>
     </View>
@@ -2724,47 +2669,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Tuesday, July 3 2018
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
     >
       <CommunityFeedItem
         communityId="456"
@@ -2826,47 +2730,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
         namePressable={true}
         onRefresh={[Function]}
       />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Saturday, November 26 2016
-        </Text>
-      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -2936,43 +2799,425 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
     <View
       onLayout={[Function]}
       style={null}
     >
-      <View
-        style={
+      <CommunityFeedItem
+        communityId="456"
+        item={
           Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 9155,
+              },
+            },
+            "createdAt": "2014-03-07T23:29:16.858Z",
+            "id": "50",
+            "liked": true,
+            "likesCount": 96959,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "51",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "52",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "54",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "55",
+                    },
+                    "permission": "user",
+                  },
+                ],
+              },
+              "firstName": "Roscoe",
+              "fullName": "Mike Schoen",
+              "id": "53",
+              "lastName": "Johnson",
+              "picture": "laborum iure molestiae",
+            },
+            "subjectPersonName": "Roscoe Johnson",
           }
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 68650,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
+            },
+            "createdAt": "2012-03-16T21:39:07.726Z",
+            "id": "7",
+            "liked": true,
+            "likesCount": 41253,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-06-07T16:18:37.531Z",
+                  "completedAt": "2012-07-23T04:41:19.390Z",
+                  "id": "9",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2017-01-19T11:48:41.969Z",
+                  "completedAt": "2017-03-26T09:06:21.890Z",
+                  "id": "10",
+                },
+              ],
+              "id": "8",
+              "title": "placeat fuga doloribus",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "12",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "13",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+              "firstName": "Branson",
+              "fullName": "Isabell Schamberger",
+              "id": "11",
+              "lastName": "Gutkowski",
+              "picture": "modi aut architecto",
+            },
+            "subjectPersonName": "Branson Gutkowski",
           }
-          testID="Text"
-        >
-          Thursday, October 16 2014
-        </Text>
-      </View>
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 11474,
+              },
+            },
+            "createdAt": "2012-03-03T15:03:02.973Z",
+            "id": "30",
+            "liked": true,
+            "likesCount": 6406,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "31",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "32",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "34",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "35",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Gideon",
+              "fullName": "Kiera Gusikowski",
+              "id": "33",
+              "lastName": "Heathcote",
+              "picture": "alias est et",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 47064,
+              },
+            },
+            "createdAt": "2010-12-15T20:19:16.437Z",
+            "id": "36",
+            "liked": true,
+            "likesCount": 62336,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-02-17T05:25:47.242Z",
+                  "completedAt": "2014-07-11T15:56:06.896Z",
+                  "id": "38",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2010-01-25T18:31:05.529Z",
+                  "completedAt": "2019-05-03T04:51:38.887Z",
+                  "id": "39",
+                },
+              ],
+              "id": "37",
+              "title": "ut non fugiat",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "41",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "42",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Marcellus",
+              "fullName": "Celine Kovacek",
+              "id": "40",
+              "lastName": "Hyatt",
+              "picture": "eos quod recusandae",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 20856,
+              },
+            },
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
+            "liked": false,
+            "likesCount": 71152,
+            "read": true,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "48",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "49",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Tre",
+              "fullName": "Delbert Brakus",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
+            },
+            "subjectPersonName": "Tre Lind",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
     </View>
     <View
       style={
@@ -3053,12 +3298,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3112,12 +3351,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3171,12 +3404,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3230,12 +3457,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3289,12 +3510,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3359,12 +3574,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3418,12 +3627,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3488,12 +3691,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3558,12 +3755,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3618,8 +3809,8 @@ exports[`renders for member renders correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -3706,12 +3897,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3765,12 +3950,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3824,12 +4003,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3883,12 +4056,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3942,12 +4109,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4012,12 +4173,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4071,12 +4226,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4141,12 +4290,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4211,12 +4354,6 @@ exports[`renders for member renders correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4271,17 +4408,14 @@ exports[`renders for member renders correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
   stickyHeaderIndices={
     Array [
       1,
-      4,
-      7,
-      10,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -4316,32 +4450,23 @@ exports[`renders for member renders correctly 1`] = `
         style={
           Object {
             "alignContent": "center",
-            "alignItems": "center",
             "backgroundColor": "#ECEEF2",
             "flex": 1,
+            "marginLeft": 15,
             "paddingVertical": 10,
           }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "200",
+            }
           }
-          testID="Text"
         >
-          Monday, July 15 2019
+          Earlier
         </Text>
       </View>
     </View>
@@ -4413,47 +4538,6 @@ exports[`renders for member renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Tuesday, July 3 2018
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
     >
       <CommunityFeedItem
         communityId="456"
@@ -4515,47 +4599,6 @@ exports[`renders for member renders correctly 1`] = `
         namePressable={true}
         onRefresh={[Function]}
       />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Saturday, November 26 2016
-        </Text>
-      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -4625,43 +4668,425 @@ exports[`renders for member renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
     <View
       onLayout={[Function]}
       style={null}
     >
-      <View
-        style={
+      <CommunityFeedItem
+        communityId="456"
+        item={
           Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 9155,
+              },
+            },
+            "createdAt": "2014-03-07T23:29:16.858Z",
+            "id": "50",
+            "liked": true,
+            "likesCount": 96959,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "51",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "52",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "54",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "55",
+                    },
+                    "permission": "user",
+                  },
+                ],
+              },
+              "firstName": "Roscoe",
+              "fullName": "Mike Schoen",
+              "id": "53",
+              "lastName": "Johnson",
+              "picture": "laborum iure molestiae",
+            },
+            "subjectPersonName": "Roscoe Johnson",
           }
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 68650,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
+            },
+            "createdAt": "2012-03-16T21:39:07.726Z",
+            "id": "7",
+            "liked": true,
+            "likesCount": 41253,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-06-07T16:18:37.531Z",
+                  "completedAt": "2012-07-23T04:41:19.390Z",
+                  "id": "9",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2017-01-19T11:48:41.969Z",
+                  "completedAt": "2017-03-26T09:06:21.890Z",
+                  "id": "10",
+                },
+              ],
+              "id": "8",
+              "title": "placeat fuga doloribus",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "12",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "13",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+              "firstName": "Branson",
+              "fullName": "Isabell Schamberger",
+              "id": "11",
+              "lastName": "Gutkowski",
+              "picture": "modi aut architecto",
+            },
+            "subjectPersonName": "Branson Gutkowski",
           }
-          testID="Text"
-        >
-          Thursday, October 16 2014
-        </Text>
-      </View>
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 11474,
+              },
+            },
+            "createdAt": "2012-03-03T15:03:02.973Z",
+            "id": "30",
+            "liked": true,
+            "likesCount": 6406,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "31",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "32",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "34",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "35",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Gideon",
+              "fullName": "Kiera Gusikowski",
+              "id": "33",
+              "lastName": "Heathcote",
+              "picture": "alias est et",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 47064,
+              },
+            },
+            "createdAt": "2010-12-15T20:19:16.437Z",
+            "id": "36",
+            "liked": true,
+            "likesCount": 62336,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-02-17T05:25:47.242Z",
+                  "completedAt": "2014-07-11T15:56:06.896Z",
+                  "id": "38",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2010-01-25T18:31:05.529Z",
+                  "completedAt": "2019-05-03T04:51:38.887Z",
+                  "id": "39",
+                },
+              ],
+              "id": "37",
+              "title": "ut non fugiat",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "41",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "42",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Marcellus",
+              "fullName": "Celine Kovacek",
+              "id": "40",
+              "lastName": "Hyatt",
+              "picture": "eos quod recusandae",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 20856,
+              },
+            },
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
+            "liked": false,
+            "likesCount": 71152,
+            "read": true,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "48",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "49",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Tre",
+              "fullName": "Delbert Brakus",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
+            },
+            "subjectPersonName": "Tre Lind",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
     </View>
     <View
       style={
@@ -4742,12 +5167,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4801,12 +5220,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4860,12 +5273,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4919,12 +5326,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -4978,12 +5379,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5048,12 +5443,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5107,12 +5496,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5177,12 +5560,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5247,12 +5624,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5307,8 +5678,8 @@ exports[`renders for member renders without header 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -5395,12 +5766,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5454,12 +5819,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5513,12 +5872,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5572,12 +5925,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5631,12 +5978,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5701,12 +6042,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5760,12 +6095,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5830,12 +6159,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5900,12 +6223,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -5960,17 +6277,14 @@ exports[`renders for member renders without header 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
   stickyHeaderIndices={
     Array [
       1,
-      4,
-      7,
-      10,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -5996,32 +6310,23 @@ exports[`renders for member renders without header 1`] = `
         style={
           Object {
             "alignContent": "center",
-            "alignItems": "center",
             "backgroundColor": "#ECEEF2",
             "flex": 1,
+            "marginLeft": 15,
             "paddingVertical": 10,
           }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "200",
+            }
           }
-          testID="Text"
         >
-          Monday, July 15 2019
+          Earlier
         </Text>
       </View>
     </View>
@@ -6093,47 +6398,6 @@ exports[`renders for member renders without header 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Tuesday, July 3 2018
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
     >
       <CommunityFeedItem
         communityId="456"
@@ -6195,47 +6459,6 @@ exports[`renders for member renders without header 1`] = `
         namePressable={true}
         onRefresh={[Function]}
       />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Saturday, November 26 2016
-        </Text>
-      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -6305,43 +6528,425 @@ exports[`renders for member renders without header 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
     <View
       onLayout={[Function]}
       style={null}
     >
-      <View
-        style={
+      <CommunityFeedItem
+        communityId="456"
+        item={
           Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 9155,
+              },
+            },
+            "createdAt": "2014-03-07T23:29:16.858Z",
+            "id": "50",
+            "liked": true,
+            "likesCount": 96959,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "51",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "52",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "54",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "55",
+                    },
+                    "permission": "user",
+                  },
+                ],
+              },
+              "firstName": "Roscoe",
+              "fullName": "Mike Schoen",
+              "id": "53",
+              "lastName": "Johnson",
+              "picture": "laborum iure molestiae",
+            },
+            "subjectPersonName": "Roscoe Johnson",
           }
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 68650,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
+            },
+            "createdAt": "2012-03-16T21:39:07.726Z",
+            "id": "7",
+            "liked": true,
+            "likesCount": 41253,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-06-07T16:18:37.531Z",
+                  "completedAt": "2012-07-23T04:41:19.390Z",
+                  "id": "9",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2017-01-19T11:48:41.969Z",
+                  "completedAt": "2017-03-26T09:06:21.890Z",
+                  "id": "10",
+                },
+              ],
+              "id": "8",
+              "title": "placeat fuga doloribus",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "12",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "13",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+              "firstName": "Branson",
+              "fullName": "Isabell Schamberger",
+              "id": "11",
+              "lastName": "Gutkowski",
+              "picture": "modi aut architecto",
+            },
+            "subjectPersonName": "Branson Gutkowski",
           }
-          testID="Text"
-        >
-          Thursday, October 16 2014
-        </Text>
-      </View>
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 11474,
+              },
+            },
+            "createdAt": "2012-03-03T15:03:02.973Z",
+            "id": "30",
+            "liked": true,
+            "likesCount": 6406,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "31",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "32",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "34",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "35",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Gideon",
+              "fullName": "Kiera Gusikowski",
+              "id": "33",
+              "lastName": "Heathcote",
+              "picture": "alias est et",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 47064,
+              },
+            },
+            "createdAt": "2010-12-15T20:19:16.437Z",
+            "id": "36",
+            "liked": true,
+            "likesCount": 62336,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-02-17T05:25:47.242Z",
+                  "completedAt": "2014-07-11T15:56:06.896Z",
+                  "id": "38",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2010-01-25T18:31:05.529Z",
+                  "completedAt": "2019-05-03T04:51:38.887Z",
+                  "id": "39",
+                },
+              ],
+              "id": "37",
+              "title": "ut non fugiat",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "41",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "42",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Marcellus",
+              "fullName": "Celine Kovacek",
+              "id": "40",
+              "lastName": "Hyatt",
+              "picture": "eos quod recusandae",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 20856,
+              },
+            },
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
+            "liked": false,
+            "likesCount": 71152,
+            "read": true,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "48",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "49",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Tre",
+              "fullName": "Delbert Brakus",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
+            },
+            "subjectPersonName": "Tre Lind",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
     </View>
     <View
       style={
@@ -6422,12 +7027,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6481,12 +7080,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6540,12 +7133,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6599,12 +7186,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6658,12 +7239,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6728,12 +7303,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6787,12 +7356,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6857,12 +7420,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6927,12 +7484,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -6987,8 +7538,8 @@ exports[`renders with celebration items correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -7075,12 +7626,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7134,12 +7679,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7193,12 +7732,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7252,12 +7785,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7311,12 +7838,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7381,12 +7902,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7440,12 +7955,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7510,12 +8019,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7580,12 +8083,6 @@ exports[`renders with celebration items correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -7640,17 +8137,14 @@ exports[`renders with celebration items correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
   stickyHeaderIndices={
     Array [
       1,
-      4,
-      7,
-      10,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -7689,32 +8183,23 @@ exports[`renders with celebration items correctly 1`] = `
         style={
           Object {
             "alignContent": "center",
-            "alignItems": "center",
             "backgroundColor": "#ECEEF2",
             "flex": 1,
+            "marginLeft": 15,
             "paddingVertical": 10,
           }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "200",
+            }
           }
-          testID="Text"
         >
-          Monday, July 15 2019
+          Earlier
         </Text>
       </View>
     </View>
@@ -7786,47 +8271,6 @@ exports[`renders with celebration items correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Tuesday, July 3 2018
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
     >
       <CommunityFeedItem
         communityId="456"
@@ -7888,47 +8332,6 @@ exports[`renders with celebration items correctly 1`] = `
         namePressable={true}
         onRefresh={[Function]}
       />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Saturday, November 26 2016
-        </Text>
-      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -7998,43 +8401,425 @@ exports[`renders with celebration items correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
     <View
       onLayout={[Function]}
       style={null}
     >
-      <View
-        style={
+      <CommunityFeedItem
+        communityId="456"
+        item={
           Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 9155,
+              },
+            },
+            "createdAt": "2014-03-07T23:29:16.858Z",
+            "id": "50",
+            "liked": true,
+            "likesCount": 96959,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "51",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "52",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "54",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "55",
+                    },
+                    "permission": "user",
+                  },
+                ],
+              },
+              "firstName": "Roscoe",
+              "fullName": "Mike Schoen",
+              "id": "53",
+              "lastName": "Johnson",
+              "picture": "laborum iure molestiae",
+            },
+            "subjectPersonName": "Roscoe Johnson",
           }
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 68650,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
+            },
+            "createdAt": "2012-03-16T21:39:07.726Z",
+            "id": "7",
+            "liked": true,
+            "likesCount": 41253,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-06-07T16:18:37.531Z",
+                  "completedAt": "2012-07-23T04:41:19.390Z",
+                  "id": "9",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2017-01-19T11:48:41.969Z",
+                  "completedAt": "2017-03-26T09:06:21.890Z",
+                  "id": "10",
+                },
+              ],
+              "id": "8",
+              "title": "placeat fuga doloribus",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "12",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "13",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+              "firstName": "Branson",
+              "fullName": "Isabell Schamberger",
+              "id": "11",
+              "lastName": "Gutkowski",
+              "picture": "modi aut architecto",
+            },
+            "subjectPersonName": "Branson Gutkowski",
           }
-          testID="Text"
-        >
-          Thursday, October 16 2014
-        </Text>
-      </View>
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 11474,
+              },
+            },
+            "createdAt": "2012-03-03T15:03:02.973Z",
+            "id": "30",
+            "liked": true,
+            "likesCount": 6406,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "31",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "32",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "34",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "35",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Gideon",
+              "fullName": "Kiera Gusikowski",
+              "id": "33",
+              "lastName": "Heathcote",
+              "picture": "alias est et",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 47064,
+              },
+            },
+            "createdAt": "2010-12-15T20:19:16.437Z",
+            "id": "36",
+            "liked": true,
+            "likesCount": 62336,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-02-17T05:25:47.242Z",
+                  "completedAt": "2014-07-11T15:56:06.896Z",
+                  "id": "38",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2010-01-25T18:31:05.529Z",
+                  "completedAt": "2019-05-03T04:51:38.887Z",
+                  "id": "39",
+                },
+              ],
+              "id": "37",
+              "title": "ut non fugiat",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "41",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "42",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Marcellus",
+              "fullName": "Celine Kovacek",
+              "id": "40",
+              "lastName": "Hyatt",
+              "picture": "eos quod recusandae",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 20856,
+              },
+            },
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
+            "liked": false,
+            "likesCount": 71152,
+            "read": true,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "48",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "49",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Tre",
+              "fullName": "Delbert Brakus",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
+            },
+            "subjectPersonName": "Tre Lind",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
     </View>
     <View
       style={
@@ -8115,12 +8900,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8174,12 +8953,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8233,12 +9006,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8292,12 +9059,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8351,12 +9112,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8421,12 +9176,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8480,12 +9229,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8550,12 +9293,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8620,12 +9357,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8680,8 +9411,8 @@ exports[`renders with clear notification renders correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -8768,12 +9499,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Darwin Bosco",
           },
-        ],
-        "date": "2019-07-15T16:04:36.274Z",
-        "id": 0,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8827,12 +9552,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Elza Paucek",
           },
-        ],
-        "date": "2018-07-03T07:32:54.839Z",
-        "id": 1,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8886,12 +9605,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Torey Abbott",
           },
-        ],
-        "date": "2016-11-26T00:02:28.431Z",
-        "id": 2,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -8945,12 +9658,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Zola Corkery",
           },
-        ],
-        "date": "2014-10-16T11:34:26.098Z",
-        "id": 3,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -9004,12 +9711,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Roscoe Johnson",
           },
-        ],
-        "date": "2014-03-07T23:29:16.858Z",
-        "id": 4,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -9074,12 +9775,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Branson Gutkowski",
           },
-        ],
-        "date": "2012-03-16T21:39:07.726Z",
-        "id": 5,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -9133,12 +9828,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Gideon Heathcote",
           },
-        ],
-        "date": "2012-03-03T15:03:02.973Z",
-        "id": 6,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -9203,12 +9892,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "date": "2010-12-15T20:19:16.437Z",
-        "id": 7,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -9273,12 +9956,6 @@ exports[`renders with clear notification renders correctly 1`] = `
             },
             "subjectPersonName": "Tre Lind",
           },
-        ],
-        "date": "2010-10-23T23:03:00.746Z",
-        "id": 8,
-      },
-      Object {
-        "data": Array [
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -9333,17 +10010,14 @@ exports[`renders with clear notification renders correctly 1`] = `
             "subjectPersonName": "Grace Dibbert",
           },
         ],
-        "date": "2010-10-07T14:14:54.569Z",
-        "id": 9,
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
   stickyHeaderIndices={
     Array [
       1,
-      4,
-      7,
-      10,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -9382,32 +10056,23 @@ exports[`renders with clear notification renders correctly 1`] = `
         style={
           Object {
             "alignContent": "center",
-            "alignItems": "center",
             "backgroundColor": "#ECEEF2",
             "flex": 1,
+            "marginLeft": 15,
             "paddingVertical": 10,
           }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontSize": 24,
+              "fontWeight": "200",
+            }
           }
-          testID="Text"
         >
-          Monday, July 15 2019
+          Earlier
         </Text>
       </View>
     </View>
@@ -9480,47 +10145,6 @@ exports[`renders with clear notification renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Tuesday, July 3 2018
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
     >
       <CommunityFeedItem
         communityId="456"
@@ -9583,47 +10207,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         onClearNotification={[MockFunction]}
         onRefresh={[Function]}
       />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
-          }
-          testID="Text"
-        >
-          Saturday, November 26 2016
-        </Text>
-      </View>
     </View>
     <View
       onLayout={[Function]}
@@ -9694,43 +10277,431 @@ exports[`renders with clear notification renders correctly 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          }
+        }
+        namePressable={true}
+        onClearNotification={[MockFunction]}
+        onRefresh={[Function]}
+      />
+    </View>
     <View
       onLayout={[Function]}
       style={null}
     >
-      <View
-        style={
+      <CommunityFeedItem
+        communityId="456"
+        item={
           Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "paddingVertical": 10,
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 9155,
+              },
+            },
+            "createdAt": "2014-03-07T23:29:16.858Z",
+            "id": "50",
+            "liked": true,
+            "likesCount": 96959,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "51",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "52",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "54",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "55",
+                    },
+                    "permission": "user",
+                  },
+                ],
+              },
+              "firstName": "Roscoe",
+              "fullName": "Mike Schoen",
+              "id": "53",
+              "lastName": "Johnson",
+              "picture": "laborum iure molestiae",
+            },
+            "subjectPersonName": "Roscoe Johnson",
           }
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
+        namePressable={true}
+        onClearNotification={[MockFunction]}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 68650,
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
+            },
+            "createdAt": "2012-03-16T21:39:07.726Z",
+            "id": "7",
+            "liked": true,
+            "likesCount": 41253,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-06-07T16:18:37.531Z",
+                  "completedAt": "2012-07-23T04:41:19.390Z",
+                  "id": "9",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2017-01-19T11:48:41.969Z",
+                  "completedAt": "2017-03-26T09:06:21.890Z",
+                  "id": "10",
+                },
+              ],
+              "id": "8",
+              "title": "placeat fuga doloribus",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "12",
+                    },
+                    "permission": "no_permissions",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "13",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+              "firstName": "Branson",
+              "fullName": "Isabell Schamberger",
+              "id": "11",
+              "lastName": "Gutkowski",
+              "picture": "modi aut architecto",
+            },
+            "subjectPersonName": "Branson Gutkowski",
           }
-          testID="Text"
-        >
-          Thursday, October 16 2014
-        </Text>
-      </View>
+        }
+        namePressable={true}
+        onClearNotification={[MockFunction]}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 11474,
+              },
+            },
+            "createdAt": "2012-03-03T15:03:02.973Z",
+            "id": "30",
+            "liked": true,
+            "likesCount": 6406,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "31",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "32",
+              },
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "34",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "35",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Gideon",
+              "fullName": "Kiera Gusikowski",
+              "id": "33",
+              "lastName": "Heathcote",
+              "picture": "alias est et",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          }
+        }
+        namePressable={true}
+        onClearNotification={[MockFunction]}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 47064,
+              },
+            },
+            "createdAt": "2010-12-15T20:19:16.437Z",
+            "id": "36",
+            "liked": true,
+            "likesCount": 62336,
+            "read": false,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2013-02-17T05:25:47.242Z",
+                  "completedAt": "2014-07-11T15:56:06.896Z",
+                  "id": "38",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2010-01-25T18:31:05.529Z",
+                  "completedAt": "2019-05-03T04:51:38.887Z",
+                  "id": "39",
+                },
+              ],
+              "id": "37",
+              "title": "ut non fugiat",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "41",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "42",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Marcellus",
+              "fullName": "Celine Kovacek",
+              "id": "40",
+              "lastName": "Hyatt",
+              "picture": "eos quod recusandae",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          }
+        }
+        namePressable={true}
+        onClearNotification={[MockFunction]}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 20856,
+              },
+            },
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
+            "liked": false,
+            "likesCount": 71152,
+            "read": true,
+            "subject": Object {
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "48",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "49",
+                    },
+                    "permission": "owner",
+                  },
+                ],
+              },
+              "firstName": "Tre",
+              "fullName": "Delbert Brakus",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
+            },
+            "subjectPersonName": "Tre Lind",
+          }
+        }
+        namePressable={true}
+        onClearNotification={[MockFunction]}
+        onRefresh={[Function]}
+      />
     </View>
     <View
       style={

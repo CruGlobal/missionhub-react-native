@@ -1,9 +1,8 @@
 import React, { useCallback } from 'react';
-import { Animated, View, SectionListData } from 'react-native';
+import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import { DateComponent } from '../../components/common';
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
@@ -17,7 +16,7 @@ import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { momentUtc } from '../../utils/date';
+import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
@@ -39,34 +38,31 @@ export interface CelebrateFeedProps {
 
 export interface CommunityFeedSection {
   id: number;
-  date: string;
+  title: string;
   data: FeedItemFragment[];
 }
 
 const sortCommunityFeed = (items: FeedItemFragment[]) => {
   const sortByDate = items;
   sortByDate.sort(compare);
-
-  const dateSections: CommunityFeedSection[] = [];
+  const dateSections: CommunityFeedSection[] = [
+    { id: 1, title: 'dates.today', data: [] },
+    { id: 2, title: 'dates.earlier', data: [] },
+  ];
   sortByDate.forEach(item => {
-    const length = dateSections.length;
     const itemMoment = momentUtc(item.createdAt);
-
-    if (
-      length > 0 &&
-      itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
-    ) {
-      dateSections[length - 1].data.push(item);
+    if (isLastTwentyFourHours(itemMoment)) {
+      dateSections[0].data.push(item);
     } else {
-      dateSections.push({
-        id: dateSections.length,
-        date: item.createdAt,
-        data: [item],
-      });
+      dateSections[1].data.push(item);
     }
   });
+  // Filter out any sections with no data
+  const filteredSections = dateSections.filter(
+    section => section.data.length > 0,
+  );
 
-  return dateSections;
+  return filteredSections;
 };
 
 const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
@@ -215,16 +211,12 @@ export const CelebrateFeed = ({
 
   const renderSectionHeader = useCallback(
     ({
-      section: { date },
+      section: { title },
     }: {
       section: SectionListData<CelebrateFeedSection>;
     }) => (
       <View style={styles.header}>
-        <DateComponent
-          date={date}
-          relativeFormatting={true}
-          style={styles.title}
-        />
+        <Text style={styles.title}>{t(`${title}`)}</Text>
       </View>
     ),
     [],

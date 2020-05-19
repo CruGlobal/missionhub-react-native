@@ -13,14 +13,14 @@ export default StyleSheet.create({
 
   header: {
     flex: 1,
-    alignItems: 'center',
     alignContent: 'center',
     paddingVertical: 10,
+    marginLeft: 15,
     backgroundColor: theme.extraLightGrey,
   },
   title: {
-    fontSize: 12,
-    color: theme.textColor,
-    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: '200',
+    color: theme.grey,
   },
 });
