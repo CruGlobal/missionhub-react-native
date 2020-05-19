@@ -55,14 +55,6 @@ exports[`renders empty correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <CelebrateFeedHeader
-        isMember={false}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
-      />
       <CreatePostButton
         communityId="456"
         refreshItems={[Function]}
@@ -853,14 +845,6 @@ exports[`renders for Global Community renders correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <CelebrateFeedHeader
-        isMember={false}
-        organization={
-          Object {
-            "id": "_global_community_id",
-          }
-        }
-      />
       <CreatePostButton
         communityId="_global_community_id"
         refreshItems={[Function]}
@@ -2560,14 +2544,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <CelebrateFeedHeader
-        isMember={false}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
-      />
       <CreatePostButton
         communityId="456"
         refreshItems={[Function]}
@@ -4432,16 +4408,7 @@ exports[`renders for member renders correctly 1`] = `
   <View>
     <View
       onLayout={[Function]}
-    >
-      <CelebrateFeedHeader
-        isMember={true}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
-      />
-    </View>
+    />
     <View
       onLayout={[Function]}
       style={null}
@@ -8162,14 +8129,6 @@ exports[`renders with celebration items correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <CelebrateFeedHeader
-        isMember={false}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
-      />
       <CreatePostButton
         communityId="456"
         refreshItems={[Function]}
@@ -10035,14 +9994,6 @@ exports[`renders with clear notification renders correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <CelebrateFeedHeader
-        isMember={false}
-        organization={
-          Object {
-            "id": "456",
-          }
-        }
-      />
       <CreatePostButton
         communityId="456"
         refreshItems={[Function]}

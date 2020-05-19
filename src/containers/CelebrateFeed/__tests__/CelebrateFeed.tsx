@@ -21,7 +21,6 @@ jest.mock('../../../components/CommunityFeedItem', () => ({
 jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
 }));
-jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
 
 const myId = '123';
 const organization: Organization = { id: '456' };

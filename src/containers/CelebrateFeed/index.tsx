@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
-import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import { CreatePostButton } from '../Groups/CreatePostButton';
 import {
   celebrationSelector,
@@ -16,6 +15,9 @@ import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../Groups/OnboardingCard';
 import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
@@ -247,10 +249,7 @@ export const CelebrateFeed = ({
         />
         {noHeader ? null : (
           <>
-            <CelebrateFeedHeader
-              isMember={!!person}
-              organization={organization}
-            />
+            <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
             {!person ? (
               <CreatePostButton
                 refreshItems={handleRefreshing}

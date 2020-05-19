@@ -87,9 +87,6 @@ import {
 } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
-import GroupReport, {
-  GROUPS_REPORT_SCREEN,
-} from './containers/Groups/GroupReport';
 import UnassignedPersonScreen, {
   UNASSIGNED_PERSON_SCREEN,
 } from './containers/Groups/UnassignedPersonScreen';
@@ -376,12 +373,7 @@ const screens = {
     buildTrackingObj('search : refine', 'search', 'refine'),
     { gesturesEnabled: true },
   ),
-  [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
-    GroupReport,
-    // @ts-ignore
-    buildTrackingObj('communities : report', 'communities', 'report'),
-    { gesturesEnabled: true },
-  ),
+
   [GROUP_UNREAD_FEED_SCREEN]: buildTrackedScreen(
     GroupUnreadFeed,
     // @ts-ignore
@@ -512,11 +504,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [
-  CELEBRATE_DETAIL_SCREEN,
-  GROUPS_REPORT_SCREEN,
-  ADD_POST_TO_STEPS_SCREEN,
-];
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, ADD_POST_TO_STEPS_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {
