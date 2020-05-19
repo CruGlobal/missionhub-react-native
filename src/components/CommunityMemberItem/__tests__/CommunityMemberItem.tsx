@@ -41,6 +41,7 @@ const props = {
   person: member,
   personOrgPermission: memberPermissions,
   organization,
+  onRefreshMembers: jest.fn(),
 };
 
 beforeEach(() => {
