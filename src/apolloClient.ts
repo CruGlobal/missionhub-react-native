@@ -7,6 +7,7 @@ import {
   InMemoryCache,
   NormalizedCacheObject,
   IntrospectionFragmentMatcher,
+  IntrospectionResultData,
 } from 'apollo-cache-inmemory';
 import { persistCache } from 'apollo-cache-persist';
 import { PersistentStorage, PersistedData } from 'apollo-cache-persist/types';
@@ -69,7 +70,7 @@ export const createApolloClient = async () => {
   const link = ApolloLink.from([rollbarLink, authLink, httpLink]);
 
   const fragmentMatcher = new IntrospectionFragmentMatcher({
-    introspectionQueryResultData,
+    introspectionQueryResultData: introspectionQueryResultData as IntrospectionResultData,
   });
 
   const cache = new InMemoryCache({ fragmentMatcher });
