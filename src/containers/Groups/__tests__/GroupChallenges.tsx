@@ -183,6 +183,7 @@ it('should call API to create', () => {
   createChallenge.mockReturnValue({ type: 'create' });
 
   const challenge = { id: '1', title: 'Test Challenge' };
+  // @ts-ignore
   instance.createChallenge(challenge);
 
   expect(createChallenge).toHaveBeenCalledWith(challenge, org.id);
