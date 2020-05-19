@@ -48,14 +48,14 @@ const CommentItem = ({
     editingStyle,
     name: nameStyle,
   } = styles;
-  const isMine = person ? person.id === me.id : author.id === me.id;
+  const isMine = person?.id === me.id || author?.id === me.id;
   const isMineNotReported = isMine && !isReported;
   const itemDate = created_at ? created_at : createdAt ? createdAt : '';
   const name = person
     ? person.first_name
       ? `${person.first_name} ${person.last_name}`
       : person.fullName
-    : author.fullName;
+    : author?.fullName;
 
   const renderContent = () => {
     return (
