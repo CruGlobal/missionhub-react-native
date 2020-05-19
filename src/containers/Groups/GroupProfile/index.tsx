@@ -384,8 +384,8 @@ const mapStateToProps = ({ auth, organizations }, { navigation }) => {
   // @ts-ignore
   const owner = members.find(({ organizational_permissions = [] }) =>
     organizational_permissions.find(
-      // @ts-ignore
       orgPermission =>
+        // @ts-ignore
         orgPermission.organization_id === orgId && isOwner(orgPermission),
     ),
   );
