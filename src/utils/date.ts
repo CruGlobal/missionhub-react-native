@@ -55,8 +55,14 @@ const isYesterday = (momentDate: moment.Moment) =>
 const isToday = (momentDate: moment.Moment) =>
   momentDate.isSame(moment(), 'day');
 
-export const isLastTwelveHours = (momentDate: moment.Moment) =>
-  momentDate.isBetween(moment().subtract(12, 'hours'), moment(), 'day', '[]');
+export const isLastTwelveHours = (momentDate: moment.Moment) => {
+  return momentDate.isBetween(
+    moment().subtract(12, 'hours'),
+    moment(),
+    'hours',
+    '[]',
+  );
+};
 
 const isTomorrow = (momentDate: moment.Moment) =>
   momentDate.isSame(moment().add(1, 'days'), 'day');

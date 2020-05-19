@@ -9,6 +9,11 @@ export const GET_NOTIFICATIONS = gql`
         messageTemplate
         renderedMessage
         trigger
+        subjectPerson {
+          id
+          fullName
+          picture
+        }
         messageVariables {
           challengeName
           organizationCount

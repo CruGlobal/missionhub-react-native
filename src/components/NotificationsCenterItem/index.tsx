@@ -40,11 +40,11 @@ const NotificationCenterItem = ({ event }: { event: Notification }) => {
         case '<<post_type>>':
           return <Text>{t(`${messageVariables.postType}`)}</Text>;
 
-        case '<<community_name>>':
+        case '<<organization_name>>':
           return (
             <Text style={styles.boldedItemText}>
               {`${word.replace(
-                /<<community_name>>/,
+                /<<organization_name>>/,
                 messageVariables.organizationName || '',
               )}`}
             </Text>
@@ -79,6 +79,7 @@ const NotificationCenterItem = ({ event }: { event: Notification }) => {
     switch (trigger) {
       case 'post':
       case 'comment':
+      case 'story_notification':
       case FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE:
         return renderTemplateMessage();
       case 'reported':
