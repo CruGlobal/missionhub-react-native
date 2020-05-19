@@ -70,6 +70,17 @@ export const GET_REPORTED_CONTENT = gql`
                 firstName
               }
             }
+            ... on FeedItemComment {
+              id
+              content
+              createdAt
+              updatedAt
+              person {
+                id
+                fullName
+                firstName
+              }
+            }
           }
           person {
             id
