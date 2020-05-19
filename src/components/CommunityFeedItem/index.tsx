@@ -17,6 +17,7 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen'
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal, getFeedItemType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
+import { GlobalCommunityFeedItem } from '../CommunityFeedItem/__generated__/GlobalCommunityFeedItem';
 import {
   CommunityFeedItem as FeedItemFragment,
   CommunityFeedItem_subject,
@@ -33,10 +34,12 @@ import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
 
 export interface CommunityFeedItemProps {
-  item: FeedItemFragment;
+  item: FeedItemFragment | GlobalCommunityFeedItem;
   communityId: string;
   namePressable: boolean;
-  onClearNotification?: (item: FeedItemFragment) => void;
+  onClearNotification?: (
+    item: FeedItemFragment | GlobalCommunityFeedItem,
+  ) => void;
   onRefresh: () => void;
 }
 
@@ -47,7 +50,8 @@ export const CommunityFeedItem = ({
   onClearNotification,
   onRefresh,
 }: CommunityFeedItemProps) => {
-  const { createdAt, subject, subjectPerson, subjectPersonName } = item;
+  const { createdAt, subject, subjectPersonName } = item;
+  const subjectPerson = (item as FeedItemFragment).subjectPerson || null;
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');
@@ -196,17 +200,13 @@ export const CommunityFeedItem = ({
         <PostTypeLabel type={FeedItemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
-        {item.subjectPerson ? (
-          <Avatar
-            size={'medium'}
-            person={item.subjectPerson}
-            orgId={communityId}
-          />
+        {subjectPerson ? (
+          <Avatar size={'medium'} person={subjectPerson} orgId={communityId} />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
-            person={item.subjectPerson}
+            person={subjectPerson}
             communityId={communityId}
             pressable={namePressable}
           />

@@ -80,6 +80,36 @@ export const COMMUNITY_FEED_POST_FRAGMENT = gql`
   }
 `;
 
+export const GLOBAL_COMMUNITY_FEED_ITEM_FRAGMENT = gql`
+  fragment GlobalCommunityFeedItem on FeedItem {
+    id
+    comments {
+      pageInfo {
+        totalCount
+      }
+    }
+    createdAt
+    liked
+    likesCount
+    read
+    subject {
+      ... on CommunityChallenge {
+        ...CommunityFeedChallenge
+      }
+      ... on Step {
+        ...CommunityFeedStep
+      }
+      ... on Post {
+        ...CommunityFeedPost
+      }
+    }
+    subjectPersonName
+  }
+  ${COMMUNITY_FEED_CHALLENGE_FRAGMENT}
+  ${COMMUNITY_FEED_STEP_FRAGMENT}
+  ${COMMUNITY_FEED_POST_FRAGMENT}
+`;
+
 export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
   fragment CommunityFeedItem on FeedItem {
     id

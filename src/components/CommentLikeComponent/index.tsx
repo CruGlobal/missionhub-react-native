@@ -8,6 +8,7 @@ import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { GlobalCommunityFeedItem } from '../CommunityFeedItem/__generated__/GlobalCommunityFeedItem';
 import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
@@ -19,7 +20,7 @@ import styles from './styles';
 
 export interface CommentLikeComponentProps {
   communityId: string;
-  item: CommunityFeedItem;
+  item: CommunityFeedItem | GlobalCommunityFeedItem;
   onRefresh: () => void;
 }
 
@@ -36,8 +37,8 @@ export const CommentLikeComponent = ({
     liked,
     likesCount,
     subject,
-    subjectPerson,
   } = item;
+  const subjectPerson = (item as CommunityFeedItem).subjectPerson || null;
   const isPrayer =
     subject.__typename === 'Post' &&
     (subject as CommunityFeedPost).postType === PostTypeEnum.prayer_request;
