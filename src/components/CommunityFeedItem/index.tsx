@@ -33,13 +33,13 @@ import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
 
+export type CombinedFeedItem = FeedItemFragment & GlobalCommunityFeedItem;
+
 export interface CommunityFeedItemProps {
-  item: FeedItemFragment | GlobalCommunityFeedItem;
+  item: CombinedFeedItem;
   communityId: string;
   namePressable: boolean;
-  onClearNotification?: (
-    item: FeedItemFragment | GlobalCommunityFeedItem,
-  ) => void;
+  onClearNotification?: (item: CombinedFeedItem) => void;
   onRefresh: () => void;
 }
 
@@ -50,8 +50,7 @@ export const CommunityFeedItem = ({
   onClearNotification,
   onRefresh,
 }: CommunityFeedItemProps) => {
-  const { createdAt, subject, subjectPersonName } = item;
-  const subjectPerson = (item as FeedItemFragment).subjectPerson || null;
+  const { createdAt, subject, subjectPerson, subjectPersonName } = item;
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');

@@ -4,7 +4,10 @@ import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import { DateComponent } from '../../components/common';
-import { CommunityFeedItem } from '../../components/CommunityFeedItem';
+import {
+  CommunityFeedItem,
+  CombinedFeedItem,
+} from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import { CreatePostButton } from '../Groups/CreatePostButton';
@@ -37,10 +40,10 @@ export interface CelebrateFeedProps {
 export interface CommunityFeedSection {
   id: number;
   date: string;
-  data: FeedItemFragment[];
+  data: CombinedFeedItem[];
 }
 
-const sortCommunityFeed = (items: FeedItemFragment[]) => {
+const sortCommunityFeed = (items: CombinedFeedItem[]) => {
   const sortByDate = items;
   sortByDate.sort(compare);
 
@@ -66,7 +69,7 @@ const sortCommunityFeed = (items: FeedItemFragment[]) => {
   return dateSections;
 };
 
-const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
+const compare = (a: CombinedFeedItem, b: CombinedFeedItem) => {
   const aValue = a.createdAt,
     bValue = b.createdAt;
 
@@ -113,7 +116,6 @@ export const CelebrateFeed = ({
     refetch,
   } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
     variables: queryVariables,
-    pollInterval: 30000,
     skip: isGlobal,
   });
 
@@ -134,78 +136,85 @@ export const CelebrateFeed = ({
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
   } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
-    pollInterval: 30000,
     skip: !isGlobal,
   });
 
-  const items = sortCommunityFeed(isGlobal ? globalNodes : nodes);
+  const items = sortCommunityFeed(
+    (isGlobal ? globalNodes : nodes) as CombinedFeedItem[],
+  );
 
   const handleRefreshing = () => {
+    if (loading || globalLoading) {
+      return;
+    }
+
     isGlobal ? globalRefetch() : refetch();
     onRefetch && onRefetch();
   };
 
   const handleOnEndReached = () => {
-    if (hasNextPage) {
-      fetchMore({
-        variables: {
-          ...queryVariables,
-          celebrateCursor: endCursor,
-        },
-        updateQuery: (prev, { fetchMoreResult }) =>
-          fetchMoreResult
-            ? {
-                ...prev,
-                ...fetchMoreResult,
-                community: {
-                  ...prev.community,
-                  ...fetchMoreResult.community,
-                  feedItems: {
-                    ...prev.community.feedItems,
-                    ...fetchMoreResult.community.feedItems,
-                    nodes: [
-                      ...(prev.community.feedItems.nodes || []),
-                      ...(fetchMoreResult.community.feedItems.nodes || []),
-                    ],
-                  },
-                },
-              }
-            : prev,
-      });
-      onFetchMore && onFetchMore();
+    if (loading || error || !hasNextPage) {
+      return;
     }
+
+    fetchMore({
+      variables: {
+        ...queryVariables,
+        feedCursor: endCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              community: {
+                ...prev.community,
+                ...fetchMoreResult.community,
+                feedItems: {
+                  ...prev.community.feedItems,
+                  ...fetchMoreResult.community.feedItems,
+                  nodes: [
+                    ...(prev.community.feedItems.nodes || []),
+                    ...(fetchMoreResult.community.feedItems.nodes || []),
+                  ],
+                },
+              },
+            }
+          : prev,
+    });
+    onFetchMore && onFetchMore();
   };
 
   const handleOnEndReachedGlobal = () => {
-    if (globalHasNextPage) {
-      globalFetchMore({
-        variables: {
-          ...queryVariables,
-          celebrateCursor: globalEndCursor,
-        },
-        updateQuery: (prev, { fetchMoreResult }) =>
-          fetchMoreResult
-            ? {
-                ...prev,
-                ...fetchMoreResult,
-                globalCommunity: {
-                  ...prev.globalCommunity,
-                  ...fetchMoreResult.globalCommunity,
-                  feedItems: {
-                    ...prev.globalCommunity.feedItems,
-                    ...fetchMoreResult.globalCommunity.feedItems,
-                    nodes: [
-                      ...(prev.globalCommunity.feedItems.nodes || []),
-                      ...(fetchMoreResult.globalCommunity.feedItems.nodes ||
-                        []),
-                    ],
-                  },
-                },
-              }
-            : prev,
-      });
-      onFetchMore && onFetchMore();
+    if (globalLoading || globalError || !globalHasNextPage) {
+      return;
     }
+
+    globalFetchMore({
+      variables: {
+        feedCursor: globalEndCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              globalCommunity: {
+                ...prev.globalCommunity,
+                ...fetchMoreResult.globalCommunity,
+                feedItems: {
+                  ...prev.globalCommunity.feedItems,
+                  ...fetchMoreResult.globalCommunity.feedItems,
+                  nodes: [
+                    ...(prev.globalCommunity.feedItems.nodes || []),
+                    ...(fetchMoreResult.globalCommunity.feedItems.nodes || []),
+                  ],
+                },
+              },
+            }
+          : prev,
+    });
+    onFetchMore && onFetchMore();
   };
 
   const renderSectionHeader = useCallback(
@@ -284,6 +293,7 @@ export const CelebrateFeed = ({
       renderItem={renderItem}
       keyExtractor={keyExtractorId}
       onEndReachedThreshold={0.2}
+      onEndReached={isGlobal ? handleOnEndReachedGlobal : handleOnEndReached}
       onRefresh={handleRefreshing}
       refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}

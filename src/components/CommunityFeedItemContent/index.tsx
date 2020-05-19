@@ -12,8 +12,7 @@ import {
   getFeedItemType,
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { GlobalCommunityFeedItem } from '../CommunityFeedItem/__generated__/GlobalCommunityFeedItem';
+import { CombinedFeedItem } from '../CommunityFeedItem';
 import {
   CommunityFeedStep,
   CommunityFeedStep_receiverStageAtCompletion,
@@ -24,7 +23,7 @@ import { CommunityFeedChallenge } from '../CommunityFeedItem/__generated__/Commu
 import styles from './styles';
 
 export interface CommunityFeedItemContentProps {
-  item: CommunityFeedItem | GlobalCommunityFeedItem;
+  item: CombinedFeedItem;
   communityId: string;
   style?: StyleProp<ViewStyle>;
 }
@@ -37,8 +36,7 @@ export const CommunityFeedItemContent = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
-  const { subject, subjectPersonName } = item;
-  const subjectPerson = (item as CommunityFeedItem).subjectPerson || null;
+  const { subject, subjectPerson, subjectPersonName } = item;
   const itemType = getFeedItemType(subject);
 
   const personName = subjectPerson

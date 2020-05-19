@@ -9,9 +9,9 @@ import {
 } from '../../components/CommunityFeedItem/queries';
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
-  query GetGlobalCommunityFeed($celebrateCursor: String) {
+  query GetGlobalCommunityFeed($feedCursor: String) {
     globalCommunity {
-      feedItems(sortBy: createdAt_DESC, first: 25, after: $celebrateCursor) {
+      feedItems(sortBy: createdAt_DESC, first: 25, after: $feedCursor) {
         nodes {
           ...GlobalCommunityFeedItem
         }
@@ -32,7 +32,7 @@ export const GET_COMMUNITY_FEED = gql`
   query GetCommunityFeed(
     $communityId: ID!
     $subjectType: FeedItemSubjectTypeEnum = null
-    $celebrateCursor: String
+    $feedCursor: String
   ) {
     community(id: $communityId) {
       id
@@ -40,7 +40,7 @@ export const GET_COMMUNITY_FEED = gql`
         subjectType: $subjectType
         sortBy: createdAt_DESC
         first: 25
-        after: $celebrateCursor
+        after: $feedCursor
       ) {
         nodes {
           ...CommunityFeedItem
