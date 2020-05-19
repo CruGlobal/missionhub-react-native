@@ -22,6 +22,7 @@ import {
   CommunityFeedItem_subject,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 
@@ -126,7 +127,12 @@ export const CommunityFeedItem = ({
     );
 
   const navToFilteredFeed = () => {
-    //TODO: navigate to filtered feed for post type
+    dispatch(
+      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+        type: FeedItemType,
+        communityId,
+      }),
+    );
   };
 
   const menuActions =
@@ -185,13 +191,7 @@ export const CommunityFeedItem = ({
         <PostTypeLabel type={FeedItemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
-        {item.subjectPerson ? (
-          <Avatar
-            size={'medium'}
-            person={item.subjectPerson}
-            orgId={communityId}
-          />
-        ) : null}
+        <Avatar size="medium" person={item.subjectPerson} orgId={communityId} />
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}

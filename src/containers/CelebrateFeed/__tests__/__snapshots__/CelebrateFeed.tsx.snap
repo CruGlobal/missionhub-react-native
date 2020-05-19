@@ -59,6 +59,69 @@ exports[`renders empty correctly 1`] = `
         communityId="456"
         refreshItems={[Function]}
       />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_PRAYER_REQUEST"
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_STEP"
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_QUESTION"
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_STORY"
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_HELP_REQUEST"
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            countOnly={true}
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_ANNOUNCEMENT"
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
     </View>
   </View>
 </RCTScrollView>
@@ -8918,21 +8981,32 @@ exports[`renders with clear notification renders correctly 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 80275,
+                "totalCount": 99904,
               },
             },
-            "createdAt": "2016-11-26T00:02:28.431Z",
+            "createdAt": "2018-07-27T08:11:00.872Z",
             "id": "2",
             "liked": false,
-            "likesCount": 69232,
-            "read": true,
+            "likesCount": 9233,
+            "read": false,
             "subject": Object {
-              "__typename": "Post",
-              "content": "saepe eum dicta",
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2016-01-26T19:10:10.481Z",
+                  "completedAt": "2010-09-08T06:46:37.996Z",
+                  "id": "4",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2014-08-26T07:39:14.970Z",
+                  "completedAt": "2011-07-30T23:09:48.676Z",
+                  "id": "5",
+                },
+              ],
               "id": "3",
-              "mediaContentType": "eum eaque enim",
-              "mediaExpiringUrl": "ipsum inventore debitis",
-              "postType": "thought",
+              "title": "iure ut libero",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -8943,25 +9017,25 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "5",
+                      "id": "7",
                     },
-                    "permission": "user",
+                    "permission": "no_permissions",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "6",
+                      "id": "8",
                     },
-                    "permission": "no_permissions",
+                    "permission": "user",
                   },
                 ],
               },
               "firstName": "Torey",
-              "fullName": "Marco Boyle",
-              "id": "4",
+              "fullName": "Heather Hahn",
+              "id": "6",
               "lastName": "Abbott",
-              "picture": "deserunt quam tempore",
+              "picture": "nobis cupiditate sed",
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -10496,7 +10570,6 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onClearNotification={[MockFunction]}
         onRefresh={[Function]}
       />
     </View>
@@ -10573,7 +10646,6 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onClearNotification={[MockFunction]}
         onRefresh={[Function]}
       />
     </View>
@@ -10650,7 +10722,6 @@ exports[`renders with clear notification renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onClearNotification={[MockFunction]}
         onRefresh={[Function]}
       />
     </View>
@@ -10661,6 +10732,356 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
       }
     />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders with celebration items correctly 1`] = `
+<RCTScrollView
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+  data={Array []}
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  sections={Array []}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <CelebrateFeedHeader
+        isMember={false}
+        organization={
+          Object {
+            "id": "456",
+          }
+        }
+      />
+      <CreatePostButton
+        communityId="456"
+        refreshItems={[Function]}
+      />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Craig",
+                  "fullName": "Craig Murphy",
+                  "id": "63",
+                  "picture": "architecto non explicabo",
+                },
+              ]
+            }
+            testID="PostCard_PRAYER_REQUEST"
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_STEP"
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Kirk",
+                  "fullName": "Kirk Ledner",
+                  "id": "67",
+                  "picture": "voluptas molestiae fuga",
+                },
+              ]
+            }
+            testID="PostCard_QUESTION"
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Joyce",
+                  "fullName": "Joyce Rutherford",
+                  "id": "69",
+                  "picture": "id voluptates dolorem",
+                },
+              ]
+            }
+            testID="PostCard_STORY"
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_HELP_REQUEST"
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            countOnly={true}
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Annabelle",
+                  "fullName": "Annabelle Hermann",
+                  "id": "65",
+                  "picture": "quaerat explicabo aut",
+                },
+              ]
+            }
+            testID="PostCard_ANNOUNCEMENT"
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</RCTScrollView>
+`;
+
+exports[`renders with clear notification renders correctly 1`] = `
+<RCTScrollView
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+  data={Array []}
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  sections={Array []}
+  stickyHeaderIndices={Array []}
+  stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <CelebrateFeedHeader
+        isMember={false}
+        organization={
+          Object {
+            "id": "456",
+          }
+        }
+      />
+      <CreatePostButton
+        communityId="456"
+        refreshItems={[Function]}
+      />
+      <View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Craig",
+                  "fullName": "Craig Murphy",
+                  "id": "63",
+                  "picture": "architecto non explicabo",
+                },
+              ]
+            }
+            testID="PostCard_PRAYER_REQUEST"
+            type="PRAYER_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_STEP"
+            type="STEP"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Kirk",
+                  "fullName": "Kirk Ledner",
+                  "id": "67",
+                  "picture": "voluptas molestiae fuga",
+                },
+              ]
+            }
+            testID="PostCard_QUESTION"
+            type="QUESTION"
+          />
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Joyce",
+                  "fullName": "Joyce Rutherford",
+                  "id": "69",
+                  "picture": "id voluptates dolorem",
+                },
+              ]
+            }
+            testID="PostCard_STORY"
+            type="STORY"
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+            }
+          }
+        >
+          <PostTypeCardWithPeople
+            onPress={[Function]}
+            people={Array []}
+            testID="PostCard_HELP_REQUEST"
+            type="HELP_REQUEST"
+          />
+          <PostTypeCardWithPeople
+            countOnly={true}
+            onPress={[Function]}
+            people={
+              Array [
+                Object {
+                  "__typename": "Person",
+                  "firstName": "Annabelle",
+                  "fullName": "Annabelle Hermann",
+                  "id": "65",
+                  "picture": "quaerat explicabo aut",
+                },
+              ]
+            }
+            testID="PostCard_ANNOUNCEMENT"
+            type="ANNOUNCEMENT"
+          />
+        </View>
+      </View>
+    </View>
   </View>
 </RCTScrollView>
 `;

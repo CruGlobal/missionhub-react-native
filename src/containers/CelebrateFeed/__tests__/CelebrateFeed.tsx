@@ -10,6 +10,7 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { Organization } from '../../../reducers/organizations';
 import { Person } from '../../../reducers/people';
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
+import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 
 import { CelebrateFeed } from '..';
 
@@ -17,6 +18,9 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../components/CommunityFeedItem', () => ({
   CommunityFeedItem: 'CommunityFeedItem',
+}));
+jest.mock('../../../components/PostTypeLabel', () => ({
+  PostTypeCardWithPeople: 'PostTypeCardWithPeople',
 }));
 jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
@@ -135,9 +139,7 @@ describe('renders for member', () => {
       {
         initialState,
         mocks: {
-          FeedItemConnection: () => ({
-            nodes: () => new MockList(10),
-          }),
+          FeedItemConnection: () => ({ nodes: () => new MockList(10) }),
         },
       },
     );
@@ -158,6 +160,24 @@ describe('renders for member', () => {
       skip: true,
       pollInterval: 30000,
     });
+  });
+
+  it('renders with type', async () => {
+    const { snapshot } = renderWithContext(
+      <CelebrateFeed
+        organization={organization}
+        person={person}
+        itemNamePressable={true}
+        filteredFeedType={FeedItemSubjectTypeEnum.STEP}
+      />,
+      {
+        initialState,
+        mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(1) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
   });
 });
 
