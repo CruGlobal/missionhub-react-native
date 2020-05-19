@@ -355,6 +355,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                 Object {
                   "color": "#505256",
                   "fontSize": 16,
+                  "paddingBottom": 20,
                 },
               ]
             }
@@ -723,6 +724,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 Object {
                   "color": "#505256",
                   "fontSize": 16,
+                  "paddingBottom": 20,
                 },
               ]
             }
@@ -748,7 +750,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.5,
+              "aspectRatio": 2,
             }
           }
         />

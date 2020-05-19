@@ -23,6 +23,7 @@ import {
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
+import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -73,6 +74,7 @@ export const CommunityFeedItem = ({
 
   const imageData = (isPost(subject) && subject.mediaExpiringUrl) || null;
 
+  const imageAspectRatio = useAspectRatio(imageData);
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
@@ -227,7 +229,7 @@ export const CommunityFeedItem = ({
       {imageData ? (
         <Image
           source={{ uri: imageData }}
-          style={{ aspectRatio: 3 / 2 }}
+          style={{ aspectRatio: imageAspectRatio }}
           resizeMode="contain"
         />
       ) : null}

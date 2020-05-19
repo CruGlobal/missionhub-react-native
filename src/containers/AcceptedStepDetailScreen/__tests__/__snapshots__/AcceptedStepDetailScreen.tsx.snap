@@ -537,6 +537,7 @@ exports[`should render correctly post details 1`] = `
                 Object {
                   "color": "#505256",
                   "fontSize": 16,
+                  "paddingBottom": 20,
                 },
               ]
             }
@@ -562,7 +563,7 @@ exports[`should render correctly post details 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.5,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />

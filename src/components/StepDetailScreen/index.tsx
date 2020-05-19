@@ -16,6 +16,7 @@ import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
 import BackButton from '../BackButton';
 import { Post } from '../../containers/AcceptedStepDetailScreen/__generated__/Post';
+import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 
 import styles from './styles';
 
@@ -53,9 +54,10 @@ const StepDetailScreen = ({
     pageContainer,
     personNameStyle,
     dateTextStyle,
+    postContentStyle,
   } = styles;
   const { t } = useTranslation('stepDetail');
-
+  const aspectRatio = useAspectRatio(post?.mediaExpiringUrl);
   const renderContent = () => (
     <>
       {Banner}
@@ -94,9 +96,7 @@ const StepDetailScreen = ({
               </Flex>
             </Flex>
             <Flex style={{ paddingTop: 10 }}>
-              <Text style={{ fontSize: 16, color: theme.grey }}>
-                {post.content}
-              </Text>
+              <Text style={postContentStyle}>{post.content}</Text>
             </Flex>
           </>
         ) : null}
@@ -105,7 +105,7 @@ const StepDetailScreen = ({
         <Flex>
           <Image
             source={{ uri: post.mediaExpiringUrl }}
-            style={{ aspectRatio: 3 / 2 }}
+            style={{ aspectRatio }}
             resizeMode="contain"
           />
         </Flex>
