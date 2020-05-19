@@ -59,6 +59,7 @@ const ReportedItem = ({
     switch (type) {
       case 'Story':
         return 'storyBy';
+      case 'FeedItemComment':
       case 'CommunityCelebrationItemComment':
         return 'commentBy';
       default:
@@ -95,7 +96,8 @@ const ReportedItem = ({
   const commentBy =
     subject.__typename === 'Story' || subject.__typename === 'Post'
       ? subject.author.fullName
-      : subject.__typename === 'CommunityCelebrationItemComment'
+      : subject.__typename === 'CommunityCelebrationItemComment' ||
+        subject.__typename === 'FeedItemComment'
       ? subject.person.fullName
       : '';
   const { card, users, comment, buttonLeft, buttonRight } = styles;
