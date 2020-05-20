@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -24,6 +24,7 @@ import {
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
+import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -58,7 +59,6 @@ export const CommunityFeedItem = ({
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
-  const [imageAspectRatio, changeImageAspectRatio] = useState(2);
 
   const FeedItemType = getFeedItemType(subject);
 
@@ -75,18 +75,7 @@ export const CommunityFeedItem = ({
 
   const imageData = (isPost(subject) && subject.mediaExpiringUrl) || null;
 
-  useEffect(() => {
-    if (!imageData) {
-      return;
-    }
-
-    Image.getSize(
-      imageData,
-      (width, height) => changeImageAspectRatio(width / height),
-      () => {},
-    );
-  }, [imageData]);
-
+  const imageAspectRatio = useAspectRatio(imageData);
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
@@ -210,7 +199,11 @@ export const CommunityFeedItem = ({
             communityId={communityId}
             pressable={namePressable}
           />
-          <CardTime date={createdAt} style={styles.headerTime} />
+          <CardTime
+            date={createdAt}
+            postFormatting={true}
+            style={styles.headerTime}
+          />
         </View>
       </View>
     </View>

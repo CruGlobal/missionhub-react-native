@@ -8,6 +8,7 @@ import styles from './styles';
 interface CardTimeProps {
   date: string;
   commentFormatting?: boolean;
+  postFormatting?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
 }
@@ -15,6 +16,7 @@ interface CardTimeProps {
 const CardTime = ({
   date,
   commentFormatting = false,
+  postFormatting = false,
   style = {},
 }: CardTimeProps) => (
   <DateComponent
@@ -22,6 +24,7 @@ const CardTime = ({
     date={date}
     format="LT"
     commentFormatting={commentFormatting}
+    postFormatting={postFormatting}
   />
 );
 

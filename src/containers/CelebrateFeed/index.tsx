@@ -1,13 +1,11 @@
 /* eslint-disable max-lines */
 import React, { useCallback } from 'react';
-import { Animated, View, SectionListData } from 'react-native';
+import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import { DateComponent } from '../../components/common';
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
-import CelebrateFeedHeader from '../CelebrateFeedHeader';
 import { CreatePostButton } from '../Groups/CreatePostButton';
 import {
   celebrationSelector,
@@ -18,7 +16,10 @@ import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { momentUtc } from '../../utils/date';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../Groups/OnboardingCard';
+import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
 
@@ -43,47 +44,34 @@ export interface CelebrateFeedProps {
 
 export interface CommunityFeedSection {
   id: number;
-  date: string;
+  title: string;
   data: FeedItemFragment[];
 }
 
 const sortCommunityFeed = (items: FeedItemFragment[]) => {
-  const sortByDate = items;
-  sortByDate.sort(compare);
-
-  const dateSections: CommunityFeedSection[] = [];
-  sortByDate.forEach(item => {
-    const length = dateSections.length;
+  const dateSections: CommunityFeedSection[] = [
+    { id: 0, title: 'dates.new', data: [] },
+    { id: 1, title: 'dates.today', data: [] },
+    { id: 2, title: 'dates.earlier', data: [] },
+  ];
+  items.forEach(item => {
     const itemMoment = momentUtc(item.createdAt);
-
-    if (
-      length > 0 &&
-      itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
-    ) {
-      dateSections[length - 1].data.push(item);
+    if (isLastTwentyFourHours(itemMoment) && !item.read) {
+      dateSections[0].data.push(item);
+      return;
+    }
+    if (isLastTwentyFourHours(itemMoment)) {
+      dateSections[1].data.push(item);
     } else {
-      dateSections.push({
-        id: dateSections.length,
-        date: item.createdAt,
-        data: [item],
-      });
+      dateSections[2].data.push(item);
     }
   });
+  // Filter out any sections with no data
+  const filteredSections = dateSections.filter(
+    section => section.data.length > 0,
+  );
 
-  return dateSections;
-};
-
-const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
-  const aValue = a.createdAt,
-    bValue = b.createdAt;
-
-  if (aValue < bValue) {
-    return 1;
-  }
-  if (aValue > bValue) {
-    return -1;
-  }
-  return 0;
+  return filteredSections;
 };
 
 export const CelebrateFeed = ({
@@ -221,16 +209,12 @@ export const CelebrateFeed = ({
 
   const renderSectionHeader = useCallback(
     ({
-      section: { date },
+      section: { title },
     }: {
       section: SectionListData<CelebrateFeedSection>;
     }) => (
       <View style={styles.header}>
-        <DateComponent
-          date={date}
-          relativeFormatting={true}
-          style={styles.title}
-        />
+        <Text style={styles.title}>{t(`${title}`)}</Text>
       </View>
     ),
     [],
@@ -261,12 +245,7 @@ export const CelebrateFeed = ({
         />
         {noHeader ? null : (
           <>
-            {filteredFeedType ? null : (
-              <CelebrateFeedHeader
-                isMember={!!person}
-                organization={organization}
-              />
-            )}
+            <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
             {!person ? (
               <CreatePostButton
                 refreshItems={handleRefreshing}
@@ -274,7 +253,11 @@ export const CelebrateFeed = ({
               />
             ) : null}
             {filteredFeedType || isGlobal ? null : (
-              <CelebrateFeedPostCards community={organization} />
+              <CelebrateFeedPostCards
+                community={organization}
+                // Refetch the feed to update new section once read
+                feedRefetch={refetch}
+              />
             )}
           </>
         )}

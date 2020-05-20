@@ -5,7 +5,7 @@ exports[`CommunityHeader should render community details 1`] = `
 - First value
 + Second value
 
-@@ -42,11 +42,11 @@
+@@ -35,11 +35,11 @@
         }
       >
         <Image
@@ -18,7 +18,7 @@ exports[`CommunityHeader should render community details 1`] = `
           style={
             Array [
               Object {
-@@ -282,11 +282,11 @@
+@@ -275,11 +275,11 @@
                   \\"lineHeight\\": 30,
                 },
               ]
@@ -31,7 +31,7 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -362,11 +362,11 @@
+@@ -355,11 +355,11 @@
                         },
                       ],
                     ]
@@ -51,7 +51,7 @@ exports[`CommunityHeader should render global community details 1`] = `
 - First value
 + Second value
 
-@@ -318,11 +318,11 @@
+@@ -311,11 +311,11 @@
                         },
                       ],
                     ]
@@ -92,13 +92,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
     style={
       Object {
         "backgroundColor": "#C5C7CB",
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
       }
     }
   >
@@ -564,13 +557,6 @@ exports[`CommunityHeader should render loading state 1`] = `
     style={
       Object {
         "backgroundColor": "#C5C7CB",
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
       }
     }
   >

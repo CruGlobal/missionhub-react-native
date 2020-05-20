@@ -16,6 +16,10 @@ it('renders correctly with comment formatting', () => {
   testSnapshotShallow(<CardTime date={date} commentFormatting={true} />);
 });
 
+it('renders correctly with post formatting', () => {
+  testSnapshotShallow(<CardTime date={date} postFormatting={true} />);
+});
+
 it('renders correctly with custom styling', () => {
   testSnapshotShallow(<CardTime date={date} style={{ color: 'blue' }} />);
 });

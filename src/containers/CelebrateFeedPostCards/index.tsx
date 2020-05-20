@@ -30,6 +30,7 @@ import {
 
 export interface CelebrateFeedPostCardsProps {
   community: Organization;
+  feedRefetch: () => void;
 }
 
 export interface CommunityFeedSection {
@@ -81,6 +82,7 @@ const getGroupPostCards = (
 
 export const CelebrateFeedPostCards = ({
   community,
+  feedRefetch,
 }: CelebrateFeedPostCardsProps) => {
   const dispatch = useDispatch();
 
@@ -109,6 +111,7 @@ export const CelebrateFeedPostCards = ({
       },
     });
     refetch();
+    feedRefetch();
   };
 
   return (
