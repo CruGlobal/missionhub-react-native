@@ -5,6 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
   transferOrgOwnership,
@@ -27,14 +28,19 @@ export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
 // @ts-ignore
 @withTranslation('groupMemberOptions')
 class MemberOptionsMenu extends Component<{
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  dispatch: ThunkDispatch<{}, {}, any>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  t: any;
   person: CommunityMemberPerson;
   organization: { id: string; name: string };
   personOrgPermission: { id: string; permission: string };
+  onActionTaken: Function;
 }> {
+  leaveCommunityOnUnmount = false;
+
   async componentWillUnmount() {
-    // @ts-ignore
     if (this.leaveCommunityOnUnmount) {
-      // @ts-ignore
       const { dispatch, person, personOrgPermission } = this.props;
 
       await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
@@ -42,11 +48,10 @@ class MemberOptionsMenu extends Component<{
   }
 
   leaveCommunity = () => {
-    // @ts-ignore
-    const { dispatch } = this.props;
+    const { dispatch, onActionTaken } = this.props;
 
-    // @ts-ignore
     this.leaveCommunityOnUnmount = true;
+    onActionTaken();
     dispatch(navigateBack());
   };
 
@@ -57,10 +62,11 @@ class MemberOptionsMenu extends Component<{
     tryItNowErrorMessageFunction,
   ) => {
     // @ts-ignore
-    const { dispatch, t } = this.props;
+    const { dispatch, t, onActionTaken } = this.props;
 
     try {
       await dispatch(action);
+      onActionTaken();
     } catch (error) {
       const errorDetail =
         error.apiError &&
@@ -81,7 +87,6 @@ class MemberOptionsMenu extends Component<{
   };
 
   makeAdmin = () => {
-    // @ts-ignore
     const { person, personOrgPermission } = this.props;
 
     return this.updatePermissionHandleTryItNowError(
@@ -91,15 +96,14 @@ class MemberOptionsMenu extends Component<{
     );
   };
 
-  removeAsAdmin = () => {
-    // @ts-ignore
-    const { dispatch, person, personOrgPermission } = this.props;
+  removeAsAdmin = async () => {
+    const { dispatch, person, personOrgPermission, onActionTaken } = this.props;
 
-    dispatch(removeAsAdmin(person.id, personOrgPermission.id));
+    await dispatch(removeAsAdmin(person.id, personOrgPermission.id));
+    onActionTaken();
   };
 
   makeOwner = () => {
-    // @ts-ignore
     const { organization, person } = this.props;
 
     return this.updatePermissionHandleTryItNowError(
@@ -110,11 +114,17 @@ class MemberOptionsMenu extends Component<{
   };
 
   removeFromCommunity = async () => {
-    // @ts-ignore
-    const { dispatch, person, personOrgPermission, organization } = this.props;
+    const {
+      dispatch,
+      person,
+      personOrgPermission,
+      organization,
+      onActionTaken,
+    } = this.props;
 
     await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
     dispatch(removeOrganizationMember(person.id, organization.id));
+    onActionTaken();
   };
 
   canLeaveCommunity = () => {
@@ -133,18 +143,14 @@ class MemberOptionsMenu extends Component<{
       return [{ text: t('leaveCommunity.optionTitle'), onPress }];
     }
 
-    // @ts-ignore
     return this.createOption('leaveCommunity', this.leaveCommunity);
   };
 
   // @ts-ignore
-  createOption = (optionName, optionMethod, hasDescription) => {
+  createOption = (optionName, optionMethod, hasDescription = false) => {
     const {
-      // @ts-ignore
       t,
-      // @ts-ignore
       person: { fullName: personName },
-      // @ts-ignore
       organization: { name: communityName },
     } = this.props;
 
@@ -188,7 +194,6 @@ class MemberOptionsMenu extends Component<{
           : []),
         ...(showRemoveAsAdmin
           ? // prettier-ignore
-            // @ts-ignore
             this.createOption('removeAdmin', this.removeAsAdmin)
           : []),
         ...(showMakeOwner
@@ -196,7 +201,6 @@ class MemberOptionsMenu extends Component<{
           : []),
         ...(showRemoveFromCommunity
           ? // prettier-ignore
-            // @ts-ignore
             this.createOption('removeMember', this.removeFromCommunity)
           : []),
       ],

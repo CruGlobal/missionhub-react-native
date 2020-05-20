@@ -144,6 +144,7 @@ export const CommunityMembersScreen = () => {
             organization={organization}
             personOrgPermission={item.communityPermission}
             person={item.node}
+            onRefreshMembers={refetch}
           />
         )}
         refreshControl={

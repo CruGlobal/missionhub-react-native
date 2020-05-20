@@ -1,3 +1,4 @@
+/* eslint-disable max-lines */
 import React, { useCallback } from 'react';
 import { Animated, View, SectionListData } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
@@ -18,6 +19,8 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc } from '../../utils/date';
+import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
@@ -34,6 +37,7 @@ export interface CelebrateFeedProps {
   onFetchMore?: () => void;
   onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
+  filteredFeedType?: FeedItemSubjectTypeEnum;
   collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
@@ -91,6 +95,7 @@ export const CelebrateFeed = ({
   onRefetch,
   onFetchMore,
   onClearNotification,
+  filteredFeedType,
   collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
@@ -99,6 +104,7 @@ export const CelebrateFeed = ({
     communityId: organization.id,
     personIds: person && person.id,
     hasUnreadComments: showUnreadOnly,
+    subjectType: filteredFeedType,
   };
 
   const {
@@ -259,16 +265,21 @@ export const CelebrateFeed = ({
         />
         {noHeader ? null : (
           <>
-            <CelebrateFeedHeader
-              isMember={!!person}
-              organization={organization}
-            />
+            {filteredFeedType ? null : (
+              <CelebrateFeedHeader
+                isMember={!!person}
+                organization={organization}
+              />
+            )}
             {!person ? (
               <CreatePostButton
                 refreshItems={handleRefreshing}
                 communityId={organization.id}
               />
             ) : null}
+            {filteredFeedType || isGlobal ? null : (
+              <CelebrateFeedPostCards community={organization} />
+            )}
           </>
         )}
       </>

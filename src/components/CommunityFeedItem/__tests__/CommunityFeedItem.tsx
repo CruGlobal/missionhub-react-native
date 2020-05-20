@@ -27,7 +27,11 @@ import { CommunityPerson } from '../../CommunityFeedItem/__generated__/Community
 import { CommunityFeedStep } from '../__generated__/CommunityFeedStep';
 import { CommunityFeedChallenge } from '../__generated__/CommunityFeedChallenge';
 import { CommunityFeedPost } from '../__generated__/CommunityFeedPost';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
+import {
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
 import { CommunityFeedItem } from '..';
@@ -425,6 +429,26 @@ describe('add to steps button', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
       item: prayerPostItem,
+      communityId,
+    });
+  });
+});
+
+describe('navigates to post type screen', () => {
+  it('navigates', () => {
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItem
+        item={storyPostItem}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+    fireEvent.press(getByTestId('STORYButton'));
+
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+      type: FeedItemSubjectTypeEnum.STORY,
       communityId,
     });
   });

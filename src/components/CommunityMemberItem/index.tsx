@@ -32,12 +32,14 @@ export interface CommunityMemberItemProps {
   person: CommunityMemberPerson;
   organization: Organization;
   personOrgPermission: { id: string; permission: PermissionEnum };
+  onRefreshMembers: Function;
 }
 
 const CommunityMemberItem = ({
   person,
   organization,
   personOrgPermission,
+  onRefreshMembers,
 }: CommunityMemberItemProps) => {
   const { t } = useTranslation('groupItem');
   const dispatch = useDispatch();
@@ -129,6 +131,7 @@ const CommunityMemberItem = ({
         </Flex>
         {isMe || (iAmAdmin && !personIsOwner) ? (
           <MemberOptionsMenu
+            onActionTaken={onRefreshMembers}
             // @ts-ignore
             myId={myId}
             person={person}
