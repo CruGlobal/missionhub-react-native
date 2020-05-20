@@ -58,7 +58,7 @@ const sortCommunityFeed = (items: FeedItemFragment[]) => {
   ];
   sortByDate.forEach(item => {
     const itemMoment = momentUtc(item.createdAt);
-    if (!item.read) {
+    if (isLastTwentyFourHours(itemMoment) && !item.read) {
       dateSections[0].data.push(item);
       return;
     }

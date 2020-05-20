@@ -1814,8 +1814,8 @@ exports[`renders for member renders with type 1`] = `
             "subjectPersonName": "Torey Abbott",
           },
         ],
-        "id": 0,
-        "title": "dates.new",
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -1914,8 +1914,8 @@ exports[`renders for member renders with type 1`] = `
             "subjectPersonName": "Torey Abbott",
           },
         ],
-        "id": 0,
-        "title": "dates.new",
+        "id": 2,
+        "title": "dates.earlier",
       },
     ]
   }
@@ -1963,7 +1963,7 @@ exports[`renders for member renders with type 1`] = `
             }
           }
         >
-          New
+          Earlier
         </Text>
       </View>
     </View>
@@ -2185,6 +2185,112 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
+                "totalCount": 80275,
+              },
+            },
+            "createdAt": "2016-11-26T00:02:28.431Z",
+            "id": "2",
+            "liked": false,
+            "likesCount": 69232,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "saepe eum dicta",
+              "id": "3",
+              "mediaContentType": "eum eaque enim",
+              "mediaExpiringUrl": "ipsum inventore debitis",
+              "postType": "thought",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "5",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "6",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Torey",
+              "fullName": "Marco Boyle",
+              "id": "4",
+              "lastName": "Abbott",
+              "picture": "deserunt quam tempore",
+            },
+            "subjectPersonName": "Torey Abbott",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
                 "totalCount": 9155,
               },
             },
@@ -2412,118 +2518,6 @@ exports[`renders for member renders without header 1`] = `
               "picture": "eos quod recusandae",
             },
             "subjectPersonName": "Marcellus Hyatt",
-          },
-        ],
-        "id": 0,
-        "title": "dates.new",
-      },
-      Object {
-        "data": Array [
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 80275,
-              },
-            },
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-            "liked": false,
-            "likesCount": 69232,
-            "read": true,
-            "subject": Object {
-              "__typename": "Post",
-              "content": "saepe eum dicta",
-              "id": "3",
-              "mediaContentType": "eum eaque enim",
-              "mediaExpiringUrl": "ipsum inventore debitis",
-              "postType": "thought",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "5",
-                    },
-                    "permission": "user",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "6",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Torey",
-              "fullName": "Marco Boyle",
-              "id": "4",
-              "lastName": "Abbott",
-              "picture": "deserunt quam tempore",
-            },
-            "subjectPersonName": "Torey Abbott",
-          },
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 13002,
-              },
-            },
-            "createdAt": "2014-10-16T11:34:26.098Z",
-            "id": "14",
-            "liked": false,
-            "likesCount": 8362,
-            "read": true,
-            "subject": Object {
-              "__typename": "Post",
-              "content": "voluptates ut ullam",
-              "id": "15",
-              "mediaContentType": "quos qui illo",
-              "mediaExpiringUrl": "error sunt laborum",
-              "postType": "help_request",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "17",
-                    },
-                    "permission": "admin",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "18",
-                    },
-                    "permission": "admin",
-                  },
-                ],
-              },
-              "firstName": "Zola",
-              "fullName": "Caesar Will",
-              "id": "16",
-              "lastName": "Corkery",
-              "picture": "officia quaerat cumque",
-            },
-            "subjectPersonName": "Zola Corkery",
           },
           Object {
             "__typename": "FeedItem",
@@ -2790,6 +2784,112 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
+                "totalCount": 80275,
+              },
+            },
+            "createdAt": "2016-11-26T00:02:28.431Z",
+            "id": "2",
+            "liked": false,
+            "likesCount": 69232,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "saepe eum dicta",
+              "id": "3",
+              "mediaContentType": "eum eaque enim",
+              "mediaExpiringUrl": "ipsum inventore debitis",
+              "postType": "thought",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "5",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "6",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Torey",
+              "fullName": "Marco Boyle",
+              "id": "4",
+              "lastName": "Abbott",
+              "picture": "deserunt quam tempore",
+            },
+            "subjectPersonName": "Torey Abbott",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
                 "totalCount": 9155,
               },
             },
@@ -3018,118 +3118,6 @@ exports[`renders for member renders without header 1`] = `
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
-        ],
-        "id": 0,
-        "title": "dates.new",
-      },
-      Object {
-        "data": Array [
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 80275,
-              },
-            },
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-            "liked": false,
-            "likesCount": 69232,
-            "read": true,
-            "subject": Object {
-              "__typename": "Post",
-              "content": "saepe eum dicta",
-              "id": "3",
-              "mediaContentType": "eum eaque enim",
-              "mediaExpiringUrl": "ipsum inventore debitis",
-              "postType": "thought",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "5",
-                    },
-                    "permission": "user",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "6",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Torey",
-              "fullName": "Marco Boyle",
-              "id": "4",
-              "lastName": "Abbott",
-              "picture": "deserunt quam tempore",
-            },
-            "subjectPersonName": "Torey Abbott",
-          },
-          Object {
-            "__typename": "FeedItem",
-            "comments": Object {
-              "__typename": "FeedItemCommentConnection",
-              "pageInfo": Object {
-                "__typename": "BasePageInfo",
-                "totalCount": 13002,
-              },
-            },
-            "createdAt": "2014-10-16T11:34:26.098Z",
-            "id": "14",
-            "liked": false,
-            "likesCount": 8362,
-            "read": true,
-            "subject": Object {
-              "__typename": "Post",
-              "content": "voluptates ut ullam",
-              "id": "15",
-              "mediaContentType": "quos qui illo",
-              "mediaExpiringUrl": "error sunt laborum",
-              "postType": "help_request",
-            },
-            "subjectPerson": Object {
-              "__typename": "Person",
-              "communityPermissions": Object {
-                "__typename": "CommunityPermissionConnection",
-                "nodes": Array [
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "17",
-                    },
-                    "permission": "admin",
-                  },
-                  Object {
-                    "__typename": "CommunityPermission",
-                    "community": Object {
-                      "__typename": "Community",
-                      "id": "18",
-                    },
-                    "permission": "admin",
-                  },
-                ],
-              },
-              "firstName": "Zola",
-              "fullName": "Caesar Will",
-              "id": "16",
-              "lastName": "Corkery",
-              "picture": "officia quaerat cumque",
-            },
-            "subjectPersonName": "Zola Corkery",
-          },
           Object {
             "__typename": "FeedItem",
             "comments": Object {
@@ -3256,7 +3244,6 @@ exports[`renders for member renders without header 1`] = `
   stickyHeaderIndices={
     Array [
       1,
-      9,
     ]
   }
   stickySectionHeadersEnabled={true}
@@ -3298,7 +3285,7 @@ exports[`renders for member renders without header 1`] = `
             }
           }
         >
-          New
+          Earlier
         </Text>
       </View>
     </View>
@@ -3445,6 +3432,136 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
+                "totalCount": 80275,
+              },
+            },
+            "createdAt": "2016-11-26T00:02:28.431Z",
+            "id": "2",
+            "liked": false,
+            "likesCount": 69232,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "saepe eum dicta",
+              "id": "3",
+              "mediaContentType": "eum eaque enim",
+              "mediaExpiringUrl": "ipsum inventore debitis",
+              "postType": "thought",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "5",
+                    },
+                    "permission": "user",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "6",
+                    },
+                    "permission": "no_permissions",
+                  },
+                ],
+              },
+              "firstName": "Torey",
+              "fullName": "Marco Boyle",
+              "id": "4",
+              "lastName": "Abbott",
+              "picture": "deserunt quam tempore",
+            },
+            "subjectPersonName": "Torey Abbott",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 13002,
+              },
+            },
+            "createdAt": "2014-10-16T11:34:26.098Z",
+            "id": "14",
+            "liked": false,
+            "likesCount": 8362,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "voluptates ut ullam",
+              "id": "15",
+              "mediaContentType": "quos qui illo",
+              "mediaExpiringUrl": "error sunt laborum",
+              "postType": "help_request",
+            },
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "communityPermissions": Object {
+                "__typename": "CommunityPermissionConnection",
+                "nodes": Array [
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "17",
+                    },
+                    "permission": "admin",
+                  },
+                  Object {
+                    "__typename": "CommunityPermission",
+                    "community": Object {
+                      "__typename": "Community",
+                      "id": "18",
+                    },
+                    "permission": "admin",
+                  },
+                ],
+              },
+              "firstName": "Zola",
+              "fullName": "Caesar Will",
+              "id": "16",
+              "lastName": "Corkery",
+              "picture": "officia quaerat cumque",
+            },
+            "subjectPersonName": "Zola Corkery",
+          }
+        }
+        namePressable={true}
+        onRefresh={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        communityId="456"
+        item={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
                 "totalCount": 9155,
               },
             },
@@ -3717,38 +3834,6 @@ exports[`renders for member renders without header 1`] = `
     <View
       onLayout={[Function]}
       style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 24,
-              "fontWeight": "200",
-            }
-          }
-        >
-          Earlier
-        </Text>
-      </View>
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
     >
       <CommunityFeedItem
         communityId="456"
@@ -3759,21 +3844,32 @@ exports[`renders for member renders without header 1`] = `
               "__typename": "FeedItemCommentConnection",
               "pageInfo": Object {
                 "__typename": "BasePageInfo",
-                "totalCount": 80275,
+                "totalCount": 20856,
               },
             },
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
+            "createdAt": "2010-10-23T23:03:00.746Z",
+            "id": "43",
             "liked": false,
-            "likesCount": 69232,
+            "likesCount": 71152,
             "read": true,
             "subject": Object {
-              "__typename": "Post",
-              "content": "saepe eum dicta",
-              "id": "3",
-              "mediaContentType": "eum eaque enim",
-              "mediaExpiringUrl": "ipsum inventore debitis",
-              "postType": "thought",
+              "__typename": "CommunityChallenge",
+              "acceptedCommunityChallengesList": Array [
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-10T07:55:02.090Z",
+                  "completedAt": "2018-12-18T02:47:55.473Z",
+                  "id": "45",
+                },
+                Object {
+                  "__typename": "AcceptedCommunityChallenge",
+                  "acceptedAt": "2019-10-02T16:21:04.622Z",
+                  "completedAt": "2014-12-10T04:37:10.179Z",
+                  "id": "46",
+                },
+              ],
+              "id": "44",
+              "title": "ipsum sit qui",
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -3784,27 +3880,27 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "5",
+                      "id": "48",
                     },
-                    "permission": "user",
+                    "permission": "admin",
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-                      "id": "6",
+                      "id": "49",
                     },
-                    "permission": "no_permissions",
+                    "permission": "owner",
                   },
                 ],
               },
-              "firstName": "Torey",
-              "fullName": "Marco Boyle",
-              "id": "4",
-              "lastName": "Abbott",
-              "picture": "deserunt quam tempore",
+              "firstName": "Tre",
+              "fullName": "Delbert Brakus",
+              "id": "47",
+              "lastName": "Lind",
+              "picture": "eos quis ut",
             },
-            "subjectPersonName": "Torey Abbott",
+            "subjectPersonName": "Tre Lind",
           }
         }
         namePressable={true}
