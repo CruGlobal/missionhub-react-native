@@ -6,270 +6,11 @@ Array [
     "data": Array [
       Object {
         "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "2",
-        "celebrateableId": "2",
-        "celebrateableType": "COMPLETED_STEP",
-        "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2018-01-07 00:00:00 UTC",
-        "commentsCount": 38791,
-        "id": "4",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "repellat ratione ut",
-        "celebrateableId": "2",
-        "celebrateableType": "COMMUNITY_CHALLENGE",
-        "changedAttributeName": "completed_at",
-        "changedAttributeValue": "2018-01-06 00:05:00 UTC",
-        "commentsCount": 38791,
-        "id": "9",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "repellat ratione ut",
-        "celebrateableId": "2",
-        "celebrateableType": "COMMUNITY_CHALLENGE",
-        "changedAttributeName": "accepted_at",
-        "changedAttributeValue": "2018-01-06 00:04:00 UTC",
-        "commentsCount": 38791,
-        "id": "8",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "9",
-        "celebrateableId": "2",
-        "celebrateableType": "COMPLETED_INTERACTION",
-        "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2018-01-05 00:00:00 UTC",
-        "commentsCount": 38791,
-        "id": "5",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "5",
-        "celebrateableId": "2",
-        "celebrateableType": "COMPLETED_INTERACTION",
-        "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2018-01-02 00:23:00 UTC",
-        "commentsCount": 38791,
-        "id": "6",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "11",
-        "celebrateableId": "2",
-        "celebrateableType": "COMPLETED_INTERACTION",
-        "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2018-01-02 00:07:00 UTC",
-        "commentsCount": 38791,
-        "id": "3",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "3",
-        "celebrateableId": "2",
-        "celebrateableType": "COMPLETED_INTERACTION",
-        "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2018-01-02 00:00:00 UTC",
-        "commentsCount": 38791,
-        "id": "7",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
         "celebrateableType": "JOINED_COMMUNITY",
         "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2018-01-01 00:00:00 UTC",
+        "changedAttributeValue": "2020-05-20 11:00:00 UTC",
         "commentsCount": 38791,
         "id": "1",
         "liked": false,
@@ -300,163 +41,10 @@ Array [
         },
         "subjectPersonName": "Hayden Zieme",
       },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "4",
-        "celebrateableId": "2",
-        "celebrateableType": "COMPLETED_INTERACTION",
-        "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2017-01-01 00:00:00 UTC",
-        "commentsCount": 38791,
-        "id": "2",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "repellat ratione ut",
-        "celebrateableId": "2",
-        "celebrateableType": "JOINED_COMMUNITY",
-        "changedAttributeName": "created_at",
-        "changedAttributeValue": "2016-12-25 00:09:00 UTC",
-        "commentsCount": 38791,
-        "id": "11",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "repellat ratione ut",
-        "celebrateableId": "2",
-        "celebrateableType": "STORY",
-        "changedAttributeName": "created_at",
-        "changedAttributeValue": "2016-12-25 00:09:00 UTC",
-        "commentsCount": 38791,
-        "id": "12",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
-      Object {
-        "adjectiveAttributeName": "alias consequuntur corporis",
-        "adjectiveAttributeValue": "repellat ratione ut",
-        "celebrateableId": "2",
-        "celebrateableType": "CREATED_COMMUNITY",
-        "changedAttributeName": "created_at",
-        "changedAttributeValue": "2016-12-25 00:02:00 UTC",
-        "commentsCount": 38791,
-        "id": "10",
-        "liked": false,
-        "likesCount": 66974,
-        "objectDescription": "qui recusandae ut",
-        "subjectPerson": Object {
-          "communityPermissions": Object {
-            "nodes": Array [
-              Object {
-                "community": Object {
-                  "id": "4",
-                },
-                "permission": "admin",
-              },
-              Object {
-                "community": Object {
-                  "id": "5",
-                },
-                "permission": "no_permissions",
-              },
-            ],
-          },
-          "firstName": "Roscoe",
-          "fullName": "Roscoe Johnson",
-          "id": "3",
-          "lastName": "Johnson",
-          "picture": "ipsam nobis cupiditate",
-        },
-        "subjectPersonName": "Hayden Zieme",
-      },
     ],
-    "id": 2,
-    "title": "dates.earlier",
+    "id": 1,
+    "title": "dates.today",
   },
-]
-`;
-
-exports[`celebrationSelector sorts items into sections by date 1`] = `
-Array [
   Object {
     "data": Array [
       Object {
@@ -720,13 +308,437 @@ Array [
       },
       Object {
         "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "4",
+        "celebrateableId": "2",
+        "celebrateableType": "COMPLETED_INTERACTION",
+        "changedAttributeName": "sunt qui amet",
+        "changedAttributeValue": "2017-01-01 00:00:00 UTC",
+        "commentsCount": 38791,
+        "id": "2",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "repellat ratione ut",
+        "celebrateableId": "2",
+        "celebrateableType": "JOINED_COMMUNITY",
+        "changedAttributeName": "created_at",
+        "changedAttributeValue": "2016-12-25 00:09:00 UTC",
+        "commentsCount": 38791,
+        "id": "11",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "repellat ratione ut",
+        "celebrateableId": "2",
+        "celebrateableType": "STORY",
+        "changedAttributeName": "created_at",
+        "changedAttributeValue": "2016-12-25 00:09:00 UTC",
+        "commentsCount": 38791,
+        "id": "12",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "repellat ratione ut",
+        "celebrateableId": "2",
+        "celebrateableType": "CREATED_COMMUNITY",
+        "changedAttributeName": "created_at",
+        "changedAttributeValue": "2016-12-25 00:02:00 UTC",
+        "commentsCount": 38791,
+        "id": "10",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+    ],
+    "id": 2,
+    "title": "dates.earlier",
+  },
+]
+`;
+
+exports[`celebrationSelector sorts items into sections by date 1`] = `
+Array [
+  Object {
+    "data": Array [
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
         "adjectiveAttributeValue": "repellat ratione ut",
         "celebrateableId": "2",
         "celebrateableType": "JOINED_COMMUNITY",
         "changedAttributeName": "sunt qui amet",
-        "changedAttributeValue": "2018-01-01 00:00:00 UTC",
+        "changedAttributeValue": "2020-05-20 11:00:00 UTC",
         "commentsCount": 38791,
         "id": "1",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+    ],
+    "id": 1,
+    "title": "dates.today",
+  },
+  Object {
+    "data": Array [
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "2",
+        "celebrateableId": "2",
+        "celebrateableType": "COMPLETED_STEP",
+        "changedAttributeName": "sunt qui amet",
+        "changedAttributeValue": "2018-01-07 00:00:00 UTC",
+        "commentsCount": 38791,
+        "id": "4",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "repellat ratione ut",
+        "celebrateableId": "2",
+        "celebrateableType": "COMMUNITY_CHALLENGE",
+        "changedAttributeName": "completed_at",
+        "changedAttributeValue": "2018-01-06 00:05:00 UTC",
+        "commentsCount": 38791,
+        "id": "9",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "repellat ratione ut",
+        "celebrateableId": "2",
+        "celebrateableType": "COMMUNITY_CHALLENGE",
+        "changedAttributeName": "accepted_at",
+        "changedAttributeValue": "2018-01-06 00:04:00 UTC",
+        "commentsCount": 38791,
+        "id": "8",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "9",
+        "celebrateableId": "2",
+        "celebrateableType": "COMPLETED_INTERACTION",
+        "changedAttributeName": "sunt qui amet",
+        "changedAttributeValue": "2018-01-05 00:00:00 UTC",
+        "commentsCount": 38791,
+        "id": "5",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "5",
+        "celebrateableId": "2",
+        "celebrateableType": "COMPLETED_INTERACTION",
+        "changedAttributeName": "sunt qui amet",
+        "changedAttributeValue": "2018-01-02 00:23:00 UTC",
+        "commentsCount": 38791,
+        "id": "6",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "11",
+        "celebrateableId": "2",
+        "celebrateableType": "COMPLETED_INTERACTION",
+        "changedAttributeName": "sunt qui amet",
+        "changedAttributeValue": "2018-01-02 00:07:00 UTC",
+        "commentsCount": 38791,
+        "id": "3",
+        "liked": false,
+        "likesCount": 66974,
+        "objectDescription": "qui recusandae ut",
+        "subjectPerson": Object {
+          "communityPermissions": Object {
+            "nodes": Array [
+              Object {
+                "community": Object {
+                  "id": "4",
+                },
+                "permission": "admin",
+              },
+              Object {
+                "community": Object {
+                  "id": "5",
+                },
+                "permission": "no_permissions",
+              },
+            ],
+          },
+          "firstName": "Roscoe",
+          "fullName": "Roscoe Johnson",
+          "id": "3",
+          "lastName": "Johnson",
+          "picture": "ipsam nobis cupiditate",
+        },
+        "subjectPersonName": "Hayden Zieme",
+      },
+      Object {
+        "adjectiveAttributeName": "alias consequuntur corporis",
+        "adjectiveAttributeValue": "3",
+        "celebrateableId": "2",
+        "celebrateableType": "COMPLETED_INTERACTION",
+        "changedAttributeName": "sunt qui amet",
+        "changedAttributeValue": "2018-01-02 00:00:00 UTC",
+        "commentsCount": 38791,
+        "id": "7",
         "liked": false,
         "likesCount": 66974,
         "objectDescription": "qui recusandae ut",
