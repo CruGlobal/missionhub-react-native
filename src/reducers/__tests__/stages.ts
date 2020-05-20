@@ -10,16 +10,19 @@ const localizedStage = {
 };
 const stage = {
   id: '2',
+  position: 1,
   name: 'English Name',
+  name_i18n: 'English Name',
   description: 'English Description',
+  description_i18n: 'English Description',
   self_followup_description: 'English Self Description',
   localized_pathway_stages: [localizedStage],
+  icon_url: '',
 };
 
 const newStages = [stage];
 
 it('loads stages', () => {
-  // @ts-ignore
   const state = stages(undefined, {
     type: REQUESTS.GET_STAGES.SUCCESS,
     results: { response: newStages },

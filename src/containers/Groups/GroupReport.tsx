@@ -70,6 +70,17 @@ export const GET_REPORTED_CONTENT = gql`
                 firstName
               }
             }
+            ... on Post {
+              id
+              content
+              createdAt
+              updatedAt
+              author {
+                id
+                fullName
+                firstName
+              }
+            }
           }
           person {
             id
