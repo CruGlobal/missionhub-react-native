@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 import React from 'react';
 import { MockList } from 'graphql-tools';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
