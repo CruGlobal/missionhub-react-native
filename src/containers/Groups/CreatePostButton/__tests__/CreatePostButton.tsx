@@ -180,6 +180,22 @@ it('onPress navigates for STORY ', async () => {
   });
 });
 
+it('onPress navigates for HELP_REQUEST ', async () => {
+  const { getByTestId } = renderWithContext(
+    <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.HELP_REQUEST} />,
+    { initialState },
+  );
+
+  await flushMicrotasksQueue();
+
+  fireEvent.press(getByTestId('CreatePostButton'));
+  expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
+    onComplete: refreshItems,
+    communityId: mockCommunityId,
+    postType: PostTypeEnum.help_request,
+  });
+});
+
 it('onPress navigates for THOUGHT ', async () => {
   const { getByTestId } = renderWithContext(
     <CreatePostButton {...props} type={FeedItemSubjectTypeEnum.THOUGHT} />,

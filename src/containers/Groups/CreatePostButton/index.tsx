@@ -77,6 +77,8 @@ export const CreatePostButton = ({
       navigateToCreatePostScreen(PostTypeEnum.question);
     } else if (type === FeedItemSubjectTypeEnum.STORY) {
       navigateToCreatePostScreen(PostTypeEnum.story);
+    } else if (type === FeedItemSubjectTypeEnum.HELP_REQUEST) {
+      navigateToCreatePostScreen(PostTypeEnum.help_request);
     } else if (type === FeedItemSubjectTypeEnum.THOUGHT) {
       navigateToCreatePostScreen(PostTypeEnum.thought);
     } else if (type === FeedItemSubjectTypeEnum.ANNOUNCEMENT) {
