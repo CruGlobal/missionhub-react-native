@@ -5,6 +5,9 @@ import { useMutation } from '@apollo/react-hooks';
 import { renderWithContext } from '../../../../testUtils';
 import { UPDATE_PERSON } from '../../../containers/SetupScreen/queries';
 import { OnboardingAddPhotoScreen } from '../';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const MOCK_IMAGE = 'base64image.jpeg';
 const MOCK_IMAGE_2 = 'base64image2.jpeg';
@@ -13,6 +16,11 @@ const next = jest.fn(() => () => ({}));
 describe('OnboardingAddPhotoScreen', () => {
   it('renders without image correctly', () => {
     renderWithContext(<OnboardingAddPhotoScreen next={next} />).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith([
+      'onboarding',
+      'add profile photo',
+    ]);
   });
 
   it('should select an image', async () => {

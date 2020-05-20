@@ -16,6 +16,7 @@ import {
   UpdatePersonVariables,
 } from '../SetupScreen/__generated__/UpdatePerson';
 import { UPDATE_PERSON } from '../SetupScreen/queries';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import ProfileIcon from './ProfileIcon.svg';
 import ProfilePlusIcon from './ProfilePlusIcon.svg';
@@ -40,6 +41,7 @@ interface OnboardingAddPhotoScreenProps {
 export const OnboardingAddPhotoScreen = ({
   next,
 }: OnboardingAddPhotoScreenProps) => {
+  useAnalytics(['onboarding', 'add profile photo']);
   const { t } = useTranslation('onboardingAddPhoto');
   const dispatch = useDispatch();
   const [profileImage, setProfileImage] = useState<string | null>(null);
