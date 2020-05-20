@@ -9,7 +9,7 @@ import PostTypeLabel, {
 } from '../../../components/PostTypeLabel';
 import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { AuthState } from '../../../reducers/auth';
-import { mapPostTypeToFeedType } from '../../../utils/common';
+import { mapPostTypeToFeedType, isAdminOrOwner } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
@@ -21,21 +21,20 @@ import {
   FeedItemSubjectTypeEnum,
 } from '../../../../__generated__/globalTypes';
 import theme from '../../../theme';
+import { getMyCommunityPermission_community } from '../CreatePostButton/__generated__/getMyCommunityPermission';
 
 import styles from './styles';
 
 interface CreatePostModalProps {
   closeModal: () => void;
-  communityId: string;
+  community: getMyCommunityPermission_community;
   refreshItems: () => void;
-  adminOrOwner?: boolean;
 }
 
 const CreatePostModal = ({
   closeModal,
-  communityId,
+  community,
   refreshItems,
-  adminOrOwner,
 }: CreatePostModalProps) => {
   const {
     modalStyle,
@@ -47,12 +46,13 @@ const CreatePostModal = ({
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
   const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
+  const orgPermission = community?.people.edges[0].communityPermission;
+
+  const adminOrOwner = orgPermission && isAdminOrOwner(orgPermission);
 
   useAnalytics(['post', 'choose type'], {
     screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(auth, {
-        id: communityId,
-      }),
+      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(auth, community),
     },
   });
 
@@ -61,7 +61,7 @@ const CreatePostModal = ({
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         onComplete: refreshItems,
-        communityId,
+        communityId: community.id,
         postType,
       }),
     );

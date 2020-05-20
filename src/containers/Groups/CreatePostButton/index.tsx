@@ -41,15 +41,13 @@ export const CreatePostButton = ({
   const personId = useMyId();
   const [isModalOpen, changeModalVisibility] = useState(false);
 
-  const { data: { community } = { community: undefined } } = useQuery<
+  const { data } = useQuery<
     getMyCommunityPermission,
     getMyCommunityPermissionVariables
   >(GET_MY_COMMUNITY_PERMISSION_QUERY, {
-    variables: {
-      id: communityId,
-      myId: personId,
-    },
+    variables: { id: communityId, myId: personId },
   });
+  const community = data?.community;
   const orgPermission = community?.people.edges[0].communityPermission;
 
   const adminOrOwner = orgPermission && isAdminOrOwner(orgPermission);
@@ -93,12 +91,11 @@ export const CreatePostButton = ({
 
   return (
     <View style={container}>
-      {isModalOpen ? (
+      {isModalOpen && community ? (
         <CreatePostModal
           closeModal={closeModal}
-          communityId={communityId}
+          community={community}
           refreshItems={refreshItems}
-          adminOrOwner={adminOrOwner}
         />
       ) : null}
       <Button style={button} onPress={openModal} testID="CreatePostButton">

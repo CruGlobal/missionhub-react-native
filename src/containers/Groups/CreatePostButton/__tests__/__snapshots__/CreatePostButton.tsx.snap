@@ -1,6 +1,150 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`does not render announcement 1`] = `null`;
+
 exports[`does not render for Global Community 1`] = `null`;
+
+exports[`does not render for step 1`] = `null`;
+
+exports[`does render announcement for owner 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "elevation": 4,
+      "marginBottom": 5,
+      "marginTop": -5,
+      "paddingTop": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="CreatePostButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "borderRadius": 20,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "flex-start",
+            "marginHorizontal": 20,
+            "marginVertical": 20,
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(199, 163, 67)",
+              },
+              Object {
+                "marginLeft": -15,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "height": 18,
+              "paddingLeft": 10,
+            },
+          ]
+        }
+      >
+        Make an Announcement
+      </Text>
+    </View>
+  </View>
+</View>
+`;
 
 exports[`onPress opens modal 1`] = `
 "Snapshot Diff:
@@ -639,6 +783,286 @@ exports[`onPress opens modal 1`] = `
 `;
 
 exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "elevation": 4,
+      "marginBottom": 5,
+      "marginTop": -5,
+      "paddingTop": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="CreatePostButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "borderRadius": 20,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "flex-start",
+            "marginHorizontal": 20,
+            "marginVertical": 20,
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(199, 163, 67)",
+              },
+              Object {
+                "marginLeft": -15,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "height": 18,
+              "paddingLeft": 10,
+            },
+          ]
+        }
+      >
+        Post to community...
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly for admin 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "elevation": 4,
+      "marginBottom": 5,
+      "marginTop": -5,
+      "paddingTop": 5,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 1,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="CreatePostButton"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "transparent",
+            "borderRadius": 0,
+            "borderWidth": 0,
+            "height": 60,
+            "justifyContent": "center",
+            "margin": 0,
+            "paddingHorizontal": 20,
+            "paddingVertical": 10,
+          },
+          null,
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ECEEF2",
+            "borderRadius": 20,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "flex-start",
+            "marginHorizontal": 20,
+            "marginVertical": 20,
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(199, 163, 67)",
+              },
+              Object {
+                "marginLeft": -15,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "height": 18,
+              "paddingLeft": 10,
+            },
+          ]
+        }
+      >
+        Post to community...
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly for owner 1`] = `
 <View
   style={
     Object {
