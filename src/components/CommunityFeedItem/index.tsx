@@ -62,11 +62,12 @@ export const CommunityFeedItem = ({
 
   const FeedItemType = getFeedItemType(subject);
 
-  const addToSteps = [
-    FeedItemSubjectTypeEnum.HELP_REQUEST,
-    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
-    FeedItemSubjectTypeEnum.QUESTION,
-  ].includes(FeedItemType);
+  const addToSteps =
+    [
+      FeedItemSubjectTypeEnum.HELP_REQUEST,
+      FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+      FeedItemSubjectTypeEnum.QUESTION,
+    ].includes(FeedItemType) && !isMe;
   const isGlobal = orgIsGlobal({ id: communityId });
 
   const isPost = (
