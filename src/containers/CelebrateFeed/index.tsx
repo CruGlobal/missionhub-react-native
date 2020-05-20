@@ -52,15 +52,20 @@ const sortCommunityFeed = (items: FeedItemFragment[]) => {
   const sortByDate = items;
   sortByDate.sort(compare);
   const dateSections: CommunityFeedSection[] = [
+    { id: 0, title: 'dates.new', data: [] },
     { id: 1, title: 'dates.today', data: [] },
     { id: 2, title: 'dates.earlier', data: [] },
   ];
   sortByDate.forEach(item => {
     const itemMoment = momentUtc(item.createdAt);
-    if (isLastTwentyFourHours(itemMoment)) {
+    if (!item.read) {
       dateSections[0].data.push(item);
-    } else {
+      return;
+    }
+    if (isLastTwentyFourHours(itemMoment)) {
       dateSections[1].data.push(item);
+    } else {
+      dateSections[2].data.push(item);
     }
   });
   // Filter out any sections with no data
@@ -263,7 +268,11 @@ export const CelebrateFeed = ({
               />
             ) : null}
             {filteredFeedType || isGlobal ? null : (
-              <CelebrateFeedPostCards community={organization} />
+              <CelebrateFeedPostCards
+                community={organization}
+                // Refetch the feed to update new section once read
+                feedRefetch={refetch}
+              />
             )}
           </>
         )}
