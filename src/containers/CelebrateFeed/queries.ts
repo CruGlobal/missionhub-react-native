@@ -47,7 +47,7 @@ export const GET_COMMUNITY_FEED = gql`
   ) {
     community(id: $communityId) {
       id
-      feedItems(subjectType: $subjectType) {
+      feedItems(subjectType: $subjectType, sortBy: createdAt_DESC) {
         nodes {
           ...CommunityFeedItem
         }

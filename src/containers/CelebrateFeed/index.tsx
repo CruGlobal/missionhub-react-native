@@ -49,14 +49,12 @@ export interface CommunityFeedSection {
 }
 
 const sortCommunityFeed = (items: FeedItemFragment[]) => {
-  const sortByDate = items;
-  sortByDate.sort(compare);
   const dateSections: CommunityFeedSection[] = [
     { id: 0, title: 'dates.new', data: [] },
     { id: 1, title: 'dates.today', data: [] },
     { id: 2, title: 'dates.earlier', data: [] },
   ];
-  sortByDate.forEach(item => {
+  items.forEach(item => {
     const itemMoment = momentUtc(item.createdAt);
     if (isLastTwentyFourHours(itemMoment) && !item.read) {
       dateSections[0].data.push(item);
@@ -74,19 +72,6 @@ const sortCommunityFeed = (items: FeedItemFragment[]) => {
   );
 
   return filteredSections;
-};
-
-const compare = (a: FeedItemFragment, b: FeedItemFragment) => {
-  const aValue = a.createdAt,
-    bValue = b.createdAt;
-
-  if (aValue < bValue) {
-    return 1;
-  }
-  if (aValue > bValue) {
-    return -1;
-  }
-  return 0;
 };
 
 export const CelebrateFeed = ({
