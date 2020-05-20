@@ -35,8 +35,8 @@ export const CommentLikeComponent = ({
     },
     liked,
     likesCount,
-    subjectPerson,
     subject,
+    subjectPerson,
   } = item;
   const isPrayer =
     subject.__typename === 'Post' &&
