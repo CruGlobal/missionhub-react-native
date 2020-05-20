@@ -70,12 +70,12 @@ export const GET_REPORTED_CONTENT = gql`
                 firstName
               }
             }
-            ... on FeedItemComment {
+            ... on Post {
               id
               content
               createdAt
               updatedAt
-              person {
+              author {
                 id
                 fullName
                 firstName
