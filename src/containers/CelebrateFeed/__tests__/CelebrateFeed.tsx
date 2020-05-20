@@ -28,6 +28,10 @@ jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
 }));
 
+jest.mock('../../../containers/CelebrateFeedPostCards', () => ({
+  CelebrateFeedPostCards: 'CelebrateFeedPostCards',
+}));
+
 const myId = '123';
 const organization: Organization = { id: '456' };
 const person: Person = { id: '789' };
@@ -99,11 +103,7 @@ it('renders with celebration items correctly', async () => {
 describe('sections', () => {
   it('renders New section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        itemNamePressable={true}
-        noHeader={true}
-      />,
+      <CelebrateFeed organization={organization} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -138,11 +138,7 @@ describe('sections', () => {
 
   it('renders Today section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        itemNamePressable={true}
-        noHeader={true}
-      />,
+      <CelebrateFeed organization={organization} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -177,11 +173,7 @@ describe('sections', () => {
 
   it('renders Earlier section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
-        organization={organization}
-        itemNamePressable={true}
-        noHeader={true}
-      />,
+      <CelebrateFeed organization={organization} itemNamePressable={true} />,
       {
         initialState,
         mocks: {

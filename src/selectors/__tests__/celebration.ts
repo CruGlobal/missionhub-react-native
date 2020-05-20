@@ -1,5 +1,6 @@
-import { mockFragment } from '../../../testUtils/apolloMockClient';
 import MockDate from 'mockdate';
+
+import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { celebrationSelector } from '../celebration';
 import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
 import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
