@@ -250,6 +250,7 @@ export const CelebrateFeed = ({
               <CreatePostButton
                 refreshItems={handleRefreshing}
                 communityId={organization.id}
+                type={filteredFeedType}
               />
             ) : null}
             {filteredFeedType || isGlobal ? null : (
@@ -271,6 +272,7 @@ export const CelebrateFeed = ({
       noHeader,
       person,
       organization,
+      filteredFeedType,
     ],
   );
 

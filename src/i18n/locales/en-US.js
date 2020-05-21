@@ -923,11 +923,11 @@ export default {
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {
-      story: 'Share a God Story',
-      prayer_request: 'Ask for Prayer',
-      question: 'Ask a Spiritual Question',
-      help_request: 'Ask for Help',
-      announcement: 'Make an Announcement',
+      STORY: 'Share a God Story',
+      PRAYER_REQUEST: 'Ask for Prayer',
+      QUESTION: 'Ask a Spiritual Question',
+      HELP_REQUEST: 'Ask for Help',
+      ANNOUNCEMENT: 'Make an Announcement',
     },
     placeholder: {
       story: 'Share an inspiring God story...',
