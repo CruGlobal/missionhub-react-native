@@ -4,13 +4,13 @@ import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import { CommunityFeedItem } from '../../components/CommunityFeedItem';
+import {
+  CommunityFeedItem,
+  CombinedFeedItem,
+} from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import { CreatePostButton } from '../Groups/CreatePostButton';
-import {
-  celebrationSelector,
-  CelebrateFeedSection,
-} from '../../selectors/celebration';
+import { CelebrateFeedSection } from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
@@ -110,14 +110,13 @@ export const CelebrateFeed = ({
     refetch,
   } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
     variables: queryVariables,
-    pollInterval: 30000,
     skip: isGlobal,
   });
 
   const {
     data: {
       globalCommunity: {
-        celebrationItems: {
+        feedItems: {
           nodes: globalNodes = [],
           pageInfo: {
             endCursor: globalEndCursor = null,
@@ -131,80 +130,85 @@ export const CelebrateFeed = ({
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
   } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
-    pollInterval: 30000,
     skip: !isGlobal,
   });
 
-  const items = isGlobal
-    ? celebrationSelector({ celebrateItems: globalNodes })
-    : sortCommunityFeed(nodes);
+  const items = sortCommunityFeed(
+    (isGlobal ? globalNodes : nodes) as CombinedFeedItem[],
+  );
 
   const handleRefreshing = () => {
+    if (loading || globalLoading) {
+      return;
+    }
+
     isGlobal ? globalRefetch() : refetch();
     onRefetch && onRefetch();
   };
 
   const handleOnEndReached = () => {
-    if (hasNextPage) {
-      fetchMore({
-        variables: {
-          ...queryVariables,
-          celebrateCursor: endCursor,
-        },
-        updateQuery: (prev, { fetchMoreResult }) =>
-          fetchMoreResult
-            ? {
-                ...prev,
-                ...fetchMoreResult,
-                community: {
-                  ...prev.community,
-                  ...fetchMoreResult.community,
-                  feedItems: {
-                    ...prev.community.feedItems,
-                    ...fetchMoreResult.community.feedItems,
-                    nodes: [
-                      ...(prev.community.feedItems.nodes || []),
-                      ...(fetchMoreResult.community.feedItems.nodes || []),
-                    ],
-                  },
-                },
-              }
-            : prev,
-      });
-      onFetchMore && onFetchMore();
+    if (loading || error || !hasNextPage) {
+      return;
     }
+
+    fetchMore({
+      variables: {
+        ...queryVariables,
+        feedCursor: endCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              community: {
+                ...prev.community,
+                ...fetchMoreResult.community,
+                feedItems: {
+                  ...prev.community.feedItems,
+                  ...fetchMoreResult.community.feedItems,
+                  nodes: [
+                    ...(prev.community.feedItems.nodes || []),
+                    ...(fetchMoreResult.community.feedItems.nodes || []),
+                  ],
+                },
+              },
+            }
+          : prev,
+    });
+    onFetchMore && onFetchMore();
   };
 
   const handleOnEndReachedGlobal = () => {
-    if (globalHasNextPage) {
-      globalFetchMore({
-        variables: {
-          ...queryVariables,
-          celebrateCursor: globalEndCursor,
-        },
-        updateQuery: (prev, { fetchMoreResult }) =>
-          fetchMoreResult
-            ? {
-                ...prev,
-                ...fetchMoreResult,
-                globalCommunity: {
-                  ...prev.globalCommunity,
-                  ...fetchMoreResult.globalCommunity,
-                  celebrationItems: {
-                    ...prev.globalCommunity.celebrationItems,
-                    ...fetchMoreResult.globalCommunity.celebrationItems,
-                    nodes: [
-                      ...(prev.globalCommunity.celebrationItems.nodes || []),
-                      ...(fetchMoreResult.globalCommunity.celebrationItems
-                        .nodes || []),
-                    ],
-                  },
-                },
-              }
-            : prev,
-      });
-      onFetchMore && onFetchMore();
+    if (globalLoading || globalError || !globalHasNextPage) {
+      return;
     }
+
+    globalFetchMore({
+      variables: {
+        feedCursor: globalEndCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              globalCommunity: {
+                ...prev.globalCommunity,
+                ...fetchMoreResult.globalCommunity,
+                feedItems: {
+                  ...prev.globalCommunity.feedItems,
+                  ...fetchMoreResult.globalCommunity.feedItems,
+                  nodes: [
+                    ...(prev.globalCommunity.feedItems.nodes || []),
+                    ...(fetchMoreResult.globalCommunity.feedItems.nodes || []),
+                  ],
+                },
+              },
+            }
+          : prev,
+    });
+    onFetchMore && onFetchMore();
   };
 
   const renderSectionHeader = useCallback(

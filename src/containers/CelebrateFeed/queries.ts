@@ -1,34 +1,16 @@
 import gql from 'graphql-tag';
 
 import {
-  COMMUNITY_PERSON_FRAGMENT,
+  GLOBAL_COMMUNITY_FEED_ITEM_FRAGMENT,
   COMMUNITY_FEED_ITEM_FRAGMENT,
 } from '../../components/CommunityFeedItem/queries';
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
-  query GetGlobalCommunityFeed($celebrateCursor: String) {
+  query GetGlobalCommunityFeed($feedCursor: String) {
     globalCommunity {
-      celebrationItems(
-        sortBy: createdAt_DESC
-        first: 25
-        after: $celebrateCursor
-      ) {
+      feedItems(sortBy: createdAt_DESC, first: 25, after: $feedCursor) {
         nodes {
-          id
-          adjectiveAttributeName
-          adjectiveAttributeValue
-          celebrateableId
-          celebrateableType
-          changedAttributeName
-          changedAttributeValue
-          commentsCount
-          liked
-          likesCount
-          objectDescription
-          subjectPerson {
-            ...CommunityPerson
-          }
-          subjectPersonName
+          ...GlobalCommunityFeedItem
         }
         pageInfo {
           endCursor
@@ -37,17 +19,23 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
       }
     }
   }
-  ${COMMUNITY_PERSON_FRAGMENT}
+  ${GLOBAL_COMMUNITY_FEED_ITEM_FRAGMENT}
 `;
 
 export const GET_COMMUNITY_FEED = gql`
   query GetCommunityFeed(
     $communityId: ID!
     $subjectType: FeedItemSubjectTypeEnum = null
+    $feedCursor: String
   ) {
     community(id: $communityId) {
       id
-      feedItems(subjectType: $subjectType, sortBy: createdAt_DESC) {
+      feedItems(
+        subjectType: $subjectType
+        sortBy: createdAt_DESC
+        first: 25
+        after: $feedCursor
+      ) {
         nodes {
           ...CommunityFeedItem
         }

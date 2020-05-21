@@ -12,7 +12,7 @@ import {
   getFeedItemType,
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CombinedFeedItem } from '../CommunityFeedItem';
 import {
   CommunityFeedStep,
   CommunityFeedStep_receiverStageAtCompletion,
@@ -23,7 +23,7 @@ import { CommunityFeedChallenge } from '../CommunityFeedItem/__generated__/Commu
 import styles from './styles';
 
 export interface CommunityFeedItemContentProps {
-  item: CommunityFeedItem;
+  item: CombinedFeedItem;
   communityId: string;
   style?: StyleProp<ViewStyle>;
 }
