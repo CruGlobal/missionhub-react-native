@@ -16,7 +16,7 @@ const CardTime = ({ date, style = {} }: CardTimeProps) => (
     style={[styles.time, style]}
     date={date}
     format="LT"
-    dateAtTIme={true}
+    dateAtTime={true}
   />
 );
 

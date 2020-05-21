@@ -7,7 +7,7 @@ import { dateFormat, getMomentDate, dateAtTimeFormat } from '../../utils/date';
 interface DateComponentProps {
   date: string | Date;
   format?: dateFormat;
-  dateAtTIme?: boolean;
+  dateAtTime?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
 }
@@ -15,11 +15,11 @@ interface DateComponentProps {
 const DateComponent = ({
   date,
   format = 'ddd, lll',
-  dateAtTIme = false,
+  dateAtTime = false,
   style,
 }: DateComponentProps) => {
   const momentDate = getMomentDate(date);
-  const text = dateAtTIme
+  const text = dateAtTime
     ? dateAtTimeFormat(momentDate)
     : momentDate.format(format);
 
