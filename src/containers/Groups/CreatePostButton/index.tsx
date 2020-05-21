@@ -94,7 +94,7 @@ export const CreatePostButton = ({
       >
         <Avatar
           size="extrasmall"
-          personId={personId}
+          person={personId}
           style={{ marginLeft: -15 }}
         />
         <Text style={buttonText}>
