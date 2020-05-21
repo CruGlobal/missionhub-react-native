@@ -44,8 +44,7 @@ export const CreatePostButton = ({
   >(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: { id: communityId, myId: personId },
   });
-  const community = data?.community;
-  const orgPermission = community?.people.edges[0].communityPermission;
+  const orgPermission = data?.community.people.edges[0].communityPermission;
 
   const adminOrOwner = isAdminOrOwner(orgPermission);
 
