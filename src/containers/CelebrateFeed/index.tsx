@@ -308,6 +308,7 @@ export const CelebrateFeed = ({
         collapsibleScrollViewProps?.contentContainerStyle,
         styles.listContent,
       ]}
+      scrollIndicatorInsets={{ right: 1 }} // Fix for scrollbar occasionally floating away from the right https://github.com/facebook/react-native/issues/26610#issuecomment-539843444
     />
   );
 };
