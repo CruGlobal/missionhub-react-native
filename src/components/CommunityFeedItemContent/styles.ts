@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
+import markdownStyles from '../../markdownStyles';
 
 export default StyleSheet.create({
   row: {
@@ -21,5 +22,14 @@ export default StyleSheet.create({
     letterSpacing: 0,
     color: theme.primaryColor,
     textAlign: 'left',
+  },
+});
+
+export const markdown = StyleSheet.create({
+  ...markdownStyles,
+  text: {
+    ...markdownStyles.text,
+    fontSize: 14,
+    lineHeight: 18,
   },
 });

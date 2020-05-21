@@ -20,9 +20,8 @@ import {
 } from '../CommunityFeedItem/__generated__/CommunityFeedStep';
 import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { CommunityFeedChallenge } from '../CommunityFeedItem/__generated__/CommunityFeedChallenge';
-import markdownStyles from '../../markdownStyles';
 
-import styles from './styles';
+import styles, { markdown } from './styles';
 
 export interface CommunityFeedItemContentProps {
   item: CombinedFeedItem;
@@ -124,7 +123,7 @@ export const CommunityFeedItemContent = ({
   );
 
   const renderPostMessage = () => (
-    <Markdown style={markdownStyles}>
+    <Markdown style={markdown}>
       {(subject as CommunityFeedPost).content}
     </Markdown>
   );
