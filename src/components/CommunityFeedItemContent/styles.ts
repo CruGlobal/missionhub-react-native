@@ -26,6 +26,10 @@ export default StyleSheet.create({
   row: {
     flexDirection: 'row',
   },
+  postTextWrap: {
+    paddingVertical: 8,
+    paddingHorizontal: 20,
+  },
   messageText: {
     fontSize: 14,
     lineHeight: 18,

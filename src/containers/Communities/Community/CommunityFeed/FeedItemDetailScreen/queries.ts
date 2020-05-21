@@ -5,32 +5,35 @@ import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../../../../CommentsList/querie
 import { FEED_ITEM_EDITING_COMMENT_FRAGMENT } from '../../../../../components/CelebrateCommentBox/queries';
 
 export const FEED_ITEM_DETAIL_QUERY = gql`
-  query FeedItemDetail ($feedItemId: ID!, $myId:ID!, $commentsCursor: String) {
-    feedItem (id: $feedItemId) {
-      id 
+  query FeedItemDetail($feedItemId: ID!, $myId: ID!, $commentsCursor: String) {
+    feedItem(id: $feedItemId) {
+      id
       ...CommunityFeedItemContent
-      comments(after:$commentsCursor){
+      comments(after: $commentsCursor) {
         nodes {
           id
           ...FeedItemCommentItem
           ...FeedItemEditingComment
         }
-        pageInfo{hasNextPage endCursor}
+        pageInfo {
+          hasNextPage
+          endCursor
+        }
       }
-      community{
+      community {
         id
         name
-        people(personIds: [$myId]){
+        people(personIds: [$myId]) {
           edges {
-            communityPermission{
+            communityPermission {
               permission
             }
           }
         }
       }
     }
-    ${COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT}
-    ${FEED_ITEM_COMMENT_ITEM_FRAGMENT}
-    ${FEED_ITEM_EDITING_COMMENT_FRAGMENT}
   }
+  ${COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT}
+  ${FEED_ITEM_COMMENT_ITEM_FRAGMENT}
+  ${FEED_ITEM_EDITING_COMMENT_FRAGMENT}
 `;

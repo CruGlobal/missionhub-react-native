@@ -1,34 +1,34 @@
 import { StyleSheet } from 'react-native';
 
-import theme from '../../theme';
+import theme, { COLORS } from '../../theme';
 
 export default StyleSheet.create({
-  content: {
+  container: {
+    flex: 1,
+    flexDirection: 'row',
     paddingVertical: 8,
-    paddingHorizontal: 20,
+    paddingHorizontal: 30,
   },
-  editingStyle: {
-    backgroundColor: theme.convert({ color: theme.black, alpha: 0.5 }),
+  contentContainer: {
+    paddingLeft: 10,
   },
-  itemStyle: {
-    backgroundColor: theme.white,
+  commentHeader: { flexDirection: 'row', alignItems: 'flex-end' },
+  commentBody: {
+    alignSelf: 'flex-start',
+    backgroundColor: theme.extraLightGrey,
     borderRadius: 8,
     paddingVertical: 8,
     paddingHorizontal: 13,
     marginVertical: 5,
   },
-  myStyle: {
-    backgroundColor: theme.secondaryColor,
+  editingComment: {
+    backgroundColor: COLORS.GLACIER_BLUE,
   },
   text: {
-    paddingVertical: 3,
-  },
-  myText: {
-    color: theme.white,
+    // paddingVertical: 3,
   },
   name: {
-    paddingLeft: 10,
-    paddingRight: 5,
-    color: theme.white,
+    // paddingLeft: 10,
+    paddingRight: 6,
   },
 });

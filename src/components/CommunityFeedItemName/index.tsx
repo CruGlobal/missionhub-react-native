@@ -25,7 +25,7 @@ export const CommunityFeedItemName = ({
   const dispatch = useDispatch();
 
   const onPressNameLink = () =>
-    personId && dispatch(navToPersonScreen(personId, { id: communityId }));
+    personId && dispatch(navToPersonScreen(personId));
 
   const content = customContent || (
     <ItemHeaderText

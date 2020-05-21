@@ -35,13 +35,11 @@ import {
 export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;
   namePressable?: boolean;
-  style?: StyleProp<ViewStyle>;
 }
 
 export const CommunityFeedItemContent = ({
   feedItem,
   namePressable = false,
-  style,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -252,7 +250,7 @@ export const CommunityFeedItemContent = ({
   return (
     <>
       {renderHeader()}
-      <View style={style}>
+      <View style={styles.postTextWrap}>
         <Text style={styles.messageText}>{renderMessage()}</Text>
         {subject.__typename === 'CommunityChallenge'
           ? renderChallengeLink(subject)

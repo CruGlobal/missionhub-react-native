@@ -9,6 +9,7 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
 import { FeedItemCommentItem } from './__generated__/FeedItemCommentItem';
+import Avatar from '../../components/Avatar';
 
 export interface CommentItemProps {
   testID?: string;
@@ -19,7 +20,7 @@ export interface CommentItemProps {
     destructive?: boolean;
   }[];
   isReported?: boolean;
-  isEditing: boolean;
+  isEditing?: boolean;
 }
 
 const CommentItem = ({
@@ -29,57 +30,41 @@ const CommentItem = ({
   isEditing,
 }: CommentItemProps) => {
   const { content, person, createdAt } = comment;
-  const {
-    itemStyle,
-    myStyle,
-    text,
-    myText,
-    content: contentStyle,
-    editingStyle,
-    name: nameStyle,
-  } = styles;
-  const isMine = useIsMe(person.id);
-  const isMineNotReported = isMine && !isReported;
   const name = person.fullName;
 
-  const renderContent = () => {
+  const renderComment = () => {
     return (
-      <View style={[itemStyle, isMineNotReported ? myStyle : null]}>
-        <Text style={[text, isMineNotReported ? myText : null]}>{content}</Text>
+      <View style={[styles.commentBody, isEditing && styles.editingComment]}>
+        <Text style={styles.text}>{content}</Text>
       </View>
     );
   };
 
   return (
-    <View style={[contentStyle, isEditing ? editingStyle : null]}>
-      <Flex direction="row" align="end">
-        {isMineNotReported ? (
-          <Flex value={1} />
-        ) : (
+    <View style={styles.container}>
+      <Avatar person={comment.person} size="small" />
+      <View style={styles.contentContainer}>
+        <View style={styles.commentHeader}>
           <CommunityFeedItemName
             name={name}
             personId={person.id}
             pressable={!isReported}
-            customContent={<Text style={nameStyle}>{name}</Text>}
+            customContent={<Text style={styles.name}>{name}</Text>}
           />
-        )}
-        <CardTime date={createdAt} />
-      </Flex>
-      <Flex direction="row">
-        {isMineNotReported ? <Flex value={1} /> : null}
+          <CardTime date={createdAt} />
+        </View>
         {menuActions ? (
           <PopupMenu
             actions={menuActions}
             triggerOnLongPress={true}
             disabled={isReported}
           >
-            {renderContent()}
+            {renderComment()}
           </PopupMenu>
         ) : (
-          renderContent()
+          renderComment()
         )}
-        {!isMineNotReported ? <Flex value={1} /> : null}
-      </Flex>
+      </View>
     </View>
   );
 };

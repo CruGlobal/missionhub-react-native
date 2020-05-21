@@ -8,6 +8,7 @@ export const FEED_ITEM_COMMENT_ITEM_FRAGMENT = gql`
     person {
       id
       fullName
+      picture
     }
   }
 `;

@@ -11,7 +11,7 @@ import { CommunityFeedItemContent } from '../../../../../components/CommunityFee
 import {
   RefreshControl,
   Text,
-  LoadingWheel,
+  Separator,
 } from '../../../../../components/common';
 import {
   ANALYTICS_ASSIGNMENT_TYPE,
@@ -126,51 +126,48 @@ const FeedItemDetailScreen = () => {
           </Text>
         }
       />
+      <Separator />
       <ErrorNotice
         message={t('errorLoadingFeedItemDetails')}
         error={error}
         refetch={refetch}
       />
-      {data ? <CommunityFeedItemContent feedItem={data?.feedItem} /> : null}
     </SafeAreaView>
   );
 
-  const renderCommentsList = () => (
-    <View style={styles.contentContainer}>
-      {data ? (
-        <CommentsList
-          comments={data.feedItem.comments.nodes}
-          editingCommentId={editingCommentId}
-          setEditingCommentId={setEditingCommentId}
-          isOwner={
-            data.feedItem.community?.people.edges[0].communityPermission
-              .permission === PermissionEnum.owner
-          }
-          listProps={{
-            ref: listRef,
-            refreshControl: (
-              <RefreshControl
-                testID="RefreshControl"
-                refreshing={loading}
-                onRefresh={refetch}
-              />
-            ),
-            ListHeaderComponent: () => (
-              <CommunityFeedItemContent
-                feedItem={data?.feedItem}
-                style={styles.itemContent}
-              />
-            ),
-            onEndReached: handleNextPage,
-            onEndReachedThreshold: 0.2,
-            ListFooterComponent: loading ? <FooterLoading /> : null,
-          }}
-        />
-      ) : (
-        <LoadingWheel />
-      )}
-    </View>
-  );
+  const renderCommentsList = () =>
+    data ? (
+      <CommentsList
+        comments={data.feedItem.comments.nodes}
+        editingCommentId={editingCommentId}
+        setEditingCommentId={setEditingCommentId}
+        isOwner={
+          data.feedItem.community?.people.edges[0].communityPermission
+            .permission === PermissionEnum.owner
+        }
+        listProps={{
+          ref: listRef,
+          refreshControl: (
+            <RefreshControl
+              testID="RefreshControl"
+              refreshing={loading}
+              onRefresh={refetch}
+            />
+          ),
+          ListHeaderComponent: () => (
+            <>
+              <CommunityFeedItemContent feedItem={data?.feedItem} />
+              <Separator style={styles.belowItem} />
+            </>
+          ),
+          onEndReached: handleNextPage,
+          onEndReachedThreshold: 0.2,
+          ListFooterComponent: loading ? <FooterLoading /> : null,
+        }}
+      />
+    ) : (
+      <FooterLoading />
+    );
 
   const renderCommentBox = () =>
     data ? (

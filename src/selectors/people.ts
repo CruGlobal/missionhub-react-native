@@ -3,7 +3,6 @@ import { createSelector } from 'reselect';
 import { PeopleState, Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
 import { Organization } from '../reducers/organizations';
-import { CommunityPermission } from '../components/CommunityFeedItem/__generated__/CommunityPermission';
 
 import { removeHiddenOrgs } from './selectorUtils';
 
@@ -196,6 +195,6 @@ export const selectOrgPermission = (
           orgPermission.organization_id === organization.id,
       )
     : (person?.communityPermissions?.nodes || []).find(
-        (orgPermission: CommunityPermission) =>
+        (orgPermission: { community: { id: string } }) =>
           orgPermission.community.id === organization.id,
       );

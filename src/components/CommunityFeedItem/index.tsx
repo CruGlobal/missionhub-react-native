@@ -140,13 +140,7 @@ export const CommunityFeedItem = ({
 
   const renderContent = () => (
     <View style={styles.cardContent}>
-      <CommunityFeedItemContent
-        feedItem={item}
-        communityId={communityId}
-        namePressable={namePressable}
-        onRefresh={onRefresh}
-        style={styles.postTextWrap}
-      />
+      <CommunityFeedItemContent feedItem={item} namePressable={namePressable} />
       {onClearNotification ? renderClearNotificationButton() : null}
     </View>
   );

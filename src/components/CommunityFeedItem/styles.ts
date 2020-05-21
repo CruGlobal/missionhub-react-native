@@ -6,11 +6,6 @@ export default StyleSheet.create({
   cardContent: {
     flex: 1,
   },
-
-  postTextWrap: {
-    paddingVertical: 8,
-    paddingHorizontal: 20,
-  },
   postText: {
     fontSize: 16,
     lineHeight: 24,
