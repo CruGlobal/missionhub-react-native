@@ -113,7 +113,7 @@ exports[`renders correctly 1`] = `
             }
             testID="Text"
           >
-            3:58 AM
+            September 19, 2010 @ 3:58 AM
           </Text>
         </View>
         <View

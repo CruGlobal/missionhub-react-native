@@ -84,7 +84,7 @@ const CommentItem = ({
             customContent={<Text style={nameStyle}>{name}</Text>}
           />
         )}
-        <CardTime date={itemDate} commentFormatting={true} />
+        <CardTime date={itemDate} />
       </Flex>
       <Flex direction="row">
         {isMineNotReported ? <Flex value={1} /> : null}
