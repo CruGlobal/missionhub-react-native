@@ -7,6 +7,7 @@ import { addNewInteraction } from '../../actions/interactions';
 import { INTERACTION_TYPES } from '../../constants';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
+import { useTranslation } from 'react-i18next';
 
 interface JourneyCommentBoxProps {
   person: Person;
@@ -21,15 +22,14 @@ const JourneyCommentBox = ({
   onSubmit,
   showInteractions,
 }: JourneyCommentBoxProps) => {
+  const { t } = useTranslation('actions');
   const dispatch = useDispatch();
 
-  const submitInteraction = (action: ActionItem | null, text: string) => {
-    const interaction = action || INTERACTION_TYPES.MHInteractionTypeNote;
-
+  const submitInteraction = (text: string) => {
     dispatch(
       addNewInteraction(
         person.id,
-        interaction,
+        INTERACTION_TYPES.MHInteractionTypeNote,
         text,
         organization ? organization.id : undefined,
       ),
@@ -39,7 +39,7 @@ const JourneyCommentBox = ({
 
   return (
     <CommentBox
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
+      placeholderText={t('commentBoxPlaceholder')}
       onSubmit={submitInteraction}
       showInteractions={showInteractions}
     />

@@ -46,46 +46,6 @@ export default StyleSheet.create({
   submitIcon: {
     color: theme.primaryColor,
   },
-  activeAction: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    alignSelf: 'stretch',
-    paddingVertical: 13,
-    borderBottomColor: theme.grey1,
-    borderBottomWidth: 1,
-    position: 'relative',
-  },
-  activeActionIcon: {
-    flex: 1,
-    alignItems: 'center',
-  },
-  activeIcon: {
-    textAlign: 'center',
-    alignSelf: 'center',
-    color: theme.primaryColor,
-  },
-  activeTextWrap: {
-    flex: 4,
-    justifyContent: 'center',
-    borderLeftColor: theme.separatorColor,
-    borderLeftWidth: 1,
-    paddingLeft: 20,
-    paddingBottom: 5,
-  },
-  activeDate: {
-    marginBottom: 5,
-    fontSize: 13,
-    color: theme.grey1,
-  },
-  activeText: {
-    color: theme.primaryColor,
-    fontSize: 15,
-  },
-  clearAction: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-  },
   clearActionButton: {
     backgroundColor: theme.grey1,
     borderRadius: 25,

@@ -5,7 +5,6 @@ import CommentBox, {
   ActionItem,
 } from '../../../../../../components/CommentBox';
 
-import styles from './styles';
 import { FeedItemEditingComment } from './__generated__/FeedItemEditingComment';
 import {
   CreateFeedItemComment,
@@ -19,6 +18,7 @@ import {
   UpdateFeedItemComment,
   UpdateFeedItemCommentVariables,
 } from './__generated__/UpdateFeedItemComment';
+import { useTranslation } from 'react-i18next';
 
 interface FeedCommentBoxProps {
   feedItemId: string;
@@ -33,6 +33,8 @@ const FeedCommentBox = ({
   onAddComplete,
   onCancel,
 }: FeedCommentBoxProps) => {
+  const { t } = useTranslation('feedCommentBox');
+
   const [createComment] = useMutation<
     CreateFeedItemComment,
     CreateFeedItemCommentVariables
@@ -43,7 +45,7 @@ const FeedCommentBox = ({
     UpdateFeedItemCommentVariables
   >(UPDATE_FEED_ITEM_COMMENT_MUTATION);
 
-  const submitComment = async (_: ActionItem | null, text: string) => {
+  const submitComment = async (text: string) => {
     if (editingComment) {
       onCancel();
       await updateComment({
@@ -60,11 +62,10 @@ const FeedCommentBox = ({
   return (
     <CommentBox
       testID="FeedCommentBox"
-      placeholderTextKey={'feedCommentBox:placeholder'}
+      placeholderText={t('placeholder')}
       onSubmit={submitComment}
       editingComment={editingComment}
       onCancel={onCancel}
-      containerStyle={styles.container}
     />
   );
 };
