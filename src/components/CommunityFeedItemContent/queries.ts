@@ -32,6 +32,7 @@ export const COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT = gql`
       id
       firstName
       lastName
+      fullName
       picture
     }
     community {

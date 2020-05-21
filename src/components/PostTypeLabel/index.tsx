@@ -206,7 +206,6 @@ export const PostTypeCardWithPeople = ({
             ))}
           {num > 0 && (
             <Avatar
-              person={null}
               customText={`+${num}`}
               size="extrasmall"
               style={[styles[type], { marginLeft: -12 }]}
