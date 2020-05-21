@@ -1,7 +1,8 @@
 /* eslint max-lines: 0 */
 import React from 'react';
+import { Animated } from 'react-native';
 import { MockList } from 'graphql-tools';
-import { flushMicrotasksQueue } from 'react-native-testing-library';
+import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useQuery } from '@apollo/react-hooks';
 import MockDate from 'mockdate';
 
@@ -384,6 +385,201 @@ describe('renders for Global Community', () => {
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: false,
+    });
+  });
+});
+
+describe('handle refreshing', () => {
+  it('refreshes community feed', async () => {
+    const onRefetch = jest.fn();
+
+    const { getByType } = renderWithContext(
+      <CelebrateFeed
+        organization={organization}
+        itemNamePressable={true}
+        onRefetch={onRefetch}
+      />,
+      {
+        initialState,
+        mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(1) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    fireEvent(getByType(Animated.SectionList), 'onRefresh');
+
+    expect(onRefetch).toHaveBeenCalledWith();
+  });
+
+  it('refreshes global community feed', async () => {
+    const onRefetch = jest.fn();
+
+    const { getByType } = renderWithContext(
+      <CelebrateFeed
+        organization={{ ...organization, id: GLOBAL_COMMUNITY_ID }}
+        itemNamePressable={true}
+        onRefetch={onRefetch}
+      />,
+      {
+        initialState,
+        mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(1) }) },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    fireEvent(getByType(Animated.SectionList), 'onRefresh');
+
+    expect(onRefetch).toHaveBeenCalledWith();
+  });
+});
+
+describe('handle pagination', () => {
+  describe('community feed pagination', () => {
+    let mocks = {};
+
+    const testScroll = async () => {
+      const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
+        <CelebrateFeed organization={organization} itemNamePressable={true} />,
+        {
+          initialState,
+          mocks,
+        },
+      );
+
+      await flushMicrotasksQueue();
+
+      const scrollDown = () =>
+        fireEvent(getByType(Animated.SectionList), 'onEndReached');
+
+      return {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      };
+    };
+
+    it('paginates when close to bottom', async () => {
+      mocks = {
+        FeedItemConnection: () => ({
+          nodes: () => new MockList(10),
+          pageInfo: () => ({ hasNextPage: true }),
+        }),
+      };
+
+      const {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      } = await testScroll();
+
+      recordSnapshot();
+
+      scrollDown();
+      await flushMicrotasksQueue();
+
+      diffSnapshot();
+    });
+
+    it('should not load more when no next page', async () => {
+      mocks = {
+        FeedItemConnection: () => ({
+          nodes: () => new MockList(10),
+          pageInfo: () => ({ hasNextPage: false }),
+        }),
+      };
+
+      const {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      } = await testScroll();
+
+      recordSnapshot();
+
+      scrollDown();
+      await flushMicrotasksQueue();
+
+      diffSnapshot();
+    });
+  });
+
+  describe('global community feed pagination', () => {
+    let mocks = {};
+
+    const testScroll = async () => {
+      const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
+        <CelebrateFeed
+          organization={{ ...organization, id: GLOBAL_COMMUNITY_ID }}
+          itemNamePressable={true}
+        />,
+        {
+          initialState,
+          mocks,
+        },
+      );
+
+      await flushMicrotasksQueue();
+
+      const scrollDown = () =>
+        fireEvent(getByType(Animated.SectionList), 'onEndReached');
+
+      return {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      };
+    };
+
+    it('paginates when close to bottom', async () => {
+      mocks = {
+        FeedItemConnection: () => ({
+          nodes: () => new MockList(10),
+          pageInfo: () => ({ hasNextPage: true }),
+        }),
+      };
+
+      const {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      } = await testScroll();
+
+      recordSnapshot();
+
+      scrollDown();
+      await flushMicrotasksQueue();
+
+      diffSnapshot();
+    });
+
+    it('should not load more when no next page', async () => {
+      mocks = {
+        FeedItemConnection: () => ({
+          nodes: () => new MockList(10),
+          pageInfo: () => ({ hasNextPage: false }),
+        }),
+      };
+
+      const {
+        scrollDown,
+        recordSnapshot,
+        diffSnapshot,
+        flushMicrotasksQueue,
+      } = await testScroll();
+
+      recordSnapshot();
+
+      scrollDown();
+      await flushMicrotasksQueue();
+
+      diffSnapshot();
     });
   });
 });

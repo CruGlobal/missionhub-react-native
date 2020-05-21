@@ -1,5 +1,1679 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handle pagination community feed pagination paginates when close to bottom 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -573,10 +573,551 @@
+                \\"lastName\\": \\"Paucek\\",
+                \\"picture\\": \\"delectus ea similique\\",
+              },
+              \\"subjectPersonName\\": \\"Elza Paucek\\",
+            },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 6633,
++               },
++             },
++             \\"createdAt\\": \\"2012-05-25T12:26:04.841Z\\",
++             \\"id\\": \\"62\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 21273,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"CommunityChallenge\\",
++               \\"acceptedCommunityChallengesList\\": Array [
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2018-05-31T22:47:49.138Z\\",
++                   \\"completedAt\\": \\"2019-05-16T03:24:13.970Z\\",
++                   \\"id\\": \\"64\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2016-06-21T21:46:52.631Z\\",
++                   \\"completedAt\\": \\"2017-06-07T20:23:48.675Z\\",
++                   \\"id\\": \\"65\\",
++                 },
++               ],
++               \\"id\\": \\"63\\",
++               \\"title\\": \\"non explicabo facere\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"67\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"68\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Waino\\",
++               \\"fullName\\": \\"Austen Schneider\\",
++               \\"id\\": \\"66\\",
++               \\"lastName\\": \\"Beatty\\",
++               \\"picture\\": \\"qui adipisci non\\",
++             },
++             \\"subjectPersonName\\": \\"Waino Beatty\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 6596,
++               },
++             },
++             \\"createdAt\\": \\"2012-10-04T18:10:48.857Z\\",
++             \\"id\\": \\"69\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 52273,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"dolorem recusandae est\\",
++               \\"id\\": \\"70\\",
++               \\"mediaContentType\\": \\"perferendis molestiae ut\\",
++               \\"mediaExpiringUrl\\": \\"qui et possimus\\",
++               \\"postType\\": \\"thought\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"72\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"73\\",
++                     },
++                     \\"permission\\": \\"user\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Rosella\\",
++               \\"fullName\\": \\"Uriel Hyatt\\",
++               \\"id\\": \\"71\\",
++               \\"lastName\\": \\"Robel\\",
++               \\"picture\\": \\"hic molestiae iste\\",
++             },
++             \\"subjectPersonName\\": \\"Rosella Robel\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 16695,
++               },
++             },
++             \\"createdAt\\": \\"2013-12-30T06:24:03.638Z\\",
++             \\"id\\": \\"74\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 54954,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"sint consequatur qui\\",
++               \\"id\\": \\"75\\",
++               \\"mediaContentType\\": \\"est sapiente aperiam\\",
++               \\"mediaExpiringUrl\\": \\"quia ex consequuntur\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"77\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"78\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Dax\\",
++               \\"fullName\\": \\"Ariel Collins\\",
++               \\"id\\": \\"76\\",
++               \\"lastName\\": \\"Gulgowski\\",
++               \\"picture\\": \\"eligendi quas perferendis\\",
++             },
++             \\"subjectPersonName\\": \\"Dax Gulgowski\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 17619,
++               },
++             },
++             \\"createdAt\\": \\"2018-12-25T07:43:34.435Z\\",
++             \\"id\\": \\"79\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 50307,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"sed nisi veniam\\",
++               \\"id\\": \\"80\\",
++               \\"mediaContentType\\": \\"earum ex culpa\\",
++               \\"mediaExpiringUrl\\": \\"eveniet debitis et\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"82\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"83\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Jeremie\\",
++               \\"fullName\\": \\"Rosalyn Bailey\\",
++               \\"id\\": \\"81\\",
++               \\"lastName\\": \\"Doyle\\",
++               \\"picture\\": \\"et delectus praesentium\\",
++             },
++             \\"subjectPersonName\\": \\"Jeremie Doyle\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 95004,
++               },
++             },
++             \\"createdAt\\": \\"2014-01-18T05:56:12.762Z\\",
++             \\"id\\": \\"84\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 1553,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"85\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"86\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"88\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"89\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Liliana\\",
++               \\"fullName\\": \\"Emerald Feest\\",
++               \\"id\\": \\"87\\",
++               \\"lastName\\": \\"Wunsch\\",
++               \\"picture\\": \\"saepe vel in\\",
++             },
++             \\"subjectPersonName\\": \\"Liliana Wunsch\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 1587,
++               },
++             },
++             \\"createdAt\\": \\"2015-11-02T07:02:00.318Z\\",
++             \\"id\\": \\"90\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 67906,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"alias accusamus reiciendis\\",
++               \\"id\\": \\"91\\",
++               \\"mediaContentType\\": \\"repellendus autem aliquam\\",
++               \\"mediaExpiringUrl\\": \\"aut vitae id\\",
++               \\"postType\\": \\"question\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"93\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"94\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Rhoda\\",
++               \\"fullName\\": \\"Carmel Shields\\",
++               \\"id\\": \\"92\\",
++               \\"lastName\\": \\"Trantow\\",
++               \\"picture\\": \\"non in esse\\",
++             },
++             \\"subjectPersonName\\": \\"Rhoda Trantow\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 85831,
++               },
++             },
++             \\"createdAt\\": \\"2019-09-02T21:15:13.769Z\\",
++             \\"id\\": \\"95\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 78939,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"consequatur quia voluptatem\\",
++               \\"id\\": \\"96\\",
++               \\"mediaContentType\\": \\"tempore totam qui\\",
++               \\"mediaExpiringUrl\\": \\"ea eum labore\\",
++               \\"postType\\": \\"thought\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"98\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"99\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Carlo\\",
++               \\"fullName\\": \\"Hallie Bahringer\\",
++               \\"id\\": \\"97\\",
++               \\"lastName\\": \\"Rosenbaum\\",
++               \\"picture\\": \\"in provident voluptatem\\",
++             },
++             \\"subjectPersonName\\": \\"Carlo Rosenbaum\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 68468,
++               },
++             },
++             \\"createdAt\\": \\"2018-01-19T05:16:39.241Z\\",
++             \\"id\\": \\"100\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 42670,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"101\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"102\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"104\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"105\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Aidan\\",
++               \\"fullName\\": \\"Stone Sauer\\",
++               \\"id\\": \\"103\\",
++               \\"lastName\\": \\"O'Conner\\",
++               \\"picture\\": \\"nam sint enim\\",
++             },
++             \\"subjectPersonName\\": \\"Aidan O'Conner\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 18511,
++               },
++             },
++             \\"createdAt\\": \\"2014-04-25T10:00:19.666Z\\",
++             \\"id\\": \\"106\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 73314,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"107\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"108\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"110\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"111\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Anthony\\",
++               \\"fullName\\": \\"Evelyn Nicolas\\",
++               \\"id\\": \\"109\\",
++               \\"lastName\\": \\"Batz\\",
++               \\"picture\\": \\"et est vel\\",
++             },
++             \\"subjectPersonName\\": \\"Anthony Batz\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 86508,
++               },
++             },
++             \\"createdAt\\": \\"2011-04-17T09:21:33.490Z\\",
++             \\"id\\": \\"112\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 68841,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"113\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"114\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"116\\",
++                     },
++                     \\"permission\\": \\"user\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"117\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Jeanie\\",
++               \\"fullName\\": \\"Ewell Krajcik\\",
++               \\"id\\": \\"115\\",
++               \\"lastName\\": \\"Schulist\\",
++               \\"picture\\": \\"tempora nulla deserunt\\",
++             },
++             \\"subjectPersonName\\": \\"Jeanie Schulist\\",
++           },
+          ],
+          \\"id\\": 2,
+          \\"title\\": \\"dates.earlier\\",
+        },
+      ]
+@@ -1171,10 +1712,551 @@
+                \\"id\\": \\"58\\",
+                \\"lastName\\": \\"Paucek\\",
+                \\"picture\\": \\"delectus ea similique\\",
+              },
+              \\"subjectPersonName\\": \\"Elza Paucek\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 6633,
++               },
++             },
++             \\"createdAt\\": \\"2012-05-25T12:26:04.841Z\\",
++             \\"id\\": \\"62\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 21273,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"CommunityChallenge\\",
++               \\"acceptedCommunityChallengesList\\": Array [
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2018-05-31T22:47:49.138Z\\",
++                   \\"completedAt\\": \\"2019-05-16T03:24:13.970Z\\",
++                   \\"id\\": \\"64\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2016-06-21T21:46:52.631Z\\",
++                   \\"completedAt\\": \\"2017-06-07T20:23:48.675Z\\",
++                   \\"id\\": \\"65\\",
++                 },
++               ],
++               \\"id\\": \\"63\\",
++               \\"title\\": \\"non explicabo facere\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"67\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"68\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Waino\\",
++               \\"fullName\\": \\"Austen Schneider\\",
++               \\"id\\": \\"66\\",
++               \\"lastName\\": \\"Beatty\\",
++               \\"picture\\": \\"qui adipisci non\\",
++             },
++             \\"subjectPersonName\\": \\"Waino Beatty\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 6596,
++               },
++             },
++             \\"createdAt\\": \\"2012-10-04T18:10:48.857Z\\",
++             \\"id\\": \\"69\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 52273,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"dolorem recusandae est\\",
++               \\"id\\": \\"70\\",
++               \\"mediaContentType\\": \\"perferendis molestiae ut\\",
++               \\"mediaExpiringUrl\\": \\"qui et possimus\\",
++               \\"postType\\": \\"thought\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"72\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"73\\",
++                     },
++                     \\"permission\\": \\"user\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Rosella\\",
++               \\"fullName\\": \\"Uriel Hyatt\\",
++               \\"id\\": \\"71\\",
++               \\"lastName\\": \\"Robel\\",
++               \\"picture\\": \\"hic molestiae iste\\",
++             },
++             \\"subjectPersonName\\": \\"Rosella Robel\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 16695,
++               },
++             },
++             \\"createdAt\\": \\"2013-12-30T06:24:03.638Z\\",
++             \\"id\\": \\"74\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 54954,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"sint consequatur qui\\",
++               \\"id\\": \\"75\\",
++               \\"mediaContentType\\": \\"est sapiente aperiam\\",
++               \\"mediaExpiringUrl\\": \\"quia ex consequuntur\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"77\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"78\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Dax\\",
++               \\"fullName\\": \\"Ariel Collins\\",
++               \\"id\\": \\"76\\",
++               \\"lastName\\": \\"Gulgowski\\",
++               \\"picture\\": \\"eligendi quas perferendis\\",
++             },
++             \\"subjectPersonName\\": \\"Dax Gulgowski\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 17619,
++               },
++             },
++             \\"createdAt\\": \\"2018-12-25T07:43:34.435Z\\",
++             \\"id\\": \\"79\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 50307,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"sed nisi veniam\\",
++               \\"id\\": \\"80\\",
++               \\"mediaContentType\\": \\"earum ex culpa\\",
++               \\"mediaExpiringUrl\\": \\"eveniet debitis et\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"82\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"83\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Jeremie\\",
++               \\"fullName\\": \\"Rosalyn Bailey\\",
++               \\"id\\": \\"81\\",
++               \\"lastName\\": \\"Doyle\\",
++               \\"picture\\": \\"et delectus praesentium\\",
++             },
++             \\"subjectPersonName\\": \\"Jeremie Doyle\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 95004,
++               },
++             },
++             \\"createdAt\\": \\"2014-01-18T05:56:12.762Z\\",
++             \\"id\\": \\"84\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 1553,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"85\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"86\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"88\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"89\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Liliana\\",
++               \\"fullName\\": \\"Emerald Feest\\",
++               \\"id\\": \\"87\\",
++               \\"lastName\\": \\"Wunsch\\",
++               \\"picture\\": \\"saepe vel in\\",
++             },
++             \\"subjectPersonName\\": \\"Liliana Wunsch\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 1587,
++               },
++             },
++             \\"createdAt\\": \\"2015-11-02T07:02:00.318Z\\",
++             \\"id\\": \\"90\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 67906,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"alias accusamus reiciendis\\",
++               \\"id\\": \\"91\\",
++               \\"mediaContentType\\": \\"repellendus autem aliquam\\",
++               \\"mediaExpiringUrl\\": \\"aut vitae id\\",
++               \\"postType\\": \\"question\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"93\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"94\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Rhoda\\",
++               \\"fullName\\": \\"Carmel Shields\\",
++               \\"id\\": \\"92\\",
++               \\"lastName\\": \\"Trantow\\",
++               \\"picture\\": \\"non in esse\\",
++             },
++             \\"subjectPersonName\\": \\"Rhoda Trantow\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 85831,
++               },
++             },
++             \\"createdAt\\": \\"2019-09-02T21:15:13.769Z\\",
++             \\"id\\": \\"95\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 78939,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"consequatur quia voluptatem\\",
++               \\"id\\": \\"96\\",
++               \\"mediaContentType\\": \\"tempore totam qui\\",
++               \\"mediaExpiringUrl\\": \\"ea eum labore\\",
++               \\"postType\\": \\"thought\\",
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"98\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"99\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Carlo\\",
++               \\"fullName\\": \\"Hallie Bahringer\\",
++               \\"id\\": \\"97\\",
++               \\"lastName\\": \\"Rosenbaum\\",
++               \\"picture\\": \\"in provident voluptatem\\",
++             },
++             \\"subjectPersonName\\": \\"Carlo Rosenbaum\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 68468,
++               },
++             },
++             \\"createdAt\\": \\"2018-01-19T05:16:39.241Z\\",
++             \\"id\\": \\"100\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 42670,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"101\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"102\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"104\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"105\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Aidan\\",
++               \\"fullName\\": \\"Stone Sauer\\",
++               \\"id\\": \\"103\\",
++               \\"lastName\\": \\"O'Conner\\",
++               \\"picture\\": \\"nam sint enim\\",
++             },
++             \\"subjectPersonName\\": \\"Aidan O'Conner\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 18511,
++               },
++             },
++             \\"createdAt\\": \\"2014-04-25T10:00:19.666Z\\",
++             \\"id\\": \\"106\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 73314,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"107\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"108\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"110\\",
++                     },
++                     \\"permission\\": \\"owner\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"111\\",
++                     },
++                     \\"permission\\": \\"admin\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Anthony\\",
++               \\"fullName\\": \\"Evelyn Nicolas\\",
++               \\"id\\": \\"109\\",
++               \\"lastName\\": \\"Batz\\",
++               \\"picture\\": \\"et est vel\\",
++             },
++             \\"subjectPersonName\\": \\"Anthony Batz\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 86508,
++               },
++             },
++             \\"createdAt\\": \\"2011-04-17T09:21:33.490Z\\",
++             \\"id\\": \\"112\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 68841,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"113\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"114\\",
++               },
++             },
++             \\"subjectPerson\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"communityPermissions\\": Object {
++                 \\"__typename\\": \\"CommunityPermissionConnection\\",
++                 \\"nodes\\": Array [
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"116\\",
++                     },
++                     \\"permission\\": \\"user\\",
++                   },
++                   Object {
++                     \\"__typename\\": \\"CommunityPermission\\",
++                     \\"community\\": Object {
++                       \\"__typename\\": \\"Community\\",
++                       \\"id\\": \\"117\\",
++                     },
++                     \\"permission\\": \\"no_permissions\\",
++                   },
++                 ],
++               },
++               \\"firstName\\": \\"Jeanie\\",
++               \\"fullName\\": \\"Ewell Krajcik\\",
++               \\"id\\": \\"115\\",
++               \\"lastName\\": \\"Schulist\\",
++               \\"picture\\": \\"tempora nulla deserunt\\",
++             },
++             \\"subjectPersonName\\": \\"Jeanie Schulist\\",
+            },
+          ],
+          \\"id\\": 2,
+          \\"title\\": \\"dates.earlier\\",
+        },"
+`;
+
+exports[`handle pagination community feed pagination should not load more when no next page 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`handle pagination global community feed pagination paginates when close to bottom 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -283,10 +283,272 @@
+                \\"id\\": \\"28\\",
+                \\"title\\": \\"ex eveniet facere\\",
+              },
+              \\"subjectPersonName\\": \\"Kali Stamm\\",
+            },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 69089,
++               },
++             },
++             \\"createdAt\\": \\"2014-07-11T15:56:06.896Z\\",
++             \\"id\\": \\"31\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 7008,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"32\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"33\\",
++               },
++             },
++             \\"subjectPersonName\\": \\"Makenzie Kuphal\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 46431,
++               },
++             },
++             \\"createdAt\\": \\"2019-05-18T02:23:04.330Z\\",
++             \\"id\\": \\"34\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 75546,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"et ab quo\\",
++               \\"id\\": \\"35\\",
++               \\"mediaContentType\\": \\"occaecati quia ipsum\\",
++               \\"mediaExpiringUrl\\": \\"sit qui accusantium\\",
++               \\"postType\\": \\"help_request\\",
++             },
++             \\"subjectPersonName\\": \\"Lillie Bins\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 10736,
++               },
++             },
++             \\"createdAt\\": \\"2019-10-02T16:21:04.622Z\\",
++             \\"id\\": \\"36\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 24621,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"ut incidunt omnis\\",
++               \\"id\\": \\"37\\",
++               \\"mediaContentType\\": \\"delectus voluptas minima\\",
++               \\"mediaExpiringUrl\\": \\"quia ut minima\\",
++               \\"postType\\": \\"help_request\\",
++             },
++             \\"subjectPersonName\\": \\"Betsy Schaefer\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 9155,
++               },
++             },
++             \\"createdAt\\": \\"2014-03-07T23:29:16.858Z\\",
++             \\"id\\": \\"38\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 96959,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"39\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"40\\",
++               },
++             },
++             \\"subjectPersonName\\": \\"Vada Bergnaum\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 71739,
++               },
++             },
++             \\"createdAt\\": \\"2011-12-21T01:35:06.683Z\\",
++             \\"id\\": \\"41\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 38786,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"placeat molestiae iste\\",
++               \\"id\\": \\"42\\",
++               \\"mediaContentType\\": \\"molestiae dolores commodi\\",
++               \\"mediaExpiringUrl\\": \\"inventore sequi quia\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPersonName\\": \\"Isom Hermann\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 93719,
++               },
++             },
++             \\"createdAt\\": \\"2019-08-04T09:15:19.826Z\\",
++             \\"id\\": \\"43\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 10749,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"CommunityChallenge\\",
++               \\"acceptedCommunityChallengesList\\": Array [
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2014-06-11T00:47:32.976Z\\",
++                   \\"completedAt\\": \\"2013-06-30T17:14:15.044Z\\",
++                   \\"id\\": \\"45\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2019-11-29T04:05:44.534Z\\",
++                   \\"completedAt\\": \\"2018-09-27T08:10:54.037Z\\",
++                   \\"id\\": \\"46\\",
++                 },
++               ],
++               \\"id\\": \\"44\\",
++               \\"title\\": \\"et quo aperiam\\",
++             },
++             \\"subjectPersonName\\": \\"Kody Weissnat\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 7197,
++               },
++             },
++             \\"createdAt\\": \\"2017-02-03T14:06:36.242Z\\",
++             \\"id\\": \\"47\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 36081,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"CommunityChallenge\\",
++               \\"acceptedCommunityChallengesList\\": Array [
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2018-07-07T16:47:05.234Z\\",
++                   \\"completedAt\\": \\"2012-08-08T00:51:17.387Z\\",
++                   \\"id\\": \\"49\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2018-06-03T02:12:59.672Z\\",
++                   \\"completedAt\\": \\"2018-01-30T16:22:38.330Z\\",
++                   \\"id\\": \\"50\\",
++                 },
++               ],
++               \\"id\\": \\"48\\",
++               \\"title\\": \\"sed architecto magnam\\",
++             },
++             \\"subjectPersonName\\": \\"Hailee Hoeger\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 93871,
++               },
++             },
++             \\"createdAt\\": \\"2014-03-24T00:57:27.533Z\\",
++             \\"id\\": \\"51\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 97001,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"labore ullam quos\\",
++               \\"id\\": \\"52\\",
++               \\"mediaContentType\\": \\"sed dolorum voluptatibus\\",
++               \\"mediaExpiringUrl\\": \\"eum saepe nesciunt\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPersonName\\": \\"Dasia Ruecker\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 75934,
++               },
++             },
++             \\"createdAt\\": \\"2019-11-07T04:43:29.063Z\\",
++             \\"id\\": \\"53\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 7002,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"54\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"55\\",
++               },
++             },
++             \\"subjectPersonName\\": \\"Stewart Russel\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 14603,
++               },
++             },
++             \\"createdAt\\": \\"2016-03-27T11:37:58.174Z\\",
++             \\"id\\": \\"56\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 55094,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"libero laudantium voluptatem\\",
++               \\"id\\": \\"57\\",
++               \\"mediaContentType\\": \\"magni et voluptas\\",
++               \\"mediaExpiringUrl\\": \\"quis non et\\",
++               \\"postType\\": \\"thought\\",
++             },
++             \\"subjectPersonName\\": \\"Kiera Gusikowski\\",
++           },
+          ],
+          \\"id\\": 2,
+          \\"title\\": \\"dates.earlier\\",
+        },
+      ]
+@@ -591,10 +853,272 @@
+                ],
+                \\"id\\": \\"28\\",
+                \\"title\\": \\"ex eveniet facere\\",
+              },
+              \\"subjectPersonName\\": \\"Kali Stamm\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 69089,
++               },
++             },
++             \\"createdAt\\": \\"2014-07-11T15:56:06.896Z\\",
++             \\"id\\": \\"31\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 7008,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"32\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"33\\",
++               },
++             },
++             \\"subjectPersonName\\": \\"Makenzie Kuphal\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 46431,
++               },
++             },
++             \\"createdAt\\": \\"2019-05-18T02:23:04.330Z\\",
++             \\"id\\": \\"34\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 75546,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"et ab quo\\",
++               \\"id\\": \\"35\\",
++               \\"mediaContentType\\": \\"occaecati quia ipsum\\",
++               \\"mediaExpiringUrl\\": \\"sit qui accusantium\\",
++               \\"postType\\": \\"help_request\\",
++             },
++             \\"subjectPersonName\\": \\"Lillie Bins\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 10736,
++               },
++             },
++             \\"createdAt\\": \\"2019-10-02T16:21:04.622Z\\",
++             \\"id\\": \\"36\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 24621,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"ut incidunt omnis\\",
++               \\"id\\": \\"37\\",
++               \\"mediaContentType\\": \\"delectus voluptas minima\\",
++               \\"mediaExpiringUrl\\": \\"quia ut minima\\",
++               \\"postType\\": \\"help_request\\",
++             },
++             \\"subjectPersonName\\": \\"Betsy Schaefer\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 9155,
++               },
++             },
++             \\"createdAt\\": \\"2014-03-07T23:29:16.858Z\\",
++             \\"id\\": \\"38\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 96959,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"39\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"40\\",
++               },
++             },
++             \\"subjectPersonName\\": \\"Vada Bergnaum\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 71739,
++               },
++             },
++             \\"createdAt\\": \\"2011-12-21T01:35:06.683Z\\",
++             \\"id\\": \\"41\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 38786,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"placeat molestiae iste\\",
++               \\"id\\": \\"42\\",
++               \\"mediaContentType\\": \\"molestiae dolores commodi\\",
++               \\"mediaExpiringUrl\\": \\"inventore sequi quia\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPersonName\\": \\"Isom Hermann\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 93719,
++               },
++             },
++             \\"createdAt\\": \\"2019-08-04T09:15:19.826Z\\",
++             \\"id\\": \\"43\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 10749,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"CommunityChallenge\\",
++               \\"acceptedCommunityChallengesList\\": Array [
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2014-06-11T00:47:32.976Z\\",
++                   \\"completedAt\\": \\"2013-06-30T17:14:15.044Z\\",
++                   \\"id\\": \\"45\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2019-11-29T04:05:44.534Z\\",
++                   \\"completedAt\\": \\"2018-09-27T08:10:54.037Z\\",
++                   \\"id\\": \\"46\\",
++                 },
++               ],
++               \\"id\\": \\"44\\",
++               \\"title\\": \\"et quo aperiam\\",
++             },
++             \\"subjectPersonName\\": \\"Kody Weissnat\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 7197,
++               },
++             },
++             \\"createdAt\\": \\"2017-02-03T14:06:36.242Z\\",
++             \\"id\\": \\"47\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 36081,
++             \\"read\\": true,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"CommunityChallenge\\",
++               \\"acceptedCommunityChallengesList\\": Array [
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2018-07-07T16:47:05.234Z\\",
++                   \\"completedAt\\": \\"2012-08-08T00:51:17.387Z\\",
++                   \\"id\\": \\"49\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"AcceptedCommunityChallenge\\",
++                   \\"acceptedAt\\": \\"2018-06-03T02:12:59.672Z\\",
++                   \\"completedAt\\": \\"2018-01-30T16:22:38.330Z\\",
++                   \\"id\\": \\"50\\",
++                 },
++               ],
++               \\"id\\": \\"48\\",
++               \\"title\\": \\"sed architecto magnam\\",
++             },
++             \\"subjectPersonName\\": \\"Hailee Hoeger\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 93871,
++               },
++             },
++             \\"createdAt\\": \\"2014-03-24T00:57:27.533Z\\",
++             \\"id\\": \\"51\\",
++             \\"liked\\": false,
++             \\"likesCount\\": 97001,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"labore ullam quos\\",
++               \\"id\\": \\"52\\",
++               \\"mediaContentType\\": \\"sed dolorum voluptatibus\\",
++               \\"mediaExpiringUrl\\": \\"eum saepe nesciunt\\",
++               \\"postType\\": \\"story\\",
++             },
++             \\"subjectPersonName\\": \\"Dasia Ruecker\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 75934,
++               },
++             },
++             \\"createdAt\\": \\"2019-11-07T04:43:29.063Z\\",
++             \\"id\\": \\"53\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 7002,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Step\\",
++               \\"id\\": \\"54\\",
++               \\"receiverStageAtCompletion\\": Object {
++                 \\"__typename\\": \\"Stage\\",
++                 \\"id\\": \\"55\\",
++               },
++             },
++             \\"subjectPersonName\\": \\"Stewart Russel\\",
++           },
++           Object {
++             \\"__typename\\": \\"FeedItem\\",
++             \\"comments\\": Object {
++               \\"__typename\\": \\"FeedItemCommentConnection\\",
++               \\"pageInfo\\": Object {
++                 \\"__typename\\": \\"BasePageInfo\\",
++                 \\"totalCount\\": 14603,
++               },
++             },
++             \\"createdAt\\": \\"2016-03-27T11:37:58.174Z\\",
++             \\"id\\": \\"56\\",
++             \\"liked\\": true,
++             \\"likesCount\\": 55094,
++             \\"read\\": false,
++             \\"subject\\": Object {
++               \\"__typename\\": \\"Post\\",
++               \\"content\\": \\"libero laudantium voluptatem\\",
++               \\"id\\": \\"57\\",
++               \\"mediaContentType\\": \\"magni et voluptas\\",
++               \\"mediaExpiringUrl\\": \\"quis non et\\",
++               \\"postType\\": \\"thought\\",
++             },
++             \\"subjectPersonName\\": \\"Kiera Gusikowski\\",
+            },
+          ],
+          \\"id\\": 2,
+          \\"title\\": \\"dates.earlier\\",
+        },"
+`;
+
+exports[`handle pagination global community feed pagination should not load more when no next page 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
 exports[`renders empty correctly 1`] = `
 <RCTScrollView
   ListHeaderComponent={[Function]}
