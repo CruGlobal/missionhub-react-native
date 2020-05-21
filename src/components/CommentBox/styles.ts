@@ -10,42 +10,6 @@ export default StyleSheet.create({
     borderTopWidth: theme.separatorHeight,
     flexDirection: 'column',
   },
-  actionSelectionWrap: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: theme.primaryColor,
-    borderRadius: 25,
-    marginRight: 15,
-  },
-  actionsOpen: {
-    backgroundColor: theme.grey1,
-  },
-  actionSelectionIcon: {
-    backgroundColor: theme.transparent,
-    alignItems: 'center',
-  },
-  actionRowWrap: {
-    padding: 0,
-    marginBottom: 15,
-    alignItems: 'center',
-    flex: 1,
-  },
-  actionIconButton: {
-    backgroundColor: theme.grey2,
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 45,
-    width: 45,
-    borderRadius: 25,
-  },
-  actionIconActive: {
-    backgroundColor: theme.grey1,
-  },
-  actionText: {
-    fontSize: 12,
-    color: theme.grey2,
-    textAlign: 'center',
-  },
   boxWrap: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -81,10 +45,6 @@ export default StyleSheet.create({
   },
   submitIcon: {
     color: theme.primaryColor,
-  },
-  actions: {
-    justifyContent: 'space-around',
-    minHeight: 30,
   },
   activeAction: {
     flexDirection: 'row',

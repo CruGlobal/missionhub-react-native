@@ -9,19 +9,16 @@ import {
 } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { INTERACTION_TYPES } from '../../constants';
 import {
-  Flex,
   Text,
   IconButton,
   Input,
-  Touchable,
   Icon,
   Button,
   DateComponent,
 } from '../common';
 import theme from '../../theme';
-import { FeedItemEditingComment } from '../CelebrateCommentBox/__generated__/FeedItemEditingComment';
+import { FeedItemEditingComment } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
 
 import styles from './styles';
 
@@ -33,10 +30,6 @@ export type ActionItem = {
   isOnAction?: boolean;
   tracking: string;
 };
-
-const ACTION_ITEMS = (Object.values(INTERACTION_TYPES) as ActionItem[]).filter(
-  i => i.isOnAction && i.translationKey !== 'interactionNote',
-);
 
 interface CommentBoxProps {
   onCancel?: () => void;
@@ -52,22 +45,16 @@ const CommentBox = ({
   onCancel,
   onSubmit,
   placeholderTextKey,
-  showInteractions,
   editingComment,
   containerStyle,
 }: CommentBoxProps) => {
   const { t } = useTranslation('actions');
   const commentInput = useRef<TextInput>(null);
   const [text, setText] = useState('');
-  const [showActions, setShowActions] = useState(false);
   const [action, setAction] = useState<ActionItem | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
-    actionRowWrap,
-    actionIconButton,
-    actionIconActive,
-    actionText,
     inputBoxWrap,
     activeAction,
     activeActionIcon,
@@ -82,11 +69,8 @@ const CommentBox = ({
     submitIcon,
     container,
     boxWrap,
-    actionSelectionWrap,
-    actionsOpen,
     cancelWrap,
     cancelIcon,
-    actions,
   } = styles;
 
   const startEdit = (comment: FeedItemEditingComment) => {
@@ -100,7 +84,6 @@ const CommentBox = ({
 
   const resetState = () => {
     setText('');
-    setShowActions(false);
     setAction(null);
     setIsSubmitting(false);
   };
@@ -114,7 +97,6 @@ const CommentBox = ({
   const handleSubmit = async () => {
     Keyboard.dismiss();
     const origText = text;
-    const origShowActions = showActions;
     const origActions = action;
 
     try {
@@ -126,7 +108,6 @@ const CommentBox = ({
       setIsSubmitting(false);
     } catch (error) {
       setText(origText);
-      setShowActions(origShowActions);
       setAction(origActions);
       setIsSubmitting(false);
     }
@@ -136,39 +117,9 @@ const CommentBox = ({
     setText(t);
   };
 
-  const handleActionPress = () => {
-    setShowActions(!showActions);
-  };
-
-  const selectAction = (item: ActionItem) => {
-    setAction(item);
-  };
-
   const handleClearAction = () => {
     setAction(null);
   };
-
-  const renderActionIcons = (item: ActionItem) => (
-    <Touchable
-      testID="ActionButton"
-      key={item.id}
-      pressProps={[item]}
-      onPress={selectAction}
-      style={actionRowWrap}
-    >
-      <View
-        style={[
-          actionIconButton,
-          action && item.id === `${action.id}` ? actionIconActive : null,
-        ]}
-      >
-        <Icon size={16} name={item.iconName} type="MissionHub" />
-      </View>
-      <Text style={actionText} numberOfLines={2}>
-        {t(item.translationKey)}
-      </Text>
-    </Touchable>
-  );
 
   const renderActionDisplay = () =>
     action ? (
@@ -200,17 +151,7 @@ const CommentBox = ({
 
   const renderTopButton = () =>
     !action ? (
-      showInteractions ? (
-        <View style={[actionSelectionWrap, showActions ? actionsOpen : null]}>
-          <IconButton
-            testID="ActionAddButton"
-            name={showActions ? 'deleteIcon' : 'plusIcon'}
-            type="MissionHub"
-            size={13}
-            onPress={handleActionPress}
-          />
-        </View>
-      ) : editingComment ? (
+      editingComment ? (
         <View style={cancelWrap}>
           <IconButton
             testID="CancelButton"
@@ -255,20 +196,12 @@ const CommentBox = ({
     </View>
   );
 
-  const renderActions = () =>
-    !showActions ? null : (
-      <Flex direction="row" align="center" style={actions}>
-        {ACTION_ITEMS.map(renderActionIcons)}
-      </Flex>
-    );
-
   return (
     <SafeAreaView style={[container, containerStyle]}>
       <View style={boxWrap}>
         {renderTopButton()}
         {renderInput()}
       </View>
-      {renderActions()}
     </SafeAreaView>
   );
 };
