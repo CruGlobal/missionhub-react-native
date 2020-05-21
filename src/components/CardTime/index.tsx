@@ -7,24 +7,16 @@ import styles from './styles';
 
 interface CardTimeProps {
   date: string;
-  commentFormatting?: boolean;
-  postFormatting?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
 }
 
-const CardTime = ({
-  date,
-  commentFormatting = false,
-  postFormatting = false,
-  style = {},
-}: CardTimeProps) => (
+const CardTime = ({ date, style = {} }: CardTimeProps) => (
   <DateComponent
     style={[styles.time, style]}
     date={date}
     format="LT"
-    commentFormatting={commentFormatting}
-    postFormatting={postFormatting}
+    dateAtTIme={true}
   />
 );
 

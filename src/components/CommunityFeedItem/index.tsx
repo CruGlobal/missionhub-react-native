@@ -199,11 +199,7 @@ export const CommunityFeedItem = ({
             communityId={communityId}
             pressable={namePressable}
           />
-          <CardTime
-            date={createdAt}
-            postFormatting={true}
-            style={styles.headerTime}
-          />
+          <CardTime date={createdAt} style={styles.headerTime} />
         </View>
       </View>
     </View>

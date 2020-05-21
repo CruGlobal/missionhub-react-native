@@ -2,20 +2,12 @@ import React from 'react';
 import { StyleProp, TextStyle } from 'react-native';
 
 import Text from '../Text';
-import {
-  dateFormat,
-  getMomentDate,
-  relativeDateFormat,
-  commentDateFormat,
-  postDateFormat,
-} from '../../utils/date';
+import { dateFormat, getMomentDate, dateAtTimeFormat } from '../../utils/date';
 
 interface DateComponentProps {
   date: string | Date;
   format?: dateFormat;
-  relativeFormatting?: boolean;
-  commentFormatting?: boolean;
-  postFormatting?: boolean;
+  dateAtTIme?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
 }
@@ -23,18 +15,12 @@ interface DateComponentProps {
 const DateComponent = ({
   date,
   format = 'ddd, lll',
-  relativeFormatting = false,
-  commentFormatting = false,
-  postFormatting = false,
+  dateAtTIme = false,
   style,
 }: DateComponentProps) => {
   const momentDate = getMomentDate(date);
-  const text = relativeFormatting
-    ? relativeDateFormat(momentDate)
-    : commentFormatting
-    ? commentDateFormat(momentDate)
-    : postFormatting
-    ? postDateFormat(momentDate)
+  const text = dateAtTIme
+    ? dateAtTimeFormat(momentDate)
     : momentDate.format(format);
 
   return (
