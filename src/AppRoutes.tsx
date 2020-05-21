@@ -501,10 +501,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [
-  FEED_ITEM_DETAIL_SCREEN,
-  ADD_POST_TO_STEPS_SCREEN,
-];
+const MODAL_SCREENS = [FEED_ITEM_DETAIL_SCREEN, ADD_POST_TO_STEPS_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {

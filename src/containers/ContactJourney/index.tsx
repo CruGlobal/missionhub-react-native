@@ -23,7 +23,6 @@ import {
 } from '../../constants';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
-import { orgIsCru } from '../../utils/common';
 import Analytics from '../Analytics';
 
 import styles from './styles';

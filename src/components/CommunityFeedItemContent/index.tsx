@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleProp, ViewStyle, Image } from 'react-native';
+import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
@@ -96,8 +96,8 @@ export const CommunityFeedItemContent = ({
   const navToFilteredFeed = () => {
     dispatch(
       navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
-        type: FeedItemType,
-        communityId,
+        type: feedItem.subject.__typename,
+        communityId: feedItem.community?.id,
       }),
     );
   };
@@ -105,7 +105,7 @@ export const CommunityFeedItemContent = ({
   const handleAddToMySteps = () =>
     dispatch(
       navigatePush(ADD_POST_TO_STEPS_SCREEN, {
-        item: feedItem,
+        item: itemType,
         communityId: feedItem.community?.id,
       }),
     );

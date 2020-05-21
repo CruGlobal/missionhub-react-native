@@ -8,30 +8,26 @@ import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Touchable, Icon } from '../common';
 import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { GlobalCommunityFeedItem } from '../CommunityFeedItem/__generated__/GlobalCommunityFeedItem';
 import {
   CommunityFeedItem as FeedItemFragment,
   CommunityFeedItem_subject,
+  CommunityFeedItem_subject_Post,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
-import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
-
-export type CombinedFeedItem = FeedItemFragment & GlobalCommunityFeedItem;
 
 export interface CommunityFeedItemProps {
-  item: CombinedFeedItem;
+  item: FeedItemFragment;
   communityId: string;
   namePressable: boolean;
-  onClearNotification?: (item: CombinedFeedItem) => void;
+  onClearNotification?: (item: FeedItemFragment) => void;
   onRefresh: () => void;
 }
 
@@ -57,13 +53,12 @@ export const CommunityFeedItem = ({
 
   const isPost = (
     subject: CommunityFeedItem_subject,
-  ): subject is CommunityFeedPost => subject.__typename === 'Post';
+  ): subject is CommunityFeedItem_subject_Post => subject.__typename === 'Post';
 
   const handlePress = () =>
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         itemId: item.id,
-        onRefreshCelebrateItem: onRefresh,
       }),
     );
 

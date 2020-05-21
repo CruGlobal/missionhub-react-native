@@ -7,7 +7,6 @@ import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
 import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
 import Avatar from '../../components/Avatar';
-import ItemHeaderText from '../../components/ItemHeaderText';
 
 import styles from './styles';
 import { FeedItemCommentItem } from './__generated__/FeedItemCommentItem';
