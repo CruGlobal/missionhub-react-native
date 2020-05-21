@@ -861,6 +861,9 @@ export default {
     deleteAreYouSure:
       'This post will be deleted and you won’t be able to find it anymore.',
   },
+  commentItem: {
+    edited: 'Edited',
+  },
   celebrateFeedHeader: {
     reports: '{{count}} New Reported Item',
     reports_plural: '{{count}} New Reported Items',

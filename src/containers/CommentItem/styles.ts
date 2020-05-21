@@ -13,6 +13,9 @@ export default StyleSheet.create({
     paddingLeft: 10,
   },
   commentHeader: { flexDirection: 'row', alignItems: 'flex-end' },
+  name: {
+    paddingRight: 6,
+  },
   commentBody: {
     alignSelf: 'flex-start',
     backgroundColor: theme.extraLightGrey,
@@ -21,14 +24,14 @@ export default StyleSheet.create({
     paddingHorizontal: 13,
     marginVertical: 5,
   },
+  edited: {
+    color: theme.grey1,
+    fontSize: 12,
+  },
+  editedBullet: {
+    paddingHorizontal: 2,
+  },
   editingComment: {
     backgroundColor: COLORS.GLACIER_BLUE,
-  },
-  text: {
-    // paddingVertical: 3,
-  },
-  name: {
-    // paddingLeft: 10,
-    paddingRight: 6,
   },
 });

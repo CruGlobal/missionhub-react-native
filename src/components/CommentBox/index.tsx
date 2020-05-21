@@ -1,51 +1,36 @@
 /* eslint max-lines-per-function: 0 */
 import React, { useState, useEffect, useRef } from 'react';
-import {
-  Keyboard,
-  View,
-  SafeAreaView,
-  TextInput,
-  ViewStyle,
-} from 'react-native';
-import { useTranslation } from 'react-i18next';
+import { Keyboard, View, SafeAreaView, TextInput } from 'react-native';
 
 import { IconButton, Input } from '../common';
 import theme from '../../theme';
 import { FeedItemEditingComment } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
+import Avatar, { AvatarPerson } from '../Avatar';
 
 import styles from './styles';
+import SubmitPostArrow from './submitPostArrow.svg';
 
 interface CommentBoxProps {
+  avatarPerson: AvatarPerson;
   onCancel?: () => void;
   onSubmit: (text: string) => void;
   placeholderText: string;
-  showInteractions?: boolean;
   editingComment?: FeedItemEditingComment;
-  containerStyle?: ViewStyle;
   testID?: string;
 }
 
 const CommentBox = ({
+  avatarPerson,
   onCancel,
   onSubmit,
   placeholderText,
   editingComment,
-  containerStyle,
 }: CommentBoxProps) => {
   const commentInput = useRef<TextInput>(null);
   const [text, setText] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const {
-    inputBoxWrap,
-    inputWrap,
-    input,
-    submitIcon,
-    container,
-    boxWrap,
-    cancelWrap,
-    cancelIcon,
-  } = styles;
+  const { inputBox, input, container, cancelWrap, cancelIcon } = styles;
 
   const startEdit = (comment: FeedItemEditingComment) => {
     setText(comment.content);
@@ -88,7 +73,7 @@ const CommentBox = ({
     setText(t);
   };
 
-  const renderTopButton = () =>
+  const renderCancelButton = () =>
     editingComment ? (
       <View style={cancelWrap}>
         <IconButton
@@ -97,14 +82,16 @@ const CommentBox = ({
           type="MissionHub"
           onPress={handleCancel}
           style={cancelIcon}
-          size={12}
+          size={10}
         />
       </View>
     ) : null;
 
-  const renderInput = () => (
-    <View style={inputBoxWrap}>
-      <View style={inputWrap}>
+  return (
+    <SafeAreaView style={container}>
+      <Avatar size="small" person={avatarPerson} />
+      {renderCancelButton()}
+      <View style={inputBox}>
         <Input
           ref={commentInput}
           onChangeText={handleTextChange}
@@ -117,27 +104,13 @@ const CommentBox = ({
           placeholder={placeholderText}
           placeholderTextColor={theme.grey1}
         />
-        {text ? (
-          <IconButton
-            testID="SubmitButton"
-            name="upArrow"
-            disabled={isSubmitting}
-            type="MissionHub"
-            onPress={handleSubmit}
-            style={submitIcon}
-            size={22}
-          />
-        ) : null}
       </View>
-    </View>
-  );
-
-  return (
-    <SafeAreaView style={[container, containerStyle]}>
-      <View style={boxWrap}>
-        {renderTopButton()}
-        {renderInput()}
-      </View>
+      <SubmitPostArrow
+        testID="SubmitButton"
+        disabled={!text || isSubmitting}
+        onPress={handleSubmit}
+        color={!text || isSubmitting ? theme.extraLightGrey : theme.grey}
+      />
     </SafeAreaView>
   );
 };

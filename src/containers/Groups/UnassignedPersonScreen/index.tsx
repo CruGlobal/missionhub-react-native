@@ -46,7 +46,6 @@ class UnassignedPersonScreen extends Component {
           onSubmit={this.loadFeed}
           person={person}
           organization={organization}
-          showInteractions={true}
         />
       </View>
     );

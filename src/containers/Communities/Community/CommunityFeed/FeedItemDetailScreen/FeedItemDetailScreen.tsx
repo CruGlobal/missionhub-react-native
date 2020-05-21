@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 
 import CommentsList from '../../../../CommentsList';
-import FeedCommentBox from './FeedCommentBox';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
 import {
   RefreshControl,
@@ -32,6 +31,7 @@ import { useMyId } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 
+import FeedCommentBox from './FeedCommentBox';
 import styles from './styles';
 import { FEED_ITEM_DETAIL_QUERY } from './queries';
 import {
@@ -173,6 +173,7 @@ const FeedItemDetailScreen = () => {
     data ? (
       <FeedCommentBox
         feedItemId={data.feedItem.id}
+        avatarPerson={data.currentUser.person}
         editingComment={
           editingCommentId
             ? data.feedItem.comments.nodes.find(

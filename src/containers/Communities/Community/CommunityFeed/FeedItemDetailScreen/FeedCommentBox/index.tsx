@@ -1,9 +1,9 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
+import { useTranslation } from 'react-i18next';
 
-import CommentBox, {
-  ActionItem,
-} from '../../../../../../components/CommentBox';
+import CommentBox from '../../../../../../components/CommentBox';
+import { AvatarPerson } from '../../../../../../components/Avatar';
 
 import { FeedItemEditingComment } from './__generated__/FeedItemEditingComment';
 import {
@@ -18,9 +18,9 @@ import {
   UpdateFeedItemComment,
   UpdateFeedItemCommentVariables,
 } from './__generated__/UpdateFeedItemComment';
-import { useTranslation } from 'react-i18next';
 
 interface FeedCommentBoxProps {
+  avatarPerson: AvatarPerson;
   feedItemId: string;
   editingComment?: FeedItemEditingComment;
   onAddComplete: () => void;
@@ -28,6 +28,7 @@ interface FeedCommentBoxProps {
 }
 
 const FeedCommentBox = ({
+  avatarPerson,
   feedItemId,
   editingComment,
   onAddComplete,
@@ -62,6 +63,7 @@ const FeedCommentBox = ({
   return (
     <CommentBox
       testID="FeedCommentBox"
+      avatarPerson={avatarPerson}
       placeholderText={t('placeholder')}
       onSubmit={submitComment}
       editingComment={editingComment}

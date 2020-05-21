@@ -19,11 +19,11 @@ import CardTime from '../CardTime';
 import { CommentLikeComponent } from '../CommentLikeComponent';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 import Separator from '../Separator';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
 import styles from './styles';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 import {
   CommunityFeedItemContent as FeedItem,
   CommunityFeedItemContent_subject_Post,

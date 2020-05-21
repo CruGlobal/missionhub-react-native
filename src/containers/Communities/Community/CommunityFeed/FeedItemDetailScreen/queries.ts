@@ -2,6 +2,8 @@ import gql from 'graphql-tag';
 
 import { COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT } from '../../../../../components/CommunityFeedItemContent/queries';
 import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../../../../CommentsList/queries';
+import { CURRENT_USER_AVATAR_FRAGMENT } from '../../../../../components/Avatar/queries';
+
 import { FEED_ITEM_EDITING_COMMENT_FRAGMENT } from './FeedCommentBox/queries';
 
 export const FEED_ITEM_DETAIL_QUERY = gql`
@@ -32,8 +34,10 @@ export const FEED_ITEM_DETAIL_QUERY = gql`
         }
       }
     }
+    ...CurrentUserAvatar
   }
   ${COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT}
   ${FEED_ITEM_COMMENT_ITEM_FRAGMENT}
   ${FEED_ITEM_EDITING_COMMENT_FRAGMENT}
+  ${CURRENT_USER_AVATAR_FRAGMENT}
 `;

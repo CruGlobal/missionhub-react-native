@@ -174,8 +174,6 @@ class ContactJourney extends Component {
       organization,
       // @ts-ignore
       analyticsAssignmentType,
-      // @ts-ignore
-      isCruOrg,
     } = this.props;
     return (
       <View style={styles.container}>
@@ -190,11 +188,7 @@ class ContactJourney extends Component {
         />
         {this.renderContent()}
         <Flex justify="end">
-          <JourneyCommentBox
-            person={person}
-            organization={organization}
-            showInteractions={isCruOrg}
-          />
+          <JourneyCommentBox person={person} organization={organization} />
         </Flex>
       </View>
     );
@@ -227,7 +221,6 @@ const mapStateToProps = (
       auth,
       organization,
     ),
-    isCruOrg: orgIsCru(organization),
   };
 };
 

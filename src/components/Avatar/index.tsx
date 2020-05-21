@@ -7,11 +7,13 @@ import theme from '../../theme';
 
 import styles from './styles';
 
-type PersonType = {
-  id: string | number;
-  fullName: string; // Requiring fullName because switching between fullName and firstName results in different random colors for the same person
-  picture: string | null;
-};
+export type AvatarPerson =
+  | {
+      id: string | number;
+      fullName: string; // Requiring fullName because switching between fullName and firstName results in different random colors for the same person
+      picture: string | null;
+    }
+  | undefined;
 
 type AvatarSize = 'extrasmall' | 'small' | 'medium' | 'large';
 
@@ -35,7 +37,7 @@ const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
 };
 
 interface AvatarProps {
-  person?: PersonType;
+  person: AvatarPerson;
   size: AvatarSize;
   style?: StyleProp<ImageStyle>;
   personId?: string;

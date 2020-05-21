@@ -1,15 +1,16 @@
 import React from 'react';
 import { View } from 'react-native';
+import { useTranslation } from 'react-i18next';
 
-import { Text, Flex } from '../../components/common';
+import { Text } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
 import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
-import { useIsMe } from '../../utils/hooks/useIsMe';
+import Avatar from '../../components/Avatar';
+import ItemHeaderText from '../../components/ItemHeaderText';
 
 import styles from './styles';
 import { FeedItemCommentItem } from './__generated__/FeedItemCommentItem';
-import Avatar from '../../components/Avatar';
 
 export interface CommentItemProps {
   testID?: string;
@@ -29,13 +30,15 @@ const CommentItem = ({
   isReported,
   isEditing,
 }: CommentItemProps) => {
+  const { t } = useTranslation('commentItem');
+
   const { content, person, createdAt } = comment;
   const name = person.fullName;
 
   const renderComment = () => {
     return (
       <View style={[styles.commentBody, isEditing && styles.editingComment]}>
-        <Text style={styles.text}>{content}</Text>
+        <Text>{content}</Text>
       </View>
     );
   };
@@ -52,6 +55,12 @@ const CommentItem = ({
             customContent={<Text style={styles.name}>{name}</Text>}
           />
           <CardTime date={createdAt} />
+          {comment.createdAt !== comment.updatedAt ? ( // TODO: replace updatedAt with contentUpdatedAt
+            <>
+              <Text style={[styles.edited, styles.editedBullet]}> • </Text>
+              <Text style={styles.edited}>{t('edited')}</Text>
+            </>
+          ) : null}
         </View>
         {menuActions ? (
           <PopupMenu
