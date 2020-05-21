@@ -204,6 +204,10 @@ import ChallengeMembers, {
 } from './containers/ChallengeMembers';
 import { CommunitiesRoutes } from './containers/Communities/CommunitiesRoutes';
 import NotificationCenterScreen from './containers/NotificationCenterScreen';
+import {
+  OnboardingAddPhotoScreen,
+  ONBOARDING_ADD_PHOTO_SCREEN,
+} from './containers/OnboardingAddPhotoScreen';
 import CelebrateFeedWithType, {
   CELEBRATE_FEED_WITH_TYPE_SCREEN,
 } from './containers/CelebrateFeedWithType';
@@ -430,6 +434,7 @@ const screens = {
     buildTrackingObj('person : unassigned', 'person'),
     { gesturesEnabled: true },
   ),
+  [ONBOARDING_ADD_PHOTO_SCREEN]: OnboardingAddPhotoScreen,
   [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
   [IS_USER_CREATED_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
     IsUserCreatedMemberPersonScreen,
