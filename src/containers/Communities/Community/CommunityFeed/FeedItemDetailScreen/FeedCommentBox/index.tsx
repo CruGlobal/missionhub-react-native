@@ -1,7 +1,9 @@
 import React from 'react';
 import { useMutation } from '@apollo/react-hooks';
 
-import CommentBox, { ActionItem } from '../CommentBox';
+import CommentBox, {
+  ActionItem,
+} from '../../../../../../components/CommentBox';
 
 import styles from './styles';
 import { FeedItemEditingComment } from './__generated__/FeedItemEditingComment';
@@ -18,19 +20,19 @@ import {
   UpdateFeedItemCommentVariables,
 } from './__generated__/UpdateFeedItemComment';
 
-interface CelebrateCommentBoxProps {
+interface FeedCommentBoxProps {
   feedItemId: string;
   editingComment?: FeedItemEditingComment;
   onAddComplete: () => void;
   onCancel: () => void;
 }
 
-const CelebrateCommentBox = ({
+const FeedCommentBox = ({
   feedItemId,
   editingComment,
   onAddComplete,
   onCancel,
-}: CelebrateCommentBoxProps) => {
+}: FeedCommentBoxProps) => {
   const [createComment] = useMutation<
     CreateFeedItemComment,
     CreateFeedItemCommentVariables
@@ -57,8 +59,8 @@ const CelebrateCommentBox = ({
 
   return (
     <CommentBox
-      testID="CelebrateCommentBox"
-      placeholderTextKey={'celebrateCommentBox:placeholder'}
+      testID="FeedCommentBox"
+      placeholderTextKey={'feedCommentBox:placeholder'}
       onSubmit={submitComment}
       editingComment={editingComment}
       onCancel={onCancel}
@@ -67,4 +69,4 @@ const CelebrateCommentBox = ({
   );
 };
 
-export default CelebrateCommentBox;
+export default FeedCommentBox;

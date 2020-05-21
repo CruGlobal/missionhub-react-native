@@ -1,19 +1,19 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { renderWithContext } from '../../../../testUtils';
-import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { renderWithContext } from '../../../../../../../../testUtils';
+import { mockFragment } from '../../../../../../../../testUtils/apolloMockClient';
 import {
   createCelebrateComment,
   resetCelebrateEditingComment,
   updateCelebrateComment,
 } from '../../../actions/celebrateComments';
 import { celebrateCommentsCommentSelector } from '../../../selectors/celebrateComments';
-import { Organization } from '../../../reducers/organizations';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../CommunityFeedItem/queries';
+import { Organization } from '../../../../../../../reducers/organizations';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../../../../../../components/CommunityFeedItem/queries';
 import { CelebrateItem } from '../../CommunityFeedItem/__generated__/CelebrateItem';
 
-import CelebrateCommentBox from '..';
+import FeedCommentBox from '..';
 
 jest.mock('../../../selectors/celebrateComments');
 jest.mock('../../../actions/celebrateComments');
@@ -38,7 +38,7 @@ const initialState = {
 
 function render() {
   return renderWithContext(
-    <CelebrateCommentBox
+    <FeedCommentBox
       event={event}
       organization={organization}
       onAddComplete={onAddComplete}
@@ -89,7 +89,7 @@ it('renders editing correctly', () => {
   );
 
   renderWithContext(
-    <CelebrateCommentBox event={event} organization={organization} />,
+    <FeedCommentBox event={event} organization={organization} />,
     {
       initialState: {
         ...initialState,
@@ -113,7 +113,7 @@ it('calls update', async () => {
   );
 
   const { getByTestId } = renderWithContext(
-    <CelebrateCommentBox event={event} organization={organization} />,
+    <FeedCommentBox event={event} organization={organization} />,
     {
       initialState: {
         ...initialState,

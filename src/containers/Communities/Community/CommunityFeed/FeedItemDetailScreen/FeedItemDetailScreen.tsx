@@ -6,7 +6,7 @@ import { useTranslation } from 'react-i18next';
 // import { useSelector } from 'react-redux';
 
 import CommentsList from '../../../../CommentsList';
-import CelebrateCommentBox from '../../../../../components/CelebrateCommentBox';
+import FeedCommentBox from './FeedCommentBox';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
 import {
   RefreshControl,
@@ -171,7 +171,7 @@ const FeedItemDetailScreen = () => {
 
   const renderCommentBox = () =>
     data ? (
-      <CelebrateCommentBox
+      <FeedCommentBox
         feedItemId={data.feedItem.id}
         editingComment={
           editingCommentId

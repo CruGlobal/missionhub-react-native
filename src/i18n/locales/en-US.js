@@ -406,8 +406,8 @@ export default {
     interactionNote: 'Comment',
     commentBoxPlaceholder: 'Share something to be remembered...',
   },
-  celebrateCommentBox: {
-    placeholder: 'Write a comment...',
+  feedCommentBox: {
+    placeholder: 'Add a comment...',
   },
   notes: {
     header: 'MY NOTES',
