@@ -180,7 +180,7 @@ export const PostTypeCardWithPeople = ({
   const { t } = useTranslation('postTypes');
   const visiblePeople = people?.slice(0, 3) || [];
   const num = getExtraCount(people?.length, countOnly);
-
+  let count = 0;
   return (
     <Card
       testID={`${type}CardWithPeople`}
@@ -195,14 +195,17 @@ export const PostTypeCardWithPeople = ({
         />
         <View style={styles.peopleCardList}>
           {!countOnly &&
-            visiblePeople.map(person => (
-              <Avatar
-                key={`${person.id}`}
-                person={person}
-                size="extrasmall"
-                style={{ marginLeft: -12 }}
-              />
-            ))}
+            visiblePeople.map(person => {
+              count += 1;
+              return (
+                <Avatar
+                  key={`${person.id}-${count}`}
+                  person={person}
+                  size="extrasmall"
+                  style={{ marginLeft: -12 }}
+                />
+              );
+            })}
           {num > 0 && (
             <Avatar
               person={null}
