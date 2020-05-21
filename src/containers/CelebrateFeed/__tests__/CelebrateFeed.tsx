@@ -121,7 +121,6 @@ describe('sections', () => {
 
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
-      pollInterval: 30000,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
@@ -130,7 +129,6 @@ describe('sections', () => {
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: true,
-      pollInterval: 30000,
     });
   });
 
@@ -156,7 +154,6 @@ describe('sections', () => {
 
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
-      pollInterval: 30000,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
@@ -165,7 +162,6 @@ describe('sections', () => {
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: true,
-      pollInterval: 30000,
     });
   });
 
@@ -191,7 +187,6 @@ describe('sections', () => {
 
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
-      pollInterval: 30000,
       variables: {
         communityId: organization.id,
         hasUnreadComments: undefined,
@@ -200,7 +195,6 @@ describe('sections', () => {
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       skip: true,
-      pollInterval: 30000,
     });
   });
 });
