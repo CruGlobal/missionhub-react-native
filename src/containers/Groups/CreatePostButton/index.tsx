@@ -8,13 +8,10 @@ import { useMyId } from '../../../utils/hooks/useIsMe';
 import { Button, Text } from '../../../components/common';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import Avatar from '../../../components/Avatar';
-import {
-  FeedItemSubjectTypeEnum,
-  PostTypeEnum,
-} from '../../../../__generated__/globalTypes';
+import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 import CreatePostModal from '../CreatePostModal';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
-import { isAdminOrOwner } from '../../../utils/common';
+import { isAdminOrOwner, mapFeedTypeToPostType } from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 
 import {
@@ -50,7 +47,7 @@ export const CreatePostButton = ({
   const community = data?.community;
   const orgPermission = community?.people.edges[0].communityPermission;
 
-  const adminOrOwner = orgPermission && isAdminOrOwner(orgPermission);
+  const adminOrOwner = isAdminOrOwner(orgPermission);
 
   if (
     communityId === GLOBAL_COMMUNITY_ID ||
@@ -60,7 +57,11 @@ export const CreatePostButton = ({
     return null;
   }
 
-  const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
+  const navigateToCreatePostScreen = () => {
+    if (!type) {
+      return;
+    }
+    const postType = mapFeedTypeToPostType(type);
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         onComplete: refreshItems,
@@ -71,21 +72,7 @@ export const CreatePostButton = ({
   };
 
   const openModal = () => {
-    if (type === FeedItemSubjectTypeEnum.PRAYER_REQUEST) {
-      navigateToCreatePostScreen(PostTypeEnum.prayer_request);
-    } else if (type === FeedItemSubjectTypeEnum.QUESTION) {
-      navigateToCreatePostScreen(PostTypeEnum.question);
-    } else if (type === FeedItemSubjectTypeEnum.STORY) {
-      navigateToCreatePostScreen(PostTypeEnum.story);
-    } else if (type === FeedItemSubjectTypeEnum.HELP_REQUEST) {
-      navigateToCreatePostScreen(PostTypeEnum.help_request);
-    } else if (type === FeedItemSubjectTypeEnum.THOUGHT) {
-      navigateToCreatePostScreen(PostTypeEnum.thought);
-    } else if (type === FeedItemSubjectTypeEnum.ANNOUNCEMENT) {
-      navigateToCreatePostScreen(PostTypeEnum.announcement);
-    } else {
-      changeModalVisibility(true);
-    }
+    changeModalVisibility(true);
   };
   const closeModal = () => {
     changeModalVisibility(false);
@@ -93,14 +80,19 @@ export const CreatePostButton = ({
 
   return (
     <View style={container}>
-      {isModalOpen && community ? (
+      {isModalOpen ? (
         <CreatePostModal
           closeModal={closeModal}
-          community={community}
+          communityId={communityId}
           refreshItems={refreshItems}
+          adminOrOwner={adminOrOwner}
         />
       ) : null}
-      <Button style={button} onPress={openModal} testID="CreatePostButton">
+      <Button
+        style={button}
+        onPress={type ? navigateToCreatePostScreen : openModal}
+        testID="CreatePostButton"
+      >
         <Avatar
           size="extrasmall"
           personId={personId}
