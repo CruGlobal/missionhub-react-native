@@ -31,4 +31,9 @@ export default StyleSheet.create({
     color: theme.communityThoughtGrey,
     fontSize: 12,
   },
+  postContentStyle: {
+    fontSize: 16,
+    color: theme.grey,
+    paddingBottom: 20,
+  },
 });

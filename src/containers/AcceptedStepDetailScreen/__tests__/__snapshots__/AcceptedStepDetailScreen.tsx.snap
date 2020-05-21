@@ -537,6 +537,7 @@ exports[`should render correctly post details 1`] = `
                 Object {
                   "color": "#505256",
                   "fontSize": 16,
+                  "paddingBottom": 20,
                 },
               ]
             }
@@ -544,6 +545,28 @@ exports[`should render correctly post details 1`] = `
             A care request
           </Text>
         </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "iure ut libero",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 1.3333333333333333,
+            }
+          }
+        />
       </View>
     </View>
   </RCTScrollView>

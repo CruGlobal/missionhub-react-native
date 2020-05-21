@@ -80,6 +80,11 @@ const prayerPostItem = { ...item, subject: prayerPostSubject };
 const storyPostItem = { ...item, subject: storyPostSubject };
 const stepItem = { ...item, subject: stepSubject };
 const challengeItem = { ...item, subject: challengeSubject };
+const myPrayerPostItem = {
+  ...item,
+  subject: prayerPostSubject,
+  subjectPerson: mePerson,
+};
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
@@ -151,6 +156,20 @@ describe('Community', () => {
         onRefresh={onRefresh}
         communityId={communityId}
         namePressable={false}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
+  });
+
+  it('renders post created by me correctly without add to steps button', () => {
+    renderWithContext(
+      <CommunityFeedItem
+        item={myPrayerPostItem}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={true}
       />,
       {
         initialState,

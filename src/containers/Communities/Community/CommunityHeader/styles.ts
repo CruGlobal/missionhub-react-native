@@ -4,10 +4,6 @@ import theme from '../../../../theme';
 
 export default StyleSheet.create({
   container: {
-    shadowColor: theme.black,
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 2,
     backgroundColor: theme.grey3,
   },
   image: { height: 210 },

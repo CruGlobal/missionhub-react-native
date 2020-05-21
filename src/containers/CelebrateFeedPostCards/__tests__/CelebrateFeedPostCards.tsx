@@ -27,6 +27,7 @@ jest.mock('../../../components/PostTypeLabel', () => ({
 
 const myId = '123';
 const organization: Organization = { id: '456' };
+const mockFeedRefetch = jest.fn();
 
 const initialState = {
   auth: { person: { id: myId } },
@@ -40,15 +41,24 @@ beforeEach(() => {
 });
 
 it('renders empty correctly', () => {
-  renderWithContext(<CelebrateFeedPostCards community={organization} />, {
-    initialState,
-    mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(0) }) },
-  }).snapshot();
+  renderWithContext(
+    <CelebrateFeedPostCards
+      community={organization}
+      feedRefetch={mockFeedRefetch}
+    />,
+    {
+      initialState,
+      mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(0) }) },
+    },
+  ).snapshot();
 });
 
 it('renders with feed items correctly', async () => {
   const { snapshot } = renderWithContext(
-    <CelebrateFeedPostCards community={organization} />,
+    <CelebrateFeedPostCards
+      community={organization}
+      feedRefetch={mockFeedRefetch}
+    />,
     {
       initialState,
       mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
@@ -67,7 +77,10 @@ describe('navs to screens', () => {
   let myGetByTestId: (testID: string) => ReactTestInstance;
   beforeEach(() => {
     const { getByTestId } = renderWithContext(
-      <CelebrateFeedPostCards community={organization} />,
+      <CelebrateFeedPostCards
+        community={organization}
+        feedRefetch={mockFeedRefetch}
+      />,
       {
         initialState,
         mocks: {
@@ -92,6 +105,7 @@ describe('navs to screens', () => {
         },
       },
     });
+    expect(mockFeedRefetch).toHaveBeenCalled();
   }
   it('navs to PRAYER_REQUEST', async () => {
     await check(FeedItemSubjectTypeEnum.PRAYER_REQUEST);

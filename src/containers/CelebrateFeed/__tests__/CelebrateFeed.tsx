@@ -1,7 +1,9 @@
+/* eslint max-lines: 0 */
 import React from 'react';
 import { MockList } from 'graphql-tools';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
 import { useQuery } from '@apollo/react-hooks';
+import MockDate from 'mockdate';
 
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
@@ -25,12 +27,17 @@ jest.mock('../../../components/PostTypeLabel', () => ({
 jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
 }));
-jest.mock('../../CelebrateFeedHeader', () => 'CelebrateFeedHeader');
+
+jest.mock('../../../containers/CelebrateFeedPostCards', () => ({
+  CelebrateFeedPostCards: 'CelebrateFeedPostCards',
+}));
 
 const myId = '123';
 const organization: Organization = { id: '456' };
 const person: Person = { id: '789' };
+const mockDate = '2020-05-20 12:00:00 PM GMT+0';
 
+MockDate.set(mockDate);
 const navigatePushResult = { type: 'navigated' };
 
 const initialState = {
@@ -88,6 +95,113 @@ it('renders with items correctly', async () => {
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
     skip: true,
+  });
+});
+
+describe('sections', () => {
+  it('renders New section', async () => {
+    const { snapshot } = renderWithContext(
+      <CelebrateFeed organization={organization} itemNamePressable={true} />,
+      {
+        initialState,
+        mocks: {
+          FeedItemConnection: () => ({
+            nodes: () =>
+              new MockList(1, () => ({
+                read: false,
+                createdAt: '2020-05-20 11:00:00 PM GMT+0',
+              })),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+      skip: false,
+      pollInterval: 30000,
+      variables: {
+        communityId: organization.id,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+      },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      skip: true,
+      pollInterval: 30000,
+    });
+  });
+
+  it('renders Today section', async () => {
+    const { snapshot } = renderWithContext(
+      <CelebrateFeed organization={organization} itemNamePressable={true} />,
+      {
+        initialState,
+        mocks: {
+          FeedItemConnection: () => ({
+            nodes: () =>
+              new MockList(1, () => ({
+                read: true,
+                createdAt: '2020-05-20 11:00:00 PM GMT+0',
+              })),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+      skip: false,
+      pollInterval: 30000,
+      variables: {
+        communityId: organization.id,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+      },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      skip: true,
+      pollInterval: 30000,
+    });
+  });
+
+  it('renders Earlier section', async () => {
+    const { snapshot } = renderWithContext(
+      <CelebrateFeed organization={organization} itemNamePressable={true} />,
+      {
+        initialState,
+        mocks: {
+          FeedItemConnection: () => ({
+            nodes: () =>
+              new MockList(1, () => ({
+                read: true,
+                createdAt: '2020-05-18 11:00:00 PM GMT+0',
+              })),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+      skip: false,
+      pollInterval: 30000,
+      variables: {
+        communityId: organization.id,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+      },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      skip: true,
+      pollInterval: 30000,
+    });
   });
 });
 
