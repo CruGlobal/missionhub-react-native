@@ -195,9 +195,10 @@ export const PostTypeCardWithPeople = ({
         />
         <View style={styles.peopleCardList}>
           {!countOnly &&
-            visiblePeople.map(person => (
+            visiblePeople.map((person, index) => (
               <Avatar
-                key={`${person.id}`}
+                // eslint-disable-next-line react/no-array-index-key
+                key={`${person.id}-${index}`}
                 person={person}
                 size="extrasmall"
                 style={{ marginLeft: -12 }}
