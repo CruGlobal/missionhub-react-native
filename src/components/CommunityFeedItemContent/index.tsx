@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -20,6 +20,7 @@ import { CommentLikeComponent } from '../CommentLikeComponent';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 import Separator from '../Separator';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
+import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -44,24 +45,12 @@ export const CommunityFeedItemContent = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
-  const [imageAspectRatio, changeImageAspectRatio] = useState(2);
-
   const imageData =
     (feedItem.subject.__typename === 'Post' &&
       feedItem.subject.mediaExpiringUrl) ||
     null;
 
-  useEffect(() => {
-    if (!imageData) {
-      return;
-    }
-
-    Image.getSize(
-      imageData,
-      (width, height) => changeImageAspectRatio(width / height),
-      () => {},
-    );
-  }, [imageData]);
+  const imageAspectRatio = useAspectRatio(imageData);
 
   const { subject, subjectPerson, subjectPersonName } = feedItem;
   const itemType = getFeedItemType(subject);
@@ -222,7 +211,7 @@ export const CommunityFeedItemContent = ({
         style={{
           aspectRatio: imageAspectRatio,
         }}
-        resizeMode="contain"
+        resizeMode="cover"
       />
     ) : null;
 
