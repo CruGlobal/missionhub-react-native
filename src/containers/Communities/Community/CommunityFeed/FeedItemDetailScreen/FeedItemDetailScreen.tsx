@@ -144,6 +144,7 @@ const FeedItemDetailScreen = () => {
   const renderCommentsList = () =>
     data ? (
       <CommentsList
+        feedItemId={feedItemId}
         comments={data.feedItem.comments.nodes}
         editingCommentId={editingCommentId}
         setEditingCommentId={setEditingCommentId}

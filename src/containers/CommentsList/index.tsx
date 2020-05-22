@@ -7,6 +7,11 @@ import { keyExtractorId } from '../../utils/common';
 import CommentItem from '../CommentItem';
 import { useMyId } from '../../utils/hooks/useIsMe';
 import { FeedItemCommentItem } from '../CommentItem/__generated__/FeedItemCommentItem';
+import {
+  FeedItemDetail,
+  FeedItemDetailVariables,
+} from '../Communities/Community/CommunityFeed/FeedItemDetailScreen/__generated__/FeedItemDetail';
+import { FEED_ITEM_DETAIL_QUERY } from '../Communities/Community/CommunityFeed/FeedItemDetailScreen/queries';
 
 import styles from './styles';
 import {
@@ -23,6 +28,7 @@ import {
 } from './__generated__/ReportFeedItemComment';
 
 export interface CommentsListProps {
+  feedItemId: string;
   comments: FeedItemCommentItem[];
   editingCommentId?: string;
   setEditingCommentId: (id?: string) => void;
@@ -32,6 +38,7 @@ export interface CommentsListProps {
 }
 
 const CommentsList = ({
+  feedItemId,
   comments,
   editingCommentId,
   setEditingCommentId,
@@ -67,7 +74,32 @@ const CommentsList = ({
   const [deleteComment] = useMutation<
     DeleteFeedItemComment,
     DeleteFeedItemCommentVariables
-  >(DELETE_FEED_ITEM_COMMENT_MUTATION);
+  >(DELETE_FEED_ITEM_COMMENT_MUTATION, {
+    update: (cache, { data }) => {
+      const originalData = cache.readQuery<
+        FeedItemDetail,
+        FeedItemDetailVariables
+      >({
+        query: FEED_ITEM_DETAIL_QUERY,
+        variables: { feedItemId, myId },
+      });
+      cache.writeQuery({
+        query: FEED_ITEM_DETAIL_QUERY,
+        data: {
+          ...originalData,
+          feedItem: {
+            ...originalData?.feedItem,
+            comments: {
+              ...originalData?.feedItem.comments,
+              nodes: (originalData?.feedItem.comments.nodes || []).filter(
+                ({ id }) => id !== data?.deleteFeedItemComment?.id,
+              ),
+            },
+          },
+        },
+      });
+    },
+  });
 
   const handleDelete = (comment: FeedItemCommentItem) => {
     alert({

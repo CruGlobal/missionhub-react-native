@@ -29,7 +29,7 @@ interface FeedCommentBoxProps {
   avatarPerson: AvatarPerson;
   feedItemId: string;
   editingComment?: FeedItemEditingComment;
-  onAddComplete: () => void;
+  onAddComplete?: () => void;
   onCancel: () => void;
   onFocus?: () => void;
 }
@@ -91,7 +91,7 @@ const FeedCommentBox = ({
       await createComment({
         variables: { feedItemId, content: text },
       });
-      onAddComplete();
+      onAddComplete && onAddComplete();
     }
   };
 
