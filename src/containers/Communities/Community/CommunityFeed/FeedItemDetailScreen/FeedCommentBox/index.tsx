@@ -31,6 +31,7 @@ interface FeedCommentBoxProps {
   editingComment?: FeedItemEditingComment;
   onAddComplete: () => void;
   onCancel: () => void;
+  onFocus?: () => void;
 }
 
 const FeedCommentBox = ({
@@ -39,6 +40,7 @@ const FeedCommentBox = ({
   editingComment,
   onAddComplete,
   onCancel,
+  onFocus,
 }: FeedCommentBoxProps) => {
   const { t } = useTranslation('feedCommentBox');
   const myId = useMyId();
@@ -101,6 +103,7 @@ const FeedCommentBox = ({
       onSubmit={submitComment}
       editingComment={editingComment}
       onCancel={onCancel}
+      onFocus={onFocus}
     />
   );
 };

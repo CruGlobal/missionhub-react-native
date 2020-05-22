@@ -3,6 +3,7 @@ import { View, SafeAreaView, FlatList } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
+import debounce from 'lodash.debounce';
 // import { useSelector } from 'react-redux';
 
 import CommentsList from '../../../../CommentsList';
@@ -98,7 +99,13 @@ const FeedItemDetailScreen = () => {
 
   const listRef = useRef<FlatList<FeedItemCommentItem[]>>(null);
 
-  const scrollToEnd = () => listRef.current && listRef.current.scrollToEnd();
+  const scrollToEnd = () => listRef.current?.scrollToEnd();
+
+  // Using useRef instead of useState since we don't need a rerender immediately when this changes.
+  // Moved actual call to scrollToEnd to onContentSizeChange since new data isn't rerendered yet when this is called
+  const shouldScrollToBottom = useRef(false);
+  const scrollToEndAfterContentChange = () =>
+    (shouldScrollToBottom.current = true);
 
   const scrollToFocusedRef = () => {
     if (data && editingCommentId) {
@@ -106,8 +113,7 @@ const FeedItemDetailScreen = () => {
         c => c.id === editingCommentId,
       );
       if (index && index >= 0) {
-        listRef.current &&
-          listRef.current.scrollToIndex({ index, viewPosition: 1 });
+        listRef.current?.scrollToIndex({ index, viewPosition: 1 });
         return;
       }
     }
@@ -163,6 +169,12 @@ const FeedItemDetailScreen = () => {
           onEndReached: handleNextPage,
           onEndReachedThreshold: 0.2,
           ListFooterComponent: loading ? <FooterLoading /> : null,
+          onContentSizeChange: debounce(() => {
+            if (shouldScrollToBottom.current) {
+              shouldScrollToBottom.current = false;
+              scrollToEnd();
+            }
+          }, 10),
         }}
       />
     ) : (
@@ -182,7 +194,10 @@ const FeedItemDetailScreen = () => {
             : undefined
         }
         onCancel={() => setEditingCommentId(undefined)}
-        onAddComplete={scrollToEnd}
+        onAddComplete={
+          editingCommentId ? undefined : scrollToEndAfterContentChange
+        }
+        onFocus={editingCommentId ? undefined : scrollToEnd}
       />
     ) : null;
 

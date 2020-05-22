@@ -14,6 +14,7 @@ interface CommentBoxProps {
   avatarPerson?: AvatarPerson;
   onCancel?: () => void;
   onSubmit: (text: string) => void;
+  onFocus?: () => void;
   placeholderText: string;
   editingComment?: FeedItemEditingComment;
   testID?: string;
@@ -23,6 +24,7 @@ const CommentBox = ({
   avatarPerson,
   onCancel,
   onSubmit,
+  onFocus,
   placeholderText,
   editingComment,
 }: CommentBoxProps) => {
@@ -54,6 +56,10 @@ const CommentBox = ({
 
   const handleSubmit = async () => {
     Keyboard.dismiss();
+    if (!text || isSubmitting) {
+      return;
+    }
+
     const origText = text;
 
     try {
@@ -98,8 +104,10 @@ const CommentBox = ({
           value={text}
           style={input}
           autoFocus={false}
+          onFocus={onFocus}
           autoCorrect={true}
           returnKeyType="done"
+          onSubmitEditing={handleSubmit}
           blurOnSubmit={true}
           placeholder={placeholderText}
           placeholderTextColor={theme.grey1}
