@@ -1,5 +1,7 @@
 import gql from 'graphql-tag';
 
+import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../../../../../CommentItem/queries';
+
 export const FEED_ITEM_EDITING_COMMENT_FRAGMENT = gql`
   fragment FeedItemEditingComment on FeedItemComment {
     id
@@ -13,11 +15,13 @@ export const CREATE_FEED_ITEM_COMMENT_MUTATION = gql`
       input: { feedItemId: $feedItemId, content: $content }
     ) {
       feedItemComment {
-        id
-        content
+        ...FeedItemCommentItem
+        ...FeedItemEditingComment
       }
     }
   }
+  ${FEED_ITEM_COMMENT_ITEM_FRAGMENT}
+  ${FEED_ITEM_EDITING_COMMENT_FRAGMENT}
 `;
 
 export const UPDATE_FEED_ITEM_COMMENT_MUTATION = gql`

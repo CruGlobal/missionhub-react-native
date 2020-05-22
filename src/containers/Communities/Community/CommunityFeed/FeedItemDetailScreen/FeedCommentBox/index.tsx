@@ -4,6 +4,12 @@ import { useTranslation } from 'react-i18next';
 
 import CommentBox from '../../../../../../components/CommentBox';
 import { AvatarPerson } from '../../../../../../components/Avatar';
+import {
+  FeedItemDetail,
+  FeedItemDetailVariables,
+} from '../__generated__/FeedItemDetail';
+import { FEED_ITEM_DETAIL_QUERY } from '../queries';
+import { useMyId } from '../../../../../../utils/hooks/useIsMe';
 
 import { FeedItemEditingComment } from './__generated__/FeedItemEditingComment';
 import {
@@ -35,11 +41,38 @@ const FeedCommentBox = ({
   onCancel,
 }: FeedCommentBoxProps) => {
   const { t } = useTranslation('feedCommentBox');
+  const myId = useMyId();
 
   const [createComment] = useMutation<
     CreateFeedItemComment,
     CreateFeedItemCommentVariables
-  >(CREATE_FEED_ITEM_COMMENT_MUTATION);
+  >(CREATE_FEED_ITEM_COMMENT_MUTATION, {
+    update: (cache, { data }) => {
+      const originalData = cache.readQuery<
+        FeedItemDetail,
+        FeedItemDetailVariables
+      >({
+        query: FEED_ITEM_DETAIL_QUERY,
+        variables: { feedItemId, myId },
+      });
+      cache.writeQuery({
+        query: FEED_ITEM_DETAIL_QUERY,
+        data: {
+          ...originalData,
+          feedItem: {
+            ...originalData?.feedItem,
+            comments: {
+              ...originalData?.feedItem.comments,
+              nodes: [
+                ...(originalData?.feedItem.comments.nodes || []),
+                data?.createFeedItemComment?.feedItemComment,
+              ],
+            },
+          },
+        },
+      });
+    },
+  });
 
   const [updateComment] = useMutation<
     UpdateFeedItemComment,
