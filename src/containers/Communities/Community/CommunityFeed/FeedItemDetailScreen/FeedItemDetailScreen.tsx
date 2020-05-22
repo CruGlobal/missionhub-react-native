@@ -74,7 +74,9 @@ const FeedItemDetailScreen = () => {
     }
 
     fetchMore({
-      variables: { after: data?.feedItem.comments.pageInfo.endCursor },
+      variables: {
+        commentsCursor: data?.feedItem.comments.pageInfo.endCursor,
+      },
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
           ? {
@@ -87,8 +89,8 @@ const FeedItemDetailScreen = () => {
                   ...prev.feedItem.comments,
                   ...fetchMoreResult.feedItem.comments,
                   nodes: [
-                    ...(prev.feedItem.comments || []),
-                    ...(fetchMoreResult.feedItem.comments || []),
+                    ...prev.feedItem.comments.nodes,
+                    ...fetchMoreResult.feedItem.comments.nodes,
                   ],
                 },
               },

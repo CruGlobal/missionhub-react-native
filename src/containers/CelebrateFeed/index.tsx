@@ -162,7 +162,7 @@ export const CelebrateFeed = ({
 
     fetchMore({
       variables: {
-        feedCursor: endCursor,
+        feedItemsCursor: endCursor,
       },
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
