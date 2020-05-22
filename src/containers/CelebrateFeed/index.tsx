@@ -4,13 +4,9 @@ import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import {
-  CommunityFeedItem,
-  CombinedFeedItem,
-} from '../../components/CommunityFeedItem';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import { CreatePostButton } from '../Groups/CreatePostButton';
-import { CelebrateFeedSection } from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
@@ -27,6 +23,7 @@ import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
+  GetCommunityFeed_community_feedItems_nodes,
 } from './__generated__/GetCommunityFeed';
 import {
   GetGlobalCommunityFeed,
@@ -54,7 +51,9 @@ export interface CommunityFeedSection {
   data: FeedItemFragment[];
 }
 
-const sortCommunityFeed = (items: FeedItemFragment[]) => {
+const groupCommunityFeed = (
+  items: GetCommunityFeed_community_feedItems_nodes[],
+) => {
   const dateSections: CommunityFeedSection[] = [
     { id: 0, title: 'dates.new', data: [] },
     { id: 1, title: 'dates.today', data: [] },
@@ -145,9 +144,7 @@ export const CelebrateFeed = ({
     },
   );
 
-  const items = sortCommunityFeed(
-    (isGlobal ? globalNodes : nodes) as CombinedFeedItem[],
-  );
+  const items = groupCommunityFeed(isGlobal ? globalNodes : nodes);
 
   const handleRefreshing = () => {
     if (loading || globalLoading) {
@@ -197,7 +194,7 @@ export const CelebrateFeed = ({
 
     globalFetchMore({
       variables: {
-        feedCursor: globalEndCursor,
+        feedItemsCursor: globalEndCursor,
       },
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
@@ -226,7 +223,7 @@ export const CelebrateFeed = ({
     ({
       section: { title },
     }: {
-      section: SectionListData<CelebrateFeedSection>;
+      section: SectionListData<CommunityFeedSection>;
     }) => (
       <View style={styles.header}>
         <Text style={styles.title}>{t(`${title}`)}</Text>

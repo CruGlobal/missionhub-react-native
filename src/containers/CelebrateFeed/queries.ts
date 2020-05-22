@@ -15,6 +15,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
         after: $feedItemsCursor
       ) {
         nodes {
+          read
           ...CommunityFeedItem
         }
         pageInfo {
@@ -42,6 +43,7 @@ export const GET_COMMUNITY_FEED = gql`
         after: $feedItemsCursor
       ) {
         nodes {
+          read
           ...CommunityFeedItem
         }
         pageInfo {

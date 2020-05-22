@@ -11,7 +11,7 @@ import styles from './styles';
 import SubmitPostArrow from './submitPostArrow.svg';
 
 interface CommentBoxProps {
-  avatarPerson: AvatarPerson;
+  avatarPerson?: AvatarPerson;
   onCancel?: () => void;
   onSubmit: (text: string) => void;
   placeholderText: string;

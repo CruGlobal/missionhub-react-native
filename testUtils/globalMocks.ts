@@ -3,7 +3,6 @@ import { IMocks } from 'graphql-tools';
 import moment from 'moment';
 
 import {
-  CommunityCelebrationCelebrateableEnum,
   PermissionEnum,
   ReminderTypeEnum,
   StepTypeEnum,
@@ -54,19 +53,6 @@ export const globalMocks: IMocks = {
   Community: () => ({
     name: faker.company.catchPhrase(),
   }),
-  CommunityCelebrationItem: () => {
-    const firstName = faker.name.firstName();
-    const lastName = faker.name.lastName();
-    return {
-      celebrateableType: faker.random.arrayElement(
-        Object.values(CommunityCelebrationCelebrateableEnum),
-      ),
-      changedAttributeValue: moment(
-        faker.date.past(10, '2020-01-14'),
-      ).toISOString(),
-      subjectPersonName: `${firstName} ${lastName}`,
-    };
-  },
   CommunityPermission: () => {
     return {
       permission: faker.random.arrayElement(Object.values(PermissionEnum)),

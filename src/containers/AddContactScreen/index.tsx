@@ -57,7 +57,7 @@ interface AddContactScreenProps {
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
-export type PersonType = Omit<GetPerson_person, '__typename'>;
+export type PersonType = Omit<GetPerson_person, '__typename' | 'fullName'>;
 
 const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const { t } = useTranslation('addContact');
