@@ -10,6 +10,7 @@ import ReportItemLabel from '../../components/ReportItemLabel';
 import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
 import { GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface } from '../Groups/__generated__/GetReportedContent';
 import { Organization } from '../../reducers/organizations';
+import { CelebrateComment } from '../../reducers/celebrateComments';
 
 import {
   RespondToContentComplaintVariables,
@@ -110,7 +111,7 @@ const ReportedItem = ({
       </Flex>
       <Flex style={comment}>
         <CommentItem
-          item={subject}
+          item={subject as CelebrateComment}
           isReported={true}
           organization={organization}
         />
