@@ -26,7 +26,7 @@ export default StyleSheet.create({
     marginBottom: 5,
   },
   headerContainer: {
-    paddingVertical: 45,
+    paddingVertical: 35,
     padding: 25,
   },
   headerText: {
@@ -38,7 +38,7 @@ export default StyleSheet.create({
   },
   headerBackButtonWrap: {
     position: 'absolute',
-    top: 40,
+    top: 10,
     left: 10,
   },
   icon: {
@@ -64,6 +64,27 @@ export default StyleSheet.create({
     color: theme.white,
     lineHeight: 20,
   },
+  peopleCard: {
+    flex: 1,
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+  },
+  peopleCardTop: {
+    paddingVertical: 13,
+    paddingHorizontal: 12,
+    borderTopLeftRadius: 8,
+    borderTopRightRadius: 8,
+    flexDirection: 'row',
+  },
+  peopleCardList: { flex: 1, flexDirection: 'row', justifyContent: 'flex-end' },
+  peopleCardBottom: {
+    backgroundColor: theme.white,
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+  },
+  peopleCardText: { fontSize: 14 },
   STORY: {
     backgroundColor: theme.communityGodStoryPurple,
   },

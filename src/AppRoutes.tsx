@@ -87,9 +87,6 @@ import {
 } from './constants';
 import { buildTrackingObj, isAndroid } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
-import GroupReport, {
-  GROUPS_REPORT_SCREEN,
-} from './containers/Groups/GroupReport';
 import UnassignedPersonScreen, {
   UNASSIGNED_PERSON_SCREEN,
 } from './containers/Groups/UnassignedPersonScreen';
@@ -207,6 +204,13 @@ import ChallengeMembers, {
 } from './containers/ChallengeMembers';
 import { CommunitiesRoutes } from './containers/Communities/CommunitiesRoutes';
 import NotificationCenterScreen from './containers/NotificationCenterScreen';
+import {
+  OnboardingAddPhotoScreen,
+  ONBOARDING_ADD_PHOTO_SCREEN,
+} from './containers/OnboardingAddPhotoScreen';
+import CelebrateFeedWithType, {
+  CELEBRATE_FEED_WITH_TYPE_SCREEN,
+} from './containers/CelebrateFeedWithType';
 import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
@@ -376,12 +380,7 @@ const screens = {
     buildTrackingObj('search : refine', 'search', 'refine'),
     { gesturesEnabled: true },
   ),
-  [GROUPS_REPORT_SCREEN]: buildTrackedScreen(
-    GroupReport,
-    // @ts-ignore
-    buildTrackingObj('communities : report', 'communities', 'report'),
-    { gesturesEnabled: true },
-  ),
+
   [GROUP_UNREAD_FEED_SCREEN]: buildTrackedScreen(
     GroupUnreadFeed,
     // @ts-ignore
@@ -435,6 +434,7 @@ const screens = {
     buildTrackingObj('person : unassigned', 'person'),
     { gesturesEnabled: true },
   ),
+  [ONBOARDING_ADD_PHOTO_SCREEN]: OnboardingAddPhotoScreen,
   [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
   [IS_USER_CREATED_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
     IsUserCreatedMemberPersonScreen,
@@ -492,6 +492,7 @@ const screens = {
   [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
   [LOADING_SCREEN]: LoadingScreen,
   [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
+  [CELEBRATE_FEED_WITH_TYPE_SCREEN]: CelebrateFeedWithType,
   [ADD_POST_TO_STEPS_SCREEN]: AddPostToStepsScreen,
 };
 
@@ -512,11 +513,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [
-  CELEBRATE_DETAIL_SCREEN,
-  GROUPS_REPORT_SCREEN,
-  ADD_POST_TO_STEPS_SCREEN,
-];
+const MODAL_SCREENS = [CELEBRATE_DETAIL_SCREEN, ADD_POST_TO_STEPS_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {

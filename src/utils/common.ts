@@ -148,10 +148,13 @@ export const hasOrgPermissions = (
 };
 
 export const isAdminOrOwner = (
-  orgPermission: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  } | null,
+  orgPermission:
+    | {
+        permission_id?: string;
+        permission?: PermissionEnum;
+      }
+    | null
+    | undefined,
 ) =>
   (!!orgPermission &&
     [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
@@ -431,6 +434,23 @@ export const mapPostTypeToFeedType = (postType: PostTypeEnum) => {
       return FeedItemSubjectTypeEnum.THOUGHT;
     case PostTypeEnum.announcement:
       return FeedItemSubjectTypeEnum.ANNOUNCEMENT;
+  }
+};
+
+export const mapFeedTypeToPostType = (feedType: FeedItemSubjectTypeEnum) => {
+  switch (feedType) {
+    case FeedItemSubjectTypeEnum.STORY:
+      return PostTypeEnum.story;
+    case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
+      return PostTypeEnum.prayer_request;
+    case FeedItemSubjectTypeEnum.QUESTION:
+      return PostTypeEnum.question;
+    case FeedItemSubjectTypeEnum.HELP_REQUEST:
+      return PostTypeEnum.help_request;
+    case FeedItemSubjectTypeEnum.THOUGHT:
+      return PostTypeEnum.thought;
+    case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
+      return PostTypeEnum.announcement;
   }
 };
 

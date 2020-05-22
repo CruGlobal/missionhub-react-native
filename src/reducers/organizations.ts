@@ -27,7 +27,7 @@ export interface PaginationObject {
 }
 
 export interface OrganizationsState {
-  all: [Organization];
+  all: Organization[];
   surveysPagination: PaginationObject;
   membersPagination: PaginationObject;
 }

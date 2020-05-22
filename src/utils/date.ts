@@ -63,6 +63,14 @@ export const isLastTwelveHours = (momentDate: moment.Moment) => {
     '[]',
   );
 };
+export const isLastTwentyFourHours = (momentDate: moment.Moment) => {
+  return momentDate.isBetween(
+    moment().subtract(24, 'hours'),
+    moment(),
+    'hours',
+    '[]',
+  );
+};
 
 const isTomorrow = (momentDate: moment.Moment) =>
   momentDate.isSame(moment().add(1, 'days'), 'day');
@@ -76,27 +84,14 @@ const inNextWeek = (momentDate: moment.Moment) =>
 const inThisYear = (momentDate: moment.Moment) =>
   momentDate.isSame(moment(), 'year');
 
-export const commentDateFormat = (date: moment.Moment) =>
-  isToday(date)
-    ? date.format('LT')
-    : isYesterday(date)
+export const dateAtTimeFormat = (date: moment.Moment) =>
+  isToday(date) || isYesterday(date)
     ? `${date.calendar().split(' ')[0]} @ ${date.format('LT')}`
     : inLastWeek(date)
     ? date.format('dddd @ LT')
     : inThisYear(date)
     ? date.format('MMMM D @ LT')
     : date.format('LL @ LT');
-
-export const relativeDateFormat = (date: moment.Moment) =>
-  isToday(date)
-    ? date.calendar().split(' ')[0]
-    : isYesterday(date)
-    ? date.calendar().split(' ')[0]
-    : inLastWeek(date)
-    ? date.format('dddd')
-    : inThisYear(date)
-    ? date.format('dddd, MMMM D')
-    : date.format('dddd, MMMM D YYYY');
 
 export const reminderFormat = ({
   reminderType,

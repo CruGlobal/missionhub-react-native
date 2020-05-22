@@ -301,7 +301,7 @@ exports[`should render correctly | Care Step 1`] = `
                 }
                 testID="Text"
               >
-                May 11 @ 12:00 PM
+                Sep 19 @ 3:58 AM
               </Text>
               <Text
                 style={
@@ -347,6 +347,7 @@ exports[`should render correctly | Care Step 1`] = `
                 Object {
                   "color": "#505256",
                   "fontSize": 16,
+                  "paddingBottom": 20,
                 },
               ]
             }
@@ -354,6 +355,28 @@ exports[`should render correctly | Care Step 1`] = `
             et porro ut
           </Text>
         </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "eligendi occaecati debitis",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 2,
+            }
+          }
+        />
       </View>
     </View>
   </RCTScrollView>
@@ -743,7 +766,7 @@ exports[`should render correctly | Pray Step 1`] = `
                 }
                 testID="Text"
               >
-                May 11 @ 12:00 PM
+                Sep 19 @ 3:58 AM
               </Text>
               <Text
                 style={
@@ -789,6 +812,7 @@ exports[`should render correctly | Pray Step 1`] = `
                 Object {
                   "color": "#505256",
                   "fontSize": 16,
+                  "paddingBottom": 20,
                 },
               ]
             }
@@ -796,6 +820,28 @@ exports[`should render correctly | Pray Step 1`] = `
             repudiandae esse blanditiis
           </Text>
         </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "itaque velit omnis",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 2,
+            }
+          }
+        />
       </View>
     </View>
   </RCTScrollView>
@@ -1185,7 +1231,7 @@ exports[`should render correctly | Share Step 1`] = `
                 }
                 testID="Text"
               >
-                May 11 @ 12:00 PM
+                Sep 19 @ 3:58 AM
               </Text>
               <Text
                 style={
@@ -1231,6 +1277,7 @@ exports[`should render correctly | Share Step 1`] = `
                 Object {
                   "color": "#505256",
                   "fontSize": 16,
+                  "paddingBottom": 20,
                 },
               ]
             }
@@ -1238,6 +1285,28 @@ exports[`should render correctly | Share Step 1`] = `
             et saepe eum
           </Text>
         </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "enim ipsum inventore",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 2,
+            }
+          }
+        />
       </View>
     </View>
   </RCTScrollView>

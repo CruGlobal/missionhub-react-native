@@ -15,6 +15,7 @@ const POST_FRAGMENT = gql`
     }
     content
     createdAt
+    mediaExpiringUrl
   }
 `;
 

@@ -33,6 +33,7 @@ import {
   personIsCurrentUser,
   isOnboarding,
   mapPostTypeToFeedType,
+  mapFeedTypeToPostType,
   getFeedItemType,
 } from '../common';
 import {
@@ -774,6 +775,44 @@ describe('mapPostTypeToFeedType', () => {
   it('maps for Announcement', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.announcement)).toEqual(
       FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+    );
+  });
+});
+
+describe('mapFeedTypeToPostType', () => {
+  it('maps for Story', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.STORY)).toEqual(
+      PostTypeEnum.story,
+    );
+  });
+
+  it('maps for Prayer Request', () => {
+    expect(
+      mapFeedTypeToPostType(FeedItemSubjectTypeEnum.PRAYER_REQUEST),
+    ).toEqual(PostTypeEnum.prayer_request);
+  });
+
+  it('maps for Question', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.QUESTION)).toEqual(
+      PostTypeEnum.question,
+    );
+  });
+
+  it('maps for Help Request', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.HELP_REQUEST)).toEqual(
+      PostTypeEnum.help_request,
+    );
+  });
+
+  it('maps for Thought', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.THOUGHT)).toEqual(
+      PostTypeEnum.thought,
+    );
+  });
+
+  it('maps for Announcement', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.ANNOUNCEMENT)).toEqual(
+      PostTypeEnum.announcement,
     );
   });
 });

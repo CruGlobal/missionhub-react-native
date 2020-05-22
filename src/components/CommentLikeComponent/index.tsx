@@ -7,7 +7,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { CommunityFeedItem } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CombinedFeedItem } from '../CommunityFeedItem';
 import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
@@ -19,7 +19,7 @@ import styles from './styles';
 
 export interface CommentLikeComponentProps {
   communityId: string;
-  item: CommunityFeedItem;
+  item: CombinedFeedItem;
   onRefresh: () => void;
 }
 

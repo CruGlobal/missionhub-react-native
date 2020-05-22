@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Modal, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
-import { useQuery } from '@apollo/react-hooks';
 
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
@@ -10,9 +9,8 @@ import PostTypeLabel, {
 } from '../../../components/PostTypeLabel';
 import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { AuthState } from '../../../reducers/auth';
-import { isAdminOrOwner, mapPostTypeToFeedType } from '../../../utils/common';
+import { mapPostTypeToFeedType } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { useMyId } from '../../../utils/hooks/useIsMe';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
@@ -24,23 +22,20 @@ import {
 } from '../../../../__generated__/globalTypes';
 import theme from '../../../theme';
 
-import {
-  getMyCommunityPermission,
-  getMyCommunityPermissionVariables,
-} from './__generated__/getMyCommunityPermission';
-import { GET_MY_COMMUNITY_PERMISSION_QUERY } from './queries';
 import styles from './styles';
 
 interface CreatePostModalProps {
   closeModal: () => void;
   communityId: string;
   refreshItems: () => void;
+  adminOrOwner: boolean;
 }
 
 const CreatePostModal = ({
   closeModal,
   communityId,
   refreshItems,
+  adminOrOwner,
 }: CreatePostModalProps) => {
   const {
     modalStyle,
@@ -51,26 +46,13 @@ const CreatePostModal = ({
   } = styles;
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
-  const personId = useMyId();
   const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
-
-  const { data: { community } = { community: undefined } } = useQuery<
-    getMyCommunityPermission,
-    getMyCommunityPermissionVariables
-  >(GET_MY_COMMUNITY_PERMISSION_QUERY, {
-    variables: {
-      id: communityId,
-      myId: personId,
-    },
-  });
-  const orgPermission = community?.people.edges[0].communityPermission;
-
-  const adminOrOwner = orgPermission && isAdminOrOwner(orgPermission);
 
   useAnalytics(['post', 'choose type'], {
     screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]:
-        community && getAnalyticsPermissionType(auth, community),
+      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(auth, {
+        id: communityId,
+      }),
     },
   });
 
@@ -79,7 +61,7 @@ const CreatePostModal = ({
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         onComplete: refreshItems,
-        communityId: community?.id,
+        communityId,
         postType,
       }),
     );
@@ -146,4 +128,5 @@ const CreatePostModal = ({
     </Modal>
   );
 };
+
 export default CreatePostModal;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { View, Alert, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
@@ -17,12 +17,15 @@ import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen'
 import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal, getFeedItemType } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
+import { GlobalCommunityFeedItem } from '../CommunityFeedItem/__generated__/GlobalCommunityFeedItem';
 import {
   CommunityFeedItem as FeedItemFragment,
   CommunityFeedItem_subject,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
+import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -32,11 +35,13 @@ import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
 
+export type CombinedFeedItem = FeedItemFragment & GlobalCommunityFeedItem;
+
 export interface CommunityFeedItemProps {
-  item: FeedItemFragment;
+  item: CombinedFeedItem;
   communityId: string;
   namePressable: boolean;
-  onClearNotification?: (item: FeedItemFragment) => void;
+  onClearNotification?: (item: CombinedFeedItem) => void;
   onRefresh: () => void;
 }
 
@@ -57,15 +62,15 @@ export const CommunityFeedItem = ({
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
-  const [imageAspectRatio, changeImageAspectRatio] = useState(2);
 
   const FeedItemType = getFeedItemType(subject);
 
-  const addToSteps = [
-    FeedItemSubjectTypeEnum.HELP_REQUEST,
-    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
-    FeedItemSubjectTypeEnum.QUESTION,
-  ].includes(FeedItemType);
+  const addToSteps =
+    [
+      FeedItemSubjectTypeEnum.HELP_REQUEST,
+      FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+      FeedItemSubjectTypeEnum.QUESTION,
+    ].includes(FeedItemType) && !isMe;
   const isGlobal = orgIsGlobal({ id: communityId });
 
   const isPost = (
@@ -74,18 +79,7 @@ export const CommunityFeedItem = ({
 
   const imageData = (isPost(subject) && subject.mediaExpiringUrl) || null;
 
-  useEffect(() => {
-    if (!imageData) {
-      return;
-    }
-
-    Image.getSize(
-      imageData,
-      (width, height) => changeImageAspectRatio(width / height),
-      () => {},
-    );
-  }, [imageData]);
-
+  const imageAspectRatio = useAspectRatio(imageData);
   const handlePress = () =>
     dispatch(
       navigatePush(CELEBRATE_DETAIL_SCREEN, {
@@ -137,7 +131,12 @@ export const CommunityFeedItem = ({
     );
 
   const navToFilteredFeed = () => {
-    //TODO: navigate to filtered feed for post type
+    dispatch(
+      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+        type: FeedItemType,
+        communityId,
+      }),
+    );
   };
 
   const menuActions =
@@ -196,17 +195,11 @@ export const CommunityFeedItem = ({
         <PostTypeLabel type={FeedItemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
-        {item.subjectPerson ? (
-          <Avatar
-            size={'medium'}
-            person={item.subjectPerson}
-            orgId={communityId}
-          />
-        ) : null}
+        <Avatar size="medium" person={subjectPerson} orgId={communityId} />
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName
             name={subjectPersonName}
-            person={item.subjectPerson}
+            person={subjectPerson}
             communityId={communityId}
             pressable={namePressable}
           />

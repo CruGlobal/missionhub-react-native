@@ -82,6 +82,7 @@ export default {
       every: 'Every',
       onceAMonth: 'Once a month on the',
       earlier: 'Earlier',
+      new: 'New',
     },
     yes: 'Yes',
     no: 'No',
@@ -189,6 +190,14 @@ export default {
     namePrompt: 'what is your name?',
     addPerson: 'Who would you like to take steps of faith with this week?',
     errorSavingPerson: 'Error saving your person. Please try again.',
+  },
+  onboardingAddPhoto: {
+    nullHeader: 'Add Profile Photo',
+    imageHeader: 'Profile Photo Added',
+    description: "Add a profile photo so your members know it's you",
+    changePhoto: 'Change Photo',
+    nullButtonText: 'Add a Profile Photo',
+    imageButtonText: 'Continue',
   },
   categories: {
     onboardingPrompt:
@@ -898,6 +907,14 @@ export default {
       ANNOUNCEMENT: 'Announcements',
       STEP: 'Celebrate Others',
     },
+    card: {
+      STORY: 'Read a God Story',
+      PRAYER_REQUEST: 'Prayer Requests',
+      QUESTION: 'Answer a Question',
+      HELP_REQUEST: 'Provide Help',
+      ANNOUNCEMENT: 'Announcements',
+      STEP: 'Celebrate Others',
+    },
   },
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
@@ -907,11 +924,11 @@ export default {
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {
-      story: 'Share a God Story',
-      prayer_request: 'Ask for Prayer',
-      question: 'Ask a Spiritual Question',
-      help_request: 'Ask for Help',
-      announcement: 'Make an Announcement',
+      STORY: 'Share a God Story',
+      PRAYER_REQUEST: 'Ask for Prayer',
+      QUESTION: 'Ask a Spiritual Question',
+      HELP_REQUEST: 'Ask for Help',
+      ANNOUNCEMENT: 'Make an Announcement',
     },
     placeholder: {
       story: 'Share an inspiring God story...',
