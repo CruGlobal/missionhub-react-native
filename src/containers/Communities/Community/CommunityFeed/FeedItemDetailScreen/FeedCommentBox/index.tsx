@@ -69,6 +69,15 @@ const FeedCommentBox = ({
                 ...(originalData?.feedItem.comments.nodes || []),
                 data?.createFeedItemComment?.feedItemComment,
               ],
+              pageInfo: {
+                ...originalData?.feedItem.comments.pageInfo,
+                totalCount:
+                  originalData?.feedItem?.comments?.pageInfo?.totalCount ===
+                  undefined
+                    ? undefined
+                    : originalData?.feedItem?.comments?.pageInfo?.totalCount +
+                      1,
+              },
             },
           },
         },

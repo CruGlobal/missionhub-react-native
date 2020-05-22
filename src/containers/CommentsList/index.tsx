@@ -94,6 +94,15 @@ const CommentsList = ({
               nodes: (originalData?.feedItem.comments.nodes || []).filter(
                 ({ id }) => id !== data?.deleteFeedItemComment?.id,
               ),
+              pageInfo: {
+                ...originalData?.feedItem.comments.pageInfo,
+                totalCount:
+                  originalData?.feedItem?.comments?.pageInfo?.totalCount ===
+                  undefined
+                    ? undefined
+                    : originalData?.feedItem?.comments?.pageInfo?.totalCount -
+                      1,
+              },
             },
           },
         },
