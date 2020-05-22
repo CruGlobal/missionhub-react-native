@@ -57,7 +57,7 @@ interface AddContactScreenProps {
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
-export type PersonType = Omit<GetPerson_person, '__typename' | 'fullName'>;
+export type PersonType = Omit<GetPerson_person, '__typename'>;
 
 const AddContactScreen = ({ next }: AddContactScreenProps) => {
   const { t } = useTranslation('addContact');
@@ -70,6 +70,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     id: '',
     firstName: '',
     lastName: '',
+    fullName: '',
     stage: null,
     relationshipType: null,
     picture: null,
@@ -147,7 +148,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
               organization?.id,
             ),
           );
-        results = updateData?.updatePerson?.person as PersonType;
+        results = updateData?.updatePerson?.person;
       } else {
         const { data: createData } = await createPerson({
           variables: {
@@ -168,13 +169,13 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
               id: createData?.createPerson?.person.id,
             },
           });
-        results = createData?.createPerson?.person as PersonType;
+        results = createData?.createPerson?.person;
       }
 
       results && setPerson({ ...person, id: results.id });
       !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
 
-      complete(true, results);
+      complete(true, results ?? undefined);
     } catch {}
   };
 

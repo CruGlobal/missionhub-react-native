@@ -132,7 +132,7 @@ const memberCelebrate = {
         params: { organization, person },
       },
     },
-  }) => <MemberCelebrate organization={organization} person={person} />,
+  }) => <MemberCelebrate communityId={organization.id} personId={person.id} />,
 };
 const assignedContacts = {
   name: i18next.t('personTabs:assignedContacts'),
