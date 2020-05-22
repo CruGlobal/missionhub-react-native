@@ -5,7 +5,6 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
 import { mapPostTypeToFeedType } from '../../utils/common';
-import { Organization } from '../../reducers/organizations';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../CelebrateFeedWithType';
@@ -29,7 +28,7 @@ import {
 } from './__generated__/MarkCommunityFeedItemsRead';
 
 export interface CelebrateFeedPostCardsProps {
-  community: Organization;
+  communityId: string;
   feedRefetch: () => void;
 }
 
@@ -81,7 +80,7 @@ const getGroupPostCards = (
 };
 
 export const CelebrateFeedPostCards = ({
-  community,
+  communityId,
   feedRefetch,
 }: CelebrateFeedPostCardsProps) => {
   const dispatch = useDispatch();
@@ -89,7 +88,7 @@ export const CelebrateFeedPostCards = ({
   const { data, refetch } = useQuery<
     GetCommunityPostCards,
     GetCommunityPostCardsVariables
-  >(GET_COMMUNITY_POST_CARDS, { variables: { communityId: community.id } });
+  >(GET_COMMUNITY_POST_CARDS, { variables: { communityId } });
 
   const groups = getGroupPostCards(data?.community.feedItems.nodes || []);
 
@@ -102,12 +101,12 @@ export const CelebrateFeedPostCards = ({
     dispatch(
       navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
         type,
-        organization: community,
+        communityId,
       }),
     );
     await markCommunityFeedItemsAsRead({
       variables: {
-        input: { feedItemSubjectType: type, communityId: community.id },
+        input: { feedItemSubjectType: type, communityId },
       },
     });
     refetch();

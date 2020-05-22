@@ -42,7 +42,7 @@ const GroupCelebrate = () => {
   return (
     <CelebrateFeed
       testID="CelebrateFeed"
-      organization={organization}
+      communityId={communityId}
       onRefetch={handleRefetch}
       itemNamePressable={!orgIsGlobal(organization)}
       collapsibleScrollViewProps={collapsibleScrollViewProps}

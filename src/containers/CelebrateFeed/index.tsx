@@ -7,8 +7,6 @@ import { useTranslation } from 'react-i18next';
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import { CreatePostButton } from '../Groups/CreatePostButton';
-import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
@@ -32,8 +30,8 @@ import {
 import styles from './styles';
 
 export interface CelebrateFeedProps {
-  organization: Organization;
-  person?: Person;
+  communityId: string;
+  personId?: string;
   itemNamePressable: boolean;
   noHeader?: boolean;
   showUnreadOnly?: boolean;
@@ -80,8 +78,8 @@ const groupCommunityFeed = (
 };
 
 export const CelebrateFeed = ({
-  organization,
-  person,
+  communityId,
+  personId,
   itemNamePressable,
   noHeader,
   showUnreadOnly,
@@ -92,10 +90,10 @@ export const CelebrateFeed = ({
   collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
-  const isGlobal = orgIsGlobal(organization);
+  const isGlobal = orgIsGlobal({ id: communityId });
   const queryVariables = {
-    communityId: organization.id,
-    personIds: person && person.id,
+    communityId,
+    personIds: personId,
     hasUnreadComments: showUnreadOnly,
     subjectType: filteredFeedType,
   };
@@ -108,6 +106,7 @@ export const CelebrateFeed = ({
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
       } = {},
+      currentUser: { person = undefined } = {},
     } = {},
     loading,
     error,
@@ -132,6 +131,7 @@ export const CelebrateFeed = ({
           } = {},
         } = {},
       } = {},
+      currentUser: { person: globalPerson = undefined } = {},
     } = {},
     loading: globalLoading,
     error: globalError,
@@ -236,7 +236,7 @@ export const CelebrateFeed = ({
     <CommunityFeedItem
       onClearNotification={onClearNotification}
       item={item}
-      communityId={organization.id}
+      communityId={communityId}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />
@@ -258,16 +258,15 @@ export const CelebrateFeed = ({
         {noHeader ? null : (
           <>
             <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
-            {!person ? (
-              <CreatePostButton
-                refreshItems={handleRefreshing}
-                communityId={organization.id}
-                type={filteredFeedType}
-              />
-            ) : null}
+            <CreatePostButton
+              person={person || globalPerson}
+              refreshItems={handleRefreshing}
+              communityId={communityId}
+              type={filteredFeedType}
+            />
             {filteredFeedType || isGlobal ? null : (
               <CelebrateFeedPostCards
-                community={organization}
+                communityId={communityId}
                 // Refetch the feed to update new section once read
                 feedRefetch={refetch}
               />
@@ -282,8 +281,8 @@ export const CelebrateFeed = ({
       globalError,
       globalRefetch,
       noHeader,
-      person,
-      organization,
+      communityId,
+      personId,
       filteredFeedType,
     ],
   );

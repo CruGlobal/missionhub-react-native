@@ -27,13 +27,13 @@ import { CommunityFeedItem } from '../../components/CommunityFeedItem/__generate
 import styles from './styles';
 
 export interface GroupUnreadFeedProps {
-  organization: Organization;
+  communityId: string;
   count: number;
   analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 }
 
 const GroupUnreadFeed = ({
-  organization,
+  communityId,
   count,
   analyticsPermissionType,
 }: GroupUnreadFeedProps) => {
@@ -45,15 +45,15 @@ const GroupUnreadFeed = ({
 
   const back = () => dispatch(navigateBack());
 
-  const handleRefetch = () => dispatch(refreshCommunity(organization.id));
+  const handleRefetch = () => dispatch(refreshCommunity(communityId));
 
   const markAllAsRead = async () => {
-    await dispatch(markCommentsRead(organization.id));
+    await dispatch(markCommentsRead(communityId));
     back();
   };
 
   const handleClearNotification = (item: CommunityFeedItem) =>
-    dispatch(markCommentRead(item.id, organization.id));
+    dispatch(markCommentRead(item.id, communityId));
 
   return (
     <View style={styles.pageContainer}>
@@ -77,7 +77,7 @@ const GroupUnreadFeed = ({
       <View style={styles.cardList}>
         <CelebrateFeed
           testID="CelebrateFeed"
-          organization={organization}
+          communityId={communityId}
           onRefetch={handleRefetch}
           itemNamePressable={true}
           noHeader={true}
@@ -97,20 +97,25 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { organization },
+        params: { communityId },
       },
     },
-  }: /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  any,
+  }: {
+    navigation: {
+      state: {
+        params: { communityId: string };
+      };
+    };
+  },
 ) => {
-  const selectorOrg: Organization =
-    organizationSelector({ organizations }, { orgId: organization.id }) ||
-    organization;
+  const selectorOrg: Organization = organizationSelector(
+    { organizations },
+    { orgId: communityId },
+  );
 
   return {
-    organization: selectorOrg,
     count: (selectorOrg.unread_comments_count || 0) as number,
-    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
+    analyticsPermissionType: getAnalyticsPermissionType(auth, selectorOrg),
   };
 };
 

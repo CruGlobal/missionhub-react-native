@@ -101,8 +101,6 @@ export const navigateToCelebrateComments = (
   community: Organization,
   itemId?: string | null,
 ) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-  const orgId = community.id;
-
   if (itemId) {
     dispatch(
       navigateNestedReset([
@@ -112,11 +110,11 @@ export const navigateToCelebrateComments = (
         },
         {
           routeName: COMMUNITY_TABS,
-          params: { communityId: orgId },
+          params: { communityId: community.id },
         },
         {
           routeName: GROUP_UNREAD_FEED_SCREEN,
-          params: { organization: community },
+          params: { communityId: community.id },
         },
         { routeName: FEED_ITEM_DETAIL_SCREEN, params: { itemId } },
       ]),
