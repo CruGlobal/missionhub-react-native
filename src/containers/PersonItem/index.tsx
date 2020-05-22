@@ -53,7 +53,6 @@ const PersonItem = ({
   const totalCount = stepsData ? stepsData.steps.pageInfo.totalCount : 0;
   const orgId = organization && organization.id;
   const isMe = person.id === me.id;
-  const isPersonal = orgId === 'personal';
   const contactAssignment =
     (person.reverse_contact_assignments || []).find(
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -80,13 +79,7 @@ const PersonItem = ({
       ? personOrgPermissions.followup_status || ''
       : 'uncontacted';
 
-  const handleSelect = () =>
-    dispatch(
-      navToPersonScreen(
-        person.id,
-        organization && !isPersonal ? organization : undefined,
-      ),
-    );
+  const handleSelect = () => dispatch(navToPersonScreen(person.id));
 
   const handleChangeStage = () =>
     dispatch(

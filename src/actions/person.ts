@@ -4,12 +4,7 @@ import { AnyAction } from 'redux';
 
 import {
   CONTACT_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  MEMBER_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  ME_COMMUNITY_PERSON_SCREEN,
 } from '../containers/Groups/AssignedPersonScreen/constants';
 import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
@@ -19,17 +14,13 @@ import {
   LOAD_PERSON_DETAILS,
   ORG_PERMISSIONS,
 } from '../constants';
-import { hasOrgPermissions, exists } from '../utils/common';
-import {
-  personSelector,
-  orgPermissionSelector,
-  contactAssignmentSelector,
-} from '../selectors/people';
-import { organizationSelector } from '../selectors/organizations';
+import { exists } from '../utils/common';
+import { personSelector, contactAssignmentSelector } from '../selectors/people';
 import { REQUESTS } from '../api/routes';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { AuthState } from '../reducers/auth';
+import { Person } from '../reducers/people';
 
 import callApi from './api';
 import { trackActionWithoutData, setAnalyticsMinistryMode } from './analytics';
@@ -455,37 +446,25 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(personId: string, org, props = {}) {
+export function navToPersonScreen(personId: string, props = {}) {
   // @ts-ignore
   return (dispatch, getState) => {
-    const organization = org ? org : {};
-    const { auth, people, organizations } = getState();
-    const orgId = organization.id;
+    const { auth, people } = getState();
 
-    const selectorOrg =
-      organizationSelector({ organizations }, { orgId }) || organization;
-    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
-
-    const selectorPerson = personSelector({ people }, { orgId, personId });
+    const selectorPerson = personSelector({ people }, { personId });
 
     const contactAssignment = contactAssignmentSelector(
       { auth },
-      { person: selectorPerson, orgId },
+      { person: selectorPerson },
     );
     const authPerson = auth.person;
 
     dispatch(
       navigatePush(
-        getPersonScreenRoute(
-          authPerson,
-          selectorPerson,
-          selectorOrg,
-          contactAssignment,
-        ),
+        getPersonScreenRoute(authPerson, selectorPerson, contactAssignment),
         {
           ...props,
           person: selectorPerson,
-          organization: selectorOrg,
         },
       ),
     );
@@ -493,51 +472,14 @@ export function navToPersonScreen(personId: string, org, props = {}) {
 }
 
 export function getPersonScreenRoute(
-  // @ts-ignore
-  mePerson,
-  // @ts-ignore
-  person,
-  // @ts-ignore
-  organization,
-  // @ts-ignore
-  contactAssignment,
+  mePerson: Person,
+  person: Person,
+  contactAssignment: unknown,
 ) {
   const isMe = person.id === mePerson.id;
 
-  const isMember = hasOrgPermissions(
-    orgPermissionSelector(
-      {},
-      {
-        person: person,
-        organization,
-      },
-    ),
-  );
-
-  const isUserCreatedOrg = organization.user_created;
-  const isGroups = mePerson.user.groups_feature;
-
   if (isMe) {
-    if (isMember) {
-      if (isGroups) {
-        return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
-      }
-
-      return ME_COMMUNITY_PERSON_SCREEN;
-    }
-
     return ME_PERSONAL_PERSON_SCREEN;
-  }
-
-  if (isMember) {
-    if (isUserCreatedOrg) {
-      return IS_USER_CREATED_MEMBER_PERSON_SCREEN;
-    }
-    if (isGroups) {
-      return IS_GROUPS_MEMBER_PERSON_SCREEN;
-    }
-
-    return MEMBER_PERSON_SCREEN;
   }
 
   if (contactAssignment) {

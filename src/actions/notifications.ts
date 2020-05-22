@@ -265,13 +265,12 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
           const { person } = await dispatch(
             getPersonDetails(person_id, organization_id),
           );
-          return dispatch(navToPersonScreen(person, { id: organization_id }));
+          return dispatch(navToPersonScreen(person.id));
         }
         return;
       }
       case 'my_steps':
-        // @ts-ignore
-        return dispatch(navToPersonScreen(me));
+        return dispatch(navToPersonScreen(me.id));
       case 'add_a_person': {
         const { organization_id } = notificationData;
         return dispatch(

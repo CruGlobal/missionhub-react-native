@@ -9,14 +9,12 @@ import { Flex, Text } from '../../components/common';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import { navToPersonScreen } from '../../actions/person';
-import { organizationSelector } from '../../selectors/organizations';
 import { acceptedChallengesSelector } from '../../selectors/challenges';
 import { keyExtractorId } from '../../utils/common';
 import { Person } from '../../reducers/people';
 import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import ChallengeMemberItem from '../../components/ChallengeMemberItem';
-import { OrganizationsState } from '../../reducers/organizations';
 
 import styles from './styles';
 
@@ -24,13 +22,8 @@ const ChallengeMembers = () => {
   const { t } = useTranslation('challengeMembers');
   const dispatch = useDispatch();
   const challenge: ChallengeItem = useNavigationParam('challenge');
-  const orgId = useNavigationParam('orgId');
   const completed: boolean = useNavigationParam('completed');
   useAnalytics(['challenge', 'detail', completed ? 'completed' : 'joined']);
-  const organization = useSelector(
-    ({ organizations }: { organizations: OrganizationsState }) =>
-      organizationSelector({ organizations }, { orgId }),
-  );
   const acceptedChallenges = challenge.accepted_community_challenges;
   const currentAcceptedChallenge = useSelector(() =>
     acceptedChallengesSelector(
@@ -44,7 +37,7 @@ const ChallengeMembers = () => {
   const members = currentAcceptedChallenge.joined;
 
   const handleSelect = (person: Person) => {
-    dispatch(navToPersonScreen(person, organization));
+    dispatch(navToPersonScreen(person.id));
   };
 
   const renderItem = ({ item }: { item: ChallengeItem }) => {
