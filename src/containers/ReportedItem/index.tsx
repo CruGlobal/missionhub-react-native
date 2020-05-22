@@ -2,37 +2,27 @@ import React from 'react';
 import { Alert } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
-import gql from 'graphql-tag';
 
 import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportItemLabel from '../../components/ReportItemLabel';
 import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
-import { GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface } from '../Groups/__generated__/GetReportedContent';
 import { Organization } from '../../reducers/organizations';
+import { CommunityFeedItemContent } from '../../components/CommunityFeedItemContent';
 
+import { RESPOND_TO_CONTENT_COMPLAINT } from './queries';
 import {
   RespondToContentComplaintVariables,
   RespondToContentComplaint,
 } from './__generated__/RespondToContentComplaint';
+import { ReportedItem as ReportedItemFragment } from './__generated__/ReportedItem';
 import styles from './styles';
 
-export const RESPOND_TO_CONTENT_COMPLAINT = gql`
-  mutation RespondToContentComplaint($input: RespondToContentComplaintInput!) {
-    respondToContentComplaint(input: $input) {
-      contentComplaint {
-        id
-      }
-    }
-  }
-`;
-
 const ReportedItem = ({
-  item,
+  reportedItem,
   refetch,
-  organization,
 }: {
-  item: ReportedItemInterface;
+  reportedItem: ReportedItemFragment;
   organization: Organization;
   refetch: () => void;
 }) => {
@@ -46,7 +36,7 @@ const ReportedItem = ({
     await respondToContentComplaint({
       variables: {
         input: {
-          contentComplaintId: item.id,
+          contentComplaintId: reportedItem.id,
 
           response: ContentComplaintResponseEnum.ignore,
         },
@@ -79,7 +69,7 @@ const ReportedItem = ({
           await respondToContentComplaint({
             variables: {
               input: {
-                contentComplaintId: item.id,
+                contentComplaintId: reportedItem.id,
 
                 response: ContentComplaintResponseEnum.delete,
               },
@@ -90,32 +80,31 @@ const ReportedItem = ({
       },
     ]);
   };
-  const { subject, person } = item;
 
-  const reportedBy = person.fullName;
+  const reportedBy = reportedItem.person.fullName;
   const commentBy =
-    subject.__typename === 'Story' || subject.__typename === 'Post'
-      ? subject.author.fullName
-      : subject.__typename === 'CommunityCelebrationItemComment' ||
-        subject.__typename === 'FeedItemComment'
-      ? subject.person.fullName
-      : '';
+    (reportedItem.subject.__typename === 'Post' &&
+      reportedItem.subject.feedItem.subjectPersonName) ||
+    (reportedItem.subject.__typename === 'FeedItemComment' &&
+      reportedItem.subject.person.fullName) ||
+    '';
   const { card, users, comment, buttonLeft, buttonRight } = styles;
   return (
     <Card style={card}>
       <Flex direction="row" style={users}>
         <ReportItemLabel label={t('reportedBy')} user={reportedBy} />
         <ReportItemLabel
-          label={t(`${getContentType(subject.__typename)}`)}
+          label={t(`${getContentType(reportedItem.subject.__typename)}`)}
           user={commentBy}
         />
       </Flex>
       <Flex style={comment}>
-        <CommentItem
-          item={subject}
-          isReported={true}
-          organization={organization}
-        />
+        {reportedItem.subject.__typename === 'FeedItemComment' ? (
+          <CommentItem comment={reportedItem.subject} isReported={true} />
+        ) : null}
+        {reportedItem.subject.__typename === 'Post' ? (
+          <CommunityFeedItemContent feedItem={reportedItem.subject.feedItem} />
+        ) : null}
       </Flex>
       <Flex direction="row">
         <Flex value={1}>

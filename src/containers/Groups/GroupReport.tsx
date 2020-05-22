@@ -20,76 +20,31 @@ import ReportedItem from '../ReportedItem';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
+import { REPORTED_ITEM_FRAGMENT } from '../ReportedItem/queries';
 
 import {
   GetReportedContent,
   GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface,
+  GetReportedContentVariables,
 } from './__generated__/GetReportedContent';
 import styles from './styles';
 
 export const GET_REPORTED_CONTENT = gql`
-  query GetReportedContent($id: ID!) {
+  query GetReportedContent(
+    $id: ID!
+    $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
+  ) {
     community(id: $id) {
       id
       contentComplaints(ignored: false) {
         nodes {
           id
-          subject {
-            __typename
-            ... on Story {
-              id
-              content
-              createdAt
-              updatedAt
-              author {
-                fullName
-                firstName
-
-                id
-              }
-            }
-            ... on Post {
-              id
-              content
-              createdAt
-              updatedAt
-              author {
-                id
-                fullName
-                firstName
-              }
-            }
-            ... on CommunityCelebrationItemComment {
-              id
-              content
-              createdAt
-              updatedAt
-              person {
-                id
-                fullName
-                firstName
-              }
-            }
-            ... on FeedItemComment {
-              id
-              content
-              createdAt
-              updatedAt
-              person {
-                id
-                fullName
-                firstName
-              }
-            }
-          }
-          person {
-            id
-            fullName
-          }
+          ...ReportedItem
         }
       }
     }
   }
+  ${REPORTED_ITEM_FRAGMENT}
 `;
 
 interface GroupReportProps {
@@ -111,14 +66,21 @@ const GroupReport = ({ analyticsPermissionType }: GroupReportProps) => {
     } = {},
     loading,
     refetch,
-  } = useQuery<GetReportedContent>(GET_REPORTED_CONTENT, {
-    variables: {
-      id: organization.id,
+  } = useQuery<GetReportedContent, GetReportedContentVariables>(
+    GET_REPORTED_CONTENT,
+    {
+      variables: {
+        id: organization.id,
+      },
     },
-  });
+  );
   const renderItem = ({ item }: { item: ReportedItemInterface }) => {
     return (
-      <ReportedItem item={item} refetch={refetch} organization={organization} />
+      <ReportedItem
+        reportedItem={item}
+        refetch={refetch}
+        organization={organization}
+      />
     );
   };
 
