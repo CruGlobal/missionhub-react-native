@@ -8,7 +8,10 @@ import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
 import { Card, Touchable, Icon } from '../common';
 import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
-import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
+import {
+  CREATE_POST_SCREEN,
+  CreatePostScreenNavParams,
+} from '../../containers/Groups/CreatePostScreen';
 import { orgIsGlobal } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import {
@@ -68,10 +71,10 @@ export const CommunityFeedItem = ({
   const handleEdit = () =>
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        postId: subject.id,
+        post: subject,
         onComplete: onRefresh,
         communityId,
-      }),
+      } as CreatePostScreenNavParams),
     );
 
   const handleDelete = () =>
