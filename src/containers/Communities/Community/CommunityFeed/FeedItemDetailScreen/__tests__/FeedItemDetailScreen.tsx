@@ -13,14 +13,8 @@ import { mockFragment } from '../../../../../../../testUtils/apolloMockClient';
 import { organizationSelector } from '../../../../../../selectors/organizations';
 import { orgPermissionSelector } from '../../../../../../selectors/people';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
-import {
-  reloadCelebrateComments,
-  resetCelebrateEditingComment,
-} from '../../../../../../actions/celebrateComments';
 import CommentsList from '../../../../../CommentsList';
-import { celebrateCommentsSelector } from '../../../../../../selectors/celebrateComments';
 import { Organization } from '../../../../../../reducers/organizations';
-import { CelebrateComment } from '../../../../../../reducers/celebrateComments';
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../../../../components/CommunityFeedItem/queries';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
 import { CommunityFeedItem } from '../../../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
@@ -82,20 +76,11 @@ beforeEach(() => {
   (useKeyboardListeners as jest.Mock).mockImplementation(
     ({ onShow }: { onShow: () => void }) => (onShowKeyboard = onShow),
   );
-  (reloadCelebrateComments as jest.Mock).mockReturnValue({
-    type: 'reloadCelebrateComments',
-  });
-  (resetCelebrateEditingComment as jest.Mock).mockReturnValue({
-    type: 'resetCelebrateEditingComment',
-  });
   ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
     organization,
   );
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
     orgPermission,
-  );
-  ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
-    comments,
   );
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
 });

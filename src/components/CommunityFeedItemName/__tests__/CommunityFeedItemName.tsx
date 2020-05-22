@@ -5,8 +5,6 @@ import { CommunityFeedItemName } from '../index';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navToPersonScreen } from '../../../actions/person';
-import { COMMUNITY_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
-import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
 
 jest.mock('../../../actions/person');
 jest.mock('../../../selectors/people');
@@ -25,23 +23,13 @@ beforeEach(() => {
 
 it('renders correctly without name', () => {
   renderWithContext(
-    <CommunityFeedItemName
-      name={null}
-      person={person}
-      communityId={communityId}
-      pressable={true}
-    />,
+    <CommunityFeedItemName name={null} personId={person.id} pressable={true} />,
   ).snapshot();
 });
 
 it('renders correctly with name', () => {
   renderWithContext(
-    <CommunityFeedItemName
-      name={name}
-      person={person}
-      communityId={communityId}
-      pressable={true}
-    />,
+    <CommunityFeedItemName name={name} personId={person.id} pressable={true} />,
   ).snapshot();
 });
 
@@ -49,8 +37,7 @@ it('renders correctly not pressable', () => {
   renderWithContext(
     <CommunityFeedItemName
       name={name}
-      person={person}
-      communityId={communityId}
+      personId={person.id}
       pressable={false}
     />,
   ).snapshot();
@@ -58,12 +45,7 @@ it('renders correctly not pressable', () => {
 
 it('navigates to person screen', () => {
   const { store, getByTestId } = renderWithContext(
-    <CommunityFeedItemName
-      name={name}
-      person={person}
-      communityId={communityId}
-      pressable={true}
-    />,
+    <CommunityFeedItemName name={name} personId={person.id} pressable={true} />,
   );
 
   fireEvent.press(getByTestId('NameButton'));
@@ -74,12 +56,7 @@ it('navigates to person screen', () => {
 
 it('does not navigate if not apart of community', () => {
   const { store, getByTestId } = renderWithContext(
-    <CommunityFeedItemName
-      name={name}
-      person={null}
-      communityId={communityId}
-      pressable={true}
-    />,
+    <CommunityFeedItemName name={name} personId={undefined} pressable={true} />,
   );
 
   fireEvent.press(getByTestId('NameButton'));

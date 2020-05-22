@@ -13,7 +13,6 @@ import CreatePostModal from '../CreatePostModal';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import { isAdminOrOwner, mapFeedTypeToPostType } from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
-import { CurrentUserAvatar_currentUser_person } from '../../../components/Avatar/__generated__/CurrentUserAvatar';
 
 import {
   getMyCommunityPermission,

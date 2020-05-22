@@ -7,12 +7,8 @@ import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { CommunityFeedPost } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 import { CommunityFeedItem } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import {
-  COMMUNITY_FEED_POST_FRAGMENT,
-  COMMUNITY_FEED_ITEM_FRAGMENT,
-} from '../../../components/CommunityFeedItem/queries';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { ADD_POST_TO_MY_STEPS } from '../queries';
 

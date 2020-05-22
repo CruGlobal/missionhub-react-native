@@ -15,19 +15,9 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
-import {
-  COMMUNITY_FEED_ITEM_FRAGMENT,
-  COMMUNITY_FEED_POST_FRAGMENT,
-  COMMUNITY_FEED_STEP_FRAGMENT,
-  COMMUNITY_FEED_CHALLENGE_FRAGMENT,
-  COMMUNITY_PERSON_FRAGMENT,
-} from '../queries';
-import { CommunityFeedItem as CommunityFeedItemFragment } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
-import { CommunityFeedStep } from '../__generated__/CommunityFeedStep';
-import { CommunityFeedChallenge } from '../__generated__/CommunityFeedChallenge';
-import { CommunityFeedPost } from '../__generated__/CommunityFeedPost';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../queries';
+import { CommunityFeedItem as CommunityFeedItemFragment } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,

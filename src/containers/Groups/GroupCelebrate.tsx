@@ -32,6 +32,7 @@ const GroupCelebrate = () => {
   });
 
   const handleRefetch = () => {
+    // TODO: this still needed?
     dispatch(refreshCommunity(organization.id));
   };
 

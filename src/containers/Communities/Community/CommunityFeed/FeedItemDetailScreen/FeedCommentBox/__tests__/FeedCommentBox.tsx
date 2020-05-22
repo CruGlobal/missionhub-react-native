@@ -3,15 +3,7 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../../../testUtils';
 import { mockFragment } from '../../../../../../../../testUtils/apolloMockClient';
-import {
-  createCelebrateComment,
-  resetCelebrateEditingComment,
-  updateCelebrateComment,
-} from '../../../actions/celebrateComments';
-import { celebrateCommentsCommentSelector } from '../../../selectors/celebrateComments';
 import { Organization } from '../../../../../../../reducers/organizations';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../../../../../components/CommunityFeedItem/queries';
-import { CelebrateItem } from '../../CommunityFeedItem/__generated__/CelebrateItem';
 
 import FeedCommentBox from '..';
 
@@ -46,24 +38,8 @@ function render() {
     { initialState },
   );
 }
-beforeEach(() => {
-  (createCelebrateComment as jest.Mock).mockReturnValue(
-    createCelebrateCommentResult,
-  );
-  (updateCelebrateComment as jest.Mock).mockReturnValue(
-    updateCelebrateCommentResult,
-  );
-  (resetCelebrateEditingComment as jest.Mock).mockReturnValue(
-    resetCelebrateEditingCommentResult,
-  );
-});
 
 it('renders correctly', () => {
-  render().snapshot();
-});
-
-it('renders correctly without finding celebrate comment', () => {
-  (createCelebrateComment as jest.Mock).mockReturnValue(undefined);
   render().snapshot();
 });
 
@@ -108,10 +84,6 @@ it('onCancel', () => {
 });
 
 it('calls update', async () => {
-  ((celebrateCommentsCommentSelector as unknown) as jest.Mock).mockReturnValue(
-    editingComment,
-  );
-
   const { getByTestId } = renderWithContext(
     <FeedCommentBox event={event} organization={organization} />,
     {

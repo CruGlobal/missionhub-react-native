@@ -6,14 +6,9 @@ import { ReactTestInstance } from 'react-test-renderer';
 
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { toggleLike } from '../../../actions/celebration';
 import { ACTIONS } from '../../../constants';
 import { trackActionWithoutData } from '../../../actions/analytics';
-import {
-  COMMUNITY_FEED_ITEM_FRAGMENT,
-  COMMUNITY_PERSON_FRAGMENT,
-} from '../../../components/CommunityFeedItem/queries';
-import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
 import { CommunityFeedItem } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import { CommentLikeComponent } from '..';
@@ -33,21 +28,13 @@ const trackActionResponse = { type: 'tracked action' };
 
 const initialState = { auth: { person: { id: myId } } };
 
-let onRefresh: jest.Mock;
-
 beforeEach(() => {
-  onRefresh = jest.fn();
-  (toggleLike as jest.Mock).mockReturnValue(toggleLikeResponse);
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 });
 
 it('renders nothing with no subject person', () => {
   renderWithContext(
-    <CommentLikeComponent
-      feedItem={{ ...item, subjectPerson: null }}
-      communityId={communityId}
-      onRefresh={onRefresh}
-    />,
+    <CommentLikeComponent feedItem={{ ...item, subjectPerson: null }} />,
     {
       initialState,
     },
@@ -62,8 +49,6 @@ describe('with subject person', () => {
           ...item,
           subjectPerson: mePerson,
         }}
-        communityId={communityId}
-        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -78,8 +63,6 @@ describe('with subject person', () => {
           ...item,
           subjectPerson: otherPerson,
         }}
-        communityId={communityId}
-        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -95,8 +78,6 @@ describe('with subject person', () => {
           subjectPerson: otherPerson,
           liked: false,
         }}
-        communityId={communityId}
-        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -118,8 +99,6 @@ describe('with subject person', () => {
             },
           },
         }}
-        communityId={communityId}
-        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -135,8 +114,6 @@ describe('with subject person', () => {
           subjectPerson: mePerson,
           likesCount: 0,
         }}
-        communityId={communityId}
-        onRefresh={onRefresh}
       />,
       {
         initialState,
@@ -161,8 +138,6 @@ describe('with subject person', () => {
               subjectPerson: mePerson,
               liked: false,
             }}
-            communityId={communityId}
-            onRefresh={onRefresh}
           />,
           {
             initialState,
@@ -208,8 +183,6 @@ describe('with subject person', () => {
               subjectPerson: mePerson,
               liked: true,
             }}
-            communityId={communityId}
-            onRefresh={onRefresh}
           />,
           {
             initialState,

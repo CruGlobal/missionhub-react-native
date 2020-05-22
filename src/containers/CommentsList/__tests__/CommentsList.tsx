@@ -7,23 +7,13 @@ import { ReactTestInstance } from 'react-test-renderer';
 
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { orgPermissionSelector } from '../../../selectors/people';
-import {
-  reloadCelebrateComments,
-  getCelebrateCommentsNextPage,
-  deleteCelebrateComment,
-  resetCelebrateEditingComment,
-  setCelebrateEditingComment,
-} from '../../../actions/celebrateComments';
-import { reportComment } from '../../../actions/reportComments';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { Person } from '../../../reducers/people';
 import { Organization } from '../../../reducers/organizations';
-import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
-import { CelebrateItem } from '../../../components/CommunityFeedItem/__generated__/CelebrateItem';
+import { FeedItemCommentItem } from '../../CommentItem/__generated__/FeedItemCommentItem';
+import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../../CommentItem/queries';
 
 import CommentsList from '..';
 
@@ -37,27 +27,11 @@ jest.mock('../../../selectors/celebrateComments');
 const me: Person = { id: '1', first_name: 'Matt', last_name: 'Smith' };
 const otherPerson: Person = { id: '2', first_name: 'Will', last_name: 'Smith' };
 const organization: Organization = { id: '24234234' };
-const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const comments: { comments: CelebrateComment[]; pagination: any } = {
-  comments: [
-    {
-      id: '1',
-      created_at: '2004-04-04 00:00:00 UTC',
-      updated_at: '2004-04-04 00:00:00 UTC',
-      content: 'some comment',
-      person: otherPerson,
-    },
-    {
-      id: '2',
-      created_at: '2004-04-04 00:00:00 UTC',
-      updated_at: '2004-04-04 00:00:00 UTC',
-      content: 'some comment',
-      person: otherPerson,
-    },
-  ],
-  pagination: {},
-};
+const feedItemId = '1';
+const comments = [
+  mockFragment<FeedItemCommentItem>(FEED_ITEM_COMMENT_ITEM_FRAGMENT),
+  mockFragment<FeedItemCommentItem>(FEED_ITEM_COMMENT_ITEM_FRAGMENT),
+];
 
 const auth = { person: me };
 const organizations = { all: [organization] };
@@ -65,10 +39,7 @@ const celebrateComments = { all: [comments] };
 
 const reloadCelebrateCommentsResult = { type: 'loaded comments' };
 const getCelebrateCommentsNextPageResult = { type: 'got next page' };
-const deleteCelebrateCommentResult = { type: 'delete comment' };
 const resetCelebrateEditingCommentResult = { type: 'reset edit comment' };
-const setCelebrateEditingCommentResult = { type: 'set edit comment' };
-const reportCommentResult = { type: 'report comment' };
 const navigatePushResult = { type: 'navigate push' };
 
 Alert.alert = jest.fn();
@@ -76,34 +47,17 @@ Alert.alert = jest.fn();
 const initialState = { auth, organizations, celebrateComments };
 
 beforeEach(() => {
-  (reloadCelebrateComments as jest.Mock).mockReturnValue(
-    reloadCelebrateCommentsResult,
-  );
-  (getCelebrateCommentsNextPage as jest.Mock).mockReturnValue(
-    getCelebrateCommentsNextPageResult,
-  );
-  (deleteCelebrateComment as jest.Mock).mockReturnValue(
-    deleteCelebrateCommentResult,
-  );
-  (resetCelebrateEditingComment as jest.Mock).mockReturnValue(
-    resetCelebrateEditingCommentResult,
-  );
-  (setCelebrateEditingComment as jest.Mock).mockReturnValue(
-    setCelebrateEditingCommentResult,
-  );
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
-  (reportComment as jest.Mock).mockReturnValue(reportCommentResult);
-  ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
-    comments,
-  );
 });
 
 describe('mounts with custom props', () => {
   it('passes in custom flatlist props', () => {
     renderWithContext(
       <CommentsList
-        event={event}
-        organization={organization}
+        feedItemId={feedItemId}
+        comments={comments}
+        setEditingCommentId={() => {}}
+        isOwner={false}
         listProps={{ listHeaderComponent: () => <View /> }}
       />,
       {
@@ -116,7 +70,13 @@ describe('mounts with custom props', () => {
 describe('refreshes on mount', () => {
   it('refreshes items', () => {
     const { store } = renderWithContext(
-      <CommentsList event={event} organization={organization} listProps={{}} />,
+      <CommentsList
+        feedItemId={feedItemId}
+        comments={comments}
+        setEditingCommentId={() => {}}
+        isOwner={false}
+        listProps={{}}
+      />,
       {
         initialState,
       },
@@ -143,7 +103,13 @@ describe('with no comments', () => {
 
   it('renders correctly', () => {
     renderWithContext(
-      <CommentsList event={event} organization={organization} listProps={{}} />,
+      <CommentsList
+        feedItemId={feedItemId}
+        comments={comments}
+        setEditingCommentId={() => {}}
+        isOwner={false}
+        listProps={{}}
+      />,
       {
         initialState,
       },
@@ -153,18 +119,13 @@ describe('with no comments', () => {
 
 describe('with comments', () => {
   describe('with next page', () => {
-    beforeEach(() =>
-      ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue({
-        ...comments,
-        pagination: { hasNextPage: true },
-      }),
-    );
-
     it('renders correctly', () => {
       renderWithContext(
         <CommentsList
-          event={event}
-          organization={organization}
+          feedItemId={feedItemId}
+          comments={comments}
+          setEditingCommentId={() => {}}
+          isOwner={false}
           listProps={{}}
         />,
         {
@@ -176,8 +137,10 @@ describe('with comments', () => {
     it('loads more comments', () => {
       const { store, getByTestId } = renderWithContext(
         <CommentsList
-          event={event}
-          organization={organization}
+          feedItemId={feedItemId}
+          comments={comments}
+          setEditingCommentId={() => {}}
+          isOwner={false}
           listProps={{}}
         />,
         {
@@ -200,17 +163,13 @@ describe('with comments', () => {
   });
 
   describe('without next page', () => {
-    beforeEach(() =>
-      ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
-        comments,
-      ),
-    );
-
     it('renders correctly', () => {
       renderWithContext(
         <CommentsList
-          event={event}
-          organization={organization}
+          feedItemId={feedItemId}
+          comments={comments}
+          setEditingCommentId={() => {}}
+          isOwner={false}
           listProps={{}}
         />,
         {
@@ -236,7 +195,13 @@ describe('determine comment menu actions', () => {
     });
 
     const { getByTestId } = renderWithContext(
-      <CommentsList event={event} organization={organization} listProps={{}} />,
+      <CommentsList
+        feedItemId={feedItemId}
+        comments={comments}
+        setEditingCommentId={() => {}}
+        isOwner={false}
+        listProps={{}}
+      />,
       {
         initialState,
       },

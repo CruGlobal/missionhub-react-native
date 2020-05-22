@@ -5,24 +5,12 @@ import { fireEvent } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
-import { deleteCelebrateComment } from '../../../actions/celebrateComments';
-import {
-  ignoreReportComment,
-  getReportedComments,
-} from '../../../actions/reportComments';
 
 import ReportedItem, { RESPOND_TO_CONTENT_COMPLAINT } from '..';
 
 jest.mock('../../../actions/celebrateComments');
 jest.mock('../../../actions/reportComments');
 
-(deleteCelebrateComment as jest.Mock).mockReturnValue({
-  type: 'delete item',
-});
-(ignoreReportComment as jest.Mock).mockReturnValue({ type: 'ignore item' });
-(getReportedComments as jest.Mock).mockReturnValue({
-  type: 'get report items',
-});
 const refetch = jest.fn();
 
 const subject = {

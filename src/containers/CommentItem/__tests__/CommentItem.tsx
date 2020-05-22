@@ -4,7 +4,6 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { renderWithContext } from '../../../../testUtils';
-import { CelebrateComment } from '../../../reducers/celebrateComments';
 import { Organization } from '../../../reducers/organizations';
 
 import CommentItem from '..';
