@@ -85,7 +85,7 @@ export const CommunityFeedItemContent = ({
   const navToFilteredFeed = () => {
     dispatch(
       navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
-        type: feedItem.subject.__typename,
+        type: itemType,
         communityId: feedItem.community?.id,
       }),
     );
@@ -94,7 +94,7 @@ export const CommunityFeedItemContent = ({
   const handleAddToMySteps = () =>
     dispatch(
       navigatePush(ADD_POST_TO_STEPS_SCREEN, {
-        item: itemType,
+        feedItemId: feedItem.id,
         communityId: feedItem.community?.id,
       }),
     );

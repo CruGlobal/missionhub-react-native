@@ -15,10 +15,10 @@ import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
 import BackButton from '../BackButton';
-import { Post } from '../../containers/AcceptedStepDetailScreen/__generated__/Post';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 
 import styles from './styles';
+import { StepDetailPost } from './__generated__/StepDetailPost';
 
 interface StepDetailScreenProps {
   text?: string;
@@ -31,7 +31,7 @@ interface StepDetailScreenProps {
   CenterContent?: React.ReactNode;
   Banner?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
-  post?: Post | null;
+  post?: StepDetailPost;
 }
 
 const StepDetailScreen = ({
