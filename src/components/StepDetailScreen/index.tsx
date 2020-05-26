@@ -30,6 +30,7 @@ interface StepDetailScreenProps {
   hideBackButton?: boolean;
   CenterContent?: React.ReactNode;
   Banner?: React.ReactNode;
+  Input?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
   post?: Post | null;
 }
@@ -45,6 +46,7 @@ const StepDetailScreen = ({
   CenterContent,
   bottomButtonProps,
   Banner = null,
+  Input = null,
   post,
 }: StepDetailScreenProps) => {
   const {
@@ -58,20 +60,12 @@ const StepDetailScreen = ({
   } = styles;
   const { t } = useTranslation('stepDetail');
   const aspectRatio = useAspectRatio(post?.mediaExpiringUrl);
-  const renderContent = () => (
-    <>
-      {Banner}
-      <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
-      <Text style={stepTitleText}>{text}</Text>
-      {CenterContent}
-      <View style={body}>
-        {markdown ? (
-          <Markdown style={markdownStyles}>
-            {insertName(markdown, firstName)}
-          </Markdown>
-        ) : null}
-        {post ? (
-          <>
+
+  const renderPostSection = () => {
+    if (post) {
+      return (
+        <>
+          <View style={body}>
             <Flex direction="row">
               <Avatar person={post.author} size={'medium'} />
               <Flex style={{ marginLeft: 10 }}>
@@ -98,18 +92,35 @@ const StepDetailScreen = ({
             <Flex style={{ paddingTop: 10 }}>
               <Text style={postContentStyle}>{post.content}</Text>
             </Flex>
-          </>
+          </View>
+          {post?.mediaExpiringUrl ? (
+            <Flex>
+              <Image
+                source={{ uri: post.mediaExpiringUrl }}
+                style={{ aspectRatio }}
+                resizeMode="contain"
+              />
+            </Flex>
+          ) : null}
+        </>
+      );
+    }
+  };
+
+  const renderContent = () => (
+    <>
+      {Banner}
+      <StepTypeBadge style={stepTypeBadge} stepType={stepType} />
+      {Input ? Input : <Text style={stepTitleText}>{text}</Text>}
+      {CenterContent}
+      <View style={body}>
+        {markdown ? (
+          <Markdown style={markdownStyles}>
+            {insertName(markdown, firstName)}
+          </Markdown>
         ) : null}
       </View>
-      {post?.mediaExpiringUrl ? (
-        <Flex>
-          <Image
-            source={{ uri: post.mediaExpiringUrl }}
-            style={{ aspectRatio }}
-            resizeMode="contain"
-          />
-        </Flex>
-      ) : null}
+      {post ? renderPostSection() : null}
     </>
   );
 

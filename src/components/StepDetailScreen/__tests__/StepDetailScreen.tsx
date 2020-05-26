@@ -41,6 +41,13 @@ describe('Post is not null', () => {
       stepType: 'care',
     });
   });
+  it('renders with an input', () => {
+    snapshot({
+      post: { ...mockPost, mediaExpiringUrl: 'mockImage.jpeg' },
+      stepType: 'care',
+      Input: <View>Input</View>,
+    });
+  });
 });
 
 describe('markdown is not null', () => {

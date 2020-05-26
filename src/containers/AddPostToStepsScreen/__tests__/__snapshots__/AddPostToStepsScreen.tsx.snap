@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`changes the title of the step and creates a new step 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -187,11 +187,11 @@
+              \\"marginVertical\\": 16,
+            }
+          }
+          testID=\\"stepTitleInput\\"
+          underlineColorAndroid=\\"transparent\\"
+-         value=\\"Pray for Hayden's request.\\"
++         value=\\"Pray for Christian's super cool request!\\"
+        />
+        <View
+          style={
+            Array [
+              Object {"
+`;
+
 exports[`should render correctly | Care Step 1`] = `
 <View
   style={
@@ -172,28 +192,28 @@ exports[`should render correctly | Care Step 1`] = `
           CARE STEP
         </Text>
       </View>
-      <Text
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        maxLength={255}
+        multiline={true}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          }
         }
-      >
-        Help with Hayden's request.
-      </Text>
+        testID="stepTitleInput"
+        underlineColorAndroid="transparent"
+        value="Help with Hayden's request."
+      />
       <View
         style={
           Array [
@@ -203,6 +223,14 @@ exports[`should render correctly | Care Step 1`] = `
             },
             undefined,
           ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       />
       <View
@@ -637,28 +665,28 @@ exports[`should render correctly | Pray Step 1`] = `
           PRAY STEP
         </Text>
       </View>
-      <Text
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        maxLength={255}
+        multiline={true}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          }
         }
-      >
-        Pray for Hayden's request.
-      </Text>
+        testID="stepTitleInput"
+        underlineColorAndroid="transparent"
+        value="Pray for Hayden's request."
+      />
       <View
         style={
           Array [
@@ -668,6 +696,14 @@ exports[`should render correctly | Pray Step 1`] = `
             },
             undefined,
           ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       />
       <View
@@ -1102,28 +1138,28 @@ exports[`should render correctly | Share Step 1`] = `
           SHARE STEP
         </Text>
       </View>
-      <Text
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        maxLength={255}
+        multiline={true}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 32,
-              "fontWeight": "300",
-              "lineHeight": 38,
-              "marginHorizontal": 32,
-              "marginVertical": 16,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 32,
+            "fontWeight": "300",
+            "marginHorizontal": 32,
+            "marginVertical": 16,
+          }
         }
-      >
-        Answer Hayden's question.
-      </Text>
+        testID="stepTitleInput"
+        underlineColorAndroid="transparent"
+        value="Answer Hayden's question."
+      />
       <View
         style={
           Array [
@@ -1133,6 +1169,14 @@ exports[`should render correctly | Share Step 1`] = `
             },
             undefined,
           ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
         }
       />
       <View

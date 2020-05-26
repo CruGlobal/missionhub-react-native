@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { TextInput } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -18,6 +19,7 @@ import {
   AddPostToMyStepsVariables,
 } from './__generated__/AddPostToMySteps';
 import { ADD_POST_TO_MY_STEPS } from './queries';
+import styles from './styles';
 
 const AddPostToStepsScreen = () => {
   const { t } = useTranslation('addPostToStepsScreen');
@@ -54,12 +56,14 @@ const AddPostToStepsScreen = () => {
     }
   };
 
+  const [stepTitle, changeStepTitle] = useState(getTitleText());
+
   const onAddToSteps = async () => {
     await addPostToMySteps({
       variables: {
         input: {
           postId: item.subject.id,
-          title: getTitleText(),
+          title: stepTitle,
         },
       },
     });
@@ -89,6 +93,18 @@ const AddPostToStepsScreen = () => {
             refetch={addPostToMySteps}
           />
         </>
+      }
+      Input={
+        <TextInput
+          testID="stepTitleInput"
+          onChangeText={changeStepTitle}
+          value={stepTitle}
+          autoFocus={true}
+          autoCorrect={true}
+          multiline={true}
+          maxLength={255}
+          style={styles.inputStyle}
+        />
       }
       CenterContent={<Separator />}
       text={getTitleText()}
