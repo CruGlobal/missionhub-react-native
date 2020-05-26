@@ -1,4 +1,5 @@
 import React from 'react';
+import { SectionList } from 'react-native';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useQuery } from '@apollo/react-hooks';
 import { MockList } from 'graphql-tools';
@@ -8,7 +9,6 @@ import { GET_NOTIFICATIONS } from '../queries';
 import { openMainMenu } from '../../../utils/common';
 
 import NotificationCenterScreen from '..';
-import { SectionList } from 'react-native';
 
 jest.mock('../../../utils/common');
 
