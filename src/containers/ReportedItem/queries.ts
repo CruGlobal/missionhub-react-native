@@ -16,7 +16,7 @@ export const REPORTED_ITEM_FRAGMENT = gql`
         ...FeedItemCommentItem
       }
       ... on Post {
-        feedItem {
+        feedItem @client {
           ...CommunityFeedItemContent
         }
       }

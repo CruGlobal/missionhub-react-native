@@ -16,6 +16,9 @@ export const typeDefs = gql`
   extend type Mutation {
     viewedStepExplainerModal: ViewedState!
   }
+  extend type Post {
+    feedItem: FeedItem!
+  }
 `;
 
 const VIEWED_STATE_QUERY = gql`
