@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import Markdown from 'react-native-markdown-renderer';
 
 import { Text, Button } from '../common';
 import { navigatePush } from '../../actions/navigation';
@@ -20,7 +21,7 @@ import {
 import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { CommunityFeedChallenge } from '../CommunityFeedItem/__generated__/CommunityFeedChallenge';
 
-import styles from './styles';
+import styles, { markdown } from './styles';
 
 export interface CommunityFeedItemContentProps {
   item: CombinedFeedItem;
@@ -106,23 +107,26 @@ export const CommunityFeedItemContent = ({
     }
   };
 
-  const renderPostMessage = () => (subject as CommunityFeedPost).content;
-
   const renderMessage = () => {
-    switch (itemType) {
-      case FeedItemSubjectTypeEnum.STEP:
-        return renderStepOfFaithMessage();
-      case FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE:
-        return buildChallengeMessage();
-      case FeedItemSubjectTypeEnum.STORY:
-      case FeedItemSubjectTypeEnum.QUESTION:
-      case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
-      case FeedItemSubjectTypeEnum.HELP_REQUEST:
-      case FeedItemSubjectTypeEnum.THOUGHT:
-      case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
+    switch (subject.__typename) {
+      case 'Step':
+        return renderText(renderStepOfFaithMessage());
+      case 'CommunityChallenge':
+        return renderText(buildChallengeMessage());
+      case 'Post':
         return renderPostMessage();
     }
   };
+
+  const renderText = (text: string) => (
+    <Text style={styles.messageText}>{text}</Text>
+  );
+
+  const renderPostMessage = () => (
+    <Markdown style={markdown}>
+      {(subject as CommunityFeedPost).content}
+    </Markdown>
+  );
 
   const renderChallengeLink = () => (
     <View style={styles.row}>
@@ -141,7 +145,7 @@ export const CommunityFeedItemContent = ({
 
   return (
     <View style={style}>
-      <Text style={styles.messageText}>{renderMessage()}</Text>
+      {renderMessage()}
       {itemType === FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE
         ? renderChallengeLink()
         : null}
