@@ -35,13 +35,7 @@ exports[`renders completed step 1`] = `
   }
   testID="StepItemCard"
 >
-  <View
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
+  <View>
     <View
       style={
         Object {
@@ -211,13 +205,7 @@ exports[`renders not me correctly 1`] = `
   }
   testID="StepItemCard"
 >
-  <View
-    style={
-      Object {
-        "flex": 1,
-      }
-    }
-  >
+  <View>
     <View
       style={
         Object {
