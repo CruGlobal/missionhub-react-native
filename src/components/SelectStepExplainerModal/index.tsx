@@ -9,6 +9,7 @@ import { Text, IconButton } from '../../components/common';
 import theme from '../../theme';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
+import CheckIcon from '../../../assets/images/checkIcon.svg';
 
 import styles, { sliderWidth, sliderHeight } from './styles';
 import { SetStepExplainerModalViewed } from './__generated__/SetStepExplainerModalViewed';
@@ -21,8 +22,45 @@ const SET_STEP_EXPLAINER_MODAL_VIEWED = gql`
   }
 `;
 
+function ExampleStepTypesSet({
+  stepType,
+  num,
+}: {
+  stepType: StepTypeEnum;
+  num: number;
+}) {
+  return (
+    <View style={{ flexDirection: 'column' }}>
+      <StepTypeBadge
+        displayVertically={true}
+        color={theme.white}
+        stepType={stepType}
+        includeStepInLabel={false}
+        labelUppercase={false}
+        largeIcon={true}
+        textStyle={{ fontSize: 16 }}
+      />
+      <View style={styles.exampleTypesTextWrap}>
+        <Text style={styles.exampleTypesText}>{num}</Text>
+        <CheckIcon color={theme.primaryColor} width={10} height={10} />
+      </View>
+    </View>
+  );
+}
+
+function ExampleStepTypes() {
+  return (
+    <View style={styles.exampleTypes}>
+      <ExampleStepTypesSet stepType={StepTypeEnum.relate} num={4} />
+      <ExampleStepTypesSet stepType={StepTypeEnum.pray} num={8} />
+      <ExampleStepTypesSet stepType={StepTypeEnum.care} num={2} />
+      <ExampleStepTypesSet stepType={StepTypeEnum.share} num={1} />
+    </View>
+  );
+}
+
 export const AddStepExplainer: {
-  source: ImageSourcePropType;
+  source: ImageSourcePropType | null;
   text: string;
   stepType?: StepTypeEnum;
 }[] = [
@@ -50,6 +88,10 @@ export const AddStepExplainer: {
     stepType: StepTypeEnum.share,
     text: i18next.t('selectStepExplainer:part5'),
   },
+  {
+    source: null,
+    text: i18next.t('selectStepExplainer:part6'),
+  },
 ];
 
 function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
@@ -72,16 +114,16 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
             const { source, text, stepType } = item;
             return (
               <>
-                <View
-                  style={{
-                    flex: 1,
-                  }}
-                >
-                  <Image
-                    source={source}
-                    style={styles.image}
-                    resizeMode="cover"
-                  />
+                <View style={{ flex: 1 }}>
+                  {source ? (
+                    <Image
+                      source={source}
+                      style={styles.image}
+                      resizeMode="cover"
+                    />
+                  ) : (
+                    <ExampleStepTypes />
+                  )}
                 </View>
                 {stepType && (
                   <View style={styles.middleIconWrap}>
@@ -97,14 +139,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                     />
                   </View>
                 )}
-                <View
-                  style={[
-                    {
-                      flex: 0.9,
-                    },
-                    styles.textWrap,
-                  ]}
-                >
+                <View style={[{ flex: 0.9 }, styles.textWrap]}>
                   {text && !stepType && (
                     <Text style={[styles.text, styles.textOnly]}>{text}</Text>
                   )}
@@ -136,21 +171,13 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
         />
         <Pagination
           activeDotIndex={activeIndex}
-          dotsLength={5}
+          dotsLength={6}
           inactiveDotScale={0.9}
           dotColor={theme.impactBlue}
           inactiveDotColor={theme.grey3}
-          containerStyle={{
-            marginBottom: 10,
-          }}
-          dotStyle={{
-            width: 8,
-            height: 8,
-            borderRadius: 4,
-          }}
-          dotContainerStyle={{
-            marginHorizontal: 4,
-          }}
+          containerStyle={{ marginBottom: 10 }}
+          dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
+          dotContainerStyle={{ marginHorizontal: 4 }}
         />
         <View style={styles.closeButtonWrap}>
           <IconButton
