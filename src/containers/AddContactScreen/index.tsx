@@ -228,7 +228,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
           <LoadingWheel />
         ) : (
           <AddContactFields
-            // @ts-ignore
             testID="contactFields"
             person={person}
             next={next}

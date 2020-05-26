@@ -3,7 +3,6 @@
 exports[`renders correctly 1`] = `
 <CommentBox
   onSubmit={[Function]}
-  placeholderTextKey="actions:commentBoxPlaceholder"
-  showInteractions={false}
+  placeholderText="Share something to be remembered..."
 />
 `;

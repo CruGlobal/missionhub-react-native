@@ -14,8 +14,6 @@ jest.mock('../../CommentBox', () => 'CommentBox');
 const person = { id: '4243242' };
 const organization = { id: '99999' };
 const text = 'matt watts loves the spurs';
-const spiritualConversationAction =
-  INTERACTION_TYPES.MHInteractionTypeSpiritualConversation;
 
 let onSubmit: jest.Mock;
 
@@ -27,7 +25,6 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(
     <JourneyCommentBox
-      showInteractions={false}
       person={person}
       organization={null}
       onSubmit={onSubmit}
@@ -37,46 +34,17 @@ it('renders correctly', () => {
 
 describe('onSubmit', () => {
   describe('without organization', () => {
-    describe('action type is submitted', () => {
-      it('creates interaction with type', () => {
-        const { getAllByType } = renderWithContext(
-          <JourneyCommentBox
-            showInteractions={false}
-            person={person}
-            organization={null}
-            onSubmit={onSubmit}
-          />,
-        );
-
-        fireEvent(
-          getAllByType(CommentBox)[0],
-          'onSubmit',
-          spiritualConversationAction,
-          text,
-        );
-
-        expect(addNewInteraction).toHaveBeenCalledWith(
-          person.id,
-          spiritualConversationAction,
-          text,
-          undefined,
-        );
-        expect(onSubmit).toHaveBeenCalledWith();
-      });
-    });
-
     describe('action type is not submitted', () => {
       it('creates note', () => {
         const { getAllByType } = renderWithContext(
           <JourneyCommentBox
-            showInteractions={false}
             person={person}
             organization={null}
             onSubmit={onSubmit}
           />,
         );
 
-        fireEvent(getAllByType(CommentBox)[0], 'onSubmit', null, text);
+        fireEvent(getAllByType(CommentBox)[0], 'onSubmit', text);
 
         expect(addNewInteraction).toHaveBeenCalledWith(
           person.id,
@@ -93,14 +61,13 @@ describe('onSubmit', () => {
     it('creates interaction with org id', () => {
       const { getAllByType } = renderWithContext(
         <JourneyCommentBox
-          showInteractions={false}
           person={person}
           organization={organization}
           onSubmit={onSubmit}
         />,
       );
 
-      fireEvent(getAllByType(CommentBox)[0], 'onSubmit', null, text);
+      fireEvent(getAllByType(CommentBox)[0], 'onSubmit', text);
 
       expect(addNewInteraction).toHaveBeenCalledWith(
         person.id,

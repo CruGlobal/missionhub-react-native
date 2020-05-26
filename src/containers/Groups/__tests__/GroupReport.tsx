@@ -9,8 +9,6 @@ import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 
 jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../../actions/celebrateComments');
-jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
 
 const organization = { id: '12345' };

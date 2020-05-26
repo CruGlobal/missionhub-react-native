@@ -154,6 +154,6 @@ describe('calls methods', () => {
 
     listItem.props.onSelect(person, org);
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(person, org);
+    expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
   });
 });

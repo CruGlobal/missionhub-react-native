@@ -12,13 +12,11 @@ import {
   markCommentRead,
 } from '../../../actions/unreadComments';
 import { refreshCommunity } from '../../../actions/organizations';
-import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/navigation');
-jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../actions/organizations');
 jest.mock('../../../utils/hooks/useAnalytics');
@@ -29,9 +27,10 @@ jest.mock('../../CelebrateFeed', () => ({
 MockDate.set('2017-06-18');
 
 const myId = '4';
-const organization: Organization = { id: 'orgId' };
+const communityId = '1';
+const organization = { id: communityId };
 const orgPermission = {
-  organization_id: organization.id,
+  organization_id: communityId,
   permission_id: ORG_PERMISSIONS.OWNER,
 };
 
@@ -55,7 +54,7 @@ beforeEach(() => {
 it('should render items correctly', () => {
   renderWithContext(<GroupUnreadFeed />, {
     initialState,
-    navParams: { organization },
+    navParams: { communityId },
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(
@@ -69,35 +68,35 @@ it('should render items correctly', () => {
 it('should call mark comments read and go back', async () => {
   const { getByTestId } = renderWithContext(<GroupUnreadFeed />, {
     initialState,
-    navParams: { organization },
+    navParams: { communityId },
   });
 
   await fireEvent.press(getByTestId('MarkAllButton'));
 
-  expect(markCommentsRead).toHaveBeenCalledWith(organization.id);
+  expect(markCommentsRead).toHaveBeenCalledWith(communityId);
   expect(navigateBack).toHaveBeenCalled();
 });
 
 it('should call mark specific celebration item comments as read and go back', () => {
   const { getByTestId } = renderWithContext(<GroupUnreadFeed />, {
     initialState,
-    navParams: { organization },
+    navParams: { communityId },
   });
 
   const event = { id: '1' };
 
   fireEvent(getByTestId('CelebrateFeed'), 'onClearNotification', event);
 
-  expect(markCommentRead).toHaveBeenCalledWith(event.id, organization.id);
+  expect(markCommentRead).toHaveBeenCalledWith(event.id, communityId);
 });
 
 it('should refetch correctly', () => {
   const { getByTestId } = renderWithContext(<GroupUnreadFeed />, {
     initialState,
-    navParams: { organization },
+    navParams: { communityId },
   });
 
   fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-  expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+  expect(refreshCommunity).toHaveBeenCalledWith(communityId);
 });

@@ -133,27 +133,11 @@ exports[`Community renders challenge correctly 1`] = `
           orgId="3"
           person={
             Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
+              "firstName": "Janelle",
+              "fullName": "Janelle Upton",
+              "id": "17",
+              "lastName": "Upton",
+              "picture": "explicabo exercitationem ut",
             }
           }
           size="medium"
@@ -192,7 +176,7 @@ exports[`Community renders challenge correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            cupiditate sit vitae
           </Text>
           <Text
             style={
@@ -218,7 +202,7 @@ exports[`Community renders challenge correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            July 23, 2012 @ 4:41 AM
           </Text>
         </View>
       </View>
@@ -248,7 +232,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Samantha T. completed a Challenge:
+        Janelle U. completed a Challenge:
       </Text>
       <View
         style={
@@ -310,7 +294,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              ut et ipsam
+              minima ducimus temporibus
             </Text>
           </View>
         </View>
@@ -451,7 +435,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              82914
+              67883
             </Text>
             <SvgMock />
           </View>
@@ -618,27 +602,11 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Caesar",
+                  "fullName": "Caesar Feest",
+                  "id": "3",
+                  "lastName": "Feest",
+                  "picture": "sunt qui amet",
                 }
               }
               size="medium"
@@ -677,7 +645,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                qui recusandae ut
               </Text>
               <Text
                 style={
@@ -703,7 +671,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 13, 2015 @ 8:52 PM
               </Text>
             </View>
           </View>
@@ -733,14 +701,14 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               ]
             }
           >
-            iure ut libero
+            quisquam recusandae alias
           </Text>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "nulla quam ipsam",
+              "uri": "consequuntur corporis repellat",
             }
           }
           style={
@@ -913,7 +881,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#A97398"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -947,7 +915,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     ]
                   }
                 >
-                  82914
+                  84631
                 </Text>
                 <SvgMock />
               </View>
@@ -1116,27 +1084,11 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -1175,7 +1127,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                aspernatur deserunt quam
               </Text>
               <Text
                 style={
@@ -1201,7 +1153,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -1231,14 +1183,14 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               ]
             }
           >
-            nobis cupiditate sed
+            eligendi occaecati debitis
           </Text>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "accusantium sed libero",
+              "uri": "et saepe eum",
             }
           }
           style={
@@ -1382,7 +1334,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
                 <SvgMock />
               </View>
@@ -1551,27 +1503,11 @@ exports[`Community renders post correctly without image 1`] = `
               orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -1610,7 +1546,7 @@ exports[`Community renders post correctly without image 1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                aspernatur deserunt quam
               </Text>
               <Text
                 style={
@@ -1636,7 +1572,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -1666,7 +1602,7 @@ exports[`Community renders post correctly without image 1`] = `
               ]
             }
           >
-            nobis cupiditate sed
+            eligendi occaecati debitis
           </Text>
         </View>
         <View
@@ -1804,7 +1740,7 @@ exports[`Community renders post correctly without image 1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
                 <SvgMock />
               </View>
@@ -1973,27 +1909,11 @@ exports[`Community renders post created by me correctly without add to steps but
               orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "2",
-                        },
-                        "permission": "admin",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "3",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Hayden",
-                  "fullName": "Hayden Zieme",
+                  "firstName": "Marco",
+                  "fullName": "Marco Volkman",
                   "id": "1",
-                  "lastName": "Zieme",
-                  "picture": "quisquam recusandae alias",
+                  "lastName": "Volkman",
+                  "picture": "esse blanditiis natus",
                 }
               }
               size="medium"
@@ -2062,7 +1982,7 @@ exports[`Community renders post created by me correctly without add to steps but
                       ]
                     }
                   >
-                    Samantha Tremblay
+                    velit omnis et
                   </Text>
                 </View>
               </View>
@@ -2090,7 +2010,7 @@ exports[`Community renders post created by me correctly without add to steps but
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                March 9, 2013 @ 10:46 PM
               </Text>
             </View>
           </View>
@@ -2120,14 +2040,14 @@ exports[`Community renders post created by me correctly without add to steps but
               ]
             }
           >
-            iure ut libero
+            sed dignissimos debitis
           </Text>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "nulla quam ipsam",
+              "uri": "incidunt accusantium sed",
             }
           }
           style={
@@ -2156,6 +2076,70 @@ exports[`Community renders post created by me correctly without add to steps but
             }
           }
         >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "opacity": 1,
+              }
+            }
+            testID="AddToMyStepsButton"
+          >
+            <SvgMock
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 24,
+                  "justifyContent": "center",
+                  "width": 24,
+                }
+              }
+            />
+            <SvgMock
+              style={
+                Object {
+                  "alignItems": "center",
+                  "height": 11,
+                  "justifyContent": "center",
+                  "left": 16,
+                  "position": "absolute",
+                  "top": 16,
+                  "width": 11,
+                }
+              }
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                    "paddingLeft": 12,
+                  },
+                ]
+              }
+            >
+              Add to My Steps
+            </Text>
+          </View>
           <View
             style={
               Object {
@@ -2202,7 +2186,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  3905
+                  80275
                 </Text>
                 <View
                   accessible={true}
@@ -2272,7 +2256,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  82914
+                  71597
                 </Text>
                 <SvgMock />
               </View>
@@ -2418,27 +2402,11 @@ exports[`Community renders step correctly 1`] = `
           orgId="3"
           person={
             Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
+              "firstName": "Mathew",
+              "fullName": "Mathew Green",
+              "id": "12",
+              "lastName": "Green",
+              "picture": "ipsam qui nobis",
             }
           }
           size="medium"
@@ -2477,7 +2445,7 @@ exports[`Community renders step correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            sit aperiam placeat
           </Text>
           <Text
             style={
@@ -2503,7 +2471,7 @@ exports[`Community renders step correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            September 15, 2014 @ 10:43 PM
           </Text>
         </View>
       </View>
@@ -2533,7 +2501,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Samantha T. completed a Step of Faith with a  person.
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -2671,7 +2639,7 @@ exports[`Community renders step correctly 1`] = `
                 ]
               }
             >
-              82914
+              62402
             </Text>
             <SvgMock />
           </View>
@@ -2838,27 +2806,11 @@ exports[`Community renders with clear notification button correctly 1`] = `
               orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -2897,7 +2849,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                aspernatur deserunt quam
               </Text>
               <Text
                 style={
@@ -2923,7 +2875,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -2953,14 +2905,14 @@ exports[`Community renders with clear notification button correctly 1`] = `
               ]
             }
           >
-            nobis cupiditate sed
+            eligendi occaecati debitis
           </Text>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "accusantium sed libero",
+              "uri": "et saepe eum",
             }
           }
           style={
@@ -3104,7 +3056,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
                 <SvgMock />
               </View>
@@ -3316,30 +3268,13 @@ exports[`global community renders correctly 1`] = `
         }
       >
         <Avatar
-          orgId="_global_community_id"
           person={
             Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
+              "firstName": "Mathew",
+              "fullName": "Mathew Green",
+              "id": "12",
+              "lastName": "Green",
+              "picture": "ipsam qui nobis",
             }
           }
           size="medium"
@@ -3378,7 +3313,7 @@ exports[`global community renders correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            sit aperiam placeat
           </Text>
           <Text
             style={
@@ -3404,7 +3339,7 @@ exports[`global community renders correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            September 15, 2014 @ 10:43 PM
           </Text>
         </View>
       </View>
@@ -3434,7 +3369,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Samantha T. completed a Step of Faith with a  person.
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3572,7 +3507,7 @@ exports[`global community renders correctly 1`] = `
                 ]
               }
             >
-              82914
+              62402
             </Text>
             <SvgMock />
           </View>
@@ -3712,30 +3647,13 @@ exports[`global community renders post item correctly 1`] = `
         }
       >
         <Avatar
-          orgId="_global_community_id"
           person={
             Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
+              "firstName": "Arvel",
+              "fullName": "Arvel Simonis",
+              "id": "8",
+              "lastName": "Simonis",
+              "picture": "eaque enim ipsum",
             }
           }
           size="medium"
@@ -3774,7 +3692,7 @@ exports[`global community renders post item correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            aspernatur deserunt quam
           </Text>
           <Text
             style={
@@ -3800,7 +3718,7 @@ exports[`global community renders post item correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            November 26, 2016 @ 12:02 AM
           </Text>
         </View>
       </View>
@@ -3830,14 +3748,14 @@ exports[`global community renders post item correctly 1`] = `
           ]
         }
       >
-        nobis cupiditate sed
+        eligendi occaecati debitis
       </Text>
     </View>
     <Image
-      resizeMode="contain"
+      resizeMode="cover"
       source={
         Object {
-          "uri": "accusantium sed libero",
+          "uri": "et saepe eum",
         }
       }
       style={
@@ -3981,7 +3899,7 @@ exports[`global community renders post item correctly 1`] = `
                 ]
               }
             >
-              82914
+              67165
             </Text>
             <SvgMock />
           </View>
@@ -4121,30 +4039,13 @@ exports[`global community renders with clear notification button correctly 1`] =
         }
       >
         <Avatar
-          orgId="_global_community_id"
           person={
             Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
+              "firstName": "Mathew",
+              "fullName": "Mathew Green",
+              "id": "12",
+              "lastName": "Green",
+              "picture": "ipsam qui nobis",
             }
           }
           size="medium"
@@ -4183,7 +4084,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               ]
             }
           >
-            Samantha Tremblay
+            sit aperiam placeat
           </Text>
           <Text
             style={
@@ -4209,7 +4110,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            September 15, 2014 @ 10:43 PM
           </Text>
         </View>
       </View>
@@ -4239,7 +4140,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Samantha T. completed a Step of Faith with a  person.
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -4377,7 +4278,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                 ]
               }
             >
-              82914
+              62402
             </Text>
             <SvgMock />
           </View>
@@ -4614,27 +4515,11 @@ exports[`renders with name pressable correctly 1`] = `
               orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -4703,7 +4588,7 @@ exports[`renders with name pressable correctly 1`] = `
                       ]
                     }
                   >
-                    Samantha Tremblay
+                    aspernatur deserunt quam
                   </Text>
                 </View>
               </View>
@@ -4731,7 +4616,7 @@ exports[`renders with name pressable correctly 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -4761,14 +4646,14 @@ exports[`renders with name pressable correctly 1`] = `
               ]
             }
           >
-            nobis cupiditate sed
+            eligendi occaecati debitis
           </Text>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "accusantium sed libero",
+              "uri": "et saepe eum",
             }
           }
           style={
@@ -4912,7 +4797,7 @@ exports[`renders with name pressable correctly 1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
                 <SvgMock />
               </View>

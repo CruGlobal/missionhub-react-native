@@ -1,5 +1,2477 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Reported Post call handleDelete 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#505256",
+        "flexDirection": "column",
+        "marginBottom": 8,
+        "marginHorizontal": 20,
+        "marginVertical": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+          "padding": 15,
+        },
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Reported By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Chyna Howe
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Comment By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Ezequiel Ortiz
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingVertical": 15,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingTop": 12,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="QUESTIONButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#FFA178",
+                  },
+                  null,
+                  null,
+                ],
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Array [
+                  Object {
+                    "marginLeft": -10,
+                    "marginRight": 10,
+                  },
+                  undefined,
+                ]
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Spiritual Question
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <Image
+          resizeMode="cover"
+          source={
+            Object {
+              "uri": "incidunt accusantium sed",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "borderRadius": 24,
+                "height": 48,
+                "width": 48,
+              },
+              Object {
+                "backgroundColor": "rgb(152, 155, 11)",
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "lineHeight": 20,
+                  },
+                ],
+              ]
+            }
+          >
+            Ezequiel Ortiz
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ],
+              ]
+            }
+            testID="Text"
+          >
+            January 26, 2016 @ 7:10 PM
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        nulla quam ipsam
+      </Text>
+    </View>
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "nobis cupiditate sed",
+        }
+      }
+      style={
+        Object {
+          "aspectRatio": 2,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+          "paddingVertical": 16,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+          }
+        }
+        testID="AddToMyStepsButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 24,
+              "justifyContent": "center",
+              "width": 24,
+            }
+          }
+        />
+        <SvgMock
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 11,
+              "justifyContent": "center",
+              "left": 16,
+              "position": "absolute",
+              "top": 16,
+              "width": 11,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+                "paddingLeft": 12,
+              },
+            ]
+          }
+        >
+          Add to My Steps
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "width": 60,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                    "paddingRight": 10,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
+                ]
+              }
+            />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="LikeIconButton"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {
+                      "height": 24,
+                      "width": 24,
+                    },
+                    null,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#FF5532"
+                  fill="#FF5532"
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "width": 60,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                    "paddingRight": 10,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
+                ]
+              }
+            >
+              45720
+            </Text>
+            <SvgMock />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ignoreButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomLeftRadius": 8,
+                "borderRightColor": "#ffffff",
+                "borderRightWidth": 1,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            IGNORE
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="deleteButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomRightRadius": 8,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            DELETE
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Reported Post call handleIgnore 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#505256",
+        "flexDirection": "column",
+        "marginBottom": 8,
+        "marginHorizontal": 20,
+        "marginVertical": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+          "padding": 15,
+        },
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Reported By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Chyna Howe
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Comment By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Ezequiel Ortiz
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingVertical": 15,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingTop": 12,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="QUESTIONButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  Object {
+                    "backgroundColor": "#FFA178",
+                  },
+                  null,
+                  null,
+                ],
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+              height={20}
+              style={
+                Array [
+                  Object {
+                    "marginLeft": -10,
+                    "marginRight": 10,
+                  },
+                  undefined,
+                ]
+              }
+              width={20}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Spiritual Question
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <Image
+          resizeMode="cover"
+          source={
+            Object {
+              "uri": "incidunt accusantium sed",
+            }
+          }
+          style={
+            Array [
+              Object {
+                "borderRadius": 24,
+                "height": 48,
+                "width": 48,
+              },
+              Object {
+                "backgroundColor": "rgb(152, 155, 11)",
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "lineHeight": 20,
+                  },
+                ],
+              ]
+            }
+          >
+            Ezequiel Ortiz
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ],
+              ]
+            }
+            testID="Text"
+          >
+            January 26, 2016 @ 7:10 PM
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        nulla quam ipsam
+      </Text>
+    </View>
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "nobis cupiditate sed",
+        }
+      }
+      style={
+        Object {
+          "aspectRatio": 2,
+        }
+      }
+    />
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "paddingHorizontal": 20,
+          "paddingVertical": 16,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+          }
+        }
+        testID="AddToMyStepsButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 24,
+              "justifyContent": "center",
+              "width": 24,
+            }
+          }
+        />
+        <SvgMock
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 11,
+              "justifyContent": "center",
+              "left": 16,
+              "position": "absolute",
+              "top": 16,
+              "width": 11,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+                "paddingLeft": 12,
+              },
+            ]
+          }
+        >
+          Add to My Steps
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "width": 60,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                    "paddingRight": 10,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
+                ]
+              }
+            />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="LikeIconButton"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {
+                      "height": 24,
+                      "width": 24,
+                    },
+                    null,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#FF5532"
+                  fill="#FF5532"
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "width": 60,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                    "paddingRight": 10,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
+                ]
+              }
+            >
+              45720
+            </Text>
+            <SvgMock />
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ignoreButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomLeftRadius": 8,
+                "borderRightColor": "#ffffff",
+                "borderRightWidth": 1,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            IGNORE
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="deleteButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomRightRadius": 8,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            DELETE
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Reported comment call handleDelete 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#505256",
+        "flexDirection": "column",
+        "marginBottom": 8,
+        "marginHorizontal": 20,
+        "marginVertical": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+          "padding": 15,
+        },
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Reported By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Hayden Zieme
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Comment By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Zola Corkery
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingVertical": 15,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 30,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "ut sunt qui",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 18,
+              "height": 36,
+              "width": 36,
+            },
+            Object {
+              "backgroundColor": "rgb(115, 19, 155)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "paddingRight": 6,
+                },
+              ]
+            }
+          >
+            Zola Corkery
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
+              ]
+            }
+            testID="Text"
+          >
+            October 3, 2018 @ 8:17 AM
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "paddingHorizontal": 2,
+                  },
+                ],
+              ]
+            }
+          >
+             • 
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Edited
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "flex-start",
+                "backgroundColor": "#ECEEF2",
+                "borderRadius": 8,
+                "marginVertical": 5,
+                "paddingHorizontal": 13,
+                "paddingVertical": 8,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ignoreButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomLeftRadius": 8,
+                "borderRightColor": "#ffffff",
+                "borderRightWidth": 1,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            IGNORE
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="deleteButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomRightRadius": 8,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            DELETE
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Reported comment call handleIgnore 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "backgroundColor": "#ffffff",
+        "borderRadius": 8,
+        "elevation": 4,
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 8,
+        "shadowColor": "#000000",
+        "shadowOffset": Object {
+          "height": 2,
+          "width": 0,
+        },
+        "shadowOpacity": 0.3,
+        "shadowRadius": 2,
+      },
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#505256",
+        "flexDirection": "column",
+        "marginBottom": 8,
+        "marginHorizontal": 20,
+        "marginVertical": 0,
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "borderBottomColor": "#A0A2A6",
+          "borderBottomWidth": 1,
+          "padding": 15,
+        },
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Reported By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Hayden Zieme
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#A0A2A6",
+            },
+          ]
+        }
+      >
+        Comment By
+        :
+      </Text>
+      <Text
+        numberOfLines={1}
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+            },
+          ]
+        }
+      >
+        Zola Corkery
+      </Text>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {
+          "paddingVertical": 15,
+        },
+        Object {},
+      ]
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 30,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "ut sunt qui",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 18,
+              "height": 36,
+              "width": 36,
+            },
+            Object {
+              "backgroundColor": "rgb(115, 19, 155)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "paddingLeft": 10,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "paddingRight": 6,
+                },
+              ]
+            }
+          >
+            Zola Corkery
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
+              ]
+            }
+            testID="Text"
+          >
+            October 3, 2018 @ 8:17 AM
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "paddingHorizontal": 2,
+                  },
+                ],
+              ]
+            }
+          >
+             • 
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Edited
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "alignSelf": "flex-start",
+                "backgroundColor": "#ECEEF2",
+                "borderRadius": 8,
+                "marginVertical": 5,
+                "paddingHorizontal": 13,
+                "paddingVertical": 8,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {},
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "flexDirection": "row",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ignoreButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomLeftRadius": 8,
+                "borderRightColor": "#ffffff",
+                "borderRightWidth": 1,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            IGNORE
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flex": 1,
+          },
+        ]
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="deleteButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#52C5DC",
+                "height": 60,
+                "justifyContent": "center",
+              },
+              null,
+              Object {
+                "borderBottomRightRadius": 8,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1.5,
+                    "textAlign": "center",
+                  },
+                  Object {},
+                ],
+              ]
+            }
+          >
+            DELETE
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`renders correctly 1`] = `
 <View
   style={
@@ -89,7 +2561,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        person full name
+        Hayden Zieme
       </Text>
     </View>
     <View
@@ -136,7 +2608,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        Christian Huffman
+        Zola Corkery
       </Text>
     </View>
   </View>
@@ -151,91 +2623,144 @@ exports[`renders correctly 1`] = `
     }
   >
     <View
-      collapsable={false}
       style={
-        Array [
-          Object {
-            "paddingHorizontal": 20,
-            "paddingVertical": 8,
-          },
-          null,
-        ]
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 30,
+          "paddingVertical": 8,
+        }
       }
     >
-      <View
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "ut sunt qui",
+          }
+        }
         style={
           Array [
-            Object {},
             Object {
-              "alignItems": "flex-end",
-              "flexDirection": "row",
+              "borderRadius": 18,
+              "height": 36,
+              "width": 36,
             },
+            Object {
+              "backgroundColor": "rgb(115, 19, 155)",
+            },
+            undefined,
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
-            ]
-          }
-        >
-          Christian Huffman
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-            ]
-          }
-          testID="Text"
-        >
-          January 15 @ 8:58 PM
-        </Text>
-      </View>
+      />
       <View
         style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "row",
-            },
-          ]
+          Object {
+            "paddingLeft": 10,
+          }
         }
       >
         <View
           style={
+            Object {
+              "alignItems": "flex-end",
+              "flexDirection": "row",
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "paddingRight": 6,
+                },
+              ]
+            }
+          >
+            Zola Corkery
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
+              ]
+            }
+            testID="Text"
+          >
+            October 3, 2018 @ 8:17 AM
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "paddingHorizontal": 2,
+                  },
+                ],
+              ]
+            }
+          >
+             • 
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+              ]
+            }
+          >
+            Edited
+          </Text>
+        </View>
+        <View
+          style={
             Array [
               Object {
-                "backgroundColor": "#ffffff",
+                "alignSelf": "flex-start",
+                "backgroundColor": "#ECEEF2",
                 "borderRadius": 8,
                 "marginVertical": 5,
                 "paddingHorizontal": 13,
                 "paddingVertical": 8,
               },
-              null,
+              undefined,
             ]
           }
         >
@@ -247,1769 +2772,14 @@ exports[`renders correctly 1`] = `
                 },
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "paddingVertical": 3,
-                  },
-                  null,
-                ],
-              ]
-            }
-          >
-            something
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "flex": 1,
-              },
-            ]
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="ignoreButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomLeftRadius": 8,
-                "borderRightColor": "#ffffff",
-                "borderRightWidth": 1,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            IGNORE
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="deleteButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomRightRadius": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            DELETE
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`report item Reported Story call handleDelete 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      },
-      Object {
-        "alignItems": "flex-start",
-        "backgroundColor": "#505256",
-        "flexDirection": "column",
-        "marginBottom": 8,
-        "marginHorizontal": 20,
-        "marginVertical": 0,
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "borderBottomColor": "#A0A2A6",
-          "borderBottomWidth": 1,
-          "padding": 15,
-        },
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Reported By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        person full name
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Story By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        Christian Huffman
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "paddingVertical": 15,
-        },
-        Object {},
-      ]
-    }
-  >
-    <View
-      collapsable={false}
-      style={
-        Array [
-          Object {
-            "paddingHorizontal": 20,
-            "paddingVertical": 8,
-          },
-          null,
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "flex-end",
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
-            ]
-          }
-        >
-          Christian Huffman
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
                 },
                 Object {},
-              ],
-            ]
-          }
-          testID="Text"
-        >
-          January 15 @ 8:58 PM
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "marginVertical": 5,
-                "paddingHorizontal": 13,
-                "paddingVertical": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "paddingVertical": 3,
-                  },
-                  null,
-                ],
               ]
             }
           >
-            some story
+            quisquam recusandae alias
           </Text>
         </View>
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "flex": 1,
-              },
-            ]
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="ignoreButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomLeftRadius": 8,
-                "borderRightColor": "#ffffff",
-                "borderRightWidth": 1,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            IGNORE
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="deleteButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomRightRadius": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            DELETE
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`report item Reported Story call handleIgnore 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      },
-      Object {
-        "alignItems": "flex-start",
-        "backgroundColor": "#505256",
-        "flexDirection": "column",
-        "marginBottom": 8,
-        "marginHorizontal": 20,
-        "marginVertical": 0,
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "borderBottomColor": "#A0A2A6",
-          "borderBottomWidth": 1,
-          "padding": 15,
-        },
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Reported By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        person full name
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Story By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        Christian Huffman
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "paddingVertical": 15,
-        },
-        Object {},
-      ]
-    }
-  >
-    <View
-      collapsable={false}
-      style={
-        Array [
-          Object {
-            "paddingHorizontal": 20,
-            "paddingVertical": 8,
-          },
-          null,
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "flex-end",
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
-            ]
-          }
-        >
-          Christian Huffman
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-            ]
-          }
-          testID="Text"
-        >
-          January 15 @ 8:58 PM
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "marginVertical": 5,
-                "paddingHorizontal": 13,
-                "paddingVertical": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "paddingVertical": 3,
-                  },
-                  null,
-                ],
-              ]
-            }
-          >
-            some story
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "flex": 1,
-              },
-            ]
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="ignoreButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomLeftRadius": 8,
-                "borderRightColor": "#ffffff",
-                "borderRightWidth": 1,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            IGNORE
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="deleteButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomRightRadius": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            DELETE
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`report item Reported comment call handleDelete 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      },
-      Object {
-        "alignItems": "flex-start",
-        "backgroundColor": "#505256",
-        "flexDirection": "column",
-        "marginBottom": 8,
-        "marginHorizontal": 20,
-        "marginVertical": 0,
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "borderBottomColor": "#A0A2A6",
-          "borderBottomWidth": 1,
-          "padding": 15,
-        },
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Reported By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        person full name
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Comment By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        Christian Huffman
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "paddingVertical": 15,
-        },
-        Object {},
-      ]
-    }
-  >
-    <View
-      collapsable={false}
-      style={
-        Array [
-          Object {
-            "paddingHorizontal": 20,
-            "paddingVertical": 8,
-          },
-          null,
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "flex-end",
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
-            ]
-          }
-        >
-          Christian Huffman
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-            ]
-          }
-          testID="Text"
-        >
-          January 15 @ 8:58 PM
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "marginVertical": 5,
-                "paddingHorizontal": 13,
-                "paddingVertical": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "paddingVertical": 3,
-                  },
-                  null,
-                ],
-              ]
-            }
-          >
-            something
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "flex": 1,
-              },
-            ]
-          }
-        />
-      </View>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="ignoreButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomLeftRadius": 8,
-                "borderRightColor": "#ffffff",
-                "borderRightWidth": 1,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            IGNORE
-          </Text>
-        </View>
-      </View>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "opacity": 1,
-          }
-        }
-        testID="deleteButton"
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#52C5DC",
-                "height": 60,
-                "justifyContent": "center",
-              },
-              null,
-              Object {
-                "borderBottomRightRadius": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
-              ]
-            }
-          >
-            DELETE
-          </Text>
-        </View>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`report item Reported comment call handleIgnore 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
-      },
-      Object {
-        "alignItems": "flex-start",
-        "backgroundColor": "#505256",
-        "flexDirection": "column",
-        "marginBottom": 8,
-        "marginHorizontal": 20,
-        "marginVertical": 0,
-      },
-    ]
-  }
->
-  <View
-    style={
-      Array [
-        Object {
-          "borderBottomColor": "#A0A2A6",
-          "borderBottomWidth": 1,
-          "padding": 15,
-        },
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Reported By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        person full name
-      </Text>
-    </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
-        }
-      >
-        Comment By
-        :
-      </Text>
-      <Text
-        numberOfLines={1}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-            },
-          ]
-        }
-      >
-        Christian Huffman
-      </Text>
-    </View>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "paddingVertical": 15,
-        },
-        Object {},
-      ]
-    }
-  >
-    <View
-      collapsable={false}
-      style={
-        Array [
-          Object {
-            "paddingHorizontal": 20,
-            "paddingVertical": 8,
-          },
-          null,
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "flex-end",
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
-            ]
-          }
-        >
-          Christian Huffman
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {},
-              ],
-            ]
-          }
-          testID="Text"
-        >
-          January 15 @ 8:58 PM
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "flexDirection": "row",
-            },
-          ]
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "marginVertical": 5,
-                "paddingHorizontal": 13,
-                "paddingVertical": 8,
-              },
-              null,
-            ]
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Array [
-                  Object {
-                    "paddingVertical": 3,
-                  },
-                  null,
-                ],
-              ]
-            }
-          >
-            something
-          </Text>
-        </View>
-        <View
-          style={
-            Array [
-              Object {},
-              Object {
-                "flex": 1,
-              },
-            ]
-          }
-        />
       </View>
     </View>
   </View>

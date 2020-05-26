@@ -25,12 +25,13 @@ const person: Person = {
 const initialState = {
   auth: { person: { id: myId } },
   organizations: { all: [organization] },
+  people: { allByOrg: { [organization.id]: [person] } },
 };
 
 describe('MemberCelebrate', () => {
   it('renders correctly', () => {
     renderWithContext(
-      <MemberCelebrate person={person} organization={organization} />,
+      <MemberCelebrate personId={person.id} communityId={organization.id} />,
       {
         initialState,
       },
@@ -43,10 +44,7 @@ describe('MemberCelebrate', () => {
 
   it('renders correctly for me', () => {
     renderWithContext(
-      <MemberCelebrate
-        person={{ ...person, id: myId }}
-        organization={organization}
-      />,
+      <MemberCelebrate personId={myId} communityId={organization.id} />,
       {
         initialState,
       },
@@ -57,22 +55,28 @@ describe('MemberCelebrate', () => {
     });
   });
 
-  it('renders correctly for me', () => {
+  it('renders correctly for owner', () => {
     renderWithContext(
-      <MemberCelebrate
-        person={{
-          ...person,
-          organizational_permissions: [
-            {
-              organization_id: organization.id,
-              permission_id: ORG_PERMISSIONS.OWNER,
-            },
-          ],
-        }}
-        organization={organization}
-      />,
+      <MemberCelebrate personId={person.id} communityId={organization.id} />,
       {
-        initialState,
+        initialState: {
+          ...initialState,
+          people: {
+            allByOrg: {
+              [organization.id]: [
+                {
+                  ...person,
+                  organizational_permissions: [
+                    {
+                      organization_id: organization.id,
+                      permission_id: ORG_PERMISSIONS.OWNER,
+                    },
+                  ],
+                },
+              ],
+            },
+          },
+        },
       },
     ).snapshot();
 

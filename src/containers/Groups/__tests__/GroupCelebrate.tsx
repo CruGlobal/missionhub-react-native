@@ -17,7 +17,6 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/celebration');
-jest.mock('../../../actions/reportComments');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/hooks/useAnalytics');

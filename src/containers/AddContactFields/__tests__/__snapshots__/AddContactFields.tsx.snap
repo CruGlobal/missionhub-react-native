@@ -148,7 +148,7 @@ exports[`render correctly | With Person | No Picture 1`] = `
                     "width": 96,
                   },
                   Object {
-                    "backgroundColor": "rgb(55, 161, 152)",
+                    "backgroundColor": "rgb(19, 181, 125)",
                   },
                   undefined,
                 ],
@@ -465,7 +465,7 @@ exports[`render correctly | With Person | With Picture 1`] = `
                   "width": 96,
                 },
                 Object {
-                  "backgroundColor": "rgb(55, 161, 152)",
+                  "backgroundColor": "rgb(19, 181, 125)",
                 },
                 undefined,
               ]

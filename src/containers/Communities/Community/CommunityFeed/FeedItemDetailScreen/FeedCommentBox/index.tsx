@@ -106,7 +106,7 @@ const FeedCommentBox = ({
 
   return (
     <CommentBox
-      testID="FeedCommentBox"
+      testID="FeedItemCommentBox"
       avatarPerson={avatarPerson}
       placeholderText={t('placeholder')}
       onSubmit={submitComment}

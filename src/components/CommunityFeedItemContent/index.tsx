@@ -21,6 +21,7 @@ import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen'
 import Separator from '../Separator';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
 import PlusIcon from './plusIcon.svg';
 import StepIcon from './stepIcon.svg';
@@ -71,15 +72,16 @@ export const CommunityFeedItemContent = ({
 
   const onPressChallengeLink = async () => {
     const challengeId = subject.id;
-    if (feedItem.community?.id) {
-      await dispatch(reloadGroupChallengeFeed(feedItem.community.id));
-      dispatch(
-        navigatePush(CHALLENGE_DETAIL_SCREEN, {
-          challengeId,
-          orgId: feedItem.community.id,
-        }),
-      );
-    }
+    const communityId = feedItem.community
+      ? feedItem.community.id
+      : GLOBAL_COMMUNITY_ID;
+    await dispatch(reloadGroupChallengeFeed(communityId));
+    dispatch(
+      navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        challengeId,
+        orgId: communityId,
+      }),
+    );
   };
 
   const navToFilteredFeed = () => {

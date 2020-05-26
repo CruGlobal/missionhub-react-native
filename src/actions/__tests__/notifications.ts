@@ -581,7 +581,7 @@ describe('askNotificationPermissions', () => {
       });
 
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
@@ -608,7 +608,7 @@ describe('askNotificationPermissions', () => {
       });
 
       expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
         getPersonResult,
@@ -619,7 +619,7 @@ describe('askNotificationPermissions', () => {
     it("should deep link to ME user's contact screen", async () => {
       await testNotification({ ...baseNotification, screen: 'my_steps' });
 
-      expect(navToPersonScreen).toHaveBeenCalledWith(person);
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'my_steps' },
         navToPersonScreenResult,

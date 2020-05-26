@@ -428,7 +428,7 @@ exports[`should render correctly post details 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(169, 123, 130)",
+                  "backgroundColor": "rgb(110, 178, 125)",
                 },
                 undefined,
               ]

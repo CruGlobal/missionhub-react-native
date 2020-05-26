@@ -7,7 +7,6 @@ import { Flex, Card, Button } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportItemLabel from '../../components/ReportItemLabel';
 import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
-import { Organization } from '../../reducers/organizations';
 import { CommunityFeedItemContent } from '../../components/CommunityFeedItemContent';
 
 import { RESPOND_TO_CONTENT_COMPLAINT } from './queries';
@@ -23,7 +22,6 @@ const ReportedItem = ({
   refetch,
 }: {
   reportedItem: ReportedItemFragment;
-  organization: Organization;
   refetch: () => void;
 }) => {
   const { t } = useTranslation('reportComment');

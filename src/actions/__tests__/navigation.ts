@@ -200,7 +200,7 @@ describe('navigateToCelebrateComments', () => {
   const cruOrg = { id: cruOrgId, user_created: false };
   const userCreatedOrgId = '654321';
   const userCreatedOrg = { id: userCreatedOrgId, user_created: true };
-  const celebrateItemId = '111';
+  const feedItemId = '111';
   const globalCommunity = {
     id: GLOBAL_COMMUNITY_ID,
     name: 'MissionHub Community',
@@ -291,7 +291,7 @@ describe('navigateToCelebrateComments', () => {
   describe('user-created org', () => {
     beforeEach(() => {
       store.dispatch<any>(
-        navigateToCelebrateComments(userCreatedOrg, celebrateItemId),
+        navigateToCelebrateComments(userCreatedOrg, feedItemId),
       );
     });
 
@@ -318,14 +318,13 @@ describe('navigateToCelebrateComments', () => {
             {
               type: 'Navigation/NAVIGATE',
               routeName: GROUP_UNREAD_FEED_SCREEN,
-              params: { organization: userCreatedOrg },
+              params: { communityId: userCreatedOrgId },
             },
             {
               type: 'Navigation/NAVIGATE',
               routeName: FEED_ITEM_DETAIL_SCREEN,
               params: {
-                event: { id: celebrateItemId },
-                orgId: userCreatedOrgId,
+                feedItemId,
               },
             },
           ],

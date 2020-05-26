@@ -1,39 +1,41 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
+import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../../../../../testUtils';
 import { mockFragment } from '../../../../../../../../testUtils/apolloMockClient';
-import { Organization } from '../../../../../../../reducers/organizations';
+import { AVATAR_FRAGMENT } from '../../../../../../../components/Avatar/queries';
+import { Avatar } from '../../../../../../../components/Avatar/__generated__/Avatar';
+import {
+  CREATE_FEED_ITEM_COMMENT_MUTATION,
+  FEED_ITEM_EDITING_COMMENT_FRAGMENT,
+  UPDATE_FEED_ITEM_COMMENT_MUTATION,
+} from '../queries';
+import { FeedItemEditingComment } from '../__generated__/FeedItemEditingComment';
 
 import FeedCommentBox from '..';
 
-jest.mock('../../../selectors/celebrateComments');
-jest.mock('../../../actions/celebrateComments');
+const feedItemId = '1';
+const avatarPerson = mockFragment<Avatar>(AVATAR_FRAGMENT);
+const editingComment = mockFragment<FeedItemEditingComment>(
+  FEED_ITEM_EDITING_COMMENT_FRAGMENT,
+);
 
-const organization: Organization = { id: '123' };
-const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
-
-const createCelebrateCommentResult = { type: 'created comment' };
-const updateCelebrateCommentResult = { type: 'update comment' };
-const resetCelebrateEditingCommentResult = { type: 'reset editing' };
-
-const editingComment = {
-  id: 'edit',
-  content: 'test',
-};
 const onAddComplete = jest.fn();
+const onCancel = jest.fn();
 const initialState = {
-  celebrateComments: {
-    editingCommentId: null,
+  auth: {
+    person: { id: '1' },
   },
 };
 
 function render() {
   return renderWithContext(
     <FeedCommentBox
-      event={event}
-      organization={organization}
+      feedItemId={feedItemId}
+      avatarPerson={avatarPerson}
       onAddComplete={onAddComplete}
+      onCancel={onCancel}
     />,
     { initialState },
   );
@@ -45,32 +47,30 @@ it('renders correctly', () => {
 
 describe('onSubmit', () => {
   it('creates comment with add', async () => {
-    const text = 'roger is a good pig';
+    const content = 'New comment';
     const { getByTestId } = render();
 
-    await fireEvent(getByTestId('CelebrateCommentBox'), 'onSubmit', null, text);
+    await fireEvent(getByTestId('FeedItemCommentBox'), 'onSubmit', content);
 
-    expect(createCelebrateComment).toHaveBeenCalledWith(
-      event.id,
-      organization.id,
-      text,
+    expect(useMutation).toHaveBeenMutatedWith(
+      CREATE_FEED_ITEM_COMMENT_MUTATION,
+      { variables: { feedItemId, content } },
     );
     expect(onAddComplete).toHaveBeenCalled();
   });
 });
 
 it('renders editing correctly', () => {
-  ((celebrateCommentsCommentSelector as unknown) as jest.Mock).mockReturnValue(
-    editingComment,
-  );
-
   renderWithContext(
-    <FeedCommentBox event={event} organization={organization} />,
+    <FeedCommentBox
+      editingComment={editingComment}
+      feedItemId={feedItemId}
+      avatarPerson={avatarPerson}
+      onAddComplete={onAddComplete}
+      onCancel={onCancel}
+    />,
     {
-      initialState: {
-        ...initialState,
-        celebrateComments: { editingCommentId: editingComment.id },
-      },
+      initialState,
     },
   ).snapshot();
 });
@@ -78,30 +78,29 @@ it('renders editing correctly', () => {
 it('onCancel', () => {
   const { getByTestId } = render();
 
-  fireEvent(getByTestId('CelebrateCommentBox'), 'onCancel');
+  fireEvent(getByTestId('FeedItemCommentBox'), 'onCancel');
 
-  expect(resetCelebrateEditingComment).toHaveBeenCalledWith();
+  expect(onCancel).toHaveBeenCalledWith();
 });
 
 it('calls update', async () => {
   const { getByTestId } = renderWithContext(
-    <FeedCommentBox event={event} organization={organization} />,
+    <FeedCommentBox
+      editingComment={editingComment}
+      feedItemId={feedItemId}
+      avatarPerson={avatarPerson}
+      onAddComplete={onAddComplete}
+      onCancel={onCancel}
+    />,
     {
-      initialState: {
-        ...initialState,
-        celebrateComments: { editingCommentId: editingComment.id },
-      },
+      initialState,
     },
   );
 
-  const text = 'test update';
-  await fireEvent(getByTestId('CelebrateCommentBox'), 'onSubmit', null, text);
+  const content = 'test update';
+  await fireEvent(getByTestId('FeedItemCommentBox'), 'onSubmit', content);
 
-  expect(resetCelebrateEditingComment).toHaveBeenCalledWith();
-  expect(updateCelebrateComment).toHaveBeenCalledWith(
-    event.id,
-    organization.id,
-    editingComment.id,
-    text,
-  );
+  expect(useMutation).toHaveBeenMutatedWith(UPDATE_FEED_ITEM_COMMENT_MUTATION, {
+    variables: { commentId: editingComment.id, content },
+  });
 });

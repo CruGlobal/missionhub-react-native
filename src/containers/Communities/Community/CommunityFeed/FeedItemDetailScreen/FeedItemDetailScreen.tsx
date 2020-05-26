@@ -56,7 +56,7 @@ const FeedItemDetailScreen = () => {
     },
   });
 
-  const feedItemId: string = useNavigationParam('itemId');
+  const feedItemId: string = useNavigationParam('feedItemId');
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
 
@@ -114,7 +114,7 @@ const FeedItemDetailScreen = () => {
       const index = data.feedItem.comments.nodes.findIndex(
         c => c.id === editingCommentId,
       );
-      if (index && index >= 0) {
+      if (index >= 0) {
         listRef.current?.scrollToIndex({ index, viewPosition: 1 });
         return;
       }

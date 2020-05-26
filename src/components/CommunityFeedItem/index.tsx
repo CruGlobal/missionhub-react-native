@@ -12,7 +12,6 @@ import {
   CREATE_POST_SCREEN,
   CreatePostScreenNavParams,
 } from '../../containers/Groups/CreatePostScreen';
-import { orgIsGlobal } from '../../utils/common';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import {
   CommunityFeedItem as FeedItemFragment,
@@ -27,21 +26,19 @@ import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 
 export interface CommunityFeedItemProps {
-  item: FeedItemFragment;
-  communityId: string;
+  feedItem: FeedItemFragment;
   namePressable: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
   onRefresh: () => void;
 }
 
 export const CommunityFeedItem = ({
-  item,
-  communityId,
+  feedItem,
   namePressable,
   onClearNotification,
   onRefresh,
 }: CommunityFeedItemProps) => {
-  const { subject, subjectPerson } = item;
+  const { subject, subjectPerson } = feedItem;
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');
@@ -52,7 +49,7 @@ export const CommunityFeedItem = ({
     REPORT_POST,
   );
 
-  const isGlobal = orgIsGlobal({ id: communityId });
+  const isGlobal = !feedItem.community;
 
   const isPost = (
     subject: CommunityFeedItem_subject,
@@ -61,19 +58,19 @@ export const CommunityFeedItem = ({
   const handlePress = () =>
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
-        itemId: item.id,
+        feedItemId: feedItem.id,
       }),
     );
 
   const clearNotification = () =>
-    onClearNotification && onClearNotification(item);
+    onClearNotification && onClearNotification(feedItem);
 
   const handleEdit = () =>
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         post: subject,
         onComplete: onRefresh,
-        communityId,
+        communityId: feedItem.community?.id,
       } as CreatePostScreenNavParams),
     );
 
@@ -138,7 +135,10 @@ export const CommunityFeedItem = ({
 
   const renderContent = () => (
     <View style={styles.cardContent}>
-      <CommunityFeedItemContent feedItem={item} namePressable={namePressable} />
+      <CommunityFeedItemContent
+        feedItem={feedItem}
+        namePressable={namePressable}
+      />
       {onClearNotification ? renderClearNotificationButton() : null}
     </View>
   );

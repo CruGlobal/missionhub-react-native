@@ -235,8 +235,7 @@ export const CelebrateFeed = ({
   const renderItem = ({ item }: { item: FeedItemFragment }) => (
     <CommunityFeedItem
       onClearNotification={onClearNotification}
-      item={item}
-      communityId={communityId}
+      feedItem={item}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />

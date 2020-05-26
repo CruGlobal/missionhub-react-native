@@ -26,24 +26,17 @@ jest.mock('../../../components/PostTypeLabel', () => ({
 }));
 
 const myId = '123';
-const organization: Organization = { id: '456' };
+const communityId = '456';
 const mockFeedRefetch = jest.fn();
 
 const initialState = {
   auth: { person: { id: myId } },
-  organizations: { all: [organization] },
 };
-
-beforeEach(() => {
-  ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
-    organization,
-  );
-});
 
 it('renders empty correctly', () => {
   renderWithContext(
     <CelebrateFeedPostCards
-      community={organization}
+      communityId={communityId}
       feedRefetch={mockFeedRefetch}
     />,
     {
@@ -56,7 +49,7 @@ it('renders empty correctly', () => {
 it('renders with feed items correctly', async () => {
   const { snapshot } = renderWithContext(
     <CelebrateFeedPostCards
-      community={organization}
+      communityId={communityId}
       feedRefetch={mockFeedRefetch}
     />,
     {
@@ -69,7 +62,7 @@ it('renders with feed items correctly', async () => {
   snapshot();
 
   expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_POST_CARDS, {
-    variables: { communityId: organization.id },
+    variables: { communityId },
   });
 });
 
@@ -78,7 +71,7 @@ describe('navs to screens', () => {
   beforeEach(() => {
     const { getByTestId } = renderWithContext(
       <CelebrateFeedPostCards
-        community={organization}
+        communityId={communityId}
         feedRefetch={mockFeedRefetch}
       />,
       {
@@ -95,12 +88,12 @@ describe('navs to screens', () => {
     await fireEvent.press(myGetByTestId(`PostCard_${type}`));
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
       type,
-      organization,
+      communityId,
     });
     expect(useMutation).toHaveBeenMutatedWith(MARK_COMMUNITY_FEED_ITEMS_READ, {
       variables: {
         input: {
-          communityId: organization.id,
+          communityId,
           feedItemSubjectType: type,
         },
       },

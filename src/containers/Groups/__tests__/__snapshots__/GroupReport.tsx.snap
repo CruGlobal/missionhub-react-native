@@ -177,43 +177,23 @@ exports[`should call navigate back 1`] = `
           "id": "2",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Zola Corkery",
-            "id": "5",
+            "fullName": "Hayden Zieme",
+            "id": "3",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
-            "content": "esse repellat quisquam",
-            "createdAt": "2010-09-19T03:58:30.504Z",
-            "id": "3",
-            "person": Object {
-              "__typename": "Person",
-              "firstName": "Branson",
-              "fullName": "Branson Gutkowski",
-              "id": "4",
-            },
-            "updatedAt": "2020-01-13T13:58:47.783Z",
           },
         },
         Object {
           "__typename": "ContentComplaint",
-          "id": "6",
+          "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Gracie Weber",
-            "id": "9",
+            "fullName": "Mina Watsica",
+            "id": "5",
           },
           "subject": Object {
             "__typename": "Story",
-            "author": Object {
-              "__typename": "Person",
-              "firstName": "Ezequiel",
-              "fullName": "Ezequiel Ortiz",
-              "id": "8",
-            },
-            "content": "ut sunt qui",
-            "createdAt": "2018-03-05T03:36:18.957Z",
-            "id": "7",
-            "updatedAt": "2016-02-28T03:01:08.353Z",
           },
         },
       ]
@@ -341,7 +321,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Zola Corkery
+                Hayden Zieme
               </Text>
             </View>
             <View
@@ -388,7 +368,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Branson Gutkowski
+                
               </Text>
             </View>
           </View>
@@ -401,130 +381,7 @@ exports[`should call navigate back 1`] = `
                 Object {},
               ]
             }
-          >
-            <View
-              collapsable={false}
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 8,
-                  },
-                  null,
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "flex-end",
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "paddingLeft": 10,
-                        "paddingRight": 5,
-                      },
-                    ]
-                  }
-                >
-                  Branson Gutkowski
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#B2B0B2",
-                          "fontSize": 12,
-                        },
-                        Object {},
-                      ],
-                    ]
-                  }
-                  testID="Text"
-                >
-                  September 19, 2010 @ 3:58 AM
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderRadius": 8,
-                        "marginVertical": 5,
-                        "paddingHorizontal": 13,
-                        "paddingVertical": 8,
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Array [
-                          Object {
-                            "paddingVertical": 3,
-                          },
-                          null,
-                        ],
-                      ]
-                    }
-                  >
-                    esse repellat quisquam
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "flex": 1,
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </View>
-          </View>
+          />
           <View
             style={
               Array [
@@ -778,7 +635,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Gracie Weber
+                Mina Watsica
               </Text>
             </View>
             <View
@@ -825,7 +682,7 @@ exports[`should call navigate back 1`] = `
                   ]
                 }
               >
-                Ezequiel Ortiz
+                
               </Text>
             </View>
           </View>
@@ -838,130 +695,7 @@ exports[`should call navigate back 1`] = `
                 Object {},
               ]
             }
-          >
-            <View
-              collapsable={false}
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 8,
-                  },
-                  null,
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "flex-end",
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "paddingLeft": 10,
-                        "paddingRight": 5,
-                      },
-                    ]
-                  }
-                >
-                  Ezequiel Ortiz
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#B2B0B2",
-                          "fontSize": 12,
-                        },
-                        Object {},
-                      ],
-                    ]
-                  }
-                  testID="Text"
-                >
-                  March 5, 2018 @ 3:36 AM
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderRadius": 8,
-                        "marginVertical": 5,
-                        "paddingHorizontal": 13,
-                        "paddingVertical": 8,
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Array [
-                          Object {
-                            "paddingVertical": 3,
-                          },
-                          null,
-                        ],
-                      ]
-                    }
-                  >
-                    ut sunt qui
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "flex": 1,
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </View>
-          </View>
+          />
           <View
             style={
               Array [
@@ -1305,43 +1039,23 @@ exports[`should refresh correctly 1`] = `
           "id": "2",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Zola Corkery",
-            "id": "5",
+            "fullName": "Hayden Zieme",
+            "id": "3",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
-            "content": "esse repellat quisquam",
-            "createdAt": "2010-09-19T03:58:30.504Z",
-            "id": "3",
-            "person": Object {
-              "__typename": "Person",
-              "firstName": "Branson",
-              "fullName": "Branson Gutkowski",
-              "id": "4",
-            },
-            "updatedAt": "2020-01-13T13:58:47.783Z",
           },
         },
         Object {
           "__typename": "ContentComplaint",
-          "id": "6",
+          "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Gracie Weber",
-            "id": "9",
+            "fullName": "Mina Watsica",
+            "id": "5",
           },
           "subject": Object {
             "__typename": "Story",
-            "author": Object {
-              "__typename": "Person",
-              "firstName": "Ezequiel",
-              "fullName": "Ezequiel Ortiz",
-              "id": "8",
-            },
-            "content": "ut sunt qui",
-            "createdAt": "2018-03-05T03:36:18.957Z",
-            "id": "7",
-            "updatedAt": "2016-02-28T03:01:08.353Z",
           },
         },
       ]
@@ -1469,7 +1183,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Zola Corkery
+                Hayden Zieme
               </Text>
             </View>
             <View
@@ -1516,7 +1230,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Branson Gutkowski
+                
               </Text>
             </View>
           </View>
@@ -1529,130 +1243,7 @@ exports[`should refresh correctly 1`] = `
                 Object {},
               ]
             }
-          >
-            <View
-              collapsable={false}
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 8,
-                  },
-                  null,
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "flex-end",
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "paddingLeft": 10,
-                        "paddingRight": 5,
-                      },
-                    ]
-                  }
-                >
-                  Branson Gutkowski
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#B2B0B2",
-                          "fontSize": 12,
-                        },
-                        Object {},
-                      ],
-                    ]
-                  }
-                  testID="Text"
-                >
-                  September 19, 2010 @ 3:58 AM
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderRadius": 8,
-                        "marginVertical": 5,
-                        "paddingHorizontal": 13,
-                        "paddingVertical": 8,
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Array [
-                          Object {
-                            "paddingVertical": 3,
-                          },
-                          null,
-                        ],
-                      ]
-                    }
-                  >
-                    esse repellat quisquam
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "flex": 1,
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </View>
-          </View>
+          />
           <View
             style={
               Array [
@@ -1906,7 +1497,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Gracie Weber
+                Mina Watsica
               </Text>
             </View>
             <View
@@ -1953,7 +1544,7 @@ exports[`should refresh correctly 1`] = `
                   ]
                 }
               >
-                Ezequiel Ortiz
+                
               </Text>
             </View>
           </View>
@@ -1966,130 +1557,7 @@ exports[`should refresh correctly 1`] = `
                 Object {},
               ]
             }
-          >
-            <View
-              collapsable={false}
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 8,
-                  },
-                  null,
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "flex-end",
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "paddingLeft": 10,
-                        "paddingRight": 5,
-                      },
-                    ]
-                  }
-                >
-                  Ezequiel Ortiz
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#B2B0B2",
-                          "fontSize": 12,
-                        },
-                        Object {},
-                      ],
-                    ]
-                  }
-                  testID="Text"
-                >
-                  March 5, 2018 @ 3:36 AM
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderRadius": 8,
-                        "marginVertical": 5,
-                        "paddingHorizontal": 13,
-                        "paddingVertical": 8,
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Array [
-                          Object {
-                            "paddingVertical": 3,
-                          },
-                          null,
-                        ],
-                      ]
-                    }
-                  >
-                    ut sunt qui
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "flex": 1,
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </View>
-          </View>
+          />
           <View
             style={
               Array [
@@ -2433,43 +1901,23 @@ exports[`should render correctly 1`] = `
           "id": "2",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Zola Corkery",
-            "id": "5",
+            "fullName": "Hayden Zieme",
+            "id": "3",
           },
           "subject": Object {
             "__typename": "CommunityCelebrationItemComment",
-            "content": "esse repellat quisquam",
-            "createdAt": "2010-09-19T03:58:30.504Z",
-            "id": "3",
-            "person": Object {
-              "__typename": "Person",
-              "firstName": "Branson",
-              "fullName": "Branson Gutkowski",
-              "id": "4",
-            },
-            "updatedAt": "2020-01-13T13:58:47.783Z",
           },
         },
         Object {
           "__typename": "ContentComplaint",
-          "id": "6",
+          "id": "4",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Gracie Weber",
-            "id": "9",
+            "fullName": "Mina Watsica",
+            "id": "5",
           },
           "subject": Object {
             "__typename": "Story",
-            "author": Object {
-              "__typename": "Person",
-              "firstName": "Ezequiel",
-              "fullName": "Ezequiel Ortiz",
-              "id": "8",
-            },
-            "content": "ut sunt qui",
-            "createdAt": "2018-03-05T03:36:18.957Z",
-            "id": "7",
-            "updatedAt": "2016-02-28T03:01:08.353Z",
           },
         },
       ]
@@ -2597,7 +2045,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Zola Corkery
+                Hayden Zieme
               </Text>
             </View>
             <View
@@ -2644,7 +2092,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Branson Gutkowski
+                
               </Text>
             </View>
           </View>
@@ -2657,130 +2105,7 @@ exports[`should render correctly 1`] = `
                 Object {},
               ]
             }
-          >
-            <View
-              collapsable={false}
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 8,
-                  },
-                  null,
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "flex-end",
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "paddingLeft": 10,
-                        "paddingRight": 5,
-                      },
-                    ]
-                  }
-                >
-                  Branson Gutkowski
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#B2B0B2",
-                          "fontSize": 12,
-                        },
-                        Object {},
-                      ],
-                    ]
-                  }
-                  testID="Text"
-                >
-                  September 19, 2010 @ 3:58 AM
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderRadius": 8,
-                        "marginVertical": 5,
-                        "paddingHorizontal": 13,
-                        "paddingVertical": 8,
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Array [
-                          Object {
-                            "paddingVertical": 3,
-                          },
-                          null,
-                        ],
-                      ]
-                    }
-                  >
-                    esse repellat quisquam
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "flex": 1,
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </View>
-          </View>
+          />
           <View
             style={
               Array [
@@ -3034,7 +2359,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Gracie Weber
+                Mina Watsica
               </Text>
             </View>
             <View
@@ -3081,7 +2406,7 @@ exports[`should render correctly 1`] = `
                   ]
                 }
               >
-                Ezequiel Ortiz
+                
               </Text>
             </View>
           </View>
@@ -3094,130 +2419,7 @@ exports[`should render correctly 1`] = `
                 Object {},
               ]
             }
-          >
-            <View
-              collapsable={false}
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 8,
-                  },
-                  null,
-                ]
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "flex-end",
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "paddingLeft": 10,
-                        "paddingRight": 5,
-                      },
-                    ]
-                  }
-                >
-                  Ezequiel Ortiz
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#B2B0B2",
-                          "fontSize": 12,
-                        },
-                        Object {},
-                      ],
-                    ]
-                  }
-                  testID="Text"
-                >
-                  March 5, 2018 @ 3:36 AM
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "flexDirection": "row",
-                    },
-                  ]
-                }
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-                        "backgroundColor": "#ffffff",
-                        "borderRadius": 8,
-                        "marginVertical": 5,
-                        "paddingHorizontal": 13,
-                        "paddingVertical": 8,
-                      },
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Array [
-                          Object {
-                            "paddingVertical": 3,
-                          },
-                          null,
-                        ],
-                      ]
-                    }
-                  >
-                    ut sunt qui
-                  </Text>
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {},
-                      Object {
-                        "flex": 1,
-                      },
-                    ]
-                  }
-                />
-              </View>
-            </View>
-          </View>
+          />
           <View
             style={
               Array [

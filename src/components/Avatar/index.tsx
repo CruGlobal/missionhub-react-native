@@ -34,12 +34,10 @@ const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
   large: { fontSize: 64, fontWeight: '300' },
 };
 
-interface AvatarProps {
+export interface AvatarProps {
   person?: AvatarPerson;
   size: AvatarSize;
   style?: StyleProp<ImageStyle>;
-  personId?: string;
-  orgId?: string;
   customText?: string;
 }
 

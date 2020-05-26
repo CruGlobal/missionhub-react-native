@@ -16,6 +16,11 @@ import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import * as common from '../../../../utils/common';
 import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 import { CREATE_POST, UPDATE_POST } from '../queries';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../../components/CommunityFeedItem/queries';
+import {
+  CommunityFeedItem,
+  CommunityFeedItem_subject_Post,
+} from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import { CreatePostScreen } from '..';
 
@@ -33,7 +38,9 @@ const orgPermission = {
   permission_id: ORG_PERMISSIONS.OWNER,
 };
 const postType = PostTypeEnum.prayer_request;
-const post = mockFragment<CommunityFeedPost>(COMMUNITY_FEED_POST_FRAGMENT);
+const post = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT, {
+  mocks: { FeedItem: () => ({ __typename: 'Post' }) },
+}).subject as CommunityFeedItem_subject_Post;
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
 const MOCK_IMAGE = 'base64image.jpeg';

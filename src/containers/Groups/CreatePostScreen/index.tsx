@@ -27,8 +27,8 @@ import {
   TrackStateContext,
 } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
-import { CommunityFeedPost } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import SendIcon from './sendIcon.svg';
 import CameraIcon from './cameraIcon.svg';
@@ -47,7 +47,7 @@ interface CreatePostNavParams extends CreatePostScreenParams {
   postType: PostTypeEnum;
 }
 interface UpdatePostNavParams extends CreatePostScreenParams {
-  post: CommunityFeedPost;
+  post: CommunityFeedItem_subject_Post;
 }
 export type CreatePostScreenNavParams =
   | CreatePostNavParams
@@ -78,7 +78,9 @@ export const CreatePostScreen = () => {
 
   const onComplete: () => void = useNavigationParam('onComplete');
   const communityId: string = useNavigationParam('communityId');
-  const post: CommunityFeedPost | undefined = useNavigationParam('post');
+  const post: CommunityFeedItem_subject_Post | undefined = useNavigationParam(
+    'post',
+  );
   const navPostType: PostTypeEnum | undefined = useNavigationParam('postType');
 
   const [postType] = useState<PostTypeEnum>(

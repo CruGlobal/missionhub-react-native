@@ -1,0 +1,1347 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`refresh calls refreshComments 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -121,11 +121,11 @@
+                    \\"lineHeight\\": 20,
+                  },
+                ]
+              }
+            >
+-             Integrated user-facing intranet
++             Inverse intangible complexity
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+@@ -165,33 +165,33 @@
+      }
+      data={
+        Array [
+          Object {
+            \\"__typename\\": \\"FeedItemComment\\",
+-           \\"content\\": \\"nobis cupiditate sed\\",
+-           \\"createdAt\\": \\"2015-08-09T09:31:34.869Z\\",
+-           \\"id\\": \\"5\\",
++           \\"content\\": \\"qui nobis repellendus\\",
++           \\"createdAt\\": \\"2011-09-11T14:47:27.446Z\\",
++           \\"id\\": \\"17\\",
+            \\"person\\": Object {
+              \\"__typename\\": \\"Person\\",
+-             \\"fullName\\": \\"Daphney Balistreri\\",
+-             \\"id\\": \\"6\\",
+-             \\"picture\\": \\"sed libero repudiandae\\",
++             \\"fullName\\": \\"Aida Barton\\",
++             \\"id\\": \\"18\\",
++             \\"picture\\": \\"placeat fuga doloribus\\",
+            },
+-           \\"updatedAt\\": \\"2011-04-05T20:54:44.943Z\\",
++           \\"updatedAt\\": \\"2015-11-30T05:35:49.224Z\\",
+          },
+          Object {
+            \\"__typename\\": \\"FeedItemComment\\",
+-           \\"content\\": \\"esse blanditiis natus\\",
+-           \\"createdAt\\": \\"2015-09-24T22:48:18.365Z\\",
+-           \\"id\\": \\"7\\",
++           \\"content\\": \\"distinctio placeat ullam\\",
++           \\"createdAt\\": \\"2017-03-26T09:06:21.890Z\\",
++           \\"id\\": \\"19\\",
+            \\"person\\": Object {
+              \\"__typename\\": \\"Person\\",
+-             \\"fullName\\": \\"Trevor Donnelly\\",
+-             \\"id\\": \\"8\\",
+-             \\"picture\\": \\"omnis et porro\\",
++             \\"fullName\\": \\"Patience Ernser\\",
++             \\"id\\": \\"20\\",
++             \\"picture\\": \\"aut architecto ducimus\\",
+            },
+-           \\"updatedAt\\": \\"2018-08-19T14:06:14.703Z\\",
++           \\"updatedAt\\": \\"2015-07-30T14:37:03.315Z\\",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+@@ -265,11 +265,11 @@
+                style={
+                  Object {
+                    \\"opacity\\": 1,
+                  }
+                }
+-               testID=\\"ANNOUNCEMENTButton\\"
++               testID=\\"COMMUNITY_CHALLENGEButton\\"
+              >
+                <View
+                  style={
+                    Array [
+                      Object {
+@@ -293,11 +293,11 @@
+                          \\"justifyContent\\": \\"space-between\\",
+                          \\"paddingHorizontal\\": 20,
+                          \\"paddingVertical\\": 10,
+                        },
+                        Object {
+-                         \\"backgroundColor\\": \\"#505256\\",
++                         \\"backgroundColor\\": \\"#00CA99\\",
+                        },
+                        null,
+                        null,
+                      ],
+                      Object {
+@@ -335,11 +335,11 @@
+                          \\"lineHeight\\": 20,
+                        },
+                      ]
+                    }
+                  >
+-                   Announcement
++                   Challenge
+                  </Text>
+                </View>
+              </View>
+            </View>
+            <View
+@@ -353,22 +353,22 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"iure ut libero\\",
++                   \\"uri\\": \\"quam tempore a\\",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      \\"borderRadius\\": 24,
+                      \\"height\\": 48,
+                      \\"width\\": 48,
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"rgb(102, 136, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(199, 125, 125)\\",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+@@ -404,11 +404,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 Hayden Zieme
++                 Samantha Tremblay
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+@@ -430,11 +430,11 @@
+                      ],
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 November 1, 2012 @ 7:34 PM
++                 October 1, 2011 @ 2:43 PM
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+@@ -460,26 +460,78 @@
+                    \\"lineHeight\\": 18,
+                  },
+                ]
+              }
+            >
+-             consequuntur corporis repellat
++             Samantha T. completed a Challenge:
+            </Text>
+-         </View>
+-         <Image
+-           resizeMode=\\"cover\\"
+-           source={
++           <View
++             style={
+                Object {
+-               \\"uri\\": \\"ratione ut sunt\\",
++                 \\"flexDirection\\": \\"row\\",
++               }
++             }
++           >
++             <View
++               accessible={true}
++               focusable={true}
++               isTVSelectable={true}
++               onClick={[Function bound touchableHandlePress]}
++               onResponderGrant={[Function bound touchableHandleResponderGrant]}
++               onResponderMove={[Function bound touchableHandleResponderMove]}
++               onResponderRelease={[Function bound touchableHandleResponderRelease]}
++               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++               style={
++                 Object {
++                   \\"opacity\\": 1,
+                  }
+                }
++               testID=\\"ChallengeLinkButton\\"
++             >
++               <View
+                  style={
++                   Array [
+                      Object {
+-               \\"aspectRatio\\": 1.3333333333333333,
++                       \\"backgroundColor\\": \\"transparent\\",
++                     },
++                     null,
++                     Object {
++                       \\"marginTop\\": 4,
++                     },
++                     null,
++                   ]
+                  }
++               >
++                 <Text
++                   numberOfLines={2}
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                         \\"fontSize\\": 14,
++                         \\"fontWeight\\": \\"400\\",
++                         \\"letterSpacing\\": 0,
++                         \\"lineHeight\\": 18,
++                         \\"textAlign\\": \\"left\\",
++                       },
++                     ]
+                    }
+-         />
++                 >
++                   eum eaque enim
++                 </Text>
++               </View>
++             </View>
++           </View>
++         </View>
+          <View
+            style={
+              Array [
+                Object {
+                  \\"backgroundColor\\": \\"#ECEEF2\\",
+@@ -576,12 +628,11 @@
+                          null,
+                        ]
+                      }
+                    >
+                      <SvgMock
+-                       color=\\"#FF5532\\"
+-                       fill=\\"#FF5532\\"
++                       color=\\"#505256\\"
+                      />
+                    </View>
+                  </View>
+                </View>
+                <View
+@@ -611,11 +662,11 @@
+                          \\"width\\": 30,
+                        },
+                      ]
+                    }
+                  >
+-                   31327
++                   31551
+                  </Text>
+                  <SvgMock />
+                </View>
+              </View>
+            </View>
+@@ -640,28 +691,29 @@
+        >
+          <CommentItem
+            comment={
+              Object {
+                \\"__typename\\": \\"FeedItemComment\\",
+-               \\"content\\": \\"nobis cupiditate sed\\",
+-               \\"createdAt\\": \\"2015-08-09T09:31:34.869Z\\",
+-               \\"id\\": \\"5\\",
++               \\"content\\": \\"qui nobis repellendus\\",
++               \\"createdAt\\": \\"2011-09-11T14:47:27.446Z\\",
++               \\"id\\": \\"17\\",
+                \\"person\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Daphney Balistreri\\",
+-                 \\"id\\": \\"6\\",
+-                 \\"picture\\": \\"sed libero repudiandae\\",
++                 \\"fullName\\": \\"Aida Barton\\",
++                 \\"id\\": \\"18\\",
++                 \\"picture\\": \\"placeat fuga doloribus\\",
+                },
+-               \\"updatedAt\\": \\"2011-04-05T20:54:44.943Z\\",
++               \\"updatedAt\\": \\"2015-11-30T05:35:49.224Z\\",
+              }
+            }
+            isEditing={false}
+            menuActions={
+              Array [
+                Object {
++                 \\"destructive\\": true,
+                  \\"onPress\\": [Function onPress],
+-                 \\"text\\": \\"Report to Owner\\",
++                 \\"text\\": \\"Delete Comment\\",
+                },
+              ]
+            }
+            testID=\\"CommentItem\\"
+          />
+@@ -672,28 +724,29 @@
+        >
+          <CommentItem
+            comment={
+              Object {
+                \\"__typename\\": \\"FeedItemComment\\",
+-               \\"content\\": \\"esse blanditiis natus\\",
+-               \\"createdAt\\": \\"2015-09-24T22:48:18.365Z\\",
+-               \\"id\\": \\"7\\",
++               \\"content\\": \\"distinctio placeat ullam\\",
++               \\"createdAt\\": \\"2017-03-26T09:06:21.890Z\\",
++               \\"id\\": \\"19\\",
+                \\"person\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Trevor Donnelly\\",
+-                 \\"id\\": \\"8\\",
+-                 \\"picture\\": \\"omnis et porro\\",
++                 \\"fullName\\": \\"Patience Ernser\\",
++                 \\"id\\": \\"20\\",
++                 \\"picture\\": \\"aut architecto ducimus\\",
+                },
+-               \\"updatedAt\\": \\"2018-08-19T14:06:14.703Z\\",
++               \\"updatedAt\\": \\"2015-07-30T14:37:03.315Z\\",
+              }
+            }
+            isEditing={false}
+            menuActions={
+              Array [
+                Object {
++                 \\"destructive\\": true,
+                  \\"onPress\\": [Function onPress],
+-                 \\"text\\": \\"Report to Owner\\",
++                 \\"text\\": \\"Delete Comment\\",
+                },
+              ]
+            }
+            testID=\\"CommentItem\\"
+          />
+@@ -713,22 +766,22 @@
+    >
+      <Image
+        resizeMode=\\"cover\\"
+        source={
+          Object {
+-           \\"uri\\": \\"eligendi occaecati debitis\\",
++           \\"uri\\": \\"ut quis sed\\",
+          }
+        }
+        style={
+          Array [
+            Object {
+              \\"borderRadius\\": 18,
+              \\"height\\": 36,
+              \\"width\\": 36,
+            },
+            Object {
+-             \\"backgroundColor\\": \\"rgb(155, 199, 125)\\",
++             \\"backgroundColor\\": \\"rgb(123, 169, 152)\\",
+            },
+            undefined,
+          ]
+        }
+      />"
+`;
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 56,
+              "paddingTop": 0,
+            },
+            undefined,
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 5,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="BackButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Array [
+                    Object {
+                      "alignItems": "flex-start",
+                      "alignSelf": "flex-start",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ],
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#B4B6BA"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flex": 5,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Integrated user-facing intranet
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingRight": 5,
+              },
+              Object {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        />
+      </View>
+    </RCTSafeAreaView>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+  </RCTSafeAreaView>
+  <RCTScrollView
+    ListFooterComponent={null}
+    ListHeaderComponent={[Function]}
+    bounces={false}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 15,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "__typename": "FeedItemComment",
+          "content": "nobis cupiditate sed",
+          "createdAt": "2015-08-09T09:31:34.869Z",
+          "id": "5",
+          "person": Object {
+            "__typename": "Person",
+            "fullName": "Daphney Balistreri",
+            "id": "6",
+            "picture": "sed libero repudiandae",
+          },
+          "updatedAt": "2011-04-05T20:54:44.943Z",
+        },
+        Object {
+          "__typename": "FeedItemComment",
+          "content": "esse blanditiis natus",
+          "createdAt": "2015-09-24T22:48:18.365Z",
+          "id": "7",
+          "person": Object {
+            "__typename": "Person",
+            "fullName": "Trevor Donnelly",
+            "id": "8",
+            "picture": "omnis et porro",
+          },
+          "updatedAt": "2018-08-19T14:06:14.703Z",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+        testID="RefreshControl"
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 20,
+              "paddingTop": 12,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="ANNOUNCEMENTButton"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    null,
+                    Array [
+                      Object {
+                        "alignItems": "center",
+                        "borderRadius": 18,
+                        "flexDirection": "row",
+                        "height": 36,
+                        "justifyContent": "space-between",
+                        "paddingHorizontal": 20,
+                        "paddingVertical": 10,
+                      },
+                      Object {
+                        "backgroundColor": "#505256",
+                      },
+                      null,
+                      null,
+                    ],
+                    Object {
+                      "borderRadius": 50,
+                    },
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={20}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": -10,
+                        "marginRight": 10,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={20}
+                />
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                      },
+                    ]
+                  }
+                >
+                  Announcement
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "iure ut libero",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(102, 136, 115)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "column",
+                  "justifyContent": "center",
+                  "paddingHorizontal": 8,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ]
+                }
+              >
+                Hayden Zieme
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                        "fontSize": 12,
+                        "lineHeight": 16,
+                      },
+                    ],
+                  ]
+                }
+                testID="Text"
+              >
+                November 1, 2012 @ 7:34 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "justifyContent": "flex-start",
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
+            consequuntur corporis repellat
+          </Text>
+        </View>
+        <Image
+          resizeMode="cover"
+          source={
+            Object {
+              "uri": "ratione ut sunt",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 1.3333333333333333,
+            }
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Object {
+              "flexDirection": "row",
+              "paddingHorizontal": 20,
+              "paddingVertical": 16,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "flex-end",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "width": 60,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                        "paddingRight": 10,
+                        "textAlign": "right",
+                        "width": 30,
+                      },
+                    ]
+                  }
+                />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="LikeIconButton"
+                >
+                  <View
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {
+                          "height": 24,
+                          "width": 24,
+                        },
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock
+                      color="#FF5532"
+                      fill="#FF5532"
+                    />
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "width": 60,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                        "paddingRight": 10,
+                        "textAlign": "right",
+                        "width": 30,
+                      },
+                    ]
+                  }
+                >
+                  31327
+                </Text>
+                <SvgMock />
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
+              },
+              Object {
+                "marginBottom": 6,
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <CommentItem
+          comment={
+            Object {
+              "__typename": "FeedItemComment",
+              "content": "nobis cupiditate sed",
+              "createdAt": "2015-08-09T09:31:34.869Z",
+              "id": "5",
+              "person": Object {
+                "__typename": "Person",
+                "fullName": "Daphney Balistreri",
+                "id": "6",
+                "picture": "sed libero repudiandae",
+              },
+              "updatedAt": "2011-04-05T20:54:44.943Z",
+            }
+          }
+          isEditing={false}
+          menuActions={
+            Array [
+              Object {
+                "onPress": [Function],
+                "text": "Report to Owner",
+              },
+            ]
+          }
+          testID="CommentItem"
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <CommentItem
+          comment={
+            Object {
+              "__typename": "FeedItemComment",
+              "content": "esse blanditiis natus",
+              "createdAt": "2015-09-24T22:48:18.365Z",
+              "id": "7",
+              "person": Object {
+                "__typename": "Person",
+                "fullName": "Trevor Donnelly",
+                "id": "8",
+                "picture": "omnis et porro",
+              },
+              "updatedAt": "2018-08-19T14:06:14.703Z",
+            }
+          }
+          isEditing={false}
+          menuActions={
+            Array [
+              Object {
+                "onPress": [Function],
+                "text": "Report to Owner",
+              },
+            ]
+          }
+          testID="CommentItem"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 12,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "eligendi occaecati debitis",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
+          },
+          Object {
+            "backgroundColor": "rgb(155, 199, 125)",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "borderRadius": 8,
+          "flex": 1,
+          "marginHorizontal": 8,
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={false}
+        blurOnSubmit={true}
+        multiline={false}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Add a comment..."
+        placeholderTextColor="#B2B0B2"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 14,
+              "paddingHorizontal": 12,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+    <SvgMock
+      color="#ECEEF2"
+      disabled={true}
+      onPress={[Function]}
+      testID="SubmitButton"
+    />
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders loading 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 56,
+              "paddingTop": 0,
+            },
+            undefined,
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 5,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="BackButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Array [
+                    Object {
+                      "alignItems": "flex-start",
+                      "alignSelf": "flex-start",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ],
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#B4B6BA"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flex": 5,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingRight": 5,
+              },
+              Object {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        />
+      </View>
+    </RCTSafeAreaView>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+  </RCTSafeAreaView>
+  <View
+    style={
+      Array [
+        Object {
+          "padding": 10,
+        },
+        Object {
+          "alignItems": "center",
+          "justifyContent": "center",
+        },
+      ]
+    }
+  >
+    <ActivityIndicator
+      animating={true}
+      color="rgba(0, 0, 0, 1)"
+      hidesWhenStopped={true}
+      size="small"
+    />
+  </View>
+</View>
+`;

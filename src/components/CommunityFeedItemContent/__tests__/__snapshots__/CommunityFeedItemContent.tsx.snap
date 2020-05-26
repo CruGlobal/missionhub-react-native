@@ -1,67 +1,156 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CelebrateItemContent Challenge Items renders for accepted challenge 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Hayden Z. accepted a Challenge:
-  </Text>
+exports[`CommunityFeedItemContent Challenge Items renders for accepted challenge 1`] = `
+Array [
   <View
     style={
       Object {
-        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
       }
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
         }
       }
-      testID="ChallengeLinkButton"
     >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="COMMUNITY_CHALLENGEButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#00CA99",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Challenge
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "ut sunt qui",
+          }
+        }
         style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
             },
-            null,
             Object {
-              "marginTop": 4,
+              "backgroundColor": "rgb(115, 19, 155)",
             },
-            null,
+            undefined,
           ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
         }
       >
         <Text
-          numberOfLines={2}
           style={
             Array [
               Object {
@@ -70,87 +159,24 @@ exports[`CelebrateItemContent Challenge Items renders for accepted challenge 1`]
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#007398",
-                "fontSize": 14,
-                "fontWeight": "400",
-                "letterSpacing": 0,
-                "lineHeight": 18,
-                "textAlign": "left",
-              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
             ]
           }
         >
-          Invite a friend to church
+          libero qui recusandae
         </Text>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`CelebrateItemContent Challenge Items renders for completed challenge 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Hayden Z. completed a Challenge:
-  </Text>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="ChallengeLinkButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {
-              "marginTop": 4,
-            },
-            null,
-          ]
-        }
-      >
         <Text
-          numberOfLines={2}
           style={
             Array [
               Object {
@@ -159,87 +185,415 @@ exports[`CelebrateItemContent Challenge Items renders for completed challenge 1`
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#007398",
-                "fontSize": 14,
-                "fontWeight": "400",
-                "letterSpacing": 0,
-                "lineHeight": 18,
-                "textAlign": "left",
-              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
             ]
           }
+          testID="Text"
         >
-          Invite a friend to church
+          November 13, 2015 @ 8:52 PM
         </Text>
       </View>
     </View>
-  </View>
-</View>
-`;
-
-exports[`CelebrateItemContent Challenge Items renders with no subjectPerson and no subjectPersonName 1`] = `
-<View>
-  <Text
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Zola C. accepted a Challenge:
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ChallengeLinkButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {
+                "marginTop": 4,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={2}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#007398",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                  "lineHeight": 18,
+                  "textAlign": "left",
+                },
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
-  >
-    A MissionHub user completed a Challenge:
-  </Text>
+  />,
   <View
     style={
       Object {
         "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
       }
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "flex": 1,
+          "justifyContent": "flex-end",
         }
       }
-      testID="ChallengeLinkButton"
     >
       <View
         style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#FF5532"
+                fill="#FF5532"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            53881
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent Challenge Items renders for completed challenge 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="COMMUNITY_CHALLENGEButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#00CA99",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Challenge
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "qui amet iure",
+          }
+        }
+        style={
           Array [
             Object {
-              "backgroundColor": "transparent",
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
             },
-            null,
             Object {
-              "marginTop": 4,
+              "backgroundColor": "rgb(161, 123, 130)",
             },
-            null,
+            undefined,
           ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
         }
       >
         <Text
-          numberOfLines={2}
           style={
             Array [
               Object {
@@ -248,87 +602,24 @@ exports[`CelebrateItemContent Challenge Items renders with no subjectPerson and 
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#007398",
-                "fontSize": 14,
-                "fontWeight": "400",
-                "letterSpacing": 0,
-                "lineHeight": 18,
-                "textAlign": "left",
-              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
             ]
           }
         >
-          Invite a friend to church
+          recusandae ut nulla
         </Text>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`CelebrateItemContent Challenge Items renders with no subjectPerson, defaults to subjectPersonName 1`] = `
-<View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
-  >
-    Hayden Zieme completed a Challenge:
-  </Text>
-  <View
-    style={
-      Object {
-        "flexDirection": "row",
-      }
-    }
-  >
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="ChallengeLinkButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {
-              "marginTop": 4,
-            },
-            null,
-          ]
-        }
-      >
         <Text
-          numberOfLines={2}
           style={
             Array [
               Object {
@@ -337,261 +628,4842 @@ exports[`CelebrateItemContent Challenge Items renders with no subjectPerson, def
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Darwin B. completed a Challenge:
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ChallengeLinkButton"
+      >
+        <View
+          style={
+            Array [
               Object {
-                "color": "#007398",
-                "fontSize": 14,
-                "fontWeight": "400",
-                "letterSpacing": 0,
-                "lineHeight": 18,
-                "textAlign": "left",
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {
+                "marginTop": 4,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={2}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#007398",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                  "lineHeight": 18,
+                  "textAlign": "left",
+                },
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            41919
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent Challenge Items renders with no subjectPerson and no subjectPersonName 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="COMMUNITY_CHALLENGEButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#00CA99",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
               },
             ]
           }
         >
-          Invite a friend to church
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Challenge
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          MissionHub user
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
         </Text>
       </View>
     </View>
-  </View>
-</View>
-`;
-
-exports[`CelebrateItemContent Post Items renders post 1`] = `
-<View>
-  <Text
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      A MissionHub user completed a Challenge:
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ChallengeLinkButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {
+                "marginTop": 4,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={2}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#007398",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                  "lineHeight": 18,
+                  "textAlign": "left",
+                },
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Post!
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            18626
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders step of faith event with stage 1 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Challenge Items renders with no subjectPerson, defaults to subjectPersonName 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="COMMUNITY_CHALLENGEButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#00CA99",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Challenge
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          amet iure ut
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      amet iure ut completed a Challenge:
+    </Text>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ChallengeLinkButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {
+                "marginTop": 4,
+              },
+              null,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={2}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#007398",
+                  "fontSize": 14,
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                  "lineHeight": 18,
+                  "textAlign": "left",
+                },
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Z. completed a Step of Faith with a Uninterested person.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            66974
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders step of faith event with stage 2 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Post Items renders post 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "sunt qui amet",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(136, 162, 125)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          qui recusandae ut
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      quisquam recusandae alias
+    </Text>
+  </View>,
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "consequuntur corporis repellat",
+      }
+    }
+    style={
+      Object {
+        "aspectRatio": 2,
+      }
+    }
+  />,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Z. completed a Step of Faith with a Curious person.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            84631
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders step of faith event with stage 3 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Step Item renders step of faith event with stage 1 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 19, 115)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          sunt qui amet
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith with a Uninterested person.
+    </Text>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Z. completed a Step of Faith with a Forgiven person.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders step of faith event with stage 4 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Step Item renders step of faith event with stage 2 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 19, 115)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          sunt qui amet
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith with a Curious person.
+    </Text>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Z. completed a Step of Faith with a Growing person.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders step of faith event with stage 5 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Step Item renders step of faith event with stage 3 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 19, 115)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          sunt qui amet
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith with a Forgiven person.
+    </Text>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Z. completed a Step of Faith with a Guiding person.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders step of faith event with stage Not Sure 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Step Item renders step of faith event with stage 4 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 19, 115)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          sunt qui amet
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith with a Growing person.
+    </Text>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Z. completed a Step of Faith.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders step of faith event without stage 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Step Item renders step of faith event with stage 5 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 19, 115)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          sunt qui amet
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith with a Guiding person.
+    </Text>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Z. completed a Step of Faith with someone.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders with no subjectPerson and no subjectPersonName 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Step Item renders step of faith event with stage Not Sure 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 19, 115)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          sunt qui amet
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith.
+    </Text>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    A MissionHub user completed a Step of Faith with a Uninterested person.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;
 
-exports[`CelebrateItemContent Step Item renders with no subjectPerson, defaults to subjectPersonName 1`] = `
-<View>
-  <Text
+exports[`CommunityFeedItemContent Step Item renders step of faith event without stage 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "alias consequuntur corporis",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 19, 115)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          sunt qui amet
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith with someone.
+    </Text>
+  </View>,
+  <View
     style={
       Array [
         Object {
-          "color": "#505256",
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
         },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
+        undefined,
       ]
     }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
   >
-    Hayden Zieme completed a Step of Faith with a Uninterested person.
-  </Text>
-</View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            38791
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent Step Item renders with no subjectPerson and no subjectPersonName 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          MissionHub user
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      A MissionHub user completed a Step of Faith with a Forgiven person.
+    </Text>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            12812
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent Step Item renders with no subjectPerson, defaults to subjectPersonName 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STEPButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Step of Faith
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          consequuntur corporis repellat
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "justifyContent": "flex-start",
+            "lineHeight": 18,
+          },
+        ]
+      }
+    >
+      consequuntur corporis repellat completed a Step of Faith with a Forgiven person.
+    </Text>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 60,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            14675
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+    </View>
+  </View>,
+]
 `;

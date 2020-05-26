@@ -11,13 +11,15 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../queries';
-import { CommunityFeedItem as CommunityFeedItemFragment } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
+import {
+  CommunityFeedItem as CommunityFeedItemFragment,
+  CommunityFeedItem_subject_Post,
+} from '../__generated__/CommunityFeedItem';
 import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
@@ -32,49 +34,77 @@ jest.mock('../../Avatar', () => 'Avatar');
 jest.mock('../../Card', () => 'Card');
 
 const communityId = '3';
+const myId = '1';
 
-const mePerson = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
-const myId = mePerson.id;
-
-const prayerPostSubject = mockFragment<CommunityFeedPost>(
-  COMMUNITY_FEED_POST_FRAGMENT,
-  {
-    mocks: {
-      Post: () => ({
-        postType: () => PostTypeEnum.prayer_request,
-      }),
-    },
-  },
-);
-const storyPostSubject = mockFragment<CommunityFeedPost>(
-  COMMUNITY_FEED_POST_FRAGMENT,
-  {
-    mocks: {
-      Post: () => ({
-        postType: () => PostTypeEnum.story,
-      }),
-    },
-  },
-);
-const stepSubject = mockFragment<CommunityFeedStep>(
-  COMMUNITY_FEED_STEP_FRAGMENT,
-);
-const challengeSubject = mockFragment<CommunityFeedChallenge>(
-  COMMUNITY_FEED_CHALLENGE_FRAGMENT,
-);
-
-const item = mockFragment<CommunityFeedItemFragment>(
+const prayerPostItem = mockFragment<CommunityFeedItemFragment>(
   COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+        }),
+      }),
+    },
+  },
 );
-const prayerPostItem = { ...item, subject: prayerPostSubject };
-const storyPostItem = { ...item, subject: storyPostSubject };
-const stepItem = { ...item, subject: stepSubject };
-const challengeItem = { ...item, subject: challengeSubject };
-const myPrayerPostItem = {
-  ...item,
-  subject: prayerPostSubject,
-  subjectPerson: mePerson,
-};
+const myPrayerPostItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+        }),
+        subjectPerson: () => ({ id: myId }),
+      }),
+    },
+  },
+);
+const storyPostItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'Post',
+          postType: PostTypeEnum.story,
+        }),
+      }),
+    },
+  },
+);
+const stepItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'Step',
+        }),
+      }),
+    },
+  },
+);
+const challengeItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'CommunityChallenge',
+        }),
+      }),
+    },
+  },
+);
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
@@ -97,9 +127,8 @@ describe('global community', () => {
   it('renders correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
+        feedItem={{ ...stepItem, community: null }}
         onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
       {
@@ -111,9 +140,8 @@ describe('global community', () => {
   it('renders with clear notification button correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
+        feedItem={{ ...stepItem, community: null }}
         onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
         onClearNotification={onClearNotification}
       />,
@@ -126,9 +154,8 @@ describe('global community', () => {
   it('renders post item correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
+        feedItem={{ ...storyPostItem, community: null }}
         onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
       {
@@ -142,9 +169,8 @@ describe('Community', () => {
   it('renders post correctly without add to steps button ', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
+        feedItem={storyPostItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       {
@@ -156,9 +182,8 @@ describe('Community', () => {
   it('renders post created by me correctly without add to steps button', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={myPrayerPostItem}
+        feedItem={myPrayerPostItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={true}
       />,
       {
@@ -170,9 +195,8 @@ describe('Community', () => {
   it('renders post correctly with add to steps button', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={prayerPostItem}
+        feedItem={prayerPostItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       {
@@ -184,12 +208,14 @@ describe('Community', () => {
   it('renders post correctly without image', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={{
+        feedItem={{
           ...storyPostItem,
-          subject: { ...storyPostSubject, mediaExpiringUrl: null },
+          subject: {
+            ...(storyPostItem.subject as CommunityFeedItem_subject_Post),
+            mediaExpiringUrl: null,
+          },
         }}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
@@ -199,9 +225,8 @@ describe('Community', () => {
   it('renders step correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
+        feedItem={stepItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       {
@@ -213,9 +238,8 @@ describe('Community', () => {
   it('renders challenge correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={challengeItem}
+        feedItem={challengeItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       {
@@ -227,9 +251,8 @@ describe('Community', () => {
   it('renders with clear notification button correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
+        feedItem={storyPostItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -243,9 +266,8 @@ describe('Community', () => {
 it('renders with name pressable correctly', () => {
   renderWithContext(
     <CommunityFeedItem
-      item={storyPostItem}
+      feedItem={storyPostItem}
       onRefresh={onRefresh}
-      communityId={communityId}
       namePressable={true}
     />,
     {
@@ -258,9 +280,8 @@ describe('press card', () => {
   it('not pressable in global community', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
+        feedItem={{ ...stepItem, community: null }}
         onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
       { initialState },
@@ -272,9 +293,8 @@ describe('press card', () => {
   it('navigates to celebrate detail screen', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
+        feedItem={stepItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
@@ -283,9 +303,7 @@ describe('press card', () => {
     fireEvent.press(getByTestId('CommunityFeedItem'));
 
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
-      item: stepItem,
-      orgId: communityId,
-      onRefreshCelebrateItem: onRefresh,
+      feedItemId: stepItem.id,
     });
   });
 });
@@ -294,7 +312,9 @@ describe('long-press card', () => {
   describe('post written by me', () => {
     const myPost: CommunityFeedItemFragment = {
       ...storyPostItem,
-      subjectPerson: mePerson,
+      subjectPerson: storyPostItem.subjectPerson
+        ? { ...storyPostItem.subjectPerson, id: myId }
+        : null,
     };
 
     it('navigates to edit post screen', () => {
@@ -303,9 +323,8 @@ describe('long-press card', () => {
 
       const { getByTestId } = renderWithContext(
         <CommunityFeedItem
-          item={myPost}
+          feedItem={myPost}
           onRefresh={onRefresh}
-          communityId={communityId}
           namePressable={false}
         />,
         { initialState },
@@ -317,7 +336,7 @@ describe('long-press card', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-        post: storyPostSubject,
+        post: storyPostItem.subject,
         onComplete: onRefresh,
         communityId,
       });
@@ -330,9 +349,8 @@ describe('long-press card', () => {
 
       const { getByTestId } = renderWithContext(
         <CommunityFeedItem
-          item={myPost}
+          feedItem={myPost}
           onRefresh={onRefresh}
-          communityId={communityId}
           namePressable={false}
         />,
         { initialState },
@@ -357,7 +375,7 @@ describe('long-press card', () => {
         ],
       );
       expect(useMutation).toHaveBeenMutatedWith(DELETE_POST, {
-        variables: { id: storyPostSubject.id },
+        variables: { id: storyPostItem.subject.id },
       });
       expect(onRefresh).toHaveBeenCalled();
     });
@@ -370,9 +388,8 @@ describe('long-press card', () => {
 
       const { getByTestId } = renderWithContext(
         <CommunityFeedItem
-          item={storyPostItem}
+          feedItem={storyPostItem}
           onRefresh={onRefresh}
-          communityId={communityId}
           namePressable={false}
         />,
         { initialState },
@@ -397,7 +414,7 @@ describe('long-press card', () => {
         ],
       );
       expect(useMutation).toHaveBeenMutatedWith(REPORT_POST, {
-        variables: { id: storyPostSubject.id },
+        variables: { id: storyPostItem.subject.id },
       });
     });
   });
@@ -407,9 +424,8 @@ describe('clear notification button', () => {
   it('calls onClearNotification', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
+        feedItem={storyPostItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -426,9 +442,8 @@ describe('add to steps button', () => {
   it('calls handleAddToMySteps', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={prayerPostItem}
+        feedItem={prayerPostItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -437,7 +452,7 @@ describe('add to steps button', () => {
     fireEvent.press(getByTestId('AddToMyStepsButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
-      item: prayerPostItem,
+      feedItemId: prayerPostItem.id,
       communityId,
     });
   });
@@ -447,9 +462,8 @@ describe('navigates to post type screen', () => {
   it('navigates', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
+        feedItem={storyPostItem}
         onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       { initialState },

@@ -44,7 +44,6 @@ exports[`Contact should render correctly 1`] = `
         "id": "1",
       }
     }
-    showInteractions={true}
   />
 </View>
 `;

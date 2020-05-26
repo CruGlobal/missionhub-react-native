@@ -4,22 +4,17 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { renderWithContext } from '../../../../testUtils';
-import { Organization } from '../../../reducers/organizations';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { FeedItemCommentItem } from '../__generated__/FeedItemCommentItem';
+import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../queries';
 
 import CommentItem from '..';
 
 Enzyme.configure({ adapter: new Adapter() });
 
-const item: CelebrateComment = {
-  id: '1',
-  content: 'hello roge',
-  created_at: '2018-06-11 12:00:00 UTC',
-  updated_at: '2018-06-11 12:00:00 UTC',
-  person: { id: 'notme', first_name: 'Roge', last_name: 'Goers' },
-};
+const item = mockFragment<FeedItemCommentItem>(FEED_ITEM_COMMENT_ITEM_FRAGMENT);
 
 const me = { id: 'me' };
-const organization: Organization = { id: '7342342' };
 
 const menuActions: {
   text: string;
@@ -33,32 +28,20 @@ const initialState = {
 };
 
 it('renders correctly', () => {
-  renderWithContext(
-    <CommentItem
-      item={item}
-      organization={organization}
-      menuActions={menuActions}
-    />,
-    {
-      initialState,
-    },
-  ).snapshot();
+  renderWithContext(<CommentItem comment={item} menuActions={menuActions} />, {
+    initialState,
+  }).snapshot();
 });
 
 it('renders without menu actions', () => {
-  renderWithContext(<CommentItem item={item} organization={organization} />, {
+  renderWithContext(<CommentItem comment={item} />, {
     initialState,
   }).snapshot();
 });
 
 it('renders reported comment', () => {
   renderWithContext(
-    <CommentItem
-      item={item}
-      isReported={true}
-      organization={organization}
-      menuActions={menuActions}
-    />,
+    <CommentItem comment={item} isReported={true} menuActions={menuActions} />,
     {
       initialState,
     },
@@ -68,9 +51,8 @@ it('renders reported comment', () => {
 it('renders my reported comment', () => {
   renderWithContext(
     <CommentItem
-      item={{ ...item, person: { ...item.person, id: me.id } }}
+      comment={{ ...item, person: { ...item.person, id: me.id } }}
       isReported={true}
-      organization={organization}
       menuActions={menuActions}
     />,
     {
@@ -80,23 +62,15 @@ it('renders my reported comment', () => {
 });
 
 it('renders editing correctly', () => {
-  renderWithContext(
-    <CommentItem
-      item={item}
-      organization={organization}
-      menuActions={menuActions}
-    />,
-    {
-      initialState: { ...initialState, editingCommentId: item.id },
-    },
-  ).snapshot();
+  renderWithContext(<CommentItem comment={item} menuActions={menuActions} />, {
+    initialState: { ...initialState, editingCommentId: item.id },
+  }).snapshot();
 });
 
 it('renders correctly as mine', () => {
   renderWithContext(
     <CommentItem
-      item={{ ...item, person: { ...item.person, id: me.id } }}
-      organization={organization}
+      comment={{ ...item, person: { ...item.person, id: me.id } }}
       menuActions={menuActions}
     />,
     {
@@ -106,7 +80,7 @@ it('renders correctly as mine', () => {
 });
 
 it('renders reported story', () => {
-  const storyItem: CelebrateComment = {
+  const storyItem = {
     ...item,
     author: {
       id: 'notme',
@@ -117,9 +91,8 @@ it('renders reported story', () => {
   };
   renderWithContext(
     <CommentItem
-      item={storyItem}
+      comment={storyItem}
       isReported={true}
-      organization={organization}
       menuActions={menuActions}
     />,
     {

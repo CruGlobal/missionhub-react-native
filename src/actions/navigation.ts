@@ -116,7 +116,7 @@ export const navigateToCelebrateComments = (
           routeName: GROUP_UNREAD_FEED_SCREEN,
           params: { communityId: community.id },
         },
-        { routeName: FEED_ITEM_DETAIL_SCREEN, params: { itemId } },
+        { routeName: FEED_ITEM_DETAIL_SCREEN, params: { feedItemId: itemId } },
       ]),
     );
   } else {

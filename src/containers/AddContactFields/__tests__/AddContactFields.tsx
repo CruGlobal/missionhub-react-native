@@ -68,6 +68,7 @@ it('render correctly | With Person | With Picture', () => {
         relationshipType: null,
         firstName: 'Christian',
         lastName: 'Huffman',
+        fullName: 'Christian Huffman',
         stage: {
           name: 'Forgiven',
           id: '2',
@@ -94,6 +95,7 @@ it('render correctly | With Person | No Picture', () => {
         relationshipType: null,
         firstName: 'Christian',
         lastName: 'Huffman',
+        fullName: 'Christian Huffman',
         stage: {
           id: '2',
           name: 'Forgiven',
@@ -217,6 +219,7 @@ describe('calls methods', () => {
           relationshipType: RelationshipTypeEnum.family,
           firstName: 'Christian',
           lastName: 'Huffman',
+          fullName: 'Christian Huffman',
           stage: {
             name: 'Forgiven',
             id: '2',
@@ -237,6 +240,7 @@ describe('calls methods', () => {
     expect(onUpdateData).toHaveBeenLastCalledWith({
       firstName: 'Christian',
       lastName: 'Huffman',
+      fullName: 'Christian Huffman',
       id: myMockId,
       relationshipType: RelationshipTypeEnum.family,
       stage: {

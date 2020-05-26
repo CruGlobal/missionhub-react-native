@@ -2,44 +2,47 @@
 import React from 'react';
 import { Alert, View, AlertButton } from 'react-native';
 import i18n from 'i18next';
-import { fireEvent } from 'react-native-testing-library';
 import { ReactTestInstance } from 'react-test-renderer';
+import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { Person } from '../../../reducers/people';
 import { Organization } from '../../../reducers/organizations';
 import { FeedItemCommentItem } from '../../CommentItem/__generated__/FeedItemCommentItem';
 import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../../CommentItem/queries';
+import {
+  REPORT_FEED_ITEM_COMMENT_MUTATION,
+  DELETE_FEED_ITEM_COMMENT_MUTATION,
+} from '../queries';
 
 import CommentsList from '..';
 
-jest.mock('../../../actions/celebrateComments');
-jest.mock('../../../actions/reportComments');
 jest.mock('../../../actions/navigation');
-jest.mock('../../../selectors/celebration');
 jest.mock('../../../selectors/people');
-jest.mock('../../../selectors/celebrateComments');
 
-const me: Person = { id: '1', first_name: 'Matt', last_name: 'Smith' };
-const otherPerson: Person = { id: '2', first_name: 'Will', last_name: 'Smith' };
+const myId = '1';
+const me: Person = { id: myId, first_name: 'Matt', last_name: 'Smith' };
 const organization: Organization = { id: '24234234' };
 const feedItemId = '1';
 const comments = [
   mockFragment<FeedItemCommentItem>(FEED_ITEM_COMMENT_ITEM_FRAGMENT),
   mockFragment<FeedItemCommentItem>(FEED_ITEM_COMMENT_ITEM_FRAGMENT),
 ];
+const myComment = mockFragment<FeedItemCommentItem>(
+  FEED_ITEM_COMMENT_ITEM_FRAGMENT,
+  {
+    mocks: { Person: () => ({ id: myId }) },
+  },
+);
+const setEditingCommentId = jest.fn();
 
 const auth = { person: me };
 const organizations = { all: [organization] };
 const celebrateComments = { all: [comments] };
 
-const reloadCelebrateCommentsResult = { type: 'loaded comments' };
-const getCelebrateCommentsNextPageResult = { type: 'got next page' };
-const resetCelebrateEditingCommentResult = { type: 'reset edit comment' };
 const navigatePushResult = { type: 'navigate push' };
 
 Alert.alert = jest.fn();
@@ -56,7 +59,7 @@ describe('mounts with custom props', () => {
       <CommentsList
         feedItemId={feedItemId}
         comments={comments}
-        setEditingCommentId={() => {}}
+        setEditingCommentId={setEditingCommentId}
         isOwner={false}
         listProps={{ listHeaderComponent: () => <View /> }}
       />,
@@ -67,46 +70,13 @@ describe('mounts with custom props', () => {
   });
 });
 
-describe('refreshes on mount', () => {
-  it('refreshes items', () => {
-    const { store } = renderWithContext(
-      <CommentsList
-        feedItemId={feedItemId}
-        comments={comments}
-        setEditingCommentId={() => {}}
-        isOwner={false}
-        listProps={{}}
-      />,
-      {
-        initialState,
-      },
-    );
-
-    expect(reloadCelebrateComments).toHaveBeenCalledWith(
-      event.id,
-      organization.id,
-    );
-    expect(resetCelebrateEditingComment).toHaveBeenCalledWith();
-    expect(store.getActions()).toEqual([
-      reloadCelebrateCommentsResult,
-      resetCelebrateEditingCommentResult,
-    ]);
-  });
-});
-
 describe('with no comments', () => {
-  beforeEach(() => {
-    ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
-      undefined,
-    );
-  });
-
   it('renders correctly', () => {
     renderWithContext(
       <CommentsList
         feedItemId={feedItemId}
-        comments={comments}
-        setEditingCommentId={() => {}}
+        comments={[]}
+        setEditingCommentId={setEditingCommentId}
         isOwner={false}
         listProps={{}}
       />,
@@ -124,7 +94,7 @@ describe('with comments', () => {
         <CommentsList
           feedItemId={feedItemId}
           comments={comments}
-          setEditingCommentId={() => {}}
+          setEditingCommentId={setEditingCommentId}
           isOwner={false}
           listProps={{}}
         />,
@@ -134,13 +104,39 @@ describe('with comments', () => {
       ).snapshot();
     });
 
-    it('loads more comments', () => {
-      const { store, getByTestId } = renderWithContext(
+    describe('without next page', () => {
+      it('renders correctly', () => {
+        renderWithContext(
+          <CommentsList
+            feedItemId={feedItemId}
+            comments={comments}
+            setEditingCommentId={setEditingCommentId}
+            isOwner={false}
+            listProps={{}}
+          />,
+          {
+            initialState,
+          },
+        ).snapshot();
+      });
+    });
+  });
+
+  describe('determine comment menu actions', () => {
+    let commentItem: ReactTestInstance;
+    let permission_id: string;
+
+    const buildScreen = (comment: FeedItemCommentItem, isOwner = false) => {
+      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
+        permission_id,
+      });
+
+      const { getByTestId } = renderWithContext(
         <CommentsList
           feedItemId={feedItemId}
-          comments={comments}
-          setEditingCommentId={() => {}}
-          isOwner={false}
+          comments={[comment]}
+          setEditingCommentId={setEditingCommentId}
+          isOwner={isOwner}
           listProps={{}}
         />,
         {
@@ -148,246 +144,167 @@ describe('with comments', () => {
         },
       );
 
-      fireEvent.press(getByTestId('LoadMore'));
+      commentItem = getByTestId('CommentItem');
+    };
 
-      expect(getCelebrateCommentsNextPage).toHaveBeenCalledWith(
-        event.id,
-        organization.id,
-      );
-      expect(store.getActions()).toEqual([
-        reloadCelebrateCommentsResult,
-        resetCelebrateEditingCommentResult,
-        getCelebrateCommentsNextPageResult,
-      ]);
-    });
-  });
+    const testActionArray = (
+      expectedActions: {
+        text: string;
+        onPress: () => void;
+        destructive?: boolean;
+      }[],
+    ) => {
+      expect(commentItem.props.menuActions).toEqual(expectedActions);
+    };
 
-  describe('without next page', () => {
-    it('renders correctly', () => {
-      renderWithContext(
-        <CommentsList
-          feedItemId={feedItemId}
-          comments={comments}
-          setEditingCommentId={() => {}}
-          isOwner={false}
-          listProps={{}}
-        />,
-        {
-          initialState,
-        },
-      ).snapshot();
-    });
-  });
-});
+    const testFireAction = (actionIndex: number) => {
+      commentItem.props.menuActions[actionIndex].onPress(comments[0]);
+    };
 
-describe('determine comment menu actions', () => {
-  let commentItem: ReactTestInstance;
-  let comment: CelebrateComment;
-  let permission_id: string;
+    describe('author actions', () => {
+      beforeEach(() => {
+        buildScreen(myComment);
+      });
 
-  const buildScreen = () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
-      permission_id,
-    });
-    ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue({
-      comments: [comment],
-      pagination: {},
-    });
-
-    const { getByTestId } = renderWithContext(
-      <CommentsList
-        feedItemId={feedItemId}
-        comments={comments}
-        setEditingCommentId={() => {}}
-        isOwner={false}
-        listProps={{}}
-      />,
-      {
-        initialState,
-      },
-    );
-
-    commentItem = getByTestId('CommentItem');
-  };
-
-  const testActionArray = (
-    expectedActions: {
-      text: string;
-      onPress: () => void;
-      destructive?: boolean;
-    }[],
-  ) => {
-    expect(commentItem.props.menuActions).toEqual(expectedActions);
-  };
-
-  const testFireAction = (actionIndex: number) => {
-    commentItem.props.menuActions[actionIndex].onPress(comment);
-  };
-
-  describe('author actions', () => {
-    beforeEach(() => {
-      comment = {
-        id: 'comment1',
-        created_at: '2004-04-04 00:00:00 UTC',
-        updated_at: '2004-04-04 00:00:00 UTC',
-        person: me,
-        content: 'comment 1',
-      };
-      permission_id = ORG_PERMISSIONS.ADMIN;
-
-      buildScreen();
-    });
-
-    it('creates array', () => {
-      testActionArray([
-        {
-          text: i18n.t('commentsList:editPost'),
-          onPress: expect.any(Function),
-        },
-        {
-          text: i18n.t('commentsList:deletePost'),
-          onPress: expect.any(Function),
-          destructive: true,
-        },
-      ]);
-    });
-
-    it('handleEdit', () => {
-      testFireAction(0);
-
-      expect(setCelebrateEditingComment).toHaveBeenCalledWith(comment.id);
-    });
-
-    it('handleDelete', () => {
-      Alert.alert = jest.fn(
-        (_, __, c: AlertButton[] | undefined) =>
-          c && c[1] && c[1].onPress && c[1].onPress(),
-      );
-
-      testFireAction(1);
-
-      expect(deleteCelebrateComment).toHaveBeenCalledWith(
-        organization.id,
-        event.id,
-        comment.id,
-      );
-      expect(Alert.alert).toHaveBeenCalledWith(
-        i18n.t('commentsList:deletePostHeader'),
-        i18n.t('commentsList:deleteAreYouSure'),
-        [
+      it('creates array', () => {
+        testActionArray([
           {
-            text: i18n.t('cancel'),
-            style: 'cancel',
+            text: i18n.t('commentsList:editPost'),
+            onPress: expect.any(Function),
           },
           {
             text: i18n.t('commentsList:deletePost'),
             onPress: expect.any(Function),
+            destructive: true,
           },
-        ],
-      );
-    });
-  });
+        ]);
+      });
 
-  describe('owner actions', () => {
-    beforeEach(() => {
-      comment = {
-        id: 'comment1',
-        person: otherPerson,
-        created_at: '2004-04-04 00:00:00 UTC',
-        updated_at: '2004-04-04 00:00:00 UTC',
-        content: 'comment 1',
-      };
-      permission_id = ORG_PERMISSIONS.OWNER;
+      it('handleEdit', () => {
+        testFireAction(0);
+        expect(setEditingCommentId).toHaveBeenCalledWith(myComment.id);
+      });
 
-      buildScreen();
-    });
+      it('handleDelete', () => {
+        Alert.alert = jest.fn(
+          (_, __, c: AlertButton[] | undefined) =>
+            c && c[1] && c[1].onPress && c[1].onPress(),
+        );
 
-    it('creates array', () => {
-      testActionArray([
-        {
-          text: i18n.t('commentsList:deletePost'),
-          onPress: expect.any(Function),
-          destructive: true,
-        },
-      ]);
-    });
+        testFireAction(1);
 
-    it('handleDelete', () => {
-      Alert.alert = jest.fn(
-        (_, __, c: AlertButton[] | undefined) =>
-          c && c[1] && c[1].onPress && c[1].onPress(),
-      );
-
-      testFireAction(0);
-
-      expect(deleteCelebrateComment).toHaveBeenCalledWith(
-        organization.id,
-        event.id,
-        comment.id,
-      );
-      expect(Alert.alert).toHaveBeenCalledWith(
-        i18n.t('commentsList:deletePostHeader'),
-        i18n.t('commentsList:deleteAreYouSure'),
-        [
+        expect(useMutation).toHaveBeenMutatedWith(
+          DELETE_FEED_ITEM_COMMENT_MUTATION,
           {
-            text: i18n.t('cancel'),
-            style: 'cancel',
+            variables: { id: myComment.id },
           },
+        );
+        expect(Alert.alert).toHaveBeenCalledWith(
+          i18n.t('commentsList:deletePostHeader'),
+          i18n.t('commentsList:deleteAreYouSure'),
+          [
+            {
+              text: i18n.t('cancel'),
+              style: 'cancel',
+            },
+            {
+              text: i18n.t('commentsList:deletePost'),
+              onPress: expect.any(Function),
+            },
+          ],
+        );
+      });
+    });
+
+    describe('owner actions', () => {
+      beforeEach(() => {
+        buildScreen(comments[0], true);
+      });
+
+      it('creates array', () => {
+        testActionArray([
           {
             text: i18n.t('commentsList:deletePost'),
             onPress: expect.any(Function),
+            destructive: true,
           },
-        ],
-      );
-    });
-  });
+        ]);
+      });
 
-  describe('user actions', () => {
-    beforeEach(() => {
-      comment = {
-        id: 'comment1',
-        person: otherPerson,
-        created_at: '2004-04-04 00:00:00 UTC',
-        updated_at: '2004-04-04 00:00:00 UTC',
-        content: 'comment 1',
-      };
-      permission_id = ORG_PERMISSIONS.USER;
+      it('handleDelete', () => {
+        Alert.alert = jest.fn(
+          (_, __, c: AlertButton[] | undefined) =>
+            c && c[1] && c[1].onPress && c[1].onPress(),
+        );
 
-      buildScreen();
-    });
+        testFireAction(0);
 
-    it('creates array', () => {
-      testActionArray([
-        {
-          text: i18n.t('commentsList:reportToOwner'),
-          onPress: expect.any(Function),
-        },
-      ]);
-    });
-
-    it('handleReport', () => {
-      Alert.alert = jest.fn(
-        (_, __, c: AlertButton[] | undefined) =>
-          c && c[1] && c[1].onPress && c[1].onPress(),
-      );
-
-      testFireAction(0);
-
-      expect(reportComment).toHaveBeenCalledWith(organization.id, comment);
-      expect(Alert.alert).toHaveBeenCalledWith(
-        i18n.t('commentsList:reportToOwnerHeader'),
-        i18n.t('commentsList:reportAreYouSure'),
-        [
+        expect(useMutation).toHaveBeenMutatedWith(
+          DELETE_FEED_ITEM_COMMENT_MUTATION,
           {
-            text: i18n.t('cancel'),
-            style: 'cancel',
+            variables: { id: comments[0].id },
           },
+        );
+        expect(Alert.alert).toHaveBeenCalledWith(
+          i18n.t('commentsList:deletePostHeader'),
+          i18n.t('commentsList:deleteAreYouSure'),
+          [
+            {
+              text: i18n.t('cancel'),
+              style: 'cancel',
+            },
+            {
+              text: i18n.t('commentsList:deletePost'),
+              onPress: expect.any(Function),
+            },
+          ],
+        );
+      });
+    });
+
+    describe('user actions', () => {
+      beforeEach(() => {
+        buildScreen(comments[0]);
+      });
+
+      it('creates array', () => {
+        testActionArray([
           {
-            text: i18n.t('commentsList:reportPost'),
+            text: i18n.t('commentsList:reportToOwner'),
             onPress: expect.any(Function),
           },
-        ],
-      );
+        ]);
+      });
+
+      it('handleReport', () => {
+        Alert.alert = jest.fn(
+          (_, __, c: AlertButton[] | undefined) =>
+            c && c[1] && c[1].onPress && c[1].onPress(),
+        );
+
+        testFireAction(0);
+
+        expect(useMutation).toHaveBeenMutatedWith(
+          REPORT_FEED_ITEM_COMMENT_MUTATION,
+          {
+            variables: { id: comments[0].id },
+          },
+        );
+        expect(Alert.alert).toHaveBeenCalledWith(
+          i18n.t('commentsList:reportToOwnerHeader'),
+          i18n.t('commentsList:reportAreYouSure'),
+          [
+            {
+              text: i18n.t('cancel'),
+              style: 'cancel',
+            },
+            {
+              text: i18n.t('commentsList:reportPost'),
+              onPress: expect.any(Function),
+            },
+          ],
+        );
+      });
     });
   });
 });

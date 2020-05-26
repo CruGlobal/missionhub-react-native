@@ -4,7 +4,7 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
-import { FeedItemPostCard_author } from '../../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
+import { FeedItemPostCard } from '../../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
 import { FEED_ITEM_POST_CARD_FRAGMENT } from '../../../containers/CelebrateFeedPostCards/queries';
 
 import PostTypeLabel, { PostLabelSizeEnum, PostTypeCardWithPeople } from '..';
@@ -175,12 +175,12 @@ describe('post types cards', () => {
   });
 
   const people = [
-    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
-    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
-    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
-    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
-    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
-    mockFragment<FeedItemPostCard_author>(FEED_ITEM_POST_CARD_FRAGMENT),
+    mockFragment<FeedItemPostCard>(FEED_ITEM_POST_CARD_FRAGMENT).author,
+    mockFragment<FeedItemPostCard>(FEED_ITEM_POST_CARD_FRAGMENT).author,
+    mockFragment<FeedItemPostCard>(FEED_ITEM_POST_CARD_FRAGMENT).author,
+    mockFragment<FeedItemPostCard>(FEED_ITEM_POST_CARD_FRAGMENT).author,
+    mockFragment<FeedItemPostCard>(FEED_ITEM_POST_CARD_FRAGMENT).author,
+    mockFragment<FeedItemPostCard>(FEED_ITEM_POST_CARD_FRAGMENT).author,
   ];
 
   it('renders people', () => {

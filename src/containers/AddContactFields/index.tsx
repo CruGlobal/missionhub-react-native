@@ -34,6 +34,7 @@ interface AddContactFieldsProps {
     person: PersonType;
     updatePerson: (person: PersonType) => void;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
+  testID?: string;
 }
 
 const AddContactFields = ({

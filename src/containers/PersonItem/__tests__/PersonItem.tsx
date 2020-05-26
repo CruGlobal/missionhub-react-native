@@ -329,7 +329,7 @@ describe('handleSelect', () => {
 
     fireEvent.press(getByTestId('personCard'));
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(mePerson, mockOrganization);
+    expect(navToPersonScreen).toHaveBeenCalledWith(mePerson.id);
     expect(store.getActions()).toEqual([navToPersonScreenResult]);
   });
 
@@ -345,10 +345,7 @@ describe('handleSelect', () => {
 
     fireEvent.press(getByTestId('personCard'));
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(
-      mockPerson,
-      mockOrganization,
-    );
+    expect(navToPersonScreen).toHaveBeenCalledWith(mockPerson.id);
     expect(store.getActions()).toEqual([navToPersonScreenResult]);
   });
 
@@ -364,7 +361,7 @@ describe('handleSelect', () => {
 
     fireEvent.press(getByTestId('personCard'));
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(mockPerson, undefined);
+    expect(navToPersonScreen).toHaveBeenCalledWith(mockPerson.id);
     expect(store.getActions()).toEqual([navToPersonScreenResult]);
   });
 });

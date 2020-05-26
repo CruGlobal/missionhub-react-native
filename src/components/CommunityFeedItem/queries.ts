@@ -24,6 +24,9 @@ export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
     subjectPerson {
       id
     }
+    community {
+      id
+    }
     ...CommunityFeedItemContent
   }
   ${COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT}

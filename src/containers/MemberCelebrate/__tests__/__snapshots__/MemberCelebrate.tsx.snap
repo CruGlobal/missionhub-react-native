@@ -2,45 +2,17 @@
 
 exports[`MemberCelebrate renders correctly 1`] = `
 <CelebrateFeed
+  communityId="123"
   itemNamePressable={false}
-  organization={
-    Object {
-      "id": "123",
-    }
-  }
-  person={
-    Object {
-      "id": "1",
-      "organizational_permission": Array [
-        Object {
-          "organization_id": "123",
-          "permission_id": "3",
-        },
-      ],
-    }
-  }
+  personId="1"
 />
 `;
 
 exports[`MemberCelebrate renders correctly for me 1`] = `
 <CelebrateFeed
+  communityId="123"
   itemNamePressable={false}
-  organization={
-    Object {
-      "id": "123",
-    }
-  }
-  person={
-    Object {
-      "id": "2",
-      "organizational_permission": Array [
-        Object {
-          "organization_id": "123",
-          "permission_id": "3",
-        },
-      ],
-    }
-  }
+  personId="2"
 />
 `;
 
@@ -69,5 +41,13 @@ exports[`MemberCelebrate renders correctly for me 2`] = `
       ],
     }
   }
+/>
+`;
+
+exports[`MemberCelebrate renders correctly for owner 1`] = `
+<CelebrateFeed
+  communityId="123"
+  itemNamePressable={false}
+  personId="1"
 />
 `;

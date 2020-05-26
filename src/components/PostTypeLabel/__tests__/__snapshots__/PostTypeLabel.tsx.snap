@@ -1134,150 +1134,81 @@ exports[`post types cards renders people 1`] = `
         }
       }
     >
-      <View
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "recusandae alias consequuntur",
+          }
+        }
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "rgb(55, 160, 67)",
-              },
-              Object {
-                "marginLeft": -12,
-              },
-            ],
+            Object {
+              "backgroundColor": "rgb(115, 115, 152)",
+            },
+            Object {
+              "marginLeft": -12,
+            },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
-            ]
+      />
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "ut sunt qui",
           }
-        >
-          -
-        </Text>
-      </View>
-      <View
+        }
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "rgb(216, 155, 216)",
-              },
-              Object {
-                "marginLeft": -12,
-              },
-            ],
+            Object {
+              "backgroundColor": "rgb(115, 19, 155)",
+            },
+            Object {
+              "marginLeft": -12,
+            },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
-            ]
+      />
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "libero qui recusandae",
           }
-        >
-          -
-        </Text>
-      </View>
-      <View
+        }
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "rgb(121, 135, 216)",
-              },
-              Object {
-                "marginLeft": -12,
-              },
-            ],
+            Object {
+              "backgroundColor": "rgb(167, 136, 115)",
+            },
+            Object {
+              "marginLeft": -12,
+            },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
-            ]
-          }
-        >
-          -
-        </Text>
-      </View>
+      />
       <View
         style={
           Array [
