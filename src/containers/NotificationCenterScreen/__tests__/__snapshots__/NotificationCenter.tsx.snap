@@ -66,7 +66,15 @@ exports[`renders correctly 1`] = `
             style={
               Array [
                 Object {
+                  "alignItems": "center",
                   "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
                 },
                 null,
                 Object {},
@@ -175,8 +183,2410 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <RCTScrollView>
-    <View />
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    data={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2015-11-05T22:33:35.890Z",
+              "id": "1",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "debitis incidunt accusantium",
+                "organizationCount": "sed libero repudiandae",
+                "organizationName": "esse blanditiis natus",
+                "originalPoster": "et eos itaque",
+                "postType": "velit omnis et",
+                "subjectPerson": "porro ut et",
+                "user": "ipsam explicabo eligendi",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Elza Paucek",
+                "id": "2",
+                "picture": "cupiditate sed dignissimos",
+              },
+              "trigger": "celebration_items_daily_summary_multiple",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2014-11-09T17:50:11.907Z",
+              "id": "3",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "eum eaque enim",
+                "organizationCount": "ipsum inventore debitis",
+                "organizationName": "libero aspernatur deserunt",
+                "originalPoster": "quam tempore a",
+                "postType": "velit provident velit",
+                "subjectPerson": "eligendi nostrum ipsam",
+                "user": "qui nobis repellendus",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Selina Streich",
+                "id": "4",
+                "picture": "saepe eum dicta",
+              },
+              "trigger": "story_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2011-09-11T14:47:27.446Z",
+              "id": "5",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "doloribus distinctio placeat",
+                "organizationCount": "ullam minima ducimus",
+                "organizationName": "temporibus modi aut",
+                "originalPoster": "architecto ducimus totam",
+                "postType": "voluptates explicabo exercitationem",
+                "subjectPerson": "ut quis sed",
+                "user": "magni cupiditate sit",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Hardy Auer",
+                "id": "6",
+                "picture": "aperiam placeat fuga",
+              },
+              "trigger": "focus_reminders_endofweek_complete_1plus_steps",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2019-03-14T18:37:28.129Z",
+              "id": "7",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "ullam quos qui",
+                "organizationCount": "illo error sunt",
+                "organizationName": "laborum ratione a",
+                "originalPoster": "officia quaerat cumque",
+                "postType": "incidunt aut provident",
+                "subjectPerson": "esse hic eligendi",
+                "user": "quos esse ut",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Mariela Von",
+                "id": "8",
+                "picture": "non voluptates ut",
+              },
+              "trigger": "focus_reminders_midweek_2plus_steps_for_same_person",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2019-07-15T16:04:36.274Z",
+              "id": "9",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "sint autem rerum",
+                "organizationCount": "doloremque officia aut",
+                "organizationName": "ut ut eos",
+                "originalPoster": "ducimus eos saepe",
+                "postType": "consequatur vel in",
+                "subjectPerson": "ut dolorem et",
+                "user": "molestiae ea ut",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Nova Leuschke",
+                "id": "10",
+                "picture": "quae nam eos",
+              },
+              "trigger": "accepted_challenge_reminder",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2014-04-30T19:38:59.424Z",
+              "id": "11",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "est fuga est",
+                "organizationCount": "placeat ex ut",
+                "organizationName": "voluptas enim ex",
+                "originalPoster": "eveniet facere molestiae",
+                "postType": "aut delectus aut",
+                "subjectPerson": "nam et dolorum",
+                "user": "architecto fugit repellendus",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Nestor Nienow",
+                "id": "12",
+                "picture": "est consequuntur aut",
+              },
+              "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2010-07-19T08:44:26.960Z",
+              "id": "13",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "voluptate vel labore",
+                "organizationCount": "omnis ut est",
+                "organizationName": "sunt corporis alias",
+                "originalPoster": "est et sequi",
+                "postType": "voluptas culpa non",
+                "subjectPerson": "aut rerum impedit",
+                "user": "ex rem voluptates",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Anissa Kirlin",
+                "id": "14",
+                "picture": "ex culpa earum",
+              },
+              "trigger": "celebration_items_daily_summary_completed_challenge",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2012-05-24T05:41:26.736Z",
+              "id": "15",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "fugiat eligendi omnis",
+                "organizationCount": "repellat quasi ipsum",
+                "organizationName": "rem eos quod",
+                "originalPoster": "recusandae consectetur optio",
+                "postType": "laudantium et incidunt",
+                "subjectPerson": "possimus molestias facere",
+                "user": "quia et ab",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Lincoln Konopelski",
+                "id": "16",
+                "picture": "perferendis ut non",
+              },
+              "trigger": "story_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2012-12-03T22:25:52.389Z",
+              "id": "17",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "accusantium odit doloremque",
+                "organizationCount": "molestias dolore aut",
+                "organizationName": "eos quis ut",
+                "originalPoster": "incidunt omnis delectus",
+                "postType": "voluptas minima quia",
+                "subjectPerson": "ut minima sunt",
+                "user": "qui similique ut",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Joshuah Casper",
+                "id": "18",
+                "picture": "ipsum sit qui",
+              },
+              "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2015-11-10T13:38:06.309Z",
+              "id": "19",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "nostrum ut porro",
+                "organizationCount": "aut laborum iure",
+                "organizationName": "molestiae et facere",
+                "originalPoster": "placeat molestiae iste",
+                "postType": "molestiae dolores commodi",
+                "subjectPerson": "inventore sequi quia",
+                "user": "itaque quae sint",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Kelley Hilll",
+                "id": "20",
+                "picture": "sit vel et",
+              },
+              "trigger": "celebration_items_comment_notification",
+            },
+          ],
+          "id": 2,
+          "name": "dates.earlier",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    refreshing={false}
+    renderItem={[Function]}
+    renderSectionHeader={[Function]}
+    scrollEventThrottle={50}
+    sections={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2015-11-05T22:33:35.890Z",
+              "id": "1",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "debitis incidunt accusantium",
+                "organizationCount": "sed libero repudiandae",
+                "organizationName": "esse blanditiis natus",
+                "originalPoster": "et eos itaque",
+                "postType": "velit omnis et",
+                "subjectPerson": "porro ut et",
+                "user": "ipsam explicabo eligendi",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Elza Paucek",
+                "id": "2",
+                "picture": "cupiditate sed dignissimos",
+              },
+              "trigger": "celebration_items_daily_summary_multiple",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2014-11-09T17:50:11.907Z",
+              "id": "3",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "eum eaque enim",
+                "organizationCount": "ipsum inventore debitis",
+                "organizationName": "libero aspernatur deserunt",
+                "originalPoster": "quam tempore a",
+                "postType": "velit provident velit",
+                "subjectPerson": "eligendi nostrum ipsam",
+                "user": "qui nobis repellendus",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Selina Streich",
+                "id": "4",
+                "picture": "saepe eum dicta",
+              },
+              "trigger": "story_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2011-09-11T14:47:27.446Z",
+              "id": "5",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "doloribus distinctio placeat",
+                "organizationCount": "ullam minima ducimus",
+                "organizationName": "temporibus modi aut",
+                "originalPoster": "architecto ducimus totam",
+                "postType": "voluptates explicabo exercitationem",
+                "subjectPerson": "ut quis sed",
+                "user": "magni cupiditate sit",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Hardy Auer",
+                "id": "6",
+                "picture": "aperiam placeat fuga",
+              },
+              "trigger": "focus_reminders_endofweek_complete_1plus_steps",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2019-03-14T18:37:28.129Z",
+              "id": "7",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "ullam quos qui",
+                "organizationCount": "illo error sunt",
+                "organizationName": "laborum ratione a",
+                "originalPoster": "officia quaerat cumque",
+                "postType": "incidunt aut provident",
+                "subjectPerson": "esse hic eligendi",
+                "user": "quos esse ut",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Mariela Von",
+                "id": "8",
+                "picture": "non voluptates ut",
+              },
+              "trigger": "focus_reminders_midweek_2plus_steps_for_same_person",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2019-07-15T16:04:36.274Z",
+              "id": "9",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "sint autem rerum",
+                "organizationCount": "doloremque officia aut",
+                "organizationName": "ut ut eos",
+                "originalPoster": "ducimus eos saepe",
+                "postType": "consequatur vel in",
+                "subjectPerson": "ut dolorem et",
+                "user": "molestiae ea ut",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Nova Leuschke",
+                "id": "10",
+                "picture": "quae nam eos",
+              },
+              "trigger": "accepted_challenge_reminder",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2014-04-30T19:38:59.424Z",
+              "id": "11",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "est fuga est",
+                "organizationCount": "placeat ex ut",
+                "organizationName": "voluptas enim ex",
+                "originalPoster": "eveniet facere molestiae",
+                "postType": "aut delectus aut",
+                "subjectPerson": "nam et dolorum",
+                "user": "architecto fugit repellendus",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Nestor Nienow",
+                "id": "12",
+                "picture": "est consequuntur aut",
+              },
+              "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2010-07-19T08:44:26.960Z",
+              "id": "13",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "voluptate vel labore",
+                "organizationCount": "omnis ut est",
+                "organizationName": "sunt corporis alias",
+                "originalPoster": "est et sequi",
+                "postType": "voluptas culpa non",
+                "subjectPerson": "aut rerum impedit",
+                "user": "ex rem voluptates",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Anissa Kirlin",
+                "id": "14",
+                "picture": "ex culpa earum",
+              },
+              "trigger": "celebration_items_daily_summary_completed_challenge",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2012-05-24T05:41:26.736Z",
+              "id": "15",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "fugiat eligendi omnis",
+                "organizationCount": "repellat quasi ipsum",
+                "organizationName": "rem eos quod",
+                "originalPoster": "recusandae consectetur optio",
+                "postType": "laudantium et incidunt",
+                "subjectPerson": "possimus molestias facere",
+                "user": "quia et ab",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Lincoln Konopelski",
+                "id": "16",
+                "picture": "perferendis ut non",
+              },
+              "trigger": "story_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2012-12-03T22:25:52.389Z",
+              "id": "17",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "accusantium odit doloremque",
+                "organizationCount": "molestias dolore aut",
+                "organizationName": "eos quis ut",
+                "originalPoster": "incidunt omnis delectus",
+                "postType": "voluptas minima quia",
+                "subjectPerson": "ut minima sunt",
+                "user": "qui similique ut",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Joshuah Casper",
+                "id": "18",
+                "picture": "ipsum sit qui",
+              },
+              "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2015-11-10T13:38:06.309Z",
+              "id": "19",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "nostrum ut porro",
+                "organizationCount": "aut laborum iure",
+                "organizationName": "molestiae et facere",
+                "originalPoster": "placeat molestiae iste",
+                "postType": "molestiae dolores commodi",
+                "subjectPerson": "inventore sequi quia",
+                "user": "itaque quae sint",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Kelley Hilll",
+                "id": "20",
+                "picture": "sit vel et",
+              },
+              "trigger": "celebration_items_comment_notification",
+            },
+          ],
+          "id": 2,
+          "name": "dates.earlier",
+        },
+      ]
+    }
+    stickyHeaderIndices={
+      Array [
+        0,
+      ]
+    }
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "fontSize": 24,
+              "fontWeight": "300",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "200",
+                "marginLeft": 10,
+                "padding": 10,
+              }
+            }
+          >
+            Earlier
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "cupiditate sed dignissimos",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(199, 57, 125)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                November 5, 2015 10:33 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "saepe eum dicta",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(156, 123, 67)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A new story has been added in 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                  libero aspernatur deserunt
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  .
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                November 9, 2014 5:50 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "aperiam placeat fuga",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(123, 155, 155)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                September 11, 2011 2:47 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "non voluptates ut",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(155, 196, 130)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                March 14, 2019 6:37 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "quae nam eos",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(101, 155, 155)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                July 15, 2019 4:04 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "est consequuntur aut",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(123, 123, 152)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                April 30, 2014 7:38 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "ex culpa earum",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(163, 155, 125)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                July 19, 2010 8:44 AM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "perferendis ut non",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(123, 155, 115)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A new story has been added in 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                  rem eos quod
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  .
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                May 24, 2012 5:41 AM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "ipsum sit qui",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(167, 55, 115)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                December 3, 2012 10:25 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders with no data 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
+              ],
+            ]
+          }
+        >
+          Notifications
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ffffff"
+          style={
+            Object {
+              "marginRight": 10,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    refreshing={false}
+    renderItem={[Function]}
+    renderSectionHeader={[Function]}
+    scrollEventThrottle={50}
+    sections={Array []}
+    stickyHeaderIndices={Array []}
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": "50%",
+            },
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ECEEF2",
+              "borderRadius": 100,
+              "height": 150,
+              "justifyContent": "center",
+              "width": 150,
+            }
+          }
+        >
+          <SvgMock
+            color="#505256"
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "fontSize": 24,
+              "fontWeight": "300",
+              "paddingVertical": 30,
+            }
+          }
+        >
+          No notifications yet
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "lineHeight": 24,
+              "maxWidth": 300,
+              "textAlign": "center",
+            }
+          }
+        >
+          Stay tuned! Notifications about your communities will show up here.
+        </Text>
+      </View>
+    </View>
   </RCTScrollView>
 </View>
 `;

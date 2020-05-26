@@ -93,6 +93,17 @@ describe('label variations', () => {
       { noWrappers: true },
     ).snapshot();
   });
+
+  it('renders small label with no text', () => {
+    renderWithContext(
+      <PostTypeLabel
+        type={FeedItemSubjectTypeEnum.STORY}
+        showText={false}
+        size={PostLabelSizeEnum.small}
+      />,
+      { noWrappers: true },
+    ).snapshot();
+  });
 });
 
 it('fires onPress when pressed', () => {

@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+        "paddingVertical": 15,
+      },
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "space-between",
+      },
+    ]
+  }
+>
+  <View
+    style={
+      Array [
+        Object {
+          "maxWidth": 350,
+          "paddingHorizontal": 20,
+        },
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+          "justifyContent": "space-between",
+        },
+      ]
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "mockProfilePic.jpeg",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
+          },
+          Object {
+            "backgroundColor": "rgb(51, 155, 125)",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 25,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingHorizontal": 20,
+              "paddingVertical": 10,
+            },
+            Object {
+              "backgroundColor": "#7076B5",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 0,
+              "paddingVertical": 0,
+              "width": 24,
+            },
+          ]
+        }
+        testID="STORYLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "paddingHorizontal": 20,
+          },
+          Object {},
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          A new story has been added in 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+          Bleh 2.0
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        May 18, 2020 5:48 PM
+      </Text>
+    </View>
+  </View>
+</View>
+`;

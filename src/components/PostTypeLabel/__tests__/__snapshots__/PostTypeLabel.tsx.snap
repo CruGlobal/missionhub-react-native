@@ -210,10 +210,10 @@ exports[`label variations renders label with no text 1`] = `
       Object {
         "backgroundColor": "#7076B5",
       },
-      null,
       Object {
         "width": 20,
       },
+      null,
     ]
   }
   testID="STORYLabel"
@@ -251,10 +251,10 @@ exports[`label variations renders large label 1`] = `
       Object {
         "backgroundColor": "#7076B5",
       },
+      null,
       Object {
         "height": 48,
       },
-      null,
     ]
   }
   testID="STORYLabel"
@@ -292,6 +292,55 @@ exports[`label variations renders large label 1`] = `
   >
     God Story
   </Text>
+</View>
+`;
+
+exports[`label variations renders small label with no text 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+      Object {
+        "width": 20,
+      },
+      Object {
+        "alignItems": "center",
+        "borderRadius": 12,
+        "height": 24,
+        "justifyContent": "center",
+        "paddingHorizontal": 0,
+        "paddingVertical": 0,
+        "width": 24,
+      },
+    ]
+  }
+  testID="STORYLabel"
+>
+  <SvgMock
+    color="#ffffff"
+    height={15}
+    style={
+      Array [
+        Object {
+          "marginLeft": 0,
+          "marginRight": 0,
+        },
+        undefined,
+      ]
+    }
+    width={15}
+  />
 </View>
 `;
 

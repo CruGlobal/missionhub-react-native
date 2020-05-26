@@ -437,6 +437,23 @@ export const mapPostTypeToFeedType = (postType: PostTypeEnum) => {
   }
 };
 
+export const mapMessageVariablePostTypeToFeedType = (postType: string) => {
+  switch (postType) {
+    case 'story':
+      return FeedItemSubjectTypeEnum.STORY;
+    case 'prayer_request':
+      return FeedItemSubjectTypeEnum.PRAYER_REQUEST;
+    case 'question':
+      return FeedItemSubjectTypeEnum.QUESTION;
+    case 'help_request':
+      return FeedItemSubjectTypeEnum.HELP_REQUEST;
+    case 'thought':
+      return FeedItemSubjectTypeEnum.THOUGHT;
+    case 'announcement':
+      return FeedItemSubjectTypeEnum.ANNOUNCEMENT;
+  }
+};
+
 export const mapFeedTypeToPostType = (feedType: FeedItemSubjectTypeEnum) => {
   switch (feedType) {
     case FeedItemSubjectTypeEnum.STORY:

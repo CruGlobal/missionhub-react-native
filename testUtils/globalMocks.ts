@@ -9,6 +9,7 @@ import {
   StepTypeEnum,
   PostTypeEnum,
   RelationshipTypeEnum,
+  NotificationTriggerEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -98,6 +99,14 @@ export const globalMocks: IMocks = {
     return {
       subjectPerson: { firstName, lastName },
       subjectPersonName: `${firstName} ${lastName}`,
+    };
+  },
+  Notification: () => {
+    return {
+      trigger: faker.random.arrayElement(
+        Object.values(NotificationTriggerEnum),
+      ),
+      messageTemplate: 'A new story has been added in <<organization_name>>.',
     };
   },
 };

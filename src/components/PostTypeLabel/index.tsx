@@ -24,6 +24,7 @@ import { FeedItemStepCard_owner } from '../../containers/CelebrateFeedPostCards/
 import styles from './styles';
 
 export enum PostLabelSizeEnum {
+  small = 'small',
   normal = 'normal',
   large = 'large',
   extraLarge = 'extraLarge',
@@ -55,10 +56,14 @@ export function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
       ? 72
       : size === PostLabelSizeEnum.large
       ? 24
+      : size === PostLabelSizeEnum.small
+      ? 15
       : 20;
+  const iconStyle =
+    size === PostLabelSizeEnum.small ? styles.smallIcon : styles.icon;
   const iconProps = {
     color: color || theme.white,
-    style: [styles.icon, style],
+    style: [iconStyle, style],
     width: iconSize,
     height: iconSize,
   };
@@ -144,8 +149,12 @@ const PostTypeLabel = ({
       style={[
         styles.button,
         styles[type],
-        size === PostLabelSizeEnum.large ? styles.largeSize : null,
         showText ? null : styles.noText,
+        size === PostLabelSizeEnum.large
+          ? styles.largeSize
+          : size === PostLabelSizeEnum.small
+          ? styles.smallSize
+          : null,
       ]}
     >
       <PostTypeIcon type={type} size={size} />
