@@ -267,6 +267,7 @@ class GroupProfile extends Component {
                   style={styles.input}
                   blurOnSubmit={true}
                   underlineColorAndroid={theme.transparent}
+                  maxLength={44}
                 />
                 <PopupMenu
                   // @ts-ignore

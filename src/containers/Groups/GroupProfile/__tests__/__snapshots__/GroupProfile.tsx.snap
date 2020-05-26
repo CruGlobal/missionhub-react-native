@@ -130,6 +130,7 @@ exports[`GroupProfile edit screen renders editing state 1`] = `
           autoCorrect={true}
           autoFocus={true}
           blurOnSubmit={true}
+          maxLength={44}
           onChangeText={[Function]}
           returnKeyType="done"
           selectionColor="#ffffff"
