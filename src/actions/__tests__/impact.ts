@@ -1,11 +1,7 @@
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import {
-  getImpactSummary,
-  getPeopleInteractionsReport,
-  refreshImpact,
-} from '../impact';
+import { getImpactSummary, refreshImpact } from '../impact';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 
@@ -85,70 +81,5 @@ describe('getImpactSummary', () => {
       person_id: undefined,
       organization_id: undefined,
     });
-  });
-});
-
-describe('getPeopleInteractionsReport', () => {
-  beforeEach(() => {
-    // @ts-ignore
-    callApi.mockReturnValue({
-      type: REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT.SUCCESS,
-      response: [
-        {
-          contact_count: 1,
-          contacts_with_interaction_count: 0,
-          id: '728-4195255-P1Y',
-          interactions: [
-            {
-              interaction_type_id: '2',
-              interaction_count: '1',
-            },
-            {
-              interaction_type_id: '4',
-              interaction_count: 2,
-            },
-            {
-              interaction_type_id: '5',
-              interaction_count: 1,
-            },
-          ],
-          length: 0,
-          organization_id: 728,
-          person_id: 4195255,
-          uncontacted_count: null,
-          _type: 'person_report',
-        },
-      ],
-    });
-  });
-
-  it('should make api request for person report', async () => {
-    // @ts-ignore
-    await store.dispatch(getPeopleInteractionsReport('2', '3', 'P1W'));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT,
-      {
-        people_ids: '2',
-        organization_ids: '3',
-        period: 'P1W',
-      },
-    );
-    expect(store.getActions()).toMatchSnapshot();
-  });
-
-  it('should make api request for group report', async () => {
-    // @ts-ignore
-    await store.dispatch(getPeopleInteractionsReport(undefined, '3', 'P1W'));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.GET_ORGANIZATION_INTERACTIONS_REPORT,
-      {
-        people_ids: undefined,
-        organization_ids: '3',
-        period: 'P1W',
-      },
-    );
-    expect(store.getActions()).toMatchSnapshot();
   });
 });

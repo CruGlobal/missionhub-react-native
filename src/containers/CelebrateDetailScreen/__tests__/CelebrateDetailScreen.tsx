@@ -21,9 +21,9 @@ import CommentsList from '../../CommentsList';
 import { celebrateCommentsSelector } from '../../../selectors/celebrateComments';
 import { Organization } from '../../../reducers/organizations';
 import { CelebrateComment } from '../../../reducers/celebrateComments';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../../components/CelebrateItem/queries';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityFeedItem } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { navigateBack } from '../../../actions/navigation';
 
 import CelebrateDetailScreen from '..';
@@ -66,7 +66,7 @@ const myId = 'myId';
 const orgId = '24234234';
 const organization: Organization = { id: orgId, name: 'Community' };
 const orgPermission = { id: '222', permission_id: ORG_PERMISSIONS.USER };
-const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const item = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
 const organizations = [organization];
 const celebrateComments = { editingCommentId: null };
 const auth = { person: { id: myId } };
@@ -104,7 +104,7 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(<CelebrateDetailScreen />, {
     initialState,
-    navParams: { event, orgId },
+    navParams: { item, orgId },
   }).snapshot();
 
   expect(organizationSelector).toHaveBeenCalledWith(
@@ -113,13 +113,13 @@ it('renders correctly', () => {
   );
   expect(orgPermissionSelector).toHaveBeenCalledWith(
     {},
-    { person: event.subjectPerson, organization },
+    { person: item.subjectPerson, organization },
   );
   expect(celebrateCommentsSelector).toHaveBeenCalledWith(
     {
       celebrateComments,
     },
-    { eventId: event.id },
+    { eventId: item.id },
   );
   expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
     screenContext: {
@@ -133,7 +133,7 @@ it('renders correctly', () => {
 it('should navigate back if event only contains an id', () => {
   renderWithContext(<CelebrateDetailScreen />, {
     initialState,
-    navParams: { event: { id: '1' }, orgId },
+    navParams: { item: { id: '1' }, orgId },
   });
 
   expect(navigateBack).toHaveBeenCalled();
@@ -143,13 +143,13 @@ describe('refresh', () => {
   it('calls refreshComments', () => {
     const { getByTestId } = renderWithContext(<CelebrateDetailScreen />, {
       initialState,
-      navParams: { event, orgId },
+      navParams: { item, orgId },
     });
 
     fireEvent(getByTestId('RefreshControl'), 'onRefresh');
 
     expect(reloadCelebrateComments).toHaveBeenCalledWith(
-      event.id,
+      item.id,
       organization.id,
     );
   });
@@ -163,7 +163,7 @@ describe('celebrate add complete', () => {
       <CelebrateDetailScreen />,
       {
         initialState,
-        navParams: { event, orgId },
+        navParams: { item, orgId },
       },
     );
 
@@ -183,7 +183,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<CelebrateDetailScreen />, {
       initialState,
-      navParams: { event, orgId },
+      navParams: { item, orgId },
     });
 
     getByType(
@@ -203,7 +203,7 @@ describe('keyboard show', () => {
         ...initialState,
         celebrateComments: { editingCommentId: comments.comments[1].id },
       },
-      navParams: { event, orgId },
+      navParams: { item, orgId },
     });
 
     getByType(
@@ -226,7 +226,7 @@ describe('keyboard show', () => {
         ...initialState,
         celebrateComments: { editingCommentId: 'doesnt exist' },
       },
-      navParams: { event, orgId },
+      navParams: { item, orgId },
     });
 
     getByType(

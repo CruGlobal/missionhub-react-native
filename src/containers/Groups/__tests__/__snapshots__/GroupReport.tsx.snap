@@ -453,10 +453,13 @@ exports[`should call navigate back 1`] = `
                       Object {
                         "fontFamily": "SourceSansPro-Regular",
                       },
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
+                      Array [
+                        Object {
+                          "color": "#B2B0B2",
+                          "fontSize": 12,
+                        },
+                        Object {},
+                      ],
                     ]
                   }
                   testID="Text"
@@ -887,10 +890,13 @@ exports[`should call navigate back 1`] = `
                       Object {
                         "fontFamily": "SourceSansPro-Regular",
                       },
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
+                      Array [
+                        Object {
+                          "color": "#B2B0B2",
+                          "fontSize": 12,
+                        },
+                        Object {},
+                      ],
                     ]
                   }
                   testID="Text"
@@ -1575,10 +1581,13 @@ exports[`should refresh correctly 1`] = `
                       Object {
                         "fontFamily": "SourceSansPro-Regular",
                       },
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
+                      Array [
+                        Object {
+                          "color": "#B2B0B2",
+                          "fontSize": 12,
+                        },
+                        Object {},
+                      ],
                     ]
                   }
                   testID="Text"
@@ -2009,10 +2018,13 @@ exports[`should refresh correctly 1`] = `
                       Object {
                         "fontFamily": "SourceSansPro-Regular",
                       },
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
+                      Array [
+                        Object {
+                          "color": "#B2B0B2",
+                          "fontSize": 12,
+                        },
+                        Object {},
+                      ],
                     ]
                   }
                   testID="Text"
@@ -2697,10 +2709,13 @@ exports[`should render correctly 1`] = `
                       Object {
                         "fontFamily": "SourceSansPro-Regular",
                       },
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
+                      Array [
+                        Object {
+                          "color": "#B2B0B2",
+                          "fontSize": 12,
+                        },
+                        Object {},
+                      ],
                     ]
                   }
                   testID="Text"
@@ -3131,10 +3146,13 @@ exports[`should render correctly 1`] = `
                       Object {
                         "fontFamily": "SourceSansPro-Regular",
                       },
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
+                      Array [
+                        Object {
+                          "color": "#B2B0B2",
+                          "fontSize": 12,
+                        },
+                        Object {},
+                      ],
                     ]
                   }
                   testID="Text"

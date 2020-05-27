@@ -80,8 +80,9 @@ export default {
       everyDay: 'Every day',
       every: 'Every',
       onceAMonth: 'Once a month on the',
+      earlier: 'Earlier',
+      new: 'New',
     },
-    steps: {},
     yes: 'Yes',
     no: 'No',
     copy: 'Copy',
@@ -189,6 +190,14 @@ export default {
     addPerson: 'Who would you like to take steps of faith with this week?',
     errorSavingPerson: 'Error saving your person. Please try again.',
   },
+  onboardingAddPhoto: {
+    nullHeader: 'Add Profile Photo',
+    imageHeader: 'Profile Photo Added',
+    description: "Add a profile photo so your members know it's you",
+    changePhoto: 'Change Photo',
+    nullButtonText: 'Add a Profile Photo',
+    imageButtonText: 'Continue',
+  },
   categories: {
     onboardingPrompt:
       'Think of someone you want to help grow closer to God. Who are they?',
@@ -202,6 +211,7 @@ export default {
   addContact: {
     addSomeone: 'ADD SOMEONE',
     editPerson: 'Edit Person',
+    editProfile: 'Edit Profile',
     addToOrg: 'ADD SOMEONE to {{orgName}}',
     categoryPrompt: 'How do you know each other?',
     stage: 'Stage',
@@ -264,6 +274,9 @@ export default {
       'Talk about what this person believes and ways you can help them know the truth about God.',
     part6:
       "Over time you see all the different ways you're helping others draw close to God.",
+  },
+  stepDetail: {
+    openPost: 'Open Post',
   },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',
@@ -513,18 +526,15 @@ export default {
     errorLoadingStepCounts: 'Error loading step counts for your people',
   },
   appRoutes: {
-    steps: 'Steps',
+    steps: 'Steps of Faith',
     people: 'People',
-    impact: 'Impact',
-    group: 'Communities',
+    notifications: 'Notifications',
+    communities: 'Communities',
   },
-  groupTabs: {
-    celebrate: 'Celebrate',
+  communityTabs: {
+    feed: 'Feed',
     challenges: 'Challenges',
-    members: 'Members',
     impact: 'Impact',
-    contacts: 'Contacts',
-    surveys: 'Surveys',
   },
   personTabs: {
     celebrate: 'Celebrate',
@@ -571,31 +581,7 @@ export default {
   celebrateFeed: {
     errorLoadingCelebrateFeed: 'Error loading celebrate feed',
   },
-  celebrateFeeds: {
-    title: '',
-    emptyFeedTitle: 'Celebrate!',
-    emptyFeedDescription:
-      'You can celebrate {{firstName}} Steps of Faith here.',
-    emptyFeedGroupNameValue: 'each other',
-    stepOfFaith:
-      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
-    stepOfFaithUnknownStage:
-      '{{initiator}} completed a Step of Faith with someone.',
-    stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
-    interaction: '{{initiator}} had a {{interactionName}}.',
-    interactionDecision: '{{initiator}} saw someone make a Personal Decision.',
-    addedContact: '{{initiator}} added a {{receiverStage}} person.',
-    somethingCoolHappened:
-      '{{initiator}} saw something cool happen with someone.',
-    challengeAccepted: '{{initiator}} accepted a Challenge:',
-    challengeCompleted: '{{initiator}} completed a Challenge:',
-    communityCreated: '{{initiator}} created {{communityName}}!',
-    joinedCommunity:
-      '{{initiator}} joined {{communityName}}! Now you can see and celebrate the steps of faith they are taking.',
-    missionHubUser: 'MissionHub user',
-    aMissionHubUser: 'A MissionHub user',
-  },
-  celebrateItems: {
+  communityFeedItems: {
     edit: {
       buttonText: 'Edit Post',
     },
@@ -612,6 +598,16 @@ export default {
         'Are you sure you want to report this comment to the community owner?',
       confirmButtonText: 'Report Post',
     },
+    addToMySteps: 'Add to My Steps',
+    stepOfFaith:
+      '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
+    stepOfFaithUnknownStage:
+      '{{initiator}} completed a Step of Faith with someone.',
+    stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
+    challengeAccepted: '{{initiator}} accepted a Challenge:',
+    challengeCompleted: '{{initiator}} completed a Challenge:',
+    missionHubUser: 'MissionHub user',
+    aMissionHubUser: 'A MissionHub user',
   },
   challengeFeeds: {
     past: 'Past Challenges',
@@ -674,11 +670,12 @@ export default {
     stepsDescription: 'Choose a person in People view to add a new step',
   },
   groupsMembers: {
-    invite: 'Send Invite',
+    invite: 'Invite Member',
     sendInviteMessage:
       'Join me on MissionHub. Our community code is {{code}}. Click here to join: {{url}}',
     invited:
       "Anyone you've invited to {{orgName}} will show up here when they join.",
+    errorLoadingMembers: 'Error loading members',
   },
   groupMemberOptions: {
     ownerLeaveCommunityErrorMessage:
@@ -769,6 +766,7 @@ export default {
     join: 'Join',
     selectStage: 'Select Stage',
     privateGroup: 'Private Group',
+    memberSince: 'Member since',
   },
   groupsCreateGroup: {
     createCommunity: 'Create Community',
@@ -832,7 +830,7 @@ export default {
     errorBody:
       'There was an error processing your request. Please try again later.',
   },
-  groupProfile: {
+  communityProfile: {
     created: 'Created',
     members: 'Members',
     code: 'Community Code',
@@ -846,6 +844,7 @@ export default {
     cannotBeUndone: 'This cannot be undone',
     codeCopyText:
       'Take steps of faith with me in the MissionHub app. Use this community code to join: {{code}}',
+    errorLoadingCommunityDetails: 'Error loading community details',
   },
   landing: {
     getStarted: 'Get Started',
@@ -892,6 +891,55 @@ export default {
   errorNotice: {
     offline: 'Offline',
   },
+  postTypes: {
+    STORY: 'God Story',
+    PRAYER_REQUEST: 'Prayer Request',
+    QUESTION: 'Spiritual Question',
+    HELP_REQUEST: 'Care Request',
+    THOUGHT: "What's on Your Mind",
+    COMMUNITY_CHALLENGE: 'Challenge',
+    ANNOUNCEMENT: 'Announcement',
+    STEP: 'Step of Faith',
+    header: {
+      STORY: 'Read a God Story',
+      PRAYER_REQUEST: 'Answer a Prayer Request',
+      QUESTION: 'Answer a Question',
+      HELP_REQUEST: 'Provide Help',
+      ANNOUNCEMENT: 'Announcements',
+      STEP: 'Celebrate Others',
+    },
+    card: {
+      STORY: 'Read a God Story',
+      PRAYER_REQUEST: 'Prayer Requests',
+      QUESTION: 'Answer a Question',
+      HELP_REQUEST: 'Provide Help',
+      ANNOUNCEMENT: 'Announcements',
+      STEP: 'Celebrate Others',
+    },
+  },
+  createPostScreen: {
+    choosePostType: 'Choose a Post Type',
+    inputPlaceholder: 'Post to community...',
+    everyone: 'Everyone',
+    ownersAndAdmins: 'Owners and Admins',
+    addAPhoto: 'Add a Photo',
+    createButtonPlaceholder: 'Post to community...',
+    createPostButton: {
+      STORY: 'Share a God Story',
+      PRAYER_REQUEST: 'Ask for Prayer',
+      QUESTION: 'Ask a Spiritual Question',
+      HELP_REQUEST: 'Ask for Help',
+      ANNOUNCEMENT: 'Make an Announcement',
+    },
+    placeholder: {
+      story: 'Share an inspiring God story...',
+      prayer_request: 'Share a prayer need...',
+      question: 'Ask a spiritual question...',
+      help_request: 'Ask for help...',
+      thought: "What's on your mind?",
+      announcement: 'Make an announcement...',
+    },
+  },
   stepTypes: {
     relate: 'Relate',
     pray: 'Pray',
@@ -899,5 +947,52 @@ export default {
     share: 'Share',
     stepOfFaith: 'Step of Faith',
     step: 'Step',
+  },
+  communityHeader: {
+    feed: 'Feed',
+    challenges: 'Challenges',
+    impact: 'Impact',
+    memberCount: '{{count}} Member',
+    memberCount_plural: '{{count}} Members',
+    errorLoadingCommunityDetails: 'Error loading community details',
+    globalCommunity: 'MissionHub Community',
+  },
+  createPost: {
+    godStory: {
+      label: 'God Story',
+      placeholder: 'Share an inspiring God story...',
+    },
+    prayerRequest: {
+      label: 'Prayer Request',
+      placeholder: 'Share a prayer need...',
+    },
+    spiritualQuestion: {
+      label: 'Spiritual Question',
+      placeholder: 'Ask a spiritual question...',
+    },
+    careRequest: {
+      label: 'Care Request',
+      placeholder: 'Ask for help...',
+    },
+    onYourMind: {
+      label: "What's On Your Mind",
+      placeholder: "What's on your mind?",
+    },
+    announcement: {
+      label: 'Announcement',
+      placeholder: 'Make an announcement...',
+    },
+    addAPhoto: 'Add a Photo',
+    buttonPlaceholder: 'Post to community...',
+  },
+  notificationsCenter: {
+    title: 'Notifications',
+  },
+  addPostToStepsScreen: {
+    addToSteps: 'Add to my steps',
+    prayerStepMessage: "Pray for {{personName}}'s request.",
+    shareStepMessage: "Answer {{personName}}'s question.",
+    careStepMessage: "Help with {{personName}}'s request.",
+    errorSavingStep: 'Error saving step',
   },
 };

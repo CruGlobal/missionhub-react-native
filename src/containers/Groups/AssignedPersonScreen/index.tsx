@@ -1,14 +1,14 @@
 /* eslint max-lines: 0 */
 
 import React, { Component } from 'react';
-import { StatusBar, View } from 'react-native';
+import { StatusBar, View, ScrollView } from 'react-native';
 import i18next from 'i18next';
 import { connect } from 'react-redux-legacy';
 import { DrawerActions } from 'react-navigation-drawer';
 import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
-import BackButton from '../../BackButton';
+import DeprecatedBackButton from '../../DeprecatedBackButton';
 import MemberCelebrate from '../../MemberCelebrate';
 import ContactSteps from '../../ContactSteps';
 import ContactNotes from '../../ContactNotes';
@@ -116,7 +116,11 @@ const memberImpact = {
         params: { organization, person },
       },
     },
-  }) => <ImpactView orgId={organization.id} person={person} />,
+  }) => (
+    <ScrollView>
+      <ImpactView orgId={organization.id} person={person} />
+    </ScrollView>
+  ),
 };
 const memberCelebrate = {
   name: i18next.t('personTabs:celebrate'),
@@ -164,7 +168,11 @@ const myImpact = {
         params: { organization, person },
       },
     },
-  }) => <ImpactView orgId={organization.id} person={person} />,
+  }) => (
+    <ScrollView>
+      <ImpactView orgId={organization.id} person={person} />
+    </ScrollView>
+  ),
 };
 
 export const CONTACT_PERSON_TABS = [personSteps, personNotes, personJourney];
@@ -244,13 +252,13 @@ export class AssignedPersonScreen extends Component {
     } = this.props;
 
     // If the keyboard is up, show the person's name and the organization
-    const name = person.first_name || '';
+    const name = person.first_name || person.firstName || '';
 
     return (
       <View style={styles.container}>
         <StatusBar {...theme.statusBar.lightContent} />
         <Header
-          left={<BackButton />}
+          left={<DeprecatedBackButton />}
           right={
             <IconButton
               name="moreIcon"

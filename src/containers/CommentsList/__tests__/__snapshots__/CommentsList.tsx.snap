@@ -151,10 +151,13 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
               ]
             }
             testID="Text"
@@ -326,10 +329,13 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
               ]
             }
             testID="Text"
@@ -574,10 +580,13 @@ exports[`with comments with next page renders correctly 1`] = `
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
               ]
             }
             testID="Text"
@@ -749,10 +758,13 @@ exports[`with comments with next page renders correctly 1`] = `
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
               ]
             }
             testID="Text"
@@ -1063,10 +1075,13 @@ exports[`with comments without next page renders correctly 1`] = `
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
               ]
             }
             testID="Text"
@@ -1238,10 +1253,13 @@ exports[`with comments without next page renders correctly 1`] = `
                 Object {
                   "fontFamily": "SourceSansPro-Regular",
                 },
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {},
+                ],
               ]
             }
             testID="Text"

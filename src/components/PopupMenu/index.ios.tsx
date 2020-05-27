@@ -1,29 +1,48 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { ActionSheetIOS } from 'react-native';
+import { ActionSheetIOS, ViewStyle, StyleProp } from 'react-native';
 
 import { IconButton, Touchable } from '../common';
 import { isFunction } from '../../utils/common';
+import { IconProps } from '../Icon';
+import { ButtonProps } from '../Button';
 
 import styles from './styles';
 
-// iOS only component
-// @ts-ignore
-@withTranslation()
-class PopupMenu extends Component {
-  showMenu = () => {
-    // @ts-ignore
-    const { actions, t, title } = this.props;
+interface PopupMenuProps {
+  title?: string;
+  actions: {
+    text: string;
+    onPress: () => void;
+    destructive?: boolean;
+  }[];
+  iconProps?: Omit<IconProps, 'name' | 'type'> & StyleProp<ViewStyle>;
+  buttonProps?: Partial<ButtonProps> & StyleProp<ViewStyle>;
+  disabled?: boolean;
+  triggerOnLongPress?: boolean;
+  testID?: string;
+}
 
-    // @ts-ignore
+// iOS only component
+//@ts-ignore
+@withTranslation()
+class PopupMenu extends Component<PopupMenuProps> {
+  showMenu = () => {
+    const {
+      actions,
+      // @ts-ignore
+      t,
+      title,
+    } = this.props;
+
     const options = actions.map(a => a.text).concat(t('cancel'));
-    // @ts-ignore
-    const select = i =>
+    const select = (i: number) =>
       actions[i] && isFunction(actions[i].onPress) && actions[i].onPress();
 
-    // @ts-ignore
-    let destructiveButtonIndex = actions.findIndex(o => o.destructive);
+    let destructiveButtonIndex: number | undefined = actions.findIndex(
+      o => o.destructive,
+    );
     if (destructiveButtonIndex < 0) {
       destructiveButtonIndex = undefined;
     }
@@ -43,14 +62,10 @@ class PopupMenu extends Component {
   render() {
     const {
       children,
-      // @ts-ignore
       disabled,
-      // @ts-ignore
       triggerOnLongPress,
-      // @ts-ignore
-      buttonProps = {},
-      // @ts-ignore
-      iconProps = {},
+      buttonProps = { style: undefined },
+      iconProps = { style: undefined },
     } = this.props;
 
     return children ? (

@@ -1,11 +1,15 @@
+import MockDate from 'mockdate';
+
 import { mockFragment } from '../../../testUtils/apolloMockClient';
 import { celebrationSelector } from '../celebration';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
 import { CommunityCelebrationCelebrateableEnum } from '../../../__generated__/globalTypes';
 
+const mockDate = '2020-05-20 12:00:00 UTC';
+MockDate.set(mockDate);
 const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
-const itemOne = { ...event, changedAttributeValue: '2018-01-01 00:00:00 UTC' };
+const itemOne = { ...event, changedAttributeValue: '2020-05-20 11:00:00 UTC' };
 
 const celebrateItems: CelebrateItem[] = [
   itemOne,

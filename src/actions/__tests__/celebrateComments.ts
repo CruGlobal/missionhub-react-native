@@ -24,8 +24,8 @@ import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import { trackActionWithoutData } from '../analytics';
 import { ACTIONS } from '../../constants';
 import { mockFragment } from '../../../testUtils/apolloMockClient';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
+import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
 import { Person } from '../../reducers/people';
 
 jest.mock('../api');
@@ -33,7 +33,7 @@ jest.mock('../celebration');
 jest.mock('../../selectors/celebrateComments');
 jest.mock('../analytics');
 
-const event = mockFragment<CelebrateItem>(CELEBRATE_ITEM_FRAGMENT);
+const event = mockFragment<CelebrateItem>(COMMUNITY_FEED_ITEM_FRAGMENT);
 
 const orgId = '645654';
 const comment = {

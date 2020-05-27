@@ -101,7 +101,7 @@ describe('AddContactScreen next', () => {
       },
     );
 
-    await fireEvent.press(getByTestId('backIcon'));
+    await fireEvent.press(getByTestId('BackButton'));
     expect(navigateBack).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([
       closeDrawerResults,

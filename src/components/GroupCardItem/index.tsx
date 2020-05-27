@@ -3,12 +3,11 @@ import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text, Flex, Card, Button, Icon } from '../common';
-import DEFAULT_MISSIONHUB_IMAGE from '../../../assets/images/impactBackground.png';
-import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 import Dot from '../Dot';
 import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
 import { TouchablePress } from '../Touchable/index.ios';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
+import { useCommunityPhoto } from '../../containers/Communities/hooks/useCommunityPhoto';
 
 import styles from './styles';
 
@@ -74,19 +73,12 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
     );
   }
 
-  function getSource() {
-    if (communityPhotoUrl) {
-      return { uri: communityPhotoUrl };
-    } else if (orgIsGlobal(group)) {
-      return GLOBAL_COMMUNITY_IMAGE;
-    } else if (userCreated) {
-      return undefined;
-    } else {
-      return DEFAULT_MISSIONHUB_IMAGE;
-    }
-  }
+  const communityPhotoSource = useCommunityPhoto(
+    group.id,
+    communityPhotoUrl,
+    group.userCreated,
+  );
 
-  const source = getSource();
   const isGlobal = orgIsGlobal(group);
   const hasNotification = !isGlobal && unreadCommentsCount !== 0;
   //not passing a value for onPress to Card makes the card unclickable.
@@ -105,9 +97,11 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
           userCreated && !isGlobal ? styles.userCreatedContent : undefined,
         ]}
       >
-        {source ? (
-          <Image source={source} resizeMode="cover" style={styles.image} />
-        ) : null}
+        <Image
+          source={communityPhotoSource}
+          resizeMode="cover"
+          style={styles.image}
+        />
         <Flex justify="center" direction="row" style={styles.infoWrap}>
           <Flex value={1}>
             <Text style={styles.groupName}>{name.toUpperCase()}</Text>

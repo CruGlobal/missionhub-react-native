@@ -11,7 +11,7 @@ import {
 } from '../../../actions/navigation';
 import { SIGN_UP_SCREEN } from '../../../containers/Auth/SignUpScreen';
 import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
-import { MAIN_TABS } from '../../../constants';
+import { MAIN_TABS, COMMUNITIES_TAB } from '../../../constants';
 import { CREATE_GROUP_SCREEN } from '../../../containers/Groups/CreateGroupScreen';
 import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
 
@@ -64,7 +64,7 @@ describe('SignUpScreen next', () => {
       {
         type: 'navigateNestedReset test action',
         originalArgs: [
-          { routeName: MAIN_TABS },
+          { routeName: MAIN_TABS, tabName: COMMUNITIES_TAB },
           { routeName: CREATE_GROUP_SCREEN },
         ],
       },
@@ -120,7 +120,7 @@ describe('SignInScreen next', () => {
       {
         type: 'navigateNestedReset test action',
         originalArgs: [
-          { routeName: MAIN_TABS },
+          { routeName: MAIN_TABS, tabName: COMMUNITIES_TAB },
           { routeName: CREATE_GROUP_SCREEN },
         ],
       },
@@ -180,7 +180,7 @@ describe('MFACodeScreen next', () => {
       {
         type: 'navigateNestedReset test action',
         originalArgs: [
-          { routeName: MAIN_TABS },
+          { routeName: MAIN_TABS, tabName: COMMUNITIES_TAB },
           { routeName: CREATE_GROUP_SCREEN },
         ],
       },

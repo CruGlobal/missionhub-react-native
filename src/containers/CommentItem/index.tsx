@@ -5,7 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { Text, Flex } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
-import CelebrateItemName from '../../containers/CelebrateItemName';
+import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
 import { AuthState } from '../../reducers/auth';
 import {
   CelebrateCommentsState,
@@ -76,15 +76,15 @@ const CommentItem = ({
         {isMineNotReported ? (
           <Flex value={1} />
         ) : (
-          <CelebrateItemName
+          <CommunityFeedItemName
             name={name}
             person={person}
-            organization={organization}
+            communityId={organization.id}
             pressable={!isReported}
             customContent={<Text style={nameStyle}>{name}</Text>}
           />
         )}
-        <CardTime date={itemDate} commentFormatting={true} />
+        <CardTime date={itemDate} />
       </Flex>
       <Flex direction="row">
         {isMineNotReported ? <Flex value={1} /> : null}

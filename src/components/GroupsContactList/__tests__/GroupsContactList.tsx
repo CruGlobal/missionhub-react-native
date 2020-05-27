@@ -2,18 +2,19 @@ import React from 'react';
 import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { CommunityMemberPerson } from '../../../components/CommunityMemberItem/__generated__/CommunityMemberPerson';
+import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../../../components/CommunityMemberItem/queries';
 
 import GroupsContactList from '..';
 
 const date = '2019-08-25T13:00:00.000';
 MockDate.set('2019-08-25 13:00:00', 300);
 
-const person = {
-  id: '123',
-  full_name: 'Full Name',
-  first_name: 'First',
-  last_name: 'Last',
-};
+const person = mockFragment<CommunityMemberPerson>(
+  COMMUNITY_MEMBER_PERSON_FRAGMENT,
+);
+
 const organization = {
   id: '900',
   name: "Roge's org",
@@ -70,22 +71,4 @@ it('renders activity list', () => {
 
 it('renders empty list', () => {
   renderWithContext(<GroupsContactList {...props} activity={[]} />).snapshot();
-});
-
-it('renders person without full name', () => {
-  renderWithContext(
-    <GroupsContactList
-      {...props}
-      person={{ ...person, full_name: undefined }}
-    />,
-  ).snapshot();
-});
-
-it('renders person without last name', () => {
-  renderWithContext(
-    <GroupsContactList
-      {...props}
-      person={{ ...person, full_name: undefined, last_name: undefined }}
-    />,
-  ).snapshot();
 });

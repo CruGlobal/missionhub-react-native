@@ -12,6 +12,7 @@ export const CREATE_PERSON = gql`
           id
           name
         }
+        picture
       }
     }
   }
@@ -25,6 +26,7 @@ export const UPDATE_PERSON = gql`
         firstName
         lastName
         relationshipType
+        picture
         stage {
           id
           name

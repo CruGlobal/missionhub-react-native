@@ -15,17 +15,18 @@ import theme from '../../../theme';
 import CAMERA_ICON from '../../../../assets/images/cameraIcon.png';
 import {
   navigateBack,
-  navigatePush,
   navigateToMainTabs,
+  navigateNestedReset,
 } from '../../../actions/navigation';
 import ImagePicker from '../../../components/ImagePicker';
 import { addNewOrganization } from '../../../actions/organizations';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { organizationSelector } from '../../../selectors/organizations';
-import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../GroupScreen';
-import { ACTIONS, GROUPS_TAB } from '../../../constants';
+import { ACTIONS, COMMUNITIES_TAB, MAIN_TABS } from '../../../constants';
 import BottomButton from '../../../components/BottomButton';
 import Analytics from '../../Analytics';
+import { COMMUNITY_TABS } from '../../Communities/Community/constants';
+import { COMMUNITY_MEMBERS } from '../../Communities/Community/CommunityMembers/CommunityMembers';
 
 import styles from './styles';
 
@@ -77,10 +78,24 @@ class CreateGroupScreen extends Component {
 
       if (organization) {
         dispatch(
-          navigatePush(USER_CREATED_GROUP_SCREEN, {
-            orgId,
-            initialTab: GROUP_MEMBERS,
-          }),
+          navigateNestedReset([
+            {
+              routeName: MAIN_TABS,
+              tabName: COMMUNITIES_TAB,
+            },
+            {
+              routeName: COMMUNITY_TABS,
+              params: {
+                communityId: orgId,
+              },
+            },
+            {
+              routeName: COMMUNITY_MEMBERS,
+              params: {
+                communityId: orgId,
+              },
+            },
+          ]),
         );
         return dispatch(
           trackActionWithoutData(ACTIONS.SELECT_CREATED_COMMUNITY),
@@ -90,7 +105,7 @@ class CreateGroupScreen extends Component {
 
     // If for some reason the organization was not created and put in redux properly,
     // reset the user back to the communities tab
-    dispatch(navigateToMainTabs(GROUPS_TAB));
+    dispatch(navigateToMainTabs(COMMUNITIES_TAB));
   };
 
   // @ts-ignore

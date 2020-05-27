@@ -209,7 +209,7 @@ exports[`key login button is pressed shows email verification required message a
 +     </Text>
 +   </RCTSafeAreaView>
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
       align=\\"center\\"
@@ -366,7 +366,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     </Text>
 +   </RCTSafeAreaView>
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
       align=\\"center\\"
@@ -523,7 +523,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     </Text>
 +   </RCTSafeAreaView>
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
       align=\\"center\\"
@@ -778,7 +778,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 @@ -10,26 +10,10 @@
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
 -     align=\\"center\\"
@@ -812,7 +812,7 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 @@ -10,10 +10,26 @@
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
 +     align=\\"center\\"
@@ -850,7 +850,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <Header
-    left={<BackButton />}
+    left={<DeprecatedBackButton />}
   />
   <Flex
     align="center"

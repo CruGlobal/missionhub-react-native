@@ -84,10 +84,13 @@ exports[`renders correctly 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            },
+            Object {},
+          ],
         ]
       }
       testID="Text"
@@ -216,10 +219,13 @@ exports[`renders correctly as mine 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            },
+            Object {},
+          ],
         ]
       }
       testID="Text"
@@ -393,10 +399,13 @@ exports[`renders editing correctly 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            },
+            Object {},
+          ],
         ]
       }
       testID="Text"
@@ -534,10 +543,13 @@ exports[`renders my reported comment 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            },
+            Object {},
+          ],
         ]
       }
       testID="Text"
@@ -675,10 +687,13 @@ exports[`renders reported comment 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            },
+            Object {},
+          ],
         ]
       }
       testID="Text"
@@ -816,10 +831,13 @@ exports[`renders reported story 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            },
+            Object {},
+          ],
         ]
       }
       testID="Text"
@@ -989,10 +1007,13 @@ exports[`renders without menu actions 1`] = `
           Object {
             "fontFamily": "SourceSansPro-Regular",
           },
-          Object {
-            "color": "#B2B0B2",
-            "fontSize": 12,
-          },
+          Array [
+            Object {
+              "color": "#B2B0B2",
+              "fontSize": 12,
+            },
+            Object {},
+          ],
         ]
       }
       testID="Text"
