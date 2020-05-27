@@ -116,7 +116,11 @@ export const CreatePostScreen = () => {
     if (post) {
       updatePost({
         variables: {
-          input: { id: post.id, content: text, media: imageData },
+          input: {
+            id: post.id,
+            content: text,
+            media: imageData === post.mediaExpiringUrl ? undefined : imageData,
+          },
         },
       });
     } else {
