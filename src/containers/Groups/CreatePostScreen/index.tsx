@@ -18,7 +18,7 @@ import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
-import DeprecatedBackButton from '../../DeprecatedBackButton';
+import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -153,7 +153,9 @@ export const CreatePostScreen = () => {
 
   const renderHeader = () => (
     <Header
-      left={<DeprecatedBackButton iconStyle={styles.backButton} />}
+      left={
+        <BackButton style={styles.headerButton} iconColor={theme.textColor} />
+      }
       center={
         <Text style={styles.headerText}>
           {t(`postTypes:${mapPostTypeToFeedType(postType)}`)}
@@ -161,9 +163,14 @@ export const CreatePostScreen = () => {
       }
       right={
         text ? (
-          <Button onPress={savePost} testID="CreatePostButton">
-            <SendIcon style={styles.icon} />
-          </Button>
+          <Button
+            type="transparent"
+            onPress={savePost}
+            testID="CreatePostButton"
+            text={t('done')}
+            style={styles.headerButton}
+            buttonTextStyle={styles.createPostButtonText}
+          />
         ) : null
       }
     />
@@ -194,6 +201,7 @@ export const CreatePostScreen = () => {
   return (
     <View style={styles.container}>
       {renderHeader()}
+      <View style={styles.lineBreak} />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <View style={styles.postLabelRow}>
           <PostTypeLabel type={mapPostTypeToFeedType(postType)} />
