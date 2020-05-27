@@ -262,6 +262,8 @@ export default {
     part4: 'Ideas to help you demonstrate that you care about this person.',
     part5:
       'Talk about what this person believes and ways you can help them know the truth about God.',
+    part6:
+      "Over time you see all the different ways you're helping others draw close to God.",
   },
   suggestedStepDetail: {
     addStep: 'Add to My Steps',

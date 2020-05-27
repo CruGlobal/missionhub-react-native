@@ -213,7 +213,7 @@ const AddContactFields = ({
                 onPress={() => handleStageSelect()}
                 style={styles.categoryText}
               >
-                {t(`stages.${person.stage?.name.toLowerCase()}.label`)}
+                {person.stage?.name || ''}
               </Text>
             </View>
           </Flex>

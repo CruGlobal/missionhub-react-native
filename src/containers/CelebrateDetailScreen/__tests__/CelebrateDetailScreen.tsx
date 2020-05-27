@@ -24,6 +24,7 @@ import { CelebrateComment } from '../../../reducers/celebrateComments';
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../../components/CommunityFeedItem/queries';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { CommunityFeedItem } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { navigateBack } from '../../../actions/navigation';
 
 import CelebrateDetailScreen from '..';
 
@@ -33,6 +34,7 @@ jest.mock('../../../selectors/celebrateComments');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/celebrateComments');
+jest.mock('../../../actions/navigation');
 jest.mock('../../CommentItem', () => 'CommentItem');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.useFakeTimers();
@@ -96,6 +98,7 @@ beforeEach(() => {
   ((celebrateCommentsSelector as unknown) as jest.Mock).mockReturnValue(
     comments,
   );
+  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
 });
 
 it('renders correctly', () => {
@@ -124,6 +127,16 @@ it('renders correctly', () => {
       [ANALYTICS_PERMISSION_TYPE]: 'member',
     },
   });
+  expect(navigateBack).not.toHaveBeenCalled();
+});
+
+it('should navigate back if event only contains an id', () => {
+  renderWithContext(<CelebrateDetailScreen />, {
+    initialState,
+    navParams: { event: { id: '1' }, orgId },
+  });
+
+  expect(navigateBack).toHaveBeenCalled();
 });
 
 describe('refresh', () => {
