@@ -86,7 +86,7 @@ export const CelebrateFeedPostCards = ({
 }: CelebrateFeedPostCardsProps) => {
   const dispatch = useDispatch();
 
-  const { data, refetch } = useQuery<
+  const { data } = useQuery<
     GetCommunityPostCards,
     GetCommunityPostCardsVariables
   >(GET_COMMUNITY_POST_CARDS, { variables: { communityId: community.id } });
@@ -96,7 +96,17 @@ export const CelebrateFeedPostCards = ({
   const [markCommunityFeedItemsAsRead] = useMutation<
     MarkCommunityFeedItemsRead,
     MarkCommunityFeedItemsReadVariables
-  >(MARK_COMMUNITY_FEED_ITEMS_READ);
+  >(MARK_COMMUNITY_FEED_ITEMS_READ, {
+    awaitRefetchQueries: true,
+    refetchQueries: () => {
+      return [
+        {
+          query: GET_COMMUNITY_POST_CARDS,
+          variables: { communityId: community.id },
+        },
+      ];
+    },
+  });
 
   const navToFeedType = async (type: FeedItemSubjectTypeEnum) => {
     dispatch(
@@ -110,7 +120,6 @@ export const CelebrateFeedPostCards = ({
         input: { feedItemSubjectType: type, communityId: community.id },
       },
     });
-    refetch();
     feedRefetch();
   };
 
