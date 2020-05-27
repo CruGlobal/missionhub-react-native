@@ -22,13 +22,13 @@ const SET_STEP_EXPLAINER_MODAL_VIEWED = gql`
   }
 `;
 
-function ExampleStepTypesSet({
+const ExampleStepTypesSet = ({
   stepType,
   num,
 }: {
   stepType: StepTypeEnum;
   num: number;
-}) {
+}) => {
   return (
     <View style={{ flexDirection: 'column' }}>
       <StepTypeBadge
@@ -46,7 +46,7 @@ function ExampleStepTypesSet({
       </View>
     </View>
   );
-}
+};
 
 function ExampleStepTypes() {
   return (
