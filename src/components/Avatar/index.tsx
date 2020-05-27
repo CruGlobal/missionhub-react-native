@@ -1,12 +1,5 @@
 import React, { useMemo } from 'react';
-import {
-  View,
-  StyleProp,
-  ViewStyle,
-  Image,
-  ImageStyle,
-  TextStyle,
-} from 'react-native';
+import { View, StyleProp, Image, ImageStyle, TextStyle } from 'react-native';
 import { useSelector } from 'react-redux';
 import colorThis from '@eknowles/color-this';
 
@@ -26,34 +19,37 @@ type PersonType = {
   picture?: string | null;
 };
 
-type AvatarSize = 'small' | 'medium' | 'large';
+type AvatarSize = 'extrasmall' | 'small' | 'medium' | 'large';
 
-const wrapStyles: { [key in AvatarSize]: StyleProp<ViewStyle> } = {
-  small: {
+const wrapStyles: { [key in AvatarSize]: StyleProp<ImageStyle> } = {
+  extrasmall: {
     width: 24,
     height: 24,
     borderRadius: 12,
     borderWidth: 1,
     borderColor: theme.white,
   },
+  small: { width: 36, height: 36, borderRadius: 18 },
   medium: { width: 48, height: 48, borderRadius: 24 },
   large: { width: 96, height: 96, borderRadius: 48 },
 };
 const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
-  small: { fontSize: 12 },
+  extrasmall: { fontSize: 12 },
+  small: { fontSize: 20, fontWeight: '300' },
   medium: { fontSize: 26, fontWeight: '300' },
   large: { fontSize: 64, fontWeight: '300' },
 };
 
 interface AvatarPropsCommon {
   size: AvatarSize;
-  style?: StyleProp<ViewStyle>;
+  style?: StyleProp<ImageStyle>;
   personId?: string;
-  person?: PersonType;
+  person?: PersonType | null;
   orgId?: string;
+  customText?: string;
 }
 interface AvatarPropsPerson extends AvatarPropsCommon {
-  person: PersonType;
+  person: PersonType | null;
 }
 interface AvatarPropsPersonId extends AvatarPropsCommon {
   personId: string;
@@ -62,34 +58,36 @@ export type AvatarProps = AvatarPropsPerson | AvatarPropsPersonId;
 
 const EMPTY_PERSON = { id: '-', first_name: '-' };
 
-const AvatarView = React.memo(({ person, size, style }: AvatarPropsPerson) => {
-  const name =
-    person.firstName ||
-    person.first_name ||
-    person.fullName ||
-    person.full_name ||
-    '';
-  const initial = name[0] || '-';
-  const color = useMemo(() => colorThis(`${name}${person.id}`, 1), [person]);
+const AvatarView = React.memo(
+  ({ person, size, style, customText }: AvatarPropsPerson) => {
+    const name =
+      person?.firstName ||
+      person?.first_name ||
+      person?.fullName ||
+      person?.full_name ||
+      '';
+    const initial = customText || name[0] || '-';
+    const color = useMemo(() => colorThis(`${name}${person?.id}`, 1), [person]);
 
-  const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
+    const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
 
-  if (person.picture) {
+    if (person?.picture) {
+      return (
+        <Image
+          source={{ uri: person?.picture }}
+          style={wrapStyle}
+          resizeMode="cover"
+        />
+      );
+    }
+
     return (
-      <Image
-        source={{ uri: person.picture }}
-        style={[wrapStyle as StyleProp<ImageStyle>]}
-        resizeMode="cover"
-      />
+      <View style={[styles.avatar, wrapStyle]}>
+        <Text style={[styles.text, textStyles[size]]}>{initial}</Text>
+      </View>
     );
-  }
-
-  return (
-    <View style={[styles.avatar, wrapStyle]}>
-      <Text style={[styles.text, textStyles[size]]}>{initial}</Text>
-    </View>
-  );
-});
+  },
+);
 
 const AvatarPersonId = ({ personId, orgId, ...rest }: AvatarPropsPersonId) => {
   const person = useSelector<{ people: PeopleState }, PersonType>(
@@ -98,11 +96,7 @@ const AvatarPersonId = ({ personId, orgId, ...rest }: AvatarPropsPersonId) => {
   return <AvatarView person={person || EMPTY_PERSON} {...rest} />;
 };
 
-const Avatar = ({
-  person,
-  personId,
-  ...rest
-}: AvatarPropsPerson | AvatarPropsPersonId) => {
+const Avatar = ({ person, personId, ...rest }: AvatarProps) => {
   if (personId) {
     return <AvatarPersonId personId={personId} {...rest} />;
   }

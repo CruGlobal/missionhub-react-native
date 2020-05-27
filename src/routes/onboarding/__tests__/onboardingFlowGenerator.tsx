@@ -5,6 +5,7 @@ import { CREATE_STEP, ACTIONS } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
 import { SETUP_SCREEN } from '../../../containers/SetupScreen';
+import { ONBOARDING_ADD_PHOTO_SCREEN } from '../../../containers/OnboardingAddPhotoScreen';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
@@ -88,6 +89,7 @@ beforeEach(() => {
 type ScreenName =
   | typeof WELCOME_SCREEN
   | typeof SETUP_SCREEN
+  | typeof ONBOARDING_ADD_PHOTO_SCREEN
   | typeof GET_STARTED_SCREEN
   | typeof STAGE_SUCCESS_SCREEN
   | typeof SELECT_STEP_SCREEN
@@ -135,6 +137,19 @@ describe('WelcomeScreen next', () => {
 describe('SetupScreen next', () => {
   it('should fire required next actions', () => {
     const { store, next } = renderScreen(SETUP_SCREEN);
+
+    store.dispatch(next());
+
+    expect(navigatePush).toHaveBeenCalledWith(
+      ONBOARDING_ADD_PHOTO_SCREEN,
+      undefined,
+    );
+  });
+});
+
+describe('OnboardingAddPhotoScreen next', () => {
+  it('should fire required next actions', () => {
+    const { store, next } = renderScreen(ONBOARDING_ADD_PHOTO_SCREEN);
 
     store.dispatch(next());
 

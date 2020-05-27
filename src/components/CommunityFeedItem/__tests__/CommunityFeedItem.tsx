@@ -14,6 +14,7 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
+import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
 import {
   COMMUNITY_FEED_ITEM_FRAGMENT,
   COMMUNITY_FEED_POST_FRAGMENT,
@@ -26,7 +27,11 @@ import { CommunityPerson } from '../../CommunityFeedItem/__generated__/Community
 import { CommunityFeedStep } from '../__generated__/CommunityFeedStep';
 import { CommunityFeedChallenge } from '../__generated__/CommunityFeedChallenge';
 import { CommunityFeedPost } from '../__generated__/CommunityFeedPost';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
+import {
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
 import { CommunityFeedItem } from '..';
@@ -75,6 +80,11 @@ const prayerPostItem = { ...item, subject: prayerPostSubject };
 const storyPostItem = { ...item, subject: storyPostSubject };
 const stepItem = { ...item, subject: stepSubject };
 const challengeItem = { ...item, subject: challengeSubject };
+const myPrayerPostItem = {
+  ...item,
+  subject: prayerPostSubject,
+  subjectPerson: mePerson,
+};
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
@@ -102,7 +112,9 @@ describe('global community', () => {
         communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -115,7 +127,9 @@ describe('global community', () => {
         namePressable={false}
         onClearNotification={onClearNotification}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -127,7 +141,9 @@ describe('global community', () => {
         communityId={GLOBAL_COMMUNITY_ID}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 });
@@ -141,7 +157,23 @@ describe('Community', () => {
         communityId={communityId}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
+    ).snapshot();
+  });
+
+  it('renders post created by me correctly without add to steps button', () => {
+    renderWithContext(
+      <CommunityFeedItem
+        item={myPrayerPostItem}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={true}
+      />,
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -149,6 +181,23 @@ describe('Community', () => {
     renderWithContext(
       <CommunityFeedItem
         item={prayerPostItem}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={false}
+      />,
+      {
+        initialState,
+      },
+    ).snapshot();
+  });
+
+  it('renders post correctly without image', () => {
+    renderWithContext(
+      <CommunityFeedItem
+        item={{
+          ...storyPostItem,
+          subject: { ...storyPostSubject, mediaExpiringUrl: null },
+        }}
         onRefresh={onRefresh}
         communityId={communityId}
         namePressable={false}
@@ -165,7 +214,9 @@ describe('Community', () => {
         communityId={communityId}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -177,7 +228,9 @@ describe('Community', () => {
         communityId={communityId}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 
@@ -190,7 +243,9 @@ describe('Community', () => {
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
-      { initialState },
+      {
+        initialState,
+      },
     ).snapshot();
   });
 });
@@ -203,7 +258,9 @@ it('renders with name pressable correctly', () => {
       communityId={communityId}
       namePressable={true}
     />,
-    { initialState },
+    {
+      initialState,
+    },
   ).snapshot();
 });
 
@@ -372,5 +429,46 @@ describe('clear notification button', () => {
     fireEvent.press(getByTestId('ClearNotificationButton'));
 
     expect(onClearNotification).toHaveBeenCalledWith(storyPostItem);
+  });
+});
+
+describe('add to steps button', () => {
+  it('calls handleAddToMySteps', () => {
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItem
+        item={prayerPostItem}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        onClearNotification={onClearNotification}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+    fireEvent.press(getByTestId('AddToMyStepsButton'));
+
+    expect(navigatePush).toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
+      item: prayerPostItem,
+      communityId,
+    });
+  });
+});
+
+describe('navigates to post type screen', () => {
+  it('navigates', () => {
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItem
+        item={storyPostItem}
+        onRefresh={onRefresh}
+        communityId={communityId}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+    fireEvent.press(getByTestId('STORYButton'));
+
+    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+      type: FeedItemSubjectTypeEnum.STORY,
+      communityId,
+    });
   });
 });

@@ -8,7 +8,7 @@ import Header from '../../components/Header';
 import { Button } from '../../components/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { TrackStateContext } from '../../actions/analytics';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
@@ -59,7 +59,7 @@ const GroupUnreadFeed = ({
     <View style={styles.pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={<BackButton iconStyle={styles.backIcon} />}
+        left={<DeprecatedBackButton iconStyle={styles.backIcon} />}
         right={
           <Button
             testID="MarkAllButton"

@@ -1,37 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`label variations render extra large label 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Array [
       Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffffff",
-        "borderRadius": 8,
-        "elevation": 4,
-        "flexDirection": "row",
-        "marginHorizontal": 16,
-        "marginVertical": 8,
-        "shadowColor": "#000000",
-        "shadowOffset": Object {
-          "height": 2,
-          "width": 0,
-        },
-        "shadowOpacity": 0.3,
-        "shadowRadius": 2,
+        "backgroundColor": "#7076B5",
       },
-      Array [
-        Object {
-          "borderRadius": 0,
-          "marginBottom": 5,
-          "marginHorizontal": 0,
-          "marginVertical": 0,
-          "position": "relative",
-        },
-        Object {
-          "backgroundColor": "#7076B5",
-        },
-      ],
     ]
   }
 >
@@ -39,59 +15,36 @@ exports[`label variations render extra large label 1`] = `
     style={
       Array [
         Object {
-          "padding": 25,
-          "paddingVertical": 45,
-        },
-        Object {
           "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
+          "backgroundColor": "#ffffff",
+          "borderRadius": 8,
+          "elevation": 4,
+          "flexDirection": "row",
+          "marginHorizontal": 16,
+          "marginVertical": 8,
+          "shadowColor": "#000000",
+          "shadowOffset": Object {
+            "height": 2,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 2,
         },
-      ]
-    }
-  >
-    <SvgMock
-      color="#ffffff"
-      height={72}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={72}
-    />
-    <Text
-      style={
         Array [
           Object {
-            "color": "#505256",
+            "borderRadius": 0,
+            "marginBottom": 5,
+            "marginHorizontal": 0,
+            "marginVertical": 0,
+            "position": "relative",
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "backgroundColor": "#7076B5",
           },
           Object {
-            "color": "#ffffff",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 10,
-            "textAlign": "center",
+            "shadowOpacity": 0,
           },
-        ]
-      }
-    >
-      Read a God Story
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {
-          "left": 10,
-          "position": "absolute",
-          "top": 40,
-        },
-        Object {},
+        ],
       ]
     }
   >
@@ -99,157 +52,251 @@ exports[`label variations render extra large label 1`] = `
       style={
         Array [
           Object {
-            "alignItems": "flex-start",
-            "alignSelf": "flex-start",
+            "padding": 25,
+            "paddingVertical": 35,
+          },
+          Object {
+            "alignItems": "center",
+            "flex": 1,
             "justifyContent": "center",
           },
-          undefined,
+        ]
+      }
+    >
+      <SvgMock
+        color="#ffffff"
+        height={72}
+        style={
+          Array [
+            Object {
+              "marginLeft": -10,
+              "marginRight": 10,
+            },
+            undefined,
+          ]
+        }
+        width={72}
+      />
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "paddingTop": 10,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        Read a God Story
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "left": 10,
+            "position": "absolute",
+            "top": 10,
+          },
+          Object {},
         ]
       }
     >
       <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
         style={
-          Object {
-            "opacity": 1,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "alignSelf": "flex-start",
+              "justifyContent": "center",
+            },
+            undefined,
+          ]
         }
-        testID="IconButton"
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "backgroundColor": "transparent",
-              },
-              null,
-              Object {},
-              null,
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
+          testID="IconButton"
         >
-          <Text
-            allowFontScaling={false}
+          <View
             style={
               Array [
                 Object {
-                  "color": undefined,
-                  "fontSize": 12,
+                  "backgroundColor": "transparent",
                 },
-                Array [
-                  Object {
-                    "color": "#ffffff",
-                  },
-                  Object {
-                    "fontSize": 18,
-                  },
-                  Array [
-                    Object {
-                      "margin": 10,
-                    },
-                    Object {},
-                  ],
-                ],
-                Object {
-                  "fontFamily": "icomoon",
-                  "fontStyle": "normal",
-                  "fontWeight": "normal",
-                },
+                null,
                 Object {},
+                null,
               ]
             }
           >
-            
-          </Text>
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
         </View>
       </View>
     </View>
   </View>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`label variations renders label with no text 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+      null,
+      Object {
+        "width": 20,
+      },
+    ]
   }
-  testID="STORYButton"
+  testID="STORYLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
-        },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#7076B5",
-          },
-          null,
-          Object {
-            "width": 20,
-          },
-        ],
-        Object {
-          "borderRadius": 50,
-        },
-      ]
-    }
-  >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
           "marginLeft": -10,
           "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-  </View>
+        },
+        undefined,
+      ]
+    }
+    width={20}
+  />
 </View>
 `;
 
 exports[`label variations renders large label 1`] = `
 <View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+      Object {
+        "height": 48,
+      },
+      null,
+    ]
+  }
+  testID="STORYLabel"
+>
+  <SvgMock
+    color="#ffffff"
+    height={24}
+    style={
+      Array [
+        Object {
+          "marginLeft": -10,
+          "marginRight": 10,
+        },
+        undefined,
+      ]
+    }
+    width={24}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
+        },
+      ]
+    }
+  >
+    God Story
+  </Text>
+</View>
+`;
+
+exports[`post types cards renders Announcement Label 1`] = `
+<View
   accessible={true}
   focusable={true}
   isTVSelectable={true}
@@ -262,44 +309,38 @@ exports[`label variations renders large label 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
       "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
     }
   }
-  testID="STORYButton"
+  testID="ANNOUNCEMENTCardWithPeople"
 >
   <View
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "backgroundColor": "#505256",
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#7076B5",
-          },
-          Object {
-            "height": 48,
-          },
-          null,
-        ],
         Object {
-          "borderRadius": 50,
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
         },
       ]
     }
@@ -308,13 +349,40 @@ exports[`label variations renders large label 1`] = `
       color="#ffffff"
       height={24}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
       }
       width={24}
     />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
     <Text
       style={
         Array [
@@ -325,14 +393,1136 @@ exports[`label variations renders large label 1`] = `
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
-            "color": "#ffffff",
             "fontSize": 14,
-            "lineHeight": 20,
           },
         ]
       }
     >
-      God Story
+      Announcements
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders Care Request Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="HELP_REQUESTCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FD726D",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Provide Help
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders God Story Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STORYCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#7076B5",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Read a God Story
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders On Your Mind Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="THOUGHTCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#B4B6BA",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      card.THOUGHT
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders Prayer Request Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="PRAYER_REQUESTCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#A97398",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Prayer Requests
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders Spiritual Question Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="QUESTIONCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#FFA178",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Answer a Question
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders Step Of Faith Label 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STEPCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Celebrate Others
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders people 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STEPCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(55, 160, 67)",
+              },
+              Object {
+                "marginLeft": -12,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(216, 155, 216)",
+              },
+              Object {
+                "marginLeft": -12,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(121, 135, 216)",
+              },
+              Object {
+                "marginLeft": -12,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          -
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(199, 163, 67)",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                Object {
+                  "marginLeft": -12,
+                },
+              ],
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          +3
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Celebrate Others
+    </Text>
+  </View>
+</View>
+`;
+
+exports[`post types cards renders people with count only 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "flex-start",
+      "backgroundColor": "#ffffff",
+      "borderRadius": 8,
+      "elevation": 4,
+      "flex": 1,
+      "flexDirection": "column",
+      "marginHorizontal": 16,
+      "marginVertical": 8,
+      "opacity": 1,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.3,
+      "shadowRadius": 2,
+    }
+  }
+  testID="STEPCardWithPeople"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+        Object {
+          "borderTopLeftRadius": 8,
+          "borderTopRightRadius": 8,
+          "flexDirection": "row",
+          "paddingHorizontal": 12,
+          "paddingVertical": 13,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={24}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          Object {
+            "marginLeft": 0,
+            "marginRight": 0,
+          },
+        ]
+      }
+      width={24}
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderColor": "#ffffff",
+                "borderRadius": 12,
+                "borderWidth": 1,
+                "height": 24,
+                "width": 24,
+              },
+              Object {
+                "backgroundColor": "rgb(199, 163, 67)",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "#3CC8E6",
+                },
+                Object {
+                  "marginLeft": -12,
+                },
+              ],
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 12,
+                },
+              ],
+            ]
+          }
+        >
+          +6
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "borderBottomLeftRadius": 8,
+        "borderBottomRightRadius": 8,
+        "paddingHorizontal": 10,
+        "paddingVertical": 5,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+          },
+        ]
+      }
+    >
+      Celebrate Others
     </Text>
   </View>
 </View>
@@ -340,621 +1530,469 @@ exports[`label variations renders large label 1`] = `
 
 exports[`post types renders Announcement Label 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#505256",
+      },
+      null,
+      null,
+    ]
   }
-  testID="ANNOUNCEMENTButton"
+  testID="ANNOUNCEMENTLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#505256",
-          },
-          null,
-          null,
-        ],
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
         Object {
-          "borderRadius": 50,
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
         },
       ]
     }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      Announcement
-    </Text>
-  </View>
+    Announcement
+  </Text>
 </View>
 `;
 
 exports[`post types renders Care Request Label 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#FD726D",
+      },
+      null,
+      null,
+    ]
   }
-  testID="HELP_REQUESTButton"
+  testID="HELP_REQUESTLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#FD726D",
-          },
-          null,
-          null,
-        ],
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
         Object {
-          "borderRadius": 50,
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
         },
       ]
     }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      Care Request
-    </Text>
-  </View>
+    Care Request
+  </Text>
 </View>
 `;
 
 exports[`post types renders God Story Label 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+      null,
+      null,
+    ]
   }
-  testID="STORYButton"
+  testID="STORYLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#7076B5",
-          },
-          null,
-          null,
-        ],
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
         Object {
-          "borderRadius": 50,
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
         },
       ]
     }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      God Story
-    </Text>
-  </View>
+    God Story
+  </Text>
 </View>
 `;
 
 exports[`post types renders On Your Mind Label 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#B4B6BA",
+      },
+      null,
+      null,
+    ]
   }
-  testID="THOUGHTButton"
+  testID="THOUGHTLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#B4B6BA",
-          },
-          null,
-          null,
-        ],
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
         Object {
-          "borderRadius": 50,
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
         },
       ]
     }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      What's on Your Mind
-    </Text>
-  </View>
+    What's on Your Mind
+  </Text>
 </View>
 `;
 
 exports[`post types renders Prayer Request Label 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#A97398",
+      },
+      null,
+      null,
+    ]
   }
-  testID="PRAYER_REQUESTButton"
+  testID="PRAYER_REQUESTLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#A97398",
-          },
-          null,
-          null,
-        ],
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
         Object {
-          "borderRadius": 50,
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
         },
       ]
     }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      Prayer Request
-    </Text>
-  </View>
+    Prayer Request
+  </Text>
 </View>
 `;
 
 exports[`post types renders Spiritual Question Label 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#FFA178",
+      },
+      null,
+      null,
+    ]
   }
-  testID="QUESTIONButton"
+  testID="QUESTIONLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#FFA178",
-          },
-          null,
-          null,
-        ],
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
         Object {
-          "borderRadius": 50,
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
         },
       ]
     }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      Spiritual Question
-    </Text>
-  </View>
+    Spiritual Question
+  </Text>
 </View>
 `;
 
 exports[`post types renders Step Of Faith Label 1`] = `
 <View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
   style={
-    Object {
-      "opacity": 1,
-    }
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#3CC8E6",
+      },
+      null,
+      null,
+    ]
   }
-  testID="STEPButton"
+  testID="STEPLabel"
 >
-  <View
+  <SvgMock
+    color="#ffffff"
+    height={20}
     style={
       Array [
         Object {
-          "alignItems": "center",
-          "backgroundColor": "transparent",
-          "borderRadius": 0,
-          "borderWidth": 0,
-          "height": 60,
-          "justifyContent": "center",
-          "margin": 0,
-          "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "marginLeft": -10,
+          "marginRight": 10,
         },
-        null,
-        Array [
-          Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "height": 36,
-            "justifyContent": "space-between",
-            "paddingVertical": 10,
-          },
-          Object {
-            "backgroundColor": "#3CC8E6",
-          },
-          null,
-          null,
-        ],
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
         Object {
-          "borderRadius": 50,
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
         },
       ]
     }
   >
-    <SvgMock
-      color="#ffffff"
-      height={20}
-      style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
-      }
-      width={20}
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      Step of Faith
-    </Text>
-  </View>
+    Step of Faith
+  </Text>
 </View>
 `;
 
 exports[`renders correctly 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 10,
+      },
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+      null,
+      null,
+    ]
+  }
+  testID="STORYLabel"
+>
+  <SvgMock
+    color="#ffffff"
+    height={20}
+    style={
+      Array [
+        Object {
+          "marginLeft": -10,
+          "marginRight": 10,
+        },
+        undefined,
+      ]
+    }
+    width={20}
+  />
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#ffffff",
+          "fontSize": 14,
+          "lineHeight": 20,
+        },
+      ]
+    }
+  >
+    God Story
+  </Text>
+</View>
+`;
+
+exports[`renders pressable correctly 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -991,9 +2029,11 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "alignItems": "center",
+            "borderRadius": 18,
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
+            "paddingHorizontal": 20,
             "paddingVertical": 10,
           },
           Object {
@@ -1012,10 +2052,13 @@ exports[`renders correctly 1`] = `
       color="#ffffff"
       height={20}
       style={
-        Object {
-          "marginLeft": -10,
-          "marginRight": 10,
-        }
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
       }
       width={20}
     />

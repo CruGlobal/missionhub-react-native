@@ -78,13 +78,13 @@ const CommentItem = ({
         ) : (
           <CommunityFeedItemName
             name={name}
-            personId={person?.id}
+            person={person}
             communityId={organization.id}
             pressable={!isReported}
             customContent={<Text style={nameStyle}>{name}</Text>}
           />
         )}
-        <CardTime date={itemDate} commentFormatting={true} />
+        <CardTime date={itemDate} />
       </Flex>
       <Flex direction="row">
         {isMineNotReported ? <Flex value={1} /> : null}

@@ -17,7 +17,7 @@ import FilterItem from '../../components/FilterItem';
 import { buildTrackingObj, isString } from '../../utils/common';
 import { SEARCH_REFINE_SCREEN } from '../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../actions/analytics';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 
 import styles from './styles';
 
@@ -239,7 +239,7 @@ export class SearchPeopleFilterScreen extends Component {
     const { t } = this.props;
     return (
       <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('title')} />
+        <Header left={<DeprecatedBackButton />} title={t('title')} />
         <ScrollView
           style={styles.list}
           refreshControl={

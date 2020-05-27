@@ -9,15 +9,16 @@ import {
 } from '../../../../../testUtils';
 import {
   navigateBack,
-  navigatePush,
   navigateToMainTabs,
+  navigateNestedReset,
 } from '../../../../actions/navigation';
 import { addNewOrganization } from '../../../../actions/organizations';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import * as organizations from '../../../../actions/organizations';
 import { organizationSelector } from '../../../../selectors/organizations';
-import { ACTIONS, COMMUNITIES_TAB } from '../../../../constants';
-import { USER_CREATED_GROUP_SCREEN, GROUP_MEMBERS } from '../../GroupScreen';
+import { ACTIONS, COMMUNITIES_TAB, MAIN_TABS } from '../../../../constants';
+import { COMMUNITY_TABS } from '../../../Communities/Community/constants';
+import { COMMUNITY_MEMBERS } from '../../../Communities/Community/CommunityMembers/CommunityMembers';
 
 import CreateGroupScreen from '..';
 
@@ -30,7 +31,7 @@ const mockAddNewOrg = {
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
-  navigatePush: jest.fn(() => ({ type: 'push' })),
+  navigateNestedReset: jest.fn(() => ({ type: 'navigateNestedReset' })),
   navigateToMainTabs: jest.fn(() => ({ type: 'navigateToMainTabs' })),
 }));
 jest.mock('../../../../actions/organizations', () => ({
@@ -185,10 +186,21 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, null);
-    expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      orgId: mockNewId,
-      initialTab: GROUP_MEMBERS,
-    });
+    expect(navigateNestedReset).toHaveBeenCalledWith([
+      { routeName: MAIN_TABS, tabName: COMMUNITIES_TAB },
+      {
+        routeName: COMMUNITY_TABS,
+        params: {
+          communityId: mockNewId,
+        },
+      },
+      {
+        routeName: COMMUNITY_MEMBERS,
+        params: {
+          communityId: mockNewId,
+        },
+      },
+    ]);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_CREATED_COMMUNITY,
     );
@@ -215,10 +227,21 @@ describe('CreateGroupScreen', () => {
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
     expect(addNewOrganization).toHaveBeenCalledWith(name, data);
-    expect(navigatePush).toHaveBeenCalledWith(USER_CREATED_GROUP_SCREEN, {
-      orgId: mockNewId,
-      initialTab: GROUP_MEMBERS,
-    });
+    expect(navigateNestedReset).toHaveBeenCalledWith([
+      { routeName: MAIN_TABS, tabName: COMMUNITIES_TAB },
+      {
+        routeName: COMMUNITY_TABS,
+        params: {
+          communityId: mockNewId,
+        },
+      },
+      {
+        routeName: COMMUNITY_MEMBERS,
+        params: {
+          communityId: mockNewId,
+        },
+      },
+    ]);
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SELECT_CREATED_COMMUNITY,
     );

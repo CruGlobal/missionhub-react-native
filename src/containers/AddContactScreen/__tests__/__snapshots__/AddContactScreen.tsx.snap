@@ -98,16 +98,56 @@ exports[`handleUpdateData should update the state 1`] = `
           ]
         }
       >
-        <SvgMock
-          color="#ECEEF2"
-          onPress={[Function]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "marginRight": 10,
+              "opacity": 1,
             }
           }
-          testID="closeIcon"
-        />
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ECEEF2"
+            />
+          </View>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -579,7 +619,7 @@ exports[`renders correctly | No Person 1`] = `
               "opacity": 1,
             }
           }
-          testID="backIcon"
+          testID="BackButton"
         >
           <View
             style={
@@ -596,7 +636,14 @@ exports[`renders correctly | No Person 1`] = `
                   "paddingVertical": 10,
                 },
                 null,
-                Object {},
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
                 null,
               ]
             }
@@ -1020,16 +1067,56 @@ exports[`renders correctly | With Person 1`] = `
           ]
         }
       >
-        <SvgMock
-          color="#ECEEF2"
-          onPress={[Function]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "marginRight": 10,
+              "opacity": 1,
             }
           }
-          testID="closeIcon"
-        />
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ECEEF2"
+            />
+          </View>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -1392,7 +1479,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
               "opacity": 1,
             }
           }
-          testID="backIcon"
+          testID="BackButton"
         >
           <View
             style={
@@ -1409,7 +1496,14 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                   "paddingVertical": 10,
                 },
                 null,
-                Object {},
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
                 null,
               ]
             }
@@ -1732,7 +1826,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -194,11 +194,13 @@
+@@ -201,11 +201,13 @@
                       \\"fontSize\\": 13,
                       \\"marginTop\\": 15,
                     },
@@ -1747,7 +1841,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -231,11 +233,11 @@
+@@ -238,11 +240,11 @@
                     },
                   ]
                 }
@@ -1760,7 +1854,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -340,24 +342,18 @@
+@@ -347,24 +349,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -1787,7 +1881,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -380,15 +376,11 @@
+@@ -387,15 +383,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -1904,16 +1998,56 @@ exports[`savePerson update existing person set last name to null should update p
           ]
         }
       >
-        <SvgMock
-          color="#ECEEF2"
-          onPress={[Function]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "marginRight": 10,
+              "opacity": 1,
             }
           }
-          testID="closeIcon"
-        />
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ECEEF2"
+            />
+          </View>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -2423,16 +2557,56 @@ exports[`savePerson update existing person with org should update person and nav
           ]
         }
       >
-        <SvgMock
-          color="#ECEEF2"
-          onPress={[Function]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "marginRight": 10,
+              "opacity": 1,
             }
           }
-          testID="closeIcon"
-        />
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ECEEF2"
+            />
+          </View>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -2942,16 +3116,56 @@ exports[`savePerson update existing person without org should update person and 
           ]
         }
       >
-        <SvgMock
-          color="#ECEEF2"
-          onPress={[Function]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "marginRight": 10,
+              "opacity": 1,
             }
           }
-          testID="closeIcon"
-        />
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ECEEF2"
+            />
+          </View>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -3461,16 +3675,56 @@ exports[`savePerson update existing person without org updates users profile pic
           ]
         }
       >
-        <SvgMock
-          color="#ECEEF2"
-          onPress={[Function]}
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "marginRight": 10,
+              "opacity": 1,
             }
           }
-          testID="closeIcon"
-        />
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ECEEF2"
+            />
+          </View>
+        </View>
       </View>
     </View>
   </RCTSafeAreaView>
@@ -3519,6 +3773,7 @@ exports[`savePerson update existing person without org updates users profile pic
               }
             >
               <ImagePicker
+                circleOverlay={true}
                 onSelectImage={[Function]}
                 testID="ImagePicker"
               >

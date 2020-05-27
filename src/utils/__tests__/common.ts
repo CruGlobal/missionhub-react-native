@@ -33,6 +33,7 @@ import {
   personIsCurrentUser,
   isOnboarding,
   mapPostTypeToFeedType,
+  mapFeedTypeToPostType,
   getFeedItemType,
 } from '../common';
 import {
@@ -143,33 +144,20 @@ describe('orgIsPersonalMinistry', () => {
   it('returns true for personal ministry', () => {
     expect(orgIsPersonalMinistry({ id: 'personal' })).toEqual(true);
   });
-  it('returns false for user-created community', () => {
-    expect(orgIsPersonalMinistry({ id: '1', user_created: true })).toEqual(
-      false,
-    );
-  });
-  it('returns false for cru community', () => {
-    expect(orgIsPersonalMinistry({ id: '1', user_created: false })).toEqual(
-      false,
-    );
-  });
 });
 
 describe('orgIsUserCreated', () => {
   it('returns false for empty org', () => {
     expect(orgIsUserCreated({})).toEqual(false);
   });
-  it('returns false for personal ministry', () => {
-    expect(orgIsUserCreated({ id: 'personal' })).toEqual(false);
-  });
   it('returns true for user_created community', () => {
-    expect(orgIsUserCreated({ id: '1', user_created: true })).toEqual(true);
+    expect(orgIsUserCreated({ user_created: true })).toEqual(true);
   });
   it('returns true for userCreated community', () => {
-    expect(orgIsUserCreated({ id: '1', userCreated: true })).toEqual(true);
+    expect(orgIsUserCreated({ userCreated: true })).toEqual(true);
   });
   it('returns false for cru community', () => {
-    expect(orgIsUserCreated({ id: '1', user_created: false })).toEqual(false);
+    expect(orgIsUserCreated({ user_created: false })).toEqual(false);
   });
 });
 
@@ -197,12 +185,6 @@ describe('orgIsGlobal', () => {
   });
   it('returns false for personal ministry', () => {
     expect(orgIsGlobal({ id: 'personal' })).toEqual(false);
-  });
-  it('returns false for user-created community', () => {
-    expect(orgIsGlobal({ id: '1', user_created: true })).toEqual(false);
-  });
-  it('returns false for cru community', () => {
-    expect(orgIsGlobal({ id: '1', user_created: false })).toEqual(false);
   });
   it('returns true for global community', () => {
     expect(orgIsGlobal({ id: GLOBAL_COMMUNITY_ID })).toEqual(true);
@@ -793,6 +775,44 @@ describe('mapPostTypeToFeedType', () => {
   it('maps for Announcement', () => {
     expect(mapPostTypeToFeedType(PostTypeEnum.announcement)).toEqual(
       FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+    );
+  });
+});
+
+describe('mapFeedTypeToPostType', () => {
+  it('maps for Story', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.STORY)).toEqual(
+      PostTypeEnum.story,
+    );
+  });
+
+  it('maps for Prayer Request', () => {
+    expect(
+      mapFeedTypeToPostType(FeedItemSubjectTypeEnum.PRAYER_REQUEST),
+    ).toEqual(PostTypeEnum.prayer_request);
+  });
+
+  it('maps for Question', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.QUESTION)).toEqual(
+      PostTypeEnum.question,
+    );
+  });
+
+  it('maps for Help Request', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.HELP_REQUEST)).toEqual(
+      PostTypeEnum.help_request,
+    );
+  });
+
+  it('maps for Thought', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.THOUGHT)).toEqual(
+      PostTypeEnum.thought,
+    );
+  });
+
+  it('maps for Announcement', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.ANNOUNCEMENT)).toEqual(
+      PostTypeEnum.announcement,
     );
   });
 });

@@ -11,7 +11,7 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Text, Flex } from '../../components/common';
 import PersonCategoryButton from '../../components/PersonCategoryButton';
 import Header from '../../components/Header';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { UPDATE_PERSON } from '../../containers/SetupScreen/queries';
 import {
@@ -94,7 +94,7 @@ const PersonCategoryScreen = ({ next }: PersonCategoryScreenProps) => {
 
   return (
     <View style={styles.container}>
-      <Header left={<BackButton />} />
+      <Header left={<DeprecatedBackButton />} />
       <Flex value={2} justify="start" align="center" style={{ marginTop: 20 }}>
         <View style={styles.textWrap}>{getText()}</View>
         {Object.values(relationshipTypeList).map(type => (

@@ -183,7 +183,7 @@ describe('completeWithoutSave', () => {
         },
       },
     );
-    fireEvent.press(getByTestId('closeIcon'));
+    fireEvent.press(getByTestId('CloseButton'));
     expect(next).toHaveBeenCalledWith({
       personId: undefined,
       relationshipType: undefined,

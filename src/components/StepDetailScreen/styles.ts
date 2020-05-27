@@ -7,9 +7,6 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.white,
   },
-  backButton: {
-    color: theme.inactiveColor,
-  },
   body: {
     paddingTop: 26,
     paddingHorizontal: 32,
@@ -25,5 +22,18 @@ export default StyleSheet.create({
     fontWeight: '300',
     marginVertical: 16,
     marginHorizontal: 32,
+  },
+  personNameStyle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+  dateTextStyle: {
+    color: theme.communityThoughtGrey,
+    fontSize: 12,
+  },
+  postContentStyle: {
+    fontSize: 16,
+    color: theme.grey,
+    paddingBottom: 20,
   },
 });

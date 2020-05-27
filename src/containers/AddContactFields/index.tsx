@@ -109,6 +109,7 @@ const AddContactFields = ({
                 // @ts-ignore
                 testID="ImagePicker"
                 onSelectImage={handleImageChange}
+                circleOverlay={true}
               >
                 <Avatar person={person} size="large" />
                 <View style={styles.changeAvatarButton}>

@@ -16,10 +16,11 @@ import {
 import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { REQUESTS } from '../api/routes';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 
 import callApi from './api';
 import { getMe } from './person';
-import { navigatePush, navigateToCommunity } from './navigation';
+import { navigatePush } from './navigation';
 import { checkNotifications } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
@@ -201,7 +202,11 @@ export function landOnStashedCommunityScreen() {
     >,
     getState: () => { onboarding: OnboardingState },
   ) => {
-    dispatch(navigateToCommunity(getState().onboarding.community));
+    dispatch(
+      navigatePush(COMMUNITY_TABS, {
+        communityId: getState().onboarding.community?.id,
+      }),
+    );
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }

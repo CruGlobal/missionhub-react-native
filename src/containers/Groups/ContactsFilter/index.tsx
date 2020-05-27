@@ -16,7 +16,7 @@ import {
 import { SEARCH_REFINE_SCREEN } from '../../SearchPeopleFilterRefineScreen';
 import { trackSearchFilter } from '../../../actions/analytics';
 import { getOrgFilterStats } from '../../../actions/labels';
-import BackButton from '../../BackButton';
+import DeprecatedBackButton from '../../DeprecatedBackButton';
 
 import styles from './styles';
 
@@ -122,7 +122,7 @@ export class ContactsFilter extends Component {
     const { options, toggleOptions } = this.state;
     return (
       <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={t('title')} />
+        <Header left={<DeprecatedBackButton />} title={t('title')} />
         <ScrollView style={styles.list}>
           {/* 
           // @ts-ignore */}

@@ -133,7 +133,7 @@ it('renders correctly', () => {
 it('should navigate back if event only contains an id', () => {
   renderWithContext(<CelebrateDetailScreen />, {
     initialState,
-    navParams: { event: { id: '1' }, orgId },
+    navParams: { item: { id: '1' }, orgId },
   });
 
   expect(navigateBack).toHaveBeenCalled();

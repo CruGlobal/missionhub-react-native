@@ -19,7 +19,7 @@ import ImagePicker, {
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
 import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
-import BackButton from '../../BackButton';
+import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -31,9 +31,9 @@ import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { CommunityFeedPost } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
-import SendIcon from './sendIcon.svg';
 import PhotoIcon from './photoIcon.svg';
 import VideoIcon from './videoIcon.svg';
+import CameraIcon from './cameraIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
@@ -46,15 +46,15 @@ interface CreatePostScreenParams {
   onComplete: () => void;
   communityId: string;
 }
-
 interface CreatePostNavParams extends CreatePostScreenParams {
   postType: PostTypeEnum;
 }
 interface UpdatePostNavParams extends CreatePostScreenParams {
   post: CommunityFeedPost;
 }
-
 type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
+
+const EMPTY_IMAGE_URI = '/media/original/missing.png';
 
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
@@ -117,12 +117,18 @@ export const CreatePostScreen = () => {
 
     if (post) {
       updatePost({
-        variables: { input: { id: post.id, content: text } },
+        variables: {
+          input: {
+            id: post.id,
+            content: text,
+            media: imageData === post.mediaExpiringUrl ? undefined : imageData,
+          },
+        },
       });
     } else {
       createPost({
         variables: {
-          input: { content: text, communityId, postType },
+          input: { content: text, communityId, postType, media: imageData },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -162,7 +168,9 @@ export const CreatePostScreen = () => {
 
   const renderHeader = () => (
     <Header
-      left={<BackButton iconStyle={styles.backButton} />}
+      left={
+        <BackButton style={styles.headerButton} iconColor={theme.textColor} />
+      }
       center={
         <Text style={styles.headerText}>
           {t(`postTypes:${mapPostTypeToFeedType(postType)}`)}
@@ -170,9 +178,14 @@ export const CreatePostScreen = () => {
       }
       right={
         text ? (
-          <Button onPress={savePost} testID="CreatePostButton">
-            <SendIcon style={styles.icon} />
-          </Button>
+          <Button
+            type="transparent"
+            onPress={savePost}
+            testID="CreatePostButton"
+            text={t('done')}
+            style={styles.headerButton}
+            buttonTextStyle={styles.createPostButtonText}
+          />
         ) : null
       }
     />
@@ -229,6 +242,7 @@ export const CreatePostScreen = () => {
   return (
     <View style={styles.container}>
       {renderHeader()}
+      <View style={styles.lineBreak} />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <View style={styles.postLabelRow}>
           <PostTypeLabel type={mapPostTypeToFeedType(postType)} />
