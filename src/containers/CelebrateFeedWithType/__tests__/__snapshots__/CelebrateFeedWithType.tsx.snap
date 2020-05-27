@@ -72,17 +72,22 @@ exports[`renders correctly 1`] = `
       >
         <SvgMock
           color="#ffffff"
-          height={72}
+          height={225}
           style={
             Array [
               Object {
                 "marginLeft": -10,
                 "marginRight": 10,
               },
-              undefined,
+              Object {
+                "bottom": -75,
+                "opacity": 0.2,
+                "position": "absolute",
+                "right": -30,
+              },
             ]
           }
-          width={72}
+          width={225}
         />
         <Text
           style={
@@ -97,13 +102,36 @@ exports[`renders correctly 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
+                "paddingTop": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Celebrate Together
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "lineHeight": 20,
+                "paddingHorizontal": 35,
                 "paddingTop": 10,
                 "textAlign": "center",
               },
             ]
           }
         >
-          Celebrate Others
+          See what God is doing through your
+Community’s completed steps.
         </Text>
       </View>
       <View
@@ -283,17 +311,22 @@ exports[`renders correctly with id 1`] = `
       >
         <SvgMock
           color="#ffffff"
-          height={72}
+          height={225}
           style={
             Array [
               Object {
                 "marginLeft": -10,
                 "marginRight": 10,
               },
-              undefined,
+              Object {
+                "bottom": -75,
+                "opacity": 0.2,
+                "position": "absolute",
+                "right": -30,
+              },
             ]
           }
-          width={72}
+          width={225}
         />
         <Text
           style={
@@ -308,13 +341,36 @@ exports[`renders correctly with id 1`] = `
                 "color": "#ffffff",
                 "fontSize": 24,
                 "fontWeight": "300",
+                "paddingTop": 20,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Celebrate Together
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 14,
+                "lineHeight": 20,
+                "paddingHorizontal": 35,
                 "paddingTop": 10,
                 "textAlign": "center",
               },
             ]
           }
         >
-          Celebrate Others
+          See what God is doing through your
+Community’s completed steps.
         </Text>
       </View>
       <View

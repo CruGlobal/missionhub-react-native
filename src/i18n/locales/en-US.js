@@ -899,12 +899,26 @@ export default {
     ANNOUNCEMENT: 'Announcement',
     STEP: 'Step of Faith',
     header: {
-      STORY: 'Read a God Story',
-      PRAYER_REQUEST: 'Answer a Prayer Request',
-      QUESTION: 'Answer a Question',
-      HELP_REQUEST: 'Provide Help',
+      STORY: 'God Stories',
+      PRAYER_REQUEST: 'Prayer Requests',
+      QUESTION: 'Spiritual Questions',
+      HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
-      STEP: 'Celebrate Others',
+      THOUGHT: 'Random Thoughts',
+      STEP: 'Celebrate Together',
+    },
+    subheader: {
+      STORY: 'When God does something amazing,\nshare the joy here.',
+      PRAYER_REQUEST:
+        "Share a prayer request, or turn someone's request into your next step of faith.",
+      QUESTION:
+        "Ask a question, or turn someone's question\ninto your next step of faith.",
+      HELP_REQUEST:
+        "Share a need, or turn someone's request into your next step of faith.",
+      ANNOUNCEMENT: 'Get the latest news, like directions to the next potluck.',
+      THOUGHT:
+        'Share a random thought, or pass on the meme that made you laugh until you cried.',
+      STEP: 'See what God is doing through your\nCommunity’s completed steps.',
     },
     card: {
       STORY: 'Read a God Story',
@@ -928,6 +942,7 @@ export default {
       QUESTION: 'Ask a Spiritual Question',
       HELP_REQUEST: 'Ask for Help',
       ANNOUNCEMENT: 'Make an Announcement',
+      THOUGHT: "What's on Your Mind",
     },
     placeholder: {
       story: 'Share an inspiring God story...',

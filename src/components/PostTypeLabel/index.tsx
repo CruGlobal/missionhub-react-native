@@ -52,7 +52,7 @@ interface PostTypeIconProps {
 export function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
   const iconSize =
     size === PostLabelSizeEnum.extraLarge
-      ? 72
+      ? 225
       : size === PostLabelSizeEnum.large
       ? 24
       : 20;
@@ -107,8 +107,9 @@ const PostTypeLabel = ({
             justify="center"
             style={styles.headerContainer}
           >
-            <PostTypeIcon type={type} size={size} />
+            <PostTypeIcon type={type} size={size} style={styles.headerIcon} />
             <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
+            <Text style={styles.subheaderText}>{t(`subheader.${type}`)}</Text>
           </Flex>
           <Flex style={styles.headerBackButtonWrap}>
             <DeprecatedBackButton />

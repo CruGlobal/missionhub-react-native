@@ -23,12 +23,26 @@ export default StyleSheet.create({
     paddingVertical: 35,
     padding: 25,
   },
+  headerIcon: {
+    opacity: 0.2,
+    position: 'absolute',
+    bottom: -75,
+    right: -30,
+  },
   headerText: {
     fontSize: 24,
     fontWeight: '300',
     color: theme.white,
     textAlign: 'center',
+    paddingTop: 20,
+  },
+  subheaderText: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: theme.white,
+    textAlign: 'center',
     paddingTop: 10,
+    paddingHorizontal: 35,
   },
   headerBackButtonWrap: {
     position: 'absolute',

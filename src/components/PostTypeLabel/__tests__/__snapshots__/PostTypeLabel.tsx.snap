@@ -65,17 +65,22 @@ exports[`label variations render extra large label 1`] = `
     >
       <SvgMock
         color="#ffffff"
-        height={72}
+        height={225}
         style={
           Array [
             Object {
               "marginLeft": -10,
               "marginRight": 10,
             },
-            undefined,
+            Object {
+              "bottom": -75,
+              "opacity": 0.2,
+              "position": "absolute",
+              "right": -30,
+            },
           ]
         }
-        width={72}
+        width={225}
       />
       <Text
         style={
@@ -90,13 +95,36 @@ exports[`label variations render extra large label 1`] = `
               "color": "#ffffff",
               "fontSize": 24,
               "fontWeight": "300",
+              "paddingTop": 20,
+              "textAlign": "center",
+            },
+          ]
+        }
+      >
+        God Stories
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#ffffff",
+              "fontSize": 14,
+              "lineHeight": 20,
+              "paddingHorizontal": 35,
               "paddingTop": 10,
               "textAlign": "center",
             },
           ]
         }
       >
-        Read a God Story
+        When God does something amazing,
+share the joy here.
       </Text>
     </View>
     <View
