@@ -12,6 +12,12 @@ export default StyleSheet.create({
     fontSize: 14,
     lineHeight: 20,
   },
+  createPostButtonText: {
+    color: theme.parakeetBlue,
+    fontWeight: 'normal',
+    fontSize: 16,
+    lineHeight: 24,
+  },
   icon: { height: 24, width: 24 },
   postLabelRow: {
     flexDirection: 'row',
@@ -39,9 +45,9 @@ export default StyleSheet.create({
   image: {
     width: theme.fullWidth,
   },
-  backButton: {
-    fontSize: 16,
-    color: theme.lightGrey,
+  headerButton: {
+    paddingHorizontal: 10,
+    paddingTop: 0,
   },
   textInput: {
     fontSize: 24,
