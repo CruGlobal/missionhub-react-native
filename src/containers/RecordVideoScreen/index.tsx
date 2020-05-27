@@ -110,8 +110,7 @@ export const RecordVideoScreen = () => {
   );
 
   const renderControlBar = () => (
-    <View>
-      <View style={styles.controlBarBackground} />
+    <View style={styles.controlBarBackground}>
       <SafeAreaView>
         <View style={styles.controlBarContainer}>
           <View style={styles.countdownTextWrap}>
@@ -123,6 +122,13 @@ export const RecordVideoScreen = () => {
           </Touchable>
         </View>
       </SafeAreaView>
+    </View>
+  );
+
+  const renderCameraOverlay = () => (
+    <View style={styles.cameraOverlay}>
+      {renderCloseButton()}
+      {renderControlBar()}
     </View>
   );
 
@@ -152,8 +158,7 @@ export const RecordVideoScreen = () => {
   return (
     <View style={styles.container}>
       {renderCameraView()}
-      {renderCloseButton()}
-      {renderControlBar()}
+      {renderCameraOverlay()}
     </View>
   );
 };

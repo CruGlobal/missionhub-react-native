@@ -4,6 +4,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
+import Video from 'react-native-video';
 
 import {
   ACTIONS,
@@ -33,7 +34,6 @@ import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import PhotoIcon from './photoIcon.svg';
 import VideoIcon from './videoIcon.svg';
-import CameraIcon from './cameraIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
@@ -53,8 +53,6 @@ interface UpdatePostNavParams extends CreatePostScreenParams {
   post: CommunityFeedPost;
 }
 type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
-
-const EMPTY_IMAGE_URI = '/media/original/missing.png';
 
 const getPostTypeAnalytics = (postType: PostTypeEnum) => {
   switch (postType) {
@@ -108,6 +106,28 @@ export const CreatePostScreen = () => {
     UPDATE_POST,
   );
 
+  const getMediaHeight = () => {
+    if (!mediaData) {
+      return changeMediaHeight(0);
+    }
+
+    if (mediaType === 'IMAGE') {
+      return Image.getSize(
+        mediaData,
+        (width, height) =>
+          changeMediaHeight((height * theme.fullWidth) / width),
+        () => {},
+      );
+    }
+    if (mediaType === 'VIDEO') {
+      return changeMediaHeight(theme.fullWidth * (16.0 / 9.0)); //video aspect ratio is 16:9
+    }
+  };
+
+  useMemo(() => {
+    getMediaHeight();
+  }, [mediaData]);
+
   const savePost = () => {
     if (!text) {
       return;
@@ -121,14 +141,14 @@ export const CreatePostScreen = () => {
           input: {
             id: post.id,
             content: text,
-            media: imageData === post.mediaExpiringUrl ? undefined : imageData,
+            media: mediaData === post.mediaExpiringUrl ? undefined : mediaData,
           },
         },
       });
     } else {
       createPost({
         variables: {
-          input: { content: text, communityId, postType, media: imageData },
+          input: { content: text, communityId, postType, media: mediaData },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -147,18 +167,6 @@ export const CreatePostScreen = () => {
     changeMediaType('VIDEO');
     changeMediaData(uri);
   };
-
-  useMemo(() => {
-    if (!mediaData) {
-      return changeMediaHeight(0);
-    }
-
-    Image.getSize(
-      mediaData,
-      (width, height) => changeMediaHeight((height * theme.fullWidth) / width),
-      () => {},
-    );
-  }, [mediaData]);
 
   const navigateToRecordVideo = () => {
     dispatch(
@@ -191,7 +199,13 @@ export const CreatePostScreen = () => {
     />
   );
 
-  const renderVideo = () => <View />; //render video
+  const renderVideo = () =>
+    mediaData ? (
+      <Video
+        source={{ uri: mediaData }}
+        style={{ width: theme.fullWidth, height: mediaHeight }}
+      />
+    ) : null;
 
   const renderImage = () =>
     mediaData ? (

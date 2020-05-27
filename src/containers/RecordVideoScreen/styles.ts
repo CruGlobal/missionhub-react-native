@@ -8,15 +8,21 @@ export default StyleSheet.create({
     flex: 1,
     borderWidth: 2,
     borderColor: 'red',
+    overflow: 'hidden',
+    alignItems: 'center',
   },
-  controlBarBackground: {
+  cameraOverlay: {
     position: 'absolute',
     top: 0,
     left: 0,
     bottom: 0,
     right: 0,
+    justifyContent: 'flex-end',
+  },
+  controlBarBackground: {
     backgroundColor: 'black',
     opacity: 0.5,
+    justifyContent: 'flex-end',
   },
   controlBarContainer: {
     flexDirection: 'row',
