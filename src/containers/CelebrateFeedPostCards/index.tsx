@@ -98,14 +98,15 @@ export const CelebrateFeedPostCards = ({
     MarkCommunityFeedItemsReadVariables
   >(MARK_COMMUNITY_FEED_ITEMS_READ, {
     awaitRefetchQueries: true,
-    refetchQueries: () => {
-      return [
-        {
-          query: GET_COMMUNITY_POST_CARDS,
-          variables: { communityId: community.id },
-        },
-      ];
-    },
+    refetchQueries: (data: MarkCommunityFeedItemsRead) =>
+      data.markCommunityFeedItemsAsRead?.community?.id
+        ? [
+            {
+              query: GET_COMMUNITY_POST_CARDS,
+              variables: { communityId: community.id },
+            },
+          ]
+        : [],
   });
 
   const navToFeedType = async (type: FeedItemSubjectTypeEnum) => {
