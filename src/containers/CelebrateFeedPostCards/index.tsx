@@ -97,7 +97,6 @@ export const CelebrateFeedPostCards = ({
     MarkCommunityFeedItemsRead,
     MarkCommunityFeedItemsReadVariables
   >(MARK_COMMUNITY_FEED_ITEMS_READ, {
-    awaitRefetchQueries: true,
     refetchQueries: (data: MarkCommunityFeedItemsRead) =>
       data.markCommunityFeedItemsAsRead?.community?.id
         ? [
