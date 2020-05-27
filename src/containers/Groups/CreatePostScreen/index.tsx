@@ -30,7 +30,6 @@ import { navigateBack } from '../../../actions/navigation';
 import { CommunityFeedPost } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
-import SendIcon from './sendIcon.svg';
 import CameraIcon from './cameraIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';

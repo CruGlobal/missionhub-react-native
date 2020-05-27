@@ -101,7 +101,6 @@ exports[`Post is not null renders correctly with post 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -478,7 +477,6 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -877,7 +875,6 @@ exports[`Post is not null renders with an input 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1257,7 +1254,6 @@ exports[`markdown is empty string renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1471,7 +1467,6 @@ exports[`markdown is not null renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1724,7 +1719,6 @@ exports[`markdown is not null renders correctly on android 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1977,7 +1971,6 @@ exports[`markdown is not null renders correctly on android with bottom button pr
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -2312,7 +2305,6 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -2647,7 +2639,6 @@ exports[`markdown is null bottomButtonProps are not null renders correctly 1`] =
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -2943,7 +2934,6 @@ exports[`markdown is null bottomButtonProps are null renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -3157,7 +3147,6 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -3359,7 +3348,6 @@ exports[`renders with hideBackButton renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
