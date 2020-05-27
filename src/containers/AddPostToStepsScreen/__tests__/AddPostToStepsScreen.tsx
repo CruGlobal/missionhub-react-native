@@ -68,6 +68,7 @@ const sharePostSubject = mockFragment<CommunityFeedPost>(
 const prayerPostItem = { ...item, subject: prayerPostSubject };
 const carePostItem = { ...item, subject: carePostSubject };
 const sharePostItem = { ...item, subject: sharePostSubject };
+const mockNewStepTitle = "Pray for Christian's super cool request!";
 
 it('should render correctly | Pray Step', () => {
   renderWithContext(<AddPostToStepsScreen />, {
@@ -110,6 +111,36 @@ it('creates a new step when user clicks add to my steps button', async () => {
       input: {
         postId: mockPostId,
         title: "Pray for Hayden's request.",
+      },
+    },
+  });
+  expect(useAnalytics).toHaveBeenCalledWith(['add steps', 'step detail']);
+});
+
+it('changes the title of the step and creates a new step', async () => {
+  const { getByTestId, diffSnapshot, recordSnapshot } = renderWithContext(
+    <AddPostToStepsScreen />,
+    {
+      navParams: {
+        item: prayerPostItem,
+      },
+    },
+  );
+
+  recordSnapshot();
+
+  fireEvent(getByTestId('stepTitleInput'), 'onChangeText', mockNewStepTitle);
+
+  diffSnapshot();
+  fireEvent.press(getByTestId('AddToMyStepsButton'));
+  await flushMicrotasksQueue();
+
+  expect(navigateBack).toHaveBeenCalled();
+  expect(useMutation).toHaveBeenMutatedWith(ADD_POST_TO_MY_STEPS, {
+    variables: {
+      input: {
+        postId: mockPostId,
+        title: mockNewStepTitle,
       },
     },
   });

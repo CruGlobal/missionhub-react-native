@@ -428,25 +428,32 @@ exports[`renders correctly 1`] = `
               }
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "justifyContent": "flex-start",
-                    "lineHeight": 18,
-                  },
-                ]
-              }
+            <View
+              style={Object {}}
             >
-              ut sunt qui
-            </Text>
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 18,
+                    }
+                  }
+                >
+                  <Text>
+                    ut sunt qui
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </View>
         </View>
         <View

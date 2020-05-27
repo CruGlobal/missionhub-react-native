@@ -358,25 +358,32 @@ exports[`CelebrateItemContent Challenge Items renders with no subjectPerson, def
 
 exports[`CelebrateItemContent Post Items renders post 1`] = `
 <View>
-  <Text
-    style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "fontSize": 14,
-          "justifyContent": "flex-start",
-          "lineHeight": 18,
-        },
-      ]
-    }
+  <View
+    style={Object {}}
   >
-    Post!
-  </Text>
+    <View
+      style={
+        Object {
+          "marginVertical": 10,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "lineHeight": 18,
+          }
+        }
+      >
+        <Text>
+          Post!
+        </Text>
+      </Text>
+    </View>
+  </View>
 </View>
 `;
 

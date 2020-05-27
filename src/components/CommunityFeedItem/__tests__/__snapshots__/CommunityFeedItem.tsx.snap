@@ -716,25 +716,32 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            iure ut libero
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  }
+                }
+              >
+                <Text>
+                  iure ut libero
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
         <Image
           resizeMode="contain"
@@ -1214,25 +1221,32 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            nobis cupiditate sed
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  }
+                }
+              >
+                <Text>
+                  nobis cupiditate sed
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
         <Image
           resizeMode="contain"
@@ -1649,25 +1663,32 @@ exports[`Community renders post correctly without image 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            nobis cupiditate sed
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  }
+                }
+              >
+                <Text>
+                  nobis cupiditate sed
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
         <View
           style={
@@ -2103,25 +2124,32 @@ exports[`Community renders post created by me correctly without add to steps but
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            iure ut libero
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  }
+                }
+              >
+                <Text>
+                  iure ut libero
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
         <Image
           resizeMode="contain"
@@ -2936,25 +2964,32 @@ exports[`Community renders with clear notification button correctly 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            nobis cupiditate sed
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  }
+                }
+              >
+                <Text>
+                  nobis cupiditate sed
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
         <Image
           resizeMode="contain"
@@ -3813,25 +3848,32 @@ exports[`global community renders post item correctly 1`] = `
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "justifyContent": "flex-start",
-              "lineHeight": 18,
-            },
-          ]
-        }
+      <View
+        style={Object {}}
       >
-        nobis cupiditate sed
-      </Text>
+        <View
+          style={
+            Object {
+              "marginVertical": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "lineHeight": 18,
+              }
+            }
+          >
+            <Text>
+              nobis cupiditate sed
+            </Text>
+          </Text>
+        </View>
+      </View>
     </View>
     <Image
       resizeMode="contain"
@@ -4744,25 +4786,32 @@ exports[`renders with name pressable correctly 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            nobis cupiditate sed
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  }
+                }
+              >
+                <Text>
+                  nobis cupiditate sed
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
         <Image
           resizeMode="contain"
