@@ -259,12 +259,14 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
             "color": "#ffffff",
             "fontSize": 14,
             "lineHeight": 20,
+            "marginHorizontal": 40,
             "marginTop": 12,
+            "textAlign": "center",
           },
         ]
       }
     >
-      Add a profile photo so your members know it's you
+      This will help others to recognize you once you are in a community
     </Text>
   </View>
   <RCTSafeAreaView
@@ -406,7 +408,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"transparent\\",
-@@ -138,144 +105,104 @@
+@@ -138,146 +105,104 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -532,10 +534,10 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 +       <View
           style={
 -         Array [
-            Object {
+-           Object {
 -             \\"color\\": \\"#505256\\",
 -           },
--           Object {
+            Object {
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -           },
 -           Object {
@@ -567,12 +569,14 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
                   \\"fontSize\\": 14,
 +                 \\"fontWeight\\": \\"300\\",
                   \\"lineHeight\\": 20,
+-             \\"marginHorizontal\\": 40,
 -             \\"marginTop\\": 12,
+-             \\"textAlign\\": \\"center\\",
                 },
               ]
             }
           >
--       Add a profile photo so your members know it's you
+-       This will help others to recognize you once you are in a community
 +           Change Photo
           </Text>
         </View>
@@ -592,7 +596,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
         focusable={true}
         isTVSelectable={true}
         onClick={[Function bound touchableHandlePress]}
-@@ -288,47 +215,70 @@
+@@ -290,47 +215,70 @@
         style={
           Object {
             \\"opacity\\": 1,
@@ -604,16 +608,16 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
         <View
           style={
 +           Array [
-              Object {
-                \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#52C5DC\\",
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#52C5DC\\",
 +               \\"height\\": 60,
 +               \\"justifyContent\\": \\"center\\",
 +             },
 +             null,
-+             Object {
-+               \\"alignItems\\": \\"center\\",
-+               \\"backgroundColor\\": \\"#52C5DC\\",
+              Object {
+                \\"alignItems\\": \\"center\\",
+                \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"borderRadius\\": 24,
                 \\"height\\": 48,
                 \\"justifyContent\\": \\"center\\",
