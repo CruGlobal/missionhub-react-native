@@ -104,19 +104,40 @@ export const selectContactAssignment = (
     organizational_permissions = [],
   } = person;
 
-  return reverse_contact_assignments.find(
-    (assignment: {
-      assigned_to?: { id: string };
-      organization?: { id: string };
-    }) =>
-      assignment.assigned_to?.id === authUserId &&
-      (!orgId || orgId === 'personal'
-        ? !assignment.organization
-        : orgId === assignment.organization?.id &&
-          organizational_permissions.some(
-            (org_permission: { organization_id: string }) =>
-              org_permission.organization_id === assignment.organization?.id,
-          )),
+  return (
+    reverse_contact_assignments.find(
+      (assignment: {
+        assigned_to?: { id: string };
+        organization?: { id: string };
+      }) =>
+        assignment.assigned_to?.id === authUserId &&
+        (!orgId || orgId === 'personal'
+          ? !assignment.organization
+          : orgId === assignment.organization?.id &&
+            organizational_permissions.some(
+              (org_permission: { organization_id: string }) =>
+                org_permission.organization_id === assignment.organization?.id,
+            )),
+    ) ||
+    // Fall back to personal org
+    reverse_contact_assignments.find(
+      (assignment: {
+        assigned_to?: { id: string };
+        organization?: { id: string };
+      }) =>
+        assignment.assigned_to?.id === authUserId && !assignment.organization,
+    ) ||
+    // Fall back to last modified contact assignment
+    reverse_contact_assignments
+      .filter(
+        (assignment: {
+          assigned_to?: { id: string };
+          organization?: { id: string };
+        }) => assignment.assigned_to?.id === authUserId,
+      )
+      .sort((a: { updated_at: string }, b: { updated_at: string }) => {
+        return b.updated_at.localeCompare(a.updated_at);
+      })[0]
   );
 };
 
