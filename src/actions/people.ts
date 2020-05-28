@@ -25,14 +25,30 @@ export function getMyPeople() {
 
     const people = [
       authPerson,
-      ...loadedPeople.filter(person => {
-        return person.reverse_contact_assignments.some(
-          // @ts-ignore
-          contactAssignment =>
-            contactAssignment.assigned_to &&
-            contactAssignment.assigned_to.id === authPerson.id,
-        );
-      }),
+      ...loadedPeople
+        .map(person => ({
+          ...person,
+          // Only store contact assignments that have a corresponding org permission
+          reverse_contact_assignments: person.reverse_contact_assignments.filter(
+            // @ts-ignore
+            contactAssignment =>
+              !contactAssignment.organization ||
+              (person.organizational_permissions || []).some(
+                // @ts-ignore
+                orgPermission =>
+                  orgPermission?.organization?.id ===
+                  contactAssignment.organization?.id,
+              ),
+          ),
+        }))
+        .filter(person => {
+          return person.reverse_contact_assignments.some(
+            // @ts-ignore
+            contactAssignment =>
+              contactAssignment.assigned_to &&
+              contactAssignment.assigned_to.id === authPerson.id,
+          );
+        }),
     ];
 
     return dispatch({ type: PEOPLE_WITH_ORG_SECTIONS, response: people });
