@@ -55,8 +55,8 @@ it('renders loading', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
     screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'community member',
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
+      [ANALYTICS_ASSIGNMENT_TYPE]: '', //'community member',
+      [ANALYTICS_PERMISSION_TYPE]: '', //'member',
     },
   });
   expect(navigateBack).not.toHaveBeenCalled();
@@ -74,8 +74,8 @@ it('renders correctly', async () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
     screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'community member',
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
+      [ANALYTICS_ASSIGNMENT_TYPE]: '', //'community member',
+      [ANALYTICS_PERMISSION_TYPE]: '', //'member',
     },
   });
   expect(navigateBack).not.toHaveBeenCalled();
