@@ -59,18 +59,14 @@ export const RecordVideoScreen = () => {
       return;
     }
 
-    console.log('start recording');
     setVideoState('RECORDING');
     startCountdown();
 
     const { uri } = await camera.current.recordAsync();
-    console.log(uri);
     onEndRecord(uri);
   };
 
   const endRecording = () => {
-    console.log('stop recording');
-
     setVideoState('NOT_RECORDING');
     endCountdown();
 
@@ -85,14 +81,16 @@ export const RecordVideoScreen = () => {
     setCameraType(cameraType === FrontCamera ? BackCamera : FrontCamera);
 
   const renderCloseButton = () => (
-    <SafeAreaView style={styles.closeButtonWrap}>
-      <Button
-        onPress={handleClose}
-        type="transparent"
-        style={styles.closeButton}
-      >
-        <CloseButton color={theme.white} height={36} width={36} />
-      </Button>
+    <SafeAreaView style={styles.closeWrap}>
+      {videoState === 'NOT_RECORDING' ? (
+        <Button
+          onPress={handleClose}
+          type="transparent"
+          style={styles.closeButton}
+        >
+          <CloseButton color={theme.white} height={36} width={36} />
+        </Button>
+      ) : null}
     </SafeAreaView>
   );
 
@@ -110,32 +108,22 @@ export const RecordVideoScreen = () => {
   );
 
   const renderControlBar = () => (
-    <View style={styles.controlBarBackground}>
-      <SafeAreaView>
-        <View style={styles.controlBarContainer}>
-          <View style={styles.countdownTextWrap}>
-            <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
-          </View>
-          {renderRecordButton()}
-          <Touchable onPress={handleFlipCamera}>
-            <CameraRotateIcon />
-          </Touchable>
-        </View>
-      </SafeAreaView>
-    </View>
+    <SafeAreaView style={styles.controlBarBackground}>
+      <View style={styles.countdownTextWrap}>
+        <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
+      </View>
+      {renderRecordButton()}
+      <Touchable onPress={handleFlipCamera}>
+        <CameraRotateIcon />
+      </Touchable>
+    </SafeAreaView>
   );
 
-  const renderCameraOverlay = () => (
-    <View style={styles.cameraOverlay}>
-      {renderCloseButton()}
-      {renderControlBar()}
-    </View>
-  );
-
-  const renderCameraView = () => (
-    <View style={styles.cameraContainer}>
+  return (
+    <View style={styles.container}>
       <RNCamera
         ref={camera}
+        style={styles.cameraContainer}
         type={cameraType}
         flashMode={RNCamera.Constants.FlashMode.auto}
         ratio={'16:9'}
@@ -151,14 +139,12 @@ export const RecordVideoScreen = () => {
           buttonPositive: 'Ok',
           buttonNegative: 'Cancel',
         }}
-      />
-    </View>
-  );
-
-  return (
-    <View style={styles.container}>
-      {renderCameraView()}
-      {renderCameraOverlay()}
+      >
+        <View style={styles.cameraOverlay}>
+          {renderCloseButton()}
+          {renderControlBar()}
+        </View>
+      </RNCamera>
     </View>
   );
 };

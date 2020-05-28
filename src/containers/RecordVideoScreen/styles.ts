@@ -3,33 +3,27 @@ import { StyleSheet } from 'react-native';
 import theme from '../../theme';
 
 export default StyleSheet.create({
-  container: { flex: 1, justifyContent: 'space-between' },
+  container: {
+    flex: 1,
+    backgroundColor: theme.black,
+  },
   cameraContainer: {
     flex: 1,
-    borderWidth: 2,
-    borderColor: 'red',
-    overflow: 'hidden',
     alignItems: 'center',
   },
   cameraOverlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    bottom: 0,
-    right: 0,
-    justifyContent: 'flex-end',
+    flex: 1,
+    justifyContent: 'space-between',
   },
   controlBarBackground: {
     backgroundColor: 'black',
     opacity: 0.5,
-    justifyContent: 'flex-end',
-  },
-  controlBarContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingVertical: 24,
     paddingHorizontal: 32,
+    width: theme.fullWidth,
   },
   countdownTextWrap: {
     width: 40,
@@ -56,21 +50,24 @@ export default StyleSheet.create({
     height: 24,
     width: 24,
     borderRadius: 12,
+    opacity: 1.0,
   },
   endRecordIcon: {
     backgroundColor: theme.red,
     height: 20,
     width: 20,
     borderRadius: 2,
+    opacity: 1.0,
   },
-  closeButtonWrap: {
-    position: 'absolute',
-    top: 18,
-    right: 18,
+  closeWrap: {
+    width: theme.fullWidth,
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
   },
   closeButton: {
-    backgroundColor: theme.black,
+    margin: 18,
     borderRadius: 18,
+    backgroundColor: theme.black,
     opacity: 0.5,
   },
 });
