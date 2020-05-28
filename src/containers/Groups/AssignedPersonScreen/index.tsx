@@ -76,10 +76,10 @@ const personSteps = {
     navigation: {
       state: {
         // @ts-ignore
-        params: { organization, person },
+        params: { person },
       },
     },
-  }) => <ContactSteps organization={organization} person={person} />,
+  }) => <ContactSteps person={person} />,
 };
 const personNotes = {
   name: i18next.t('personTabs:notes'),
@@ -113,12 +113,12 @@ const memberImpact = {
     navigation: {
       state: {
         // @ts-ignore
-        params: { organization, person },
+        params: { person },
       },
     },
   }) => (
     <ScrollView>
-      <ImpactView orgId={organization.id} person={person} />
+      <ImpactView person={person} />
     </ScrollView>
   ),
 };
@@ -327,7 +327,7 @@ export const mapStateToProps = (
 
   const organization =
     organizationSelector({ organizations }, { orgId }) || navOrg;
-  const person = personSelector({ people }, { orgId, personId }) || navPerson;
+  const person = personSelector({ people }, { personId }) || navPerson;
 
   const contactAssignment = contactAssignmentSelector(
     { auth },

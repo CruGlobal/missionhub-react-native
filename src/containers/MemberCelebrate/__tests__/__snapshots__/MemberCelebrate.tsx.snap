@@ -16,34 +16,6 @@ exports[`MemberCelebrate renders correctly for me 1`] = `
 />
 `;
 
-exports[`MemberCelebrate renders correctly for me 2`] = `
-<CelebrateFeed
-  itemNamePressable={false}
-  organization={
-    Object {
-      "id": "123",
-    }
-  }
-  person={
-    Object {
-      "id": "1",
-      "organizational_permission": Array [
-        Object {
-          "organization_id": "123",
-          "permission_id": "3",
-        },
-      ],
-      "organizational_permissions": Array [
-        Object {
-          "organization_id": "123",
-          "permission_id": "3",
-        },
-      ],
-    }
-  }
-/>
-`;
-
 exports[`MemberCelebrate renders correctly for owner 1`] = `
 <CelebrateFeed
   communityId="123"

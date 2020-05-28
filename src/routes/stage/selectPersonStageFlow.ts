@@ -20,7 +20,7 @@ export const SelectPersonStageFlowScreens = {
       getState,
     ) => {
       const { people } = getState();
-      const person = personSelector({ people }, { personId, orgId });
+      const person = personSelector({ people }, { personId });
 
       dispatch(
         // @ts-ignore

@@ -66,12 +66,7 @@ export function assignContactAndPickStage(person, organization) {
 
     dispatch(
       navigateReplace(
-        getPersonScreenRoute(
-          authPerson,
-          resultPerson,
-          organization,
-          contactAssignment,
-        ),
+        getPersonScreenRoute(authPerson, resultPerson, contactAssignment),
         {
           person: resultPerson,
           organization,

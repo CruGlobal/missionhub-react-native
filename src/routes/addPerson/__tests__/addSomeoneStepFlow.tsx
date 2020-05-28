@@ -53,11 +53,7 @@ const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: stageId } } },
   onboarding: { personId },
   people: {
-    allByOrg: {
-      personal: {
-        people: { [personId]: person },
-      },
-    },
+    people: { [personId]: person },
   },
   organizations: { all: [] },
   stages: { stages: [] },

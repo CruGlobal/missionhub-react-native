@@ -18,7 +18,7 @@ const personId = '1';
 const mockState = {
   onboarding: { currentlyOnboarding: true },
   auth: { person: {} },
-  people: { allByOrg: {} },
+  people: { people: {} },
 };
 const nextResult = { type: 'testNext' };
 const next = jest.fn().mockReturnValue(nextResult);

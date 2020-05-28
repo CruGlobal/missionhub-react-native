@@ -10,7 +10,6 @@ import { LANDING_SCREEN } from '../containers/LandingScreen';
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
 import { PeopleState, Person } from '../reducers/people';
-import { Organization } from '../reducers/organizations';
 import { NotificationsState } from '../reducers/notifications';
 import { RELOAD_APP, NOTIFICATION_PROMPT_TYPES } from '../constants';
 
@@ -56,16 +55,14 @@ export const resetToInitialRoute = () => (
 };
 
 function hasContactWithPathwayStage(myId: string, people: PeopleState) {
-  return Object.values(people.allByOrg).some((org: Organization) =>
-    Object.values(org.people).some(
-      (person: Person) =>
-        person.id !== myId &&
-        // @ts-ignore
-        person.reverse_contact_assignments.some(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (assignment: any) =>
-            assignment.assigned_to.id === myId && assignment.pathway_stage_id,
-        ),
-    ),
+  return Object.values(people.people).some(
+    (person: Person) =>
+      person.id !== myId &&
+      // @ts-ignore
+      person.reverse_contact_assignments.some(
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        (assignment: any) =>
+          assignment.assigned_to.id === myId && assignment.pathway_stage_id,
+      ),
   );
 }

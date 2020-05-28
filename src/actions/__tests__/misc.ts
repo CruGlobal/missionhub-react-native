@@ -150,7 +150,6 @@ describe('assignContactAndPickStage', () => {
     expect(getPersonScreenRoute).toHaveBeenCalledWith(
       mePerson,
       person,
-      organization,
       contactAssignment,
     );
     expect(navigateReplace).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {

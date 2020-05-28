@@ -260,7 +260,7 @@ describe('SelectStageScreen next', () => {
         initialState: {
           auth: { person: me, isJean: true },
           drawer: { isOpen: false },
-          people: { allByOrg: {} },
+          people: { people: {} },
           stages: { stages },
           onboarding: { currentlyOnboarding: false },
         },

@@ -74,10 +74,7 @@ MemberContacts.propTypes = {
 
 // @ts-ignore
 const mapStateToProps = ({ people }, { person, organization }) => {
-  const currentPerson = personSelector(
-    { people },
-    { personId: person.id, orgId: organization.id },
-  );
+  const currentPerson = personSelector({ people }, { personId: person.id });
 
   return currentPerson
     ? {

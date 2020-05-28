@@ -69,7 +69,7 @@ const expectedIncludeWithContactAssignmentPerson =
 beforeEach(() => {
   auth = { person: { id: myId, user: { groups_feature: true } } } as AuthState;
   organizations = ({ all: [] } as unknown) as OrganizationsState;
-  people = { allByOrg: {} };
+  people = { people: {} };
   store = mockStore({
     auth,
     organizations,
@@ -787,7 +787,6 @@ describe('GetPersonNote', () => {
 describe('navToPersonScreen', () => {
   const person = { id: '2' };
   const me = { id: myId };
-  const organization = { id: '111' };
   const navigatePushResult = { type: 'test' };
   const contactAssignment = {};
 

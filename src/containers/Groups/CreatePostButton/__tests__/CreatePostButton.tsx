@@ -29,7 +29,7 @@ const props = {
 };
 const initialState = {
   auth: { person: { id: '1' } },
-  people: { allByOrg: {} },
+  people: { people: {} },
   drawer: { isOpen: false },
 };
 

@@ -68,7 +68,7 @@ const mapStateToProps = ({ auth, people, organizations }, { navigation }) => {
 
   const organization =
     organizationSelector({ organizations }, { orgId }) || navOrg;
-  const person = personSelector({ people }, { personId, orgId }) || navPerson;
+  const person = personSelector({ people }, { personId }) || navPerson;
 
   return {
     ...navParams,

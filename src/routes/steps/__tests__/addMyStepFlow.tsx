@@ -22,7 +22,7 @@ const stepSuggestionId = '444';
 
 const initialState = {
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
-  people: { allByOrg: { [orgId]: { id: orgId, people: { [myId]: {} } } } },
+  people: { people: { [myId]: {} } },
   steps: { suggestedForMe: { [stage.id]: [stage] } },
   onboarding: { currentlyOnboarding: false },
 };

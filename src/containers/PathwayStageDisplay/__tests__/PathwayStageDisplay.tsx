@@ -70,7 +70,7 @@ describe('for person', () => {
   afterEach(() => {
     expect(personSelector).toHaveBeenCalledWith(
       { people },
-      { personId: person.id, orgId },
+      { personId: person.id },
     );
     expect(contactAssignmentSelector).toHaveBeenCalledWith(
       { auth },

@@ -46,7 +46,7 @@ const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
   }
 
   const loadedPerson =
-    personSelector({ people }, { personId: person.id, orgId }) || person;
+    personSelector({ people }, { personId: person.id }) || person;
   const contactAssignment = contactAssignmentSelector(
     { auth },
     { person: loadedPerson, orgId },

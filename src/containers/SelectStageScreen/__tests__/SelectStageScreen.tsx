@@ -107,15 +107,10 @@ const unassignedPerson = {
 const state = {
   auth: { person: mePerson },
   people: {
-    allByOrg: {
-      [orgId]: {
-        id: orgId,
-        people: {
-          [myId]: mePerson,
-          [assignedPersonId]: assignedPerson,
-          [unassignedPersonId]: unassignedPerson,
-        },
-      },
+    people: {
+      [myId]: mePerson,
+      [assignedPersonId]: assignedPerson,
+      [unassignedPersonId]: unassignedPerson,
     },
   },
   stages: { stages },

@@ -57,8 +57,8 @@ describe('mapStateToProps', () => {
             },
           },
           people: {
-            allByOrg: {
-              [organization.id]: person,
+            people: {
+              [person.id]: person,
             },
           },
         },

@@ -53,7 +53,7 @@ const otherPersonNotSure = {
 
 const baseState = {
   auth: { person: myPerson },
-  people: { allByOrg: [{ id: orgId, people: { [otherId]: otherPerson } }] },
+  people: { people: { [otherId]: otherPerson } },
   stages: {
     stages: [{ id: stageId }, { id: notSureStageId }],
     stagesObj: {
@@ -155,7 +155,7 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
     const newState = {
       ...baseState,
       people: {
-        allByOrg: [{ id: orgId, people: { [otherId]: otherPersonNotSure } }],
+        people: { [otherId]: otherPersonNotSure },
       },
     };
     // @ts-ignore

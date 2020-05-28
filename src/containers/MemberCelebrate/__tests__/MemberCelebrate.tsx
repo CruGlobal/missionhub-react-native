@@ -25,7 +25,7 @@ const person: Person = {
 const initialState = {
   auth: { person: { id: myId } },
   organizations: { all: [organization] },
-  people: { allByOrg: { [organization.id]: [person] } },
+  people: { people: { [myId]: { id: myId }, [person.id]: person } },
 };
 
 describe('MemberCelebrate', () => {
@@ -62,8 +62,8 @@ describe('MemberCelebrate', () => {
         initialState: {
           ...initialState,
           people: {
-            allByOrg: {
-              [organization.id]: [
+            people: {
+              [person.id]: [
                 {
                   ...person,
                   organizational_permissions: [
@@ -81,7 +81,7 @@ describe('MemberCelebrate', () => {
     ).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'celebrate'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'community member' },
+      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
     });
   });
 });

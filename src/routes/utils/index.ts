@@ -25,9 +25,7 @@ export const paramsForStageNavigation = async (
   } = getState();
 
   const isMe = personId === authPerson.id;
-  const person = isMe
-    ? authPerson
-    : personSelector({ people }, { personId, orgId });
+  const person = isMe ? authPerson : personSelector({ people }, { personId });
   const assignment = isMe
     ? null
     : getReverseContactAssignment(person, orgId, authPerson);

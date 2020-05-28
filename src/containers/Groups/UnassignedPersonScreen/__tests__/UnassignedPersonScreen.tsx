@@ -29,12 +29,8 @@ const state = {
   auth: { person: me },
   organizations: { all: [organization] },
   people: {
-    allByOrg: {
-      [organization.id]: {
-        people: {
-          [person.id]: person,
-        },
-      },
+    people: {
+      [person.id]: person,
     },
   },
 };

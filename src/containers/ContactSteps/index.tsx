@@ -9,7 +9,7 @@ import { Button, RefreshControl, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import NULL from '../../../assets/images/footprints.png';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
-import { orgIsCru, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { promptToAssign } from '../../utils/prompt';
 import { contactAssignmentSelector } from '../../selectors/people';
@@ -21,7 +21,6 @@ import {
 import NullStateComponent from '../../components/NullStateComponent';
 import { AuthState } from '../../reducers/auth';
 import { Person } from '../../reducers/people';
-import { Organization } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import StepItem from '../../components/StepItem';
 import { useIsMe } from '../../utils/hooks/useIsMe';
@@ -37,12 +36,11 @@ import {
 
 interface ContactStepsProps {
   person: Person;
-  organization: Organization;
 }
 
-const ContactSteps = ({ person, organization }: ContactStepsProps) => {
+const ContactSteps = ({ person }: ContactStepsProps) => {
   const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsAssignmentType(person, auth, organization),
+    getAnalyticsAssignmentType(person, auth),
   );
   useAnalytics(['person', 'my steps'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
@@ -51,9 +49,9 @@ const ContactSteps = ({ person, organization }: ContactStepsProps) => {
   const [hideCompleted, setHideCompleted] = useState(true);
   const dispatch = useDispatch();
   const isMe = useIsMe(person.id);
-  const showAssignPrompt = orgIsCru(organization);
+  const showAssignPrompt = false;
   const contactAssignment = useSelector(({ auth }: { auth: AuthState }) =>
-    contactAssignmentSelector({ auth }, { person, orgId: organization.id }),
+    contactAssignmentSelector({ auth }, { person }),
   );
 
   const { data, loading, error, fetchMore, refetch } = useQuery<
@@ -134,19 +132,19 @@ const ContactSteps = ({ person, organization }: ContactStepsProps) => {
       }
     }
 
-    dispatch(assignContactAndPickStage(person, organization));
+    dispatch(assignContactAndPickStage(person, undefined));
   };
 
   const handleCreateStep = () => {
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
-      ? dispatch(navigateToAddStepFlow(isMe, person, organization))
+      ? dispatch(navigateToAddStepFlow(isMe, person, undefined))
       : contactAssignment
       ? dispatch(
           navigateToStageScreen(
             false,
             person,
             contactAssignment,
-            organization,
+            undefined,
             undefined,
           ),
         )

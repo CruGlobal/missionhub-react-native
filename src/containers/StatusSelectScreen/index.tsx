@@ -149,7 +149,7 @@ export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const { person: navPerson = {}, organization: navOrg = {} } = navParams;
   const orgId = navOrg.id;
   const person =
-    personSelector({ people }, { personId: navPerson.id, orgId }) || navPerson;
+    personSelector({ people }, { personId: navPerson.id }) || navPerson;
   const organization = navOrg;
   // @ts-ignore
   const orgPermission = orgPermissionSelector(null, {

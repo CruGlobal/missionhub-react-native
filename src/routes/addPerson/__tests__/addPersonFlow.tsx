@@ -53,15 +53,10 @@ const initialState = {
   },
   personId,
   people: {
-    allByOrg: {
-      [orgId]: {
-        id: orgId,
-        people: {
-          [personId]: {
-            id: personId,
-            first_name: contactName,
-          },
-        },
+    people: {
+      [personId]: {
+        id: personId,
+        first_name: contactName,
       },
     },
   },

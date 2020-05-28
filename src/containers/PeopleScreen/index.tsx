@@ -5,26 +5,22 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { getMyPeople } from '../../actions/people';
-import {
-  peopleByOrgSelector,
-  allAssignedPeopleSelector,
-} from '../../selectors/people';
+import { allAssignedPeopleSelector } from '../../selectors/people';
 import { navigatePush } from '../../actions/navigation';
 import { IconButton } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import { openMainMenu } from '../../utils/common';
-import { SEARCH_SCREEN } from '../SearchPeopleScreen';
 import BottomButton from '../../components/BottomButton';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { AuthState } from '../../reducers/auth';
-import { Person, PeopleState } from '../../reducers/people';
+import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
@@ -41,7 +37,6 @@ interface PeopleScreenProps {
 export const PeopleScreen = ({
   dispatch,
   items,
-  isJean,
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
@@ -58,10 +53,6 @@ export const PeopleScreen = ({
         organization: org && org.id ? org : undefined,
       }),
     );
-  };
-
-  const handleSearch = () => {
-    dispatch(navigatePush(SEARCH_SCREEN));
   };
 
   const handleRefresh = () => {
@@ -82,27 +73,19 @@ export const PeopleScreen = ({
           />
         }
         right={
-          isJean ? (
-            <IconButton
-              name="searchIcon"
-              type="MissionHub"
-              onPress={handleSearch}
-            />
-          ) : (
-            <IconButton
-              name="addContactIcon"
-              type="MissionHub"
-              size={24}
-              onPress={handleAddContact}
-            />
-          )
+          <IconButton
+            name="addContactIcon"
+            type="MissionHub"
+            size={24}
+            onPress={handleAddContact}
+          />
         }
         title={t('header').toUpperCase()}
-        shadow={!isJean}
+        shadow={true}
       />
       <PeopleList
         testID="peopleList"
-        sections={isJean}
+        sections={false}
         items={items}
         onAddContact={handleAddContact}
         onRefresh={refresh}
@@ -119,24 +102,17 @@ export const PeopleScreen = ({
   );
 };
 
-export const mapStateToProps = ({
-  auth,
-  people,
-}: {
-  auth: AuthState;
-  people: PeopleState;
-}) => {
-  const { isJean, person } = auth;
-  const items = isJean
-    ? peopleByOrgSelector({ people, auth })
-    : allAssignedPeopleSelector({ people, auth });
+export const mapStateToProps = ({ auth, people, organizations }: RootState) => {
+  const { person } = auth;
+  const items = allAssignedPeopleSelector({
+    people,
+    organizations,
+    auth,
+  });
 
-  const hasNoContacts = isJean
-    ? items.length === 1 && items[0].people.length === 1
-    : items.length === 1;
+  const hasNoContacts = items.length === 1;
 
   return {
-    isJean,
     items,
     hasNoContacts,
     person,

@@ -270,7 +270,7 @@ const mapStateToProps = (
   any,
 ) => {
   const myId = auth.person.id;
-  const person = personSelector({ people }, { personId, orgId }) || {};
+  const person = personSelector({ people }, { personId }) || {};
   const contactAssignment =
     contactAssignmentSelector({ auth }, { person, orgId }) || {};
 
