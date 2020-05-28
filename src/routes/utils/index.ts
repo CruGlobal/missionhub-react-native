@@ -1,12 +1,15 @@
 import i18next from 'i18next';
 import gql from 'graphql-tag';
 
-import { personSelector } from '../../selectors/people';
+import {
+  personSelector,
+  selectContactAssignment,
+} from '../../selectors/people';
 import { getStageIndex } from '../../utils/common';
 import { apolloClient } from '../../apolloClient';
 import { AuthState } from '../../reducers/auth';
 import { StagesState } from '../../reducers/stages';
-import { PeopleState, Person } from '../../reducers/people';
+import { PeopleState } from '../../reducers/people';
 
 import {
   StepCountWithPerson,
@@ -28,7 +31,7 @@ export const paramsForStageNavigation = async (
   const person = isMe ? authPerson : personSelector({ people }, { personId });
   const assignment = isMe
     ? null
-    : getReverseContactAssignment(person, orgId, authPerson);
+    : selectContactAssignment(person, authPerson.id, orgId);
   const stageId = getStageId(isMe, assignment, authPerson);
   const hasHitCount = await hasHitThreeSteps(personId);
   const isNotSure = hasNotSureStage(stagesObj, stageId);
@@ -43,24 +46,6 @@ export const paramsForStageNavigation = async (
     questionText,
   };
 };
-
-function getReverseContactAssignment(
-  person: Person,
-  orgId: string | undefined,
-  authPerson: AuthState['person'],
-) {
-  return (
-    ((person && person.reverse_contact_assignments) || []).find(
-      // @ts-ignore
-      a =>
-        a &&
-        ((a.organization && a.organization.id === orgId) ||
-          (!a.organization && (!orgId || orgId === 'personal'))) &&
-        a.assigned_to &&
-        a.assigned_to.id === authPerson.id,
-    ) || null
-  );
-}
 
 function getStageId(
   isMe: boolean,
