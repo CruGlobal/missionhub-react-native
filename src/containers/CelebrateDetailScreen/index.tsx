@@ -6,10 +6,10 @@ import { ThunkDispatch } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useApolloClient } from '@apollo/react-hooks';
 
-import CommentLikeComponent from '../CommentLikeComponent';
+import { CommentLikeComponent } from '../../components/CommentLikeComponent';
 import { organizationSelector } from '../../selectors/organizations';
 import CommentsList from '../CommentsList';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import CelebrateCommentBox from '../../components/CelebrateCommentBox';
 import theme from '../../theme';
 import TRAILS1 from '../../../assets/images/Trailss.png';
@@ -18,15 +18,15 @@ import { reloadCelebrateComments } from '../../actions/celebrateComments';
 import { TrackStateContext } from '../../actions/analytics';
 import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
 import CardTime from '../../components/CardTime';
-import CelebrateItemName from '../CelebrateItemName';
-import CelebrateItemContent from '../../components/CelebrateItemContent';
+import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
+import { CommunityFeedItemContent } from '../../components/CommunityFeedItemContent';
 import { RefreshControl } from '../../components/common';
 import {
   ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../components/CelebrateItem/queries';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
 import { Organization, OrganizationsState } from '../../reducers/organizations';
 import {
   CelebrateCommentsState,
@@ -40,6 +40,7 @@ import {
 import { useKeyboardListeners } from '../../utils/hooks/useKeyboardListeners';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { navigateBack } from '../../actions/navigation';
 
 import styles from './styles';
 
@@ -68,13 +69,20 @@ const CelebrateDetailScreen = ({
     },
   });
   const client = useApolloClient();
-  const navParamsEvent: CelebrateItem = useNavigationParam('event');
+  const navParamsEvent: CommunityFeedItem = useNavigationParam('item');
   const event =
-    client.readFragment<CelebrateItem>({
-      id: `CommunityCelebrationItem:${navParamsEvent.id}`,
-      fragment: CELEBRATE_ITEM_FRAGMENT,
-      fragmentName: 'CelebrateItem',
+    client.readFragment<CommunityFeedItem>({
+      id: `FeedItem:${navParamsEvent.id}`,
+      fragment: COMMUNITY_FEED_ITEM_FRAGMENT,
+      fragmentName: 'CommunityFeedItem',
     }) || navParamsEvent;
+
+  const eventIsNotLoaded =
+    Object.keys(event).length === 1 && Object.keys(event)[0] === 'id';
+  if (eventIsNotLoaded) {
+    dispatch(navigateBack()); // Would be better to load celebrate item from GraphQL using cache-and-network fetchPolicy but no root query currently exists. Hopefully we can do this when moving to feedItems.
+  }
+
   const onRefreshCelebrateItem: () => void = useNavigationParam(
     'onRefreshCelebrateItem',
   );
@@ -111,20 +119,22 @@ const CelebrateDetailScreen = ({
       <View style={styles.header}>
         <View style={{ flexDirection: 'row' }}>
           <View style={{ flex: 1 }}>
-            <CelebrateItemName
+            <CommunityFeedItemName
               name={event.subjectPersonName}
               person={event.subjectPerson}
-              organization={organization}
+              communityId={organization.id}
               pressable={true}
             />
-            <CardTime date={event.changedAttributeValue} />
+            <CardTime date={event.createdAt} />
           </View>
-          <CommentLikeComponent
-            event={event}
-            organization={organization}
-            onRefresh={onRefreshCelebrateItem}
-          />
-          <BackButton
+          {!eventIsNotLoaded && (
+            <CommentLikeComponent
+              item={event}
+              communityId={organization.id}
+              onRefresh={onRefreshCelebrateItem}
+            />
+          )}
+          <DeprecatedBackButton
             style={styles.backButtonStyle}
             iconStyle={styles.backButtonIconStyle}
             customIcon="deleteIcon"
@@ -138,33 +148,37 @@ const CelebrateDetailScreen = ({
     <View style={styles.contentContainer}>
       <Image source={TRAILS1} style={styles.trailsTop} />
       <Image source={TRAILS2} style={styles.trailsBottom} />
-      <CommentsList
-        event={event}
-        organization={organization}
-        listProps={{
-          ref: listRef,
-          refreshControl: (
-            <RefreshControl
-              testID="RefreshControl"
-              refreshing={isRefreshing}
-              onRefresh={refresh}
-            />
-          ),
-          ListHeaderComponent: () => (
-            <CelebrateItemContent
-              event={event}
-              organization={organization}
-              style={styles.itemContent}
-            />
-          ),
-        }}
-      />
+      {!eventIsNotLoaded && (
+        <CommentsList
+          //@ts-ignore
+          event={event} //TODO: Modify to use CommunityFeedItem type
+          organization={organization}
+          listProps={{
+            ref: listRef,
+            refreshControl: (
+              <RefreshControl
+                testID="RefreshControl"
+                refreshing={isRefreshing}
+                onRefresh={refresh}
+              />
+            ),
+            ListHeaderComponent: () => (
+              <CommunityFeedItemContent
+                item={event}
+                communityId={organization.id}
+                style={styles.itemContent}
+              />
+            ),
+          }}
+        />
+      )}
     </View>
   );
 
   const renderCommentBox = () => (
     <CelebrateCommentBox
-      event={event}
+      //@ts-ignore
+      event={event} //TODO: Modify to use CommunityFeedItem type
       onAddComplete={scrollToEnd}
       organization={organization}
     />
@@ -192,20 +206,20 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { event, orgId },
+        params: { item, orgId },
       },
     },
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
   any,
 ) => {
-  const { subjectPerson } = event as CelebrateItem;
+  const { subjectPerson } = item as CommunityFeedItem;
   const organization = organizationSelector({ organizations }, { orgId });
 
   return {
     organization,
     celebrateComments: celebrateCommentsSelector(
       { celebrateComments },
-      { eventId: event.id },
+      { eventId: item.id },
     ),
     editingCommentId: celebrateComments.editingCommentId,
     analyticsAssignmentType: getAnalyticsAssignmentType(

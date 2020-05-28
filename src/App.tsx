@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { AppState, StatusBar } from 'react-native';
+import { AppState, StatusBar, AppStateStatus } from 'react-native';
 import { Provider } from 'react-redux';
 import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -12,7 +12,12 @@ import { Alert } from 'react-native';
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import moment from 'moment';
+import 'moment/locale/es';
+import 'moment/locale/tr';
 import appsFlyer from 'react-native-appsflyer';
+import ApolloClient from 'apollo-client';
+import { NormalizedCacheObject } from 'apollo-cache-inmemory';
 
 Icon.loadFont();
 
@@ -36,8 +41,8 @@ import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
-import { apolloClient } from './apolloClient';
 import { getFeatureFlags } from './actions/misc';
+import { createApolloClient } from './apolloClient';
 
 appsFlyer.initSdk({
   devKey: 'QdbVaVHi9bHRchUTWtoaij',
@@ -53,8 +58,12 @@ appsFlyer.initSdk({
 })
 export default class App extends Component {
   showingErrorModal = false;
-  state = {
+  state: {
+    appState: AppStateStatus;
+    apolloClient?: ApolloClient<NormalizedCacheObject>;
+  } = {
     appState: AppState.currentState,
+    apolloClient: undefined,
   };
 
   constructor(props: Readonly<{}>) {
@@ -62,7 +71,10 @@ export default class App extends Component {
     this.initializeErrorHandling();
   }
 
-  onBeforeLift = () => {
+  onBeforeLift = async () => {
+    const apolloClient = await createApolloClient();
+    this.setState({ apolloClient });
+
     this.checkOldAppToken();
     // @ts-ignore
     store.dispatch(resetToInitialRoute());
@@ -71,6 +83,7 @@ export default class App extends Component {
     // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
     getFeatureFlags();
+    moment.locale(i18n.language.split('-')[0]);
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);
   };
@@ -188,7 +201,7 @@ export default class App extends Component {
     AppState.removeEventListener('change', this.handleAppStateChange);
   }
 
-  handleAppStateChange = (nextAppState: string) => {
+  handleAppStateChange = (nextAppState: AppStateStatus) => {
     if (
       this.state.appState.match(/inactive|background/) &&
       nextAppState === 'active'
@@ -211,22 +224,26 @@ export default class App extends Component {
     return (
       <Fragment>
         <StatusBar {...theme.statusBar.lightContent} />
-        <ApolloProvider client={apolloClient}>
-          <ProviderLegacy store={store}>
-            <Provider store={store}>
-              <PersistGate
-                loading={<LoadingScreen />}
-                onBeforeLift={this.onBeforeLift}
-                persistor={persistor}
-              >
-                {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
-                <PlatformKeyboardAvoidingView>
-                  <AppWithNavigationState />
-                </PlatformKeyboardAvoidingView>
-              </PersistGate>
-            </Provider>
-          </ProviderLegacy>
-        </ApolloProvider>
+        <ProviderLegacy store={store}>
+          <Provider store={store}>
+            <PersistGate
+              loading={<LoadingScreen />}
+              onBeforeLift={this.onBeforeLift}
+              persistor={persistor}
+            >
+              {this.state.apolloClient ? (
+                <ApolloProvider client={this.state.apolloClient}>
+                  {/* Wrap the whole navigation in a Keyboard avoiding view in order to fix issues with navigation */}
+                  <PlatformKeyboardAvoidingView>
+                    <AppWithNavigationState />
+                  </PlatformKeyboardAvoidingView>
+                </ApolloProvider>
+              ) : (
+                <LoadingScreen />
+              )}
+            </PersistGate>
+          </Provider>
+        </ProviderLegacy>
       </Fragment>
     );
   }

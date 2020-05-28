@@ -11,6 +11,7 @@ YellowBox.ignoreWarnings([
   'Remote debugger',
   'Warning: componentWillUpdate is deprecated',
   'Warning: componentWillReceiveProps is deprecated',
+  'VirtualizedLists should never',
 ]);
 
 AppRegistry.registerComponent('MissionHub', () => App);

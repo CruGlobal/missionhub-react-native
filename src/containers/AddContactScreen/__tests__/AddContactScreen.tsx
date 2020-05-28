@@ -1,226 +1,324 @@
 /* eslint max-lines: 0 */
 
 import React from 'react';
-import { Alert } from 'react-native';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
-import i18next from 'i18next';
+import { Alert, ActionSheetIOS } from 'react-native';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { DrawerActions } from 'react-navigation-drawer';
 
+import { renderWithContext } from '../../../../testUtils';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { useIsMe } from '../../../utils/hooks/useIsMe';
+import { navigatePush, navigateBack } from '../../../actions/navigation';
 import {
-  createMockNavState,
-  renderShallow,
-  testSnapshotShallow,
-} from '../../../../testUtils';
-import { addNewPerson } from '../../../actions/organizations';
-import { updatePerson } from '../../../actions/person';
-import { trackActionWithoutData } from '../../../actions/analytics';
+  trackActionWithoutData,
+  trackScreenChange,
+} from '../../../actions/analytics';
 import {
-  ACTIONS,
-  ORG_PERMISSIONS,
-  CANNOT_EDIT_FIRST_NAME,
-} from '../../../constants';
+  CREATE_PERSON,
+  UPDATE_PERSON,
+} from '../../../containers/SetupScreen/queries';
+import { ACTIONS, LOAD_PERSON_DETAILS } from '../../../constants';
+import { GET_PERSON } from '../queries';
+import { getPersonDetails } from '../../../actions/person';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 import AddContactScreen from '..';
 
-jest.mock('react-native-device-info');
-jest.mock('../../../actions/organizations');
-jest.mock('../../../actions/person');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
+jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../utils/hooks/useIsMe');
+jest.mock('react-navigation-drawer');
+jest.mock('../../../components/ImagePicker', () => 'ImagePicker');
 
-const me = { id: 99 };
-const contactId = 23;
-const contactFName = 'Lebron';
-const organization = { id: 2 };
-const mockContactAssignment = { id: 123, assigned_to: me };
+const me = { id: '99' };
+const contactId = '23';
+const contactFName = 'Christian';
+const organization = { id: '2' };
 const person = {
   id: contactId,
-  first_name: contactFName,
+  firstName: contactFName,
   organization,
-  reverse_contact_assignments: [mockContactAssignment],
 };
+const mockImage = 'base64image.jpeg';
 
-let addNewPersonResponse = { type: 'add new person', response: person };
-const updatePersonResponse = { type: 'update person', response: person };
 const trackActionResponse = { type: 'track action' };
+const trackScreenChangeResponse = { type: 'track screen change' };
 const nextResponse = { type: 'next' };
-
+const navigateBackResults = { type: 'navigate back' };
+const navigatePushResults = { type: 'navigate push' };
+const loadPersonResults = {
+  person: {
+    first_name: 'new name',
+    last_name: '',
+    id: contactId,
+  },
+  type: LOAD_PERSON_DETAILS,
+};
+const getPersonDetailsResults = { type: 'get person details' };
+const closeDrawerResults = { type: 'drawer closed' };
 const next = jest.fn();
 
-// @ts-ignore
-let store;
-const state = {
-  auth: { person: me },
+const initialState = {
+  auth: { person: me, isJean: false },
+  drawer: { isOpen: false },
 };
 
-// @ts-ignore
-let component;
-// @ts-ignore
-let instance;
-
-// @ts-ignore
-function buildScreen(props) {
-  // @ts-ignore
-  component = renderShallow(<AddContactScreen {...props} />, store);
-  return component;
-}
-
-// @ts-ignore
-function buildScreenInstance(props) {
-  instance = buildScreen(props).instance();
-  return instance;
-}
-
 beforeEach(() => {
-  // @ts-ignore
-  addNewPerson.mockReturnValue(addNewPersonResponse);
-  // @ts-ignore
-  updatePerson.mockReturnValue(updatePersonResponse);
-  // @ts-ignore
-  trackActionWithoutData.mockReturnValue(trackActionResponse);
+  (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResponse);
+  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
+  (useIsMe as jest.Mock).mockReturnValue(false);
+  (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResults);
   next.mockReturnValue(nextResponse);
+  (DrawerActions.closeDrawer as jest.Mock).mockReturnValue(closeDrawerResults);
   Alert.alert = jest.fn();
-
-  store = configureStore([thunk])(state);
 });
 
-it('renders correctly', () => {
-  testSnapshotShallow(
-    <AddContactScreen navigation={createMockNavState({ next })} />,
-    // @ts-ignore
-    store,
-  );
+it('renders correctly | With Person', async () => {
+  const { snapshot } = renderWithContext(<AddContactScreen next={next} />, {
+    initialState,
+    navParams: {
+      organization,
+      person,
+    },
+    mocks: {
+      Person: () => ({
+        firstName: person.firstName,
+        lastName: '',
+        id: person.id,
+        relationshipType: null,
+        stage: {
+          name: 'Forgiven',
+        },
+      }),
+    },
+  });
+
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+    variables: {
+      id: person.id,
+    },
+    onCompleted: expect.any(Function),
+    skip: false,
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
+});
+
+it('renders correctly | No Person', async () => {
+  const { snapshot } = renderWithContext(<AddContactScreen next={next} />, {
+    initialState,
+    navParams: {
+      organization,
+      person: {},
+    },
+  });
+
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+    variables: {
+      id: '',
+    },
+    onCompleted: expect.any(Function),
+    skip: true,
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
 });
 
 describe('handleUpdateData', () => {
-  it('should update the state', () => {
-    buildScreen({ navigation: createMockNavState() });
-
-    // @ts-ignore
-    component
-      .childAt(2)
-      .childAt(0)
-      .props()
-      .onUpdateData({ firstName: contactFName });
-
-    // @ts-ignore
-    expect(component.instance().state).toEqual({
-      person: { firstName: contactFName },
+  it('should update the state', async () => {
+    const { getByTestId, snapshot } = renderWithContext(
+      <AddContactScreen next={next} />,
+      {
+        initialState,
+        navParams: {
+          organization,
+          person,
+        },
+        mocks: {
+          Person: () => ({
+            firstName: person.firstName,
+            lastName: '',
+            id: person.id,
+            relationshipType: null,
+            stage: {
+              name: 'Forgiven',
+            },
+          }),
+        },
+      },
+    );
+    await flushMicrotasksQueue();
+    expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+      variables: {
+        id: person.id,
+      },
+      onCompleted: expect.any(Function),
+      skip: false,
     });
+    fireEvent(getByTestId('firstNameInput'), 'onChangeText', 'GreatGuy');
+    fireEvent(getByTestId('contactFields'), 'onUpdateData');
+    snapshot();
+    expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
   });
 });
 
 describe('completeWithoutSave', () => {
-  beforeEach(() => {
-    buildScreenInstance({
-      navigation: createMockNavState({ next, person, organization }),
-    });
-
-    // @ts-ignore
-    instance.completeWithoutSave();
-  });
-
   it('calls next', () => {
+    const { getByTestId } = renderWithContext(
+      <AddContactScreen next={next} />,
+      {
+        initialState,
+        navParams: {
+          organization,
+          person,
+        },
+      },
+    );
+    fireEvent.press(getByTestId('CloseButton'));
     expect(next).toHaveBeenCalledWith({
-      person: undefined,
+      personId: undefined,
+      relationshipType: undefined,
       orgId: organization.id,
       didSavePerson: false,
+      isMe: false,
     });
+
+    expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
   });
 });
 
 describe('savePerson', () => {
-  // @ts-ignore
-  let navPerson = undefined;
-  // @ts-ignore
-  let navOrg = undefined;
-  let newData = {};
-
   const newName = 'new name';
 
-  beforeEach(async () => {
-    buildScreen({
-      navigation: createMockNavState({
-        // @ts-ignore
-        person: navPerson,
-        // @ts-ignore
-        organization: navOrg,
-        next,
-      }),
-    });
-
-    // @ts-ignore
-    component.instance().setState({
-      person: {
-        // @ts-ignore
-        ...component.instance().state.person,
-        ...newData,
-      },
-    });
-
-    // @ts-ignore
-    await component
-      .childAt(3)
-      .props()
-      .onPress();
-  });
-
   describe('add new person', () => {
-    beforeAll(() => {
-      navPerson = undefined;
-      newData = { firstName: newName };
-    });
-
     describe('without org', () => {
-      beforeAll(() => {
-        navOrg = undefined;
-      });
-
-      it('should add a new person', () => {
-        expect(addNewPerson).toHaveBeenCalledWith({
-          assignToMe: true,
-          firstName: newName,
+      it('should add a new person', async () => {
+        const {
+          getByTestId,
+          recordSnapshot,
+          diffSnapshot,
+          store,
+        } = renderWithContext(<AddContactScreen next={next} />, {
+          initialState,
+          navParams: {
+            organization: undefined,
+            person: undefined,
+          },
+          mocks: {
+            Person: () => ({
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+              stage: null,
+            }),
+          },
+        });
+        recordSnapshot();
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        await fireEvent.press(getByTestId('continueButton'));
+        diffSnapshot();
+        await flushMicrotasksQueue();
+        expect(useMutation).toHaveBeenMutatedWith(CREATE_PERSON, {
+          variables: {
+            input: {
+              firstName: newName,
+              lastName: '',
+              assignToMe: true,
+            },
+          },
         });
         expect(trackActionWithoutData).toHaveBeenCalledWith(
           ACTIONS.PERSON_ADDED,
         );
         expect(next).toHaveBeenCalledWith({
-          person: addNewPersonResponse.response,
+          personId: person.id,
+          relationshipType: null,
           orgId: undefined,
           didSavePerson: true,
+          isMe: false,
         });
-        // @ts-ignore
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
+
         expect(store.getActions()).toEqual([
-          addNewPersonResponse,
+          loadPersonResults,
           trackActionResponse,
+          closeDrawerResults,
           nextResponse,
         ]);
+        expect(useAnalytics).toHaveBeenCalledWith(['people', 'add']);
       });
     });
 
     describe('with org', () => {
-      beforeAll(() => {
-        navOrg = organization;
-      });
+      it('should add a new person', async () => {
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization,
+              person: undefined,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+                stage: null,
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
 
-      it('should add a new person', () => {
-        expect(addNewPerson).toHaveBeenCalledWith({
-          firstName: newName,
-          orgId: organization.id,
-          assignToMe: true,
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        await fireEvent.press(getByTestId('continueButton'));
+        snapshot();
+        expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+          variables: {
+            id: '',
+          },
+          onCompleted: expect.any(Function),
+          skip: true,
+        });
+        expect(useMutation).toHaveBeenMutatedWith(CREATE_PERSON, {
+          variables: {
+            input: {
+              firstName: newName,
+              lastName: '',
+              assignToMe: true,
+            },
+          },
         });
         expect(trackActionWithoutData).toHaveBeenCalledWith(
           ACTIONS.PERSON_ADDED,
         );
         expect(next).toHaveBeenCalledWith({
-          person: addNewPersonResponse.response,
+          personId: person.id,
+          relationshipType: null,
           orgId: organization.id,
           didSavePerson: true,
+          isMe: false,
         });
-        // @ts-ignore
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
+
         expect(store.getActions()).toEqual([
-          addNewPersonResponse,
+          loadPersonResults,
           trackActionResponse,
+          closeDrawerResults,
           nextResponse,
         ]);
       });
@@ -228,179 +326,314 @@ describe('savePerson', () => {
   });
 
   describe('update existing person', () => {
-    beforeAll(() => {
-      navPerson = person;
-      newData = { firstName: newName };
-    });
-
     describe('without org', () => {
-      beforeAll(() => {
-        navOrg = undefined;
-      });
+      it('should update person and navigate back', async () => {
+        ActionSheetIOS.showActionSheetWithOptions = jest.fn();
 
-      it('should update person and navigate back', () => {
-        expect(updatePerson).toHaveBeenCalledWith({
-          // @ts-ignore
-          ...navPerson,
-          firstName: newName,
-          assignToMe: true,
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization: undefined,
+              person,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
+
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('popupMenuButton'), 'onPress');
+        (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+          1,
+        );
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        await fireEvent.press(getByTestId('continueButton'));
+
+        snapshot();
+        expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+          variables: {
+            id: person.id,
+          },
+          onCompleted: expect.any(Function),
+          skip: false,
+        });
+        expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
+          variables: {
+            input: {
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: RelationshipTypeEnum.friend,
+            },
+          },
         });
         expect(trackActionWithoutData).not.toHaveBeenCalled();
+
         expect(next).toHaveBeenCalledWith({
-          person: updatePersonResponse.response,
+          personId: person.id,
+          relationshipType: null,
           orgId: undefined,
           didSavePerson: true,
+          isMe: false,
         });
-        // @ts-ignore
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
+
         expect(store.getActions()).toEqual([
-          updatePersonResponse,
+          getPersonDetailsResults,
+          closeDrawerResults,
+          nextResponse,
+        ]);
+      });
+
+      it('updates users profile picture', async () => {
+        (useIsMe as jest.Mock).mockReturnValue(true);
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization: undefined,
+              person: {
+                id: me.id,
+              },
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: me.id,
+                relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
+                picture: null,
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
+        snapshot();
+        await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+          data: `data:image/jpeg;base64,${mockImage}`,
+        });
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        await fireEvent.press(getByTestId('continueButton'));
+        expect(useQuery).toHaveBeenCalledWith(GET_PERSON, {
+          variables: {
+            id: me.id,
+          },
+          onCompleted: expect.any(Function),
+          skip: false,
+        });
+        expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
+          variables: {
+            input: {
+              id: me.id,
+              firstName: newName,
+              lastName: '',
+              relationshipType: null,
+              picture: `data:image/jpeg;base64,${mockImage}`,
+            },
+          },
+        });
+        expect(trackActionWithoutData).not.toHaveBeenCalled();
+
+        expect(next).toHaveBeenCalledWith({
+          personId: me.id,
+          relationshipType: null,
+          orgId: undefined,
+          didSavePerson: true,
+          isMe: true,
+        });
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
+
+        expect(store.getActions()).toEqual([
+          getPersonDetailsResults,
+          closeDrawerResults,
           nextResponse,
         ]);
       });
     });
 
     describe('with org', () => {
-      beforeAll(() => {
-        navOrg = organization;
-      });
-
-      it('should update person and navigate back', () => {
-        expect(updatePerson).toHaveBeenCalledWith({
-          // @ts-ignore
-          ...navPerson,
-          firstName: newName,
-          orgId: organization.id,
-          assignToMe: true,
-        });
+      it('should update person and navigate back', async () => {
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization,
+              person,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
+        snapshot();
+        fireEvent(getByTestId('firstNameInput'), 'onChangeText', newName);
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        await fireEvent.press(getByTestId('continueButton'));
         expect(trackActionWithoutData).not.toHaveBeenCalled();
+
+        expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
+          variables: {
+            input: {
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+            },
+          },
+        });
+
         expect(next).toHaveBeenCalledWith({
-          person: updatePersonResponse.response,
+          personId: person.id,
+          relationshipType: null,
           orgId: organization.id,
           didSavePerson: true,
+          isMe: false,
         });
-        // @ts-ignore
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
+
         expect(store.getActions()).toEqual([
-          updatePersonResponse,
+          getPersonDetailsResults,
+          closeDrawerResults,
           nextResponse,
         ]);
+      });
+      it('should navigate to select a stage', async () => {
+        const stageId = '1';
+        const stageName = 'Forgiven';
+
+        const handleUpdateData = expect.any(Function);
+        const { getByTestId, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization,
+              person,
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+                stage: {
+                  id: stageId,
+                  name: stageName,
+                },
+                picture: null,
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
+        fireEvent.press(getByTestId('stageSelectButton'));
+
+        expect(next).toHaveBeenCalledWith({
+          orgId: organization?.id,
+          navigateToStageSelection: true,
+          person: {
+            firstName: newName,
+            __typename: 'Person',
+            lastName: '',
+            id: person.id,
+            relationshipType: null,
+            stage: {
+              __typename: 'Stage',
+              id: stageId,
+              name: stageName,
+            },
+            picture: null,
+          },
+          updatePerson: handleUpdateData,
+        });
+        expect(store.getActions()).toEqual([nextResponse]);
       });
     });
 
     describe('set last name to null', () => {
-      beforeAll(() => {
-        navOrg = undefined;
-        newData = { lastName: '' };
-      });
+      it('should update person and navigate back', async () => {
+        const { getByTestId, snapshot, store } = renderWithContext(
+          <AddContactScreen next={next} />,
+          {
+            initialState,
+            navParams: {
+              organization: undefined,
+              person: {
+                ...person,
+                lastName: 'someLastName',
+              },
+            },
+            mocks: {
+              Person: () => ({
+                firstName: newName,
+                lastName: '',
+                id: person.id,
+                relationshipType: null,
+                stage: {
+                  name: 'Forgiven',
+                },
+              }),
+            },
+          },
+        );
+        await flushMicrotasksQueue();
 
-      it('should update person and navigate back', () => {
-        expect(updatePerson).toHaveBeenCalledWith({
-          // @ts-ignore
-          ...navPerson,
-          assignToMe: true,
+        fireEvent(getByTestId('lastNameInput'), 'onChangeText', '');
+        fireEvent(getByTestId('contactFields'), 'onUpdateData');
+        await fireEvent.press(getByTestId('continueButton'));
+        snapshot();
+
+        expect(useMutation).toHaveBeenMutatedWith(UPDATE_PERSON, {
+          variables: {
+            input: {
+              firstName: newName,
+              lastName: '',
+              id: person.id,
+              relationshipType: null,
+            },
+          },
         });
         expect(trackActionWithoutData).not.toHaveBeenCalled();
         expect(next).toHaveBeenCalledWith({
-          person: updatePersonResponse.response,
+          personId: person.id,
+          relationshipType: null,
           orgId: undefined,
           didSavePerson: true,
+          isMe: false,
         });
-        // @ts-ignore
+        expect(DrawerActions.closeDrawer).toHaveBeenLastCalledWith();
+
         expect(store.getActions()).toEqual([
-          updatePersonResponse,
+          getPersonDetailsResults,
+          closeDrawerResults,
           nextResponse,
         ]);
-      });
-    });
-  });
-
-  describe('show alert', () => {
-    beforeAll(() => {
-      navPerson = undefined;
-      navOrg = organization;
-    });
-
-    const test = () => {
-      expect(Alert.alert).toHaveBeenCalledWith(
-        i18next.t('addContact:alertBlankEmail'),
-        i18next.t('addContact:alertPermissionsMustHaveEmail'),
-      );
-    };
-
-    describe('admin permissions', () => {
-      beforeAll(() => {
-        newData = { orgPermission: { permission_id: ORG_PERMISSIONS.ADMIN } };
-      });
-
-      describe('blank email, new firstName', () => {
-        beforeAll(() => {
-          newData = { ...newData, firstName: newName, email: '' };
-        });
-
-        it('shows alert', () => {
-          test();
-        });
-      });
-
-      describe('new email, blank firstName', () => {
-        beforeAll(() => {
-          newData = { ...newData, firstName: '', email: 'test' };
-        });
-
-        it('shows alert', () => {
-          test();
-        });
-      });
-    });
-
-    describe('user permissions', () => {
-      beforeAll(() => {
-        newData = { orgPermission: { permission_id: ORG_PERMISSIONS.USER } };
-      });
-
-      describe('blank email, new firstName', () => {
-        beforeAll(() => {
-          newData = { ...newData, firstName: newName, email: '' };
-        });
-
-        it('shows alert', () => {
-          test();
-        });
-      });
-
-      describe('new email, blank firstName', () => {
-        beforeAll(() => {
-          newData = { ...newData, firstName: '', email: 'test' };
-        });
-
-        it('shows alert', () => {
-          test();
-        });
-      });
-    });
-
-    describe('update user fails', () => {
-      beforeAll(() => {
-        // @ts-ignore
-        addNewPersonResponse = () =>
-          Promise.reject({
-            apiError: {
-              errors: [
-                {
-                  detail: CANNOT_EDIT_FIRST_NAME,
-                },
-              ],
-            },
-          });
-        navPerson = undefined;
-        navOrg = undefined;
-        newData = { firstName: newName, email: 'test' };
-      });
-
-      it('shows alert', () => {
-        expect(Alert.alert).toHaveBeenCalledWith(
-          i18next.t('addContact:alertSorry'),
-          i18next.t('addContact:alertCannotEditFirstName'),
-        );
       });
     });
   });

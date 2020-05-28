@@ -1,314 +1,293 @@
+/* eslint max-lines: 0 */
 import React from 'react';
-import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk';
+import { ActionSheetIOS } from 'react-native';
+import { fireEvent } from 'react-native-testing-library';
 
+import { renderWithContext } from '../../../../testUtils';
 import { ORG_PERMISSIONS } from '../../../constants';
-import {
-  testSnapshotShallow,
-  renderShallow,
-  createThunkStore,
-} from '../../../../testUtils';
 import { orgPermissionSelector } from '../../../selectors/people';
+import { getPersonDetails } from '../../../actions/person';
+import { navigatePush } from '../../../actions/navigation';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 import AddContactFields from '..';
 
 jest.mock('../../../selectors/people');
+jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
 
-const mockStore = configureStore([thunk]);
 const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
-
-const state = { auth: { person: {} } };
-
-// @ts-ignore
-function buildScreen(props, builtStore) {
-  return renderShallow(
-    <AddContactFields onUpdateData={jest.fn()} {...props} />,
-    builtStore || createThunkStore(state),
-  );
-}
+const getPersonDetailsResults = { type: 'get person details' };
+const navigatePushResults = { type: 'navigate push' };
+const myMockId = '2';
+const initialState = { auth: { person: { id: myMockId } } };
+const onUpdateData = jest.fn();
+const emptyPerson = {
+  id: '',
+  firstName: '',
+  lastName: '',
+  relationshipType: null,
+  stage: null,
+  picture: null,
+};
+const next = jest.fn();
+const mockImage = 'base64image.jpeg';
 
 beforeEach(() => {
-  // @ts-ignore
-  orgPermissionSelector.mockReturnValue(orgPermission);
+  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
+    orgPermission,
+  );
+  (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResults);
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
+  next.mockReturnValue({ type: 'next' });
 });
 
-it('renders casey view correctly', () => {
-  testSnapshotShallow(
+it('renders correctly | No Person', () => {
+  const { snapshot } = renderWithContext(
     <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
+      next={next}
       organization={null}
+      onUpdateData={onUpdateData}
+      person={emptyPerson}
     />,
-    mockStore(),
-  );
-});
-
-it('renders jean without organization view correctly', () => {
-  testSnapshotShallow(
-    <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
-      isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
-      organization={{}}
-    />,
-    mockStore(),
-  );
-});
-
-it('renders jean with organization view correctly', () => {
-  testSnapshotShallow(
-    <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
-      isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
-      organization={{ id: '1' }}
-    />,
-    mockStore({ auth: { person: {} } }),
-  );
-});
-
-it('renders jean with organization and user radio buttons', () => {
-  testSnapshotShallow(
-    <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
-      isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
-      organization={{ id: '1' }}
-    />,
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.USER,
-            },
-          ],
-        },
-      },
-    }),
-  );
-});
-
-it('renders jean with organization and user and admin radio buttons', () => {
-  testSnapshotShallow(
-    <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
-      isJean={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
-      organization={{ id: '1' }}
-    />,
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
-        },
-      },
-    }),
-  );
-});
-
-it('renders jean invite with organization and user and admin radio buttons', () => {
-  testSnapshotShallow(
-    <AddContactFields
-      // @ts-ignore
-      onUpdateData={jest.fn()}
-      isJean={true}
-      isGroupInvite={true}
-      person={{
-        email_addresses: [],
-        phone_numbers: [],
-      }}
-      organization={{ id: '1' }}
-    />,
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
-        },
-      },
-    }),
-  );
-});
-
-it('mounts and calls update field', () => {
-  // @ts-ignore
-  const component = buildScreen({
-    isJean: true,
-    organization: { id: '1' },
-  });
-  const componentInstance = component.instance();
-  // @ts-ignore
-  componentInstance.updateField = jest.fn();
-  // @ts-ignore
-  componentInstance.componentDidMount();
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.CONTACT,
-  });
-});
-
-it('mounts invite from admin and calls update field', () => {
-  // @ts-ignore
-  orgPermissionSelector.mockReturnValue({
-    permission_id: ORG_PERMISSIONS.ADMIN,
-  });
-  const component = buildScreen(
     {
-      isJean: true,
-      isGroupInvite: true,
-      organization: { id: '1' },
+      initialState,
     },
-    mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [
-            {
-              organization_id: '1',
-              permission_id: ORG_PERMISSIONS.ADMIN,
-            },
-          ],
-        },
-      },
-    }),
   );
-  const componentInstance = component.instance();
-  // @ts-ignore
-  componentInstance.updateField = jest.fn();
-  // @ts-ignore
-  componentInstance.componentDidMount();
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.USER,
-  });
+  snapshot();
 });
 
-it('updates org permission', () => {
-  // @ts-ignore
-  const component = buildScreen({
-    isJean: true,
-    organization: { id: '1' },
-  });
-  const componentInstance = component.instance();
-  // @ts-ignore
-  componentInstance.updateField = jest.fn();
-  // @ts-ignore
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.CONTACT);
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.CONTACT,
-  });
-  // @ts-ignore
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.USER);
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.USER,
-  });
-  // @ts-ignore
-  componentInstance.updateOrgPermission(ORG_PERMISSIONS.ADMIN);
-  // @ts-ignore
-  expect(componentInstance.updateField).toHaveBeenCalledWith('orgPermission', {
-    permission_id: ORG_PERMISSIONS.ADMIN,
-  });
+it('render correctly | With Person | With Picture', () => {
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      next={next}
+      organization={null}
+      onUpdateData={onUpdateData}
+      person={{
+        id: myMockId,
+        relationshipType: null,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        stage: {
+          name: 'Forgiven',
+          id: '2',
+          __typename: 'Stage',
+        },
+        picture: mockImage,
+      }}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
+});
+
+it('render correctly | With Person | No Picture', () => {
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      next={next}
+      organization={null}
+      onUpdateData={onUpdateData}
+      person={{
+        id: myMockId,
+        relationshipType: null,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        stage: {
+          id: '2',
+          name: 'Forgiven',
+          __typename: 'Stage',
+        },
+        picture: null,
+      }}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
 });
 
 describe('calls methods', () => {
-  // @ts-ignore
-  const instance = buildScreen({
-    isJean: true,
-    organization: { id: '1' },
-  }).instance();
-  beforeEach(() => {
-    instance.updateField = jest.fn();
+  it('calls update firstName and changeFocusedField', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddContactFields
+        next={next}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={emptyPerson}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    fireEvent(getByTestId('firstNameInput'), 'onFocus');
+    fireEvent.changeText(getByTestId('firstNameInput'), 'Christian');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      firstName: 'Christian',
+      id: '',
+      lastName: '',
+      relationshipType: null,
+      stage: null,
+      picture: null,
+    });
   });
 
-  it('calls first name ref', () => {
-    const ref = 'test';
-    instance.firstNameRef(ref);
-    expect(instance.firstName).toEqual(ref);
+  it('calls update lastName and changeFocusedField', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddContactFields
+        next={next}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={emptyPerson}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    fireEvent(getByTestId('lastNameInput'), 'onFocus');
+    fireEvent.changeText(getByTestId('lastNameInput'), 'Huffman');
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      firstName: '',
+      lastName: 'Huffman',
+      id: '',
+      relationshipType: null,
+      stage: null,
+      picture: null,
+    });
   });
-  it('calls last name ref', () => {
-    const ref = 'test';
-    instance.lastNameRef(ref);
-    expect(instance.lastName).toEqual(ref);
+
+  it('updates relationshipType', () => {
+    ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddContactFields
+        next={next}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{
+          id: '1',
+          relationshipType: RelationshipTypeEnum.family,
+          firstName: 'Christian',
+          lastName: 'Huffman',
+          stage: {
+            id: '2',
+            name: 'Forgiven',
+            __typename: 'Stage',
+          },
+          picture: mockImage,
+        }}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    fireEvent(getByTestId('popupMenuButton'), 'onPress');
+    (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+      1,
+    );
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      firstName: 'Christian',
+      lastName: 'Huffman',
+      id: '1',
+      relationshipType: RelationshipTypeEnum.friend,
+      stage: {
+        id: '2',
+        name: 'Forgiven',
+        __typename: 'Stage',
+      },
+      picture: mockImage,
+    });
   });
-  it('calls email ref', () => {
-    const ref = 'test';
-    instance.emailRef(ref);
-    expect(instance.email).toEqual(ref);
+
+  it('updates profile picture', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <AddContactFields
+        next={next}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{
+          id: myMockId,
+          relationshipType: RelationshipTypeEnum.family,
+          firstName: 'Christian',
+          lastName: 'Huffman',
+          stage: {
+            name: 'Forgiven',
+            id: '2',
+            __typename: 'Stage',
+          },
+          picture: null,
+        }}
+      />,
+      {
+        initialState,
+      },
+    );
+    recordSnapshot();
+    await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+      data: `data:image/jpeg;base64,${mockImage}`,
+    });
+    diffSnapshot();
+    expect(onUpdateData).toHaveBeenLastCalledWith({
+      firstName: 'Christian',
+      lastName: 'Huffman',
+      id: myMockId,
+      relationshipType: RelationshipTypeEnum.family,
+      stage: {
+        name: 'Forgiven',
+        id: '2',
+        __typename: 'Stage',
+      },
+      picture: `data:image/jpeg;base64,${mockImage}`,
+    });
   });
-  it('calls phone ref', () => {
-    const ref = 'test';
-    instance.phoneRef(ref);
-    expect(instance.phone).toEqual(ref);
-  });
-  it('calls last name focus', () => {
-    instance.lastName = { focus: jest.fn() };
-    instance.lastNameFocus();
-    expect(instance.lastName.focus).toHaveBeenCalled();
-  });
-  it('calls email focus', () => {
-    instance.email = { focus: jest.fn() };
-    instance.emailFocus();
-    expect(instance.email.focus).toHaveBeenCalled();
-  });
-  it('calls phone focus', () => {
-    instance.phone = { focus: jest.fn() };
-    instance.phoneFocus();
-    expect(instance.phone.focus).toHaveBeenCalled();
-  });
-  it('calls update first name', () => {
-    instance.updateFirstName('test');
-    expect(instance.updateField).toHaveBeenCalledWith('firstName', 'test');
-  });
-  it('calls update last name', () => {
-    instance.updateLastName('test');
-    expect(instance.updateField).toHaveBeenCalledWith('lastName', 'test');
-  });
-  it('calls update email', () => {
-    instance.updateEmail('test');
-    expect(instance.updateField).toHaveBeenCalledWith('email', 'test');
-  });
-  it('calls update phone', () => {
-    instance.updatePhone('test');
-    expect(instance.updateField).toHaveBeenCalledWith('phone', 'test');
-  });
-  it('calls update gender male', () => {
-    instance.updateGenderMale();
-    expect(instance.updateField).toHaveBeenCalledWith('gender', 'Male');
-  });
-  it('calls update gender female', () => {
-    instance.updateGenderFemale();
-    expect(instance.updateField).toHaveBeenCalledWith('gender', 'Female');
+
+  it('updates Stage', () => {
+    const { getByTestId } = renderWithContext(
+      <AddContactFields
+        next={next}
+        organization={null}
+        onUpdateData={onUpdateData}
+        person={{
+          id: '1',
+          relationshipType: RelationshipTypeEnum.family,
+          firstName: 'Christian',
+          lastName: 'Huffman',
+          stage: {
+            __typename: 'Stage',
+            id: '2',
+            name: 'Forgiven',
+          },
+          picture: mockImage,
+        }}
+      />,
+      {
+        initialState,
+      },
+    );
+    fireEvent.press(getByTestId('stageSelectButton'));
+    expect(next).toHaveBeenCalledWith({
+      orgId: undefined,
+      person: {
+        id: '1',
+        relationshipType: RelationshipTypeEnum.family,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        stage: {
+          __typename: 'Stage',
+          id: '2',
+          name: 'Forgiven',
+        },
+        picture: mockImage,
+      },
+      navigateToStageSelection: true,
+      updatePerson: onUpdateData,
+    });
   });
 });

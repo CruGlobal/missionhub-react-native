@@ -75,7 +75,6 @@ export const retryIfInvalidatedClientToken = (
   }
 };
 
-// @ts-ignore
 export const navigateToPostAuthScreen = () => (
   dispatch: ThunkDispatch<
     { auth: AuthState; notifications: NotificationsState },

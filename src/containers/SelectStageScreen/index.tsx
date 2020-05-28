@@ -10,7 +10,7 @@ import { useNavigationState, useFocusEffect } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
 
 import { Text, Button } from '../../components/common';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import LANDSCAPE from '../../../assets/images/landscapeStagesImage.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -89,6 +89,7 @@ export interface SelectStageNavParams {
   personId: string;
   orgId?: string;
   questionText?: string;
+  onComplete?: (stage: Stage) => void;
 }
 
 const SelectStageScreen = ({
@@ -107,6 +108,7 @@ const SelectStageScreen = ({
     personId,
     orgId,
     questionText,
+    onComplete,
   } = useNavigationState().params as SelectStageNavParams;
   const dispatch = useDispatch<
     ThunkDispatch<{ analytics: AnalyticsState }, {}, AnyAction>
@@ -137,7 +139,6 @@ const SelectStageScreen = ({
       trackPanelChange();
     }, [stageIndex]),
   );
-
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
     !isAlreadySelected &&
       (await dispatch(
@@ -147,6 +148,9 @@ const SelectStageScreen = ({
           ? updateUserStage(contactAssignmentId, stage.id)
           : selectPersonStage(personId, myId, stage.id, orgId),
       ));
+    if (onComplete) {
+      onComplete(stage);
+    }
 
     dispatch(
       next({
@@ -219,7 +223,7 @@ const SelectStageScreen = ({
         ]}
       />
       <View style={styles.container}>
-        <Header left={<BackButton />} />
+        <Header left={<DeprecatedBackButton />} />
         <View style={styles.content}>
           <Text style={styles.title}>{headerText}</Text>
           {stages ? (
@@ -259,7 +263,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { personId, orgId },
+        params: { personId, orgId, onComplete },
       },
     },
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -275,6 +279,7 @@ const mapStateToProps = (
     firstName: person.first_name,
     contactAssignmentId: contactAssignment.id,
     isMe: personId === myId,
+    onComplete,
     stages: stages.stages,
     analyticsSection: getAnalyticsSectionType(onboarding),
     analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),

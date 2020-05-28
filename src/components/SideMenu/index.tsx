@@ -10,7 +10,7 @@ import { DrawerState } from '../../reducers/drawer';
 
 import styles from './styles';
 
-interface MenuItemsType {
+export interface MenuItemsType {
   label: string;
   action: () => void;
   selected?: boolean;

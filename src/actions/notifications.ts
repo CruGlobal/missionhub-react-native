@@ -16,12 +16,13 @@ import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
 import { NOTIFICATION_PRIMER_SCREEN } from '../containers/NotificationPrimerScreen';
 import { NOTIFICATION_OFF_SCREEN } from '../containers/NotificationOffScreen';
-import { GROUP_CHALLENGES } from '../containers/Groups/GroupScreen';
 import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 import { NotificationsState } from '../reducers/notifications';
 import { OrganizationsState } from '../reducers/organizations';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
+import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
 
 import { refreshCommunity } from './organizations';
 import { getPersonDetails, navToPersonScreen } from './person';
@@ -29,11 +30,24 @@ import { reloadGroupChallengeFeed } from './challenges';
 import {
   navigatePush,
   navigateToMainTabs,
-  navigateToCommunity,
   navigateToCelebrateComments,
 } from './navigation';
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
+
+export const SET_NOTIFICATION_ANALYTICS = 'app/SET_NOTIFICATION_ANALYTICS';
+
+export interface SetNotificationAnalyticsAction {
+  type: typeof SET_NOTIFICATION_ANALYTICS;
+  notificationName: string;
+}
+
+export const setNotificationAnalytics = (
+  notificationName: string,
+): SetNotificationAnalyticsAction => ({
+  type: SET_NOTIFICATION_ANALYTICS,
+  notificationName,
+});
 
 // react-native-push-notifications has the PushNotification type overloaded to be both the notification payload and the constructor so TS merges them. Here we just pick the payload keys.
 export type RNPushNotificationPayload = Pick<
@@ -104,27 +118,13 @@ type ParsedNotificationData =
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
-export const UPDATE_ACCEPTED_NOTIFICATIONS =
-  'app/UPDATE_ACCEPTED_NOTIFICATIONS';
 
 export interface HasShownPromptAction {
   type: typeof HAS_SHOWN_NOTIFICATION_PROMPT;
 }
 
-export interface UpdateAcceptedNotificationsAction {
-  type: typeof UPDATE_ACCEPTED_NOTIFICATIONS;
-  acceptedNotifications: boolean;
-}
-
 export const hasShownPrompt = (): HasShownPromptAction => ({
   type: HAS_SHOWN_NOTIFICATION_PROMPT,
-});
-
-export const updateAcceptedNotifications = (
-  acceptedNotifications: boolean,
-): UpdateAcceptedNotificationsAction => ({
-  type: UPDATE_ACCEPTED_NOTIFICATIONS,
-  acceptedNotifications,
 });
 
 export const checkNotifications = (
@@ -140,10 +140,13 @@ export const checkNotifications = (
   dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
+  const skipNotificationOff =
+    notificationType === NOTIFICATION_PROMPT_TYPES.LOGIN;
+
   let nativePermissionsEnabled = false;
   const {
     auth: { token },
-    notifications: { appHasShownPrompt, userHasAcceptedNotifications },
+    notifications: { appHasShownPrompt },
   } = getState();
 
   //ONLY register if logged in
@@ -165,11 +168,7 @@ export const checkNotifications = (
 
     //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
     //delete push token from API and Redux, then navigate to NotificationOffScreen
-    if (
-      !isAndroid &&
-      userHasAcceptedNotifications &&
-      !nativePermissionsEnabled
-    ) {
+    if (!isAndroid && !nativePermissionsEnabled && !skipNotificationOff) {
       dispatch(deletePushToken());
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
@@ -191,16 +190,13 @@ export const checkNotifications = (
 // - display the modal asking the user to enable notifications (first time only)
 // - return current state of Native Notifications Permissions (we should update app state accordingly)
 // - refreshes Push Device Token (this gets handled by onRegister() callback)
-export const requestNativePermissions = () => async (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-) => {
+export const requestNativePermissions = () => async () => {
   const nativePermissions = await PushNotification.requestPermissions();
 
   const nativePermissionsEnabled = !!(
     nativePermissions && nativePermissions.alert
   );
 
-  dispatch(updateAcceptedNotifications(nativePermissionsEnabled));
   return { nativePermissionsEnabled };
 };
 
@@ -256,6 +252,8 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
 
     const notificationData = parseNotificationData(notification);
 
+    dispatch(setNotificationAnalytics(notificationData.screen));
+
     switch (notificationData.screen) {
       case 'home':
       case 'steps':
@@ -285,8 +283,11 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       case 'celebrate_feed': {
         const { organization_id } = notificationData;
         if (organization_id) {
-          const community = await dispatch(refreshCommunity(organization_id));
-          return dispatch(navigateToCommunity(community));
+          return dispatch(
+            navigatePush(COMMUNITY_TABS, {
+              communityId: organization_id,
+            }),
+          );
         }
         return;
       }
@@ -313,9 +314,13 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         // IOS Global Community Challenges PN returns the organization_id as null
         const orgId =
           organization_id === null ? GLOBAL_COMMUNITY_ID : organization_id;
-        const community = await dispatch(refreshCommunity(orgId));
+        await dispatch(refreshCommunity(orgId));
         await dispatch(reloadGroupChallengeFeed(orgId));
-        return dispatch(navigateToCommunity(community, GROUP_CHALLENGES));
+        return dispatch(
+          navigatePush(COMMUNITY_CHALLENGES, {
+            communityId: orgId,
+          }),
+        );
       }
     }
   };

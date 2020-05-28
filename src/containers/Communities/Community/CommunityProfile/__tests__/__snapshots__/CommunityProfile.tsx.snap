@@ -1,0 +1,1440 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CommunityProfile edit screen renders editing state 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -180,11 +180,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 EDIT
++                 DONE
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -197,10 +197,28 @@
+          \\"flex\\": 1,
+        }
+      }
+    >
+      <View
++       accessible={true}
++       focusable={true}
++       isTVSelectable={true}
++       onClick={[Function bound touchableHandlePress]}
++       onResponderGrant={[Function bound touchableHandleResponderGrant]}
++       onResponderMove={[Function bound touchableHandleResponderMove]}
++       onResponderRelease={[Function bound touchableHandleResponderRelease]}
++       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       style={
++         Object {
++           \\"opacity\\": 1,
++         }
++       }
++       testID=\\"popupMenuButton\\"
++     >
++       <View
+          style={
+            Array [
+              Object {
+                \\"backgroundColor\\": \\"#005A7F\\",
+                \\"borderRadius\\": 4,
+@@ -228,10 +246,34 @@
+                \\"height\\": \\"100%\\",
+                \\"width\\": \\"100%\\",
+              }
+            }
+          />
++         <View
++           style={
++             Array [
++               Object {
++                 \\"left\\": 0,
++                 \\"position\\": \\"absolute\\",
++                 \\"right\\": 0,
++               },
++               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"justifyContent\\": \\"center\\",
++               },
++             ]
++           }
++         >
++           <Image
++             source={
++               Object {
++                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
++               }
++             }
++           />
++         </View>
++       </View>
+      </View>
+      <RCTScrollView
+        keyboardShouldPersistTaps=\\"handled\\"
+        style={
+          Object {
+@@ -252,30 +294,130 @@
+                  \\"flexDirection\\": \\"row\\",
+                },
+              ]
+            }
+          >
+-           <Text
++           <TextInput
++             allowFontScaling={true}
++             autoCorrect={true}
++             autoFocus={true}
++             blurOnSubmit={true}
++             multiline={false}
++             onChangeText={[Function handleChangeName]}
++             placeholderTextColor=\\"#505256\\"
++             rejectResponderTermination={true}
++             returnKeyType=\\"done\\"
++             selectionColor=\\"#ffffff\\"
+              style={
+                Array [
+                  Object {
+-                   \\"color\\": \\"#505256\\",
+-                 },
+-                 Object {
++                   \\"backgroundColor\\": \\"transparent\\",
++                   \\"borderBottomColor\\": \\"#52C5DC\\",
++                   \\"borderBottomWidth\\": 1,
++                   \\"color\\": \\"#ffffff\\",
+                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 16,
++                   \\"letterSpacing\\": 0.25,
++                   \\"paddingVertical\\": 5,
+                  },
+                  Object {
++                   \\"borderBottomWidth\\": 0,
+                    \\"color\\": \\"#ffffff\\",
++                   \\"flex\\": 1,
+                    \\"fontSize\\": 32,
+                    \\"letterSpacing\\": 0.25,
++                   \\"paddingVertical\\": 0,
++                   \\"textAlign\\": \\"left\\",
++                 },
++               ]
++             }
++             testID=\\"nameInput\\"
++             underlineColorAndroid=\\"transparent\\"
++             value=\\"esse repellat quisquam\\"
++           />
++           <View
++             accessible={true}
++             focusable={true}
++             isTVSelectable={true}
++             onClick={[Function bound touchableHandlePress]}
++             onResponderGrant={[Function bound touchableHandleResponderGrant]}
++             onResponderMove={[Function bound touchableHandleResponderMove]}
++             onResponderRelease={[Function bound touchableHandleResponderRelease]}
++             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             style={
++               Object {
++                 \\"opacity\\": 1,
++               }
++             }
++             testID=\\"IconButton\\"
++           >
++             <View
++               style={
++                 Array [
++                   Object {
++                     \\"backgroundColor\\": \\"transparent\\",
++                   },
++                   null,
++                   Array [
++                     Object {
++                       \\"alignItems\\": \\"center\\",
++                       \\"justifyContent\\": \\"center\\",
+                      },
++                     undefined,
++                   ],
++                   null,
+                  ]
+                }
+              >
+-             esse repellat quisquam
++               <Text
++                 allowFontScaling={false}
++                 style={
++                   Array [
++                     Object {
++                       \\"color\\": undefined,
++                       \\"fontSize\\": 12,
++                     },
++                     Array [
++                       Object {
++                         \\"color\\": \\"#ffffff\\",
++                       },
++                       Object {
++                         \\"fontSize\\": 20,
++                       },
++                       Array [
++                         Object {
++                           \\"margin\\": 10,
++                         },
++                         Array [
++                           Object {
++                             \\"color\\": \\"#B2B0B2\\",
++                             \\"margin\\": 0,
++                             \\"paddingHorizontal\\": 10,
++                           },
++                           Object {
++                             \\"color\\": \\"#ffffff\\",
++                             \\"marginLeft\\": 15,
++                           },
++                         ],
++                       ],
++                     ],
++                     Object {
++                       \\"fontFamily\\": \\"icomoon\\",
++                       \\"fontStyle\\": \\"normal\\",
++                       \\"fontWeight\\": \\"normal\\",
++                     },
++                     Object {},
++                   ]
++                 }
++               >
++                 
+                </Text>
+              </View>
++           </View>
++         </View>
+          <View
+            style={
+              Array [
+                Object {
+                  \\"marginHorizontal\\": 20,
+@@ -537,25 +679,30 @@
+              style={
+                Object {
+                  \\"opacity\\": 1,
+                }
+              }
+-             testID=\\"copyCodeButton\\"
++             testID=\\"newCodeButton\\"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      \\"backgroundColor\\": \\"transparent\\",
+                    },
+                    null,
++                   Array [
+                      Object {
+                        \\"backgroundColor\\": \\"#52C5DC\\",
+                        \\"borderRadius\\": 15,
+                        \\"paddingHorizontal\\": 20,
+                        \\"paddingVertical\\": 7,
++                     },
++                     Object {
++                       \\"backgroundColor\\": \\"#FF5532\\",
+                      },
++                   ],
+                    null,
+                  ]
+                }
+              >
+                <Text
+@@ -583,11 +730,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 COPY
++                 NEW CODE
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+@@ -680,25 +827,30 @@
+              style={
+                Object {
+                  \\"opacity\\": 1,
+                }
+              }
+-             testID=\\"copyUrlButton\\"
++             testID=\\"newUrlButton\\"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      \\"backgroundColor\\": \\"transparent\\",
+                    },
+                    null,
++                   Array [
+                      Object {
+                        \\"backgroundColor\\": \\"#52C5DC\\",
+                        \\"borderRadius\\": 15,
+                        \\"paddingHorizontal\\": 20,
+                        \\"paddingVertical\\": 7,
+                      },
++                     Object {
++                       \\"backgroundColor\\": \\"#FF5532\\",
++                     },
++                   ],
+                    null,
+                  ]
+                }
+              >
+                <Text
+@@ -726,11 +878,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 COPY
++                 NEW LINK
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View"
+`;
+
+exports[`CommunityProfile edit screen should stop editing 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -180,11 +180,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 DONE
++                 EDIT
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -197,28 +197,10 @@
+          \\"flex\\": 1,
+        }
+      }
+    >
+      <View
+-       accessible={true}
+-       focusable={true}
+-       isTVSelectable={true}
+-       onClick={[Function bound touchableHandlePress]}
+-       onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-       onResponderMove={[Function bound touchableHandleResponderMove]}
+-       onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-       style={
+-         Object {
+-           \\"opacity\\": 1,
+-         }
+-       }
+-       testID=\\"popupMenuButton\\"
+-     >
+-       <View
+        style={
+          Array [
+            Object {
+              \\"backgroundColor\\": \\"#005A7F\\",
+              \\"borderRadius\\": 4,
+@@ -246,34 +228,10 @@
+              \\"height\\": \\"100%\\",
+              \\"width\\": \\"100%\\",
+            }
+          }
+        />
+-         <View
+-           style={
+-             Array [
+-               Object {
+-                 \\"left\\": 0,
+-                 \\"position\\": \\"absolute\\",
+-                 \\"right\\": 0,
+-               },
+-               Object {
+-                 \\"alignItems\\": \\"center\\",
+-                 \\"justifyContent\\": \\"center\\",
+-               },
+-             ]
+-           }
+-         >
+-           <Image
+-             source={
+-               Object {
+-                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
+-               }
+-             }
+-           />
+-         </View>
+-       </View>
+      </View>
+      <RCTScrollView
+        keyboardShouldPersistTaps=\\"handled\\"
+        style={
+          Object {
+@@ -294,130 +252,30 @@
+                  \\"flexDirection\\": \\"row\\",
+                },
+              ]
+            }
+          >
+-           <TextInput
+-             allowFontScaling={true}
+-             autoCorrect={true}
+-             autoFocus={true}
+-             blurOnSubmit={true}
+-             multiline={false}
+-             onChangeText={[Function handleChangeName]}
+-             placeholderTextColor=\\"#505256\\"
+-             rejectResponderTermination={true}
+-             returnKeyType=\\"done\\"
+-             selectionColor=\\"#ffffff\\"
++           <Text
+              style={
+                Array [
+                  Object {
+-                   \\"backgroundColor\\": \\"transparent\\",
+-                   \\"borderBottomColor\\": \\"#52C5DC\\",
+-                   \\"borderBottomWidth\\": 1,
+-                   \\"color\\": \\"#ffffff\\",
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
+                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontSize\\": 16,
+-                   \\"letterSpacing\\": 0.25,
+-                   \\"paddingVertical\\": 5,
+                  },
+                  Object {
+-                   \\"borderBottomWidth\\": 0,
+                    \\"color\\": \\"#ffffff\\",
+-                   \\"flex\\": 1,
+                    \\"fontSize\\": 32,
+                    \\"letterSpacing\\": 0.25,
+-                   \\"paddingVertical\\": 0,
+-                   \\"textAlign\\": \\"left\\",
+-                 },
+-               ]
+-             }
+-             testID=\\"nameInput\\"
+-             underlineColorAndroid=\\"transparent\\"
+-             value=\\"esse repellat quisquam\\"
+-           />
+-           <View
+-             accessible={true}
+-             focusable={true}
+-             isTVSelectable={true}
+-             onClick={[Function bound touchableHandlePress]}
+-             onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-             onResponderMove={[Function bound touchableHandleResponderMove]}
+-             onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-             style={
+-               Object {
+-                 \\"opacity\\": 1,
+-               }
+-             }
+-             testID=\\"IconButton\\"
+-           >
+-             <View
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"backgroundColor\\": \\"transparent\\",
+-                   },
+-                   null,
+-                   Array [
+-                     Object {
+-                       \\"alignItems\\": \\"center\\",
+-                       \\"justifyContent\\": \\"center\\",
+                  },
+-                     undefined,
+-                   ],
+-                   null,
+                ]
+              }
+            >
+-               <Text
+-                 allowFontScaling={false}
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"color\\": undefined,
+-                       \\"fontSize\\": 12,
+-                     },
+-                     Array [
+-                       Object {
+-                         \\"color\\": \\"#ffffff\\",
+-                       },
+-                       Object {
+-                         \\"fontSize\\": 20,
+-                       },
+-                       Array [
+-                         Object {
+-                           \\"margin\\": 10,
+-                         },
+-                         Array [
+-                           Object {
+-                             \\"color\\": \\"#B2B0B2\\",
+-                             \\"margin\\": 0,
+-                             \\"paddingHorizontal\\": 10,
+-                           },
+-                           Object {
+-                             \\"color\\": \\"#ffffff\\",
+-                             \\"marginLeft\\": 15,
+-                           },
+-                         ],
+-                       ],
+-                     ],
+-                     Object {
+-                       \\"fontFamily\\": \\"icomoon\\",
+-                       \\"fontStyle\\": \\"normal\\",
+-                       \\"fontWeight\\": \\"normal\\",
+-                     },
+-                     Object {},
+-                   ]
+-                 }
+-               >
+-                 
++             esse repellat quisquam
+            </Text>
+          </View>
+-           </View>
+-         </View>
+          <View
+            style={
+              Array [
+                Object {
+                  \\"marginHorizontal\\": 20,
+@@ -679,30 +537,25 @@
+              style={
+                Object {
+                  \\"opacity\\": 1,
+                }
+              }
+-             testID=\\"newCodeButton\\"
++             testID=\\"copyCodeButton\\"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      \\"backgroundColor\\": \\"transparent\\",
+                    },
+                    null,
+-                   Array [
+                    Object {
+                      \\"backgroundColor\\": \\"#52C5DC\\",
+                      \\"borderRadius\\": 15,
+                      \\"paddingHorizontal\\": 20,
+                      \\"paddingVertical\\": 7,
+-                     },
+-                     Object {
+-                       \\"backgroundColor\\": \\"#FF5532\\",
+                    },
+-                   ],
+                    null,
+                  ]
+                }
+              >
+                <Text
+@@ -730,11 +583,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 NEW CODE
++                 COPY
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+@@ -827,30 +680,25 @@
+              style={
+                Object {
+                  \\"opacity\\": 1,
+                }
+              }
+-             testID=\\"newUrlButton\\"
++             testID=\\"copyUrlButton\\"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      \\"backgroundColor\\": \\"transparent\\",
+                    },
+                    null,
+-                   Array [
+                    Object {
+                      \\"backgroundColor\\": \\"#52C5DC\\",
+                      \\"borderRadius\\": 15,
+                      \\"paddingHorizontal\\": 20,
+                      \\"paddingVertical\\": 7,
+                    },
+-                     Object {
+-                       \\"backgroundColor\\": \\"#FF5532\\",
+-                     },
+-                   ],
+                    null,
+                  ]
+                }
+              >
+                <Text
+@@ -878,11 +726,11 @@
+                        },
+                      ],
+                    ]
+                  }
+                >
+-                 NEW LINK
++                 COPY
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View"
+`;
+
+exports[`CommunityProfile should render correctly 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -148,11 +148,27 @@
+              \\"alignItems\\": \\"center\\",
+              \\"justifyContent\\": \\"center\\",
+            },
+          ]
+        }
++     >
++       <Image
++         resizeMode=\\"cover\\"
++         source={
++           Object {
++             \\"uri\\": \\"sunt qui amet\\",
++           }
++         }
++         style={
++           Object {
++             \\"borderRadius\\": 4,
++             \\"height\\": \\"100%\\",
++             \\"width\\": \\"100%\\",
++           }
++         }
+        />
++     </View>
+      <RCTScrollView
+        keyboardShouldPersistTaps=\\"handled\\"
+        style={
+          Object {
+            \\"flex\\": 1,
+@@ -188,11 +204,13 @@
+                    \\"fontSize\\": 32,
+                    \\"letterSpacing\\": 0.25,
+                  },
+                ]
+              }
+-           />
++           >
++             Inverse zero tolerance paradigm
++           </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+@@ -248,11 +266,13 @@
+                      \\"color\\": \\"#ffffff\\",
+                      \\"fontSize\\": 12,
+                    },
+                  ]
+                }
+-             />
++             >
++               Gracie Weber
++             </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {},
+@@ -279,10 +299,29 @@
+                  ]
+                }
+              >
+                Created
+              </Text>
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontSize\\": 12,
++                   },
++                 ]
++               }
++               testID=\\"Text\\"
++             >
++               September 19, 2010
++             </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+@@ -338,11 +377,13 @@
+                      \\"color\\": \\"#ffffff\\",
+                      \\"fontSize\\": 12,
+                    },
+                  ]
+                }
+-             />
++             >
++               41919
++             </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+@@ -412,11 +453,13 @@
+                      \\"color\\": \\"#ffffff\\",
+                      \\"fontSize\\": 32,
+                    },
+                  ]
+                }
+-             />
++             >
++               alias consequuntur corporis
++             </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+@@ -554,11 +597,11 @@
+                      \\"marginRight\\": 5,
+                    },
+                  ]
+                }
+              >
+-               
++               undefinedrepellat ratione ut
+              </Text>
+            </View>
+            <View
+              accessible={true}
+              focusable={true}"
+`;
+
+exports[`CommunityProfile should render loading state 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "backgroundColor": "#007398",
+      }
+    }
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 56,
+              "paddingTop": 0,
+            },
+            undefined,
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 5,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "paddingLeft": 10,
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingRight": 5,
+              },
+              Object {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        />
+      </View>
+    </RCTSafeAreaView>
+  </View>,
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#005A7F",
+            "borderRadius": 4,
+            "height": 421.875,
+            "position": "relative",
+            "width": 750,
+          },
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+        ]
+      }
+    />
+    <RCTScrollView
+      keyboardShouldPersistTaps="handled"
+      style={
+        Object {
+          "flex": 1,
+        }
+      }
+    >
+      <View>
+        <View
+          style={
+            Array [
+              Object {
+                "marginHorizontal": 20,
+                "marginVertical": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 32,
+                  "letterSpacing": 0.25,
+                },
+              ]
+            }
+          />
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "marginHorizontal": 20,
+                "marginVertical": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Owner
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Created
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "marginHorizontal": 20,
+                "marginVertical": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Members
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            />
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
+              },
+              Object {
+                "marginVertical": 5,
+              },
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "marginHorizontal": 20,
+                "marginVertical": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Community Code
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 32,
+                  },
+                ]
+              }
+            />
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="copyCodeButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "backgroundColor": "#52C5DC",
+                    "borderRadius": 15,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 7,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 1.5,
+                        "textAlign": "center",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "fontWeight": "bold",
+                      },
+                    ],
+                  ]
+                }
+              >
+                COPY
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
+              },
+              Object {
+                "marginVertical": 5,
+              },
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "marginHorizontal": 20,
+                "marginVertical": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 12,
+                  },
+                ]
+              }
+            >
+              Community Link
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#ffffff",
+                    "fontSize": 14,
+                    "marginRight": 5,
+                  },
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="copyUrlButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "backgroundColor": "#52C5DC",
+                    "borderRadius": 15,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 7,
+                  },
+                  null,
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "backgroundColor": "rgba(0,0,0,0)",
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "fontWeight": "500",
+                        "letterSpacing": 1.5,
+                        "textAlign": "center",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 14,
+                        "fontWeight": "bold",
+                      },
+                    ],
+                  ]
+                }
+              >
+                COPY
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
+              },
+              Object {
+                "marginVertical": 5,
+              },
+            ]
+          }
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "marginHorizontal": 20,
+                "marginVertical": 10,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#A0A2A6",
+                  "width": "75%",
+                },
+              ]
+            }
+          >
+            Anyone who has this code or link will be able to join your group.
+          </Text>
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>,
+]
+`;

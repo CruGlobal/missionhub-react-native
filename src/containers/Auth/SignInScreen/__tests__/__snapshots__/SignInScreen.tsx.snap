@@ -61,7 +61,7 @@ exports[`key login button is pressed key login is called 1`] = `
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +107,37 @@
+@@ -107,69 +107,45 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -85,7 +85,7 @@ exports[`key login button is pressed key login is called 1`] = `
         }
       >
         <Button
--       buttonTextStyle={
+          buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
 -           \\"fontSize\\": 14,
@@ -93,22 +93,29 @@ exports[`key login button is pressed key login is called 1`] = `
 -           \\"letterSpacing\\": 1.5,
 -           \\"paddingTop\\": 2,
 -         }
--       }
++           Array [
++             undefined,
++           ]
+          }
 -       onPress={[Function facebookLogin]}
 +         onPress={[Function handlePress]}
           pill={true}
           style={
-            Object {
++           Array [
+              Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
-+             \\"alignItems\\": \\"center\\",
-              \\"height\\": 48,
++               \\"alignItems\\": \\"center\\",
+                \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
-+             \\"width\\": 650,
-            }
++               \\"width\\": 650,
++             },
++             undefined,
++           ]
           }
+-       }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -158,7 +165,7 @@ exports[`key login button is pressed should fire login actions when inputs are s
 - First value
 + Second value
 
-@@ -137,6 +137,7 @@
+@@ -145,6 +145,7 @@
           text=\\"LOGIN\\"
           type=\\"secondary\\"
         />
@@ -202,7 +209,7 @@ exports[`key login button is pressed shows email verification required message a
 +     </Text>
 +   </RCTSafeAreaView>
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
       align=\\"center\\"
@@ -232,7 +239,7 @@ exports[`key login button is pressed shows email verification required message a
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +129,36 @@
+@@ -107,69 +129,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -256,7 +263,7 @@ exports[`key login button is pressed shows email verification required message a
         }
       >
         <Button
--       buttonTextStyle={
+          buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
 -           \\"fontSize\\": 14,
@@ -264,21 +271,29 @@ exports[`key login button is pressed shows email verification required message a
 -           \\"letterSpacing\\": 1.5,
 -           \\"paddingTop\\": 2,
 -         }
--       }
++           Array [
++             undefined,
++           ]
+          }
 -       onPress={[Function facebookLogin]}
 +         onPress={[Function handlePress]}
           pill={true}
           style={
-            Object {
++           Array [
+              Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
-+             \\"alignItems\\": \\"center\\",
-              \\"height\\": 48,
++               \\"alignItems\\": \\"center\\",
+                \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
--       }
++               \\"width\\": 650,
++             },
++             undefined,
++           ]
+          }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -290,9 +305,8 @@ exports[`key login button is pressed shows email verification required message a
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
-+             \\"width\\": 650,
-            }
-          }
+-             }
+-           }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
 +         text=\\"LOGIN\\"
@@ -352,7 +366,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     </Text>
 +   </RCTSafeAreaView>
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
       align=\\"center\\"
@@ -382,7 +396,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +129,36 @@
+@@ -107,69 +129,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -406,7 +420,7 @@ exports[`key login button is pressed shows invalid credentials message and track
         }
       >
         <Button
--       buttonTextStyle={
+          buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
 -           \\"fontSize\\": 14,
@@ -414,21 +428,29 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           \\"letterSpacing\\": 1.5,
 -           \\"paddingTop\\": 2,
 -         }
--       }
++           Array [
++             undefined,
++           ]
+          }
 -       onPress={[Function facebookLogin]}
 +         onPress={[Function handlePress]}
           pill={true}
           style={
-            Object {
++           Array [
+              Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
-+             \\"alignItems\\": \\"center\\",
-              \\"height\\": 48,
++               \\"alignItems\\": \\"center\\",
+                \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
--       }
++               \\"width\\": 650,
++             },
++             undefined,
++           ]
+          }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -440,9 +462,8 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
-+             \\"width\\": 650,
-            }
-          }
+-             }
+-           }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
 +         text=\\"LOGIN\\"
@@ -502,7 +523,7 @@ exports[`key login button is pressed shows invalid credentials message and track
 +     </Text>
 +   </RCTSafeAreaView>
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
       align=\\"center\\"
@@ -532,7 +553,7 @@ exports[`key login button is pressed shows invalid credentials message and track
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +129,36 @@
+@@ -107,69 +129,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -556,7 +577,7 @@ exports[`key login button is pressed shows invalid credentials message and track
         }
       >
         <Button
--       buttonTextStyle={
+          buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
 -           \\"fontSize\\": 14,
@@ -564,21 +585,29 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           \\"letterSpacing\\": 1.5,
 -           \\"paddingTop\\": 2,
 -         }
--       }
++           Array [
++             undefined,
++           ]
+          }
 -       onPress={[Function facebookLogin]}
 +         onPress={[Function handlePress]}
           pill={true}
           style={
-            Object {
++           Array [
+              Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
-+             \\"alignItems\\": \\"center\\",
-              \\"height\\": 48,
++               \\"alignItems\\": \\"center\\",
+                \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
--       }
++               \\"width\\": 650,
++             },
++             undefined,
++           ]
+          }
 -       testID=\\"facebookButton\\"
 -     >
 -       <Flex
@@ -590,9 +619,8 @@ exports[`key login button is pressed shows invalid credentials message and track
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
-+             \\"width\\": 650,
-            }
-          }
+-             }
+-           }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
 +         text=\\"LOGIN\\"
@@ -649,7 +677,7 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
           buttonTextStyle={
             Object {
               \\"color\\": \\"#52C5DC\\",
-@@ -107,69 +107,36 @@
+@@ -107,69 +107,44 @@
           text=\\"Forgot Password?\\"
           type=\\"transparent\\"
         />
@@ -673,25 +701,29 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
         }
       >
         <Button
--       buttonTextStyle={
+          buttonTextStyle={
 -         Object {
 -           \\"color\\": \\"#ffffff\\",
 -           \\"fontSize\\": 14,
 -           \\"fontWeight\\": \\"500\\",
 -           \\"letterSpacing\\": 1.5,
 -           \\"paddingTop\\": 2,
--         }
++           Array [
++             undefined,
++           ]
+          }
 -       }
 -       onPress={[Function facebookLogin]}
 +         onPress={[Function handlePress]}
           pill={true}
           style={
-            Object {
++           Array [
+              Object {
 -           \\"backgroundColor\\": \\"transparent\\",
 -           \\"borderColor\\": \\"#52C5DC\\",
 -           \\"borderWidth\\": 1,
-+             \\"alignItems\\": \\"center\\",
-              \\"height\\": 48,
++               \\"alignItems\\": \\"center\\",
+                \\"height\\": 48,
 -           \\"margin\\": 8,
 -           \\"width\\": 670,
 -         }
@@ -707,8 +739,11 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -           style={
 -             Object {
 -               \\"marginRight\\": 10,
-+             \\"width\\": 650,
-            }
+-             }
++               \\"width\\": 650,
++             },
++             undefined,
++           ]
           }
 -           type=\\"MissionHub\\"
 +         testID=\\"bottomButton\\"
@@ -728,10 +763,10 @@ exports[`key login button is pressed tracks system error for unexpected error 1`
 -         >
 -           SIGN IN WITH FACEBOOK
 -         </Text>
--       </Flex>
++     </RCTSafeAreaView>
+    </Flex>
 -     </Button>
-      </RCTSafeAreaView>
-+   </Flex>
+-   </RCTSafeAreaView>
   </View>"
 `;
 
@@ -743,7 +778,7 @@ exports[`keyboard listeners should hide sign in logo when the keyboard is shown 
 @@ -10,26 +10,10 @@
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
 -     align=\\"center\\"
@@ -777,7 +812,7 @@ exports[`keyboard listeners should show sign in logo when the keyboard is hidden
 @@ -10,10 +10,26 @@
   >
     <Header
-      left={<BackButton />}
+      left={<DeprecatedBackButton />}
     />
     <Flex
 +     align=\\"center\\"
@@ -815,7 +850,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <Header
-    left={<BackButton />}
+    left={<DeprecatedBackButton />}
   />
   <Flex
     align="center"

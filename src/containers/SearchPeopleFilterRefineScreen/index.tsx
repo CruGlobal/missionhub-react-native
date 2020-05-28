@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 import FilterItem from '../../components/FilterItem';
 import { trackSearchFilter } from '../../actions/analytics';
 import { buildTrackingObj, keyExtractorId } from '../../utils/common';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 
 import styles from './styles';
 
@@ -111,7 +111,7 @@ export class SearchPeopleFilterRefineScreen extends Component {
     const { t, title } = this.props;
     return (
       <View style={styles.pageContainer}>
-        <Header left={<BackButton />} title={title || t('title')} />
+        <Header left={<DeprecatedBackButton />} title={title || t('title')} />
         <FlatList
           style={styles.list}
           // @ts-ignore

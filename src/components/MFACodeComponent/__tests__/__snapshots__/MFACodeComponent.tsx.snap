@@ -72,7 +72,7 @@ exports[`should render correctly 1`] = `
         }
         value={1}
       >
-        <BackButton />
+        <DeprecatedBackButton />
       </Flex>
       <Flex
         align="end"

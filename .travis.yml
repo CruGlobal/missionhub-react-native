@@ -54,11 +54,13 @@ matrix:
       if: branch = master and type = push
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode11.1
+      osx_image: xcode11.4
       env:
         - ENVFILE=.env.production
       before_install:
+        - rm -rf ~/.nvm # remove nvm in favor of node from brew
         - brew update
+        - brew upgrade node
         - brew install yarn watchman
       install:
         - yarn

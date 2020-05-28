@@ -1,35 +1,34 @@
-import React from 'react';
-import { SectionList, View, SectionListData } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
+/* eslint-disable max-lines */
+import React, { useCallback } from 'react';
+import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import { DateComponent } from '../../components/common';
-import CelebrateItem from '../../components/CelebrateItem';
-import { DateConstants } from '../../components/DateComponent';
-import { keyExtractorId, orgIsGlobal } from '../../utils/common';
-import CelebrateFeedHeader from '../CelebrateFeedHeader';
-import ShareStoryInput from '../Groups/ShareStoryInput';
 import {
-  celebrationSelector,
-  CelebrateFeedSection,
-} from '../../selectors/celebration';
+  CommunityFeedItem,
+  CombinedFeedItem,
+} from '../../components/CommunityFeedItem';
+import { keyExtractorId, orgIsGlobal } from '../../utils/common';
+import { CreatePostButton } from '../Groups/CreatePostButton';
+import { CelebrateFeedSection } from '../../selectors/celebration';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
+import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import OnboardingCard, {
+  GROUP_ONBOARDING_TYPES,
+} from '../Groups/OnboardingCard';
+import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
+import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
 
-import { GET_CELEBRATE_FEED, GET_GLOBAL_CELEBRATE_FEED } from './queries';
-import {
-  GetCelebrateFeed,
-  GetCelebrateFeed_community_celebrationItems_nodes,
-} from './__generated__/GetCelebrateFeed';
-import { GetGlobalCelebrateFeed } from './__generated__/GetGlobalCelebrateFeed';
+import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
+import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
+import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
   organization: Organization;
   person?: Person;
   itemNamePressable: boolean;
@@ -37,14 +36,45 @@ export interface CelebrateFeedProps {
   showUnreadOnly?: boolean;
   onRefetch?: () => void;
   onFetchMore?: () => void;
-  onClearNotification?: (
-    event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => void;
+  onClearNotification?: (post: FeedItemFragment) => void;
   testID?: string;
+  filteredFeedType?: FeedItemSubjectTypeEnum;
+  collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
-const CelebrateFeed = ({
-  dispatch,
+export interface CommunityFeedSection {
+  id: number;
+  title: string;
+  data: FeedItemFragment[];
+}
+
+const sortCommunityFeed = (items: FeedItemFragment[]) => {
+  const dateSections: CommunityFeedSection[] = [
+    { id: 0, title: 'dates.new', data: [] },
+    { id: 1, title: 'dates.today', data: [] },
+    { id: 2, title: 'dates.earlier', data: [] },
+  ];
+  items.forEach(item => {
+    const itemMoment = momentUtc(item.createdAt);
+    if (isLastTwentyFourHours(itemMoment) && !item.read) {
+      dateSections[0].data.push(item);
+      return;
+    }
+    if (isLastTwentyFourHours(itemMoment)) {
+      dateSections[1].data.push(item);
+    } else {
+      dateSections[2].data.push(item);
+    }
+  });
+  // Filter out any sections with no data
+  const filteredSections = dateSections.filter(
+    section => section.data.length > 0,
+  );
+
+  return filteredSections;
+};
+
+export const CelebrateFeed = ({
   organization,
   person,
   itemNamePressable,
@@ -53,6 +83,8 @@ const CelebrateFeed = ({
   onRefetch,
   onFetchMore,
   onClearNotification,
+  filteredFeedType,
+  collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
   const { t } = useTranslation('celebrateFeed');
   const isGlobal = orgIsGlobal(organization);
@@ -60,12 +92,13 @@ const CelebrateFeed = ({
     communityId: organization.id,
     personIds: person && person.id,
     hasUnreadComments: showUnreadOnly,
+    subjectType: filteredFeedType,
   };
 
   const {
     data: {
       community: {
-        celebrationItems: {
+        feedItems: {
           nodes = [],
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
@@ -75,16 +108,15 @@ const CelebrateFeed = ({
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCelebrateFeed>(GET_CELEBRATE_FEED, {
+  } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
     variables: queryVariables,
-    pollInterval: 30000,
     skip: isGlobal,
   });
 
   const {
     data: {
       globalCommunity: {
-        celebrationItems: {
+        feedItems: {
           nodes: globalNodes = [],
           pageInfo: {
             endCursor: globalEndCursor = null,
@@ -97,145 +129,161 @@ const CelebrateFeed = ({
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCelebrateFeed>(GET_GLOBAL_CELEBRATE_FEED, {
-    pollInterval: 30000,
+  } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
     skip: !isGlobal,
   });
 
-  const celebrationItems = celebrationSelector({
-    celebrateItems: isGlobal ? globalNodes : nodes,
-  });
+  const items = sortCommunityFeed(
+    (isGlobal ? globalNodes : nodes) as CombinedFeedItem[],
+  );
 
   const handleRefreshing = () => {
+    if (loading || globalLoading) {
+      return;
+    }
+
     isGlobal ? globalRefetch() : refetch();
     onRefetch && onRefetch();
   };
 
   const handleOnEndReached = () => {
-    if (hasNextPage) {
-      fetchMore({
-        variables: {
-          ...queryVariables,
-          celebrateCursor: endCursor,
-        },
-        updateQuery: (prev, { fetchMoreResult }) =>
-          fetchMoreResult
-            ? {
-                ...prev,
-                ...fetchMoreResult,
-                community: {
-                  ...prev.community,
-                  ...fetchMoreResult.community,
-                  celebrationItems: {
-                    ...prev.community.celebrationItems,
-                    ...fetchMoreResult.community.celebrationItems,
-                    nodes: [
-                      ...(prev.community.celebrationItems.nodes || []),
-                      ...(fetchMoreResult.community.celebrationItems.nodes ||
-                        []),
-                    ],
-                  },
-                },
-              }
-            : prev,
-      });
-      onFetchMore && onFetchMore();
+    if (loading || error || !hasNextPage) {
+      return;
     }
+
+    fetchMore({
+      variables: {
+        ...queryVariables,
+        feedCursor: endCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              community: {
+                ...prev.community,
+                ...fetchMoreResult.community,
+                feedItems: {
+                  ...prev.community.feedItems,
+                  ...fetchMoreResult.community.feedItems,
+                  nodes: [
+                    ...(prev.community.feedItems.nodes || []),
+                    ...(fetchMoreResult.community.feedItems.nodes || []),
+                  ],
+                },
+              },
+            }
+          : prev,
+    });
+    onFetchMore && onFetchMore();
   };
 
   const handleOnEndReachedGlobal = () => {
-    if (globalHasNextPage) {
-      globalFetchMore({
-        variables: {
-          ...queryVariables,
-          celebrateCursor: globalEndCursor,
-        },
-        updateQuery: (prev, { fetchMoreResult }) =>
-          fetchMoreResult
-            ? {
-                ...prev,
-                ...fetchMoreResult,
-                globalCommunity: {
-                  ...prev.globalCommunity,
-                  ...fetchMoreResult.globalCommunity,
-                  celebrationItems: {
-                    ...prev.globalCommunity.celebrationItems,
-                    ...fetchMoreResult.globalCommunity.celebrationItems,
-                    nodes: [
-                      ...(prev.globalCommunity.celebrationItems.nodes || []),
-                      ...(fetchMoreResult.globalCommunity.celebrationItems
-                        .nodes || []),
-                    ],
-                  },
-                },
-              }
-            : prev,
-      });
-      onFetchMore && onFetchMore();
+    if (globalLoading || globalError || !globalHasNextPage) {
+      return;
     }
+
+    globalFetchMore({
+      variables: {
+        feedCursor: globalEndCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              globalCommunity: {
+                ...prev.globalCommunity,
+                ...fetchMoreResult.globalCommunity,
+                feedItems: {
+                  ...prev.globalCommunity.feedItems,
+                  ...fetchMoreResult.globalCommunity.feedItems,
+                  nodes: [
+                    ...(prev.globalCommunity.feedItems.nodes || []),
+                    ...(fetchMoreResult.globalCommunity.feedItems.nodes || []),
+                  ],
+                },
+              },
+            }
+          : prev,
+    });
+    onFetchMore && onFetchMore();
   };
 
-  const renderSectionHeader = ({
-    section: { date },
-  }: {
-    section: SectionListData<CelebrateFeedSection>;
-  }) => (
-    <View style={styles.header}>
-      <DateComponent
-        date={date}
-        format={DateConstants.relative}
-        style={styles.title}
-      />
-    </View>
+  const renderSectionHeader = useCallback(
+    ({
+      section: { title },
+    }: {
+      section: SectionListData<CelebrateFeedSection>;
+    }) => (
+      <View style={styles.header}>
+        <Text style={styles.title}>{t(`${title}`)}</Text>
+      </View>
+    ),
+    [],
   );
 
-  const renderItem = ({
-    item,
-  }: {
-    item: GetCelebrateFeed_community_celebrationItems_nodes;
-  }) => (
-    <CelebrateItem
+  const renderItem = ({ item }: { item: FeedItemFragment }) => (
+    <CommunityFeedItem
       onClearNotification={onClearNotification}
-      event={item}
-      organization={organization}
+      item={item}
+      communityId={organization.id}
       namePressable={itemNamePressable}
       onRefresh={handleRefreshing}
     />
   );
 
-  const renderHeader = () => (
-    <>
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={error}
-        refetch={refetch}
-      />
-      <ErrorNotice
-        message={t('errorLoadingCelebrateFeed')}
-        error={globalError}
-        refetch={globalRefetch}
-      />
-      {noHeader ? null : (
-        <>
-          <CelebrateFeedHeader
-            isMember={!!person}
-            organization={organization}
-          />
-          {!person ? (
-            <ShareStoryInput
-              dispatch={dispatch}
-              refreshItems={handleRefreshing}
-              organization={organization}
-            />
-          ) : null}
-        </>
-      )}
-    </>
+  const renderHeader = useCallback(
+    () => (
+      <>
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={error}
+          refetch={refetch}
+        />
+        <ErrorNotice
+          message={t('errorLoadingCelebrateFeed')}
+          error={globalError}
+          refetch={globalRefetch}
+        />
+        {noHeader ? null : (
+          <>
+            <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
+            {!person ? (
+              <CreatePostButton
+                refreshItems={handleRefreshing}
+                communityId={organization.id}
+                type={filteredFeedType}
+              />
+            ) : null}
+            {filteredFeedType || isGlobal ? null : (
+              <CelebrateFeedPostCards
+                community={organization}
+                // Refetch the feed to update new section once read
+                feedRefetch={refetch}
+              />
+            )}
+          </>
+        )}
+      </>
+    ),
+    [
+      error,
+      refetch,
+      globalError,
+      globalRefetch,
+      noHeader,
+      person,
+      organization,
+      filteredFeedType,
+    ],
   );
 
   return (
-    <SectionList
-      sections={celebrationItems}
+    <Animated.SectionList
+      {...collapsibleScrollViewProps}
+      sections={items}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
@@ -245,9 +293,10 @@ const CelebrateFeed = ({
       onRefresh={handleRefreshing}
       refreshing={isGlobal ? globalLoading : loading}
       style={styles.list}
-      contentContainerStyle={styles.listContent}
+      contentContainerStyle={[
+        collapsibleScrollViewProps?.contentContainerStyle,
+        styles.listContent,
+      ]}
     />
   );
 };
-
-export default connect()(CelebrateFeed);

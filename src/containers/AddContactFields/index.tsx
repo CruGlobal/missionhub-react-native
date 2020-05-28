@@ -1,336 +1,250 @@
 /* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
 
-import React, { Component, Fragment } from 'react';
-import { KeyboardAvoidingView } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
+import React, { useState, useRef } from 'react';
+import { KeyboardAvoidingView, View, TextInput } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
-import { ORG_PERMISSIONS } from '../../constants';
 import { orgPermissionSelector } from '../../selectors/people';
-import { Flex, Text, Input, RadioButton } from '../../components/common';
+import { Flex, Text, Input } from '../../components/common';
+import PopupMenu from '../../components/PopupMenu';
 import theme from '../../theme';
-import {
-  getPersonEmailAddress,
-  getPersonPhoneNumber,
-  isAdminOrOwner,
-  hasOrgPermissions,
-} from '../../utils/common';
+import { hasOrgPermissions } from '../../utils/common';
+import { PersonType } from '../AddContactScreen';
+import { useIsMe } from '../../utils/hooks/useIsMe';
+import { Organization } from '../../reducers/organizations';
+import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import { relationshipTypeList } from '../PersonCategoryScreen';
+import DropdownIcon from '../../../assets/images/dropdownIcon.svg';
+import Avatar from '../../components/Avatar';
+import ImagePicker from '../../components/ImagePicker';
+import PencilIcon from '../../../assets/images/pencilIcon.svg';
 
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation()
-class AddContactFields extends Component {
-  state = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    gender: null,
-    path: null,
-    orgPermission: {},
-  };
-
-  componentDidMount() {
-    const {
-      // @ts-ignore
-      person,
-      // @ts-ignore
-      orgPermission,
-      // @ts-ignore
-      isJean,
-      // @ts-ignore
-      organization,
-      // @ts-ignore
-      isGroupInvite,
-      // @ts-ignore
-      myOrgPermissions,
-    } = this.props;
-    // If there is no person passed in, we are creating a new one
-    if (!person) {
-      if (isJean && organization && organization.id) {
-        // Default the orgPermission for creating new people to 'Member' if 'me' has admin permission and it's the invite page
-        if (isGroupInvite && isAdminOrOwner(myOrgPermissions)) {
-          this.updateField('orgPermission', {
-            ...(orgPermission || {}),
-            permission_id: ORG_PERMISSIONS.USER,
-          });
-        } else {
-          // Default the orgPermission for creating new people to 'Contact'
-          this.updateField('orgPermission', {
-            ...(orgPermission || {}),
-            permission_id: ORG_PERMISSIONS.CONTACT,
-          });
-        }
-      }
-    } else {
-      // If person exists, then we are in edit mode
-      const email = getPersonEmailAddress(person) || {};
-      const phone = getPersonPhoneNumber(person) || {};
-      const newState = {
-        firstName: person.first_name,
-        lastName: person.last_name,
-        ...(isJean
-          ? {
-              emailId: email.id,
-              email: email.email,
-              phoneId: phone.id,
-              phone: phone.number,
-              gender: person.gender,
-              orgPermission: orgPermission || {},
-            }
-          : {}),
-      };
-      this.setState(newState);
-      // @ts-ignore
-      this.props.onUpdateData(newState);
-    }
-  }
-
-  // @ts-ignore
-  updateOrgPermission = pId => {
-    this.updateField('orgPermission', {
-      ...this.state.orgPermission,
-      permission_id: pId,
-    });
-  };
-
-  // @ts-ignore
-  updateField(field, data) {
-    this.setState({ [field]: data }, () => {
-      // @ts-ignore
-      this.props.onUpdateData(this.state);
-    });
-  }
-
-  // @ts-ignore
-  firstNameRef = c => (this.firstName = c);
-
-  // @ts-ignore
-  lastNameRef = c => (this.lastName = c);
-
-  // @ts-ignore
-  emailRef = c => (this.email = c);
-
-  // @ts-ignore
-  phoneRef = c => (this.phone = c);
-
-  // @ts-ignore
-  lastNameFocus = () => this.lastName.focus();
-
-  // @ts-ignore
-  emailFocus = () => this.email && this.email.focus();
-
-  // @ts-ignore
-  phoneFocus = () => this.phone.focus();
-
-  // @ts-ignore
-  updateFirstName = t => this.updateField('firstName', t);
-  // @ts-ignore
-  updateLastName = t => this.updateField('lastName', t);
-  // @ts-ignore
-  updateEmail = t => this.updateField('email', t);
-  // @ts-ignore
-  updatePhone = t => this.updateField('phone', t);
-  updateGenderMale = () => this.updateField('gender', 'Male');
-  updateGenderFemale = () => this.updateField('gender', 'Female');
-
-  render() {
-    const {
-      // @ts-ignore
-      t,
-      // @ts-ignore
-      isJean,
-      // @ts-ignore
-      organization,
-      // @ts-ignore
-      myOrgPermissions,
-      // @ts-ignore
-      orgPermission: personOrgPermission,
-      // @ts-ignore
-      isGroupInvite,
-    } = this.props;
-    const {
-      firstName,
-      lastName,
-      email,
-      phone,
-      gender,
-      orgPermission,
-    } = this.state;
-
-    // @ts-ignore
-    const selectedOrgPermId = `${orgPermission.permission_id}`;
-    // Email is required if the new person is going to be a user or admin for an organization
-    const isEmailRequired = hasOrgPermissions(orgPermission);
-
-    // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
-    const personHasOrgPermission = hasOrgPermissions(personOrgPermission);
-    return (
-      <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
-        <Flex direction="column">
-          <Text style={styles.label}>
-            {t('profileLabels.firstNameRequired')}
-          </Text>
-          <Input
-            ref={this.firstNameRef}
-            editable={!personHasOrgPermission}
-            onChangeText={this.updateFirstName}
-            value={firstName}
-            placeholder={t('profileLabels.firstNameRequired')}
-            placeholderTextColor={theme.white}
-            returnKeyType="next"
-            blurOnSubmit={false}
-            onSubmitEditing={this.lastNameFocus}
-          />
-        </Flex>
-        <Flex direction="column">
-          <Text style={styles.label}>{t('profileLabels.lastName')}</Text>
-          <Input
-            ref={this.lastNameRef}
-            editable={!personHasOrgPermission}
-            onChangeText={this.updateLastName}
-            value={lastName}
-            placeholder={t('profileLabels.lastName')}
-            placeholderTextColor={theme.white}
-            returnKeyType="next"
-            blurOnSubmit={false}
-            onSubmitEditing={this.emailFocus}
-          />
-        </Flex>
-        {isJean ? (
-          <Fragment>
-            <Flex direction="column" key="email">
-              <Text style={styles.label}>{t('profileLabels.email')}</Text>
-              <Input
-                ref={this.emailRef}
-                onChangeText={this.updateEmail}
-                value={email}
-                autoCapitalize="none"
-                placeholder={
-                  isEmailRequired
-                    ? t('profileLabels.emailRequired')
-                    : t('profileLabels.email')
-                }
-                placeholderTextColor={theme.white}
-                keyboardType="email-address"
-                returnKeyType="next"
-                blurOnSubmit={false}
-                onSubmitEditing={this.phoneFocus}
-              />
-            </Flex>
-            {!isGroupInvite ? (
-              <Flex
-                direction="row"
-                align="center"
-                style={styles.genderRow}
-                key="gender"
-              >
-                <Text style={styles.genderText}>
-                  {t('profileLabels.gender')}:
-                </Text>
-                <RadioButton
-                  style={styles.genderRadioButton}
-                  onSelect={this.updateGenderMale}
-                  checked={gender === 'Male'}
-                  label={t('gender.male')}
-                />
-                <RadioButton
-                  style={styles.genderRadioButton}
-                  onSelect={this.updateGenderFemale}
-                  checked={gender === 'Female'}
-                  label={t('gender.female')}
-                />
-              </Flex>
-            ) : null}
-            {!isGroupInvite ? (
-              <Flex direction="column" key="phone">
-                <Text style={styles.label}>{t('profileLabels.phone')}</Text>
-                <Input
-                  ref={this.phoneRef}
-                  onChangeText={this.updatePhone}
-                  value={phone}
-                  placeholder={t('profileLabels.phone')}
-                  placeholderTextColor={theme.white}
-                  keyboardType="phone-pad"
-                  returnKeyType="done"
-                  blurOnSubmit={true}
-                />
-              </Flex>
-            ) : null}
-            {organization && organization.id ? (
-              <Fragment>
-                <Text style={styles.label}>
-                  {t('profileLabels.permissions')}:
-                </Text>
-                <Flex
-                  direction="row"
-                  align="center"
-                  style={styles.permissionsRow}
-                >
-                  {!isGroupInvite ? (
-                    <RadioButton
-                      style={styles.radioButton}
-                      pressProps={[ORG_PERMISSIONS.CONTACT]}
-                      onSelect={this.updateOrgPermission}
-                      checked={selectedOrgPermId === ORG_PERMISSIONS.CONTACT}
-                      label={t('profileLabels.contact')}
-                    />
-                  ) : null}
-                  {hasOrgPermissions(myOrgPermissions) ? (
-                    <RadioButton
-                      style={styles.radioButton}
-                      pressProps={[ORG_PERMISSIONS.USER]}
-                      onSelect={this.updateOrgPermission}
-                      checked={selectedOrgPermId === ORG_PERMISSIONS.USER}
-                      label={t('profileLabels.user')}
-                    />
-                  ) : null}
-                  {isAdminOrOwner(myOrgPermissions) ? (
-                    <RadioButton
-                      style={styles.radioButton}
-                      pressProps={[ORG_PERMISSIONS.ADMIN]}
-                      onSelect={this.updateOrgPermission}
-                      checked={selectedOrgPermId === ORG_PERMISSIONS.ADMIN}
-                      label={t('profileLabels.admin')}
-                    />
-                  ) : null}
-                </Flex>
-              </Fragment>
-            ) : null}
-          </Fragment>
-        ) : null}
-      </KeyboardAvoidingView>
-    );
-  }
+interface AddContactFieldsProps {
+  person: PersonType;
+  organization?: Organization;
+  onUpdateData: (data: PersonType) => void;
+  next: (props: {
+    orgId: string;
+    navigateToStageSelection: boolean;
+    person: PersonType;
+    updatePerson: (person: PersonType) => void;
+  }) => ThunkAction<unknown, {}, {}, AnyAction>;
 }
 
-// @ts-ignore
-AddContactFields.propTypes = {
-  person: PropTypes.object,
-  onUpdateData: PropTypes.func.isRequired,
-  isGroupInvite: PropTypes.bool,
+const AddContactFields = ({
+  person,
+  organization,
+  onUpdateData,
+  next,
+}: AddContactFieldsProps) => {
+  const { t } = useTranslation('addContact');
+  const [currentInputField, changeCurrentInputField] = useState('');
+  const dispatch = useDispatch();
+  const isMe = useIsMe(person.id);
+  const isEdit = !!person.id && !!person.stage; // Person in onboarding won't have a stage by the time they are at this screen
+  const personOrgPermission = useSelector(() =>
+    orgPermissionSelector({}, { person, organization }),
+  );
+
+  const updateField = (field: string, data: string) => {
+    switch (field) {
+      case 'firstName':
+        onUpdateData({ ...person, firstName: data });
+        break;
+      case 'lastName':
+        onUpdateData({ ...person, lastName: data });
+        break;
+      case 'relationshipType':
+        onUpdateData({
+          ...person,
+          relationshipType: data as RelationshipTypeEnum,
+        });
+        break;
+    }
+  };
+
+  const handleImageChange = (data: { data: string }) => {
+    onUpdateData({ ...person, picture: data.data });
+  };
+
+  const categoryOptions = relationshipTypeList.map(type => {
+    return {
+      text: t(`categories.${type}`),
+      onPress: () => {
+        updateField('relationshipType', type);
+      },
+    };
+  });
+
+  const handleStageSelect = () => {
+    dispatch(
+      next({
+        orgId: organization?.id,
+        navigateToStageSelection: true,
+        person,
+        updatePerson: onUpdateData,
+      }),
+    );
+  };
+
+  const firstNameRef = useRef<TextInput>(null);
+  const lastNameRef = useRef<TextInput>(null);
+  const lastNameFocus = () => lastNameRef.current?.focus();
+  // Check if current field is the one the user is focused on in order to change style
+  const isCurrentField = (field: string) => currentInputField === field;
+  // Disable the name fields if this person has org permission because you are not allowed to edit the names of other mission hub users
+  const personHasOrgPermission = hasOrgPermissions(personOrgPermission);
+  return (
+    <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
+      <Flex direction="column">
+        {isEdit ? (
+          <Flex align="center">
+            {isMe ? (
+              <ImagePicker
+                // @ts-ignore
+                testID="ImagePicker"
+                onSelectImage={handleImageChange}
+                circleOverlay={true}
+              >
+                <Avatar person={person} size="large" />
+                <View style={styles.changeAvatarButton}>
+                  <PencilIcon color={theme.white} />
+                </View>
+              </ImagePicker>
+            ) : null}
+          </Flex>
+        ) : (
+          <Flex value={2} justify="end" align="center">
+            {isMe ? null : (
+              <View style={styles.textWrap}>
+                <Text style={styles.addPersonText}>{t('prompt')}</Text>
+              </View>
+            )}
+          </Flex>
+        )}
+
+        {person.firstName || isCurrentField('firstName') ? (
+          <Text style={isEdit ? styles.editLabel : styles.label}>
+            {isEdit
+              ? t('profileLabels.firstName')
+              : t('profileLabels.firstNameNickname')}
+          </Text>
+        ) : (
+          <Text style={isEdit ? styles.editLabel : styles.label}>{}</Text>
+        )}
+
+        <Input
+          testID="firstNameInput"
+          ref={firstNameRef}
+          style={{
+            color: isEdit ? theme.parakeetBlue : theme.white,
+            borderBottomColor: isEdit
+              ? theme.extraLightGrey
+              : theme.parakeetBlue,
+          }}
+          editable={!personHasOrgPermission}
+          selectionColor={theme.parakeetBlue}
+          onChangeText={(firstName: string) =>
+            updateField('firstName', firstName)
+          }
+          value={person.firstName}
+          placeholder={
+            isCurrentField('firstName')
+              ? ''
+              : t('profileLabels.firstNameRequired')
+          }
+          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
+          returnKeyType="next"
+          blurOnSubmit={false}
+          autoFocus={true}
+          onFocus={() => changeCurrentInputField('firstName')}
+          onBlur={() => changeCurrentInputField('')}
+          onSubmitEditing={lastNameFocus}
+        />
+      </Flex>
+      <Flex direction="column">
+        {person.lastName || isCurrentField('lastName') ? (
+          <Text style={isEdit ? styles.editLabel : styles.label}>
+            {t('profileLabels.lastName')}
+          </Text>
+        ) : (
+          <Text style={isEdit ? styles.editLabel : styles.label}>{}</Text>
+        )}
+
+        <Input
+          testID="lastNameInput"
+          ref={lastNameRef}
+          style={{
+            color: isEdit ? theme.parakeetBlue : theme.white,
+            borderBottomColor: isEdit
+              ? theme.extraLightGrey
+              : theme.parakeetBlue,
+          }}
+          editable={!personHasOrgPermission}
+          selectionColor={theme.parakeetBlue}
+          onChangeText={(lastName: string) => updateField('lastName', lastName)}
+          value={person.lastName}
+          placeholder={
+            isCurrentField('lastName')
+              ? ''
+              : t('profileLabels.lastNameOptional')
+          }
+          placeholderTextColor={isEdit ? theme.parakeetBlue : theme.white}
+          returnKeyType="done"
+          blurOnSubmit={false}
+          onFocus={() => changeCurrentInputField('lastName')}
+          onBlur={() => changeCurrentInputField('')}
+        />
+      </Flex>
+      {isEdit ? (
+        <>
+          <Flex direction="column">
+            <Text style={isEdit ? styles.editLabel : styles.label}>
+              {t('stage')}
+            </Text>
+
+            <View style={styles.buttonContainer}>
+              <Text
+                testID="stageSelectButton"
+                onPress={() => handleStageSelect()}
+                style={styles.categoryText}
+              >
+                {person.stage?.name || ''}
+              </Text>
+            </View>
+          </Flex>
+
+          {!isMe ? (
+            <Flex direction="column">
+              <Text style={isEdit ? styles.editLabel : styles.label}>
+                {t('categoryPrompt')}
+              </Text>
+
+              <PopupMenu
+                // @ts-ignore
+                actions={categoryOptions}
+                triggerOnLongPress={false}
+              >
+                <View style={styles.buttonContainer}>
+                  <Text style={styles.categoryText}>
+                    {person.relationshipType
+                      ? t(`categories.${person.relationshipType}`)
+                      : t('categoryNull')}
+                  </Text>
+                  <DropdownIcon color={theme.lightGrey} />
+                </View>
+              </PopupMenu>
+            </Flex>
+          ) : null}
+        </>
+      ) : null}
+    </KeyboardAvoidingView>
+  );
 };
 
-// @ts-ignore
-const mapStateToProps = ({ auth }, { person, organization }) => ({
-  myOrgPermissions:
-    organization &&
-    organization.id &&
-    // @ts-ignore
-    orgPermissionSelector(null, {
-      person: auth.person,
-      organization: { id: organization.id },
-    }),
-  orgPermission:
-    person &&
-    organization &&
-    organization.id &&
-    // @ts-ignore
-    orgPermissionSelector(null, {
-      person,
-      organization: { id: organization.id },
-    }),
-});
-export default connect(mapStateToProps)(AddContactFields);
+export default AddContactFields;

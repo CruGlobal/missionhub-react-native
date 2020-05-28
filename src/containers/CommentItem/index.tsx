@@ -5,8 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { Text, Flex } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
-import CelebrateItemName from '../../containers/CelebrateItemName';
-import { DateConstants } from '../../components/DateComponent';
+import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
 import { AuthState } from '../../reducers/auth';
 import {
   CelebrateCommentsState,
@@ -49,14 +48,14 @@ const CommentItem = ({
     editingStyle,
     name: nameStyle,
   } = styles;
-  const isMine = person ? person.id === me.id : author.id === me.id;
+  const isMine = person?.id === me.id || author?.id === me.id;
   const isMineNotReported = isMine && !isReported;
   const itemDate = created_at ? created_at : createdAt ? createdAt : '';
   const name = person
     ? person.first_name
       ? `${person.first_name} ${person.last_name}`
       : person.fullName
-    : author.fullName;
+    : author?.fullName;
 
   const renderContent = () => {
     return (
@@ -77,15 +76,15 @@ const CommentItem = ({
         {isMineNotReported ? (
           <Flex value={1} />
         ) : (
-          <CelebrateItemName
+          <CommunityFeedItemName
             name={name}
             person={person}
-            organization={organization}
+            communityId={organization.id}
             pressable={!isReported}
             customContent={<Text style={nameStyle}>{name}</Text>}
           />
         )}
-        <CardTime date={itemDate} format={DateConstants.comment} />
+        <CardTime date={itemDate} />
       </Flex>
       <Flex direction="row">
         {isMineNotReported ? <Flex value={1} /> : null}

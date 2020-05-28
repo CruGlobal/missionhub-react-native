@@ -272,119 +272,81 @@ exports[`in onboarding renders correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
-        "overflow": "hidden",
+        "backgroundColor": "#007398",
       }
     }
   >
-    <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
-      ListHeaderComponent={
-        <ErrorNotice
-          message="Error loading step suggestions"
-          refetch={[Function]}
-        />
-      }
-      bounces={false}
-      contentContainerStyle={
+    <Text
+      numberOfLines={2}
+      style={
         Array [
-          undefined,
           Object {
-            "paddingTop": 195,
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "marginHorizontal": 30,
+            "marginVertical": 35,
+            "textAlign": "center",
           },
         ]
       }
-      data={
-        Array [
-          Object {
-            "action": [Function],
-            "icon": true,
-            "key": "custom",
-            "text": "Create your own Relate Step",
-          },
-        ]
-      }
-      disableHeaderMomentum={false}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      headerMomentumDuration={350}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReached={[Function]}
-      onEndReachedThreshold={0.2}
-      onLayout={[Function]}
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      overScrollMode="never"
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={true}
-        />
-      }
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={1}
-      stickyHeaderIndices={Array []}
+    >
+      Choose a step to take with them this week...
+    </Text>
+    <View
       style={
         Object {
-          "paddingVertical": 12,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
         }
       }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
-      <RCTRefreshControl />
-      <View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
-        />
-        <View
-          onLayout={[Function]}
-          style={null}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
         >
           <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
                 },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
+                undefined,
+              ]
             }
           >
+            <SvgMock
+              color="#ffffff"
+              height={32}
+            />
             <Text
               style={
                 Array [
@@ -394,20 +356,388 @@ exports[`in onboarding renders correctly 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
                 ]
               }
             >
-              Create your own Relate Step
+              Relate
             </Text>
-            <SvgMock />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomWidth": 9,
+                  "borderLeftColor": "transparent",
+                  "borderLeftWidth": 7,
+                  "borderRightColor": "transparent",
+                  "borderRightWidth": 7,
+                  "borderStyle": "solid",
+                  "height": 0,
+                  "width": 0,
+                },
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+                Object {
+                  "marginTop": 12,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Pray
+            </Text>
           </View>
         </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Care
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Share
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    ListFooterComponent={
+      <ForwardRef(_SafeAreaView)>
+        <FooterLoading />
+      </ForwardRef(_SafeAreaView)>
+    }
+    ListHeaderComponent={
+      <ErrorNotice
+        message="Error loading step suggestions"
+        refetch={[Function]}
+      />
+    }
+    contentContainerStyle={
+      Object {
+        "marginTop": 12,
+        "paddingBottom": 24,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "action": [Function],
+          "icon": true,
+          "key": "custom",
+          "text": "Create your own Relate Step",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    scrollIndicatorInsets={
+      Object {
+        "right": 1,
+      }
+    }
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Create your own Relate Step
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
         >
           <View
             style={
@@ -429,717 +759,330 @@ exports[`in onboarding renders correctly 1`] = `
               size="small"
             />
           </View>
-        </View>
-      </View>
-    </RCTScrollView>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "height": 195,
-          "left": 0,
-          "paddingTop": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#007398",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "space-around",
-            }
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Relate
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomWidth": 9,
-                      "borderLeftColor": "transparent",
-                      "borderLeftWidth": 7,
-                      "borderRightColor": "transparent",
-                      "borderRightWidth": 7,
-                      "borderStyle": "solid",
-                      "height": 0,
-                      "width": 0,
-                    },
-                    Object {
-                      "borderBottomColor": "#ECEEF2",
-                      "transform": Array [
-                        Object {
-                          "rotate": "0deg",
-                        },
-                      ],
-                    },
-                    Object {
-                      "marginTop": 12,
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Pray
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Care
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Share
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;
 
-exports[`loading should hide tabs when locale is not en 1`] = `
+exports[`loading should hide tabs when locale is not en or es 1`] = `
 "Snapshot Diff:
 - First value
 + Second value
 
-@@ -285,11 +285,11 @@
-        bounces={false}
-        contentContainerStyle={
-          Array [
-            undefined,
-            Object {
--             \\"paddingTop\\": 195,
-+             \\"paddingTop\\": 130,
-            },
+@@ -295,311 +295,10 @@
           ]
         }
-        data={
-          Array [
-@@ -431,11 +431,11 @@
-      </RCTScrollView>
-      <View
-        style={
-          Object {
-            \\"backgroundColor\\": \\"#ECEEF2\\",
--           \\"height\\": 195,
-+           \\"height\\": 130,
-            \\"left\\": 0,
-            \\"paddingTop\\": 0,
-            \\"position\\": \\"absolute\\",
-            \\"right\\": 0,
-            \\"top\\": 0,
-@@ -482,312 +482,11 @@
-                  },
-                ]
-              }
-            >
-              Choose a step to take with them this week...
--           </Text>
--         </View>
+      >
+        Choose a step to take with them this week...
+      </Text>
+-     <View
+-       style={
+-         Object {
+-           \\"flexDirection\\": \\"row\\",
+-           \\"justifyContent\\": \\"space-around\\",
+-         }
+-       }
+-     >
+-       <View
+-         accessible={true}
+-         focusable={true}
+-         isTVSelectable={true}
+-         onClick={[Function bound touchableHandlePress]}
+-         onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-         onResponderMove={[Function bound touchableHandleResponderMove]}
+-         onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         style={
+-           Object {
+-             \\"opacity\\": 1,
+-           }
+-         }
+-       >
 -         <View
 -           style={
 -             Object {
--               \\"flexDirection\\": \\"row\\",
--               \\"justifyContent\\": \\"space-around\\",
+-               \\"alignItems\\": \\"center\\",
 -             }
 -           }
 -         >
 -           <View
--             accessible={true}
--             focusable={true}
--             isTVSelectable={true}
--             onClick={[Function bound touchableHandlePress]}
--             onResponderGrant={[Function bound touchableHandleResponderGrant]}
--             onResponderMove={[Function bound touchableHandleResponderMove]}
--             onResponderRelease={[Function bound touchableHandleResponderRelease]}
--             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 -             style={
--               Object {
--                 \\"opacity\\": 1,
--               }
--             }
--           >
--             <View
--               style={
+-               Array [
 -                 Object {
 -                   \\"alignItems\\": \\"center\\",
--                 }
--               }
--             >
--               <View
--                 style={
+-                   \\"flexDirection\\": \\"column\\",
+-                 },
+-                 undefined,
+-               ]
+-             }
+-           >
+-             <SvgMock
+-               color=\\"#ffffff\\"
+-               height={32}
+-             />
+-             <Text
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": \\"#505256\\",
+-                   },
+-                   Object {
+-                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   },
 -                   Array [
 -                     Object {
--                       \\"alignItems\\": \\"center\\",
--                       \\"flexDirection\\": \\"column\\",
+-                       \\"color\\": \\"#ffffff\\",
+-                       \\"fontSize\\": 14,
+-                       \\"fontWeight\\": \\"normal\\",
+-                       \\"marginTop\\": 7,
+-                       \\"paddingLeft\\": 4,
 -                     },
 -                     undefined,
--                   ]
--                 }
--               >
--                 <SvgMock
--                   color=\\"#ffffff\\"
--                   height={24}
--                 />
--                 <Text
--                   style={
--                     Array [
--                       Object {
--                         \\"color\\": \\"#505256\\",
--                       },
--                       Object {
--                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                       },
--                       Array [
--                         Object {
--                           \\"color\\": \\"#ffffff\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
--                           \\"paddingLeft\\": 4,
--                         },
--                         undefined,
--                       ],
--                     ]
--                   }
--                 >
--                   Relate
-            </Text>
--               </View>
--               <View
--                 style={
--                   Array [
--                     Object {
--                       \\"backgroundColor\\": \\"transparent\\",
--                       \\"borderBottomWidth\\": 9,
--                       \\"borderLeftColor\\": \\"transparent\\",
--                       \\"borderLeftWidth\\": 7,
--                       \\"borderRightColor\\": \\"transparent\\",
--                       \\"borderRightWidth\\": 7,
--                       \\"borderStyle\\": \\"solid\\",
--                       \\"height\\": 0,
--                       \\"width\\": 0,
--                     },
--                     Object {
--                       \\"borderBottomColor\\": \\"#ECEEF2\\",
--                       \\"transform\\": Array [
--                         Object {
--                           \\"rotate\\": \\"0deg\\",
--                         },
--                       ],
--                     },
--                     Object {
--                       \\"marginTop\\": 12,
--                     },
--                   ]
--                 }
--               />
--             </View>
+-                   ],
+-                 ]
+-               }
+-             >
+-               Relate
+-             </Text>
 -           </View>
 -           <View
--             accessible={true}
--             focusable={true}
--             isTVSelectable={true}
--             onClick={[Function bound touchableHandlePress]}
--             onResponderGrant={[Function bound touchableHandleResponderGrant]}
--             onResponderMove={[Function bound touchableHandleResponderMove]}
--             onResponderRelease={[Function bound touchableHandleResponderRelease]}
--             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 -             style={
--               Object {
--                 \\"opacity\\": 1,
--               }
--             }
--           >
--             <View
--               style={
+-               Array [
 -                 Object {
--                   \\"alignItems\\": \\"center\\",
--                 }
--               }
--             >
--               <View
--                 style={
--                   Array [
+-                   \\"backgroundColor\\": \\"transparent\\",
+-                   \\"borderBottomWidth\\": 9,
+-                   \\"borderLeftColor\\": \\"transparent\\",
+-                   \\"borderLeftWidth\\": 7,
+-                   \\"borderRightColor\\": \\"transparent\\",
+-                   \\"borderRightWidth\\": 7,
+-                   \\"borderStyle\\": \\"solid\\",
+-                   \\"height\\": 0,
+-                   \\"width\\": 0,
+-                 },
+-                 Object {
+-                   \\"borderBottomColor\\": \\"#ECEEF2\\",
+-                   \\"transform\\": Array [
 -                     Object {
--                       \\"alignItems\\": \\"center\\",
--                       \\"flexDirection\\": \\"column\\",
+-                       \\"rotate\\": \\"0deg\\",
 -                     },
--                     undefined,
--                   ]
--                 }
--               >
--                 <SvgMock
--                   color=\\"#52C5DC\\"
--                   height={24}
--                 />
--                 <Text
--                   style={
--                     Array [
--                       Object {
--                         \\"color\\": \\"#505256\\",
--                       },
--                       Object {
--                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                       },
--                       Array [
--                         Object {
--                           \\"color\\": \\"#52C5DC\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
--                           \\"paddingLeft\\": 4,
--                         },
--                         undefined,
--                       ],
--                     ]
--                   }
--                 >
--                   Pray
--                 </Text>
--               </View>
--             </View>
--           </View>
+-                   ],
+-                 },
+-                 Object {
+-                   \\"marginTop\\": 12,
+-                 },
+-               ]
+-             }
+-           />
+-         </View>
+-       </View>
+-       <View
+-         accessible={true}
+-         focusable={true}
+-         isTVSelectable={true}
+-         onClick={[Function bound touchableHandlePress]}
+-         onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-         onResponderMove={[Function bound touchableHandleResponderMove]}
+-         onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         style={
+-           Object {
+-             \\"opacity\\": 1,
+-           }
+-         }
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"alignItems\\": \\"center\\",
+-             }
+-           }
+-         >
 -           <View
--             accessible={true}
--             focusable={true}
--             isTVSelectable={true}
--             onClick={[Function bound touchableHandlePress]}
--             onResponderGrant={[Function bound touchableHandleResponderGrant]}
--             onResponderMove={[Function bound touchableHandleResponderMove]}
--             onResponderRelease={[Function bound touchableHandleResponderRelease]}
--             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 -             style={
--               Object {
--                 \\"opacity\\": 1,
--               }
--             }
--           >
--             <View
--               style={
+-               Array [
 -                 Object {
 -                   \\"alignItems\\": \\"center\\",
--                 }
--               }
--             >
--               <View
--                 style={
+-                   \\"flexDirection\\": \\"column\\",
+-                 },
+-                 undefined,
+-               ]
+-             }
+-           >
+-             <SvgMock
+-               color=\\"#52C5DC\\"
+-               height={32}
+-             />
+-             <Text
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": \\"#505256\\",
+-                   },
+-                   Object {
+-                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   },
 -                   Array [
 -                     Object {
--                       \\"alignItems\\": \\"center\\",
--                       \\"flexDirection\\": \\"column\\",
+-                       \\"color\\": \\"#52C5DC\\",
+-                       \\"fontSize\\": 14,
+-                       \\"fontWeight\\": \\"normal\\",
+-                       \\"marginTop\\": 7,
+-                       \\"paddingLeft\\": 4,
 -                     },
 -                     undefined,
--                   ]
--                 }
--               >
--                 <SvgMock
--                   color=\\"#52C5DC\\"
--                   height={24}
--                 />
--                 <Text
--                   style={
--                     Array [
--                       Object {
--                         \\"color\\": \\"#505256\\",
--                       },
--                       Object {
--                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                       },
--                       Array [
--                         Object {
--                           \\"color\\": \\"#52C5DC\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
--                           \\"paddingLeft\\": 4,
--                         },
--                         undefined,
--                       ],
--                     ]
--                   }
--                 >
--                   Care
--                 </Text>
--               </View>
--             </View>
+-                   ],
+-                 ]
+-               }
+-             >
+-               Pray
+-             </Text>
 -           </View>
+-         </View>
+-       </View>
+-       <View
+-         accessible={true}
+-         focusable={true}
+-         isTVSelectable={true}
+-         onClick={[Function bound touchableHandlePress]}
+-         onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-         onResponderMove={[Function bound touchableHandleResponderMove]}
+-         onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         style={
+-           Object {
+-             \\"opacity\\": 1,
+-           }
+-         }
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"alignItems\\": \\"center\\",
+-             }
+-           }
+-         >
 -           <View
--             accessible={true}
--             focusable={true}
--             isTVSelectable={true}
--             onClick={[Function bound touchableHandlePress]}
--             onResponderGrant={[Function bound touchableHandleResponderGrant]}
--             onResponderMove={[Function bound touchableHandleResponderMove]}
--             onResponderRelease={[Function bound touchableHandleResponderRelease]}
--             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 -             style={
--               Object {
--                 \\"opacity\\": 1,
--               }
--             }
--           >
--             <View
--               style={
+-               Array [
 -                 Object {
 -                   \\"alignItems\\": \\"center\\",
--                 }
--               }
--             >
--               <View
--                 style={
+-                   \\"flexDirection\\": \\"column\\",
+-                 },
+-                 undefined,
+-               ]
+-             }
+-           >
+-             <SvgMock
+-               color=\\"#52C5DC\\"
+-               height={32}
+-             />
+-             <Text
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": \\"#505256\\",
+-                   },
+-                   Object {
+-                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   },
 -                   Array [
 -                     Object {
--                       \\"alignItems\\": \\"center\\",
--                       \\"flexDirection\\": \\"column\\",
+-                       \\"color\\": \\"#52C5DC\\",
+-                       \\"fontSize\\": 14,
+-                       \\"fontWeight\\": \\"normal\\",
+-                       \\"marginTop\\": 7,
+-                       \\"paddingLeft\\": 4,
 -                     },
 -                     undefined,
--                   ]
--                 }
--               >
--                 <SvgMock
--                   color=\\"#52C5DC\\"
--                   height={24}
--                 />
--                 <Text
--                   style={
--                     Array [
--                       Object {
--                         \\"color\\": \\"#505256\\",
--                       },
--                       Object {
--                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                       },
--                       Array [
--                         Object {
--                           \\"color\\": \\"#52C5DC\\",
--                           \\"fontSize\\": 16,
--                           \\"fontWeight\\": \\"bold\\",
--                           \\"letterSpacing\\": 1,
--                           \\"paddingLeft\\": 4,
--                         },
--                         undefined,
--                       ],
--                     ]
--                   }
--                 >
--                   Share
--                 </Text>
--               </View>
--             </View>
+-                   ],
+-                 ]
+-               }
+-             >
+-               Care
+-             </Text>
 -           </View>
-          </View>
-        </View>
-      </View>
+-         </View>
+-       </View>
+-       <View
+-         accessible={true}
+-         focusable={true}
+-         isTVSelectable={true}
+-         onClick={[Function bound touchableHandlePress]}
+-         onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-         onResponderMove={[Function bound touchableHandleResponderMove]}
+-         onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         style={
+-           Object {
+-             \\"opacity\\": 1,
+-           }
+-         }
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"alignItems\\": \\"center\\",
+-             }
+-           }
+-         >
+-           <View
+-             style={
+-               Array [
+-                 Object {
+-                   \\"alignItems\\": \\"center\\",
+-                   \\"flexDirection\\": \\"column\\",
+-                 },
+-                 undefined,
+-               ]
+-             }
+-           >
+-             <SvgMock
+-               color=\\"#52C5DC\\"
+-               height={32}
+-             />
+-             <Text
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": \\"#505256\\",
+-                   },
+-                   Object {
+-                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   },
+-                   Array [
+-                     Object {
+-                       \\"color\\": \\"#52C5DC\\",
+-                       \\"fontSize\\": 14,
+-                       \\"fontWeight\\": \\"normal\\",
+-                       \\"marginTop\\": 7,
+-                       \\"paddingLeft\\": 4,
+-                     },
+-                     undefined,
+-                   ],
+-                 ]
+-               }
+-             >
+-               Share
+-             </Text>
+-           </View>
+-         </View>
+-       </View>
+-     </View>
     </View>
-  </View>"
+    <RCTScrollView
+      ListFooterComponent={
+        <ForwardRef(_SafeAreaView)>
+          <FooterLoading />"
 `;
 
 exports[`loading should render correctly 1`] = `
@@ -1347,119 +1290,81 @@ exports[`loading should render correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
-        "overflow": "hidden",
+        "backgroundColor": "#007398",
       }
     }
   >
-    <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
-      ListHeaderComponent={
-        <ErrorNotice
-          message="Error loading step suggestions"
-          refetch={[Function]}
-        />
-      }
-      bounces={false}
-      contentContainerStyle={
+    <Text
+      numberOfLines={2}
+      style={
         Array [
-          undefined,
           Object {
-            "paddingTop": 195,
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "marginHorizontal": 30,
+            "marginVertical": 35,
+            "textAlign": "center",
           },
         ]
       }
-      data={
-        Array [
-          Object {
-            "action": [Function],
-            "icon": true,
-            "key": "custom",
-            "text": "Create your own Relate Step",
-          },
-        ]
-      }
-      disableHeaderMomentum={false}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      headerMomentumDuration={350}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReached={[Function]}
-      onEndReachedThreshold={0.2}
-      onLayout={[Function]}
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      overScrollMode="never"
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={true}
-        />
-      }
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={1}
-      stickyHeaderIndices={Array []}
+    >
+      Choose a step to take with them this week...
+    </Text>
+    <View
       style={
         Object {
-          "paddingVertical": 12,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
         }
       }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
-      <RCTRefreshControl />
-      <View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
-        />
-        <View
-          onLayout={[Function]}
-          style={null}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
         >
           <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
                 },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
+                undefined,
+              ]
             }
           >
+            <SvgMock
+              color="#ffffff"
+              height={32}
+            />
             <Text
               style={
                 Array [
@@ -1469,20 +1374,388 @@ exports[`loading should render correctly 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
                 ]
               }
             >
-              Create your own Relate Step
+              Relate
             </Text>
-            <SvgMock />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomWidth": 9,
+                  "borderLeftColor": "transparent",
+                  "borderLeftWidth": 7,
+                  "borderRightColor": "transparent",
+                  "borderRightWidth": 7,
+                  "borderStyle": "solid",
+                  "height": 0,
+                  "width": 0,
+                },
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+                Object {
+                  "marginTop": 12,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Pray
+            </Text>
           </View>
         </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Care
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Share
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    ListFooterComponent={
+      <ForwardRef(_SafeAreaView)>
+        <FooterLoading />
+      </ForwardRef(_SafeAreaView)>
+    }
+    ListHeaderComponent={
+      <ErrorNotice
+        message="Error loading step suggestions"
+        refetch={[Function]}
+      />
+    }
+    contentContainerStyle={
+      Object {
+        "marginTop": 12,
+        "paddingBottom": 24,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "action": [Function],
+          "icon": true,
+          "key": "custom",
+          "text": "Create your own Relate Step",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    scrollIndicatorInsets={
+      Object {
+        "right": 1,
+      }
+    }
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Create your own Relate Step
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
         >
           <View
             style={
@@ -1504,370 +1777,10 @@ exports[`loading should render correctly 1`] = `
               size="small"
             />
           </View>
-        </View>
-      </View>
-    </RCTScrollView>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "height": 195,
-          "left": 0,
-          "paddingTop": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#007398",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "space-around",
-            }
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Relate
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomWidth": 9,
-                      "borderLeftColor": "transparent",
-                      "borderLeftWidth": 7,
-                      "borderRightColor": "transparent",
-                      "borderRightWidth": 7,
-                      "borderStyle": "solid",
-                      "height": 0,
-                      "width": 0,
-                    },
-                    Object {
-                      "borderBottomColor": "#ECEEF2",
-                      "transform": Array [
-                        Object {
-                          "rotate": "0deg",
-                        },
-                      ],
-                    },
-                    Object {
-                      "marginTop": 12,
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Pray
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Care
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Share
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -2025,193 +1938,178 @@ exports[`loading should render for self steps correctly 1`] = `
               "flexDirection": "row",
             }
           }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="SelectStepExplainerIconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <SvgMock
-                color="#ffffff"
-              />
-            </View>
-          </View>
-        </View>
+        />
       </View>
     </View>
   </RCTSafeAreaView>
   <View
     style={
       Object {
-        "flex": 1,
-        "overflow": "hidden",
+        "backgroundColor": "#007398",
       }
     }
   >
-    <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
-      ListHeaderComponent={
-        <ErrorNotice
-          message="Error loading step suggestions"
-          refetch={[Function]}
-        />
-      }
-      bounces={false}
-      contentContainerStyle={
-        Array [
-          undefined,
-          Object {
-            "paddingTop": 130,
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "action": [Function],
-            "icon": true,
-            "key": "custom",
-            "text": "Create your own  Step",
-          },
-        ]
-      }
-      disableHeaderMomentum={false}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      headerMomentumDuration={350}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReached={[Function]}
-      onEndReachedThreshold={0.2}
-      onLayout={[Function]}
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      overScrollMode="never"
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={true}
-        />
-      }
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={1}
-      stickyHeaderIndices={Array []}
+    <Text
+      numberOfLines={2}
       style={
-        Object {
-          "paddingVertical": 12,
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "marginHorizontal": 30,
+            "marginVertical": 35,
+            "textAlign": "center",
+          },
+        ]
       }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
-      <RCTRefreshControl />
-      <View>
+      Choose a step of faith to take on your journey this week...
+    </Text>
+  </View>
+  <RCTScrollView
+    ListFooterComponent={
+      <ForwardRef(_SafeAreaView)>
+        <FooterLoading />
+      </ForwardRef(_SafeAreaView)>
+    }
+    ListHeaderComponent={
+      <ErrorNotice
+        message="Error loading step suggestions"
+        refetch={[Function]}
+      />
+    }
+    contentContainerStyle={
+      Object {
+        "marginTop": 12,
+        "paddingBottom": 24,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "action": [Function],
+          "icon": true,
+          "key": "custom",
+          "text": "Create your own  Step",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    scrollIndicatorInsets={
+      Object {
+        "right": 1,
+      }
+    }
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
         <View
-          onLayout={[Function]}
-        />
-        <View
-          onLayout={[Function]}
-          style={null}
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
+          <Text
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
+              Array [
+                Object {
+                  "color": "#505256",
                 },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
             }
           >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
-                ]
-              }
-            >
-              Create your own  Step
-            </Text>
-            <SvgMock />
-          </View>
+            Create your own  Step
+          </Text>
+          <SvgMock />
         </View>
-        <View
-          onLayout={[Function]}
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
         >
           <View
             style={
@@ -2233,70 +2131,21 @@ exports[`loading should render for self steps correctly 1`] = `
               size="small"
             />
           </View>
-        </View>
-      </View>
-    </RCTScrollView>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "height": 130,
-          "left": 0,
-          "paddingTop": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#007398",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step of faith to take on your journey this week...
-          </Text>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
+`;
+
+exports[`loading should show tabs when locale is es 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`loading should show tabs when locale is pt 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
 `;
 
 exports[`loading skip button should render skip button correctly 1`] = `
@@ -2571,119 +2420,81 @@ exports[`loading skip button should render skip button correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
-        "overflow": "hidden",
+        "backgroundColor": "#007398",
       }
     }
   >
-    <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
-      ListHeaderComponent={
-        <ErrorNotice
-          message="Error loading step suggestions"
-          refetch={[Function]}
-        />
-      }
-      bounces={false}
-      contentContainerStyle={
+    <Text
+      numberOfLines={2}
+      style={
         Array [
-          undefined,
           Object {
-            "paddingTop": 195,
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "marginHorizontal": 30,
+            "marginVertical": 35,
+            "textAlign": "center",
           },
         ]
       }
-      data={
-        Array [
-          Object {
-            "action": [Function],
-            "icon": true,
-            "key": "custom",
-            "text": "Create your own Relate Step",
-          },
-        ]
-      }
-      disableHeaderMomentum={false}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      headerMomentumDuration={350}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReached={[Function]}
-      onEndReachedThreshold={0.2}
-      onLayout={[Function]}
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      overScrollMode="never"
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={true}
-        />
-      }
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={1}
-      stickyHeaderIndices={Array []}
+    >
+      Choose a step to take with them this week...
+    </Text>
+    <View
       style={
         Object {
-          "paddingVertical": 12,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
         }
       }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
-      <RCTRefreshControl />
-      <View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
-        />
-        <View
-          onLayout={[Function]}
-          style={null}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
         >
           <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
                 },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
+                undefined,
+              ]
             }
           >
+            <SvgMock
+              color="#ffffff"
+              height={32}
+            />
             <Text
               style={
                 Array [
@@ -2693,20 +2504,388 @@ exports[`loading skip button should render skip button correctly 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
                 ]
               }
             >
-              Create your own Relate Step
+              Relate
             </Text>
-            <SvgMock />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomWidth": 9,
+                  "borderLeftColor": "transparent",
+                  "borderLeftWidth": 7,
+                  "borderRightColor": "transparent",
+                  "borderRightWidth": 7,
+                  "borderStyle": "solid",
+                  "height": 0,
+                  "width": 0,
+                },
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+                Object {
+                  "marginTop": 12,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Pray
+            </Text>
           </View>
         </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Care
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Share
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    ListFooterComponent={
+      <ForwardRef(_SafeAreaView)>
+        <FooterLoading />
+      </ForwardRef(_SafeAreaView)>
+    }
+    ListHeaderComponent={
+      <ErrorNotice
+        message="Error loading step suggestions"
+        refetch={[Function]}
+      />
+    }
+    contentContainerStyle={
+      Object {
+        "marginTop": 12,
+        "paddingBottom": 24,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "action": [Function],
+          "icon": true,
+          "key": "custom",
+          "text": "Create your own Relate Step",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    scrollIndicatorInsets={
+      Object {
+        "right": 1,
+      }
+    }
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Create your own Relate Step
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
         >
           <View
             style={
@@ -2728,370 +2907,10 @@ exports[`loading skip button should render skip button correctly 1`] = `
               size="small"
             />
           </View>
-        </View>
-      </View>
-    </RCTScrollView>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "height": 195,
-          "left": 0,
-          "paddingTop": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#007398",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "space-around",
-            }
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Relate
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomWidth": 9,
-                      "borderLeftColor": "transparent",
-                      "borderLeftWidth": 7,
-                      "borderRightColor": "transparent",
-                      "borderRightWidth": 7,
-                      "borderStyle": "solid",
-                      "height": 0,
-                      "width": 0,
-                    },
-                    Object {
-                      "borderBottomColor": "#ECEEF2",
-                      "transform": Array [
-                        Object {
-                          "rotate": "0deg",
-                        },
-                      ],
-                    },
-                    Object {
-                      "marginTop": 12,
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Pray
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Care
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Share
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -3300,297 +3119,56 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
-        "overflow": "hidden",
+        "backgroundColor": "#007398",
       }
     }
   >
-    <RCTScrollView
-      ListFooterComponent={null}
-      ListHeaderComponent={
-        <ErrorNotice
-          message="Error loading step suggestions"
-          refetch={[Function]}
-        />
-      }
-      bounces={false}
-      contentContainerStyle={
-        Array [
-          undefined,
-          Object {
-            "paddingTop": 195,
-          },
-        ]
-      }
-      data={
-        Array [
-          Object {
-            "action": [Function],
-            "icon": true,
-            "key": "custom",
-            "text": "Create your own Relate Step",
-          },
-          Object {
-            "action": [Function],
-            "icon": false,
-            "key": "3",
-            "text": "ut libero qui",
-          },
-          Object {
-            "action": [Function],
-            "icon": false,
-            "key": "4",
-            "text": "recusandae ut nulla",
-          },
-        ]
-      }
-      disableHeaderMomentum={false}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      headerMomentumDuration={350}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReached={[Function]}
-      onEndReachedThreshold={0.2}
-      onLayout={[Function]}
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      overScrollMode="never"
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={false}
-        />
-      }
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={1}
-      stickyHeaderIndices={Array []}
+    <Text
+      numberOfLines={2}
       style={
-        Object {
-          "paddingVertical": 12,
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "marginHorizontal": 30,
+            "marginVertical": 35,
+            "textAlign": "center",
+          },
+        ]
       }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
-      <RCTRefreshControl />
-      <View>
-        <View
-          onLayout={[Function]}
-        />
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
-                },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
-                ]
-              }
-            >
-              Create your own Relate Step
-            </Text>
-            <SvgMock />
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
-                },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
-                ]
-              }
-            >
-              ut libero qui
-            </Text>
-          </View>
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
-                },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
-                ]
-              }
-            >
-              recusandae ut nulla
-            </Text>
-          </View>
-        </View>
-        <View
-          style={
-            Object {
-              "height": 0,
-            }
-          }
-        />
-      </View>
-    </RCTScrollView>
+      Choose a step to take with Chyna this week...
+    </Text>
     <View
       style={
         Object {
-          "backgroundColor": "#ECEEF2",
-          "height": 195,
-          "left": 0,
-          "paddingTop": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
+          "flexDirection": "row",
+          "justifyContent": "space-around",
         }
       }
     >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "backgroundColor": "#007398",
+            "opacity": 1,
           }
         }
       >
@@ -3598,8 +3176,394 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
           style={
             Object {
               "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Relate
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomWidth": 9,
+                  "borderLeftColor": "transparent",
+                  "borderLeftWidth": 7,
+                  "borderRightColor": "transparent",
+                  "borderRightWidth": 7,
+                  "borderStyle": "solid",
+                  "height": 0,
+                  "width": 0,
+                },
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+                Object {
+                  "marginTop": 12,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Pray
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Care
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Share
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    ListFooterComponent={<ForwardRef(_SafeAreaView) />}
+    ListHeaderComponent={
+      <ErrorNotice
+        message="Error loading step suggestions"
+        refetch={[Function]}
+      />
+    }
+    contentContainerStyle={
+      Object {
+        "marginTop": 12,
+        "paddingBottom": 24,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "action": [Function],
+          "icon": true,
+          "key": "custom",
+          "text": "Create your own Relate Step",
+        },
+        Object {
+          "action": [Function],
+          "icon": false,
+          "key": "5",
+          "text": "ut libero qui",
+        },
+        Object {
+          "action": [Function],
+          "icon": false,
+          "key": "6",
+          "text": "recusandae ut nulla",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    scrollIndicatorInsets={
+      Object {
+        "right": 1,
+      }
+    }
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
             }
           }
         >
@@ -3613,323 +3577,147 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                   "fontFamily": "SourceSansPro-Regular",
                 },
                 Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
+                  "fontSize": 16,
+                  "lineHeight": 22,
                 },
               ]
             }
           >
-            Choose a step to take with Chyna this week...
+            Create your own Relate Step
           </Text>
+          <SvgMock />
         </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
               "flexDirection": "row",
-              "justifyContent": "space-around",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
             }
           }
         >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
+          <Text
             style={
-              Object {
-                "opacity": 1,
-              }
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
             }
           >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Relate
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomWidth": 9,
-                      "borderLeftColor": "transparent",
-                      "borderLeftWidth": 7,
-                      "borderRightColor": "transparent",
-                      "borderRightWidth": 7,
-                      "borderStyle": "solid",
-                      "height": 0,
-                      "width": 0,
-                    },
-                    Object {
-                      "borderBottomColor": "#ECEEF2",
-                      "transform": Array [
-                        Object {
-                          "rotate": "0deg",
-                        },
-                      ],
-                    },
-                    Object {
-                      "marginTop": 12,
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Pray
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Care
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Share
-                </Text>
-              </View>
-            </View>
-          </View>
+            ut libero qui
+          </Text>
         </View>
       </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            recusandae ut nulla
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
+        />
+      </View>
     </View>
-  </View>
+  </RCTScrollView>
 </View>
 `;
 
@@ -3938,168 +3726,42 @@ exports[`should load step suggestions 1`] = `
 - First value
 + Second value
 
-@@ -206,11 +206,11 @@
-          \\"overflow\\": \\"hidden\\",
-        }
-      }
-    >
-      <RCTScrollView
--       ListFooterComponent={<FooterLoading />}
-+       ListFooterComponent={null}
-        ListHeaderComponent={
-          <ErrorNotice
-            message=\\"Error loading step suggestions\\"
-            refetch={[Function anonymous]}
-          />
-@@ -218,22 +218,34 @@
-        bounces={false}
-        contentContainerStyle={
-          Array [
-            undefined,
-            Object {
--             \\"paddingTop\\": 195,
-+             \\"paddingTop\\": 239,
+@@ -226,11 +226,11 @@
+              \\"textAlign\\": \\"center\\",
             },
           ]
         }
-        data={
-          Array [
-            Object {
-              \\"action\\": [Function action],
-              \\"icon\\": true,
-              \\"key\\": \\"custom\\",
-              \\"text\\": \\"Create your own Relate Step\\",
-+           },
-+           Object {
-+             \\"action\\": [Function action],
-+             \\"icon\\": false,
-+             \\"key\\": \\"3\\",
-+             \\"text\\": \\"ut libero qui\\",
-            },
-+           Object {
-+             \\"action\\": [Function action],
-+             \\"icon\\": false,
-+             \\"key\\": \\"4\\",
-+             \\"text\\": \\"recusandae ut nulla\\",
-+           },
-          ]
-        }
-        disableHeaderMomentum={false}
-        disableVirtualization={false}
-        getItem={[Function anonymous]}
-@@ -255,11 +267,11 @@
-        onScrollEndDrag={[Function anonymous]}
-        overScrollMode=\\"never\\"
-        refreshControl={
-          <MyRefreshControl
-            onRefresh={[Function anonymous]}
--           refreshing={true}
-+           refreshing={false}
-          />
-        }
-        removeClippedSubviews={false}
-        renderItem={[Function anonymous]}
-        scrollEventThrottle={1}
-@@ -335,40 +347,137 @@
-              </Text>
-              <SvgMock />
-            </View>
-          </View>
-          <View
--           onLayout={[Function anonymous]}
-+           onLayout={[Function onLayout]}
-+           style={null}
-          >
-            <View
-+             accessible={true}
-+             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-              style={
-+               Object {
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"backgroundColor\\": \\"#ffffff\\",
-+                 \\"borderRadius\\": 8,
-+                 \\"elevation\\": 4,
-+                 \\"flexDirection\\": \\"row\\",
-+                 \\"justifyContent\\": \\"space-between\\",
-+                 \\"marginHorizontal\\": 20,
-+                 \\"marginVertical\\": 6,
-+                 \\"opacity\\": 1,
-+                 \\"padding\\": 20,
-+                 \\"shadowColor\\": \\"#000000\\",
-+                 \\"shadowOffset\\": Object {
-+                   \\"height\\": 2,
-+                   \\"width\\": 0,
-+                 },
-+                 \\"shadowOpacity\\": 0.3,
-+                 \\"shadowRadius\\": 2,
-+               }
-+             }
-+           >
-+             <Text
-+               style={
-                  Array [
-                    Object {
--                   \\"padding\\": 10,
-+                     \\"color\\": \\"#505256\\",
-                    },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"fontSize\\": 16,
-+                     \\"lineHeight\\": 22,
-+                   },
-+                 ]
-+               }
-+             >
-+               ut libero qui
+      >
+-       Choose a step to take with them this week...
++       Choose a step to take with Chyna this week...
+      </Text>
+      <View
+        style={
+          Object {
+            \\"flexDirection\\": \\"row\\",
+@@ -298,11 +298,50 @@
+                    ],
+                  ]
+                }
+              >
+                Relate
 +             </Text>
 +           </View>
-+         </View>
-+         <View
-+           onLayout={[Function onLayout]}
-+           style={null}
-+         >
 +           <View
-+             accessible={true}
-+             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 +             style={
-                Object {
-                  \\"alignItems\\": \\"center\\",
--                   \\"justifyContent\\": \\"center\\",
-+                 \\"backgroundColor\\": \\"#ffffff\\",
-+                 \\"borderRadius\\": 8,
-+                 \\"elevation\\": 4,
-+                 \\"flexDirection\\": \\"row\\",
-+                 \\"justifyContent\\": \\"space-between\\",
-+                 \\"marginHorizontal\\": 20,
-+                 \\"marginVertical\\": 6,
-+                 \\"opacity\\": 1,
-+                 \\"padding\\": 20,
-+                 \\"shadowColor\\": \\"#000000\\",
-+                 \\"shadowOffset\\": Object {
-+                   \\"height\\": 2,
-+                   \\"width\\": 0,
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"borderRadius\\": 30,
++                   \\"flexDirection\\": \\"row\\",
++                   \\"marginTop\\": 20,
++                   \\"paddingHorizontal\\": 14,
++                   \\"paddingVertical\\": 3,
 +                 },
-+                 \\"shadowOpacity\\": 0.3,
-+                 \\"shadowRadius\\": 2,
-+               }
++                 Object {
++                   \\"backgroundColor\\": \\"#ffffff\\",
++                 },
++               ]
 +             }
 +           >
 +             <Text
@@ -4107,262 +3769,379 @@ exports[`should load step suggestions 1`] = `
 +                 Array [
 +                   Object {
 +                     \\"color\\": \\"#505256\\",
-                    },
++                   },
 +                   Object {
 +                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   },
 +                   Object {
-+                     \\"fontSize\\": 16,
-+                     \\"lineHeight\\": 22,
++                     \\"color\\": \\"#007398\\",
++                     \\"marginRight\\": 4,
 +                   },
++                 ]
++               }
++             >
++               0
+              </Text>
++             <SvgMock
++               color=\\"#007398\\"
++             />
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+@@ -392,11 +431,50 @@
+                    ],
                   ]
                 }
               >
+                Pray
++             </Text>
++           </View>
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"borderRadius\\": 30,
++                   \\"flexDirection\\": \\"row\\",
++                   \\"marginTop\\": 20,
++                   \\"paddingHorizontal\\": 14,
++                   \\"paddingVertical\\": 3,
++                 },
++                 Object {
++                   \\"backgroundColor\\": \\"#3CC8E6\\",
++                 },
++               ]
++             }
++           >
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#007398\\",
++                     \\"marginRight\\": 4,
++                   },
++                 ]
++               }
++             >
++               0
+              </Text>
++             <SvgMock
++               color=\\"#007398\\"
++             />
+            </View>
+          </View>
+        </View>
+        <View
+          accessible={true}
+@@ -460,10 +538,49 @@
+                }
+              >
+                Care
+              </Text>
+            </View>
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"borderRadius\\": 30,
++                   \\"flexDirection\\": \\"row\\",
++                   \\"marginTop\\": 20,
++                   \\"paddingHorizontal\\": 14,
++                   \\"paddingVertical\\": 3,
++                 },
++                 Object {
++                   \\"backgroundColor\\": \\"#3CC8E6\\",
++                 },
++               ]
++             }
++           >
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#007398\\",
++                     \\"marginRight\\": 4,
++                   },
++                 ]
++               }
++             >
++               41919
++             </Text>
++             <SvgMock
++               color=\\"#007398\\"
++             />
++           </View>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+@@ -524,22 +641,57 @@
+                    ],
+                  ]
+                }
+              >
+                Share
++             </Text>
++           </View>
++           <View
++             style={
++               Array [
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"borderRadius\\": 30,
++                   \\"flexDirection\\": \\"row\\",
++                   \\"marginTop\\": 20,
++                   \\"paddingHorizontal\\": 14,
++                   \\"paddingVertical\\": 3,
++                 },
++                 Object {
++                   \\"backgroundColor\\": \\"#3CC8E6\\",
++                 },
++               ]
++             }
++           >
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#007398\\",
++                     \\"marginRight\\": 4,
++                   },
++                 ]
++               }
++             >
++               0
+              </Text>
++             <SvgMock
++               color=\\"#007398\\"
++             />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+    <RCTScrollView
+-     ListFooterComponent={
+-       <ForwardRef(_SafeAreaView)>
+-         <FooterLoading />
+-       </ForwardRef(_SafeAreaView)>
+-     }
++     ListFooterComponent={<ForwardRef(_SafeAreaView) />}
+      ListHeaderComponent={
+        <ErrorNotice
+          message=\\"Error loading step suggestions\\"
+          refetch={[Function anonymous]}
+        />
+@@ -555,11 +707,23 @@
+          Object {
+            \\"action\\": [Function action],
+            \\"icon\\": true,
+            \\"key\\": \\"custom\\",
+            \\"text\\": \\"Create your own Relate Step\\",
++         },
++         Object {
++           \\"action\\": [Function action],
++           \\"icon\\": false,
++           \\"key\\": \\"5\\",
++           \\"text\\": \\"ut libero qui\\",
+          },
++         Object {
++           \\"action\\": [Function action],
++           \\"icon\\": false,
++           \\"key\\": \\"6\\",
++           \\"text\\": \\"recusandae ut nulla\\",
++         },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+      getItemCount={[Function anonymous]}
+@@ -577,11 +741,11 @@
+      onScrollBeginDrag={[Function anonymous]}
+      onScrollEndDrag={[Function anonymous]}
+      refreshControl={
+        <MyRefreshControl
+          onRefresh={[Function anonymous]}
+-         refreshing={true}
++         refreshing={false}
+        />
+      }
+      removeClippedSubviews={false}
+      renderItem={[Function anonymous]}
+      scrollEventThrottle={50}
+@@ -661,37 +825,137 @@
+              Create your own Relate Step
+            </Text>
+            <SvgMock />
+          </View>
+        </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
+          <View
+-         onLayout={[Function anonymous]}
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"justifyContent\\": \\"space-between\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 6,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
++         >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
++               ]
++             }
+            >
+-         <RCTSafeAreaView
+-           emulateUnlessSupported={true}
++             ut libero qui
++           </Text>
++         </View>
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
+        >
+          <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+            style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"justifyContent\\": \\"space-between\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 6,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
++         >
++           <Text
++             style={
+                Array [
+                  Object {
+-                   \\"padding\\": 10,
++                   \\"color\\": \\"#505256\\",
+                  },
+                  Object {
+-                   \\"alignItems\\": \\"center\\",
+-                   \\"justifyContent\\": \\"center\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                  },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
+                ]
+              }
+            >
 -             <ActivityIndicator
 -               animating={true}
 -               color=\\"rgba(0, 0, 0, 1)\\"
 -               hidesWhenStopped={true}
 -               size=\\"small\\"
--             />
-+               recusandae ut nulla
-+             </Text>
-            </View>
-          </View>
-+         <View
-+           style={
-+             Object {
-+               \\"height\\": 0,
-+             }
++             recusandae ut nulla
++           </Text>
++         </View>
++       </View>
++       <View
++         style={
++           Object {
++             \\"height\\": 0,
 +           }
++         }
+        />
+-           </View>
+-         </RCTSafeAreaView>
++       <View
++         onLayout={[Function anonymous]}
++       >
++         <RCTSafeAreaView
++           emulateUnlessSupported={true}
 +         />
         </View>
-      </RCTScrollView>
-      <View
-        style={
-          Object {
-            \\"backgroundColor\\": \\"#ECEEF2\\",
--           \\"height\\": 195,
-+           \\"height\\": 239,
-            \\"left\\": 0,
-            \\"paddingTop\\": 0,
-            \\"position\\": \\"absolute\\",
-            \\"right\\": 0,
-            \\"top\\": 0,
-@@ -414,11 +523,11 @@
-                    \\"textAlign\\": \\"center\\",
-                  },
-                ]
-              }
-            >
--             Choose a step to take with them this week...
-+             Choose a step to take with Chyna this week...
-            </Text>
-          </View>
-          <View
-            style={
-              Object {
-@@ -493,10 +602,49 @@
-                </View>
-                <View
-                  style={
-                    Array [
-                      Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 30,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"marginTop\\": 20,
-+                       \\"paddingHorizontal\\": 14,
-+                       \\"paddingVertical\\": 3,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#ffffff\\",
-+                     },
-+                   ]
-+                 }
-+               >
-+                 <Text
-+                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-+                         \\"marginRight\\": 4,
-+                       },
-+                     ]
-+                   }
-+                 >
-+                   0
-+                 </Text>
-+                 <SvgMock
-+                   color=\\"#007398\\"
-+                 />
-+               </View>
-+               <View
-+                 style={
-+                   Array [
-+                     Object {
-                        \\"backgroundColor\\": \\"transparent\\",
-                        \\"borderBottomWidth\\": 9,
-                        \\"borderLeftColor\\": \\"transparent\\",
-                        \\"borderLeftWidth\\": 7,
-                        \\"borderRightColor\\": \\"transparent\\",
-@@ -583,10 +731,49 @@
-                    }
-                  >
-                    Pray
-                  </Text>
-                </View>
-+               <View
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 30,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"marginTop\\": 20,
-+                       \\"paddingHorizontal\\": 14,
-+                       \\"paddingVertical\\": 3,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#3CC8E6\\",
-+                     },
-+                   ]
-+                 }
-+               >
-+                 <Text
-+                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-+                         \\"marginRight\\": 4,
-+                       },
-+                     ]
-+                   }
-+                 >
-+                   0
-+                 </Text>
-+                 <SvgMock
-+                   color=\\"#007398\\"
-+                 />
-+               </View>
-              </View>
-            </View>
-            <View
-              accessible={true}
-              focusable={true}
-@@ -647,11 +834,50 @@
-                        ],
-                      ]
-                    }
-                  >
-                    Care
-+                 </Text>
-+               </View>
-+               <View
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 30,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"marginTop\\": 20,
-+                       \\"paddingHorizontal\\": 14,
-+                       \\"paddingVertical\\": 3,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#3CC8E6\\",
-+                     },
-+                   ]
-+                 }
-+               >
-+                 <Text
-+                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-+                         \\"marginRight\\": 4,
-+                       },
-+                     ]
-+                   }
-+                 >
-+                   41919
-                  </Text>
-+                 <SvgMock
-+                   color=\\"#007398\\"
-+                 />
-                </View>
-              </View>
-            </View>
-            <View
-              accessible={true}
-@@ -713,11 +939,50 @@
-                        ],
-                      ]
-                    }
-                  >
-                    Share
-+                 </Text>
-+               </View>
-+               <View
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"alignItems\\": \\"center\\",
-+                       \\"borderRadius\\": 30,
-+                       \\"flexDirection\\": \\"row\\",
-+                       \\"marginTop\\": 20,
-+                       \\"paddingHorizontal\\": 14,
-+                       \\"paddingVertical\\": 3,
-+                     },
-+                     Object {
-+                       \\"backgroundColor\\": \\"#3CC8E6\\",
-+                     },
-+                   ]
-+                 }
-+               >
-+                 <Text
-+                   style={
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-+                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-+                         \\"marginRight\\": 4,
-+                       },
-+                     ]
-+                   }
-+                 >
-+                   0
-                  </Text>
-+                 <SvgMock
-+                   color=\\"#007398\\"
-+                 />
-                </View>
-              </View>
-            </View>
-          </View>
-        </View>"
+      </View>
+    </RCTScrollView>
+    <SelectStepExplainerModal
+      onClose={[Function onClose]}"
 `;
 
 exports[`should paginate 1`] = `
@@ -4370,173 +4149,167 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -242,10 +242,22 @@
-              \\"action\\": [Function action],
-              \\"icon\\": false,
-              \\"key\\": \\"4\\",
-              \\"text\\": \\"recusandae ut nulla\\",
+@@ -226,11 +226,11 @@
+              \\"textAlign\\": \\"center\\",
             },
-+           Object {
-+             \\"action\\": [Function action],
-+             \\"icon\\": false,
-+             \\"key\\": \\"5\\",
-+             \\"text\\": \\"debitis incidunt accusantium\\",
-+           },
-+           Object {
-+             \\"action\\": [Function action],
-+             \\"icon\\": false,
-+             \\"key\\": \\"6\\",
-+             \\"text\\": \\"sed libero repudiandae\\",
-+           },
           ]
         }
-        disableHeaderMomentum={false}
-        disableVirtualization={false}
-        getItem={[Function anonymous]}
-@@ -457,16 +469,130 @@
-                    },
-                  ]
-                }
-              >
-                recusandae ut nulla
-+             </Text>
-+           </View>
-+         </View>
-+         <View
-+           onLayout={[Function onLayout]}
-+           style={null}
-+         >
-+           <View
-+             accessible={true}
-+             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+             style={
-+               Object {
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"backgroundColor\\": \\"#ffffff\\",
-+                 \\"borderRadius\\": 8,
-+                 \\"elevation\\": 4,
-+                 \\"flexDirection\\": \\"row\\",
-+                 \\"justifyContent\\": \\"space-between\\",
-+                 \\"marginHorizontal\\": 20,
-+                 \\"marginVertical\\": 6,
-+                 \\"opacity\\": 1,
-+                 \\"padding\\": 20,
-+                 \\"shadowColor\\": \\"#000000\\",
-+                 \\"shadowOffset\\": Object {
-+                   \\"height\\": 2,
-+                   \\"width\\": 0,
-+                 },
-+                 \\"shadowOpacity\\": 0.3,
-+                 \\"shadowRadius\\": 2,
-+               }
-+             }
-+           >
-+             <Text
-+               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"fontSize\\": 16,
-+                     \\"lineHeight\\": 22,
-+                   },
-+                 ]
-+               }
-+             >
-+               debitis incidunt accusantium
-              </Text>
-            </View>
-          </View>
-          <View
-+           onLayout={[Function onLayout]}
-+           style={null}
-+         >
-+           <View
-+             accessible={true}
-+             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-              style={
-                Object {
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"backgroundColor\\": \\"#ffffff\\",
-+                 \\"borderRadius\\": 8,
-+                 \\"elevation\\": 4,
-+                 \\"flexDirection\\": \\"row\\",
-+                 \\"justifyContent\\": \\"space-between\\",
-+                 \\"marginHorizontal\\": 20,
-+                 \\"marginVertical\\": 6,
-+                 \\"opacity\\": 1,
-+                 \\"padding\\": 20,
-+                 \\"shadowColor\\": \\"#000000\\",
-+                 \\"shadowOffset\\": Object {
-+                   \\"height\\": 2,
-+                   \\"width\\": 0,
-+                 },
-+                 \\"shadowOpacity\\": 0.3,
-+                 \\"shadowRadius\\": 2,
-+               }
-+             }
-+           >
-+             <Text
-+               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"fontSize\\": 16,
-+                     \\"lineHeight\\": 22,
-+                   },
-+                 ]
-+               }
-+             >
-+               sed libero repudiandae
-+             </Text>
-+           </View>
-+         </View>
-+         <View
-+           style={
-+             Object {
-                \\"height\\": 0,
-              }
-            }
-          />
-        </View>
-@@ -523,11 +649,11 @@
-                    \\"textAlign\\": \\"center\\",
+      >
+-       Choose a step to take with Chyna this week...
++       Choose a step to take with Connor this week...
+      </Text>
+      <View
+        style={
+          Object {
+            \\"flexDirection\\": \\"row\\",
+@@ -719,10 +719,22 @@
+          Object {
+            \\"action\\": [Function action],
+            \\"icon\\": false,
+            \\"key\\": \\"6\\",
+            \\"text\\": \\"recusandae ut nulla\\",
++         },
++         Object {
++           \\"action\\": [Function action],
++           \\"icon\\": false,
++           \\"key\\": \\"8\\",
++           \\"text\\": \\"debitis incidunt accusantium\\",
++         },
++         Object {
++           \\"action\\": [Function action],
++           \\"icon\\": false,
++           \\"key\\": \\"9\\",
++           \\"text\\": \\"sed libero repudiandae\\",
+          },
+        ]
+      }
+      disableVirtualization={false}
+      getItem={[Function anonymous]}
+@@ -936,10 +948,124 @@
                   },
                 ]
               }
             >
--             Choose a step to take with Chyna this week...
-+             Choose a step to take with Connor this week...
+              recusandae ut nulla
++           </Text>
++         </View>
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"justifyContent\\": \\"space-between\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 6,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
++         >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
++               ]
++             }
++           >
++             debitis incidunt accusantium
++           </Text>
++         </View>
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <View
++           accessible={true}
++           focusable={true}
++           isTVSelectable={true}
++           onClick={[Function bound touchableHandlePress]}
++           onResponderGrant={[Function bound touchableHandleResponderGrant]}
++           onResponderMove={[Function bound touchableHandleResponderMove]}
++           onResponderRelease={[Function bound touchableHandleResponderRelease]}
++           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"justifyContent\\": \\"space-between\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 6,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
++         >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
++                 },
++               ]
++             }
++           >
++             sed libero repudiandae
             </Text>
           </View>
-          <View
-            style={
-              Object {"
+        </View>
+        <View
+          style={"
 `;
 
 exports[`with explainer open opens explainer modal 1`] = `
@@ -4544,12 +4317,12 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -986,6 +986,9 @@
-            </View>
-          </View>
+@@ -955,6 +955,9 @@
+            emulateUnlessSupported={true}
+          />
         </View>
       </View>
-    </View>
+    </RCTScrollView>
 +   <SelectStepExplainerModal
 +     onClose={[Function onClose]}
 +   />

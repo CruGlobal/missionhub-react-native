@@ -37,7 +37,7 @@ export default StyleSheet.create({
   },
   text: {
     color: theme.grey,
-    fontSize: 24,
+    fontSize: 26,
     lineHeight: 30,
     fontWeight: '300',
     textAlign: 'center',
@@ -59,11 +59,16 @@ export default StyleSheet.create({
   },
   closeButtonWrap: {
     position: 'absolute',
-    top: 5,
-    right: 5,
+    top: 20,
+    right: 20,
+  },
+  closeButtonIcon: {
+    color: theme.white,
+    margin: 4,
   },
   closeButton: {
-    color: theme.white,
+    backgroundColor: 'rgba(0,0,0,0.25)',
+    borderRadius: 30,
   },
   middleIconWrap: {
     position: 'relative',
@@ -86,5 +91,30 @@ export default StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 8,
     elevation: 5,
+  },
+  exampleTypes: {
+    backgroundColor: theme.impactBlue,
+    paddingTop: 20,
+    paddingHorizontal: 15,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+  },
+  exampleTypesTextWrap: {
+    marginTop: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: theme.white,
+    borderRadius: 30,
+    paddingVertical: 5,
+    width: 50,
+  },
+  exampleTypesText: {
+    color: theme.primaryColor,
+    fontSize: 12,
+    marginRight: 3,
+    fontWeight: 'bold',
   },
 });

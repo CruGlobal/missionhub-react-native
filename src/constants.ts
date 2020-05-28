@@ -21,8 +21,6 @@ export const UPDATE_PERSON_ATTRIBUTES = 'app/UPDATE_PERSON_ATTRIBUTES';
 export const DELETE_PERSON = 'app/DELETE_PERSON';
 export const REMOVE_ORGANIZATION_MEMBER = 'app/REMOVE_ORGANIZATION_MEMBER';
 export const UPDATE_JOURNEY_ITEMS = 'app/UPDATE_JOURNEY_ITEMS';
-export const UPDATE_PEOPLE_INTERACTION_REPORT =
-  'app/UPDATE_PEOPLE_INTERACTION_REPORT';
 export const GET_ORGANIZATIONS_CONTACTS_REPORT =
   'app/GET_ORGANIZATIONS_CONTACTS_REPORT';
 export const COMPLETED_STEP_COUNT = 'app/COMPLETED_STEP_COUNT';
@@ -55,7 +53,8 @@ export const ACCEPTED_STEP = 'accepted_challenge';
 
 export const STEPS_TAB = 'StepsTab';
 export const PEOPLE_TAB = 'PeopleTab';
-export const GROUPS_TAB = 'GroupsTab';
+export const COMMUNITIES_TAB = 'CommunitiesTab';
+export const NOTIFICATIONS_TAB = 'NotificationsTab';
 
 export const NAVIGATE_FORWARD = 'Navigation/PUSH';
 export const NAVIGATE_RESET = 'Navigation/RESET';

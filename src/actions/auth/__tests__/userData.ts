@@ -15,6 +15,8 @@ import { getMyCommunities } from '../../organizations';
 import { getMe } from '../../person';
 import { getStagesIfNotExists } from '../../stages';
 import { rollbar } from '../../../utils/rollbar.config';
+import { requestNativePermissions } from '../../notifications';
+import * as common from '../../../utils/common';
 
 const getMyCommunitiesResult = { type: 'got communities' };
 const getMeResult = { type: 'got me successfully' };
@@ -35,6 +37,9 @@ jest.mock('../../steps');
 ((callApi as unknown) as {
   default: () => { type: string };
 }).default = jest.fn().mockReturnValue({ type: 'test-action' });
+(requestNativePermissions as jest.Mock).mockReturnValue({
+  type: 'requestNativePermissions',
+});
 
 const refreshToken = 'khjdsfkksadjhsladjjldsvajdscandjehrwewrqr';
 const upgradeToken = '2d2123bd-8142-42e7-98e4-81a0dd7a87a6';
@@ -127,6 +132,22 @@ describe('authSuccess', () => {
     await store.dispatch<any>(authSuccess());
 
     expect(getFeatureFlags).toHaveBeenCalledWith();
+  });
+
+  it('should not call requestNativePermissions on iOS', async () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
+
+    await store.dispatch<any>(authSuccess());
+
+    expect(requestNativePermissions).not.toHaveBeenCalled();
+  });
+
+  it('should call requestNativePermissions on Android', async () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+
+    await store.dispatch<any>(authSuccess());
+
+    expect(requestNativePermissions).toHaveBeenCalled();
   });
 });
 

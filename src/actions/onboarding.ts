@@ -16,13 +16,15 @@ import {
 import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { REQUESTS } from '../api/routes';
+import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 
 import callApi from './api';
 import { getMe } from './person';
-import { navigatePush, navigateToCommunity } from './navigation';
+import { navigatePush } from './navigation';
 import { checkNotifications } from './notifications';
 import { trackActionWithoutData } from './analytics';
 import { joinCommunity } from './organizations';
+import { updateLocaleAndTimezone } from './auth/userData';
 
 export const START_ONBOARDING = 'START_ONBOARDING';
 export const FINISH_ONBOARDING = 'FINISH_ONBOARDING';
@@ -95,6 +97,7 @@ export function createMyPerson(firstName: string, lastName: string) {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
     // @ts-ignore
     const me = ((await dispatch(getMe())) as unknown) as Person;
+    dispatch(updateLocaleAndTimezone());
 
     rollbar.setPerson(me.id);
 
@@ -199,7 +202,11 @@ export function landOnStashedCommunityScreen() {
     >,
     getState: () => { onboarding: OnboardingState },
   ) => {
-    dispatch(navigateToCommunity(getState().onboarding.community));
+    dispatch(
+      navigatePush(COMMUNITY_TABS, {
+        communityId: getState().onboarding.community?.id,
+      }),
+    );
     dispatch(trackActionWithoutData(ACTIONS.SELECT_JOINED_COMMUNITY));
   };
 }

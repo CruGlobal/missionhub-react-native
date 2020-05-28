@@ -19,6 +19,8 @@ import {
   setOnboardingPersonId,
 } from '../../../actions/onboarding';
 import { trackActionWithoutData } from '../../../actions/analytics';
+import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
+import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/onboarding');
@@ -31,6 +33,10 @@ jest.mock('../../../utils/hooks/useLogoutOnBack', () => ({
 jest.mock('../../../utils/hooks/useAnalytics', () => ({
   useAnalytics: jest.fn(),
 }));
+jest.mock(
+  '../../../components/SelectStepExplainerModal',
+  () => 'SelectStepExplainerModal',
+);
 
 const mockMath = Object.create(global.Math);
 mockMath.random = () => 0;
@@ -83,7 +89,8 @@ type ScreenName =
   | typeof ADD_STEP_SCREEN
   | typeof NOTIFICATION_PRIMER_SCREEN
   | typeof NOTIFICATION_OFF_SCREEN
-  | typeof CELEBRATION_SCREEN;
+  | typeof CELEBRATION_SCREEN
+  | typeof PERSON_CATEGORY_SCREEN;
 
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
 const renderScreen = (screenName: ScreenName, navParams: any = {}) => {
@@ -115,11 +122,37 @@ describe('AddSomeoneScreen next', () => {
 
     store.dispatch(next({ skip: false }));
 
-    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN);
+    expect(navigatePush).toHaveBeenCalledWith(PERSON_CATEGORY_SCREEN);
   });
 
   it('should fire required next actions with skip', () => {
     const { store, next } = renderScreen(ADD_SOMEONE_SCREEN);
+
+    store.dispatch(next({ skip: true }));
+
+    expect(skipAddPersonAndCompleteOnboarding).toHaveBeenCalledWith();
+  });
+});
+
+describe('PersonCategoryScreen next', () => {
+  it('should fire required next actions without skip', async () => {
+    const { store, next } = await renderScreen(PERSON_CATEGORY_SCREEN, {
+      skip: false,
+      relationshipType: RelationshipTypeEnum.family,
+    });
+    store.dispatch(
+      next({ skip: false, relationshipType: RelationshipTypeEnum.family }),
+    );
+
+    expect(navigatePush).toHaveBeenCalledWith(SETUP_PERSON_SCREEN, {
+      relationshipType: RelationshipTypeEnum.family,
+    });
+  });
+
+  it('should fire required next actions with skip', async () => {
+    const { store, next } = await renderScreen(PERSON_CATEGORY_SCREEN, {
+      skip: true,
+    });
 
     store.dispatch(next({ skip: true }));
 

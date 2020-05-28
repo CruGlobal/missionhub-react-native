@@ -132,7 +132,6 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -573,11 +572,14 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -602,7 +604,9 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -747,7 +751,6 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1188,11 +1191,14 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1217,7 +1223,9 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1362,7 +1370,6 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1801,12 +1808,14 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             Object {
               "opacity": 0.6,
             },
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#B4B6BA",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1831,7 +1840,9 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -1976,7 +1987,6 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -2415,11 +2425,14 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -2444,7 +2457,9 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -2589,7 +2604,6 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -3028,11 +3042,14 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -3057,7 +3074,9 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -3202,7 +3221,6 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -3643,11 +3661,14 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -3672,7 +3693,9 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -3817,7 +3840,6 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -4258,11 +4280,14 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -4287,7 +4312,9 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -4432,7 +4459,6 @@ exports[`render no reminder in props renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -4873,12 +4899,14 @@ exports[`render no reminder in props renders correctly 1`] = `
             Object {
               "opacity": 0.6,
             },
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#B4B6BA",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -4903,7 +4931,9 @@ exports[`render no reminder in props renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -5048,7 +5078,6 @@ exports[`render reminder in props renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -5489,11 +5518,14 @@ exports[`render reminder in props renders correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -5518,7 +5550,9 @@ exports[`render reminder in props renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }

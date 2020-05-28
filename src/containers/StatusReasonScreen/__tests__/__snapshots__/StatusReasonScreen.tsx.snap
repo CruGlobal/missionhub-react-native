@@ -10,7 +10,7 @@ exports[`StatusReasonScreen should render correctly 1`] = `
   }
 >
   <Header
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <Button
         buttonTextStyle={

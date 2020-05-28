@@ -6,6 +6,7 @@ import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { Flex, Text } from '../../components/common';
 import GroupsContactItem from '../../components/GroupsContactItem';
 import AssignToMeButton from '../AssignToMeButton/index';
+import { CommunityMemberPerson } from '../CommunityMemberItem/__generated__/CommunityMemberPerson';
 
 import styles from './styles';
 
@@ -14,7 +15,7 @@ type ActivityItem = any;
 
 interface GroupsContactListProps {
   activity: ActivityItem[];
-  person: { full_name?: string; first_name?: string; last_name?: string };
+  person: CommunityMemberPerson;
   organization: object;
   myId: string;
   onAssign?: () => void;
@@ -53,13 +54,10 @@ const GroupsContactList = ({
       />
     );
   }
-  const name =
-    person.full_name ||
-    `${person.first_name}${person.last_name ? ` ${person.last_name}` : ''}`;
   return (
     <Flex style={{ flex: 1 }}>
       <Flex style={styles.header} align="center" justify="center">
-        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.name}>{person.fullName}</Text>
         <AssignToMeButton
           person={person}
           organization={organization}

@@ -1,183 +1,87 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders casey view correctly 1`] = `
-<KeyboardAvoidingView
-  behavior="position"
-  enabled={true}
-  keyboardVerticalOffset={0}
-  style={
-    Object {
-      "paddingHorizontal": 25,
-      "paddingVertical": 50,
-    }
-  }
->
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      First Name (Required)
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="First Name (Required)"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Last Name
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Last Name"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-</KeyboardAvoidingView>
+exports[`calls methods calls update firstName and changeFocusedField 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -83,11 +83,13 @@
+                \\"fontSize\\": 13,
+                \\"marginTop\\": 15,
+              },
+            ]
+          }
+-       />
++       >
++         First Name or Nickname
++       </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={false}
+          autoFocus={true}
+          blurOnSubmit={false}
+@@ -95,11 +97,11 @@
+          multiline={false}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeText]}
+          onFocus={[Function onFocus]}
+          onSubmitEditing={[Function lastNameFocus]}
+-         placeholder=\\"First Name (Required)\\"
++         placeholder=\\"\\"
+          placeholderTextColor=\\"#ffffff\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"next\\"
+          selectionColor=\\"#3CC8E6\\"
+          style={"
 `;
 
-exports[`renders jean invite with organization and user and admin radio buttons 1`] = `
-<KeyboardAvoidingView
-  behavior="position"
-  enabled={true}
-  keyboardVerticalOffset={0}
-  style={
-    Object {
-      "paddingHorizontal": 25,
-      "paddingVertical": 50,
-    }
-  }
->
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      First Name (Required)
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="First Name (Required)"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Last Name
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Last Name"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="email"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Email
-    </MyText>
-    <Input
-      autoCapitalize="none"
-      blurOnSubmit={false}
-      keyboardType="email-address"
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Email"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <MyText
-    style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 13,
-        "marginTop": 15,
-      }
-    }
-  >
-    Permissions
-    :
-  </MyText>
-  <Flex
-    align="center"
-    direction="row"
-    style={
-      Object {
-        "paddingVertical": 15,
-      }
-    }
-  />
-</KeyboardAvoidingView>
+exports[`calls methods calls update lastName and changeFocusedField 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -149,22 +149,24 @@
+                \\"fontSize\\": 13,
+                \\"marginTop\\": 15,
+              },
+            ]
+          }
+-       />
++       >
++         Last Name
++       </Text>
+        <TextInput
+          allowFontScaling={true}
+          autoCorrect={false}
+          autoFocus={false}
+          blurOnSubmit={false}
+          editable={true}
+          multiline={false}
+          onBlur={[Function onBlur]}
+          onChangeText={[Function onChangeText]}
+          onFocus={[Function onFocus]}
+-         placeholder=\\"Last Name (optional)\\"
++         placeholder=\\"\\"
+          placeholderTextColor=\\"#ffffff\\"
+          rejectResponderTermination={true}
+          returnKeyType=\\"done\\"
+          selectionColor=\\"#3CC8E6\\"
+          style={"
 `;
 
-exports[`renders jean with organization and user and admin radio buttons 1`] = `
-<KeyboardAvoidingView
-  behavior="position"
-  enabled={true}
-  keyboardVerticalOffset={0}
+exports[`calls methods updates profile picture 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`calls methods updates relationshipType 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
+exports[`render correctly | With Person | No Picture 1`] = `
+<View
+  onLayout={[Function]}
   style={
     Object {
       "paddingHorizontal": 25,
@@ -185,581 +89,315 @@ exports[`renders jean with organization and user and admin radio buttons 1`] = `
     }
   }
 >
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      First Name (Required)
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="First Name (Required)"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Last Name
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Last Name"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="email"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Email
-    </MyText>
-    <Input
-      autoCapitalize="none"
-      blurOnSubmit={false}
-      keyboardType="email-address"
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Email"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    align="center"
-    direction="row"
-    key="gender"
+  <View
     style={
       Object {
-        "borderBottomColor": "#52C5DC",
-        "borderBottomWidth": 1,
-        "paddingVertical": 15,
+        "bottom": 0,
       }
     }
   >
-    <MyText
+    <View
       style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-        }
-      }
-    >
-      Gender
-      :
-    </MyText>
-    <RadioButton
-      checked={false}
-      label="Male"
-      onSelect={[Function]}
-      style={
-        Object {
-          "paddingHorizontal": 15,
-        }
-      }
-    />
-    <RadioButton
-      checked={false}
-      label="Female"
-      onSelect={[Function]}
-      style={
-        Object {
-          "paddingHorizontal": 15,
-        }
-      }
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="phone"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Phone
-    </MyText>
-    <Input
-      blurOnSubmit={true}
-      keyboardType="phone-pad"
-      onChangeText={[Function]}
-      placeholder="Phone"
-      placeholderTextColor="#ffffff"
-      returnKeyType="done"
-    />
-  </Flex>
-  <MyText
-    style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 13,
-        "marginTop": 15,
-      }
-    }
-  >
-    Permissions
-    :
-  </MyText>
-  <Flex
-    align="center"
-    direction="row"
-    style={
-      Object {
-        "paddingVertical": 15,
-      }
-    }
-  >
-    <RadioButton
-      checked={true}
-      label="Contact"
-      onSelect={[Function]}
-      pressProps={
         Array [
-          "2",
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
         ]
       }
-      style={
-        Object {
-          "paddingRight": 25,
-        }
-      }
-    />
-  </Flex>
-</KeyboardAvoidingView>
-`;
-
-exports[`renders jean with organization and user radio buttons 1`] = `
-<KeyboardAvoidingView
-  behavior="position"
-  enabled={true}
-  keyboardVerticalOffset={0}
-  style={
-    Object {
-      "paddingHorizontal": 25,
-      "paddingVertical": 50,
-    }
-  }
->
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
     >
-      First Name (Required)
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="First Name (Required)"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+            },
+          ]
         }
-      }
-    >
-      Last Name
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Last Name"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="email"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "justifyContent": "center",
+                },
+                Array [
+                  Object {
+                    "borderRadius": 48,
+                    "height": 96,
+                    "width": 96,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(55, 161, 152)",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 64,
+                      "fontWeight": "300",
+                    },
+                  ],
+                ]
+              }
+            >
+              C
+            </Text>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#3CC8E6",
+                "borderRadius": 50,
+                "height": 32,
+                "justifyContent": "center",
+                "left": 65,
+                "position": "absolute",
+                "top": 60,
+                "width": 32,
+              }
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
         }
-      }
-    >
-      Email
-    </MyText>
-    <Input
-      autoCapitalize="none"
-      blurOnSubmit={false}
-      keyboardType="email-address"
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Email"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    align="center"
-    direction="row"
-    key="gender"
-    style={
-      Object {
-        "borderBottomColor": "#52C5DC",
-        "borderBottomWidth": 1,
-        "paddingVertical": 15,
-      }
-    }
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
+      >
+        First Name
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={true}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="First Name (Required)"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="next"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
+          ]
         }
-      }
-    >
-      Gender
-      :
-    </MyText>
-    <RadioButton
-      checked={false}
-      label="Male"
-      onSelect={[Function]}
+        testID="firstNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Christian"
+      />
+    </View>
+    <View
       style={
-        Object {
-          "paddingHorizontal": 15,
-        }
-      }
-    />
-    <RadioButton
-      checked={false}
-      label="Female"
-      onSelect={[Function]}
-      style={
-        Object {
-          "paddingHorizontal": 15,
-        }
-      }
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="phone"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Phone
-    </MyText>
-    <Input
-      blurOnSubmit={true}
-      keyboardType="phone-pad"
-      onChangeText={[Function]}
-      placeholder="Phone"
-      placeholderTextColor="#ffffff"
-      returnKeyType="done"
-    />
-  </Flex>
-  <MyText
-    style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 13,
-        "marginTop": 15,
-      }
-    }
-  >
-    Permissions
-    :
-  </MyText>
-  <Flex
-    align="center"
-    direction="row"
-    style={
-      Object {
-        "paddingVertical": 15,
-      }
-    }
-  >
-    <RadioButton
-      checked={true}
-      label="Contact"
-      onSelect={[Function]}
-      pressProps={
         Array [
-          "2",
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
         ]
       }
-      style={
-        Object {
-          "paddingRight": 25,
-        }
-      }
-    />
-  </Flex>
-</KeyboardAvoidingView>
-`;
-
-exports[`renders jean with organization view correctly 1`] = `
-<KeyboardAvoidingView
-  behavior="position"
-  enabled={true}
-  keyboardVerticalOffset={0}
-  style={
-    Object {
-      "paddingHorizontal": 25,
-      "paddingVertical": 50,
-    }
-  }
->
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
     >
-      First Name (Required)
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="First Name (Required)"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
         }
-      }
-    >
-      Last Name
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Last Name"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="email"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
+      >
+        Last Name
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={false}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="Last Name (optional)"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
+          ]
         }
-      }
-    >
-      Email
-    </MyText>
-    <Input
-      autoCapitalize="none"
-      blurOnSubmit={false}
-      keyboardType="email-address"
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Email"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    align="center"
-    direction="row"
-    key="gender"
-    style={
-      Object {
-        "borderBottomColor": "#52C5DC",
-        "borderBottomWidth": 1,
-        "paddingVertical": 15,
-      }
-    }
-  >
-    <MyText
+        testID="lastNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Huffman"
+      />
+    </View>
+    <View
       style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-        }
-      }
-    >
-      Gender
-      :
-    </MyText>
-    <RadioButton
-      checked={false}
-      label="Male"
-      onSelect={[Function]}
-      style={
-        Object {
-          "paddingHorizontal": 15,
-        }
-      }
-    />
-    <RadioButton
-      checked={false}
-      label="Female"
-      onSelect={[Function]}
-      style={
-        Object {
-          "paddingHorizontal": 15,
-        }
-      }
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="phone"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Phone
-    </MyText>
-    <Input
-      blurOnSubmit={true}
-      keyboardType="phone-pad"
-      onChangeText={[Function]}
-      placeholder="Phone"
-      placeholderTextColor="#ffffff"
-      returnKeyType="done"
-    />
-  </Flex>
-  <MyText
-    style={
-      Object {
-        "color": "#52C5DC",
-        "fontSize": 13,
-        "marginTop": 15,
-      }
-    }
-  >
-    Permissions
-    :
-  </MyText>
-  <Flex
-    align="center"
-    direction="row"
-    style={
-      Object {
-        "paddingVertical": 15,
-      }
-    }
-  >
-    <RadioButton
-      checked={true}
-      label="Contact"
-      onSelect={[Function]}
-      pressProps={
         Array [
-          "2",
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
         ]
       }
-      style={
-        Object {
-          "paddingRight": 25,
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
         }
-      }
-    />
-  </Flex>
-</KeyboardAvoidingView>
+      >
+        Stage
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "alignItems": "flex-start",
+                "color": "#3CC8E6",
+                "fontSize": 16,
+                "marginVertical": 10,
+                "width": "100%",
+              },
+            ]
+          }
+          testID="stageSelectButton"
+        >
+          Forgiven
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
 `;
 
-exports[`renders jean without organization view correctly 1`] = `
-<KeyboardAvoidingView
-  behavior="position"
-  enabled={true}
-  keyboardVerticalOffset={0}
+exports[`render correctly | With Person | With Picture 1`] = `
+<View
+  onLayout={[Function]}
   style={
     Object {
       "paddingHorizontal": 25,
@@ -767,147 +405,481 @@ exports[`renders jean without organization view correctly 1`] = `
     }
   }
 >
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      First Name (Required)
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="First Name (Required)"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Last Name
-    </MyText>
-    <Input
-      blurOnSubmit={false}
-      editable={true}
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Last Name"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="email"
-  >
-    <MyText
-      style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
-      }
-    >
-      Email
-    </MyText>
-    <Input
-      autoCapitalize="none"
-      blurOnSubmit={false}
-      keyboardType="email-address"
-      onChangeText={[Function]}
-      onSubmitEditing={[Function]}
-      placeholder="Email"
-      placeholderTextColor="#ffffff"
-      returnKeyType="next"
-    />
-  </Flex>
-  <Flex
-    align="center"
-    direction="row"
-    key="gender"
+  <View
     style={
       Object {
-        "borderBottomColor": "#52C5DC",
-        "borderBottomWidth": 1,
-        "paddingVertical": 15,
+        "bottom": 0,
       }
     }
   >
-    <MyText
+    <View
       style={
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-        }
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
       }
     >
-      Gender
-      :
-    </MyText>
-    <RadioButton
-      checked={false}
-      label="Male"
-      onSelect={[Function]}
-      style={
-        Object {
-          "paddingHorizontal": 15,
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+            },
+          ]
         }
-      }
-    />
-    <RadioButton
-      checked={false}
-      label="Female"
-      onSelect={[Function]}
-      style={
-        Object {
-          "paddingHorizontal": 15,
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "base64image.jpeg",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderRadius": 48,
+                  "height": 96,
+                  "width": 96,
+                },
+                Object {
+                  "backgroundColor": "rgb(55, 161, 152)",
+                },
+                undefined,
+              ]
+            }
+          />
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#3CC8E6",
+                "borderRadius": 50,
+                "height": 32,
+                "justifyContent": "center",
+                "left": 65,
+                "position": "absolute",
+                "top": 60,
+                "width": 32,
+              }
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
         }
+      >
+        First Name
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={true}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="First Name (Required)"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="next"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
+          ]
+        }
+        testID="firstNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Christian"
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
       }
-    />
-  </Flex>
-  <Flex
-    direction="column"
-    key="phone"
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        Last Name
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={false}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="Last Name (optional)"
+        placeholderTextColor="#3CC8E6"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#ECEEF2",
+              "color": "#3CC8E6",
+            },
+          ]
+        }
+        testID="lastNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="Huffman"
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      >
+        Stage
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+          }
+        }
+      >
+        <Text
+          onPress={[Function]}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "alignItems": "flex-start",
+                "color": "#3CC8E6",
+                "fontSize": 16,
+                "marginVertical": 10,
+                "width": "100%",
+              },
+            ]
+          }
+          testID="stageSelectButton"
+        >
+          Forgiven
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly | No Person 1`] = `
+<View
+  onLayout={[Function]}
+  style={
+    Object {
+      "paddingHorizontal": 25,
+      "paddingVertical": 50,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "bottom": 0,
+      }
+    }
   >
-    <MyText
+    <View
       style={
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 13,
-          "marginTop": 15,
-        }
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
       }
     >
-      Phone
-    </MyText>
-    <Input
-      blurOnSubmit={true}
-      keyboardType="phone-pad"
-      onChangeText={[Function]}
-      placeholder="Phone"
-      placeholderTextColor="#ffffff"
-      returnKeyType="done"
-    />
-  </Flex>
-</KeyboardAvoidingView>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 2,
+              "justifyContent": "flex-end",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "marginBottom": 30,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 24,
+                  "fontWeight": "300",
+                  "lineHeight": 30,
+                  "maxWidth": 230,
+                  "textAlign": "center",
+                },
+              ]
+            }
+          >
+            Who would you like to take steps of faith with this week?
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      />
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={true}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="First Name (Required)"
+        placeholderTextColor="#ffffff"
+        rejectResponderTermination={true}
+        returnKeyType="next"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#3CC8E6",
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="firstNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+    <View
+      style={
+        Array [
+          Object {},
+          Object {
+            "flexDirection": "column",
+          },
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#52C5DC",
+              "fontSize": 13,
+              "marginTop": 15,
+            },
+          ]
+        }
+      />
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={false}
+        autoFocus={false}
+        blurOnSubmit={false}
+        editable={true}
+        multiline={false}
+        onBlur={[Function]}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        placeholder="Last Name (optional)"
+        placeholderTextColor="#ffffff"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#3CC8E6"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomColor": "#3CC8E6",
+              "color": "#ffffff",
+            },
+          ]
+        }
+        testID="lastNameInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+  </View>
+</View>
 `;

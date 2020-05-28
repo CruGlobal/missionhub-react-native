@@ -1,14 +1,13 @@
 /* eslint-disable max-lines */
 
-import React, { useState } from 'react';
-import { SafeAreaView, View } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { SafeAreaView, View, FlatList } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
-import { CollapsibleHeaderFlatList } from 'react-native-collapsible-header-views';
 
 import {
   getAnalyticsSectionType,
@@ -25,7 +24,7 @@ import {
   RefreshControl,
   Button,
 } from '../../components/common';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import Skip from '../../components/Skip';
 import theme from '../../theme';
 import Header from '../../components/Header';
@@ -44,7 +43,11 @@ import { FooterLoading } from '../../components/FooterLoading';
 
 import styles from './styles';
 import Checkmark from './checkmark.svg';
-import { STEP_SUGGESTIONS_QUERY, STEP_TYPE_COUNTS_QUERY } from './queries';
+import {
+  STEP_SUGGESTIONS_QUERY,
+  STEP_TYPE_COUNTS_QUERY,
+  STEP_EXPLAINER_MODAL_VIEWED,
+} from './queries';
 import {
   StepSuggestions,
   StepSuggestionsVariables,
@@ -54,6 +57,7 @@ import {
   StepTypeCounts,
   StepTypeCountsVariables,
 } from './__generated__/StepTypeCounts';
+import { StepExplainerModalViewed } from './__generated__/StepExplainerModalViewed';
 
 export interface SelectStepScreenNextProps {
   personId: string;
@@ -74,11 +78,21 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   const { t } = useTranslation('selectStep');
   const dispatch = useDispatch();
 
-  const [isExplainerOpen, setIsExplainerOpen] = useState(false);
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
   const enableSkipButton: boolean =
     useNavigationParam('enableSkipButton') || false;
+
+  const isMe = useIsMe(personId);
+
+  const { data: viewedData } = useQuery<StepExplainerModalViewed>(
+    STEP_EXPLAINER_MODAL_VIEWED,
+    { skip: isMe },
+  );
+
+  const [isExplainerOpen, setIsExplainerOpen] = useState(
+    !isMe && !viewedData?.viewedState.stepExplainerModal,
+  );
   const analyticsSection = useSelector(
     ({ onboarding }: { onboarding: OnboardingState }) =>
       getAnalyticsSectionType(onboarding),
@@ -93,9 +107,11 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     },
   });
 
-  const isMe = useIsMe(personId);
-
-  const enableStepTypeFilters = !isMe && i18next.language.includes('en');
+  const enableStepTypeFilters =
+    !isMe &&
+    (i18next.language.includes('en') ||
+      i18next.language.includes('es') ||
+      i18next.language.includes('pt'));
 
   const [currentStepType, setCurrentStepType] = useState<
     StepTypeEnum | undefined
@@ -209,92 +225,103 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
     navigateNext({ skip: true });
   };
 
-  const renderTab = (stepType: StepTypeEnum, count = 0) => {
-    const isSelected = currentStepType === stepType;
-    return (
-      <Touchable onPress={() => setCurrentStepType(stepType)}>
-        <View style={{ alignItems: 'center' }}>
-          <StepTypeBadge
-            displayVertically={true}
-            color={isSelected ? theme.white : theme.secondaryColor}
-            stepType={stepType}
-            labelUppercase={false}
-            includeStepInLabel={false}
-          />
-          {showCounts ? (
-            <View
-              style={[
-                styles.completedCountBadge,
-                {
-                  backgroundColor: isSelected
-                    ? theme.white
-                    : theme.parakeetBlue,
-                },
-              ]}
-            >
-              <Text style={styles.completedCountBadgeText}>{count}</Text>
-              <Checkmark color={theme.primaryColor} />
-            </View>
-          ) : null}
-          {isSelected ? (
-            <TriangleIndicator
-              color={theme.extraLightGrey}
-              style={{ marginTop: 12 }}
+  const renderTab = useCallback(
+    (stepType: StepTypeEnum, count = 0) => {
+      const isSelected = currentStepType === stepType;
+      return (
+        <Touchable onPress={() => setCurrentStepType(stepType)}>
+          <View style={{ alignItems: 'center' }}>
+            <StepTypeBadge
+              displayVertically={true}
+              color={isSelected ? theme.white : theme.secondaryColor}
+              stepType={stepType}
+              largeIcon
+              labelUppercase={false}
+              includeStepInLabel={false}
             />
-          ) : null}
-        </View>
-      </Touchable>
-    );
-  };
+            {showCounts ? (
+              <View
+                style={[
+                  styles.completedCountBadge,
+                  {
+                    backgroundColor: isSelected
+                      ? theme.white
+                      : theme.parakeetBlue,
+                  },
+                ]}
+              >
+                <Text style={styles.completedCountBadgeText}>{count}</Text>
+                <Checkmark color={theme.primaryColor} />
+              </View>
+            ) : null}
+            {isSelected ? (
+              <TriangleIndicator
+                color={theme.extraLightGrey}
+                style={{ marginTop: 12 }}
+              />
+            ) : null}
+          </View>
+        </Touchable>
+      );
+    },
+    [currentStepType, showCounts],
+  );
 
-  const renderCollapsibleHeader = () => (
-    <View
-      style={{
-        backgroundColor: theme.primaryColor,
-      }}
-    >
-      <View style={styles.headerTextContainer}>
-        <Text style={styles.headerText}>
+  const renderCollapsibleHeader = useCallback(
+    () => (
+      <View
+        style={{
+          backgroundColor: theme.primaryColor,
+        }}
+      >
+        <Text style={styles.headerText} numberOfLines={2}>
           {isMe
             ? t('meHeader')
-            : t('personHeader', { name: data?.person.firstName || '$t(them)' })}
+            : t('personHeader', {
+                name: data?.person.firstName || '$t(them)',
+              })}
         </Text>
+        {enableStepTypeFilters ? (
+          <View
+            style={{ flexDirection: 'row', justifyContent: 'space-around' }}
+          >
+            {renderTab(StepTypeEnum.relate, stepTypeCounts.relate)}
+            {renderTab(StepTypeEnum.pray, stepTypeCounts.pray)}
+            {renderTab(StepTypeEnum.care, stepTypeCounts.care)}
+            {renderTab(StepTypeEnum.share, stepTypeCounts.share)}
+          </View>
+        ) : null}
       </View>
-      {enableStepTypeFilters ? (
-        <View style={{ flexDirection: 'row', justifyContent: 'space-around' }}>
-          {renderTab(StepTypeEnum.relate, stepTypeCounts.relate)}
-          {renderTab(StepTypeEnum.pray, stepTypeCounts.pray)}
-          {renderTab(StepTypeEnum.care, stepTypeCounts.care)}
-          {renderTab(StepTypeEnum.share, stepTypeCounts.share)}
-        </View>
-      ) : null}
-    </View>
+    ),
+    [isMe, data, enableStepTypeFilters, stepTypeCounts, renderTab],
   );
 
   return (
     <View style={styles.container}>
       <SafeAreaView style={{ backgroundColor: theme.primaryColor }} />
       <Header
-        left={<BackButton />}
+        left={<DeprecatedBackButton />}
         right={
           <View style={{ flexDirection: 'row', alignItems: 'center' }}>
             {enableSkipButton ? <Skip onSkip={handleSkip} /> : null}
-            <Button
-              onPress={() => setIsExplainerOpen(true)}
-              testID="SelectStepExplainerIconButton"
-            >
-              <InfoIcon color={theme.white} />
-            </Button>
+            {isMe ? null : (
+              <Button
+                onPress={() => setIsExplainerOpen(true)}
+                testID="SelectStepExplainerIconButton"
+              >
+                <InfoIcon color={theme.white} />
+              </Button>
+            )}
           </View>
         }
         style={{ backgroundColor: theme.primaryColor }}
       />
-      <CollapsibleHeaderFlatList
-        headerHeight={enableStepTypeFilters ? (showCounts ? 239 : 195) : 130}
-        clipHeader={true}
-        headerContainerBackgroundColor={theme.extraLightGrey}
-        style={{ paddingVertical: 12 }}
-        CollapsibleHeaderComponent={renderCollapsibleHeader()}
+      {renderCollapsibleHeader()}
+      <FlatList
+        style={styles.collapsibleView}
+        contentContainerStyle={styles.contentContainerStyle}
+        // There's some weird interaction between the SafeAreaView and the Scroll View causing the scrollbar to float away from the right https://github.com/facebook/react-native/issues/26610#issuecomment-539843444
+        scrollIndicatorInsets={{ right: 1 }}
         data={cardData}
         renderItem={({ item }) => (
           <Card style={styles.card} onPress={item.action}>
@@ -312,7 +339,9 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
             refetch={refetch}
           />
         }
-        ListFooterComponent={loading ? <FooterLoading /> : null}
+        ListFooterComponent={
+          <SafeAreaView>{loading ? <FooterLoading /> : null}</SafeAreaView>
+        }
         onEndReached={handleOnEndReached}
         onEndReachedThreshold={0.2}
       />

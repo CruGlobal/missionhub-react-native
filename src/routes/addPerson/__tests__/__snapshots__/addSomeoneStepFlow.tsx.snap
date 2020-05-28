@@ -165,11 +165,14 @@ Take a moment and pray. Who do you want to take steps of faith with?
                 "justifyContent": "center",
               },
               null,
-              Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
-              },
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "height": 48,
+                  "width": 650,
+                },
+                undefined,
+              ],
               Object {
                 "borderRadius": 50,
               },
@@ -194,7 +197,9 @@ Take a moment and pray. Who do you want to take steps of faith with?
                     "letterSpacing": 1.5,
                     "textAlign": "center",
                   },
-                  Object {},
+                  Array [
+                    undefined,
+                  ],
                 ],
               ]
             }
@@ -496,11 +501,14 @@ exports[`AddStepScreen next renders correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -525,7 +533,9 @@ exports[`AddStepScreen next renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -777,119 +787,81 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
   <View
     style={
       Object {
-        "flex": 1,
-        "overflow": "hidden",
+        "backgroundColor": "#007398",
       }
     }
   >
-    <RCTScrollView
-      ListFooterComponent={<FooterLoading />}
-      ListHeaderComponent={
-        <ErrorNotice
-          message="Error loading step suggestions"
-          refetch={[Function]}
-        />
-      }
-      bounces={false}
-      contentContainerStyle={
+    <Text
+      numberOfLines={2}
+      style={
         Array [
-          undefined,
           Object {
-            "paddingTop": 195,
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#ffffff",
+            "fontSize": 24,
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "marginHorizontal": 30,
+            "marginVertical": 35,
+            "textAlign": "center",
           },
         ]
       }
-      data={
-        Array [
-          Object {
-            "action": [Function],
-            "icon": true,
-            "key": "custom",
-            "text": "Create your own Relate Step",
-          },
-        ]
-      }
-      disableHeaderMomentum={false}
-      disableVirtualization={false}
-      getItem={[Function]}
-      getItemCount={[Function]}
-      headerMomentumDuration={350}
-      horizontal={false}
-      initialNumToRender={10}
-      keyExtractor={[Function]}
-      maxToRenderPerBatch={10}
-      numColumns={1}
-      onContentSizeChange={[Function]}
-      onEndReached={[Function]}
-      onEndReachedThreshold={0.2}
-      onLayout={[Function]}
-      onMomentumScrollBegin={[Function]}
-      onMomentumScrollEnd={[Function]}
-      onScroll={[Function]}
-      onScrollBeginDrag={[Function]}
-      onScrollEndDrag={[Function]}
-      overScrollMode="never"
-      refreshControl={
-        <MyRefreshControl
-          onRefresh={[Function]}
-          refreshing={true}
-        />
-      }
-      removeClippedSubviews={false}
-      renderItem={[Function]}
-      scrollEventThrottle={1}
-      stickyHeaderIndices={Array []}
+    >
+      Choose a step to take with them this week...
+    </Text>
+    <View
       style={
         Object {
-          "paddingVertical": 12,
+          "flexDirection": "row",
+          "justifyContent": "space-around",
         }
       }
-      updateCellsBatchingPeriod={50}
-      viewabilityConfigCallbackPairs={Array []}
-      windowSize={21}
     >
-      <RCTRefreshControl />
-      <View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
-        />
-        <View
-          onLayout={[Function]}
-          style={null}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
         >
           <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "#ffffff",
-                "borderRadius": 8,
-                "elevation": 4,
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-                "marginHorizontal": 20,
-                "marginVertical": 6,
-                "opacity": 1,
-                "padding": 20,
-                "shadowColor": "#000000",
-                "shadowOffset": Object {
-                  "height": 2,
-                  "width": 0,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
                 },
-                "shadowOpacity": 0.3,
-                "shadowRadius": 2,
-              }
+                undefined,
+              ]
             }
           >
+            <SvgMock
+              color="#ffffff"
+              height={32}
+            />
             <Text
               style={
                 Array [
@@ -899,20 +871,388 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                   Object {
                     "fontFamily": "SourceSansPro-Regular",
                   },
-                  Object {
-                    "fontSize": 16,
-                    "lineHeight": 22,
-                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
                 ]
               }
             >
-              Create your own Relate Step
+              Relate
             </Text>
-            <SvgMock />
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderBottomWidth": 9,
+                  "borderLeftColor": "transparent",
+                  "borderLeftWidth": 7,
+                  "borderRightColor": "transparent",
+                  "borderRightWidth": 7,
+                  "borderStyle": "solid",
+                  "height": 0,
+                  "width": 0,
+                },
+                Object {
+                  "borderBottomColor": "#ECEEF2",
+                  "transform": Array [
+                    Object {
+                      "rotate": "0deg",
+                    },
+                  ],
+                },
+                Object {
+                  "marginTop": 12,
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Pray
+            </Text>
           </View>
         </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
         <View
-          onLayout={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Care
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "column",
+                },
+                undefined,
+              ]
+            }
+          >
+            <SvgMock
+              color="#52C5DC"
+              height={32}
+            />
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "color": "#52C5DC",
+                      "fontSize": 14,
+                      "fontWeight": "normal",
+                      "marginTop": 7,
+                      "paddingLeft": 4,
+                    },
+                    undefined,
+                  ],
+                ]
+              }
+            >
+              Share
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+  <RCTScrollView
+    ListFooterComponent={
+      <ForwardRef(_SafeAreaView)>
+        <FooterLoading />
+      </ForwardRef(_SafeAreaView)>
+    }
+    ListHeaderComponent={
+      <ErrorNotice
+        message="Error loading step suggestions"
+        refetch={[Function]}
+      />
+    }
+    contentContainerStyle={
+      Object {
+        "marginTop": 12,
+        "paddingBottom": 24,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "action": [Function],
+          "icon": true,
+          "key": "custom",
+          "text": "Create your own Relate Step",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    scrollIndicatorInsets={
+      Object {
+        "right": 1,
+      }
+    }
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 8,
+              "elevation": 4,
+              "flexDirection": "row",
+              "justifyContent": "space-between",
+              "marginHorizontal": 20,
+              "marginVertical": 6,
+              "opacity": 1,
+              "padding": 20,
+              "shadowColor": "#000000",
+              "shadowOffset": Object {
+                "height": 2,
+                "width": 0,
+              },
+              "shadowOpacity": 0.3,
+              "shadowRadius": 2,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 22,
+                },
+              ]
+            }
+          >
+            Create your own Relate Step
+          </Text>
+          <SvgMock />
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+      >
+        <RCTSafeAreaView
+          emulateUnlessSupported={true}
         >
           <View
             style={
@@ -934,370 +1274,13 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
               size="small"
             />
           </View>
-        </View>
-      </View>
-    </RCTScrollView>
-    <View
-      style={
-        Object {
-          "backgroundColor": "#ECEEF2",
-          "height": 195,
-          "left": 0,
-          "paddingTop": 0,
-          "position": "absolute",
-          "right": 0,
-          "top": 0,
-          "transform": Array [
-            Object {
-              "translateY": 0,
-            },
-          ],
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "backgroundColor": "#007398",
-          }
-        }
-      >
-        <View
-          style={
-            Object {
-              "alignItems": "center",
-              "marginHorizontal": 30,
-              "marginVertical": 35,
-            }
-          }
-        >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "letterSpacing": 2,
-                  "lineHeight": 30,
-                  "textAlign": "center",
-                },
-              ]
-            }
-          >
-            Choose a step to take with them this week...
-          </Text>
-        </View>
-        <View
-          style={
-            Object {
-              "flexDirection": "row",
-              "justifyContent": "space-around",
-            }
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Relate
-                </Text>
-              </View>
-              <View
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                      "borderBottomWidth": 9,
-                      "borderLeftColor": "transparent",
-                      "borderLeftWidth": 7,
-                      "borderRightColor": "transparent",
-                      "borderRightWidth": 7,
-                      "borderStyle": "solid",
-                      "height": 0,
-                      "width": 0,
-                    },
-                    Object {
-                      "borderBottomColor": "#ECEEF2",
-                      "transform": Array [
-                        Object {
-                          "rotate": "0deg",
-                        },
-                      ],
-                    },
-                    Object {
-                      "marginTop": 12,
-                    },
-                  ]
-                }
-              />
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Pray
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Care
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-          >
-            <View
-              style={
-                Object {
-                  "alignItems": "center",
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                    },
-                    undefined,
-                  ]
-                }
-              >
-                <SvgMock
-                  color="#52C5DC"
-                  height={24}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Array [
-                        Object {
-                          "color": "#52C5DC",
-                          "fontSize": 16,
-                          "fontWeight": "bold",
-                          "letterSpacing": 1,
-                          "paddingLeft": 4,
-                        },
-                        undefined,
-                      ],
-                    ]
-                  }
-                >
-                  Share
-                </Text>
-              </View>
-            </View>
-          </View>
-        </View>
+        </RCTSafeAreaView>
       </View>
     </View>
-  </View>
+  </RCTScrollView>
+  <SelectStepExplainerModal
+    onClose={[Function]}
+  />
 </View>
 `;
 
@@ -1779,33 +1762,13 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
+              "maxWidth": 230,
               "textAlign": "center",
             },
           ]
         }
       >
-        Who do you want to take
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            },
-          ]
-        }
-      >
-         a step of faith with?
+        Who would you like to take steps of faith with this week?
       </Text>
     </View>
   </View>
@@ -1884,7 +1847,7 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
         multiline={false}
         onChangeText={[Function]}
         onSubmitEditing={[Function]}
-        placeholder="Last Name (if you want)"
+        placeholder="Last Name (optional)"
         placeholderTextColor="white"
         rejectResponderTermination={true}
         returnKeyType="done"
@@ -1948,11 +1911,14 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -1977,7 +1943,9 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }
@@ -2035,83 +2003,53 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
         }
       >
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
-            Array [
-              Object {
-                "alignItems": "flex-start",
-                "alignSelf": "flex-start",
-                "justifyContent": "center",
-              },
-              undefined,
-            ]
+            Object {
+              "opacity": 1,
+            }
           }
+          testID="BackButton"
         >
           <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
             style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
                 Array [
                   Object {
-                    "backgroundColor": "transparent",
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
                   },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 18,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#A0A2A6",
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "icomoon",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#B4B6BA"
+            />
           </View>
         </View>
       </View>
@@ -2258,11 +2196,14 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
               "justifyContent": "center",
             },
             null,
-            Object {
-              "alignItems": "center",
-              "height": 48,
-              "width": 650,
-            },
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
             Object {
               "borderRadius": 50,
             },
@@ -2287,7 +2228,9 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
                   "letterSpacing": 1.5,
                   "textAlign": "center",
                 },
-                Object {},
+                Array [
+                  undefined,
+                ],
               ],
             ]
           }

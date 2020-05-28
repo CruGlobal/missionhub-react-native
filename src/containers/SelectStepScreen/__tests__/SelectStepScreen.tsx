@@ -30,6 +30,12 @@ const state = {
   auth: { person: me },
   onboarding: { currentlyOnboarding: false },
 };
+const initialApolloState = {
+  viewedState: {
+    __typename: 'ViewedState',
+    stepExplainerModal: true,
+  },
+};
 
 let screen: ReturnType<typeof renderWithContext>;
 let enableSkipButton = false;
@@ -38,6 +44,7 @@ beforeEach(() => {
   screen = renderWithContext(<SelectStepScreen next={next} />, {
     initialState: state,
     navParams: { personId, orgId, enableSkipButton },
+    initialApolloState,
   });
 });
 
@@ -96,10 +103,10 @@ describe('loading', () => {
     });
   });
 
-  it('should hide tabs when locale is not en', () => {
+  it('should show tabs when locale is es', () => {
     screen.recordSnapshot();
     const originalLanguage = i18next.language;
-    i18next.language = 'es-419';
+    i18next.language = 'en';
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
@@ -112,6 +119,47 @@ describe('loading', () => {
 
     i18next.language = originalLanguage;
   });
+
+  it('should show tabs when locale is pt', () => {
+    screen.recordSnapshot();
+    const originalLanguage = i18next.language;
+    i18next.language = 'pt';
+    screen.rerender(<SelectStepScreen next={next} />);
+    screen.diffSnapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
+
+    i18next.language = originalLanguage;
+  });
+
+  it('should hide tabs when locale is not en or es', () => {
+    screen.recordSnapshot();
+    const originalLanguage = i18next.language;
+    i18next.language = 'no';
+    screen.rerender(<SelectStepScreen next={next} />);
+    screen.diffSnapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('add step', {
+      screenContext: {
+        [ANALYTICS_SECTION_TYPE]: '',
+        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      },
+    });
+
+    i18next.language = originalLanguage;
+  });
+
+  it("should show explainer modal if it's never been shown", () => {
+    renderWithContext(<SelectStepScreen next={next} />, {
+      initialState: state,
+      navParams: { personId, orgId, enableSkipButton },
+    }).snapshot;
+  });
 });
 
 describe('in onboarding', () => {
@@ -119,6 +167,7 @@ describe('in onboarding', () => {
     renderWithContext(<SelectStepScreen next={next} />, {
       initialState: { ...state, onboarding: { currentlyOnboarding: true } },
       navParams: { personId, orgId, enableSkipButton },
+      initialApolloState,
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
@@ -178,6 +227,7 @@ it('should hide step count badges when there are no completed steps', async () =
         ],
       }),
     },
+    initialApolloState,
   });
 
   await flushMicrotasksQueue();

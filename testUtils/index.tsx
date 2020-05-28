@@ -8,7 +8,8 @@ import configureStore, { MockStore } from 'redux-mock-store';
 import { NavigationParams, NavigationProvider } from 'react-navigation';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ReactTestRendererJSON } from 'react-test-renderer';
-import { render, RenderAPI } from 'react-native-testing-library';
+import { render } from 'react-native-testing-library';
+import { renderHook } from '@testing-library/react-hooks';
 import snapshotDiff from 'snapshot-diff';
 import Enzyme, { shallow as enzymeShallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -21,50 +22,60 @@ Enzyme.configure({ adapter: new Adapter() });
 
 export const createThunkStore = configureStore([thunk]);
 
-interface RenderWithContextParams {
+interface ContextParams {
   initialState?: {};
   store?: MockStore;
   navParams?: NavigationParams;
   mocks?: IMocks;
+  initialApolloState?: unknown;
   noWrappers?: boolean;
 }
+
+export const createTestContext = ({
+  initialState,
+  store = createThunkStore(initialState),
+  navParams,
+  mocks,
+  initialApolloState,
+  noWrappers = false,
+}: ContextParams = {}) => {
+  const mockApolloClient = createApolloMockClient(mocks, initialApolloState);
+
+  const navigation = createNavigationProp(navParams);
+
+  if (noWrappers) {
+    return { wrapper: undefined, store };
+  } else {
+    // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
+    return {
+      wrapper: ({ children }: { children?: ReactNode }) => (
+        <NavigationProvider value={navigation}>
+          <ProviderLegacy store={store}>
+            <Provider store={store}>
+              <ApolloProvider client={mockApolloClient}>
+                {children}
+              </ApolloProvider>
+            </Provider>
+          </ProviderLegacy>
+        </NavigationProvider>
+      ),
+      store,
+    };
+  }
+};
 
 // Inspiration from https://github.com/kentcdodds/react-testing-library/blob/52575005579307bcfbe7fbe4ef4636147c03c6fb/examples/__tests__/react-redux.js#L69-L80
 export function renderWithContext(
   component: ReactElement,
-  {
-    initialState,
-    store = createThunkStore(initialState),
-    navParams,
-    mocks: mocks = {},
-    noWrappers = false,
-  }: RenderWithContextParams = {},
+  contextParams: ContextParams = {},
 ) {
-  const mockApolloClient = createApolloMockClient(mocks);
+  const navigation = createNavigationProp(contextParams.navParams);
 
-  const navigation = createNavigationProp(navParams);
+  const { wrapper, store } = createTestContext(contextParams);
 
-  let renderResult: RenderAPI;
-  if (noWrappers) {
-    renderResult = render(React.cloneElement(component, { navigation }));
-  } else {
-    // Warning: don't call any functions in here that return new instances on every call. All the props need to stay the same otherwise rerender won't work.
-    const wrapper = ({ children }: { children: ReactNode }) => (
-      <NavigationProvider value={navigation}>
-        <ProviderLegacy store={store}>
-          <Provider store={store}>
-            <ApolloProvider client={mockApolloClient}>
-              {children}
-            </ApolloProvider>
-          </Provider>
-        </ProviderLegacy>
-      </NavigationProvider>
-    );
-
-    renderResult = render(React.cloneElement(component, { navigation }), {
-      wrapper,
-    });
-  }
+  const renderResult = render(React.cloneElement(component, { navigation }), {
+    wrapper,
+  });
 
   let storedSnapshot: ReactTestRendererJSON | null;
   return {
@@ -84,6 +95,19 @@ export function renderWithContext(
     },
   };
 }
+
+export const renderHookWithContext = <P, R>(
+  callback: (props: P) => R,
+  contextParams: ContextParams,
+) => {
+  const { wrapper, store } = createTestContext(contextParams);
+  return {
+    ...renderHook(callback, {
+      wrapper,
+    }),
+    store,
+  };
+};
 
 // TODO: Remove all legacy rendering functions below
 

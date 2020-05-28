@@ -157,6 +157,7 @@ describe('Contact', () => {
 
   it('hides the header when the keyboard is shown', () => {
     const component = shallow(<AssignedPersonScreen {...props} />);
+
     component.setState({ keyboardVisible: true });
     expect(component).toMatchSnapshot();
   });
