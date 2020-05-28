@@ -6,8 +6,6 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
-import { organizationSelector } from '../../../selectors/organizations';
-import { Organization } from '../../../reducers/organizations';
 import {
   GET_COMMUNITY_POST_CARDS,
   MARK_COMMUNITY_FEED_ITEMS_READ,

@@ -11,9 +11,9 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 import { CommunityFeedItemContent as FeedItem } from '../__generated__/CommunityFeedItemContent';
 import { COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT } from '../queries';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
