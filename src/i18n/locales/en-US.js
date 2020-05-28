@@ -193,7 +193,8 @@ export default {
   onboardingAddPhoto: {
     nullHeader: 'Add Profile Photo',
     imageHeader: 'Profile Photo Added',
-    description: "Add a profile photo so your members know it's you",
+    description:
+      'This will help others to recognize you once you are in a community',
     changePhoto: 'Change Photo',
     nullButtonText: 'Add a Profile Photo',
     imageButtonText: 'Continue',
