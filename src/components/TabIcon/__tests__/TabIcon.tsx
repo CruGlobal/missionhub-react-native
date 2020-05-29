@@ -1,9 +1,15 @@
 import 'react-native';
 import React from 'react';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
+import { MockList } from 'graphql-tools';
 
 import * as common from '../../../utils/common';
 import { renderWithContext } from '../../../../testUtils';
+import {
+  GET_UNREAD_COMMENTS_AND_NOTIFICATION,
+  UPDATE_LATEST_NOTIFICATION,
+} from '../queries';
 
 import TabIcon from '..';
 
@@ -78,7 +84,10 @@ describe('renders', () => {
     );
 
     await flushMicrotasksQueue();
-
+    expect(useQuery).toHaveBeenCalledWith(
+      GET_UNREAD_COMMENTS_AND_NOTIFICATION,
+      { pollInterval: 30000, skip: false },
+    );
     snapshot();
   });
 
@@ -93,10 +102,28 @@ describe('renders', () => {
             latestNotification: '',
           },
         },
+        mocks: {
+          NotificationConnection: () => ({
+            nodes: () =>
+              new MockList(1, () => ({
+                createdAt: '2020-05-29T11:19:26-03:00',
+              })),
+          }),
+        },
       },
     );
 
     await flushMicrotasksQueue();
+    expect(useQuery).toHaveBeenCalledWith(
+      GET_UNREAD_COMMENTS_AND_NOTIFICATION,
+      { pollInterval: 30000, skip: false },
+    );
+
+    expect(useMutation).toHaveBeenCalledWith(UPDATE_LATEST_NOTIFICATION, {
+      variables: {
+        latestNotification: '2020-05-29T11:19:26-03:00',
+      },
+    });
 
     snapshot();
   });
