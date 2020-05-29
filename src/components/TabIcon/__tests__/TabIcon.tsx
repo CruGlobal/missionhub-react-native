@@ -7,6 +7,9 @@ import { renderWithContext } from '../../../../testUtils';
 
 import TabIcon from '..';
 
+// Use fake timers for pollInterval
+jest.useFakeTimers();
+
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
 });
@@ -48,21 +51,6 @@ describe('renders', () => {
   it('communities', async () => {
     const { snapshot } = renderWithContext(
       <TabIcon name={'communities'} tintColor={'blue'} />,
-      {
-        mocks: {
-          Int: () => 0,
-        },
-      },
-    );
-
-    await flushMicrotasksQueue();
-
-    snapshot();
-  });
-
-  it('communities with notification dot', async () => {
-    const { snapshot } = renderWithContext(
-      <TabIcon name={'communities'} tintColor={'blue'} />,
     );
 
     await flushMicrotasksQueue();
@@ -75,7 +63,16 @@ describe('renders', () => {
       <TabIcon name="notifications" tintColor={'blue'} />,
       {
         mocks: {
-          Int: () => 0,
+          NotificationConnection: () => ({
+            nodes: () => [],
+          }),
+        },
+        initialApolloState: {
+          notificationState: {
+            __typename: 'NotificationState',
+            hasUnreadNotifications: false,
+            latesttNotification: '',
+          },
         },
       },
     );
@@ -88,6 +85,15 @@ describe('renders', () => {
   it('notifications with notification dot', async () => {
     const { snapshot } = renderWithContext(
       <TabIcon name="notifications" tintColor={'blue'} />,
+      {
+        initialApolloState: {
+          notificationState: {
+            __typename: 'NotificationState',
+            hasUnreadNotifications: true,
+            latestNotification: '',
+          },
+        },
+      },
     );
 
     await flushMicrotasksQueue();

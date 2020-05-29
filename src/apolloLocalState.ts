@@ -5,16 +5,25 @@ import { FieldNode } from 'graphql';
 import { FragmentMap } from 'apollo-utilities';
 
 import { ViewedStateQuery } from './__generated__/ViewedStateQuery';
+import { NotificationStateQuery } from './__generated__/NotificationStateQuery';
 
 export const typeDefs = gql`
   extend type Query {
     viewedState: ViewedState!
+    notificationState: NotificationState!
   }
   type ViewedState {
     stepExplainerModal: Boolean!
   }
+
+  type NotificationState {
+    hasUnreadNotifications: Boolean!
+    latestNotification: String!
+  }
   extend type Mutation {
     viewedStepExplainerModal: ViewedState!
+    updateLatestNotification(latestNotification: String!): NotificationState!
+    updateHasUnreadNotifications: NotificationState!
   }
 `;
 
@@ -26,9 +35,19 @@ const VIEWED_STATE_QUERY = gql`
   }
 `;
 
+const NOTIFICATION_STATE_QUERY = gql`
+  query NotificationStateQuery {
+    notificationState @client {
+      hasUnreadNotifications
+      latestNotification
+    }
+  }
+`;
+
 type Resolver = (
   rootValue: unknown,
-  args: unknown,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: unknown | any,
   // Partial context. More can be added https://www.apollographql.com/docs/react/data/local-state/#local-resolvers
   context: { client: ApolloClient<NormalizedCacheObject> },
   info?: {
@@ -62,6 +81,44 @@ export const resolvers: Resolvers = {
       });
       return newViewedState;
     },
+    updateLatestNotification: (_, { latestNotification }, { client }) => {
+      const data = client.readQuery<NotificationStateQuery>({
+        query: NOTIFICATION_STATE_QUERY,
+      });
+
+      const newNotificationState = {
+        ...(data as NonNullable<typeof data>).notificationState,
+        latestNotification,
+        hasUnreadNotifications: true,
+      };
+
+      client.writeQuery<NotificationStateQuery>({
+        query: NOTIFICATION_STATE_QUERY,
+        data: {
+          notificationState: newNotificationState,
+        },
+      });
+      return newNotificationState;
+    },
+    updateHasUnreadNotifications: (_, _args, { client }) => {
+      const data = client.readQuery<NotificationStateQuery>({
+        query: NOTIFICATION_STATE_QUERY,
+      });
+
+      const newNotificationState = {
+        ...(data as NonNullable<typeof data>).notificationState,
+        hasUnreadNotifications: false,
+      };
+
+      client.writeQuery<NotificationStateQuery>({
+        query: NOTIFICATION_STATE_QUERY,
+        data: {
+          notificationState: newNotificationState,
+        },
+      });
+
+      return newNotificationState;
+    },
   },
 };
 
@@ -72,11 +129,24 @@ export const initializeLocalState = (
     client.readQuery<ViewedStateQuery>({
       query: VIEWED_STATE_QUERY,
     });
+    client.readQuery<NotificationStateQuery>({
+      query: NOTIFICATION_STATE_QUERY,
+    });
   } catch {
     client.writeQuery<ViewedStateQuery>({
       query: VIEWED_STATE_QUERY,
       data: {
         viewedState: { __typename: 'ViewedState', stepExplainerModal: false },
+      },
+    });
+    client.writeQuery<NotificationStateQuery>({
+      query: NOTIFICATION_STATE_QUERY,
+      data: {
+        notificationState: {
+          __typename: 'NotificationState',
+          hasUnreadNotifications: false,
+          latestNotification: '',
+        },
       },
     });
   }

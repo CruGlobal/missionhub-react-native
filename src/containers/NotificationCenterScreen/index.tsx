@@ -1,6 +1,6 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { View, Text, SectionList } from 'react-native';
 
@@ -12,12 +12,13 @@ import { openMainMenu } from '../../utils/common';
 import SettingsIcon from '../../../assets/images/settingsIcon.svg';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 
-import { GET_NOTIFICATIONS } from './queries';
+import { GET_NOTIFICATIONS, UPDATE_HAS_UNREAD_NOTIFICATIONS } from './queries';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
 import {
   GetNotifications,
   GetNotifications_notifications_nodes,
 } from './__generated__/GetNotifications';
+import { UpdateHasUnreadNotifications } from './__generated__/UpdateHasUnreadNotifications';
 import styles from './styles';
 
 interface SectionsInterface {
@@ -48,10 +49,22 @@ const NotificationCenterScreen = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation('notificationsCenter');
   const {
-    data: { notifications: { nodes = [] } = {} } = {},
+    data: {
+      notifications: { nodes = [] } = {},
+      notificationState: { latestNotification = '' } = {},
+    } = {},
     refetch,
     loading,
-  } = useQuery<GetNotifications>(GET_NOTIFICATIONS);
+  } = useQuery<GetNotifications>(GET_NOTIFICATIONS, { pollInterval: 30000 });
+
+  const [setHasUnreadNotifications] = useMutation<UpdateHasUnreadNotifications>(
+    UPDATE_HAS_UNREAD_NOTIFICATIONS,
+  );
+
+  useEffect(() => {
+    // Set hasUnreadNotifications to true if there are new notifications
+    setHasUnreadNotifications();
+  }, [latestNotification]);
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
 

@@ -24,5 +24,16 @@ export const GET_NOTIFICATIONS = gql`
         }
       }
     }
+    notificationState @client {
+      latestNotification
+    }
+  }
+`;
+
+export const UPDATE_HAS_UNREAD_NOTIFICATIONS = gql`
+  mutation UpdateHasUnreadNotifications {
+    updateHasUnreadNotifications @client {
+      hasUnreadNotifications
+    }
   }
 `;

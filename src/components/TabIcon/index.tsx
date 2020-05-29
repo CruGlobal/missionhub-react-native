@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import i18next from 'i18next';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import Flex from '../Flex';
 import { Text } from '../common';
@@ -11,8 +11,11 @@ import CommunitiesIcon from '../../../assets/images/mainNav/communitiesIcon.svg'
 import NotificationsIcon from '../../../assets/images/mainNav/notificationsIcon.svg';
 
 import styles from './styles';
-import { GET_UNREAD_COMMENTS_COUNT } from './queries';
-import { getUnreadCommentsCount } from './__generated__/getUnreadCommentsCount';
+import {
+  GET_UNREAD_COMMENTS_AND_NOTIFICATION,
+  UPDATE_LATEST_NOTIFICATION,
+} from './queries';
+import { getUnreadCommentAndNotification } from './__generated__/getUnreadCommentAndNotification';
 
 interface TabIconProps {
   name: string;
@@ -20,14 +23,41 @@ interface TabIconProps {
 }
 
 const TabIcon = ({ name, tintColor }: TabIconProps) => {
-  const { data: { unreadCommentsCount = 0 } = {} } = useQuery<
-    getUnreadCommentsCount
-  >(GET_UNREAD_COMMENTS_COUNT, {
-    skip: name != 'notifications' && name != 'communities',
-    pollInterval: 30000,
-  });
+  const {
+    data: { notifications: { nodes = [] } = {}, notificationState } = {},
+  } = useQuery<getUnreadCommentAndNotification>(
+    GET_UNREAD_COMMENTS_AND_NOTIFICATION,
+    {
+      skip: name != 'notifications',
+      pollInterval: 30000,
+    },
+  );
+  const latestNotification = nodes[0]?.createdAt;
   const iconSize = isAndroid ? 22 : 24;
-  const showNotification = unreadCommentsCount > 0;
+
+  const [setLastNotification] = useMutation(UPDATE_LATEST_NOTIFICATION, {
+    variables: {
+      latestNotification,
+    },
+  });
+
+  useEffect(() => {
+    if (
+      latestNotification &&
+      notificationState?.latestNotification !== latestNotification
+    ) {
+      setLastNotification();
+    }
+  }, [latestNotification, notificationState?.latestNotification]);
+
+  const showNotification = () => {
+    switch (name) {
+      case 'notifications':
+        return notificationState?.hasUnreadNotifications;
+      default:
+        return false;
+    }
+  };
 
   const icon = () => {
     const props = {
@@ -49,7 +79,7 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
 
   return (
     <Flex value={1} align="center" justify="center">
-      {showNotification ? (
+      {showNotification() ? (
         <Flex style={{ position: 'relative' }}>
           {icon()}
           <Flex style={styles.badge} />

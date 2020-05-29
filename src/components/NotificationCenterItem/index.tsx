@@ -70,6 +70,7 @@ const NotificationCenterItem = ({ event }: { event: Notification }) => {
   const renderText = () => {
     switch (trigger) {
       case NotificationTriggerEnum.story_notification:
+      case NotificationTriggerEnum.community_challenge_created_alert:
         return renderTemplateMessage();
     }
   };
