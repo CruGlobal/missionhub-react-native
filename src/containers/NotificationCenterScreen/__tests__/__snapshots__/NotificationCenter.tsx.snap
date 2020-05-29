@@ -196,21 +196,21 @@ exports[`renders Earlier section correctly  1`] = `
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "corporis repellat ratione",
-                "organizationCount": "ut sunt qui",
-                "organizationName": "amet iure ut",
-                "originalPoster": "libero qui recusandae",
-                "postType": "ut nulla quam",
-                "subjectPerson": "ipsam nobis cupiditate",
-                "user": "sed dignissimos debitis",
+                "challengeName": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+                "organizationCount": "34556",
+                "organizationName": "Programmable foreground task-force",
+                "originalPoster": "Kali Stamm",
+                "postType": "prayer_request",
+                "subjectPerson": "Hayden Zieme",
+                "user": "Hayden Zieme",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Zion Reichel",
+                "fullName": "Hayden Zieme",
                 "id": "2",
-                "picture": "recusandae alias consequuntur",
+                "picture": "HaydenProfileImage.jpeg",
               },
-              "trigger": "celebration_items_daily_summary_multiple",
+              "trigger": "focus_reminders_endofweek_complete_1plus_steps",
             },
           ],
           "id": 2,
@@ -254,21 +254,21 @@ exports[`renders Earlier section correctly  1`] = `
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "corporis repellat ratione",
-                "organizationCount": "ut sunt qui",
-                "organizationName": "amet iure ut",
-                "originalPoster": "libero qui recusandae",
-                "postType": "ut nulla quam",
-                "subjectPerson": "ipsam nobis cupiditate",
-                "user": "sed dignissimos debitis",
+                "challengeName": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+                "organizationCount": "34556",
+                "organizationName": "Programmable foreground task-force",
+                "originalPoster": "Kali Stamm",
+                "postType": "prayer_request",
+                "subjectPerson": "Hayden Zieme",
+                "user": "Hayden Zieme",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Zion Reichel",
+                "fullName": "Hayden Zieme",
                 "id": "2",
-                "picture": "recusandae alias consequuntur",
+                "picture": "HaydenProfileImage.jpeg",
               },
-              "trigger": "celebration_items_daily_summary_multiple",
+              "trigger": "focus_reminders_endofweek_complete_1plus_steps",
             },
           ],
           "id": 2,
@@ -359,7 +359,7 @@ exports[`renders Earlier section correctly  1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "recusandae alias consequuntur",
+                  "uri": "HaydenProfileImage.jpeg",
                 }
               }
               style={
@@ -370,7 +370,7 @@ exports[`renders Earlier section correctly  1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(115, 115, 152)",
+                    "backgroundColor": "rgb(167, 154, 115)",
                   },
                   undefined,
                 ]
@@ -695,21 +695,21 @@ exports[`renders Today section correctly  1`] = `
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "corporis repellat ratione",
-                "organizationCount": "ut sunt qui",
-                "organizationName": "amet iure ut",
-                "originalPoster": "libero qui recusandae",
-                "postType": "ut nulla quam",
-                "subjectPerson": "ipsam nobis cupiditate",
-                "user": "sed dignissimos debitis",
+                "challengeName": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+                "organizationCount": "34556",
+                "organizationName": "Programmable foreground task-force",
+                "originalPoster": "Kali Stamm",
+                "postType": "prayer_request",
+                "subjectPerson": "Hayden Zieme",
+                "user": "Hayden Zieme",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Zion Reichel",
+                "fullName": "Hayden Zieme",
                 "id": "2",
-                "picture": "recusandae alias consequuntur",
+                "picture": "HaydenProfileImage.jpeg",
               },
-              "trigger": "celebration_items_daily_summary_multiple",
+              "trigger": "focus_reminders_endofweek_complete_1plus_steps",
             },
           ],
           "id": 1,
@@ -753,21 +753,21 @@ exports[`renders Today section correctly  1`] = `
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "corporis repellat ratione",
-                "organizationCount": "ut sunt qui",
-                "organizationName": "amet iure ut",
-                "originalPoster": "libero qui recusandae",
-                "postType": "ut nulla quam",
-                "subjectPerson": "ipsam nobis cupiditate",
-                "user": "sed dignissimos debitis",
+                "challengeName": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+                "organizationCount": "34556",
+                "organizationName": "Programmable foreground task-force",
+                "originalPoster": "Kali Stamm",
+                "postType": "prayer_request",
+                "subjectPerson": "Hayden Zieme",
+                "user": "Hayden Zieme",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Zion Reichel",
+                "fullName": "Hayden Zieme",
                 "id": "2",
-                "picture": "recusandae alias consequuntur",
+                "picture": "HaydenProfileImage.jpeg",
               },
-              "trigger": "celebration_items_daily_summary_multiple",
+              "trigger": "focus_reminders_endofweek_complete_1plus_steps",
             },
           ],
           "id": 1,
@@ -858,7 +858,7 @@ exports[`renders Today section correctly  1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "recusandae alias consequuntur",
+                  "uri": "HaydenProfileImage.jpeg",
                 }
               }
               style={
@@ -869,7 +869,7 @@ exports[`renders Today section correctly  1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(115, 115, 152)",
+                    "backgroundColor": "rgb(167, 154, 115)",
                   },
                   undefined,
                 ]
@@ -1189,233 +1189,233 @@ exports[`renders correctly 1`] = `
           "data": Array [
             Object {
               "__typename": "Notification",
-              "createdAt": "2015-11-05T22:33:35.890Z",
+              "createdAt": "2016-11-26T13:14:24.257Z",
               "id": "1",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "debitis incidunt accusantium",
-                "organizationCount": "sed libero repudiandae",
-                "organizationName": "esse blanditiis natus",
-                "originalPoster": "et eos itaque",
-                "postType": "velit omnis et",
-                "subjectPerson": "porro ut et",
-                "user": "ipsam explicabo eligendi",
+                "challengeName": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+                "organizationCount": "34556",
+                "organizationName": "Programmable foreground task-force",
+                "originalPoster": "Kali Stamm",
+                "postType": "prayer_request",
+                "subjectPerson": "Hayden Zieme",
+                "user": "Hayden Zieme",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Elza Paucek",
+                "fullName": "Hayden Zieme",
                 "id": "2",
-                "picture": "cupiditate sed dignissimos",
-              },
-              "trigger": "celebration_items_daily_summary_multiple",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2014-11-09T17:50:11.907Z",
-              "id": "3",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "eum eaque enim",
-                "organizationCount": "ipsum inventore debitis",
-                "organizationName": "libero aspernatur deserunt",
-                "originalPoster": "quam tempore a",
-                "postType": "velit provident velit",
-                "subjectPerson": "eligendi nostrum ipsam",
-                "user": "qui nobis repellendus",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Selina Streich",
-                "id": "4",
-                "picture": "saepe eum dicta",
-              },
-              "trigger": "story_notification",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2011-09-11T14:47:27.446Z",
-              "id": "5",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "doloribus distinctio placeat",
-                "organizationCount": "ullam minima ducimus",
-                "organizationName": "temporibus modi aut",
-                "originalPoster": "architecto ducimus totam",
-                "postType": "voluptates explicabo exercitationem",
-                "subjectPerson": "ut quis sed",
-                "user": "magni cupiditate sit",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Hardy Auer",
-                "id": "6",
-                "picture": "aperiam placeat fuga",
+                "picture": "HaydenProfileImage.jpeg",
               },
               "trigger": "focus_reminders_endofweek_complete_1plus_steps",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2019-03-14T18:37:28.129Z",
-              "id": "7",
+              "createdAt": "2012-04-03T21:06:10.473Z",
+              "id": "3",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "ullam quos qui",
-                "organizationCount": "illo error sunt",
-                "organizationName": "laborum ratione a",
-                "originalPoster": "officia quaerat cumque",
-                "postType": "incidunt aut provident",
-                "subjectPerson": "esse hic eligendi",
-                "user": "quos esse ut",
+                "challengeName": "Debitis incidunt accusantium sed libero repudiandae.",
+                "organizationCount": "41730",
+                "organizationName": "Multi-channelled leading edge hardware",
+                "originalPoster": "Brooklyn Weimann",
+                "postType": "help_request",
+                "subjectPerson": "Marlene Ledner",
+                "user": "Marlene Ledner",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Mariela Von",
-                "id": "8",
-                "picture": "non voluptates ut",
+                "fullName": "Marlene Ledner",
+                "id": "4",
+                "picture": "MarleneProfileImage.jpeg",
               },
-              "trigger": "focus_reminders_midweek_2plus_steps_for_same_person",
+              "trigger": "celebration_items_assigned_to_alert_interaction",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2019-07-15T16:04:36.274Z",
-              "id": "9",
+              "createdAt": "2019-01-20T00:49:00.772Z",
+              "id": "5",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "sint autem rerum",
-                "organizationCount": "doloremque officia aut",
-                "organizationName": "ut ut eos",
-                "originalPoster": "ducimus eos saepe",
-                "postType": "consequatur vel in",
-                "subjectPerson": "ut dolorem et",
-                "user": "molestiae ea ut",
+                "challengeName": "Ipsam explicabo eligendi occaecati debitis et saepe eum dicta.",
+                "organizationCount": "82960",
+                "organizationName": "Assimilated didactic challenge",
+                "originalPoster": "Andres Thiel",
+                "postType": "story",
+                "subjectPerson": "Precious Rau",
+                "user": "Precious Rau",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Nova Leuschke",
-                "id": "10",
-                "picture": "quae nam eos",
-              },
-              "trigger": "accepted_challenge_reminder",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2014-04-30T19:38:59.424Z",
-              "id": "11",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "est fuga est",
-                "organizationCount": "placeat ex ut",
-                "organizationName": "voluptas enim ex",
-                "originalPoster": "eveniet facere molestiae",
-                "postType": "aut delectus aut",
-                "subjectPerson": "nam et dolorum",
-                "user": "architecto fugit repellendus",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Nestor Nienow",
-                "id": "12",
-                "picture": "est consequuntur aut",
-              },
-              "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2010-07-19T08:44:26.960Z",
-              "id": "13",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "voluptate vel labore",
-                "organizationCount": "omnis ut est",
-                "organizationName": "sunt corporis alias",
-                "originalPoster": "est et sequi",
-                "postType": "voluptas culpa non",
-                "subjectPerson": "aut rerum impedit",
-                "user": "ex rem voluptates",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Anissa Kirlin",
-                "id": "14",
-                "picture": "ex culpa earum",
-              },
-              "trigger": "celebration_items_daily_summary_completed_challenge",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2012-05-24T05:41:26.736Z",
-              "id": "15",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "fugiat eligendi omnis",
-                "organizationCount": "repellat quasi ipsum",
-                "organizationName": "rem eos quod",
-                "originalPoster": "recusandae consectetur optio",
-                "postType": "laudantium et incidunt",
-                "subjectPerson": "possimus molestias facere",
-                "user": "quia et ab",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Lincoln Konopelski",
-                "id": "16",
-                "picture": "perferendis ut non",
+                "fullName": "Precious Rau",
+                "id": "6",
+                "picture": "PreciousProfileImage.jpeg",
               },
               "trigger": "story_notification",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2012-12-03T22:25:52.389Z",
+              "createdAt": "2012-07-23T04:41:19.390Z",
+              "id": "7",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Velit provident velit eligendi nostrum ipsam qui nobis repellendus fugiat.",
+                "organizationCount": "41253",
+                "organizationName": "Advanced 4th generation pricing structure",
+                "originalPoster": "Lindsay Yundt",
+                "postType": "question",
+                "subjectPerson": "Larue Johnston",
+                "user": "Larue Johnston",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Larue Johnston",
+                "id": "8",
+                "picture": "LarueProfileImage.jpeg",
+              },
+              "trigger": "community_challenge_ends_in_3_days",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2010-11-15T10:56:49.516Z",
+              "id": "9",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Modi aut architecto ducimus totam voluptates explicabo exercitationem ut.",
+                "organizationCount": "28777",
+                "organizationName": "Cross-group bi-directional interface",
+                "originalPoster": "Aimee Boehm",
+                "postType": "story",
+                "subjectPerson": "Elias Gottlieb",
+                "user": "Elias Gottlieb",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Elias Gottlieb",
+                "id": "10",
+                "picture": "EliasProfileImage.jpeg",
+              },
+              "trigger": "celebration_items_daily_summary_multiple",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2019-01-05T11:30:13.119Z",
+              "id": "11",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Quos qui illo error sunt.",
+                "organizationCount": "61393",
+                "organizationName": "Customizable web-enabled matrices",
+                "originalPoster": "Devin Price",
+                "postType": "help_request",
+                "subjectPerson": "Coty Vandervort",
+                "user": "Coty Vandervort",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Coty Vandervort",
+                "id": "12",
+                "picture": "CotyProfileImage.jpeg",
+              },
+              "trigger": "celebration_items_comment_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2011-01-03T13:59:32.654Z",
+              "id": "13",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Quos esse ut ab voluptas sed quae nam.",
+                "organizationCount": "13996",
+                "organizationName": "Open-architected responsive throughput",
+                "originalPoster": "Alex McGlynn",
+                "postType": "thought",
+                "subjectPerson": "Kacie Jerde",
+                "user": "Kacie Jerde",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Kacie Jerde",
+                "id": "14",
+                "picture": "KacieProfileImage.jpeg",
+              },
+              "trigger": "story_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2012-07-13T12:51:35.083Z",
+              "id": "15",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Saepe consequatur vel in.",
+                "organizationCount": "53842",
+                "organizationName": "De-engineered multimedia system engine",
+                "originalPoster": "Frances Hegmann",
+                "postType": "question",
+                "subjectPerson": "Kamryn Conn",
+                "user": "Kamryn Conn",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Kamryn Conn",
+                "id": "16",
+                "picture": "KamrynProfileImage.jpeg",
+              },
+              "trigger": "celebration_items_daily_summary_multiple",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2013-10-27T19:27:17.396Z",
               "id": "17",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "accusantium odit doloremque",
-                "organizationCount": "molestias dolore aut",
-                "organizationName": "eos quis ut",
-                "originalPoster": "incidunt omnis delectus",
-                "postType": "voluptas minima quia",
-                "subjectPerson": "ut minima sunt",
-                "user": "qui similique ut",
+                "challengeName": "Est fuga est placeat ex ut voluptas enim ex eveniet.",
+                "organizationCount": "75278",
+                "organizationName": "Managed tangible toolset",
+                "originalPoster": "Adolf Ondricka",
+                "postType": "prayer_request",
+                "subjectPerson": "Louvenia Reinger",
+                "user": "Louvenia Reinger",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Joshuah Casper",
+                "fullName": "Louvenia Reinger",
                 "id": "18",
-                "picture": "ipsum sit qui",
+                "picture": "LouveniaProfileImage.jpeg",
               },
               "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2015-11-10T13:38:06.309Z",
+              "createdAt": "2016-10-08T17:54:22.995Z",
               "id": "19",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "nostrum ut porro",
-                "organizationCount": "aut laborum iure",
-                "organizationName": "molestiae et facere",
-                "originalPoster": "placeat molestiae iste",
-                "postType": "molestiae dolores commodi",
-                "subjectPerson": "inventore sequi quia",
-                "user": "itaque quae sint",
+                "challengeName": "Veritatis qui ex culpa earum voluptate vel labore omnis ut.",
+                "organizationCount": "77159",
+                "organizationName": "Organized disintermediate ability",
+                "originalPoster": "Oliver Morissette",
+                "postType": "announcement",
+                "subjectPerson": "Anya Buckridge",
+                "user": "Anya Buckridge",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Kelley Hilll",
+                "fullName": "Anya Buckridge",
                 "id": "20",
-                "picture": "sit vel et",
+                "picture": "AnyaProfileImage.jpeg",
               },
-              "trigger": "celebration_items_comment_notification",
+              "trigger": "focus_reminders_endofweek_no_completed_steps",
             },
           ],
           "id": 2,
@@ -1454,233 +1454,233 @@ exports[`renders correctly 1`] = `
           "data": Array [
             Object {
               "__typename": "Notification",
-              "createdAt": "2015-11-05T22:33:35.890Z",
+              "createdAt": "2016-11-26T13:14:24.257Z",
               "id": "1",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "debitis incidunt accusantium",
-                "organizationCount": "sed libero repudiandae",
-                "organizationName": "esse blanditiis natus",
-                "originalPoster": "et eos itaque",
-                "postType": "velit omnis et",
-                "subjectPerson": "porro ut et",
-                "user": "ipsam explicabo eligendi",
+                "challengeName": "Alias consequuntur corporis repellat ratione ut sunt qui amet iure.",
+                "organizationCount": "34556",
+                "organizationName": "Programmable foreground task-force",
+                "originalPoster": "Kali Stamm",
+                "postType": "prayer_request",
+                "subjectPerson": "Hayden Zieme",
+                "user": "Hayden Zieme",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Elza Paucek",
+                "fullName": "Hayden Zieme",
                 "id": "2",
-                "picture": "cupiditate sed dignissimos",
-              },
-              "trigger": "celebration_items_daily_summary_multiple",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2014-11-09T17:50:11.907Z",
-              "id": "3",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "eum eaque enim",
-                "organizationCount": "ipsum inventore debitis",
-                "organizationName": "libero aspernatur deserunt",
-                "originalPoster": "quam tempore a",
-                "postType": "velit provident velit",
-                "subjectPerson": "eligendi nostrum ipsam",
-                "user": "qui nobis repellendus",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Selina Streich",
-                "id": "4",
-                "picture": "saepe eum dicta",
-              },
-              "trigger": "story_notification",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2011-09-11T14:47:27.446Z",
-              "id": "5",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "doloribus distinctio placeat",
-                "organizationCount": "ullam minima ducimus",
-                "organizationName": "temporibus modi aut",
-                "originalPoster": "architecto ducimus totam",
-                "postType": "voluptates explicabo exercitationem",
-                "subjectPerson": "ut quis sed",
-                "user": "magni cupiditate sit",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Hardy Auer",
-                "id": "6",
-                "picture": "aperiam placeat fuga",
+                "picture": "HaydenProfileImage.jpeg",
               },
               "trigger": "focus_reminders_endofweek_complete_1plus_steps",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2019-03-14T18:37:28.129Z",
-              "id": "7",
+              "createdAt": "2012-04-03T21:06:10.473Z",
+              "id": "3",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "ullam quos qui",
-                "organizationCount": "illo error sunt",
-                "organizationName": "laborum ratione a",
-                "originalPoster": "officia quaerat cumque",
-                "postType": "incidunt aut provident",
-                "subjectPerson": "esse hic eligendi",
-                "user": "quos esse ut",
+                "challengeName": "Debitis incidunt accusantium sed libero repudiandae.",
+                "organizationCount": "41730",
+                "organizationName": "Multi-channelled leading edge hardware",
+                "originalPoster": "Brooklyn Weimann",
+                "postType": "help_request",
+                "subjectPerson": "Marlene Ledner",
+                "user": "Marlene Ledner",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Mariela Von",
-                "id": "8",
-                "picture": "non voluptates ut",
+                "fullName": "Marlene Ledner",
+                "id": "4",
+                "picture": "MarleneProfileImage.jpeg",
               },
-              "trigger": "focus_reminders_midweek_2plus_steps_for_same_person",
+              "trigger": "celebration_items_assigned_to_alert_interaction",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2019-07-15T16:04:36.274Z",
-              "id": "9",
+              "createdAt": "2019-01-20T00:49:00.772Z",
+              "id": "5",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "sint autem rerum",
-                "organizationCount": "doloremque officia aut",
-                "organizationName": "ut ut eos",
-                "originalPoster": "ducimus eos saepe",
-                "postType": "consequatur vel in",
-                "subjectPerson": "ut dolorem et",
-                "user": "molestiae ea ut",
+                "challengeName": "Ipsam explicabo eligendi occaecati debitis et saepe eum dicta.",
+                "organizationCount": "82960",
+                "organizationName": "Assimilated didactic challenge",
+                "originalPoster": "Andres Thiel",
+                "postType": "story",
+                "subjectPerson": "Precious Rau",
+                "user": "Precious Rau",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Nova Leuschke",
-                "id": "10",
-                "picture": "quae nam eos",
-              },
-              "trigger": "accepted_challenge_reminder",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2014-04-30T19:38:59.424Z",
-              "id": "11",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "est fuga est",
-                "organizationCount": "placeat ex ut",
-                "organizationName": "voluptas enim ex",
-                "originalPoster": "eveniet facere molestiae",
-                "postType": "aut delectus aut",
-                "subjectPerson": "nam et dolorum",
-                "user": "architecto fugit repellendus",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Nestor Nienow",
-                "id": "12",
-                "picture": "est consequuntur aut",
-              },
-              "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2010-07-19T08:44:26.960Z",
-              "id": "13",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "voluptate vel labore",
-                "organizationCount": "omnis ut est",
-                "organizationName": "sunt corporis alias",
-                "originalPoster": "est et sequi",
-                "postType": "voluptas culpa non",
-                "subjectPerson": "aut rerum impedit",
-                "user": "ex rem voluptates",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Anissa Kirlin",
-                "id": "14",
-                "picture": "ex culpa earum",
-              },
-              "trigger": "celebration_items_daily_summary_completed_challenge",
-            },
-            Object {
-              "__typename": "Notification",
-              "createdAt": "2012-05-24T05:41:26.736Z",
-              "id": "15",
-              "messageTemplate": "A new story has been added in <<organization_name>>.",
-              "messageVariables": Object {
-                "__typename": "NotificationMessageVariables",
-                "challengeName": "fugiat eligendi omnis",
-                "organizationCount": "repellat quasi ipsum",
-                "organizationName": "rem eos quod",
-                "originalPoster": "recusandae consectetur optio",
-                "postType": "laudantium et incidunt",
-                "subjectPerson": "possimus molestias facere",
-                "user": "quia et ab",
-              },
-              "subjectPerson": Object {
-                "__typename": "Person",
-                "fullName": "Lincoln Konopelski",
-                "id": "16",
-                "picture": "perferendis ut non",
+                "fullName": "Precious Rau",
+                "id": "6",
+                "picture": "PreciousProfileImage.jpeg",
               },
               "trigger": "story_notification",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2012-12-03T22:25:52.389Z",
+              "createdAt": "2012-07-23T04:41:19.390Z",
+              "id": "7",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Velit provident velit eligendi nostrum ipsam qui nobis repellendus fugiat.",
+                "organizationCount": "41253",
+                "organizationName": "Advanced 4th generation pricing structure",
+                "originalPoster": "Lindsay Yundt",
+                "postType": "question",
+                "subjectPerson": "Larue Johnston",
+                "user": "Larue Johnston",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Larue Johnston",
+                "id": "8",
+                "picture": "LarueProfileImage.jpeg",
+              },
+              "trigger": "community_challenge_ends_in_3_days",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2010-11-15T10:56:49.516Z",
+              "id": "9",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Modi aut architecto ducimus totam voluptates explicabo exercitationem ut.",
+                "organizationCount": "28777",
+                "organizationName": "Cross-group bi-directional interface",
+                "originalPoster": "Aimee Boehm",
+                "postType": "story",
+                "subjectPerson": "Elias Gottlieb",
+                "user": "Elias Gottlieb",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Elias Gottlieb",
+                "id": "10",
+                "picture": "EliasProfileImage.jpeg",
+              },
+              "trigger": "celebration_items_daily_summary_multiple",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2019-01-05T11:30:13.119Z",
+              "id": "11",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Quos qui illo error sunt.",
+                "organizationCount": "61393",
+                "organizationName": "Customizable web-enabled matrices",
+                "originalPoster": "Devin Price",
+                "postType": "help_request",
+                "subjectPerson": "Coty Vandervort",
+                "user": "Coty Vandervort",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Coty Vandervort",
+                "id": "12",
+                "picture": "CotyProfileImage.jpeg",
+              },
+              "trigger": "celebration_items_comment_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2011-01-03T13:59:32.654Z",
+              "id": "13",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Quos esse ut ab voluptas sed quae nam.",
+                "organizationCount": "13996",
+                "organizationName": "Open-architected responsive throughput",
+                "originalPoster": "Alex McGlynn",
+                "postType": "thought",
+                "subjectPerson": "Kacie Jerde",
+                "user": "Kacie Jerde",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Kacie Jerde",
+                "id": "14",
+                "picture": "KacieProfileImage.jpeg",
+              },
+              "trigger": "story_notification",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2012-07-13T12:51:35.083Z",
+              "id": "15",
+              "messageTemplate": "A new story has been added in <<organization_name>>.",
+              "messageVariables": Object {
+                "__typename": "NotificationMessageVariables",
+                "challengeName": "Saepe consequatur vel in.",
+                "organizationCount": "53842",
+                "organizationName": "De-engineered multimedia system engine",
+                "originalPoster": "Frances Hegmann",
+                "postType": "question",
+                "subjectPerson": "Kamryn Conn",
+                "user": "Kamryn Conn",
+              },
+              "subjectPerson": Object {
+                "__typename": "Person",
+                "fullName": "Kamryn Conn",
+                "id": "16",
+                "picture": "KamrynProfileImage.jpeg",
+              },
+              "trigger": "celebration_items_daily_summary_multiple",
+            },
+            Object {
+              "__typename": "Notification",
+              "createdAt": "2013-10-27T19:27:17.396Z",
               "id": "17",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "accusantium odit doloremque",
-                "organizationCount": "molestias dolore aut",
-                "organizationName": "eos quis ut",
-                "originalPoster": "incidunt omnis delectus",
-                "postType": "voluptas minima quia",
-                "subjectPerson": "ut minima sunt",
-                "user": "qui similique ut",
+                "challengeName": "Est fuga est placeat ex ut voluptas enim ex eveniet.",
+                "organizationCount": "75278",
+                "organizationName": "Managed tangible toolset",
+                "originalPoster": "Adolf Ondricka",
+                "postType": "prayer_request",
+                "subjectPerson": "Louvenia Reinger",
+                "user": "Louvenia Reinger",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Joshuah Casper",
+                "fullName": "Louvenia Reinger",
                 "id": "18",
-                "picture": "ipsum sit qui",
+                "picture": "LouveniaProfileImage.jpeg",
               },
               "trigger": "celebration_items_assigned_to_alert_accepted_community_challenge",
             },
             Object {
               "__typename": "Notification",
-              "createdAt": "2015-11-10T13:38:06.309Z",
+              "createdAt": "2016-10-08T17:54:22.995Z",
               "id": "19",
               "messageTemplate": "A new story has been added in <<organization_name>>.",
               "messageVariables": Object {
                 "__typename": "NotificationMessageVariables",
-                "challengeName": "nostrum ut porro",
-                "organizationCount": "aut laborum iure",
-                "organizationName": "molestiae et facere",
-                "originalPoster": "placeat molestiae iste",
-                "postType": "molestiae dolores commodi",
-                "subjectPerson": "inventore sequi quia",
-                "user": "itaque quae sint",
+                "challengeName": "Veritatis qui ex culpa earum voluptate vel labore omnis ut.",
+                "organizationCount": "77159",
+                "organizationName": "Organized disintermediate ability",
+                "originalPoster": "Oliver Morissette",
+                "postType": "announcement",
+                "subjectPerson": "Anya Buckridge",
+                "user": "Anya Buckridge",
               },
               "subjectPerson": Object {
                 "__typename": "Person",
-                "fullName": "Kelley Hilll",
+                "fullName": "Anya Buckridge",
                 "id": "20",
-                "picture": "sit vel et",
+                "picture": "AnyaProfileImage.jpeg",
               },
-              "trigger": "celebration_items_comment_notification",
+              "trigger": "focus_reminders_endofweek_no_completed_steps",
             },
           ],
           "id": 2,
@@ -1771,7 +1771,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "cupiditate sed dignissimos",
+                  "uri": "HaydenProfileImage.jpeg",
                 }
               }
               style={
@@ -1782,7 +1782,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(199, 57, 125)",
+                    "backgroundColor": "rgb(167, 154, 115)",
                   },
                   undefined,
                 ]
@@ -1889,7 +1889,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                November 5, 2015 10:33 PM
+                November 26, 2016 1:14 PM
               </Text>
             </View>
           </View>
@@ -1934,7 +1934,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "saepe eum dicta",
+                  "uri": "MarleneProfileImage.jpeg",
                 }
               }
               style={
@@ -1945,7 +1945,170 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(156, 123, 67)",
+                    "backgroundColor": "rgb(155, 123, 115)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                April 3, 2012 9:06 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "PreciousProfileImage.jpeg",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(102, 167, 67)",
                   },
                   undefined,
                 ]
@@ -2064,7 +2227,7 @@ exports[`renders correctly 1`] = `
                     ]
                   }
                 >
-                  libero aspernatur deserunt
+                  Assimilated didactic challenge
                 </Text>
                 <Text
                   style={
@@ -2100,7 +2263,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                November 9, 2014 5:50 PM
+                January 20, 2019 12:49 AM
               </Text>
             </View>
           </View>
@@ -2145,7 +2308,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "aperiam placeat fuga",
+                  "uri": "LarueProfileImage.jpeg",
                 }
               }
               style={
@@ -2156,7 +2319,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(123, 155, 155)",
+                    "backgroundColor": "rgb(192, 154, 115)",
                   },
                   undefined,
                 ]
@@ -2263,7 +2426,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                September 11, 2011 2:47 PM
+                July 23, 2012 4:41 AM
               </Text>
             </View>
           </View>
@@ -2308,7 +2471,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "non voluptates ut",
+                  "uri": "EliasProfileImage.jpeg",
                 }
               }
               style={
@@ -2319,7 +2482,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(155, 196, 130)",
+                    "backgroundColor": "rgb(101, 198, 155)",
                   },
                   undefined,
                 ]
@@ -2426,7 +2589,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                March 14, 2019 6:37 PM
+                November 15, 2010 10:56 AM
               </Text>
             </View>
           </View>
@@ -2471,7 +2634,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "quae nam eos",
+                  "uri": "CotyProfileImage.jpeg",
                 }
               }
               style={
@@ -2482,7 +2645,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(101, 155, 155)",
+                    "backgroundColor": "rgb(216, 178, 125)",
                   },
                   undefined,
                 ]
@@ -2589,7 +2752,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                July 15, 2019 4:04 PM
+                January 5, 2019 11:30 AM
               </Text>
             </View>
           </View>
@@ -2634,7 +2797,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "est consequuntur aut",
+                  "uri": "KacieProfileImage.jpeg",
                 }
               }
               style={
@@ -2645,333 +2808,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(123, 123, 152)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 25,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 18,
-                      "flexDirection": "row",
-                      "height": 36,
-                      "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
-                    },
-                    Object {
-                      "backgroundColor": "#7076B5",
-                    },
-                    Object {
-                      "width": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 12,
-                      "height": 24,
-                      "justifyContent": "center",
-                      "paddingHorizontal": 0,
-                      "paddingVertical": 0,
-                      "width": 24,
-                    },
-                  ]
-                }
-                testID="STORYLabel"
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={15}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={15}
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                  },
-                  Object {},
-                ]
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                April 30, 2014 7:38 PM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderBottomColor": "#ECEEF2",
-                "borderBottomWidth": 1,
-                "paddingVertical": 15,
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "maxWidth": 350,
-                  "paddingHorizontal": 20,
-                },
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                },
-              ]
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "ex culpa earum",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(163, 155, 125)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 25,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 18,
-                      "flexDirection": "row",
-                      "height": 36,
-                      "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
-                    },
-                    Object {
-                      "backgroundColor": "#7076B5",
-                    },
-                    Object {
-                      "width": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 12,
-                      "height": 24,
-                      "justifyContent": "center",
-                      "paddingHorizontal": 0,
-                      "paddingVertical": 0,
-                      "width": 24,
-                    },
-                  ]
-                }
-                testID="STORYLabel"
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={15}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={15}
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-                    "paddingHorizontal": 20,
-                  },
-                  Object {},
-                ]
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                July 19, 2010 8:44 AM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "backgroundColor": "#ffffff",
-                "borderBottomColor": "#ECEEF2",
-                "borderBottomWidth": 1,
-                "paddingVertical": 15,
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "space-between",
-              },
-            ]
-          }
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "maxWidth": 350,
-                  "paddingHorizontal": 20,
-                },
-                Object {
-                  "alignItems": "center",
-                  "flexDirection": "row",
-                  "justifyContent": "space-between",
-                },
-              ]
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "perferendis ut non",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(123, 155, 115)",
+                    "backgroundColor": "rgb(123, 167, 115)",
                   },
                   undefined,
                 ]
@@ -3090,7 +2927,7 @@ exports[`renders correctly 1`] = `
                     ]
                   }
                 >
-                  rem eos quod
+                  Open-architected responsive throughput
                 </Text>
                 <Text
                   style={
@@ -3126,7 +2963,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                May 24, 2012 5:41 AM
+                January 3, 2011 1:59 PM
               </Text>
             </View>
           </View>
@@ -3171,7 +3008,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "ipsum sit qui",
+                  "uri": "KamrynProfileImage.jpeg",
                 }
               }
               style={
@@ -3182,7 +3019,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(167, 55, 115)",
+                    "backgroundColor": "rgb(155, 144, 115)",
                   },
                   undefined,
                 ]
@@ -3289,7 +3126,170 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                December 3, 2012 10:25 PM
+                July 13, 2012 12:51 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "borderBottomColor": "#ECEEF2",
+                "borderBottomWidth": 1,
+                "paddingVertical": 15,
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "space-between",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "maxWidth": 350,
+                  "paddingHorizontal": 20,
+                },
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                },
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "LouveniaProfileImage.jpeg",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(161, 192, 115)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 25,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 0,
+                      "paddingVertical": 0,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "paddingHorizontal": 20,
+                  },
+                  Object {},
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                October 27, 2013 7:27 PM
               </Text>
             </View>
           </View>
