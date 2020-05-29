@@ -1,10 +1,8 @@
 import i18next from 'i18next';
 
 import { paramsForStageNavigation } from '../';
-import { personSelector } from '../../../selectors/people';
 import { apolloClient } from '../../../apolloClient';
 
-jest.mock('../../../selectors/people');
 jest.mock('../../../apolloClient', () => ({
   apolloClient: {
     query: jest.fn(),
@@ -67,8 +65,6 @@ const baseState = {
 const getState = jest.fn();
 
 beforeEach(() => {
-  // @ts-ignore
-  personSelector.mockReturnValue(otherPerson);
   getState.mockReturnValue(baseState);
   (apolloClient.query as jest.Mock).mockReturnValue({
     data: {
@@ -158,8 +154,6 @@ describe('is not Me, "Not Sure" stage, step count not complete', () => {
         people: { [otherId]: otherPersonNotSure },
       },
     };
-    // @ts-ignore
-    personSelector.mockReturnValue(otherPersonNotSure);
     getState.mockReturnValue(newState);
   });
 

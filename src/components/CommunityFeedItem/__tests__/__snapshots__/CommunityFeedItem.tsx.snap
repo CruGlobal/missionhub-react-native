@@ -130,7 +130,6 @@ exports[`Community renders challenge correctly 1`] = `
         }
       >
         <Avatar
-          orgId="3"
           person={
             Object {
               "firstName": "Janelle",
@@ -599,7 +598,6 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
                   "firstName": "Caesar",
@@ -1081,7 +1079,6 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
                   "firstName": "Arvel",
@@ -1500,7 +1497,6 @@ exports[`Community renders post correctly without image 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
                   "firstName": "Arvel",
@@ -1906,7 +1902,6 @@ exports[`Community renders post created by me correctly without add to steps but
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
                   "firstName": "Marco",
@@ -2399,7 +2394,6 @@ exports[`Community renders step correctly 1`] = `
         }
       >
         <Avatar
-          orgId="3"
           person={
             Object {
               "firstName": "Mathew",
@@ -2803,7 +2797,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
                   "firstName": "Arvel",
@@ -4512,7 +4505,6 @@ exports[`renders with name pressable correctly 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
                   "firstName": "Arvel",

@@ -188,11 +188,7 @@ export const CommunityFeedItemContent = ({
       </View>
       <View style={styles.headerRow}>
         {feedItem.subjectPerson ? (
-          <Avatar
-            size={'medium'}
-            person={feedItem.subjectPerson}
-            orgId={feedItem.community?.id}
-          />
+          <Avatar size={'medium'} person={feedItem.subjectPerson} />
         ) : null}
         <View style={styles.headerNameWrapper}>
           <CommunityFeedItemName

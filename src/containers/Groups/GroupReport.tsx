@@ -75,13 +75,7 @@ const GroupReport = ({ analyticsPermissionType }: GroupReportProps) => {
     },
   );
   const renderItem = ({ item }: { item: ReportedItemInterface }) => {
-    return (
-      <ReportedItem
-        reportedItem={item}
-        refetch={refetch}
-        organization={organization}
-      />
-    );
+    return <ReportedItem reportedItem={item} refetch={refetch} />;
   };
 
   const navigateOut = () => {

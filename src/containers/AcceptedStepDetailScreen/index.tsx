@@ -128,7 +128,7 @@ const AcceptedStepDetailScreen = ({
         (step?.stepSuggestion && step?.stepSuggestion.descriptionMarkdown) ??
         undefined
       }
-      post={post}
+      post={post ?? undefined}
       text={step?.title}
       stepType={step?.stepType}
       bottomButtonProps={{

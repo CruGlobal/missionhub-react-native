@@ -90,8 +90,7 @@ const mapStateToProps = (
       firstItemIndex: getStageIndex(stagesList, myStageId),
     };
   }
-  const loadedPerson =
-    personSelector({ people }, { personId, orgId }) || person;
+  const loadedPerson = personSelector({ people }, { personId }) || person;
   const contactAssignment = contactAssignmentSelector(
     { auth },
     { person: loadedPerson, orgId },

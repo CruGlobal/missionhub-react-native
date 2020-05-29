@@ -12,6 +12,7 @@ const person = {
   last_name: 'Last',
   reverse_contact_assignments: [{ organization }],
 };
+const initialState = { auth: { person: {} } };
 
 it('render assigned contact', () => {
   renderWithContext(
@@ -20,7 +21,7 @@ it('render assigned contact', () => {
       organization={organization}
       person={person}
     />,
-    { noWrappers: true },
+    { initialState },
   ).snapshot();
 });
 
@@ -31,7 +32,7 @@ it('render unassigned contact', () => {
       organization={organization}
       person={{ ...person, reverse_contact_assignments: [] }}
     />,
-    { noWrappers: true },
+    { initialState },
   ).snapshot();
 });
 
@@ -41,7 +42,7 @@ it('render without touchable', () => {
       organization={organization}
       person={{ ...person, reverse_contact_assignments: [] }}
     />,
-    { noWrappers: true },
+    { initialState },
   ).snapshot();
 });
 
@@ -51,7 +52,7 @@ it('render without last name', () => {
       organization={organization}
       person={{ ...person, last_name: undefined }}
     />,
-    { noWrappers: true },
+    { initialState },
   ).snapshot();
 });
 
@@ -64,7 +65,7 @@ it('calls onSelect prop', () => {
       organization={organization}
       person={person}
     />,
-    { noWrappers: true },
+    { initialState },
   );
 
   fireEvent.press(getByTestId('PersonListItemButton'));
