@@ -109,13 +109,15 @@ export const RecordVideoScreen = () => {
 
   const renderControlBar = () => (
     <SafeAreaView style={styles.controlBarBackground}>
-      <View style={styles.countdownTextWrap}>
-        <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
+      <View style={styles.controlBarWrap}>
+        <View style={styles.countdownTextWrap}>
+          <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
+        </View>
+        {renderRecordButton()}
+        <Touchable onPress={handleFlipCamera}>
+          <CameraRotateIcon />
+        </Touchable>
       </View>
-      {renderRecordButton()}
-      <Touchable onPress={handleFlipCamera}>
-        <CameraRotateIcon />
-      </Touchable>
     </SafeAreaView>
   );
 

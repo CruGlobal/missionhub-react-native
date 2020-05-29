@@ -16,8 +16,9 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
   },
   controlBarBackground: {
-    backgroundColor: 'black',
-    opacity: 0.5,
+    backgroundColor: '#00000066',
+  },
+  controlBarWrap: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -67,7 +68,6 @@ export default StyleSheet.create({
   closeButton: {
     margin: 18,
     borderRadius: 18,
-    backgroundColor: theme.black,
-    opacity: 0.5,
+    backgroundColor: '#00000066',
   },
 });
