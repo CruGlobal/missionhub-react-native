@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
+import Markdown from 'react-native-markdown-renderer';
 
 import { Text, Button, Touchable } from '../common';
 import { navigatePush } from '../../actions/navigation';
@@ -23,9 +24,6 @@ import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedW
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
-import PlusIcon from './plusIcon.svg';
-import StepIcon from './stepIcon.svg';
-import styles from './styles';
 import {
   CommunityFeedItemContent as FeedItem,
   CommunityFeedItemContent_subject_Post,
@@ -33,6 +31,9 @@ import {
   CommunityFeedItemContent_subject_Step_receiverStageAtCompletion,
   CommunityFeedItemContent_subject_CommunityChallenge,
 } from './__generated__/CommunityFeedItemContent';
+import StepIcon from './stepIcon.svg';
+import PlusIcon from './plusIcon.svg';
+import styles, { markdown } from './styles';
 
 export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;
@@ -150,19 +151,24 @@ export const CommunityFeedItemContent = ({
     }
   };
 
-  const renderPostMessage = (subject: CommunityFeedItemContent_subject_Post) =>
-    subject.content;
-
   const renderMessage = () => {
     switch (subject.__typename) {
       case 'Step':
-        return renderStepOfFaithMessage(subject);
+        return renderText(renderStepOfFaithMessage(subject));
       case 'CommunityChallenge':
-        return buildChallengeMessage(subject);
+        return renderText(buildChallengeMessage(subject));
       case 'Post':
         return renderPostMessage(subject);
     }
   };
+
+  const renderText = (text: string) => (
+    <Text style={styles.messageText}>{text}</Text>
+  );
+
+  const renderPostMessage = (
+    subject: CommunityFeedItemContent_subject_Post,
+  ) => <Markdown style={markdown}>{subject.content}</Markdown>;
 
   const renderChallengeLink = (
     subject: CommunityFeedItemContent_subject_CommunityChallenge,

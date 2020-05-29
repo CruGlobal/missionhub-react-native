@@ -402,6 +402,14 @@ exports[`should render correctly post details 1`] = `
             "paddingTop": 26,
           }
         }
+      />
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
+        }
       >
         <View
           style={

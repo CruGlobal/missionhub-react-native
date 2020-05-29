@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
+import markdownStyles from '../../markdownStyles';
 
 export default StyleSheet.create({
   headerWrap: {
@@ -80,5 +81,14 @@ export default StyleSheet.create({
   commentLikeWrap: {
     flex: 1,
     justifyContent: 'flex-end',
+  },
+});
+
+export const markdown = StyleSheet.create({
+  ...markdownStyles,
+  text: {
+    ...markdownStyles.text,
+    fontSize: 14,
+    lineHeight: 18,
   },
 });

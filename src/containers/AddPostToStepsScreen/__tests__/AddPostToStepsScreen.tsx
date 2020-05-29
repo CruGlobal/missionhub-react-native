@@ -52,7 +52,9 @@ it('should render correctly | Care Step', async () => {
       }),
     },
   });
+
   await flushMicrotasksQueue();
+
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['add steps', 'step detail']);
 });
@@ -94,6 +96,46 @@ it('creates a new step when user clicks add to my steps button', async () => {
       input: {
         postId: mockPostId,
         title: "Pray for Hayden's request.",
+      },
+    },
+  });
+  expect(useAnalytics).toHaveBeenCalledWith(['add steps', 'step detail']);
+});
+
+it('changes the title of the step and creates a new step', async () => {
+  const mockNewStepTitle = "Pray for Christian's super cool request!";
+
+  const { getByTestId, diffSnapshot, recordSnapshot } = renderWithContext(
+    <AddPostToStepsScreen />,
+    {
+      navParams: {
+        feedItemId,
+      },
+      mocks: {
+        Post: () => ({
+          id: mockPostId,
+          postType: () => PostTypeEnum.prayer_request,
+        }),
+      },
+    },
+  );
+
+  await flushMicrotasksQueue();
+
+  recordSnapshot();
+
+  fireEvent(getByTestId('stepTitleInput'), 'onChangeText', mockNewStepTitle);
+
+  diffSnapshot();
+  fireEvent.press(getByTestId('AddToMyStepsButton'));
+  await flushMicrotasksQueue();
+
+  expect(navigateBack).toHaveBeenCalled();
+  expect(useMutation).toHaveBeenMutatedWith(ADD_POST_TO_MY_STEPS, {
+    variables: {
+      input: {
+        postId: mockPostId,
+        title: mockNewStepTitle,
       },
     },
   });

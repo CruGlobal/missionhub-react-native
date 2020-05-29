@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { TextInput } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -24,7 +25,9 @@ import {
 import {
   AddPostToMyStepsScreenDetails,
   AddPostToMyStepsScreenDetailsVariables,
+  AddPostToMyStepsScreenDetails_feedItem_subject_Post,
 } from './__generated__/AddPostToMyStepsScreenDetails';
+import styles from './styles';
 
 const AddPostToStepsScreen = () => {
   const { t } = useTranslation('addPostToStepsScreen');
@@ -36,7 +39,12 @@ const AddPostToStepsScreen = () => {
   const { data, error, refetch } = useQuery<
     AddPostToMyStepsScreenDetails,
     AddPostToMyStepsScreenDetailsVariables
-  >(ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY, { variables: { feedItemId } });
+  >(ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY, {
+    variables: { feedItemId },
+    onCompleted: data =>
+      data.feedItem.subject.__typename === 'Post' &&
+      changeStepTitle(getTitleText(data.feedItem.subject)),
+  });
 
   const subject = data?.feedItem.subject;
   const person = data?.feedItem.subjectPerson;
@@ -51,7 +59,9 @@ const AddPostToStepsScreen = () => {
     AddPostToMyStepsVariables
   >(ADD_POST_TO_MY_STEPS);
 
-  const getTitleText = () => {
+  const getTitleText = (
+    subject?: AddPostToMyStepsScreenDetails_feedItem_subject_Post,
+  ) => {
     switch (subject?.postType) {
       case PostTypeEnum.prayer_request:
         return t('prayerStepMessage', { personName: person?.firstName });
@@ -73,6 +83,8 @@ const AddPostToStepsScreen = () => {
     }
   };
 
+  const [stepTitle, changeStepTitle] = useState(getTitleText(subject));
+
   const onAddToSteps = async () => {
     if (!subject?.id) {
       return;
@@ -81,7 +93,7 @@ const AddPostToStepsScreen = () => {
       variables: {
         input: {
           postId: subject?.id,
-          title: getTitleText(),
+          title: stepTitle,
         },
       },
     });
@@ -112,8 +124,23 @@ const AddPostToStepsScreen = () => {
           />
         </>
       }
+      Input={
+        <TextInput
+          testID="stepTitleInput"
+          onChangeText={event => {
+            debugger;
+            changeStepTitle(event);
+          }}
+          value={stepTitle}
+          autoFocus={true}
+          autoCorrect={true}
+          multiline={true}
+          maxLength={255}
+          style={styles.inputStyle}
+        />
+      }
       CenterContent={<Separator />}
-      text={getTitleText()}
+      text={getTitleText(subject)}
       stepType={getType()}
       bottomButtonProps={{
         onPress: onAddToSteps,

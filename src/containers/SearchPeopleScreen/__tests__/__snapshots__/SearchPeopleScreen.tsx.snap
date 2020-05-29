@@ -144,7 +144,6 @@ exports[`renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]

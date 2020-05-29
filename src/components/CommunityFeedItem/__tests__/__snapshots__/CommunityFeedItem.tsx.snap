@@ -231,7 +231,25 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Janelle U. completed a Challenge:
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "justifyContent": "flex-start",
+                "lineHeight": 18,
+              },
+            ]
+          }
+        >
+          Janelle U. completed a Challenge:
+        </Text>
       </Text>
       <View
         style={
@@ -699,7 +717,32 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               ]
             }
           >
-            quisquam recusandae alias
+            <View
+              style={Object {}}
+            >
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 18,
+                    }
+                  }
+                >
+                  <Text>
+                    quisquam recusandae alias
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </Text>
         </View>
         <Image
@@ -1180,7 +1223,32 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               ]
             }
           >
-            eligendi occaecati debitis
+            <View
+              style={Object {}}
+            >
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 18,
+                    }
+                  }
+                >
+                  <Text>
+                    eligendi occaecati debitis
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </Text>
         </View>
         <Image
@@ -1598,7 +1666,32 @@ exports[`Community renders post correctly without image 1`] = `
               ]
             }
           >
-            eligendi occaecati debitis
+            <View
+              style={Object {}}
+            >
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 18,
+                    }
+                  }
+                >
+                  <Text>
+                    eligendi occaecati debitis
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </Text>
         </View>
         <View
@@ -2035,7 +2128,32 @@ exports[`Community renders post created by me correctly without add to steps but
               ]
             }
           >
-            sed dignissimos debitis
+            <View
+              style={Object {}}
+            >
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 18,
+                    }
+                  }
+                >
+                  <Text>
+                    sed dignissimos debitis
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </Text>
         </View>
         <Image
@@ -2495,7 +2613,25 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Mathew G. completed a Step of Faith with a  person.
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "justifyContent": "flex-start",
+                "lineHeight": 18,
+              },
+            ]
+          }
+        >
+          Mathew G. completed a Step of Faith with a  person.
+        </Text>
       </Text>
     </View>
     <View
@@ -2898,7 +3034,32 @@ exports[`Community renders with clear notification button correctly 1`] = `
               ]
             }
           >
-            eligendi occaecati debitis
+            <View
+              style={Object {}}
+            >
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 18,
+                    }
+                  }
+                >
+                  <Text>
+                    eligendi occaecati debitis
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </Text>
         </View>
         <Image
@@ -3362,7 +3523,25 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Mathew G. completed a Step of Faith with a  person.
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "justifyContent": "flex-start",
+                "lineHeight": 18,
+              },
+            ]
+          }
+        >
+          Mathew G. completed a Step of Faith with a  person.
+        </Text>
       </Text>
     </View>
     <View
@@ -3741,7 +3920,32 @@ exports[`global community renders post item correctly 1`] = `
           ]
         }
       >
-        eligendi occaecati debitis
+        <View
+          style={Object {}}
+        >
+          <View
+            style={
+              Object {
+                "marginVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                }
+              }
+            >
+              <Text>
+                eligendi occaecati debitis
+              </Text>
+            </Text>
+          </View>
+        </View>
       </Text>
     </View>
     <Image
@@ -4133,7 +4337,25 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Mathew G. completed a Step of Faith with a  person.
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "justifyContent": "flex-start",
+                "lineHeight": 18,
+              },
+            ]
+          }
+        >
+          Mathew G. completed a Step of Faith with a  person.
+        </Text>
       </Text>
     </View>
     <View
@@ -4638,7 +4860,32 @@ exports[`renders with name pressable correctly 1`] = `
               ]
             }
           >
-            eligendi occaecati debitis
+            <View
+              style={Object {}}
+            >
+              <View
+                style={
+                  Object {
+                    "marginVertical": 10,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "lineHeight": 18,
+                    }
+                  }
+                >
+                  <Text>
+                    eligendi occaecati debitis
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </Text>
         </View>
         <Image

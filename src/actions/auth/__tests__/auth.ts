@@ -20,6 +20,7 @@ import {
   navigateToPostAuthScreen,
   handleInvalidAccessToken,
 } from '../auth';
+import { getFeatureFlags } from '../../misc';
 import { refreshAccessToken } from '../key';
 import { refreshAnonymousLogin } from '../anonymous';
 import { refreshMissionHubFacebookAccess } from '../facebook';
@@ -35,6 +36,7 @@ jest.mock('../../notifications');
 jest.mock('../../navigation');
 jest.mock('../../onboarding');
 jest.mock('../../analytics');
+jest.mock('../../misc');
 jest.mock('../key');
 jest.mock('../anonymous');
 jest.mock('../facebook');
@@ -64,6 +66,7 @@ describe('logout', () => {
     await store.dispatch<any>(logout());
 
     expect(deletePushToken).toHaveBeenCalledWith();
+    expect(getFeatureFlags).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(LANDING_SCREEN);
     expect(PushNotification.unregister).toHaveBeenCalled();
     // @ts-ignore
@@ -78,6 +81,7 @@ describe('logout', () => {
     await store.dispatch<any>(logout(true));
 
     expect(deletePushToken).toHaveBeenCalledWith();
+    expect(getFeatureFlags).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(SIGN_IN_FLOW, {
       forcedLogout: true,
     });

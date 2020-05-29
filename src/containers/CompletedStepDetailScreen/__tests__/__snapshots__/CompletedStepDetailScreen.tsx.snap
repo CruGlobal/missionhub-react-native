@@ -101,7 +101,6 @@ exports[`renders loading state correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -369,7 +368,6 @@ exports[`with challenge suggestion renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -678,7 +676,6 @@ exports[`without challenge suggestion renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]

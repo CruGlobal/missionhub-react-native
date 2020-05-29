@@ -230,7 +230,25 @@ Array [
         ]
       }
     >
-      Zola C. accepted a Challenge:
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Zola C. accepted a Challenge:
+      </Text>
     </Text>
     <View
       style={
@@ -673,7 +691,25 @@ Array [
         ]
       }
     >
-      Darwin B. completed a Challenge:
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Darwin B. completed a Challenge:
+      </Text>
     </Text>
     <View
       style={
@@ -1094,7 +1130,25 @@ Array [
         ]
       }
     >
-      A MissionHub user completed a Challenge:
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        A MissionHub user completed a Challenge:
+      </Text>
     </Text>
     <View
       style={
@@ -1515,7 +1569,25 @@ Array [
         ]
       }
     >
-      amet iure ut completed a Challenge:
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        amet iure ut completed a Challenge:
+      </Text>
     </Text>
     <View
       style={
@@ -1957,7 +2029,32 @@ Array [
         ]
       }
     >
-      quisquam recusandae alias
+      <View
+        style={Object {}}
+      >
+        <View
+          style={
+            Object {
+              "marginVertical": 10,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "lineHeight": 18,
+              }
+            }
+          >
+            <Text>
+              quisquam recusandae alias
+            </Text>
+          </Text>
+        </View>
+      </View>
     </Text>
   </View>,
   <Image
@@ -2347,7 +2444,25 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Uninterested person.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Mina W. completed a Step of Faith with a Uninterested person.
+      </Text>
     </Text>
   </View>,
   <View
@@ -2724,7 +2839,25 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Curious person.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Mina W. completed a Step of Faith with a Curious person.
+      </Text>
     </Text>
   </View>,
   <View
@@ -3101,7 +3234,25 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Forgiven person.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Mina W. completed a Step of Faith with a Forgiven person.
+      </Text>
     </Text>
   </View>,
   <View
@@ -3478,7 +3629,25 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Growing person.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Mina W. completed a Step of Faith with a Growing person.
+      </Text>
     </Text>
   </View>,
   <View
@@ -3855,7 +4024,25 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Guiding person.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Mina W. completed a Step of Faith with a Guiding person.
+      </Text>
     </Text>
   </View>,
   <View
@@ -4232,7 +4419,25 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Mina W. completed a Step of Faith.
+      </Text>
     </Text>
   </View>,
   <View
@@ -4609,7 +4814,25 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with someone.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        Mina W. completed a Step of Faith with someone.
+      </Text>
     </Text>
   </View>,
   <View
@@ -4965,7 +5188,25 @@ Array [
         ]
       }
     >
-      A MissionHub user completed a Step of Faith with a Forgiven person.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        A MissionHub user completed a Step of Faith with a Forgiven person.
+      </Text>
     </Text>
   </View>,
   <View
@@ -5321,7 +5562,25 @@ Array [
         ]
       }
     >
-      consequuntur corporis repellat completed a Step of Faith with a Forgiven person.
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 14,
+              "justifyContent": "flex-start",
+              "lineHeight": 18,
+            },
+          ]
+        }
+      >
+        consequuntur corporis repellat completed a Step of Faith with a Forgiven person.
+      </Text>
     </Text>
   </View>,
   <View
