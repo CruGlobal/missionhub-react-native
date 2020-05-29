@@ -67,7 +67,7 @@ const Header = ({
     }
     if (center) {
       return (
-        <Flex align="center" justify="center" value={5} style={styles.center}>
+        <Flex align="center" justify="center" style={styles.center}>
           {center}
         </Flex>
       );

@@ -38,7 +38,7 @@ const postType = PostTypeEnum.prayer_request;
 const post = mockFragment<CommunityFeedPost>(COMMUNITY_FEED_POST_FRAGMENT);
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
-const MOCK_IMAGE = 'base64image.jpeg';
+const MOCK_IMAGE = 'data:image/jpeg;base64,base64image.jpeg';
 
 const initialState = {
   auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
@@ -169,7 +169,7 @@ describe('Select image', () => {
     recordSnapshot();
 
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
-      data: `data:image/jpeg;base64,${MOCK_IMAGE}`,
+      data: MOCK_IMAGE,
     });
 
     diffSnapshot();
@@ -221,6 +221,36 @@ describe('Creating a post', () => {
       },
     });
   });
+
+  it('calls savePost function with image', async () => {
+    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        postType,
+      },
+    });
+
+    await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
+    await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+      data: MOCK_IMAGE,
+    });
+    await fireEvent.press(getByTestId('CreatePostButton'));
+
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(onComplete).toHaveBeenCalledWith();
+    expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
+      variables: {
+        input: {
+          content: MOCK_POST,
+          communityId,
+          postType: PostTypeEnum.prayer_request,
+          media: MOCK_IMAGE,
+        },
+      },
+    });
+  });
 });
 
 describe('Updating a post', () => {
@@ -262,7 +292,36 @@ describe('Updating a post', () => {
         input: {
           content: MOCK_POST,
           id: post.id,
-          media: post.mediaExpiringUrl,
+          media: undefined,
+        },
+      },
+    });
+  });
+
+  it('calls savePost function with image', async () => {
+    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        onComplete,
+        communityId,
+        post,
+      },
+    });
+
+    await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
+    await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+      data: MOCK_IMAGE,
+    });
+    await fireEvent.press(getByTestId('CreatePostButton'));
+
+    expect(trackActionWithoutData).not.toHaveBeenCalled();
+    expect(onComplete).toHaveBeenCalledWith();
+    expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
+      variables: {
+        input: {
+          content: MOCK_POST,
+          id: post.id,
+          media: MOCK_IMAGE,
         },
       },
     });

@@ -193,7 +193,8 @@ export default {
   onboardingAddPhoto: {
     nullHeader: 'Add Profile Photo',
     imageHeader: 'Profile Photo Added',
-    description: "Add a profile photo so your members know it's you",
+    description:
+      'This will help others to recognize you once you are in a community',
     changePhoto: 'Change Photo',
     nullButtonText: 'Add a Profile Photo',
     imageButtonText: 'Continue',
@@ -272,6 +273,8 @@ export default {
     part4: 'Ideas to help you demonstrate that you care about this person.',
     part5:
       'Talk about what this person believes and ways you can help them know the truth about God.',
+    part6:
+      "Over time you see all the different ways you're helping others draw close to God.",
   },
   stepDetail: {
     openPost: 'Open Post',
