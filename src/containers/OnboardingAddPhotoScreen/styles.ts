@@ -26,6 +26,8 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 14,
     lineHeight: 20,
+    marginHorizontal: 40,
+    textAlign: 'center',
   },
   profileIconWrap: {
     position: 'absolute',
