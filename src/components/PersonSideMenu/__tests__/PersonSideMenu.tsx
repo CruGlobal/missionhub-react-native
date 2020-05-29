@@ -188,7 +188,6 @@ describe('PersonSideMenu', () => {
         menuItems.filter(item => item.label === 'Assign')[0].action();
         expect(assignContactAndPickStage).toHaveBeenCalledWith(
           unassignedPerson,
-          organization,
         );
       });
     });

@@ -11,18 +11,11 @@ exports[`Contact should render correctly 1`] = `
 >
   <Header
     left={<Connect(DeprecatedBackButton) />}
-    title="Test Org"
   />
   <GroupsContactList
     activity={Array []}
     myId="me"
     onAssign={[MockFunction]}
-    organization={
-      Object {
-        "id": "1",
-        "name": "Test Org",
-      }
-    }
     person={
       Object {
         "full_name": "Test Person",
@@ -32,12 +25,7 @@ exports[`Contact should render correctly 1`] = `
   />
   <Connect(JourneyCommentBox)
     onSubmit={[Function]}
-    organization={
-      Object {
-        "id": "1",
-        "name": "Test Org",
-      }
-    }
+    organization={null}
     person={
       Object {
         "full_name": "Test Person",

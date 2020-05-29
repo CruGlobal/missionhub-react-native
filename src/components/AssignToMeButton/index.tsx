@@ -9,7 +9,6 @@ import { assignContactAndPickStage } from '../../actions/misc';
 import styles from './styles';
 
 interface AssignToMeButtonProps {
-  organization: object;
   person: object;
   onComplete?: () => void;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -19,13 +18,12 @@ interface AssignToMeButtonProps {
 const AssignToMeButton = ({
   dispatch,
   person,
-  organization,
   onComplete,
 }: AssignToMeButtonProps) => {
   const { t } = useTranslation();
 
   const assignToMe = async () => {
-    await dispatch(assignContactAndPickStage(person, organization));
+    await dispatch(assignContactAndPickStage(person));
     onComplete && onComplete();
   };
   return (

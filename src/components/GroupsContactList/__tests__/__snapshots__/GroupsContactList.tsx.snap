@@ -43,7 +43,7 @@ exports[`renders activity list 1`] = `
         ]
       }
     >
-      Hayden Zieme
+      Test Person
     </Text>
     <View
       accessible={true}
@@ -942,7 +942,7 @@ exports[`renders empty list 1`] = `
         ]
       }
     >
-      Hayden Zieme
+      Test Person
     </Text>
     <View
       accessible={true}

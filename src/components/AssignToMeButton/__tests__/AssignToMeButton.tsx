@@ -32,10 +32,7 @@ describe('assignToMe', () => {
 
     await fireEvent.press(getByTestId('AssignToMeButton'));
 
-    expect(assignContactAndPickStage).toHaveBeenCalledWith(
-      person,
-      organization,
-    );
+    expect(assignContactAndPickStage).toHaveBeenCalledWith(person);
   });
 
   it('calls assignContactAndPickStage and onComplete on press', async () => {
@@ -46,10 +43,7 @@ describe('assignToMe', () => {
 
     await fireEvent.press(getByTestId('AssignToMeButton'));
 
-    expect(assignContactAndPickStage).toHaveBeenCalledWith(
-      person,
-      organization,
-    );
+    expect(assignContactAndPickStage).toHaveBeenCalledWith(person);
     expect(onComplete).toHaveBeenCalled();
   });
 });

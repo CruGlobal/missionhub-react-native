@@ -132,7 +132,7 @@ const ContactSteps = ({ person }: ContactStepsProps) => {
       }
     }
 
-    dispatch(assignContactAndPickStage(person, undefined));
+    dispatch(assignContactAndPickStage(person));
   };
 
   const handleCreateStep = () => {

@@ -11,7 +11,6 @@ import {
 import { INTERACTION_TYPES } from '../../constants';
 import { localizedStageSelector } from '../../selectors/stages';
 import { Stage } from '../../reducers/stages';
-import { CommunityMemberPerson } from '../CommunityMemberItem/__generated__/CommunityMemberPerson';
 
 import styles from './styles';
 
@@ -36,7 +35,7 @@ type GroupsContactItemType = {
 
 interface GroupsContactItemProps {
   item: GroupsContactItemType;
-  person: CommunityMemberPerson;
+  person: Person;
   myId: string;
 }
 
@@ -90,13 +89,13 @@ const GroupsContactItem = ({ item, person, myId }: GroupsContactItemProps) => {
     const assignedByName = getAssignedByName(myId, item);
     title = t('contactAssignment', {
       assignedByName,
-      assignedContactName: person.firstName,
+      assignedContactName: person.first_name,
       assignedToName,
     });
   } else if (item._type === 'contact_unassignment') {
     const assignedToName = getAssignedToName(myId, item);
     title = t('contactUnassignment', {
-      assignedContactName: person.firstName,
+      assignedContactName: person.first_name,
       assignedToName,
     });
   } else if (item._type === 'pathway_progression_audit') {

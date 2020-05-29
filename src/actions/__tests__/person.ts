@@ -33,8 +33,8 @@ import { trackActionWithoutData, setAnalyticsMinistryMode } from '../analytics';
 import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
 import {
-  CONTACT_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
 } from '../../containers/Groups/AssignedPersonScreen/constants';
 import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
 import {
@@ -849,7 +849,7 @@ describe('navToPersonScreen', () => {
           // @ts-ignore
           store.dispatch(navToPersonScreen(person.id));
 
-          expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
+          expect(navigatePush).toHaveBeenCalledWith(MEMBER_PERSON_SCREEN, {
             person,
           });
         });

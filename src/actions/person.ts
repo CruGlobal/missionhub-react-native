@@ -3,8 +3,8 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import {
-  CONTACT_PERSON_SCREEN,
   ME_PERSONAL_PERSON_SCREEN,
+  MEMBER_PERSON_SCREEN,
 } from '../containers/Groups/AssignedPersonScreen/constants';
 import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
@@ -451,7 +451,9 @@ export function navToPersonScreen(personId: string, props = {}) {
   return (dispatch, getState) => {
     const { auth, people } = getState();
 
-    const selectorPerson = personSelector({ people }, { personId });
+    const selectorPerson = personSelector({ people }, { personId }) || {
+      id: personId,
+    };
 
     const contactAssignment = contactAssignmentSelector(
       { auth },
@@ -483,7 +485,7 @@ export function getPersonScreenRoute(
   }
 
   if (contactAssignment) {
-    return CONTACT_PERSON_SCREEN;
+    return MEMBER_PERSON_SCREEN;
   }
 
   return UNASSIGNED_PERSON_SCREEN;

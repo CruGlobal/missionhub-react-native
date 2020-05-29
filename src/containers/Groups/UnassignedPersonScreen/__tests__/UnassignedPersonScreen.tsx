@@ -15,6 +15,9 @@ import UnassignedPersonScreen from '..';
 jest.mock('../../../../actions/journey');
 jest.mock('../../../../actions/person', () => ({
   createContactAssignment: jest.fn(() => Promise.resolve()),
+  getPersonDetails: jest.fn(() => ({
+    type: 'getPersonDetails',
+  })),
 }));
 
 MockDate.set('2017-06-18');
@@ -71,7 +74,7 @@ describe('Contact', () => {
 
     // @ts-ignore
     await instance.loadFeed(data);
-    expect(getGroupJourney).toHaveBeenCalledWith(person.id, organization.id);
+    expect(getGroupJourney).toHaveBeenCalledWith(person.id, undefined);
     // @ts-ignore
     expect(instance.state.activity).toEqual(groupJourneyResult);
   });

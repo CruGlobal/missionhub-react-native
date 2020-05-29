@@ -46,22 +46,21 @@ export function openCommunicationLink(url, action) {
 }
 
 // @ts-ignore
-export function assignContactAndPickStage(person, organization) {
+export function assignContactAndPickStage(person) {
   // @ts-ignore
   return async (dispatch, getState) => {
     const auth = getState().auth;
     const authPerson = auth.person;
     const myId = auth.person.id;
-    const orgId = organization.id;
     const personId = person.id;
 
     const { person: resultPerson } = await dispatch(
-      createContactAssignment(orgId, myId, personId),
+      createContactAssignment(undefined, myId, personId),
     );
 
     const contactAssignment = contactAssignmentSelector(
       { auth },
-      { person: resultPerson, orgId },
+      { person: resultPerson },
     );
 
     dispatch(
@@ -69,7 +68,6 @@ export function assignContactAndPickStage(person, organization) {
         getPersonScreenRoute(authPerson, resultPerson, contactAssignment),
         {
           person: resultPerson,
-          organization,
         },
       ),
     );
@@ -77,7 +75,7 @@ export function assignContactAndPickStage(person, organization) {
     dispatch(
       navigatePush(SELECT_PERSON_STAGE_FLOW, {
         personId: resultPerson.id,
-        orgId,
+        undefined,
         section: 'people',
         subsection: 'person',
       }),

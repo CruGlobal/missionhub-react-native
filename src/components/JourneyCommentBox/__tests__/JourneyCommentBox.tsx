@@ -73,7 +73,7 @@ describe('onSubmit', () => {
         person.id,
         INTERACTION_TYPES.MHInteractionTypeNote,
         text,
-        organization.id,
+        undefined,
       );
     });
   });

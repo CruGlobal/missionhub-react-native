@@ -10,6 +10,7 @@ import Header from '../../../components/Header';
 import DeprecatedBackButton from '../../DeprecatedBackButton';
 import { organizationSelector } from '../../../selectors/organizations';
 import { personSelector } from '../../../selectors/people';
+import { getPersonDetails } from '../../../actions/person';
 
 import styles from './styles';
 
@@ -22,30 +23,30 @@ class UnassignedPersonScreen extends Component {
 
   loadFeed = async () => {
     // @ts-ignore
-    const { dispatch, person, organization } = this.props;
-    const results = await dispatch(getGroupJourney(person.id, organization.id));
+    const { dispatch, person } = this.props;
+    dispatch(getPersonDetails(person.id, undefined));
+    const results = await dispatch(getGroupJourney(person.id, undefined));
     this.setState({ activity: results });
   };
 
   render() {
     // @ts-ignore
-    const { organization, person, me, onAssign } = this.props;
+    const { person, me, onAssign } = this.props;
     const { activity } = this.state;
 
     return (
       <View style={styles.pageContainer}>
-        <Header left={<DeprecatedBackButton />} title={organization.name} />
+        <Header left={<DeprecatedBackButton />} />
         <GroupsContactList
           activity={activity}
           person={person}
-          organization={organization}
           myId={me.id}
           onAssign={onAssign}
         />
         <JourneyCommentBox
           onSubmit={this.loadFeed}
           person={person}
-          organization={organization}
+          organization={null}
         />
       </View>
     );

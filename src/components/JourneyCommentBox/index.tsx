@@ -19,11 +19,7 @@ interface JourneyCommentBoxProps {
   onSubmit?: () => void;
 }
 
-const JourneyCommentBox = ({
-  person,
-  organization,
-  onSubmit,
-}: JourneyCommentBoxProps) => {
+const JourneyCommentBox = ({ person, onSubmit }: JourneyCommentBoxProps) => {
   const { t } = useTranslation('actions');
   const dispatch = useDispatch();
 
@@ -35,7 +31,7 @@ const JourneyCommentBox = ({
         person.id,
         INTERACTION_TYPES.MHInteractionTypeNote,
         text,
-        organization ? organization.id : undefined,
+        undefined,
       ),
     );
     onSubmit && onSubmit();

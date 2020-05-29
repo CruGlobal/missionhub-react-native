@@ -104,8 +104,7 @@ export const PersonSideMenu = () => {
     showAssign
       ? {
           label: t('assign'),
-          action: () =>
-            dispatch(assignContactAndPickStage(person, organization)),
+          action: () => dispatch(assignContactAndPickStage(person)),
         }
       : null,
     showUnassign
