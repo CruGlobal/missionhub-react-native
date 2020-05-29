@@ -11,7 +11,7 @@ import {
   NotificationTriggerEnum,
 } from '../../../__generated__/globalTypes';
 import { GetNotifications_notifications_nodes as Notification } from '../../containers/NotificationCenterScreen/__generated__/GetNotifications';
-import { mapMessageVariablePostTypeToFeedType } from '../../utils/common';
+import { mapPostTypeToFeedType } from '../../utils/common';
 
 import styles from './styles';
 
@@ -57,7 +57,7 @@ const NotificationCenterItem = ({ event }: { event: Notification }) => {
   };
   const iconType =
     (messageVariables.postType &&
-      mapMessageVariablePostTypeToFeedType(messageVariables.postType)) ||
+      mapPostTypeToFeedType(messageVariables.postType)) ||
     FeedItemSubjectTypeEnum.STORY;
 
   // const buildReportedMessage = () => (
