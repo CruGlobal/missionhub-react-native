@@ -4,7 +4,6 @@ import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
-import Video from 'react-native-video';
 
 import {
   ACTIONS,
@@ -19,6 +18,7 @@ import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
+import VideoPlayer from '../../../components/VideoPlayer';
 import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
@@ -85,7 +85,9 @@ export const CreatePostScreen = () => {
   );
   const [text, changeText] = useState<string>(post?.content || '');
   const [mediaType, changeMediaType] = useState<MediaType>('NONE');
-  const [mediaData, changeMediaData] = useState<string | null>(null);
+  const [mediaData, changeMediaData] = useState<string | null>(
+    post?.mediaExpiringUrl || null,
+  );
   const [mediaHeight, changeMediaHeight] = useState<number>(0);
 
   const analyticsPermissionType = useSelector<
@@ -141,14 +143,22 @@ export const CreatePostScreen = () => {
           input: {
             id: post.id,
             content: text,
-            media: mediaData === post.mediaExpiringUrl ? undefined : mediaData,
+            media:
+              mediaType === 'IMAGE' && mediaData !== post.mediaExpiringUrl
+                ? mediaData
+                : undefined,
           },
         },
       });
     } else {
       createPost({
         variables: {
-          input: { content: text, communityId, postType, media: mediaData },
+          input: {
+            content: text,
+            communityId,
+            postType,
+            media: mediaType === 'IMAGE' ? mediaData : null,
+          },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -201,10 +211,7 @@ export const CreatePostScreen = () => {
 
   const renderVideo = () =>
     mediaData ? (
-      <Video
-        source={{ uri: mediaData }}
-        style={{ width: theme.fullWidth, height: mediaHeight }}
-      />
+      <VideoPlayer uri={mediaData} style={{ height: mediaHeight }} />
     ) : null;
 
   const renderImage = () =>

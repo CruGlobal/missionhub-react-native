@@ -1,11 +1,17 @@
 import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 import Video from 'react-native-video';
 
 import { Flex } from '../common';
 
 import styles from './styles';
 
-const VideoPlayer = ({ uri }: { uri: string }) => {
+interface VideoPlayerProps {
+  uri: string;
+  style?: StyleProp<ViewStyle>;
+}
+
+const VideoPlayer = ({ uri, style }: VideoPlayerProps) => {
   return (
     <Flex style={styles.videoContainer}>
       <Video
@@ -14,7 +20,7 @@ const VideoPlayer = ({ uri }: { uri: string }) => {
         }}
         controls={true}
         paused={true}
-        style={styles.videoPlayer}
+        style={[styles.videoPlayer, style]}
       />
     </Flex>
   );
