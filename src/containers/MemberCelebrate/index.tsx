@@ -3,7 +3,7 @@ import { connect } from 'react-redux-legacy';
 
 import { TrackStateContext } from '../../actions/analytics';
 import { getAnalyticsAssignmentType } from '../../utils/analytics';
-import CelebrateFeed from '../CelebrateFeed';
+import { CelebrateFeed } from '../CelebrateFeed';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { organizationSelector } from '../../selectors/organizations';
 import { Organization, OrganizationsState } from '../../reducers/organizations';

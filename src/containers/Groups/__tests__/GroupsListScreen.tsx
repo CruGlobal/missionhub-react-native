@@ -7,7 +7,7 @@ import { useQuery } from '@apollo/react-hooks';
 import GroupsListScreen from '../GroupsListScreen';
 import { GET_COMMUNITIES_QUERY } from '../queries';
 import { renderWithContext } from '../../../../testUtils';
-import { navigatePush, navigateToCommunity } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../../utils/common';
 import { CREATE_GROUP_SCREEN } from '../CreateGroupScreen';
@@ -21,6 +21,7 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
+import { COMMUNITY_TABS } from '../../Communities/Community/constants';
 
 jest.mock('react-navigation-hooks');
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
@@ -36,7 +37,6 @@ const swipe = { groupScrollToId: null };
 const initialState = { auth, swipe };
 
 const navigatePushResponse = { type: 'navigate push' };
-const navigateToCommunityResponse = { type: 'navigate to community' };
 const trackActionResponse = { type: 'track action' };
 const openMainMenuResponse = { type: 'open main menu' };
 const keyExtractorResponse = { type: 'key extractor' };
@@ -44,9 +44,6 @@ const resetScrollGroupsResponse = { type: 'reset scroll groups' };
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
-  (navigateToCommunity as jest.Mock).mockReturnValue(
-    navigateToCommunityResponse,
-  );
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (keyExtractorId as jest.Mock).mockReturnValue(keyExtractorResponse);
@@ -102,12 +99,14 @@ describe('GroupsListScreen', () => {
 
       fireEvent(groupCard, 'onPress', community);
 
-      expect(navigateToCommunity).toHaveBeenCalledWith(community);
+      expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+        communityId: community.id,
+      });
       expect(trackActionWithoutData).toHaveBeenCalledWith(
         ACTIONS.SELECT_COMMUNITY,
       );
       expect(store.getActions()).toEqual([
-        navigateToCommunityResponse,
+        navigatePushResponse,
         trackActionResponse,
       ]);
     });

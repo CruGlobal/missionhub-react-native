@@ -1,26 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should filter out contact_count and uncontacted_count for group 1`] = `
-Object {
-  "interactions": Object {
-    "-456": Object {
-      "P1W": Array [
-        Object {
-          "iconName": "spiritualConversationIcon",
-          "id": "2",
-          "num": 1,
-          "translationKey": "interactionSpiritualConversation",
-        },
-      ],
-    },
-  },
-  "summary": Object {},
-}
-`;
-
 exports[`should update global impact reports 1`] = `
 Object {
-  "interactions": Object {},
   "summary": Object {
     "-": Object {
       "organization_id": null,
@@ -33,7 +14,6 @@ Object {
 
 exports[`should update group impact reports 1`] = `
 Object {
-  "interactions": Object {},
   "summary": Object {
     "-1234": Object {
       "organization_id": "1234",
@@ -44,28 +24,8 @@ Object {
 }
 `;
 
-exports[`should update interaction reports 1`] = `
-Object {
-  "interactions": Object {
-    "123-456": Object {
-      "P1W": Array [
-        Object {
-          "iconName": "peopleIcon",
-          "id": "100",
-          "num": 1,
-          "requestFieldName": "contact_count",
-          "translationKey": "interactionAssignedContacts",
-        },
-      ],
-    },
-  },
-  "summary": Object {},
-}
-`;
-
 exports[`should update person impact reports 1`] = `
 Object {
-  "interactions": Object {},
   "summary": Object {
     "123-": Object {
       "organization_id": null,

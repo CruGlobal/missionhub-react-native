@@ -1,7 +1,15 @@
 /* eslint max-params: 0, max-lines-per-function: 0 */
 
-import React, { Component } from 'react';
-import { View, Text, ScrollView, Dimensions } from 'react-native';
+import React, { Component, ReactNode, ComponentType } from 'react';
+import {
+  View,
+  Text,
+  ScrollView,
+  Dimensions,
+  LayoutChangeEvent,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+} from 'react-native';
 import { connect } from 'react-redux-legacy';
 // eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
@@ -18,7 +26,16 @@ import styles from './styles';
 
 // @ts-ignore
 @connect()
-export class SwipeTabMenu extends Component {
+export class SwipeTabMenu extends Component<{
+  tabs: { name: string; navigationAction: string }[];
+  isLight?: boolean;
+  navigation: {
+    state: {
+      index: number;
+      params: { initialTab?: string };
+    };
+  };
+}> {
   state = {
     // TODO: tab titles should be equidistant from each other, not equally sized
     maxMenuItemWidth: 1,
@@ -28,9 +45,7 @@ export class SwipeTabMenu extends Component {
 
   componentDidMount() {
     const {
-      // @ts-ignore
       tabs,
-      // @ts-ignore
       navigation: {
         state: {
           params: { initialTab },
@@ -40,7 +55,6 @@ export class SwipeTabMenu extends Component {
 
     if (initialTab) {
       const initialIndex = tabs.findIndex(
-        // @ts-ignore
         tab => tab.navigationAction === initialTab,
       );
 
@@ -49,14 +63,12 @@ export class SwipeTabMenu extends Component {
   }
 
   componentDidUpdate() {
-    // @ts-ignore
     this.scrollToTab(this.props.navigation.state.index, false);
   }
 
   // Figure out width of largest text element in menu and make the rest the same size
   // TODO: figure out if there is a way to avoid flicker. Could hard code but that wouldn't work well with i18n
-  // @ts-ignore
-  onLayoutMenuItem = event => {
+  onLayoutMenuItem = (event: LayoutChangeEvent) => {
     const { width } = event.nativeEvent.layout;
     const { maxMenuItemWidth } = this.state;
 
@@ -67,17 +79,19 @@ export class SwipeTabMenu extends Component {
     }
   };
 
-  // @ts-ignore
-  onScrollFinishNavigate = event => {
+  onScrollFinishNavigate = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
     const { x } = event.nativeEvent.contentOffset;
     const index = this.offsetToIndex(x);
     this.navigateToTab(index);
   };
 
-  // @ts-ignore
-  navigateToTab(index) {
-    // @ts-ignore
-    const { tabs, dispatch, navigation } = this.props;
+  navigateToTab(index: number) {
+    const {
+      tabs,
+      // @ts-ignore
+      dispatch,
+      navigation,
+    } = this.props;
 
     if (index !== navigation.state.index && tabs[index]) {
       dispatch(
@@ -93,8 +107,7 @@ export class SwipeTabMenu extends Component {
     });
   }
 
-  // @ts-ignore
-  scrollToTab = (index, navigate = true) => {
+  scrollToTab = (index: number, navigate = true) => {
     this.scrollView &&
       // @ts-ignore
       this.scrollView.scrollTo({
@@ -107,8 +120,7 @@ export class SwipeTabMenu extends Component {
     navigate && isAndroid && this.navigateToTab(index);
   };
 
-  // @ts-ignore
-  offsetToIndex(x) {
+  offsetToIndex(x: number) {
     // Doing the math on Android doesn't result in integers so we round
     // Android isn't using contentInset so we don't have to account for it
     return Math.round(
@@ -117,8 +129,7 @@ export class SwipeTabMenu extends Component {
     );
   }
 
-  // @ts-ignore
-  indexToOffset(index) {
+  indexToOffset(index: number) {
     return (
       index * this.state.maxMenuItemWidth -
       (isAndroid ? 0 : this.getScrollInsetDistance())
@@ -135,7 +146,6 @@ export class SwipeTabMenu extends Component {
   ref = ref => (this.scrollView = ref);
 
   render() {
-    // @ts-ignore
     const { tabs, navigation, isLight } = this.props;
     const { maxMenuItemWidth, previousIndex } = this.state;
     const insetDistance = this.getScrollInsetDistance();
@@ -164,8 +174,6 @@ export class SwipeTabMenu extends Component {
           decelerationRate={'fast'}
           onMomentumScrollEnd={this.onScrollFinishNavigate}
         >
-          {/* 
-          // @ts-ignore */}
           {tabs.map((tab, index) => (
             <Touchable
               key={tab.navigationAction}
@@ -211,18 +219,20 @@ export class SwipeTabMenu extends Component {
 }
 
 export const generateSwipeTabMenuNavigator = (
-  // @ts-ignore
-  tabs,
-  // @ts-ignore
-  HeaderComponent,
-  // @ts-ignore
-  isMember,
-  // @ts-ignore
-  isLight,
+  tabs: {
+    name: string;
+    navigationAction: string;
+    component: ReactNode;
+  }[],
+  HeaderComponent: ComponentType<{
+    navigation: { state: { params: unknown } };
+    isMember: boolean;
+  }>,
+  isMember: boolean,
+  isLight: boolean,
 ) =>
   createMaterialTopTabNavigator(
     tabs.reduce(
-      // @ts-ignore
       (acc, tab) => ({
         ...acc,
         [tab.navigationAction]: tab.component,
@@ -237,8 +247,6 @@ export const generateSwipeTabMenuNavigator = (
       tabBarComponent: ({ navigation }) => (
         <ViewOverflow style={{ zIndex: 100 }}>
           <HeaderComponent navigation={navigation} isMember={isMember} />
-          {/* 
-          // @ts-ignore */}
           <SwipeTabMenu navigation={navigation} tabs={tabs} isLight={isLight} />
         </ViewOverflow>
       ),

@@ -1,93 +1,83 @@
-/* eslint complexity: 0, max-lines: 0 */
+import React, { useEffect } from 'react';
+import { View, Image } from 'react-native';
+import { useTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
 
-import React, { Component } from 'react';
-import { ScrollView, Image } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import PropTypes from 'prop-types';
-import { withTranslation } from 'react-i18next';
-
+import { getImpactSummary } from '../../actions/impact';
+import { Flex, Text } from '../../components/common';
 import {
-  getPeopleInteractionsReport,
-  getImpactSummary,
-} from '../../actions/impact';
-import { Flex, Text, Button, Icon } from '../../components/common';
-import {
-  INTERACTION_TYPES,
   GLOBAL_COMMUNITY_ID,
   ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
-import {
-  impactInteractionsSelector,
-  impactSummarySelector,
-} from '../../selectors/impact';
+import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
-import { orgIsPersonalMinistry } from '../../utils/common';
 import {
   getAnalyticsAssignmentType,
   getAnalyticsPermissionType,
 } from '../../utils/analytics';
 import { Person } from '../../reducers/people';
-import Analytics from '../Analytics';
+import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
+import { RootState } from '../../reducers';
+import { orgIsPersonalMinistry } from '../../utils/common';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
-const reportPeriods = [
-  {
-    id: 1,
-    text: '1w',
-    period: 'P1W',
-  },
-  {
-    id: 2,
-    text: '1m',
-    period: 'P1M',
-  },
-  {
-    id: 3,
-    text: '3m',
-    period: 'P3M',
-  },
-  {
-    id: 4,
-    text: '6m',
-    period: 'P6M',
-  },
-  {
-    id: 5,
-    text: '1y',
-    period: 'P1Y',
-  },
-];
+interface ImpactViewProps {
+  person?: Person;
+  orgId?: string;
+}
 
-// @ts-ignore
-@withTranslation('impact')
-export class ImpactView extends Component {
-  state = {
-    period: 'P1W',
-  };
+const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
+  const { t } = useTranslation('impact');
+  const dispatch = useDispatch();
+  const myId = useMyId();
+  const isMe = useIsMe(person.id);
 
-  componentDidMount() {
-    const {
-      // @ts-ignore
-      dispatch,
-      // @ts-ignore
-      person = {},
-      // @ts-ignore
-      organization,
-      // @ts-ignore
-      isPersonalMinistryMe,
-      // @ts-ignore
-      isUserCreatedOrg,
-      // @ts-ignore
-      myId,
-      // @ts-ignore
-      isGlobalCommunity,
-    } = this.props;
+  const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
 
+  const organization = useSelector(({ organizations }: RootState) =>
+    organizationSelector({ organizations }, { orgId }),
+  );
+
+  const isPersonalMinistryMe = isMe && orgIsPersonalMinistry(organization);
+  const isOrgImpact = !person.id;
+  const isUserCreatedOrg = organization.user_created;
+  // Impact summary isn't scoped by org unless showing org summary. See above comment
+  const impact = useSelector((state: RootState) =>
+    impactSummarySelector(state, {
+      person: isGlobalCommunity ? { id: myId } : person,
+      organization: person.id || isGlobalCommunity ? undefined : organization,
+    }),
+  );
+  const globalImpact = useSelector((state: RootState) =>
+    impactSummarySelector(state, {}),
+  );
+
+  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
+    person.id ? getAnalyticsAssignmentType(person, auth, organization) : '',
+  );
+  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
+    !person.id ? getAnalyticsPermissionType(auth, organization) : '',
+  );
+  const screenSection = isOrgImpact ? 'community' : 'person';
+  const screenSubsection = isOrgImpact
+    ? 'impact'
+    : isMe && !isPersonalMinistryMe
+    ? 'my impact'
+    : 'impact';
+  useAnalytics([screenSection, screenSubsection], {
+    screenContext: {
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+    },
+  });
+
+  useEffect(() => {
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(
@@ -96,35 +86,10 @@ export class ImpactView extends Component {
         person.id || isGlobalCommunity ? undefined : organization.id,
       ),
     );
-    if (isPersonalMinistryMe || isUserCreatedOrg) {
-      // @ts-ignore
-      dispatch(getImpactSummary()); // Get global impact by calling without person or org
-    } else {
-      this.getInteractionReport();
-    }
-  }
+    dispatch(getImpactSummary()); // Get global impact by calling without person or org
+  }, []);
 
-  getInteractionReport() {
-    // @ts-ignore
-    const { dispatch, person = {}, organization } = this.props;
-
-    dispatch(
-      getPeopleInteractionsReport(
-        person.id,
-        organization.id,
-        this.state.period,
-      ),
-    );
-  }
-
-  // @ts-ignore
-  handleChangePeriod = period => {
-    this.setState({ period }, () => {
-      this.getInteractionReport();
-    });
-  };
-
-  buildImpactSentence(
+  const buildImpactSentence = (
     {
       steps_count = 0,
       receivers_count = 0,
@@ -132,19 +97,7 @@ export class ImpactView extends Component {
       pathway_moved_count = 0,
     },
     paramGlobal = false,
-  ) {
-    const {
-      // @ts-ignore
-      t,
-      // @ts-ignore
-      person = {},
-      // @ts-ignore
-      isMe,
-      // @ts-ignore
-      isUserCreatedOrg,
-      // @ts-ignore
-      isGlobalCommunity,
-    } = this.props;
+  ) => {
     const initiator = paramGlobal
       ? '$t(users)'
       : isMe || isGlobalCommunity
@@ -154,13 +107,16 @@ export class ImpactView extends Component {
       : steps_count === 0
       ? '$t(we)'
       : '$t(togetherWe)';
-    // @ts-ignore
-    const context = c =>
+
+    const context = (c: number) =>
       c === 0 ? (paramGlobal ? 'emptyGlobal' : 'empty') : '';
+
     const isSpecificContact =
       !paramGlobal && !isMe && !isGlobalCommunity && person.id;
+
     const hideStageSentence =
       !paramGlobal && isUserCreatedOrg && pathway_moved_count === 0;
+
     const year = new Date().getFullYear();
 
     const stepsSentenceOptions = {
@@ -190,193 +146,27 @@ export class ImpactView extends Component {
     return `${stepsStr[0].toUpperCase() + stepsStr.slice(1)}${
       hideStageSentence ? '' : `\n\n${t('stageSentence', stageSentenceOptions)}`
     }`;
-  }
-
-  renderContactReport() {
-    // @ts-ignore
-    const { t, interactions } = this.props;
-
-    const interactionsReport =
-      interactions[this.state.period] ||
-      // @ts-ignore
-      Object.values(INTERACTION_TYPES).filter(type => !type.hideReport);
-
-    return (
-      <Flex style={styles.interactionsWrap} direction="column">
-        <Flex
-          style={{ paddingBottom: 30 }}
-          align="center"
-          justify="center"
-          direction="row"
-        >
-          {reportPeriods.map(p => {
-            return (
-              <Button
-                key={p.id}
-                text={p.text}
-                pressProps={[p.period]}
-                onPress={this.handleChangePeriod}
-                style={
-                  this.state.period === p.period
-                    ? styles.activeButton
-                    : styles.periodButton
-                }
-                buttonTextStyle={styles.buttonText}
-              />
-            );
-          })}
-        </Flex>
-        {/* 
-        // @ts-ignore */}
-        {interactionsReport.map(i => {
-          return (
-            <Flex
-              align="center"
-              style={styles.interactionRow}
-              key={i.id}
-              direction="row"
-            >
-              <Flex value={1}>
-                <Icon type="MissionHub" style={styles.icon} name={i.iconName} />
-              </Flex>
-              <Flex value={4}>
-                <Text style={styles.interactionText}>
-                  {t(i.translationKey)}
-                </Text>
-              </Flex>
-              <Flex value={1} justify="center" align="end">
-                <Text style={styles.interactionNumber}>{i.num || '-'}</Text>
-              </Flex>
-            </Flex>
-          );
-        })}
-      </Flex>
-    );
-  }
-
-  render() {
-    const {
-      // @ts-ignore
-      isMe,
-      // @ts-ignore
-      globalImpact,
-      // @ts-ignore
-      impact,
-      // @ts-ignore
-      isPersonalMinistryMe,
-      // @ts-ignore
-      isUserCreatedOrg,
-      // @ts-ignore
-      isOrgImpact,
-      // @ts-ignore
-      organization,
-      // @ts-ignore
-      isGlobalCommunity,
-      // @ts-ignore
-      analyticsAssignmentType,
-      // @ts-ignore
-      analyticsPermissionType,
-    } = this.props;
-
-    const showGlobalImpact =
-      isPersonalMinistryMe ||
-      (isUserCreatedOrg && isOrgImpact) ||
-      isGlobalCommunity;
-    const showInteractionReport = !isPersonalMinistryMe && !isUserCreatedOrg;
-
-    const screenSection = isOrgImpact ? 'community' : 'person';
-    const screenSubsection = isOrgImpact
-      ? 'impact'
-      : isMe && !isPersonalMinistryMe
-      ? 'my impact'
-      : 'impact';
-
-    return (
-      <ScrollView style={styles.container} bounces={false}>
-        <Analytics
-          screenName={[screenSection, screenSubsection]}
-          screenContext={{
-            [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-          }}
-        />
-        {organization.id !== 'person' ? (
-          <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
-        ) : null}
-        <Flex style={styles.topSection}>
-          <Text style={styles.text}>{this.buildImpactSentence(impact)}</Text>
-        </Flex>
-        <Image
-          style={styles.image}
-          source={require('../../../assets/images/impactBackground.png')}
-        />
-        <Flex
-          style={
-            showGlobalImpact ? styles.bottomSection : styles.interactionSection
-          }
-        >
-          {showGlobalImpact ? (
-            <Text style={styles.text}>
-              {this.buildImpactSentence(globalImpact, true)}
-            </Text>
-          ) : showInteractionReport ? (
-            this.renderContactReport()
-          ) : null}
-        </Flex>
-      </ScrollView>
-    );
-  }
-}
-
-// @ts-ignore
-ImpactView.propTypes = {
-  person: PropTypes.object,
-  organization: PropTypes.object,
-};
-
-export const mapStateToProps = (
-  // @ts-ignore
-  { impact, auth, organizations },
-  { person = {}, orgId = 'personal' }: { person?: Person; orgId?: string },
-) => {
-  // @ts-ignore
-  const personId = person.id;
-  const myId = auth.person.id;
-  const isMe = personId === myId;
-  const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
-
-  const organization = organizationSelector({ organizations }, { orgId });
-
-  return {
-    isMe,
-    isPersonalMinistryMe: isMe && orgIsPersonalMinistry(organization),
-    isOrgImpact: !personId,
-    isUserCreatedOrg: organization.user_created,
-    // Impact summary isn't scoped by org unless showing org summary. See above comment
-    impact: impactSummarySelector(
-      { impact },
-      // @ts-ignore
-      {
-        person: isGlobalCommunity ? { id: myId } : person,
-        organization: personId || isGlobalCommunity ? undefined : organization,
-      },
-    ),
-    interactions: impactInteractionsSelector(
-      { impact },
-      // @ts-ignore
-      { person, organization },
-    ),
-    globalImpact: impactSummarySelector({ impact }),
-    isGlobalCommunity,
-    myId,
-    organization,
-    analyticsAssignmentType: person.id
-      ? getAnalyticsAssignmentType(person, auth, organization)
-      : '',
-    analyticsPermissionType: !personId
-      ? getAnalyticsPermissionType(auth, organization)
-      : '',
   };
+
+  return (
+    <View style={styles.container}>
+      {organization.id !== 'personal' ? (
+        <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
+      ) : null}
+      <Flex style={styles.topSection}>
+        <Text style={styles.text}>{buildImpactSentence(impact)}</Text>
+      </Flex>
+      <Image
+        style={styles.image}
+        source={require('../../../assets/images/impactBackground.png')}
+      />
+      <Flex style={styles.bottomSection}>
+        <Text style={styles.text}>
+          {buildImpactSentence(globalImpact, true)}
+        </Text>
+      </Flex>
+    </View>
+  );
 };
 
-export default connect(mapStateToProps)(ImpactView);
+export default ImpactView;

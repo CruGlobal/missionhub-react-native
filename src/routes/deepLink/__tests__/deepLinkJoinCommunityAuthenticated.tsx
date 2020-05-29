@@ -6,10 +6,11 @@ import { DeepLinkJoinCommunityAuthenticatedScreens } from '../deepLinkJoinCommun
 import { renderShallow } from '../../../../testUtils';
 import callApi from '../../../actions/api';
 import { loadHome } from '../../../actions/auth/userData';
-import { navigateToCommunity } from '../../../actions/navigation';
 import { joinCommunity } from '../../../actions/organizations';
 import { setScrollGroups } from '../../../actions/swipe';
 import { DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN } from '../../../containers/Groups/DeepLinkConfirmJoinGroupScreen';
+import { navigatePush } from '../../../actions/navigation';
+import { COMMUNITY_TABS } from '../../../containers/Communities/Community/constants';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/auth/userData');
@@ -29,20 +30,15 @@ const store = configureStore([thunk])({
 const loadHomeResponse = { type: 'load home' };
 const joinCommunityResponse = { type: 'join community' };
 const setScrollGroupsResponse = { type: 'set scroll groups' };
-const navigateToCommunityResponse = { type: 'navigate to community' };
+const navigatePushResponse = { type: 'navigatePush' };
 
 beforeEach(() => {
   store.clearActions();
-  // @ts-ignore
-  callApi.mockReturnValue(() => Promise.resolve());
-  // @ts-ignore
-  loadHome.mockReturnValue(loadHomeResponse);
-  // @ts-ignore
-  joinCommunity.mockReturnValue(joinCommunityResponse);
-  // @ts-ignore
-  setScrollGroups.mockReturnValue(setScrollGroupsResponse);
-  // @ts-ignore
-  navigateToCommunity.mockReturnValue(navigateToCommunityResponse);
+  (callApi as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (loadHome as jest.Mock).mockReturnValue(loadHomeResponse);
+  (joinCommunity as jest.Mock).mockReturnValue(joinCommunityResponse);
+  (setScrollGroups as jest.Mock).mockReturnValue(setScrollGroupsResponse);
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResponse);
 });
 
 describe('JoinGroupScreen next', () => {
@@ -68,11 +64,15 @@ describe('JoinGroupScreen next', () => {
         }),
     );
 
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+      communityId: community.id,
+    });
+
     expect(store.getActions()).toEqual([
       joinCommunityResponse,
       loadHomeResponse,
       setScrollGroupsResponse,
-      navigateToCommunityResponse,
+      navigatePushResponse,
     ]);
   });
 });

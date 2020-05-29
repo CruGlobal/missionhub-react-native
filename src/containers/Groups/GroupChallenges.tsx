@@ -21,6 +21,9 @@ import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ChallengeItem } from '../../components/ChallengeStats';
+import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
+import { AuthState } from '../../reducers/auth';
+import { OrganizationsState } from '../../reducers/organizations';
 
 import styles from './styles';
 
@@ -88,8 +91,7 @@ class GroupChallenges extends Component {
     const canCreate = isAdminOrOwner(myOrgPermissions);
 
     return (
-      // @ts-ignore
-      <View flex={1}>
+      <>
         <Analytics
           screenName={['community', 'challenges']}
           screenContext={{
@@ -97,26 +99,45 @@ class GroupChallenges extends Component {
           }}
         />
         <View style={styles.cardList}>
-          <ChallengeFeed
-            organization={organization}
-            items={challengeItems}
-            loadMoreItemsCallback={this.loadItems}
-            refreshCallback={this.refreshItems}
-            refreshing={refreshing}
-            extraPadding={canCreate}
-          />
+          <CommunitiesCollapsibleHeaderContext.Consumer>
+            {({ collapsibleScrollViewProps }) => (
+              <ChallengeFeed
+                organization={organization}
+                items={challengeItems}
+                loadMoreItemsCallback={this.loadItems}
+                refreshCallback={this.refreshItems}
+                refreshing={refreshing}
+                extraPadding={canCreate}
+                collapsibleScrollViewProps={collapsibleScrollViewProps}
+              />
+            )}
+          </CommunitiesCollapsibleHeaderContext.Consumer>
         </View>
         {canCreate ? (
           <BottomButton onPress={this.create} text={t('create')} />
         ) : null}
-      </View>
+      </>
     );
   }
 }
 
-// @ts-ignore
-const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
-  const organization = organizationSelector({ organizations }, { orgId });
+const mapStateToProps = (
+  {
+    auth,
+    organizations,
+  }: { auth: AuthState; organizations: OrganizationsState },
+  {
+    navigation: {
+      state: {
+        params: { communityId = 'personal' },
+      },
+    },
+  }: { navigation: { state: { params: { communityId?: string } } } },
+) => {
+  const organization = organizationSelector(
+    { organizations },
+    { orgId: communityId },
+  );
 
   return {
     organization,
@@ -137,3 +158,5 @@ const mapStateToProps = ({ auth, organizations }, { orgId = 'personal' }) => {
 };
 
 export default connect(mapStateToProps)(GroupChallenges);
+
+export const COMMUNITY_CHALLENGES = 'nav/COMMUNITY_CHALLENGES';

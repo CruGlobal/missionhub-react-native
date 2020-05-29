@@ -9,7 +9,7 @@ import { checkNotifications } from '../../../actions/notifications';
 import { joinCommunity } from '../../../actions/organizations';
 import { setScrollGroups } from '../../../actions/swipe';
 import { navigateToMainTabs } from '../../../actions/navigation';
-import { NOTIFICATION_PROMPT_TYPES, GROUPS_TAB } from '../../../constants';
+import { NOTIFICATION_PROMPT_TYPES, COMMUNITIES_TAB } from '../../../constants';
 
 jest.mock('../../../actions/api');
 jest.mock('../../../actions/notifications');
@@ -79,7 +79,7 @@ describe('NotificationPrimerScreen next', () => {
 
     await store.dispatch(next());
 
-    expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
+    expect(navigateToMainTabs).toHaveBeenCalledWith(COMMUNITIES_TAB);
   });
 });
 
@@ -90,6 +90,6 @@ describe('NotificationOffScreen next', () => {
 
     await store.dispatch(next());
 
-    expect(navigateToMainTabs).toHaveBeenCalledWith(GROUPS_TAB);
+    expect(navigateToMainTabs).toHaveBeenCalledWith(COMMUNITIES_TAB);
   });
 });

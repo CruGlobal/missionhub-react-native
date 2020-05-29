@@ -132,7 +132,6 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -752,7 +751,6 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1372,7 +1370,6 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -1990,7 +1987,6 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -2608,7 +2604,6 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -3226,7 +3221,6 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -3846,7 +3840,6 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -4466,7 +4459,6 @@ exports[`render no reminder in props renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]
@@ -5086,7 +5078,6 @@ exports[`render reminder in props renders correctly 1`] = `
             Object {},
             Object {
               "alignItems": "center",
-              "flex": 5,
               "justifyContent": "center",
             },
           ]

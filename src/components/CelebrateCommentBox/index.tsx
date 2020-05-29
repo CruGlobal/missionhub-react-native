@@ -13,7 +13,7 @@ import {
   CelebrateCommentsState,
   CelebrateComment,
 } from '../../reducers/celebrateComments';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
 import { Organization } from '../../reducers/organizations';
 
 import styles from './styles';

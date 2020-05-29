@@ -17,13 +17,11 @@ beforeEach(() => {
 
 describe('PopupMenu iOS', () => {
   it('renders correctly', () => {
-    // @ts-ignore
     renderWithContext(<PopupMenu actions={actions} />).snapshot();
   });
 
   it('renders with children', () => {
     renderWithContext(
-      // @ts-ignore
       <PopupMenu actions={actions}>
         <View />
       </PopupMenu>,
@@ -33,7 +31,6 @@ describe('PopupMenu iOS', () => {
   it('renders with button and icon props', () => {
     renderWithContext(
       <PopupMenu
-        // @ts-ignore
         actions={actions}
         buttonProps={buttonProps}
         iconProps={iconProps}
@@ -43,14 +40,12 @@ describe('PopupMenu iOS', () => {
 
   it('renders disabled', () => {
     renderWithContext(
-      // @ts-ignore
       <PopupMenu actions={actions} disabled={true} />,
     ).snapshot();
   });
 
   it('renders for long press trigger', () => {
     renderWithContext(
-      // @ts-ignore
       <PopupMenu actions={actions} triggerOnLongPress={true} />,
     ).snapshot();
   });
@@ -62,7 +57,6 @@ describe('PopupMenu iOS', () => {
 
     it('should call action sheet', () => {
       const { getByTestId } = renderWithContext(
-        // @ts-ignore
         <PopupMenu actions={actions} />,
       );
 
@@ -103,7 +97,6 @@ describe('PopupMenu iOS', () => {
 
     it('should call action sheet on long press', () => {
       const { getByTestId } = renderWithContext(
-        // @ts-ignore
         <PopupMenu actions={actions} triggerOnLongPress={true} />,
       );
 

@@ -37,7 +37,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
       }
     }
   >
-    <withI18nextTranslation(ImagePicker)
+    <ImagePicker
       onSelectImage={[Function]}
     >
       <Flex
@@ -61,7 +61,7 @@ exports[`CreateGroupScreen renders correctly 1`] = `
           }
         />
       </Flex>
-    </withI18nextTranslation(ImagePicker)>
+    </ImagePicker>
     <KeyboardAvoidingView
       enabled={true}
       keyboardVerticalOffset={60}
@@ -158,7 +158,7 @@ exports[`CreateGroupScreen should disable the button when creating a community 1
       }
     }
   >
-    <withI18nextTranslation(ImagePicker)
+    <ImagePicker
       onSelectImage={[Function]}
     >
       <Flex
@@ -182,7 +182,7 @@ exports[`CreateGroupScreen should disable the button when creating a community 1
           }
         />
       </Flex>
-    </withI18nextTranslation(ImagePicker)>
+    </ImagePicker>
     <KeyboardAvoidingView
       enabled={true}
       keyboardVerticalOffset={60}
@@ -279,7 +279,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
       }
     }
   >
-    <withI18nextTranslation(ImagePicker)
+    <ImagePicker
       onSelectImage={[Function]}
     >
       <Flex
@@ -311,7 +311,7 @@ exports[`CreateGroupScreen should update the image 1`] = `
           }
         />
       </Flex>
-    </withI18nextTranslation(ImagePicker)>
+    </ImagePicker>
     <KeyboardAvoidingView
       enabled={true}
       keyboardVerticalOffset={60}

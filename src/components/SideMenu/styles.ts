@@ -4,7 +4,7 @@ import theme, { COLORS } from '../../theme';
 
 export default StyleSheet.create({
   background: {
-    backgroundColor: COLORS.GREY,
+    backgroundColor: COLORS.CAVERN_GREY,
     flex: 1,
   },
   buttonContainer: {

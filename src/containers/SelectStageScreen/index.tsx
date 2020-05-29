@@ -10,7 +10,7 @@ import { useNavigationState, useFocusEffect } from 'react-navigation-hooks';
 import Carousel from 'react-native-snap-carousel';
 
 import { Text, Button } from '../../components/common';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import LANDSCAPE from '../../../assets/images/landscapeStagesImage.png';
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -223,7 +223,7 @@ const SelectStageScreen = ({
         ]}
       />
       <View style={styles.container}>
-        <Header left={<BackButton />} />
+        <Header left={<DeprecatedBackButton />} />
         <View style={styles.content}>
           <Text style={styles.title}>{headerText}</Text>
           {stages ? (

@@ -10,8 +10,8 @@ import {
 } from '../../../actions/celebrateComments';
 import { celebrateCommentsCommentSelector } from '../../../selectors/celebrateComments';
 import { Organization } from '../../../reducers/organizations';
-import { CELEBRATE_ITEM_FRAGMENT } from '../../CelebrateItem/queries';
-import { GetCelebrateFeed_community_celebrationItems_nodes as CelebrateItem } from '../../../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CELEBRATE_ITEM_FRAGMENT } from '../../CommunityFeedItem/queries';
+import { CelebrateItem } from '../../CommunityFeedItem/__generated__/CelebrateItem';
 
 import CelebrateCommentBox from '..';
 

@@ -10,7 +10,7 @@ exports[`Contact should render correctly 1`] = `
   }
 >
   <Header
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     title="Test Org"
   />
   <GroupsContactList

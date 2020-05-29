@@ -8,7 +8,7 @@ import { navigateBack } from '../../actions/navigation';
 import { deleteContactAssignment } from '../../actions/person';
 import { Flex, Text, Button, Input } from '../../components/common';
 import Header from '../../components/Header';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -56,7 +56,7 @@ class StatusReasonScreen extends Component {
     return (
       <View style={styles.container}>
         <Header
-          left={<BackButton />}
+          left={<DeprecatedBackButton />}
           right={
             <Button
               text={t('done').toUpperCase()}

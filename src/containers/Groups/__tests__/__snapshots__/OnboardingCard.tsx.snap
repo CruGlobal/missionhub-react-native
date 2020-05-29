@@ -121,58 +121,11 @@ exports[`OnboardingCard render celebrate card 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -300,58 +253,11 @@ exports[`OnboardingCard render challenges card | Admin 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -477,58 +383,11 @@ exports[`OnboardingCard render challenges card | Member 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -654,58 +513,11 @@ exports[`OnboardingCard render challenges card hidden 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -831,58 +643,11 @@ exports[`OnboardingCard render contacts card 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -1010,58 +775,11 @@ exports[`OnboardingCard render impact card 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -1189,58 +907,11 @@ exports[`OnboardingCard render members card 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -1368,58 +1039,11 @@ exports[`OnboardingCard render steps card 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -1547,58 +1171,11 @@ exports[`OnboardingCard render surveys card 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;
@@ -1726,58 +1303,11 @@ exports[`handles press event from the close button 1`] = `
       ]
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      hitSlop={
-        Object {
-          "bottom": 10,
-          "left": 10,
-          "right": 10,
-          "top": 10,
-        }
-      }
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="IconButton"
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
-        }
-      >
-        <Image
-          source={
-            Object {
-              "testUri": "../../../assets/images/closeIcon.png",
-            }
-          }
-          style={
-            Object {
-              "margin": 10,
-            }
-          }
-        />
-      </View>
-    </View>
+    <SvgMock
+      color="#B4B6BA"
+      onPress={[Function]}
+      testID="CloseIcon"
+    />
   </View>
 </View>
 `;

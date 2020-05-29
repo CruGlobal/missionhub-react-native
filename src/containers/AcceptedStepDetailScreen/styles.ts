@@ -19,7 +19,7 @@ export default StyleSheet.create({
     borderColor: theme.extraLightGrey,
     borderBottomWidth: 1,
     borderTopWidth: 1,
-    paddingHorizontal: 16,
+    paddingHorizontal: 24,
     paddingVertical: 10,
   },
   reminderContainer: {

@@ -18,7 +18,7 @@ import {
   Icon,
   LoadingWheel,
 } from '../../../components/common';
-import BackButton from '../../BackButton';
+import DeprecatedBackButton from '../../DeprecatedBackButton';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
 import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
 import {
@@ -125,7 +125,7 @@ const SignUpScreen = ({
 
   return (
     <View style={styles.container}>
-      <Header left={<BackButton />} />
+      <Header left={<DeprecatedBackButton />} />
       <Flex value={1} align="center" justify="center">
         <Flex value={1} align="center" justify="center">
           {headerContent ? renderHeader(headerContent) : renderLogoHeader()}

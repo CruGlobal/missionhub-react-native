@@ -10,6 +10,7 @@ import ReportItemLabel from '../../components/ReportItemLabel';
 import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
 import { GetReportedContent_community_contentComplaints_nodes as ReportedItemInterface } from '../Groups/__generated__/GetReportedContent';
 import { Organization } from '../../reducers/organizations';
+import { CelebrateComment } from '../../reducers/celebrateComments';
 
 import {
   RespondToContentComplaintVariables,
@@ -59,6 +60,7 @@ const ReportedItem = ({
     switch (type) {
       case 'Story':
         return 'storyBy';
+      case 'FeedItemComment':
       case 'CommunityCelebrationItemComment':
         return 'commentBy';
       default:
@@ -95,7 +97,8 @@ const ReportedItem = ({
   const commentBy =
     subject.__typename === 'Story' || subject.__typename === 'Post'
       ? subject.author.fullName
-      : subject.__typename === 'CommunityCelebrationItemComment'
+      : subject.__typename === 'CommunityCelebrationItemComment' ||
+        subject.__typename === 'FeedItemComment'
       ? subject.person.fullName
       : '';
   const { card, users, comment, buttonLeft, buttonRight } = styles;
@@ -110,7 +113,7 @@ const ReportedItem = ({
       </Flex>
       <Flex style={comment}>
         <CommentItem
-          item={subject}
+          item={subject as CelebrateComment}
           isReported={true}
           organization={organization}
         />

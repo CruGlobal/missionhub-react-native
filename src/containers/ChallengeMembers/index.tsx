@@ -7,7 +7,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Flex, Text } from '../../components/common';
 import Header from '../../components/Header';
-import BackButton from '../../containers/BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { organizationSelector } from '../../selectors/organizations';
 import { acceptedChallengesSelector } from '../../selectors/challenges';
@@ -63,7 +63,7 @@ const ChallengeMembers = () => {
     <View style={styles.container}>
       <Header
         right={
-          <BackButton
+          <DeprecatedBackButton
             image={CLOSE_BUTTON}
             style={{ alignItems: 'flex-end', alignSelf: 'flex-end' }}
           />

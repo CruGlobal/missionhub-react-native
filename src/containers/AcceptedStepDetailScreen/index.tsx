@@ -49,7 +49,7 @@ const AcceptedStepDetailScreen = ({
       [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
     },
   });
-
+  const post = step?.post;
   const handleCompleteStep = () =>
     step &&
     dispatch(
@@ -128,6 +128,7 @@ const AcceptedStepDetailScreen = ({
         (step?.stepSuggestion && step?.stepSuggestion.descriptionMarkdown) ??
         undefined
       }
+      post={post}
       text={step?.title}
       stepType={step?.stepType}
       bottomButtonProps={{

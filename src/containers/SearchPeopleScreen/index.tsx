@@ -13,7 +13,7 @@ import Header from '../../components/Header';
 import SearchPeopleItem from '../../components/SearchPeopleItem';
 import theme from '../../theme';
 import { SEARCH_FILTER_SCREEN } from '../SearchPeopleFilterScreen';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { findAllNonPlaceHolders } from '../../utils/common';
 import { LOG } from '../../utils/logging';
@@ -264,7 +264,7 @@ export class SearchPeopleScreen extends Component {
     return (
       <View style={styles.pageContainer}>
         <Header
-          left={<BackButton />}
+          left={<DeprecatedBackButton />}
           right={
             <IconButton
               name="filterIcon"

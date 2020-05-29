@@ -7,7 +7,7 @@ import { withTranslation } from 'react-i18next';
 import { Flex, Text, Button } from '../../components/common';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import Header from '../../components/Header';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { STATUS_REASON_SCREEN } from '../StatusReasonScreen';
 
 import styles from './styles';
@@ -45,7 +45,7 @@ class StatusCompleteScreen extends Component {
 
     return (
       <View style={styles.container}>
-        <Header left={<BackButton />} />
+        <Header left={<DeprecatedBackButton />} />
         <Flex value={1} align="stretch" style={styles.content}>
           <Text style={styles.text}>
             {t('continue', {

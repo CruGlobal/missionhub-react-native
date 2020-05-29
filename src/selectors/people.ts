@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 import { PeopleState, Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
 import { Organization } from '../reducers/organizations';
-import { CelebrateItem_subjectPerson_communityPermissions_nodes as CommunityPermission } from '../components/CelebrateItem/__generated__/CelebrateItem';
+import { CommunityPermission } from '../components/CommunityFeedItem/__generated__/CommunityPermission';
 
 import { removeHiddenOrgs } from './selectorUtils';
 

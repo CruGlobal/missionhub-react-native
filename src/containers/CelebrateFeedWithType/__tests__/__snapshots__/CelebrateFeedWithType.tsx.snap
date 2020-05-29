@@ -1,0 +1,423 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 4,
+            "flexDirection": "row",
+            "marginHorizontal": 16,
+            "marginVertical": 8,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 2,
+          },
+          Array [
+            Object {
+              "borderRadius": 0,
+              "marginBottom": 5,
+              "marginHorizontal": 0,
+              "marginVertical": 0,
+              "position": "relative",
+            },
+            Object {
+              "backgroundColor": "#3CC8E6",
+            },
+            Object {
+              "shadowOpacity": 0,
+            },
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "padding": 25,
+              "paddingVertical": 35,
+            },
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ffffff"
+          height={72}
+          style={
+            Array [
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              },
+              undefined,
+            ]
+          }
+          width={72}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Celebrate Others
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "left": 10,
+              "position": "absolute",
+              "top": 10,
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {},
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <CelebrateFeed
+    filteredFeedType="STEP"
+    itemNamePressable={true}
+    organization={
+      Object {
+        "id": "1",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders correctly with id 1`] = `
+<View
+  style={
+    Object {
+      "height": "100%",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#3CC8E6",
+        },
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 8,
+            "elevation": 4,
+            "flexDirection": "row",
+            "marginHorizontal": 16,
+            "marginVertical": 8,
+            "shadowColor": "#000000",
+            "shadowOffset": Object {
+              "height": 2,
+              "width": 0,
+            },
+            "shadowOpacity": 0.3,
+            "shadowRadius": 2,
+          },
+          Array [
+            Object {
+              "borderRadius": 0,
+              "marginBottom": 5,
+              "marginHorizontal": 0,
+              "marginVertical": 0,
+              "position": "relative",
+            },
+            Object {
+              "backgroundColor": "#3CC8E6",
+            },
+            Object {
+              "shadowOpacity": 0,
+            },
+          ],
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "padding": 25,
+              "paddingVertical": 35,
+            },
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#ffffff"
+          height={72}
+          style={
+            Array [
+              Object {
+                "marginLeft": -10,
+                "marginRight": 10,
+              },
+              undefined,
+            ]
+          }
+          width={72}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#ffffff",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Celebrate Others
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "left": 10,
+              "position": "absolute",
+              "top": 10,
+            },
+            Object {},
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "alignSelf": "flex-start",
+                "justifyContent": "center",
+              },
+              undefined,
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 18,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {},
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <CelebrateFeed
+    filteredFeedType="STEP"
+    itemNamePressable={true}
+    organization={
+      Object {
+        "id": "1",
+      }
+    }
+  />
+</View>
+`;

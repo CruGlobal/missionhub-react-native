@@ -190,7 +190,6 @@ describe('componentDidMount', () => {
   it('should do nothing if initialTab is undefined', () => {
     renderShallow(
       <SwipeTabMenu
-        // @ts-ignore
         tabs={tabs}
         navigation={{ state: { index: 0, params: { initialTab: undefined } } }}
       />,
@@ -216,7 +215,6 @@ describe('componentDidMount', () => {
 
     renderShallow(
       <SwipeTabMenu
-        // @ts-ignore
         tabs={tabs}
         navigation={{
           state: { index: 0, params: { initialTab } },

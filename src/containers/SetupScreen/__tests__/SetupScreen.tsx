@@ -238,7 +238,7 @@ it('calls callback from useLogoutOnBack', () => {
   );
 
   // With the "id" set, press the back button
-  fireEvent(getByTestId('BackButton'), 'customNavigate');
+  fireEvent(getByTestId('DeprecatedBackButton'), 'customNavigate');
 
   expect(useLogoutOnBack).toHaveBeenCalledWith(true, true);
   expect(back).toHaveBeenCalledWith();
@@ -253,7 +253,7 @@ describe('calls back without creating a person', () => {
       },
     );
 
-    fireEvent(getByTestId('BackButton'), 'customNavigate');
+    fireEvent(getByTestId('DeprecatedBackButton'), 'customNavigate');
 
     expect(useLogoutOnBack).toHaveBeenCalledWith(true, false);
     expect(back).toHaveBeenCalledWith();
