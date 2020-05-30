@@ -5,7 +5,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 - First value
 + Second value
 
-@@ -573,10 +573,551 @@
+@@ -574,10 +574,551 @@
                 \\"lastName\\": \\"Paucek\\",
                 \\"picture\\": \\"delectus ea similique\\",
               },
@@ -557,7 +557,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
           \\"title\\": \\"dates.earlier\\",
         },
       ]
-@@ -1171,10 +1712,551 @@
+@@ -1172,10 +1713,551 @@
                 \\"id\\": \\"58\\",
                 \\"lastName\\": \\"Paucek\\",
                 \\"picture\\": \\"delectus ea similique\\",
@@ -1121,7 +1121,7 @@ exports[`handle pagination global community feed pagination paginates when close
 - First value
 + Second value
 
-@@ -283,10 +283,272 @@
+@@ -284,10 +284,272 @@
                 \\"id\\": \\"28\\",
                 \\"title\\": \\"ex eveniet facere\\",
               },
@@ -1394,7 +1394,7 @@ exports[`handle pagination global community feed pagination paginates when close
           \\"title\\": \\"dates.earlier\\",
         },
       ]
-@@ -591,10 +853,272 @@
+@@ -592,10 +854,272 @@
                 ],
                 \\"id\\": \\"28\\",
                 \\"title\\": \\"ex eveniet facere\\",
@@ -1676,6 +1676,7 @@ Compared values have no visual difference."
 
 exports[`renders empty correctly 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -1748,6 +1749,7 @@ exports[`renders empty correctly 1`] = `
 
 exports[`renders for Global Community renders correctly 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -2761,6 +2763,7 @@ exports[`renders for Global Community renders correctly 1`] = `
 
 exports[`renders for Unread Comments renders correctly 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -4634,6 +4637,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
 
 exports[`renders for member renders correctly 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -6827,6 +6831,7 @@ exports[`renders for member renders with type 1`] = `
 
 exports[`renders for member renders without header 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -8687,6 +8692,7 @@ exports[`renders for member renders without header 1`] = `
 
 exports[`renders with clear notification renders correctly 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -10569,6 +10575,7 @@ exports[`renders with clear notification renders correctly 1`] = `
 
 exports[`renders with items correctly 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -12442,6 +12449,7 @@ exports[`renders with items correctly 1`] = `
 
 exports[`sections renders Earlier section 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -12779,6 +12787,7 @@ exports[`sections renders Earlier section 1`] = `
 
 exports[`sections renders New section 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
@@ -13116,6 +13125,7 @@ exports[`sections renders New section 1`] = `
 
 exports[`sections renders Today section 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [

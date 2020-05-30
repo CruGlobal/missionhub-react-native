@@ -923,6 +923,25 @@ export default {
         'Share a random thought, or pass on the meme that made you laugh until you cried.',
       STEP: 'See what God is doing through your Community’s completed steps.',
     },
+    nullState: {
+      STORY: 'Spur one another on toward love and good deeds.',
+      PRAYER_REQUEST: 'Let your requests be known to God.',
+      QUESTION: 'Teach and counsel each other with all the wisdom he gives.',
+      HELP_REQUEST: "Share one another's burdens.",
+      ANNOUNCEMENT: 'He who abides by annoucements will be blessed.',
+      THOUGHT:
+        'Where two or three are gathered in my name, there am I among them.',
+      STEP: 'Encourage one another and build each other up.',
+    },
+    nullStateReference: {
+      STORY: 'Hebrews 10:24',
+      PRAYER_REQUEST: 'Philippians 4:6',
+      QUESTION: 'Colossians 3:16',
+      HELP_REQUEST: 'Galatians 6:2',
+      ANNOUNCEMENT: 'anonymous',
+      THOUGHT: 'Matthew 18:20',
+      STEP: '1 Thessalonians 5:11',
+    },
     card: {
       STORY: 'Read a God Story',
       PRAYER_REQUEST: 'Prayer Requests',

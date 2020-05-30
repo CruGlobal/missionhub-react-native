@@ -19,6 +19,7 @@ import { CommunityFeedItem as FeedItemFragment } from '../../components/Communit
 import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
+import { PostTypeNullState } from '../../components/PostTypeLabel';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
@@ -275,11 +276,17 @@ export const CelebrateFeed = ({
       filteredFeedType,
     ],
   );
+  const renderEmpty = useCallback(
+    () =>
+      filteredFeedType ? <PostTypeNullState type={filteredFeedType} /> : <></>,
+    [filteredFeedType],
+  );
 
   return (
     <Animated.SectionList
       {...collapsibleScrollViewProps}
       sections={items}
+      ListEmptyComponent={renderEmpty}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}

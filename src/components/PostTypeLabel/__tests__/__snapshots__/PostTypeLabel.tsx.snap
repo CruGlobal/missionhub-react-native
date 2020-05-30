@@ -1555,6 +1555,412 @@ exports[`post types cards renders people with count only 1`] = `
 </View>
 `;
 
+exports[`post types null states renders Announcement Null State 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginTop": 100,
+      "paddingHorizontal": 45,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "marginBottom": 20,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    He who abides by annoucements will be blessed.
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+          },
+        ],
+      ]
+    }
+  >
+    ANONYMOUS
+  </Text>
+</View>
+`;
+
+exports[`post types null states renders Care Request Null State 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginTop": 100,
+      "paddingHorizontal": 45,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "marginBottom": 20,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Share one another's burdens.
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#FD726D",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+          },
+        ],
+      ]
+    }
+  >
+    GALATIANS 6:2
+  </Text>
+</View>
+`;
+
+exports[`post types null states renders God Story Null State 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginTop": 100,
+      "paddingHorizontal": 45,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "marginBottom": 20,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Spur one another on toward love and good deeds.
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#7076B5",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+          },
+        ],
+      ]
+    }
+  >
+    HEBREWS 10:24
+  </Text>
+</View>
+`;
+
+exports[`post types null states renders On Your Mind Null State 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginTop": 100,
+      "paddingHorizontal": 45,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "marginBottom": 20,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Where two or three are gathered in my name, there am I among them.
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#B4B6BA",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+          },
+        ],
+      ]
+    }
+  >
+    MATTHEW 18:20
+  </Text>
+</View>
+`;
+
+exports[`post types null states renders Prayer Request Null State 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginTop": 100,
+      "paddingHorizontal": 45,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "marginBottom": 20,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Let your requests be known to God.
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#A97398",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+          },
+        ],
+      ]
+    }
+  >
+    PHILIPPIANS 4:6
+  </Text>
+</View>
+`;
+
+exports[`post types null states renders Spiritual Question Null State 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginTop": 100,
+      "paddingHorizontal": 45,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "marginBottom": 20,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Teach and counsel each other with all the wisdom he gives.
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#FFA178",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+          },
+        ],
+      ]
+    }
+  >
+    COLOSSIANS 3:16
+  </Text>
+</View>
+`;
+
+exports[`post types null states renders Step Of Faith Null State 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "marginTop": 100,
+      "paddingHorizontal": 45,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#B4B6BA",
+          "fontSize": 32,
+          "fontWeight": "300",
+          "marginBottom": 20,
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Encourage one another and build each other up.
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#3CC8E6",
+          },
+          Object {
+            "fontSize": 16,
+            "fontWeight": "bold",
+          },
+        ],
+      ]
+    }
+  >
+    1 THESSALONIANS 5:11
+  </Text>
+</View>
+`;
+
 exports[`post types renders Announcement Label 1`] = `
 <View
   style={

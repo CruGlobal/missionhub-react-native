@@ -7,7 +7,11 @@ import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 import { FeedItemPostCard_author } from '../../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
 import { FEED_ITEM_POST_CARD_FRAGMENT } from '../../../containers/CelebrateFeedPostCards/queries';
 
-import PostTypeLabel, { PostLabelSizeEnum, PostTypeCardWithPeople } from '..';
+import PostTypeLabel, {
+  PostLabelSizeEnum,
+  PostTypeCardWithPeople,
+  PostTypeNullState,
+} from '..';
 
 it('renders correctly', () => {
   renderWithContext(<PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} />, {
@@ -222,5 +226,49 @@ describe('post types cards', () => {
 
     fireEvent.press(getByTestId('STORYCardWithPeople'));
     expect(onPress).toHaveBeenCalled();
+  });
+});
+describe('post types null states', () => {
+  it('renders God Story Null State', () => {
+    renderWithContext(
+      <PostTypeNullState type={FeedItemSubjectTypeEnum.STORY} />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+  it('renders Prayer Request Null State', () => {
+    renderWithContext(
+      <PostTypeNullState type={FeedItemSubjectTypeEnum.PRAYER_REQUEST} />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+  it('renders Spiritual Question Null State', () => {
+    renderWithContext(
+      <PostTypeNullState type={FeedItemSubjectTypeEnum.QUESTION} />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+  it('renders Care Request Null State', () => {
+    renderWithContext(
+      <PostTypeNullState type={FeedItemSubjectTypeEnum.HELP_REQUEST} />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+  it('renders On Your Mind Null State', () => {
+    renderWithContext(
+      <PostTypeNullState type={FeedItemSubjectTypeEnum.THOUGHT} />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+  it('renders Announcement Null State', () => {
+    renderWithContext(
+      <PostTypeNullState type={FeedItemSubjectTypeEnum.ANNOUNCEMENT} />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+  it('renders Step Of Faith Null State', () => {
+    renderWithContext(
+      <PostTypeNullState type={FeedItemSubjectTypeEnum.STEP} />,
+      { noWrappers: true },
+    ).snapshot();
   });
 });
