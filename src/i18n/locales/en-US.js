@@ -911,17 +911,17 @@ export default {
       STEP: 'Celebrate Together',
     },
     subheader: {
-      STORY: 'When God does something amazing,\nshare the joy here.',
+      STORY: 'When God does something amazing, share the joy here.',
       PRAYER_REQUEST:
         "Share a prayer request, or turn someone's request into your next step of faith.",
       QUESTION:
-        "Ask a question, or turn someone's question\ninto your next step of faith.",
+        "Ask a question, or turn someone's question into your next step of faith.",
       HELP_REQUEST:
         "Share a need, or turn someone's request into your next step of faith.",
       ANNOUNCEMENT: 'Get the latest news, like directions to the next potluck.',
       THOUGHT:
         'Share a random thought, or pass on the meme that made you laugh until you cried.',
-      STEP: 'See what God is doing through your\nCommunity’s completed steps.',
+      STEP: 'See what God is doing through your Community’s completed steps.',
     },
     card: {
       STORY: 'Read a God Story',

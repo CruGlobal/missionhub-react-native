@@ -123,8 +123,7 @@ exports[`label variations render extra large label 1`] = `
           ]
         }
       >
-        When God does something amazing,
-share the joy here.
+        When God does something amazing, share the joy here.
       </Text>
     </View>
     <View
