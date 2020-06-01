@@ -71,6 +71,8 @@ export const CommunityFeedItemContent = ({
     ? subjectPersonName
     : t('aMissionHubUser');
 
+  const isGlobal = !feedItem.community;
+
   const onPressChallengeLink = async () => {
     const challengeId = subject.id;
     const communityId = feedItem.community
@@ -193,10 +195,14 @@ export const CommunityFeedItemContent = ({
         <PostTypeLabel type={itemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
-        {feedItem.subjectPerson ? (
+        {!isGlobal && feedItem.subjectPerson ? (
           <Avatar size={'medium'} person={feedItem.subjectPerson} />
         ) : null}
-        <View style={styles.headerNameWrapper}>
+        <View
+          style={
+            isGlobal ? styles.globalHeaderNameWrapper : styles.headerNameWrapper
+          }
+        >
           <CommunityFeedItemName
             name={subjectPersonName}
             personId={feedItem.subjectPerson?.id}

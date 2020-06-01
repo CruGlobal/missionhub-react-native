@@ -3295,25 +3295,12 @@ exports[`global community renders correctly 1`] = `
           }
         }
       >
-        <Avatar
-          person={
-            Object {
-              "firstName": "Mathew",
-              "fullName": "Mathew Green",
-              "id": "12",
-              "lastName": "Green",
-              "picture": "ipsam qui nobis",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
@@ -3674,25 +3661,12 @@ exports[`global community renders post item correctly 1`] = `
           }
         }
       >
-        <Avatar
-          person={
-            Object {
-              "firstName": "Arvel",
-              "fullName": "Arvel Simonis",
-              "id": "8",
-              "lastName": "Simonis",
-              "picture": "eaque enim ipsum",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
@@ -4073,25 +4047,12 @@ exports[`global community renders with clear notification button correctly 1`] =
           }
         }
       >
-        <Avatar
-          person={
-            Object {
-              "firstName": "Mathew",
-              "fullName": "Mathew Green",
-              "id": "12",
-              "lastName": "Green",
-              "picture": "ipsam qui nobis",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >

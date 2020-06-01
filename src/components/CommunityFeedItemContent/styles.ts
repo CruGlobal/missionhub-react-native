@@ -19,6 +19,11 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
+  globalHeaderNameWrapper: {
+    flexDirection: 'column',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
   headerTime: {
     fontSize: 12,
     lineHeight: 16,
