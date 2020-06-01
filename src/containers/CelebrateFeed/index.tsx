@@ -86,7 +86,7 @@ export const CelebrateFeed = ({
   filteredFeedType,
   collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
-  const { t } = useTranslation('celebrateFeed');
+  const { t } = useTranslation('communityFeed');
   const isGlobal = orgIsGlobal({ id: communityId });
   const queryVariables = {
     communityId,
@@ -241,12 +241,12 @@ export const CelebrateFeed = ({
     () => (
       <>
         <ErrorNotice
-          message={t('errorLoadingCelebrateFeed')}
+          message={t('errorLoadingCommunityFeed')}
           error={error}
           refetch={refetch}
         />
         <ErrorNotice
-          message={t('errorLoadingCelebrateFeed')}
+          message={t('errorLoadingCommunityFeed')}
           error={globalError}
           refetch={globalRefetch}
         />

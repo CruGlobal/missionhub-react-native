@@ -579,8 +579,8 @@ export default {
     saveStory: 'Save Changes',
     inputPlaceholder: 'Share a Story...',
   },
-  celebrateFeed: {
-    errorLoadingCelebrateFeed: 'Error loading celebrate feed',
+  communityFeed: {
+    errorLoadingCommunityFeed: 'Error loading community feed',
   },
   communityFeedItems: {
     edit: {
@@ -958,6 +958,8 @@ export default {
       thought: "What's on your mind?",
       announcement: 'Make an announcement...',
     },
+    errorCreatingPost: 'Error creating post',
+    errorUpdatingPost: 'Error updating post',
   },
   stepTypes: {
     relate: 'Relate',
