@@ -195,8 +195,14 @@ export const CommunityFeedItem = ({
         <PostTypeLabel type={FeedItemType} onPress={navToFilteredFeed} />
       </View>
       <View style={styles.headerRow}>
-        <Avatar size="medium" person={subjectPerson} orgId={communityId} />
-        <View style={styles.headerNameWrapper}>
+        {isGlobal ? null : (
+          <Avatar size="medium" person={subjectPerson} orgId={communityId} />
+        )}
+        <View
+          style={
+            isGlobal ? styles.globalHeaderNameWrapper : styles.headerNameWrapper
+          }
+        >
           <CommunityFeedItemName
             name={subjectPersonName}
             person={subjectPerson}

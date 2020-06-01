@@ -3350,42 +3350,12 @@ exports[`global community renders correctly 1`] = `
           }
         }
       >
-        <Avatar
-          orgId="_global_community_id"
-          person={
-            Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
@@ -3746,42 +3716,12 @@ exports[`global community renders post item correctly 1`] = `
           }
         }
       >
-        <Avatar
-          orgId="_global_community_id"
-          person={
-            Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
@@ -4162,42 +4102,12 @@ exports[`global community renders with clear notification button correctly 1`] =
           }
         }
       >
-        <Avatar
-          orgId="_global_community_id"
-          person={
-            Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
