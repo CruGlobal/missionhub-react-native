@@ -26,10 +26,14 @@ export const challengesSelector = createSelector(
     );
 
     return [
-      {
-        title: '',
-        data: currentItems,
-      },
+      ...(currentItems.length > 0
+        ? [
+            {
+              title: '',
+              data: currentItems,
+            },
+          ]
+        : []),
       ...(pastItems.length > 0
         ? [
             {

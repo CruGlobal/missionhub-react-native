@@ -1,20 +1,21 @@
 import { createSelector } from 'reselect';
 
-// @ts-ignore
-const personIdSelector = (_, { person = {} } = {}) => person.id || '';
-// @ts-ignore
-const orgIdSelector = (_, { organization = {} } = {}) => organization.id || '';
+import { Person } from '../reducers/people';
+import { Organization } from '../reducers/organizations';
+import { RootState } from '../reducers';
+
+const personIdSelector = (
+  _: unknown,
+  { person = {} }: { person?: Person } = {},
+) => person.id || '';
+const orgIdSelector = (
+  _: unknown,
+  { organization = {} }: { organization?: Organization } = {},
+) => organization.id || '';
 
 export const impactSummarySelector = createSelector(
-  ({ impact }) => impact.summary,
+  ({ impact }: RootState) => impact.summary,
   personIdSelector,
   orgIdSelector,
   (summary, personId, orgId) => summary[`${personId}-${orgId}`] || {},
-);
-
-export const impactInteractionsSelector = createSelector(
-  ({ impact }) => impact.interactions,
-  personIdSelector,
-  orgIdSelector,
-  (interactions, personId, orgId) => interactions[`${personId}-${orgId}`] || {},
 );

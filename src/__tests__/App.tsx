@@ -19,12 +19,20 @@ import {
   NETWORK_REQUEST_FAILED,
 } from '../constants';
 import * as auth from '../actions/auth/auth';
+import { resetToInitialRoute } from '../actions/navigationInit';
+import { configureNotificationHandler } from '../actions/notifications';
+import { setupFirebaseDynamicLinks } from '../actions/deepLink';
+import { getFeatureFlags } from '../actions/misc';
 import locale from '../i18n/locales/en-US';
 import { rollbar } from '../utils/rollbar.config';
 
 Enzyme.configure({ adapter: new Adapter() });
 
 jest.mock('../AppNavigator', () => ({ AppNavigator: 'mockAppNavigator' }));
+jest.mock('../actions/misc');
+jest.mock('../actions/navigationInit');
+jest.mock('../actions/notifications');
+jest.mock('../actions/deepLink');
 
 jest.mock('react-native-default-preference', () => ({
   get: jest.fn().mockReturnValue(Promise.reject()),
@@ -52,12 +60,26 @@ const lastTwoArgs = [
   { onDismiss: expect.anything() },
 ];
 
-beforeEach(
-  () =>
-    (ReactNative.Alert.alert = jest
-      .fn()
-      .mockImplementation((_, __, buttons) => buttons[0].onPress())),
-);
+const resetToInitialRouteResult = { type: 'reset to initial route' };
+const configureNotificationHandlerResult = {
+  type: 'configure notification handler',
+};
+const setupFirebaseDynamicLinksResult = {
+  type: 'setup firebase dynamic links',
+};
+
+beforeEach(() => {
+  (resetToInitialRoute as jest.Mock).mockReturnValue(resetToInitialRouteResult);
+  (configureNotificationHandler as jest.Mock).mockReturnValue(
+    configureNotificationHandlerResult,
+  );
+  (setupFirebaseDynamicLinks as jest.Mock).mockReturnValue(
+    setupFirebaseDynamicLinksResult,
+  );
+  ReactNative.Alert.alert = jest
+    .fn()
+    .mockImplementation((_, __, buttons) => buttons[0].onPress());
+});
 
 // @ts-ignore
 const test = async response => {
@@ -67,6 +89,17 @@ const test = async response => {
 
   return shallowScreen;
 };
+
+it('calls actions onBeforeLift', async () => {
+  const shallowScreen = shallow(<App />);
+
+  await shallowScreen.instance().onBeforeLift();
+
+  expect(resetToInitialRoute).toHaveBeenCalledWith();
+  expect(configureNotificationHandler).toHaveBeenCalledWith();
+  expect(setupFirebaseDynamicLinks).toHaveBeenCalledWith();
+  expect(getFeatureFlags).toHaveBeenCalledWith();
+});
 
 it('shows offline alert if network request failed', () => {
   test({ apiError: { message: NETWORK_REQUEST_FAILED } });

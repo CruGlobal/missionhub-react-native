@@ -32,6 +32,9 @@ import {
   isAuthenticated,
   personIsCurrentUser,
   isOnboarding,
+  mapPostTypeToFeedType,
+  mapFeedTypeToPostType,
+  getFeedItemType,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
@@ -43,7 +46,14 @@ import {
 import { createThunkStore } from '../../../testUtils';
 import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
-import { PermissionEnum } from '../../../__generated__/globalTypes';
+import {
+  PermissionEnum,
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../../__generated__/globalTypes';
+import { CommunityFeedStep } from '../../components/CommunityFeedItem/__generated__/CommunityFeedStep';
+import { CommunityFeedChallenge } from '../../components/CommunityFeedItem/__generated__/CommunityFeedChallenge';
+import { CommunityFeedPost } from '../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -134,33 +144,20 @@ describe('orgIsPersonalMinistry', () => {
   it('returns true for personal ministry', () => {
     expect(orgIsPersonalMinistry({ id: 'personal' })).toEqual(true);
   });
-  it('returns false for user-created community', () => {
-    expect(orgIsPersonalMinistry({ id: '1', user_created: true })).toEqual(
-      false,
-    );
-  });
-  it('returns false for cru community', () => {
-    expect(orgIsPersonalMinistry({ id: '1', user_created: false })).toEqual(
-      false,
-    );
-  });
 });
 
 describe('orgIsUserCreated', () => {
   it('returns false for empty org', () => {
     expect(orgIsUserCreated({})).toEqual(false);
   });
-  it('returns false for personal ministry', () => {
-    expect(orgIsUserCreated({ id: 'personal' })).toEqual(false);
-  });
   it('returns true for user_created community', () => {
-    expect(orgIsUserCreated({ id: '1', user_created: true })).toEqual(true);
+    expect(orgIsUserCreated({ user_created: true })).toEqual(true);
   });
   it('returns true for userCreated community', () => {
-    expect(orgIsUserCreated({ id: '1', userCreated: true })).toEqual(true);
+    expect(orgIsUserCreated({ userCreated: true })).toEqual(true);
   });
   it('returns false for cru community', () => {
-    expect(orgIsUserCreated({ id: '1', user_created: false })).toEqual(false);
+    expect(orgIsUserCreated({ user_created: false })).toEqual(false);
   });
 });
 
@@ -188,12 +185,6 @@ describe('orgIsGlobal', () => {
   });
   it('returns false for personal ministry', () => {
     expect(orgIsGlobal({ id: 'personal' })).toEqual(false);
-  });
-  it('returns false for user-created community', () => {
-    expect(orgIsGlobal({ id: '1', user_created: true })).toEqual(false);
-  });
-  it('returns false for cru community', () => {
-    expect(orgIsGlobal({ id: '1', user_created: false })).toEqual(false);
   });
   it('returns true for global community', () => {
     expect(orgIsGlobal({ id: GLOBAL_COMMUNITY_ID })).toEqual(true);
@@ -747,5 +738,151 @@ describe('keyExtractorId', () => {
     const item = { id: 'test' };
     const result = keyExtractorId(item);
     expect(result).toEqual(item.id);
+  });
+});
+
+describe('mapPostTypeToFeedType', () => {
+  it('maps for Story', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.story)).toEqual(
+      FeedItemSubjectTypeEnum.STORY,
+    );
+  });
+
+  it('maps for Prayer Request', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.prayer_request)).toEqual(
+      FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    );
+  });
+
+  it('maps for Question', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.question)).toEqual(
+      FeedItemSubjectTypeEnum.QUESTION,
+    );
+  });
+
+  it('maps for Help Request', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.help_request)).toEqual(
+      FeedItemSubjectTypeEnum.HELP_REQUEST,
+    );
+  });
+
+  it('maps for Thought', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.thought)).toEqual(
+      FeedItemSubjectTypeEnum.THOUGHT,
+    );
+  });
+
+  it('maps for Announcement', () => {
+    expect(mapPostTypeToFeedType(PostTypeEnum.announcement)).toEqual(
+      FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+    );
+  });
+});
+
+describe('mapFeedTypeToPostType', () => {
+  it('maps for Story', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.STORY)).toEqual(
+      PostTypeEnum.story,
+    );
+  });
+
+  it('maps for Prayer Request', () => {
+    expect(
+      mapFeedTypeToPostType(FeedItemSubjectTypeEnum.PRAYER_REQUEST),
+    ).toEqual(PostTypeEnum.prayer_request);
+  });
+
+  it('maps for Question', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.QUESTION)).toEqual(
+      PostTypeEnum.question,
+    );
+  });
+
+  it('maps for Help Request', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.HELP_REQUEST)).toEqual(
+      PostTypeEnum.help_request,
+    );
+  });
+
+  it('maps for Thought', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.THOUGHT)).toEqual(
+      PostTypeEnum.thought,
+    );
+  });
+
+  it('maps for Announcement', () => {
+    expect(mapFeedTypeToPostType(FeedItemSubjectTypeEnum.ANNOUNCEMENT)).toEqual(
+      PostTypeEnum.announcement,
+    );
+  });
+});
+
+describe('getFeedItemType', () => {
+  const post: CommunityFeedPost = {
+    __typename: 'Post',
+    id: '1',
+    content: 'asdf',
+    mediaContentType: '',
+    mediaExpiringUrl: '',
+    postType: PostTypeEnum.story,
+  };
+
+  it('returns STEP', () => {
+    const step: CommunityFeedStep = {
+      __typename: 'Step',
+      id: '1',
+      receiverStageAtCompletion: null,
+    };
+
+    expect(getFeedItemType(step)).toEqual(FeedItemSubjectTypeEnum.STEP);
+  });
+
+  it('returns COMMUNITY_CHALLENGE', () => {
+    const challenge: CommunityFeedChallenge = {
+      __typename: 'CommunityChallenge',
+      id: '1',
+      title: 'asdf',
+      acceptedCommunityChallengesList: [],
+    };
+
+    expect(getFeedItemType(challenge)).toEqual(
+      FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE,
+    );
+  });
+
+  it('returns STORY', () => {
+    expect(getFeedItemType({ ...post, postType: PostTypeEnum.story })).toEqual(
+      FeedItemSubjectTypeEnum.STORY,
+    );
+  });
+
+  it('returns PRAYER_REQUEST', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.prayer_request }),
+    ).toEqual(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+  });
+
+  it('returns QUESTION', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.question }),
+    ).toEqual(FeedItemSubjectTypeEnum.QUESTION);
+  });
+
+  it('returns HELP_REQUEST', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.help_request }),
+    ).toEqual(FeedItemSubjectTypeEnum.HELP_REQUEST);
+  });
+
+  it('returns THOUGHT', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.thought }),
+    ).toEqual(FeedItemSubjectTypeEnum.THOUGHT);
+  });
+
+  it('returns ANNOUNCEMENT', () => {
+    expect(
+      getFeedItemType({ ...post, postType: PostTypeEnum.announcement }),
+    ).toEqual(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
   });
 });

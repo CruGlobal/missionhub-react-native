@@ -15,7 +15,7 @@ import { getAnalyticsSectionType } from '../../utils/analytics';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
 import Header from '../../components/Header';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { OnboardingState } from '../../reducers/onboarding';
 
 import styles from './styles';
@@ -55,7 +55,7 @@ const WelcomeScreen = ({
 
   return (
     <View style={styles.container}>
-      <Header left={<BackButton />} />
+      <Header left={<DeprecatedBackButton />} />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex value={3} align="start" justify="center">
           <Text header={true} style={styles.headerText}>

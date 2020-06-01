@@ -108,7 +108,10 @@ describe('state has existing comments', () => {
       },
       editingCommentId,
     });
-    expect(getPagination).toHaveBeenCalledWith(baseAction, response.length);
+    expect(getPagination).toHaveBeenCalledWith(
+      { meta: undefined, query: baseAction.query },
+      response.length,
+    );
   });
 });
 

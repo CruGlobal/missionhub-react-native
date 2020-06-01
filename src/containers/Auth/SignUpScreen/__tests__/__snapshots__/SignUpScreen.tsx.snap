@@ -133,7 +133,7 @@ exports[`renders correctly with logo 1`] = `
         }
         value={1}
       >
-        <BackButton />
+        <DeprecatedBackButton />
       </Flex>
       <Flex
         align="end"

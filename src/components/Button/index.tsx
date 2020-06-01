@@ -29,6 +29,8 @@ export interface ButtonProps {
   style?: StyleProp<ViewStyle>;
   buttonTextStyle?: StyleProp<TextStyle>;
   pressProps?: PressPropsType;
+  isAndroidOpacity?: boolean;
+  activeOpacity?: number;
   testID?: string;
 }
 interface ButtonState {

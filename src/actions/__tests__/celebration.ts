@@ -8,7 +8,7 @@ import { apolloClient } from '../../apolloClient';
 import { toggleLike, getCelebrateFeed } from '../celebration';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { GET_CELEBRATE_FEED } from '../../containers/CelebrateFeed/queries';
+import { GET_COMMUNITY_FEED } from '../../containers/CelebrateFeed/queries';
 
 jest.mock('../api');
 
@@ -33,7 +33,7 @@ describe('getCelebrateFeed', () => {
     await getCelebrateFeed(orgId);
 
     expect(apolloClient.query).toHaveBeenCalledWith({
-      query: GET_CELEBRATE_FEED,
+      query: GET_COMMUNITY_FEED,
       variables: {
         communityId: orgId,
         personIds: undefined,
@@ -46,7 +46,7 @@ describe('getCelebrateFeed', () => {
     getCelebrateFeed(orgId, personId);
 
     expect(apolloClient.query).toHaveBeenCalledWith({
-      query: GET_CELEBRATE_FEED,
+      query: GET_COMMUNITY_FEED,
       variables: {
         communityId: orgId,
         personIds: personId,
@@ -59,7 +59,7 @@ describe('getCelebrateFeed', () => {
     getCelebrateFeed(orgId, undefined, true);
 
     expect(apolloClient.query).toHaveBeenCalledWith({
-      query: GET_CELEBRATE_FEED,
+      query: GET_COMMUNITY_FEED,
       variables: {
         communityId: orgId,
         personIds: undefined,

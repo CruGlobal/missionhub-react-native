@@ -11,22 +11,19 @@ import {
   navigateReset,
   navigateReplace,
   navigateNestedReset,
-  navigateResetTab,
   navigateToMainTabs,
-  navigateToCommunity,
   navigateToCelebrateComments,
 } from '../navigation';
-import { MAIN_TABS, GROUPS_TAB, GLOBAL_COMMUNITY_ID } from '../../constants';
+import {
+  MAIN_TABS,
+  GLOBAL_COMMUNITY_ID,
+  COMMUNITIES_TAB,
+} from '../../constants';
 import { loadHome } from '../auth/userData';
 import { createThunkStore } from '../../../testUtils';
-import {
-  GROUP_CHALLENGES,
-  GROUP_SCREEN,
-  USER_CREATED_GROUP_SCREEN,
-  GLOBAL_GROUP_SCREEN,
-} from '../../containers/Groups/GroupScreen';
 import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
 import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 
 jest.mock('../auth/userData');
 
@@ -125,6 +122,8 @@ describe('navigateReset', () => {
 });
 
 describe('navigateNestedReset', () => {
+  const tabsScreen = 'tabsScreen';
+  const tab1 = 'tab1';
   const screen1 = 'roger';
   const params1 = { id: '1' };
   const screen2 = 'the dummy';
@@ -133,7 +132,8 @@ describe('navigateNestedReset', () => {
   it('should reset to a nested navigate stack', () => {
     store.dispatch<any>(
       navigateNestedReset([
-        { routeName: screen1, params: params1 },
+        { routeName: tabsScreen, tabName: tab1, params: params1 },
+        { routeName: screen1 },
         { routeName: screen2, params: params2 },
       ]),
     );
@@ -141,35 +141,17 @@ describe('navigateNestedReset', () => {
     expect(store.getActions()).toEqual([
       {
         type: 'Navigation/RESET',
-        index: 1,
-        key: null,
-        actions: [
-          { type: 'Navigation/NAVIGATE', routeName: screen1, params: params1 },
-          { type: 'Navigation/NAVIGATE', routeName: screen2, params: params2 },
-        ],
-      },
-    ]);
-  });
-});
-
-describe('navigateResetTab', () => {
-  const screen1 = 'Tabs Screen';
-  const screen2 = 'Specific Tab';
-
-  it('should reset to a specific tab', () => {
-    store.dispatch<any>(navigateResetTab(screen1, screen2));
-
-    expect(store.getActions()).toEqual([
-      {
-        type: 'Navigation/RESET',
-        index: 0,
+        index: 2,
         key: null,
         actions: [
           {
             type: 'Navigation/NAVIGATE',
-            routeName: screen1,
-            action: NavigationActions.navigate({ routeName: screen2 }),
+            routeName: tabsScreen,
+            params: params1,
+            action: NavigationActions.navigate({ routeName: tab1 }),
           },
+          { type: 'Navigation/NAVIGATE', routeName: screen1 },
+          { type: 'Navigation/NAVIGATE', routeName: screen2, params: params2 },
         ],
       },
     ]);
@@ -192,7 +174,7 @@ describe('navigateReplace', () => {
 
 describe('navigateToMainTabs', () => {
   it('should dispatch loadHome and then navigate to main tabs', () => {
-    store.dispatch<any>(navigateToMainTabs(GROUPS_TAB));
+    store.dispatch<any>(navigateToMainTabs(COMMUNITIES_TAB));
 
     expect(loadHome).toHaveBeenCalled();
     expect(store.getActions()).toEqual([
@@ -205,138 +187,11 @@ describe('navigateToMainTabs', () => {
           {
             type: 'Navigation/NAVIGATE',
             routeName: MAIN_TABS,
-            action: NavigationActions.navigate({ routeName: GROUPS_TAB }),
+            action: NavigationActions.navigate({ routeName: COMMUNITIES_TAB }),
           },
         ],
       },
     ]);
-  });
-});
-
-describe('navigateToCommunity', () => {
-  const orgId = '123456';
-
-  describe('default', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: GLOBAL_COMMUNITY_ID,
-          user_created: false,
-        }),
-      );
-    });
-
-    it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: GLOBAL_GROUP_SCREEN,
-          params: {
-            orgId: GLOBAL_COMMUNITY_ID,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('Cru org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: orgId,
-          user_created: false,
-        }),
-      );
-    });
-
-    it('navigates to GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: GROUP_SCREEN,
-          params: {
-            orgId,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('user-created org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: orgId,
-          userCreated: true,
-        }),
-      );
-    });
-
-    it('navigates to USER_CREATED_GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: USER_CREATED_GROUP_SCREEN,
-          params: {
-            orgId,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('global org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity({
-          id: GLOBAL_COMMUNITY_ID,
-          userCreated: false,
-        }),
-      );
-    });
-
-    it('navigates to GLOBAL_GROUPS_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: GLOBAL_GROUP_SCREEN,
-          params: {
-            orgId: GLOBAL_COMMUNITY_ID,
-            initialTab: undefined,
-          },
-        },
-      ]);
-    });
-  });
-
-  describe('intial tab', () => {
-    beforeEach(() => {
-      store.dispatch<any>(
-        navigateToCommunity(
-          {
-            id: orgId,
-            userCreated: true,
-          },
-          GROUP_CHALLENGES,
-        ),
-      );
-    });
-
-    it('navigates to USER_CREATED_GROUPS_SCREEN with initial tab', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/PUSH',
-          routeName: USER_CREATED_GROUP_SCREEN,
-          params: {
-            orgId,
-            initialTab: GROUP_CHALLENGES,
-          },
-        },
-      ]);
-    });
   });
 });
 
@@ -369,10 +224,9 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: cruOrgId,
-              initialTab: undefined,
+              communityId: cruOrgId,
             },
           },
         ]);
@@ -388,10 +242,9 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: cruOrgId,
-              initialTab: undefined,
+              communityId: cruOrgId,
             },
           },
         ]);
@@ -408,10 +261,9 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: USER_CREATED_GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: userCreatedOrgId,
-              initialTab: undefined,
+              communityId: userCreatedOrgId,
             },
           },
         ]);
@@ -426,47 +278,13 @@ describe('navigateToCelebrateComments', () => {
         expect(store.getActions()).toEqual([
           {
             type: 'Navigation/PUSH',
-            routeName: USER_CREATED_GROUP_SCREEN,
+            routeName: COMMUNITY_TABS,
             params: {
-              orgId: userCreatedOrgId,
-              initialTab: undefined,
+              communityId: userCreatedOrgId,
             },
           },
         ]);
       });
-    });
-  });
-
-  describe('Cru org', () => {
-    beforeEach(() => {
-      store.dispatch<any>(navigateToCelebrateComments(cruOrg, celebrateItemId));
-    });
-
-    it('navigates to CELEBRATE_DETAIL_SCREEN', () => {
-      expect(store.getActions()).toEqual([
-        {
-          type: 'Navigation/RESET',
-          index: 2,
-          key: null,
-          actions: [
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GROUP_SCREEN,
-              params: { orgId: cruOrgId },
-            },
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GROUP_UNREAD_FEED_SCREEN,
-              params: { organization: cruOrg },
-            },
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: CELEBRATE_DETAIL_SCREEN,
-              params: { event: { id: celebrateItemId }, orgId: cruOrgId },
-            },
-          ],
-        },
-      ]);
     });
   });
 
@@ -481,13 +299,21 @@ describe('navigateToCelebrateComments', () => {
       expect(store.getActions()).toEqual([
         {
           type: 'Navigation/RESET',
-          index: 2,
+          index: 3,
           key: null,
           actions: [
             {
               type: 'Navigation/NAVIGATE',
-              routeName: USER_CREATED_GROUP_SCREEN,
-              params: { orgId: userCreatedOrgId },
+              routeName: MAIN_TABS,
+              action: {
+                type: 'Navigation/NAVIGATE',
+                routeName: COMMUNITIES_TAB,
+              },
+            },
+            {
+              type: 'Navigation/NAVIGATE',
+              routeName: COMMUNITY_TABS,
+              params: { communityId: userCreatedOrgId },
             },
             {
               type: 'Navigation/NAVIGATE',

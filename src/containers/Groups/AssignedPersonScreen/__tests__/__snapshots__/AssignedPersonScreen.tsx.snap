@@ -15,7 +15,7 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
     showHideTransition="fade"
   />
   <Header
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <IconButton
         name="moreIcon"
@@ -121,7 +121,7 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for Use
     showHideTransition="fade"
   />
   <Header
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <IconButton
         name="moreIcon"
@@ -214,7 +214,7 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
     showHideTransition="fade"
   />
   <Header
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <IconButton
         name="moreIcon"
@@ -316,7 +316,7 @@ exports[`Contact should render AssignedPersonScreen correctly without stage 1`] 
     showHideTransition="fade"
   />
   <Header
-    left={<Connect(BackButton) />}
+    left={<Connect(DeprecatedBackButton) />}
     right={
       <IconButton
         name="moreIcon"

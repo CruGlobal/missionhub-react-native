@@ -10,15 +10,17 @@ export default StyleSheet.create({
   listContent: {
     paddingBottom: 10,
   },
+
   header: {
-    alignItems: 'center',
+    flex: 1,
     alignContent: 'center',
     paddingVertical: 10,
+    marginLeft: 15,
     backgroundColor: theme.extraLightGrey,
   },
   title: {
-    fontSize: 12,
-    color: theme.textColor,
-    textAlign: 'center',
+    fontSize: 24,
+    fontWeight: '200',
+    color: theme.grey,
   },
 });

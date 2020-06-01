@@ -209,7 +209,6 @@ describe('GroupCardItem', () => {
           nodes: [
             {
               __typename: 'Person',
-              id: '1',
               firstName: 'Roge',
               lastName: 'Egor',
             },
