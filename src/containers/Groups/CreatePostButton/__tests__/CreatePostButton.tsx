@@ -142,7 +142,6 @@ it('onPress navigates for PRAYER_REQUEST ', async () => {
 
   fireEvent.press(getByTestId('CreatePostButton'));
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.prayer_request,
   });
@@ -158,7 +157,6 @@ it('onPress navigates for QUESTION ', async () => {
 
   fireEvent.press(getByTestId('CreatePostButton'));
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.question,
   });
@@ -174,7 +172,6 @@ it('onPress navigates for STORY ', async () => {
 
   fireEvent.press(getByTestId('CreatePostButton'));
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.story,
   });
@@ -190,7 +187,6 @@ it('onPress navigates for HELP_REQUEST ', async () => {
 
   fireEvent.press(getByTestId('CreatePostButton'));
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.help_request,
   });
@@ -206,7 +202,6 @@ it('onPress navigates for THOUGHT ', async () => {
 
   fireEvent.press(getByTestId('CreatePostButton'));
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.thought,
   });
@@ -227,7 +222,6 @@ it('onPress navigates for ANNOUNCEMENT ', async () => {
 
   fireEvent.press(getByTestId('CreatePostButton'));
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.announcement,
   });

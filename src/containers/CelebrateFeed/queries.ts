@@ -5,7 +5,7 @@ import { CURRENT_USER_AVATAR_FRAGMENT } from '../../components/Avatar/queries';
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
   query GetGlobalCommunityFeed(
-    $subjectType: FeedItemSubjectTypeEnum = null
+    $subjectType: FeedItemSubjectTypeEnum
     $feedItemsCursor: String
     $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
   ) {
@@ -34,7 +34,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
 export const GET_COMMUNITY_FEED = gql`
   query GetCommunityFeed(
     $communityId: ID!
-    $subjectType: FeedItemSubjectTypeEnum = null
+    $subjectType: FeedItemSubjectTypeEnum
     $feedItemsCursor: String
     $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
   ) {

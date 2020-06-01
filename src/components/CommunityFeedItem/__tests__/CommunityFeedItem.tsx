@@ -108,7 +108,6 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
-let onRefresh = jest.fn();
 let onClearNotification = jest.fn();
 
 const trackActionResult = { type: 'tracked plain action' };
@@ -117,7 +116,6 @@ const navigatePushResult = { type: 'navigate push' };
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
-  onRefresh = jest.fn();
   onClearNotification = jest.fn();
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
@@ -128,7 +126,6 @@ describe('global community', () => {
     renderWithContext(
       <CommunityFeedItem
         feedItem={{ ...stepItem, community: null }}
-        onRefresh={onRefresh}
         namePressable={false}
       />,
       {
@@ -141,7 +138,6 @@ describe('global community', () => {
     renderWithContext(
       <CommunityFeedItem
         feedItem={{ ...stepItem, community: null }}
-        onRefresh={onRefresh}
         namePressable={false}
         onClearNotification={onClearNotification}
       />,
@@ -155,7 +151,6 @@ describe('global community', () => {
     renderWithContext(
       <CommunityFeedItem
         feedItem={{ ...storyPostItem, community: null }}
-        onRefresh={onRefresh}
         namePressable={false}
       />,
       {
@@ -168,11 +163,7 @@ describe('global community', () => {
 describe('Community', () => {
   it('renders post correctly without add to steps button ', () => {
     renderWithContext(
-      <CommunityFeedItem
-        feedItem={storyPostItem}
-        onRefresh={onRefresh}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
       {
         initialState,
       },
@@ -181,11 +172,7 @@ describe('Community', () => {
 
   it('renders post created by me correctly without add to steps button', () => {
     renderWithContext(
-      <CommunityFeedItem
-        feedItem={myPrayerPostItem}
-        onRefresh={onRefresh}
-        namePressable={true}
-      />,
+      <CommunityFeedItem feedItem={myPrayerPostItem} namePressable={true} />,
       {
         initialState,
       },
@@ -194,11 +181,7 @@ describe('Community', () => {
 
   it('renders post correctly with add to steps button', () => {
     renderWithContext(
-      <CommunityFeedItem
-        feedItem={prayerPostItem}
-        onRefresh={onRefresh}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={prayerPostItem} namePressable={false} />,
       {
         initialState,
       },
@@ -215,7 +198,6 @@ describe('Community', () => {
             mediaExpiringUrl: null,
           },
         }}
-        onRefresh={onRefresh}
         namePressable={false}
       />,
       { initialState },
@@ -224,11 +206,7 @@ describe('Community', () => {
 
   it('renders step correctly', () => {
     renderWithContext(
-      <CommunityFeedItem
-        feedItem={stepItem}
-        onRefresh={onRefresh}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
       {
         initialState,
       },
@@ -237,11 +215,7 @@ describe('Community', () => {
 
   it('renders challenge correctly', () => {
     renderWithContext(
-      <CommunityFeedItem
-        feedItem={challengeItem}
-        onRefresh={onRefresh}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
       {
         initialState,
       },
@@ -252,7 +226,6 @@ describe('Community', () => {
     renderWithContext(
       <CommunityFeedItem
         feedItem={storyPostItem}
-        onRefresh={onRefresh}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -265,11 +238,7 @@ describe('Community', () => {
 
 it('renders with name pressable correctly', () => {
   renderWithContext(
-    <CommunityFeedItem
-      feedItem={storyPostItem}
-      onRefresh={onRefresh}
-      namePressable={true}
-    />,
+    <CommunityFeedItem feedItem={storyPostItem} namePressable={true} />,
     {
       initialState,
     },
@@ -281,7 +250,6 @@ describe('press card', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
         feedItem={{ ...stepItem, community: null }}
-        onRefresh={onRefresh}
         namePressable={false}
       />,
       { initialState },
@@ -292,11 +260,7 @@ describe('press card', () => {
 
   it('navigates to celebrate detail screen', () => {
     const { getByTestId } = renderWithContext(
-      <CommunityFeedItem
-        feedItem={stepItem}
-        onRefresh={onRefresh}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
       { initialState },
     );
 
@@ -322,11 +286,7 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem
-          feedItem={myPost}
-          onRefresh={onRefresh}
-          namePressable={false}
-        />,
+        <CommunityFeedItem feedItem={myPost} namePressable={false} />,
         { initialState },
       );
 
@@ -337,7 +297,6 @@ describe('long-press card', () => {
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
         post: storyPostItem.subject,
-        onComplete: onRefresh,
         communityId,
       });
       expect(Alert.alert).not.toHaveBeenCalled();
@@ -348,11 +307,7 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem
-          feedItem={myPost}
-          onRefresh={onRefresh}
-          namePressable={false}
-        />,
+        <CommunityFeedItem feedItem={myPost} namePressable={false} />,
         { initialState },
       );
 
@@ -377,7 +332,6 @@ describe('long-press card', () => {
       expect(useMutation).toHaveBeenMutatedWith(DELETE_POST, {
         variables: { id: storyPostItem.subject.id },
       });
-      expect(onRefresh).toHaveBeenCalled();
     });
   });
 
@@ -387,11 +341,7 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem
-          feedItem={storyPostItem}
-          onRefresh={onRefresh}
-          namePressable={false}
-        />,
+        <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
         { initialState },
       );
 
@@ -425,7 +375,6 @@ describe('clear notification button', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
         feedItem={storyPostItem}
-        onRefresh={onRefresh}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -443,7 +392,6 @@ describe('add to steps button', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
         feedItem={prayerPostItem}
-        onRefresh={onRefresh}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -461,11 +409,7 @@ describe('add to steps button', () => {
 describe('navigates to post type screen', () => {
   it('navigates', () => {
     const { getByTestId } = renderWithContext(
-      <CommunityFeedItem
-        feedItem={storyPostItem}
-        onRefresh={onRefresh}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
       { initialState },
     );
     fireEvent.press(getByTestId('STORYButton'));

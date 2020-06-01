@@ -237,7 +237,6 @@ export const CelebrateFeed = ({
       onClearNotification={onClearNotification}
       feedItem={item}
       namePressable={itemNamePressable}
-      onRefresh={handleRefreshing}
     />
   );
 
@@ -259,7 +258,6 @@ export const CelebrateFeed = ({
             <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
             <CreatePostButton
               person={person || globalPerson}
-              refreshItems={handleRefreshing}
               communityId={communityId}
               type={filteredFeedType}
             />

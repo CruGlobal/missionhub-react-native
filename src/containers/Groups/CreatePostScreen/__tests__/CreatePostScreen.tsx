@@ -29,7 +29,6 @@ jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');
 
 const myId = '5';
-const onComplete = jest.fn();
 const navigatePushResult = { type: 'navigated push' };
 const navigateBackResult = { type: 'navigated back' };
 const communityId = '1234';
@@ -61,7 +60,7 @@ beforeEach(() => {
 it('renders correctly for new post', () => {
   renderWithContext(<CreatePostScreen />, {
     initialState,
-    navParams: { onComplete, communityId, postType },
+    navParams: { communityId, postType },
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
@@ -76,7 +75,6 @@ it('renders correctly for update post', () => {
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
-      onComplete,
       communityId,
       post: { ...post, postType: PostTypeEnum.prayer_request },
     },
@@ -95,7 +93,6 @@ it('renders correctly on android', () => {
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
-      onComplete,
       communityId,
       post: { ...post, postType: PostTypeEnum.prayer_request },
     },
@@ -106,7 +103,7 @@ describe('renders for post types', () => {
   it('renders for story', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { onComplete, communityId, postType: PostTypeEnum.story },
+      navParams: { communityId, postType: PostTypeEnum.story },
     }).snapshot();
   });
 
@@ -114,7 +111,6 @@ describe('renders for post types', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
-        onComplete,
         communityId,
         postType: PostTypeEnum.prayer_request,
       },
@@ -124,7 +120,7 @@ describe('renders for post types', () => {
   it('renders for spiritual question', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { onComplete, communityId, postType: PostTypeEnum.question },
+      navParams: { communityId, postType: PostTypeEnum.question },
     }).snapshot();
   });
 
@@ -132,7 +128,6 @@ describe('renders for post types', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
-        onComplete,
         communityId,
         postType: PostTypeEnum.help_request,
       },
@@ -142,7 +137,7 @@ describe('renders for post types', () => {
   it('renders for thought', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { onComplete, communityId, postType: PostTypeEnum.thought },
+      navParams: { communityId, postType: PostTypeEnum.thought },
     }).snapshot();
   });
 
@@ -150,7 +145,6 @@ describe('renders for post types', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
-        onComplete,
         communityId,
         postType: PostTypeEnum.announcement,
       },
@@ -165,7 +159,6 @@ describe('Select image', () => {
       {
         initialState,
         navParams: {
-          onComplete,
           communityId,
           postType: PostTypeEnum.story,
         },
@@ -188,7 +181,6 @@ describe('Creating a post', () => {
       {
         initialState,
         navParams: {
-          onComplete,
           communityId,
           postType,
         },
@@ -204,7 +196,6 @@ describe('Creating a post', () => {
     const { getByTestId } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
-        onComplete,
         communityId,
         postType,
       },
@@ -214,7 +205,6 @@ describe('Creating a post', () => {
     await fireEvent.press(getByTestId('CreatePostButton'));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
-    expect(onComplete).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -231,7 +221,6 @@ describe('Creating a post', () => {
     const { getByTestId } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
-        onComplete,
         communityId,
         postType,
       },
@@ -244,7 +233,6 @@ describe('Creating a post', () => {
     await fireEvent.press(getByTestId('CreatePostButton'));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
-    expect(onComplete).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -265,7 +253,6 @@ describe('Updating a post', () => {
       {
         initialState,
         navParams: {
-          onComplete,
           communityId,
           post,
         },
@@ -281,7 +268,6 @@ describe('Updating a post', () => {
     const { getByTestId } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
-        onComplete,
         communityId,
         post,
       },
@@ -291,7 +277,6 @@ describe('Updating a post', () => {
     await fireEvent.press(getByTestId('CreatePostButton'));
 
     expect(trackActionWithoutData).not.toHaveBeenCalled();
-    expect(onComplete).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
@@ -307,7 +292,6 @@ describe('Updating a post', () => {
     const { getByTestId } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
-        onComplete,
         communityId,
         post,
       },
@@ -320,7 +304,6 @@ describe('Updating a post', () => {
     await fireEvent.press(getByTestId('CreatePostButton'));
 
     expect(trackActionWithoutData).not.toHaveBeenCalled();
-    expect(onComplete).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {

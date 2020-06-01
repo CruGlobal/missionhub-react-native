@@ -29,6 +29,12 @@ import {
 import { navigateBack } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { GET_COMMUNITY_FEED } from '../../CelebrateFeed/queries';
+import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
+import {
+  GetCommunityFeed,
+  GetCommunityFeedVariables,
+} from '../../CelebrateFeed/__generated__/GetCommunityFeed';
 
 import CameraIcon from './cameraIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
@@ -75,7 +81,6 @@ export const CreatePostScreen = () => {
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
 
-  const onComplete: () => void = useNavigationParam('onComplete');
   const communityId: string = useNavigationParam('communityId');
   const post: CommunityFeedItem_subject_Post | undefined = useNavigationParam(
     'post',
@@ -102,14 +107,74 @@ export const CreatePostScreen = () => {
     },
   });
 
-  const [createPost] = useMutation<CreatePost, CreatePostVariables>(
-    CREATE_POST,
-  );
-  const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
-    UPDATE_POST,
-  );
+  const [createPost, { error: errorCreatePost }] = useMutation<
+    CreatePost,
+    CreatePostVariables
+  >(CREATE_POST, {
+    update: (cache, { data }) => {
+      const originalData = cache.readQuery<
+        GetCommunityFeed,
+        GetCommunityFeedVariables
+      >({
+        query: GET_COMMUNITY_FEED,
+        variables: { communityId },
+      });
+      cache.writeQuery({
+        query: GET_COMMUNITY_FEED,
+        variables: { communityId },
+        data: {
+          ...originalData,
+          community: {
+            ...originalData?.community,
+            feedItems: {
+              ...originalData?.community.feedItems,
+              nodes: [
+                data?.createPost?.post?.feedItem,
+                ...(originalData?.community.feedItems.nodes || []),
+              ],
+            },
+          },
+        },
+      });
 
-  const savePost = () => {
+      const originalFilteredData = cache.readQuery<
+        GetCommunityFeed,
+        GetCommunityFeedVariables
+      >({
+        query: GET_COMMUNITY_FEED,
+        variables: {
+          communityId,
+          subjectType: mapPostTypeToFeedType(postType),
+        },
+      });
+      cache.writeQuery({
+        query: GET_COMMUNITY_FEED,
+        variables: {
+          communityId,
+          subjectType: mapPostTypeToFeedType(postType),
+        },
+        data: {
+          ...originalFilteredData,
+          community: {
+            ...originalFilteredData?.community,
+            feedItems: {
+              ...originalFilteredData?.community.feedItems,
+              nodes: [
+                data?.createPost?.post?.feedItem,
+                ...(originalFilteredData?.community.feedItems.nodes || []),
+              ],
+            },
+          },
+        },
+      });
+    },
+  });
+  const [updatePost, { error: errorUpdatePost }] = useMutation<
+    UpdatePost,
+    UpdatePostVariables
+  >(UPDATE_POST);
+
+  const savePost = async () => {
     if (!text) {
       return;
     }
@@ -117,7 +182,7 @@ export const CreatePostScreen = () => {
     Keyboard.dismiss();
 
     if (post) {
-      updatePost({
+      await updatePost({
         variables: {
           input: {
             id: post.id,
@@ -127,7 +192,7 @@ export const CreatePostScreen = () => {
         },
       });
     } else {
-      createPost({
+      await createPost({
         variables: {
           input: { content: text, communityId, postType, media: imageData },
         },
@@ -135,7 +200,6 @@ export const CreatePostScreen = () => {
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
-    onComplete();
     dispatch(navigateBack());
   };
 
@@ -205,6 +269,16 @@ export const CreatePostScreen = () => {
     <View style={styles.container}>
       {renderHeader()}
       <View style={styles.lineBreak} />
+      <ErrorNotice
+        message={t('errorCreatingPost')}
+        error={errorCreatePost}
+        refetch={savePost}
+      />
+      <ErrorNotice
+        message={t('errorUpdatingPost')}
+        error={errorUpdatePost}
+        refetch={savePost}
+      />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <View style={styles.postLabelRow}>
           <PostTypeLabel type={mapPostTypeToFeedType(postType)} />

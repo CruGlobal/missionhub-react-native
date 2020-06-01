@@ -1798,7 +1798,6 @@ exports[`renders empty correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -2657,7 +2656,6 @@ exports[`renders for Global Community renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="_global_community_id"
-        refreshItems={[Function]}
       />
     </View>
     <View
@@ -2731,7 +2729,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -2777,7 +2774,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -2833,7 +2829,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -2879,7 +2874,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -2926,7 +2920,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -2973,7 +2966,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -3019,7 +3011,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -3065,7 +3056,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -3121,7 +3111,6 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -3991,7 +3980,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -4079,7 +4067,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4126,7 +4113,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4173,7 +4159,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4220,7 +4205,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4267,7 +4251,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4313,7 +4296,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4360,7 +4342,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4416,7 +4397,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -4463,7 +4443,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5333,7 +5312,6 @@ exports[`renders for member renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -5421,7 +5399,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5468,7 +5445,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5515,7 +5491,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5562,7 +5537,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5609,7 +5583,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5655,7 +5628,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5702,7 +5674,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5758,7 +5729,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5805,7 +5775,6 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -5993,7 +5962,6 @@ exports[`renders for member renders with type 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
         type="STEP"
       />
     </View>
@@ -6078,7 +6046,6 @@ exports[`renders for member renders with type 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7031,7 +6998,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7078,7 +7044,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7125,7 +7090,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7172,7 +7136,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7219,7 +7182,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7265,7 +7227,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7312,7 +7273,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7368,7 +7328,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -7415,7 +7374,6 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8285,7 +8243,6 @@ exports[`renders with clear notification renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -8374,7 +8331,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8422,7 +8378,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8470,7 +8425,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8518,7 +8472,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8566,7 +8519,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8613,7 +8565,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8661,7 +8612,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8718,7 +8668,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -8766,7 +8715,6 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -9636,7 +9584,6 @@ exports[`renders with items correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -9724,7 +9671,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -9771,7 +9717,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -9818,7 +9763,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -9865,7 +9809,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -9912,7 +9855,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -9958,7 +9900,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -10005,7 +9946,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -10061,7 +10001,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -10108,7 +10047,6 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -10296,7 +10234,6 @@ exports[`sections renders Earlier section 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -10384,7 +10321,6 @@ exports[`sections renders Earlier section 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -10576,7 +10512,6 @@ exports[`sections renders New section 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -10664,7 +10599,6 @@ exports[`sections renders New section 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View
@@ -10856,7 +10790,6 @@ exports[`sections renders Today section 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        refreshItems={[Function]}
       />
       <CelebrateFeedPostCards
         communityId="456"
@@ -10944,7 +10877,6 @@ exports[`sections renders Today section 1`] = `
           }
         }
         namePressable={true}
-        onRefresh={[Function]}
       />
     </View>
     <View

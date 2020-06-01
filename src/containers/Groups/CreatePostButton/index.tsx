@@ -23,14 +23,12 @@ import styles from './styles';
 
 interface CreatePostButtonProps {
   person?: AvatarPerson;
-  refreshItems: () => void;
   type?: FeedItemSubjectTypeEnum;
   communityId: string;
 }
 
 export const CreatePostButton = ({
   person,
-  refreshItems,
   type,
   communityId,
 }: CreatePostButtonProps) => {
@@ -65,7 +63,6 @@ export const CreatePostButton = ({
     const postType = mapFeedTypeToPostType(type);
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        onComplete: refreshItems,
         communityId,
         postType,
       }),
@@ -85,7 +82,6 @@ export const CreatePostButton = ({
         <CreatePostModal
           closeModal={closeModal}
           communityId={communityId}
-          refreshItems={refreshItems}
           adminOrOwner={adminOrOwner}
         />
       ) : null}

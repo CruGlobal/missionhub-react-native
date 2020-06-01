@@ -19,6 +19,12 @@ import {
   CommunityFeedItem_subject_Post,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import {
+  GetCommunityFeed,
+  GetCommunityFeedVariables,
+} from '../../containers/CelebrateFeed/__generated__/GetCommunityFeed';
+import { GET_COMMUNITY_FEED } from '../../containers/CelebrateFeed/queries';
+import { getFeedItemType } from '../../utils/common';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
@@ -29,14 +35,12 @@ export interface CommunityFeedItemProps {
   feedItem: FeedItemFragment;
   namePressable: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
-  onRefresh: () => void;
 }
 
 export const CommunityFeedItem = ({
   feedItem,
   namePressable,
   onClearNotification,
-  onRefresh,
 }: CommunityFeedItemProps) => {
   const { subject, subjectPerson } = feedItem;
   const { t } = useTranslation('communityFeedItems');
@@ -44,6 +48,67 @@ export const CommunityFeedItem = ({
   const isMe = useIsMe(subjectPerson?.id || '');
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
     DELETE_POST,
+    {
+      update: cache => {
+        if (!feedItem.community) {
+          return;
+        }
+
+        const originalData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId: feedItem.community.id },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId: feedItem.community.id },
+          data: {
+            ...originalData,
+            community: {
+              ...originalData?.community,
+              feedItems: {
+                ...originalData?.community.feedItems,
+                nodes: (originalData?.community.feedItems.nodes || []).filter(
+                  ({ id }) => id !== feedItem.id,
+                ),
+              },
+            },
+          },
+        });
+
+        const originalFilteredData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId: feedItem.community.id,
+            subjectType: getFeedItemType(feedItem.subject),
+          },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId: feedItem.community.id,
+            subjectType: getFeedItemType(feedItem.subject),
+          },
+          data: {
+            ...originalFilteredData,
+            community: {
+              ...originalFilteredData?.community,
+              feedItems: {
+                ...originalFilteredData?.community.feedItems,
+                nodes: (
+                  originalFilteredData?.community.feedItems.nodes || []
+                ).filter(({ id }) => id !== feedItem.id),
+              },
+            },
+          },
+        });
+      },
+    },
   );
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
@@ -69,7 +134,6 @@ export const CommunityFeedItem = ({
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         post: subject,
-        onComplete: onRefresh,
         communityId: feedItem.community?.id,
       } as CreatePostScreenNavParams),
     );
@@ -81,7 +145,6 @@ export const CommunityFeedItem = ({
         text: t('delete.buttonText'),
         onPress: async () => {
           await deletePost({ variables: { id: subject.id } });
-          onRefresh();
         },
       },
     ]);

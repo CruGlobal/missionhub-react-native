@@ -127,10 +127,7 @@ const AddPostToStepsScreen = () => {
       Input={
         <TextInput
           testID="stepTitleInput"
-          onChangeText={event => {
-            debugger;
-            changeStepTitle(event);
-          }}
+          onChangeText={changeStepTitle}
           value={stepTitle}
           autoFocus={true}
           autoCorrect={true}
