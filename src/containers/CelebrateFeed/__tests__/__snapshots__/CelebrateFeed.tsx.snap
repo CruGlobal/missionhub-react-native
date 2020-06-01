@@ -6507,6 +6507,7 @@ exports[`renders for member renders correctly 1`] = `
 
 exports[`renders for member renders with type 1`] = `
 <RCTScrollView
+  ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
   contentContainerStyle={
     Array [
