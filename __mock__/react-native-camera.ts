@@ -29,11 +29,13 @@ class RNCamera extends React.Component {
     };
   };
 
+  stopRecording = () => {};
+
   render() {
-    return 'RNCamera';
+    return <View>{this.props.children}</View>;
   }
 }
 
 jest.mock('react-native-camera', () => ({
-  RNCamera: RNCamera,
+  RNCamera,
 }));
