@@ -84,7 +84,9 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [mediaType, changeMediaType] = useState<MediaType>('NONE');
+  const [mediaType, changeMediaType] = useState<string | null>(
+    post?.mediaContentType || null,
+  );
   const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
   );
@@ -108,12 +110,15 @@ export const CreatePostScreen = () => {
     UPDATE_POST,
   );
 
+  const hasImage = mediaType?.includes('image');
+  const hasVideo = mediaType?.includes('video');
+
   const getMediaHeight = () => {
     if (!mediaData) {
       return changeMediaHeight(0);
     }
 
-    if (mediaType === 'IMAGE') {
+    if (hasImage) {
       return Image.getSize(
         mediaData,
         (width, height) =>
@@ -121,7 +126,7 @@ export const CreatePostScreen = () => {
         () => {},
       );
     }
-    if (mediaType === 'VIDEO') {
+    if (hasVideo) {
       return changeMediaHeight(theme.fullWidth * (16.0 / 9.0)); //video aspect ratio is 16:9
     }
   };
@@ -144,7 +149,7 @@ export const CreatePostScreen = () => {
             id: post.id,
             content: text,
             media:
-              mediaType === 'IMAGE' && mediaData !== post.mediaExpiringUrl
+              hasImage && mediaData !== post.mediaExpiringUrl
                 ? mediaData
                 : undefined,
           },
@@ -157,7 +162,7 @@ export const CreatePostScreen = () => {
             content: text,
             communityId,
             postType,
-            media: mediaType === 'IMAGE' ? mediaData : null,
+            media: hasImage ? mediaData : null,
           },
         },
       });
@@ -169,12 +174,12 @@ export const CreatePostScreen = () => {
   };
 
   const handleSavePhoto = (image: SelectImageParams) => {
-    changeMediaType('IMAGE');
+    changeMediaType('image');
     changeMediaData(image.data);
   };
 
   const handleSaveVideo = (uri: string) => {
-    changeMediaType('VIDEO');
+    changeMediaType('video');
     changeMediaData(uri);
   };
 
@@ -229,12 +234,15 @@ export const CreatePostScreen = () => {
   const renderVideoPhotoButtons = () => (
     <>
       <View style={styles.lineBreak} />
-      <Touchable style={styles.addPhotoButton} onPress={navigateToRecordVideo}>
+      <Touchable
+        testID="VideoButton"
+        style={styles.addPhotoButton}
+        onPress={navigateToRecordVideo}
+      >
         <VideoIcon style={styles.icon} />
         <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
       </Touchable>
       <View style={styles.lineBreak} />
-
       <ImagePicker
         // @ts-ignore
         testID="ImagePicker"
@@ -249,16 +257,12 @@ export const CreatePostScreen = () => {
     </>
   );
 
-  const renderMedia = () => {
-    switch (mediaType) {
-      case 'NONE':
-        return renderVideoPhotoButtons();
-      case 'IMAGE':
-        return renderImage();
-      case 'VIDEO':
-        return renderVideo();
-    }
-  };
+  const renderMedia = () =>
+    hasImage
+      ? renderImage()
+      : hasVideo
+      ? renderVideo()
+      : renderVideoPhotoButtons();
 
   return (
     <View style={styles.container}>

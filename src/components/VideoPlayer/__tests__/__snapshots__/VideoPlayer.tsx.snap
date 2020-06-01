@@ -21,13 +21,54 @@ exports[`renders correctly 1`] = `
       }
     }
     style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        undefined,
+      ]
+    }
+  />
+</View>
+`;
+
+exports[`renders with style 1`] = `
+<View
+  style={
+    Array [
       Object {
-        "bottom": 0,
-        "left": 0,
-        "position": "absolute",
-        "right": 0,
-        "top": 0,
+        "height": 300,
+        "width": "100%",
+      },
+      Object {},
+    ]
+  }
+>
+  <Video
+    controls={true}
+    paused={true}
+    source={
+      Object {
+        "uri": "testVideo.mp4",
       }
+    }
+    style={
+      Array [
+        Object {
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "top": 0,
+        },
+        Object {
+          "height": 1000,
+        },
+      ]
     }
   />
 </View>

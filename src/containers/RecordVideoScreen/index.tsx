@@ -5,15 +5,14 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { RNCamera } from 'react-native-camera';
 
 import { navigateBack } from '../../actions/navigation';
-import { Text, Button, Touchable } from '../../components/common';
+import { Text, Touchable } from '../../components/common';
 import CloseButton from '../../../assets/images/closeIcon.svg';
 import theme from '../../theme';
 
 import CameraRotateIcon from './cameraRotateIcon.svg';
 import styles from './styles';
 
-const { front: FrontCamera, back: BackCamera } = RNCamera.Constants.Type;
-type CameraType = typeof FrontCamera | typeof BackCamera;
+type CameraType = 'front' | 'back';
 type VideoState = 'NOT_RECORDING' | 'RECORDING' | 'PROCESSING';
 
 interface RecordVideoScreenNavParams {
@@ -27,7 +26,7 @@ export const RecordVideoScreen = () => {
   const [videoState, setVideoState] = useState<VideoState>('NOT_RECORDING');
   const [timer, setTimer] = useState<NodeJS.Timer | null>(null);
   const [countdownTime, setCountdownTime] = useState<number>(15);
-  const [cameraType, setCameraType] = useState<CameraType>(FrontCamera);
+  const [cameraType, setCameraType] = useState<CameraType>('front');
 
   useEffect(() => {
     if (timer && countdownTime <= 0) {
@@ -63,6 +62,7 @@ export const RecordVideoScreen = () => {
     startCountdown();
 
     const { uri } = await camera.current.recordAsync();
+    console.log(uri);
     onEndRecord(uri);
   };
 
@@ -78,24 +78,25 @@ export const RecordVideoScreen = () => {
   const handleClose = () => dispatch(navigateBack());
 
   const handleFlipCamera = () =>
-    setCameraType(cameraType === FrontCamera ? BackCamera : FrontCamera);
+    setCameraType(cameraType === 'front' ? 'back' : 'front');
 
   const renderCloseButton = () => (
     <SafeAreaView style={styles.closeWrap}>
       {videoState === 'NOT_RECORDING' ? (
-        <Button
+        <Touchable
           onPress={handleClose}
           type="transparent"
           style={styles.closeButton}
         >
           <CloseButton color={theme.white} height={36} width={36} />
-        </Button>
+        </Touchable>
       ) : null}
     </SafeAreaView>
   );
 
   const renderRecordButton = () => (
     <Touchable
+      testID="RecordButton"
       style={styles.recordButton}
       onPress={videoState === 'NOT_RECORDING' ? startRecording : endRecording}
     >
@@ -127,7 +128,7 @@ export const RecordVideoScreen = () => {
         ref={camera}
         style={styles.cameraContainer}
         type={cameraType}
-        flashMode={RNCamera.Constants.FlashMode.auto}
+        flashMode={'auto'}
         ratio={'16:9'}
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',

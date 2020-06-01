@@ -5070,13 +5070,8 @@ exports[`renders for member renders correctly 1`] = `
                   "id": "46",
                 },
               ],
-<<<<<<< HEAD
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "id": "44",
               "title": "ipsum sit qui",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -5087,11 +5082,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -5099,27 +5090,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Tre",
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           },
@@ -5132,17 +5113,10 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 9155,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2014-03-07T23:29:16.858Z",
             "id": "50",
             "liked": true,
             "likesCount": 96959,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "Step",
@@ -5161,11 +5135,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "54",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -5173,27 +5143,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "55",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Roscoe",
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           },
@@ -5206,13 +5166,8 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 5991,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2018-07-03T07:32:54.839Z",
             "id": "56",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 93719,
             "read": false,
@@ -5233,11 +5188,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "59",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -5245,27 +5196,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "60",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Elza",
               "fullName": "Antonietta Greenholt",
               "id": "58",
               "lastName": "Paucek",
               "picture": "delectus ea similique",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Elza Paucek",
           },
@@ -5354,10 +5295,7 @@ exports[`renders for member renders correctly 1`] = `
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
-<<<<<<< HEAD
-=======
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -5403,11 +5341,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -5415,11 +5349,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -5429,10 +5359,7 @@ exports[`renders for member renders correctly 1`] = `
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
-<<<<<<< HEAD
-=======
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           },
@@ -5467,11 +5394,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "17",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -5479,27 +5402,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "18",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
-=======
               "firstName": "Zola",
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           },
@@ -5512,13 +5425,8 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 54060,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-=======
             "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 53589,
             "read": false,
@@ -5539,11 +5447,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -5551,27 +5455,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           },
@@ -5584,17 +5478,10 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 65229,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
-            "liked": true,
-            "likesCount": 55132,
-=======
             "createdAt": "2010-10-07T14:14:54.569Z",
             "id": "25",
             "liked": false,
             "likesCount": 34776,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "Post",
@@ -5613,11 +5500,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -5625,27 +5508,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           },
@@ -5796,10 +5669,6 @@ exports[`renders for member renders correctly 1`] = `
                   "id": "46",
                 },
               ],
-<<<<<<< HEAD
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "id": "44",
               "title": "ipsum sit qui",
             },
@@ -5855,7 +5724,6 @@ exports[`renders for member renders correctly 1`] = `
                 "__typename": "Stage",
                 "id": "52",
               },
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -5884,10 +5752,7 @@ exports[`renders for member renders correctly 1`] = `
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
-<<<<<<< HEAD
-=======
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           },
@@ -5900,13 +5765,8 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 5991,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-=======
             "createdAt": "2018-07-03T07:32:54.839Z",
             "id": "56",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 93719,
             "read": false,
@@ -5927,11 +5787,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "59",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -5939,27 +5795,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "60",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Elza",
               "fullName": "Antonietta Greenholt",
               "id": "58",
               "lastName": "Paucek",
               "picture": "delectus ea similique",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Elza Paucek",
           },
@@ -6042,13 +5888,8 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 80275,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 69232,
             "read": true,
@@ -6069,11 +5910,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "5",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -6081,27 +5918,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "6",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Torey",
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           }
@@ -6126,19 +5953,11 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 68650,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-            "liked": false,
-            "likesCount": 69232,
-            "read": true,
-=======
             "createdAt": "2012-03-16T21:39:07.726Z",
             "id": "7",
             "liked": true,
             "likesCount": 41253,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
@@ -6167,11 +5986,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -6179,27 +5994,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           }
@@ -6246,11 +6051,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "17",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -6258,27 +6059,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "18",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Zola",
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           }
@@ -6325,11 +6116,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -6337,27 +6124,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           }
@@ -6382,17 +6159,10 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 65229,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-            "liked": true,
-            "likesCount": 41792,
-=======
             "createdAt": "2010-10-07T14:14:54.569Z",
             "id": "25",
             "liked": false,
             "likesCount": 34776,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "Post",
@@ -6411,11 +6181,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -6423,27 +6189,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           }
@@ -6468,13 +6224,8 @@ exports[`renders for member renders correctly 1`] = `
                 "totalCount": 11474,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
-=======
             "createdAt": "2012-03-03T15:03:02.973Z",
             "id": "30",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 6406,
             "read": false,
@@ -6495,11 +6246,7 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -6507,27 +6254,17 @@ exports[`renders for member renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
-=======
               "firstName": "Gideon",
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           }
@@ -6809,13 +6546,8 @@ exports[`renders for member renders with type 1`] = `
                   "id": "5",
                 },
               ],
-<<<<<<< HEAD
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "id": "3",
               "title": "iure ut libero",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -6826,11 +6558,7 @@ exports[`renders for member renders with type 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -6838,27 +6566,17 @@ exports[`renders for member renders with type 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Torey",
               "fullName": "Heather Hahn",
               "id": "6",
               "lastName": "Abbott",
               "picture": "nobis cupiditate sed",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -6907,13 +6625,8 @@ exports[`renders for member renders with type 1`] = `
                 "totalCount": 99904,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-=======
             "createdAt": "2018-07-27T08:11:00.872Z",
             "id": "2",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 9233,
             "read": false,
@@ -6945,11 +6658,7 @@ exports[`renders for member renders with type 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -6957,27 +6666,17 @@ exports[`renders for member renders with type 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Torey",
               "fullName": "Heather Hahn",
               "id": "6",
               "lastName": "Abbott",
               "picture": "nobis cupiditate sed",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -7051,13 +6750,8 @@ exports[`renders for member renders with type 1`] = `
                 "totalCount": 99904,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2018-07-27T08:11:00.872Z",
             "id": "2",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 9233,
             "read": false,
@@ -7089,11 +6783,7 @@ exports[`renders for member renders with type 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -7101,27 +6791,17 @@ exports[`renders for member renders with type 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Torey",
               "fullName": "Heather Hahn",
               "id": "6",
               "lastName": "Abbott",
               "picture": "nobis cupiditate sed",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           }
@@ -7175,32 +6855,12 @@ exports[`renders for member renders without header 1`] = `
             "likesCount": 69232,
             "read": true,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Post",
               "content": "saepe eum dicta",
               "id": "3",
               "mediaContentType": "eum eaque enim",
               "mediaExpiringUrl": "ipsum inventore debitis",
               "postType": "thought",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -7211,11 +6871,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "5",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -7223,27 +6879,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "6",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Torey",
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -7256,17 +6902,10 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 68650,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2012-03-16T21:39:07.726Z",
             "id": "7",
             "liked": true,
             "likesCount": 41253,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -7296,11 +6935,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -7308,27 +6943,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           },
@@ -7341,13 +6966,8 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 13002,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2014-10-16T11:34:26.098Z",
             "id": "14",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 8362,
             "read": true,
@@ -7386,10 +7006,7 @@ exports[`renders for member renders without header 1`] = `
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
-<<<<<<< HEAD
-=======
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           },
@@ -7402,19 +7019,11 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 54060,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-            "liked": false,
-            "likesCount": 69232,
-            "read": true,
-=======
             "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
             "liked": true,
             "likesCount": 53589,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "Step",
               "id": "20",
@@ -7432,11 +7041,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -7444,27 +7049,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           },
@@ -7499,11 +7094,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -7511,27 +7102,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           },
@@ -7566,11 +7147,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -7578,11 +7155,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -7592,10 +7165,7 @@ exports[`renders for member renders without header 1`] = `
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
-<<<<<<< HEAD
-=======
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           },
@@ -7608,13 +7178,8 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 62336,
             "read": false,
@@ -7646,11 +7211,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "41",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -7658,27 +7219,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "42",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
               "id": "40",
               "lastName": "Hyatt",
               "picture": "eos quod recusandae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
@@ -7691,17 +7242,10 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
-            "liked": true,
-            "likesCount": 55132,
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
             "liked": false,
             "likesCount": 71152,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -7731,11 +7275,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -7743,11 +7283,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
@@ -7757,10 +7293,7 @@ exports[`renders for member renders without header 1`] = `
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
-<<<<<<< HEAD
-=======
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           },
@@ -7921,32 +7454,12 @@ exports[`renders for member renders without header 1`] = `
             "likesCount": 69232,
             "read": true,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Post",
               "content": "saepe eum dicta",
               "id": "3",
               "mediaContentType": "eum eaque enim",
               "mediaExpiringUrl": "ipsum inventore debitis",
               "postType": "thought",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -7957,11 +7470,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "5",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -7969,27 +7478,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "6",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Torey",
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -8002,17 +7501,10 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 68650,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2012-03-16T21:39:07.726Z",
             "id": "7",
             "liked": true,
             "likesCount": 41253,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -8042,11 +7534,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -8054,27 +7542,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           },
@@ -8087,13 +7565,8 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 13002,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2014-10-16T11:34:26.098Z",
             "id": "14",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 8362,
             "read": true,
@@ -8132,10 +7605,7 @@ exports[`renders for member renders without header 1`] = `
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
-<<<<<<< HEAD
-=======
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           },
@@ -8148,19 +7618,11 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 54060,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-            "liked": false,
-            "likesCount": 69232,
-            "read": true,
-=======
             "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
             "liked": true,
             "likesCount": 53589,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "Step",
               "id": "20",
@@ -8178,11 +7640,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -8190,27 +7648,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           },
@@ -8245,11 +7693,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -8257,27 +7701,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           },
@@ -8312,11 +7746,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -8324,11 +7754,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -8338,10 +7764,7 @@ exports[`renders for member renders without header 1`] = `
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
-<<<<<<< HEAD
-=======
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           },
@@ -8354,13 +7777,8 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 62336,
             "read": false,
@@ -8392,11 +7810,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "41",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -8404,27 +7818,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "42",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
               "id": "40",
               "lastName": "Hyatt",
               "picture": "eos quod recusandae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
@@ -8437,17 +7841,10 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
-            "liked": true,
-            "likesCount": 55132,
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
             "liked": false,
             "likesCount": 71152,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -8477,11 +7874,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -8489,11 +7882,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
@@ -8503,10 +7892,7 @@ exports[`renders for member renders without header 1`] = `
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
-<<<<<<< HEAD
-=======
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           },
@@ -8772,13 +8158,8 @@ exports[`renders for member renders without header 1`] = `
                   "id": "10",
                 },
               ],
-<<<<<<< HEAD
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "id": "8",
               "title": "placeat fuga doloribus",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -8789,11 +8170,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -8801,27 +8178,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           }
@@ -8846,13 +8213,8 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 13002,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-=======
             "createdAt": "2014-10-16T11:34:26.098Z",
             "id": "14",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 8362,
             "read": true,
@@ -8873,11 +8235,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "17",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -8885,27 +8243,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "18",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Zola",
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           }
@@ -8930,19 +8278,11 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 54060,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-=======
             "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
             "liked": true,
             "likesCount": 53589,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "Step",
               "id": "20",
@@ -8960,11 +8300,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -8972,27 +8308,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           }
@@ -9023,32 +8349,12 @@ exports[`renders for member renders without header 1`] = `
             "likesCount": 34776,
             "read": true,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Post",
               "content": "est consequuntur aut",
               "id": "26",
               "mediaContentType": "est fuga est",
               "mediaExpiringUrl": "placeat ex ut",
               "postType": "question",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -9059,11 +8365,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -9071,27 +8373,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           }
@@ -9116,17 +8408,10 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 11474,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2012-03-03T15:03:02.973Z",
             "id": "30",
             "liked": true,
             "likesCount": 6406,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "Step",
@@ -9145,11 +8430,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -9157,27 +8438,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Gideon",
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           }
@@ -9202,19 +8473,11 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
             "liked": true,
             "likesCount": 62336,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
@@ -9243,11 +8506,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "41",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -9255,27 +8514,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "42",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
               "id": "40",
               "lastName": "Hyatt",
               "picture": "eos quod recusandae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Marcellus Hyatt",
           }
@@ -9300,13 +8549,8 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 71152,
             "read": true,
@@ -9338,11 +8582,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -9350,27 +8590,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Tre",
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           }
@@ -9395,20 +8625,6 @@ exports[`renders for member renders without header 1`] = `
                 "totalCount": 9155,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-18T08:49:49.007Z",
-            "id": "7",
-            "liked": false,
-            "likesCount": 68650,
-            "read": true,
-            "subject": Object {
-              "__typename": "Post",
-              "content": "sit aperiam placeat",
-              "id": "8",
-              "mediaContentType": "fuga doloribus distinctio",
-              "mediaExpiringUrl": "placeat ullam minima",
-              "postType": "prayer_request",
-=======
             "createdAt": "2014-03-07T23:29:16.858Z",
             "id": "50",
             "liked": true,
@@ -9421,7 +8637,6 @@ exports[`renders for member renders without header 1`] = `
                 "__typename": "Stage",
                 "id": "52",
               },
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -9432,11 +8647,7 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "54",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -9444,27 +8655,17 @@ exports[`renders for member renders without header 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "55",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Roscoe",
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           }
@@ -9530,11 +8731,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "5",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -9542,27 +8739,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "6",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
-=======
               "firstName": "Torey",
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -9575,13 +8762,8 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 68650,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-=======
             "createdAt": "2012-03-16T21:39:07.726Z",
             "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 41253,
             "read": false,
@@ -9613,11 +8795,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -9625,27 +8803,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           },
@@ -9658,17 +8826,10 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 13002,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
-            "liked": true,
-            "likesCount": 55132,
-=======
             "createdAt": "2014-10-16T11:34:26.098Z",
             "id": "14",
             "liked": false,
             "likesCount": 8362,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "Post",
@@ -9687,11 +8848,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "17",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -9699,27 +8856,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "18",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
-=======
               "firstName": "Zola",
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           },
@@ -9844,32 +8991,12 @@ exports[`renders with clear notification renders correctly 1`] = `
             "likesCount": 6406,
             "read": false,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Step",
               "id": "31",
               "receiverStageAtCompletion": Object {
                 "__typename": "Stage",
                 "id": "32",
               },
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -9880,11 +9007,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -9892,27 +9015,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Gideon",
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           },
@@ -9925,17 +9038,10 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
             "liked": true,
             "likesCount": 62336,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -9965,11 +9071,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "41",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -9977,27 +9079,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "42",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
               "id": "40",
               "lastName": "Hyatt",
               "picture": "eos quod recusandae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
@@ -10010,13 +9102,8 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 71152,
             "read": true,
@@ -10048,11 +9135,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -10060,27 +9143,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Tre",
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           },
@@ -10093,19 +9166,11 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 9155,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-            "liked": false,
-            "likesCount": 69232,
-            "read": true,
-=======
             "createdAt": "2014-03-07T23:29:16.858Z",
             "id": "50",
             "liked": true,
             "likesCount": 96959,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "Step",
               "id": "51",
@@ -10123,11 +9188,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "54",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -10135,27 +9196,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "55",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Roscoe",
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           },
@@ -10190,11 +9241,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "59",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -10202,27 +9249,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "60",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Elza",
               "fullName": "Antonietta Greenholt",
               "id": "58",
               "lastName": "Paucek",
               "picture": "delectus ea similique",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Elza Paucek",
           },
@@ -10293,11 +9330,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "5",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -10305,27 +9338,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "6",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
-=======
               "firstName": "Torey",
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -10338,13 +9361,8 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 68650,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-=======
             "createdAt": "2012-03-16T21:39:07.726Z",
             "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 41253,
             "read": false,
@@ -10376,11 +9394,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -10388,27 +9402,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           },
@@ -10421,17 +9425,10 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 13002,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
-            "liked": true,
-            "likesCount": 55132,
-=======
             "createdAt": "2014-10-16T11:34:26.098Z",
             "id": "14",
             "liked": false,
             "likesCount": 8362,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "Post",
@@ -10450,11 +9447,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "17",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -10462,27 +9455,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "18",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
-=======
               "firstName": "Zola",
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           },
@@ -10607,32 +9590,12 @@ exports[`renders with clear notification renders correctly 1`] = `
             "likesCount": 6406,
             "read": false,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Step",
               "id": "31",
               "receiverStageAtCompletion": Object {
                 "__typename": "Stage",
                 "id": "32",
               },
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -10643,11 +9606,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -10655,27 +9614,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Gideon",
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           },
@@ -10688,17 +9637,10 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
             "liked": true,
             "likesCount": 62336,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -10728,76 +9670,19 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-                    },
-                    "permission": "user",
-=======
                       "id": "41",
                     },
                     "permission": "admin",
->>>>>>> origin/Communities-Update-Feature-Branch
                   },
                   Object {
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-                    },
-                    "permission": "admin",
-                  },
-                ],
-              },
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-            },
-            "subjectPersonName": "Darwin Bosco",
-          }
-        }
-        namePressable={true}
-        onRefresh={[Function]}
-      />
-    </View>
-    <View
-      onLayout={[Function]}
-      style={null}
-    />
-    <View
-      onLayout={[Function]}
-      style={null}
-    >
-      <View
-        style={
-          Object {
-            "alignContent": "center",
-            "alignItems": "center",
-            "backgroundColor": "#ECEEF2",
-            "paddingVertical": 10,
-          }
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 12,
-                "textAlign": "center",
-=======
                       "id": "42",
                     },
                     "permission": "owner",
                   },
                 ],
->>>>>>> origin/Communities-Update-Feature-Branch
               },
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
@@ -10816,13 +9701,8 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 71152,
             "read": true,
@@ -10854,11 +9734,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -10866,27 +9742,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Tre",
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           },
@@ -10905,32 +9771,12 @@ exports[`renders with clear notification renders correctly 1`] = `
             "likesCount": 96959,
             "read": false,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Step",
               "id": "51",
               "receiverStageAtCompletion": Object {
                 "__typename": "Stage",
                 "id": "52",
               },
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -10959,10 +9805,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
-<<<<<<< HEAD
-=======
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           },
@@ -10975,13 +9818,8 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 5991,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-=======
             "createdAt": "2018-07-03T07:32:54.839Z",
             "id": "56",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 93719,
             "read": false,
@@ -11002,11 +9840,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "59",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -11014,27 +9848,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "60",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Elza",
               "fullName": "Antonietta Greenholt",
               "id": "58",
               "lastName": "Paucek",
               "picture": "delectus ea similique",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Elza Paucek",
           },
@@ -11121,13 +9945,8 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 80275,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 69232,
             "read": true,
@@ -11148,11 +9967,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "5",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -11160,27 +9975,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "6",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Torey",
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           }
@@ -11371,11 +10176,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -11383,27 +10184,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           }
@@ -11429,17 +10220,10 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 65229,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-            "liked": true,
-            "likesCount": 41792,
-=======
             "createdAt": "2010-10-07T14:14:54.569Z",
             "id": "25",
             "liked": false,
             "likesCount": 34776,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "Post",
@@ -11458,11 +10242,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -11470,27 +10250,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           }
@@ -11522,32 +10292,12 @@ exports[`renders with clear notification renders correctly 1`] = `
             "likesCount": 6406,
             "read": false,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2012-08-11T21:48:03.869Z",
-                  "completedAt": "2010-09-19T00:38:14.132Z",
-                  "id": "44",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2018-02-12T08:38:51.042Z",
-                  "completedAt": "2013-01-26T14:43:43.912Z",
-                  "id": "45",
-                },
-              ],
-              "id": "43",
-              "title": "ipsum rem eos",
-=======
               "__typename": "Step",
               "id": "31",
               "receiverStageAtCompletion": Object {
                 "__typename": "Stage",
                 "id": "32",
               },
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -11558,11 +10308,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -11570,27 +10316,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
-=======
               "firstName": "Gideon",
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           }
@@ -11616,13 +10352,8 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-02-13T16:53:52.387Z",
-            "id": "24",
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 62336,
             "read": false,
@@ -11654,11 +10385,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "28",
-=======
                       "id": "41",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -11666,27 +10393,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "29",
-=======
                       "id": "42",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Grace",
-              "id": "27",
-              "lastName": "Dibbert",
-=======
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
               "id": "40",
               "lastName": "Hyatt",
               "picture": "eos quod recusandae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Marcellus Hyatt",
           }
@@ -11712,19 +10429,11 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-01-03T15:57:15.597Z",
-            "id": "35",
-            "liked": true,
-            "likesCount": 57367,
-            "read": false,
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
             "liked": false,
             "likesCount": 71152,
             "read": true,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
@@ -11753,11 +10462,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "40",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -11765,27 +10470,17 @@ exports[`renders with clear notification renders correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "41",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Marcellus",
-              "id": "39",
-              "lastName": "Hyatt",
-=======
               "firstName": "Tre",
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           }
@@ -11817,32 +10512,12 @@ exports[`renders with clear notification renders correctly 1`] = `
             "likesCount": 96959,
             "read": false,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Step",
               "id": "51",
               "receiverStageAtCompletion": Object {
                 "__typename": "Stage",
                 "id": "52",
               },
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -11871,10 +10546,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
-<<<<<<< HEAD
-=======
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           }
@@ -11919,13 +10591,8 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 80275,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-=======
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 69232,
             "read": true,
@@ -11946,11 +10613,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "5",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -11958,27 +10621,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "6",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Torey",
               "fullName": "Marco Boyle",
               "id": "4",
               "lastName": "Abbott",
               "picture": "deserunt quam tempore",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -11991,19 +10644,11 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 68650,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-=======
             "createdAt": "2012-03-16T21:39:07.726Z",
             "id": "7",
             "liked": true,
             "likesCount": 41253,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
@@ -12103,10 +10748,7 @@ exports[`renders with items correctly 1`] = `
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
-<<<<<<< HEAD
-=======
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           },
@@ -12119,19 +10761,11 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 54060,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-            "liked": false,
-            "likesCount": 69232,
-            "read": true,
-=======
             "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
             "liked": true,
             "likesCount": 53589,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "Step",
               "id": "20",
@@ -12149,11 +10783,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -12161,27 +10791,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           },
@@ -12216,11 +10836,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -12228,27 +10844,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           },
@@ -12283,11 +10889,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -12295,11 +10897,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -12419,11 +11017,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -12441,10 +11035,7 @@ exports[`renders with items correctly 1`] = `
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
-<<<<<<< HEAD
-=======
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           },
@@ -12457,13 +11048,8 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 9155,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-02-13T16:53:52.387Z",
-            "id": "24",
-=======
             "createdAt": "2014-03-07T23:29:16.858Z",
             "id": "50",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 96959,
             "read": false,
@@ -12484,11 +11070,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "28",
-=======
                       "id": "54",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -12496,27 +11078,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "29",
-=======
                       "id": "55",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Grace",
-              "id": "27",
-              "lastName": "Dibbert",
-=======
               "firstName": "Roscoe",
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           },
@@ -12529,17 +11101,10 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 5991,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-01-03T15:57:15.597Z",
-            "id": "35",
-            "liked": true,
-            "likesCount": 57367,
-=======
             "createdAt": "2018-07-03T07:32:54.839Z",
             "id": "56",
             "liked": false,
             "likesCount": 93719,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "Post",
@@ -12558,11 +11123,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "40",
-=======
                       "id": "59",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -12570,27 +11131,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "41",
-=======
                       "id": "60",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Marcellus",
-              "id": "39",
-              "lastName": "Hyatt",
-=======
               "firstName": "Elza",
               "fullName": "Antonietta Greenholt",
               "id": "58",
               "lastName": "Paucek",
               "picture": "delectus ea similique",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Elza Paucek",
           },
@@ -12713,13 +11264,8 @@ exports[`renders with items correctly 1`] = `
                   "id": "10",
                 },
               ],
-<<<<<<< HEAD
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "id": "8",
               "title": "placeat fuga doloribus",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -12730,11 +11276,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -12742,27 +11284,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "13",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           },
@@ -12775,13 +11307,8 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 13002,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-=======
             "createdAt": "2014-10-16T11:34:26.098Z",
             "id": "14",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 8362,
             "read": true,
@@ -12802,11 +11329,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "17",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -12814,27 +11337,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "18",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Zola",
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           },
@@ -12847,19 +11360,11 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 54060,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-=======
             "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
             "liked": true,
             "likesCount": 53589,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "Step",
               "id": "20",
@@ -12877,11 +11382,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -12889,27 +11390,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           },
@@ -12925,28 +11416,6 @@ exports[`renders with items correctly 1`] = `
             "createdAt": "2010-10-07T14:14:54.569Z",
             "id": "25",
             "liked": false,
-<<<<<<< HEAD
-            "likesCount": 1988,
-            "read": false,
-            "subject": Object {
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
             "likesCount": 34776,
             "read": true,
             "subject": Object {
@@ -12956,7 +11425,6 @@ exports[`renders with items correctly 1`] = `
               "mediaContentType": "est fuga est",
               "mediaExpiringUrl": "placeat ex ut",
               "postType": "question",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -12967,11 +11435,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -12979,27 +11443,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           },
@@ -13012,17 +11466,10 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 11474,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2012-03-03T15:03:02.973Z",
             "id": "30",
             "liked": true,
             "likesCount": 6406,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "Step",
@@ -13041,11 +11488,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -13053,27 +11496,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Gideon",
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           },
@@ -13086,19 +11519,11 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
             "liked": true,
             "likesCount": 62336,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
@@ -13127,11 +11552,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "41",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -13139,27 +11560,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "42",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
               "id": "40",
               "lastName": "Hyatt",
               "picture": "eos quod recusandae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Marcellus Hyatt",
           },
@@ -13172,13 +11583,8 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 71152,
             "read": true,
@@ -13210,11 +11616,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -13222,27 +11624,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Tre",
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           },
@@ -13277,11 +11669,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "54",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -13289,27 +11677,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "55",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Roscoe",
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           },
@@ -13344,11 +11722,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "59",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -13356,11 +11730,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "60",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -13555,11 +11925,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "12",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -13573,17 +11939,11 @@ exports[`renders with items correctly 1`] = `
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
-=======
               "firstName": "Branson",
               "fullName": "Isabell Schamberger",
               "id": "11",
               "lastName": "Gutkowski",
               "picture": "modi aut architecto",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Branson Gutkowski",
           }
@@ -13608,19 +11968,11 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 13002,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-02-13T16:53:52.387Z",
-            "id": "24",
-            "liked": true,
-            "likesCount": 37758,
-            "read": false,
-=======
             "createdAt": "2014-10-16T11:34:26.098Z",
             "id": "14",
             "liked": false,
             "likesCount": 8362,
             "read": true,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "Post",
               "content": "voluptates ut ullam",
@@ -13638,11 +11990,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "28",
-=======
                       "id": "17",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -13650,27 +11998,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "29",
-=======
                       "id": "18",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Grace",
-              "id": "27",
-              "lastName": "Dibbert",
-=======
               "firstName": "Zola",
               "fullName": "Caesar Will",
               "id": "16",
               "lastName": "Corkery",
               "picture": "officia quaerat cumque",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Zola Corkery",
           }
@@ -13695,13 +12033,8 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 54060,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-01-03T15:57:15.597Z",
-            "id": "35",
-=======
             "createdAt": "2019-07-15T16:04:36.274Z",
             "id": "19",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": true,
             "likesCount": 53589,
             "read": false,
@@ -13722,11 +12055,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "40",
-=======
                       "id": "23",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -13734,27 +12063,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "41",
-=======
                       "id": "24",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Marcellus",
-              "id": "39",
-              "lastName": "Hyatt",
-=======
               "firstName": "Darwin",
               "fullName": "Kyleigh Tillman",
               "id": "22",
               "lastName": "Bosco",
               "picture": "ut ut eos",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Darwin Bosco",
           }
@@ -13785,32 +12104,12 @@ exports[`renders with items correctly 1`] = `
             "likesCount": 34776,
             "read": true,
             "subject": Object {
-<<<<<<< HEAD
-              "__typename": "CommunityChallenge",
-              "acceptedCommunityChallengesList": Array [
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2017-07-29T07:54:36.253Z",
-                  "completedAt": "2019-01-06T04:57:12.208Z",
-                  "id": "51",
-                },
-                Object {
-                  "__typename": "AcceptedCommunityChallenge",
-                  "acceptedAt": "2011-06-10T21:33:05.393Z",
-                  "completedAt": "2017-02-24T04:19:03.585Z",
-                  "id": "52",
-                },
-              ],
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "__typename": "Post",
               "content": "est consequuntur aut",
               "id": "26",
               "mediaContentType": "est fuga est",
               "mediaExpiringUrl": "placeat ex ut",
               "postType": "question",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -13821,11 +12120,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "28",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -13833,27 +12128,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "29",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Grace",
               "fullName": "Norberto Gleichner",
               "id": "27",
               "lastName": "Dibbert",
               "picture": "ex eveniet facere",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Grace Dibbert",
           }
@@ -13878,17 +12163,10 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 11474,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-            "liked": false,
-            "likesCount": 53344,
-=======
             "createdAt": "2012-03-03T15:03:02.973Z",
             "id": "30",
             "liked": true,
             "likesCount": 6406,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": false,
             "subject": Object {
               "__typename": "Step",
@@ -13907,11 +12185,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "34",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -13919,27 +12193,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "35",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Gideon",
               "fullName": "Kiera Gusikowski",
               "id": "33",
               "lastName": "Heathcote",
               "picture": "alias est et",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Gideon Heathcote",
           }
@@ -13964,19 +12228,11 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 47064,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-            "liked": false,
-            "likesCount": 13002,
-            "read": true,
-=======
             "createdAt": "2010-12-15T20:19:16.437Z",
             "id": "36",
             "liked": true,
             "likesCount": 62336,
             "read": false,
->>>>>>> origin/Communities-Update-Feature-Branch
             "subject": Object {
               "__typename": "CommunityChallenge",
               "acceptedCommunityChallengesList": Array [
@@ -14005,11 +12261,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "41",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -14017,27 +12269,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "42",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Marcellus",
               "fullName": "Celine Kovacek",
               "id": "40",
               "lastName": "Hyatt",
               "picture": "eos quod recusandae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Marcellus Hyatt",
           }
@@ -14062,13 +12304,8 @@ exports[`renders with items correctly 1`] = `
                 "totalCount": 20856,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2016-11-26T00:02:28.431Z",
-            "id": "2",
-=======
             "createdAt": "2010-10-23T23:03:00.746Z",
             "id": "43",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 71152,
             "read": true,
@@ -14100,11 +12337,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "5",
-=======
                       "id": "48",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "admin",
                   },
@@ -14112,27 +12345,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "6",
-=======
                       "id": "49",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Torey",
-              "id": "4",
-              "lastName": "Abbott",
-=======
               "firstName": "Tre",
               "fullName": "Delbert Brakus",
               "id": "47",
               "lastName": "Lind",
               "picture": "eos quis ut",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Tre Lind",
           }
@@ -14179,11 +12402,7 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "10",
-=======
                       "id": "54",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
@@ -14191,27 +12410,17 @@ exports[`renders with items correctly 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "11",
-=======
                       "id": "55",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "user",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Branson",
-              "id": "9",
-              "lastName": "Gutkowski",
-=======
               "firstName": "Roscoe",
               "fullName": "Mike Schoen",
               "id": "53",
               "lastName": "Johnson",
               "picture": "laborum iure molestiae",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Roscoe Johnson",
           }
@@ -14288,11 +12497,7 @@ exports[`sections renders Earlier section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "33",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -14300,27 +12505,17 @@ exports[`sections renders Earlier section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "34",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Gideon",
-              "id": "32",
-              "lastName": "Heathcote",
-=======
               "firstName": "Torey",
               "fullName": "Gracie Weber",
               "id": "6",
               "lastName": "Abbott",
               "picture": "ut nulla quam",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -14369,17 +12564,10 @@ exports[`sections renders Earlier section 1`] = `
                 "totalCount": 12812,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2014-05-04T06:09:38.351Z",
-            "id": "56",
-            "liked": true,
-            "likesCount": 41792,
-=======
             "createdAt": "2020-05-18 11:00:00 PM GMT+0",
             "id": "2",
             "liked": false,
             "likesCount": 99904,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -14409,11 +12597,7 @@ exports[`sections renders Earlier section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "60",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -14421,27 +12605,17 @@ exports[`sections renders Earlier section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "61",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Elza",
-              "id": "59",
-              "lastName": "Paucek",
-=======
               "firstName": "Torey",
               "fullName": "Gracie Weber",
               "id": "6",
               "lastName": "Abbott",
               "picture": "ut nulla quam",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -14528,17 +12702,10 @@ exports[`sections renders Earlier section 1`] = `
                 "totalCount": 12812,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2011-09-22T07:43:44.823Z",
-            "id": "42",
-            "liked": true,
-            "likesCount": 55132,
-=======
             "createdAt": "2020-05-18 11:00:00 PM GMT+0",
             "id": "2",
             "liked": false,
             "likesCount": 99904,
->>>>>>> origin/Communities-Update-Feature-Branch
             "read": true,
             "subject": Object {
               "__typename": "CommunityChallenge",
@@ -14568,11 +12735,7 @@ exports[`sections renders Earlier section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "47",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -14580,27 +12743,17 @@ exports[`sections renders Earlier section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "48",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Tre",
-              "id": "46",
-              "lastName": "Lind",
-=======
               "firstName": "Torey",
               "fullName": "Gracie Weber",
               "id": "6",
               "lastName": "Abbott",
               "picture": "ut nulla quam",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           }
@@ -15006,13 +13159,8 @@ exports[`sections renders Today section 1`] = `
                   "id": "5",
                 },
               ],
-<<<<<<< HEAD
-              "id": "50",
-              "title": "odit doloremque molestias",
-=======
               "id": "3",
               "title": "ut sunt qui",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPerson": Object {
               "__typename": "Person",
@@ -15023,11 +13171,7 @@ exports[`sections renders Today section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "54",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -15035,27 +13179,17 @@ exports[`sections renders Today section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "55",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Roscoe",
-              "id": "53",
-              "lastName": "Johnson",
-=======
               "firstName": "Torey",
               "fullName": "Gracie Weber",
               "id": "6",
               "lastName": "Abbott",
               "picture": "ut nulla quam",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -15104,13 +13238,8 @@ exports[`sections renders Today section 1`] = `
                 "totalCount": 12812,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-09-22T19:02:55.923Z",
-            "id": "19",
-=======
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 99904,
             "read": true,
@@ -15142,11 +13271,7 @@ exports[`sections renders Today section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "22",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -15154,27 +13279,17 @@ exports[`sections renders Today section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "23",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Darwin",
-              "id": "21",
-              "lastName": "Bosco",
-=======
               "firstName": "Torey",
               "fullName": "Gracie Weber",
               "id": "6",
               "lastName": "Abbott",
               "picture": "ut nulla quam",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           },
@@ -15261,13 +13376,8 @@ exports[`sections renders Today section 1`] = `
                 "totalCount": 12812,
               },
             },
-<<<<<<< HEAD
-            "createdAt": "2017-02-27T14:52:47.103Z",
-            "id": "12",
-=======
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",
->>>>>>> origin/Communities-Update-Feature-Branch
             "liked": false,
             "likesCount": 99904,
             "read": true,
@@ -15299,11 +13409,7 @@ exports[`sections renders Today section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "17",
-=======
                       "id": "7",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "no_permissions",
                   },
@@ -15311,27 +13417,17 @@ exports[`sections renders Today section 1`] = `
                     "__typename": "CommunityPermission",
                     "community": Object {
                       "__typename": "Community",
-<<<<<<< HEAD
-                      "id": "18",
-=======
                       "id": "8",
->>>>>>> origin/Communities-Update-Feature-Branch
                     },
                     "permission": "owner",
                   },
                 ],
               },
-<<<<<<< HEAD
-              "firstName": "Zola",
-              "id": "16",
-              "lastName": "Corkery",
-=======
               "firstName": "Torey",
               "fullName": "Gracie Weber",
               "id": "6",
               "lastName": "Abbott",
               "picture": "ut nulla quam",
->>>>>>> origin/Communities-Update-Feature-Branch
             },
             "subjectPersonName": "Torey Abbott",
           }
