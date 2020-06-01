@@ -16,9 +16,6 @@ import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import OnboardingCard, {
-  GROUP_ONBOARDING_TYPES,
-} from '../Groups/OnboardingCard';
 import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
@@ -249,7 +246,6 @@ export const CelebrateFeed = ({
         />
         {noHeader ? null : (
           <>
-            <OnboardingCard type={GROUP_ONBOARDING_TYPES.celebrate} />
             {!person ? (
               <CreatePostButton
                 refreshItems={handleRefreshing}
