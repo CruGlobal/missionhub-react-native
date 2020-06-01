@@ -361,50 +361,32 @@ exports[`Reported Post call handleDelete 1`] = `
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "justifyContent": "flex-start",
-              "lineHeight": 18,
-            },
-          ]
-        }
+      <View
+        style={Object {}}
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginVertical": 10,
+            }
+          }
         >
-          <View
+          <Text
             style={
               Object {
-                "marginVertical": 10,
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "lineHeight": 18,
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "lineHeight": 18,
-                }
-              }
-            >
-              <Text>
-                nulla quam ipsam
-              </Text>
+            <Text>
+              nulla quam ipsam
             </Text>
-          </View>
+          </Text>
         </View>
-      </Text>
+      </View>
     </View>
     <Image
       resizeMode="cover"
@@ -1149,50 +1131,32 @@ exports[`Reported Post call handleIgnore 1`] = `
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "justifyContent": "flex-start",
-              "lineHeight": 18,
-            },
-          ]
-        }
+      <View
+        style={Object {}}
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginVertical": 10,
+            }
+          }
         >
-          <View
+          <Text
             style={
               Object {
-                "marginVertical": 10,
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "lineHeight": 18,
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "lineHeight": 18,
-                }
-              }
-            >
-              <Text>
-                nulla quam ipsam
-              </Text>
+            <Text>
+              nulla quam ipsam
             </Text>
-          </View>
+          </Text>
         </View>
-      </Text>
+      </View>
     </View>
     <Image
       resizeMode="cover"

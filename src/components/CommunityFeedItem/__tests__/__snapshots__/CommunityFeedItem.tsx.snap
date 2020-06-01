@@ -231,25 +231,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "justifyContent": "flex-start",
-                "lineHeight": 18,
-              },
-            ]
-          }
-        >
-          Janelle U. completed a Challenge:
-        </Text>
+        Janelle U. completed a Challenge:
       </Text>
       <View
         style={
@@ -700,50 +682,32 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "marginVertical": 10,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "lineHeight": 18,
-                    }
-                  }
-                >
-                  <Text>
-                    quisquam recusandae alias
-                  </Text>
+                <Text>
+                  quisquam recusandae alias
                 </Text>
-              </View>
+              </Text>
             </View>
-          </Text>
+          </View>
         </View>
         <Image
           resizeMode="cover"
@@ -1206,50 +1170,32 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "marginVertical": 10,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "lineHeight": 18,
-                    }
-                  }
-                >
-                  <Text>
-                    eligendi occaecati debitis
-                  </Text>
+                <Text>
+                  eligendi occaecati debitis
                 </Text>
-              </View>
+              </Text>
             </View>
-          </Text>
+          </View>
         </View>
         <Image
           resizeMode="cover"
@@ -1649,50 +1595,32 @@ exports[`Community renders post correctly without image 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "marginVertical": 10,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "lineHeight": 18,
-                    }
-                  }
-                >
-                  <Text>
-                    eligendi occaecati debitis
-                  </Text>
+                <Text>
+                  eligendi occaecati debitis
                 </Text>
-              </View>
+              </Text>
             </View>
-          </Text>
+          </View>
         </View>
         <View
           style={
@@ -2111,50 +2039,32 @@ exports[`Community renders post created by me correctly without add to steps but
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "marginVertical": 10,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "lineHeight": 18,
-                    }
-                  }
-                >
-                  <Text>
-                    sed dignissimos debitis
-                  </Text>
+                <Text>
+                  sed dignissimos debitis
                 </Text>
-              </View>
+              </Text>
             </View>
-          </Text>
+          </View>
         </View>
         <Image
           resizeMode="cover"
@@ -2613,25 +2523,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "justifyContent": "flex-start",
-                "lineHeight": 18,
-              },
-            ]
-          }
-        >
-          Mathew G. completed a Step of Faith with a  person.
-        </Text>
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3017,50 +2909,32 @@ exports[`Community renders with clear notification button correctly 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "marginVertical": 10,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "lineHeight": 18,
-                    }
-                  }
-                >
-                  <Text>
-                    eligendi occaecati debitis
-                  </Text>
+                <Text>
+                  eligendi occaecati debitis
                 </Text>
-              </View>
+              </Text>
             </View>
-          </Text>
+          </View>
         </View>
         <Image
           resizeMode="cover"
@@ -3523,25 +3397,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "justifyContent": "flex-start",
-                "lineHeight": 18,
-              },
-            ]
-          }
-        >
-          Mathew G. completed a Step of Faith with a  person.
-        </Text>
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3903,50 +3759,32 @@ exports[`global community renders post item correctly 1`] = `
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "justifyContent": "flex-start",
-              "lineHeight": 18,
-            },
-          ]
-        }
+      <View
+        style={Object {}}
       >
         <View
-          style={Object {}}
+          style={
+            Object {
+              "marginVertical": 10,
+            }
+          }
         >
-          <View
+          <Text
             style={
               Object {
-                "marginVertical": 10,
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "lineHeight": 18,
               }
             }
           >
-            <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "lineHeight": 18,
-                }
-              }
-            >
-              <Text>
-                eligendi occaecati debitis
-              </Text>
+            <Text>
+              eligendi occaecati debitis
             </Text>
-          </View>
+          </Text>
         </View>
-      </Text>
+      </View>
     </View>
     <Image
       resizeMode="cover"
@@ -4337,25 +4175,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "justifyContent": "flex-start",
-                "lineHeight": 18,
-              },
-            ]
-          }
-        >
-          Mathew G. completed a Step of Faith with a  person.
-        </Text>
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -4843,50 +4663,32 @@ exports[`renders with name pressable correctly 1`] = `
             }
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "justifyContent": "flex-start",
-                  "lineHeight": 18,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
             <View
-              style={Object {}}
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
             >
-              <View
+              <Text
                 style={
                   Object {
-                    "marginVertical": 10,
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
                   }
                 }
               >
-                <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 14,
-                      "lineHeight": 18,
-                    }
-                  }
-                >
-                  <Text>
-                    eligendi occaecati debitis
-                  </Text>
+                <Text>
+                  eligendi occaecati debitis
                 </Text>
-              </View>
+              </Text>
             </View>
-          </Text>
+          </View>
         </View>
         <Image
           resizeMode="cover"

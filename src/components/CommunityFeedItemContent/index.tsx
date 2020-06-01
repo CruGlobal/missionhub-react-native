@@ -244,7 +244,7 @@ export const CommunityFeedItemContent = ({
     <>
       {renderHeader()}
       <View style={styles.postTextWrap}>
-        <Text style={styles.messageText}>{renderMessage()}</Text>
+        {renderMessage()}
         {subject.__typename === 'CommunityChallenge'
           ? renderChallengeLink(subject)
           : null}
