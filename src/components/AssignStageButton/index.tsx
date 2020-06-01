@@ -76,10 +76,9 @@ const mapStateToProps = (
     stages,
   }: { people: PeopleState; auth: AuthState; stages: StagesState },
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { person = {}, organization = {} }: any,
+  { person = {} }: any,
 ) => {
   const personId = person.id;
-  const orgId = organization.id;
   const authPerson = auth.person;
   const stagesList = stages.stages || [];
   if (authPerson.id === personId) {
@@ -93,7 +92,7 @@ const mapStateToProps = (
   const loadedPerson = personSelector({ people }, { personId }) || person;
   const contactAssignment = contactAssignmentSelector(
     { auth },
-    { person: loadedPerson, orgId },
+    { person: loadedPerson },
   );
   const personStageId = contactAssignment && contactAssignment.pathway_stage_id;
   return {

@@ -19,9 +19,7 @@ class MemberContacts extends Component {
 
   // @ts-ignore
   renderItem = ({ item }) => {
-    // @ts-ignore
-    const { organization } = this.props;
-    return <PersonListItem person={item.person} organization={organization} />;
+    return <PersonListItem person={item.person} />;
   };
 
   renderList() {

@@ -263,7 +263,7 @@ const mapStateToProps = (
   {
     navigation: {
       state: {
-        params: { personId, orgId, onComplete },
+        params: { personId, onComplete },
       },
     },
   }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -272,7 +272,7 @@ const mapStateToProps = (
   const myId = auth.person.id;
   const person = personSelector({ people }, { personId }) || {};
   const contactAssignment =
-    contactAssignmentSelector({ auth }, { person, orgId }) || {};
+    contactAssignmentSelector({ auth }, { person }) || {};
 
   return {
     myId,

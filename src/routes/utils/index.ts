@@ -31,7 +31,7 @@ export const paramsForStageNavigation = async (
   const person = isMe ? authPerson : personSelector({ people }, { personId });
   const assignment = isMe
     ? null
-    : selectContactAssignment(person, authPerson.id, orgId);
+    : selectContactAssignment(person, authPerson.id);
   const stageId = getStageId(isMe, assignment, authPerson);
   const hasHitCount = await hasHitThreeSteps(personId);
   const isNotSure = hasNotSureStage(stagesObj, stageId);

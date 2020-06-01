@@ -280,9 +280,7 @@ export class AssignedPersonScreen extends Component {
           self="stretch"
         >
           <Text style={styles.name}>{name}</Text>
-          {isCruOrg ? (
-            <PathwayStageDisplay orgId={organization.id} person={person} />
-          ) : null}
+          {isCruOrg ? <PathwayStageDisplay person={person} /> : null}
           <GroupsPersonHeader
             // @ts-ignore
             isVisible={!keyboardVisible}
@@ -329,10 +327,7 @@ export const mapStateToProps = (
     organizationSelector({ organizations }, { orgId }) || navOrg;
   const person = personSelector({ people }, { personId }) || navPerson;
 
-  const contactAssignment = contactAssignmentSelector(
-    { auth },
-    { person, orgId: organization.id },
-  );
+  const contactAssignment = contactAssignmentSelector({ auth }, { person });
   const authPerson = auth.person;
 
   return {

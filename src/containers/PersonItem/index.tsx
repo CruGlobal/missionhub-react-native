@@ -58,7 +58,7 @@ const PersonItem = ({
   const isMe = person.id === me.id;
   const contactAssignment =
     useSelector(({ auth }: RootState) =>
-      contactAssignmentSelector({ auth }, { person, orgId }),
+      contactAssignmentSelector({ auth }, { person }),
     ) || {};
 
   const personName = isMe ? t('me') : person.full_name || '';

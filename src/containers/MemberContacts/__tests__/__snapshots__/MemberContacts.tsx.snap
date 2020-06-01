@@ -35,12 +35,6 @@ exports[`renders a list 1`] = `
 
 exports[`renders an item 1`] = `
 <PersonListItem
-  organization={
-    Object {
-      "id": "100",
-      "name": "Roge's org",
-    }
-  }
   person={Object {}}
 />
 `;

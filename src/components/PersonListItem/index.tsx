@@ -18,7 +18,6 @@ type PersonItem = {
 
 interface PersonListItemProps {
   person: PersonItem;
-  organization: { id: string };
   onSelect?: (person: PersonItem) => void;
   hideUnassigned?: boolean;
   nameTextStyle?: StyleProp<TextStyle>;
@@ -28,7 +27,6 @@ interface PersonListItemProps {
 const PersonListItem = ({
   person,
   onSelect,
-  organization,
   hideUnassigned,
   nameTextStyle = {},
   lastNameAccentStyle = {},
@@ -38,7 +36,7 @@ const PersonListItem = ({
     onSelect && onSelect(person);
   };
   const isAssigned = useSelector(({ auth }: RootState) =>
-    contactAssignmentSelector({ auth }, { person, orgId: organization.id }),
+    contactAssignmentSelector({ auth }, { person }),
   );
   const content = (
     <Flex align="center" direction="row" style={styles.row}>

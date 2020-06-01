@@ -22,7 +22,6 @@ const stages = {
 const people = {};
 
 const mockStore = configureStore([thunk]);
-const orgId = '456';
 const person = { id: '51423423' };
 
 describe('for self', () => {
@@ -33,7 +32,7 @@ describe('for self', () => {
 
   it('renders stage', () => {
     testSnapshotShallow(
-      <PathwayStageDisplay person={person} orgId={orgId} />,
+      <PathwayStageDisplay person={person} />,
       mockStore({
         auth: {
           person: {
@@ -50,7 +49,7 @@ describe('for self', () => {
 
   it('renders null if stage is not found', () => {
     testSnapshotShallow(
-      <PathwayStageDisplay person={person} orgId={orgId} />,
+      <PathwayStageDisplay person={person} />,
       mockStore({
         auth: {
           person: {
@@ -74,7 +73,7 @@ describe('for person', () => {
     );
     expect(contactAssignmentSelector).toHaveBeenCalledWith(
       { auth },
-      { person, orgId },
+      { person },
     );
   });
 
@@ -91,7 +90,7 @@ describe('for person', () => {
     });
 
     testSnapshotShallow(
-      <PathwayStageDisplay person={person} orgId={orgId} />,
+      <PathwayStageDisplay person={person} />,
       mockStore({
         auth,
         stages,
@@ -109,7 +108,7 @@ describe('for person', () => {
     });
 
     testSnapshotShallow(
-      <PathwayStageDisplay person={person} orgId={orgId} />,
+      <PathwayStageDisplay person={person} />,
       mockStore({
         auth,
         stages,
@@ -125,7 +124,7 @@ describe('for person', () => {
     contactAssignmentSelector.mockReturnValue(null);
 
     testSnapshotShallow(
-      <PathwayStageDisplay person={person} orgId={orgId} />,
+      <PathwayStageDisplay person={person} />,
       mockStore({
         auth,
         stages,

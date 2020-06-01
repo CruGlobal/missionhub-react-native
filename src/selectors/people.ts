@@ -85,59 +85,18 @@ export const personSelector = createSelector(
 );
 
 export const contactAssignmentSelector = createSelector(
-  (_: { auth: AuthState }, { person }: { person: Person; orgId?: string }) =>
-    person || {},
-  (_: { auth: AuthState }, { orgId }: { person: Person; orgId?: string }) =>
-    orgId,
+  (_: { auth: AuthState }, { person }: { person: Person }) => person || {},
   ({ auth }: { auth: AuthState }) => auth.person.id,
-  (person, orgId, authUserId) =>
-    selectContactAssignment(person, authUserId, orgId),
+  (person, authUserId) => selectContactAssignment(person, authUserId),
 );
 
-export const selectContactAssignment = (
-  person: Person,
-  authUserId: string,
-  orgId?: string,
-) => {
-  const {
-    reverse_contact_assignments = [],
-    organizational_permissions = [],
-  } = person;
+export const selectContactAssignment = (person: Person, authUserId: string) => {
+  const { reverse_contact_assignments = [] } = person;
 
-  return (
-    reverse_contact_assignments.find(
-      (assignment: {
-        assigned_to?: { id: string };
-        organization?: { id: string };
-      }) =>
-        assignment.assigned_to?.id === authUserId &&
-        (!orgId || orgId === 'personal'
-          ? !assignment.organization
-          : orgId === assignment.organization?.id &&
-            organizational_permissions.some(
-              (org_permission: { organization_id: string }) =>
-                org_permission.organization_id === assignment.organization?.id,
-            )),
-    ) ||
-    // Fall back to personal org
-    reverse_contact_assignments.find(
-      (assignment: {
-        assigned_to?: { id: string };
-        organization?: { id: string };
-      }) =>
-        assignment.assigned_to?.id === authUserId && !assignment.organization,
-    ) ||
-    // Fall back to last modified contact assignment
-    reverse_contact_assignments
-      .filter(
-        (assignment: {
-          assigned_to?: { id: string };
-          organization?: { id: string };
-        }) => assignment.assigned_to?.id === authUserId,
-      )
-      .sort((a: { updated_at: string }, b: { updated_at: string }) => {
-        return b.updated_at.localeCompare(a.updated_at);
-      })[0]
+  // Just return the first one found regardless of org since after the split there will only be one and we will have dropped org ids. There is an edge case where the same user is assigned to you in 2 orgs but we are ok breaking that since it has such little usage.
+  return reverse_contact_assignments.find(
+    (assignment: { assigned_to?: { id: string } }) =>
+      assignment.assigned_to?.id === authUserId,
   );
 };
 
