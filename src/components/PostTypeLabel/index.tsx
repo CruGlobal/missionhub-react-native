@@ -1,11 +1,5 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  StyleProp,
-  ViewStyle,
-  View,
-  TextStyle,
-} from 'react-native';
+import { SafeAreaView, StyleProp, ViewStyle, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
@@ -36,7 +30,7 @@ export enum PostLabelSizeEnum {
 }
 
 export const PostTypeBgStyle: {
-  [key in FeedItemSubjectTypeEnum]: StyleProp<ViewStyle>;
+  [key in FeedItemSubjectTypeEnum]: StyleProp<{ backgroundColor: string }>;
 } = {
   ANNOUNCEMENT: styles.ANNOUNCEMENT,
   COMMUNITY_CHALLENGE: styles.COMMUNITY_CHALLENGE,
@@ -48,7 +42,7 @@ export const PostTypeBgStyle: {
   THOUGHT: styles.THOUGHT,
 };
 export const PostTypeColorStyle: {
-  [key in FeedItemSubjectTypeEnum]: StyleProp<TextStyle>;
+  [key in FeedItemSubjectTypeEnum]: StyleProp<{ color: string }>;
 } = {
   ANNOUNCEMENT: styles.colorANNOUNCEMENT,
   COMMUNITY_CHALLENGE: styles.colorCOMMUNITY_CHALLENGE,
@@ -117,8 +111,14 @@ const PostTypeLabel = ({
 
   if (size === PostLabelSizeEnum.extraLarge) {
     return (
-      <SafeAreaView style={[styles[type]]}>
-        <Card style={[styles.headerCard, styles[type], { shadowOpacity: 0 }]}>
+      <SafeAreaView style={[PostTypeBgStyle[type]]}>
+        <Card
+          style={[
+            styles.headerCard,
+            PostTypeBgStyle[type],
+            { shadowOpacity: 0 },
+          ]}
+        >
           <Flex
             value={1}
             align="center"
@@ -144,7 +144,7 @@ const PostTypeLabel = ({
         pill={true}
         style={[
           styles.button,
-          styles[type],
+          PostTypeBgStyle[type],
           size === PostLabelSizeEnum.large ? styles.largeSize : null,
           showText ? null : styles.noText,
         ]}
@@ -162,7 +162,7 @@ const PostTypeLabel = ({
       testID={`${type}Label`}
       style={[
         styles.button,
-        styles[type],
+        PostTypeBgStyle[type],
         size === PostLabelSizeEnum.large ? styles.largeSize : null,
         showText ? null : styles.noText,
       ]}
@@ -206,7 +206,7 @@ export const PostTypeCardWithPeople = ({
       onPress={onPress}
       style={styles.peopleCard}
     >
-      <View style={[styles[type], styles.peopleCardTop]}>
+      <View style={[PostTypeBgStyle[type], styles.peopleCardTop]}>
         <PostTypeIcon
           type={type}
           size={PostLabelSizeEnum.large}
@@ -228,7 +228,7 @@ export const PostTypeCardWithPeople = ({
               person={null}
               customText={`+${num}`}
               size="extrasmall"
-              style={[styles[type], { marginLeft: -12 }]}
+              style={[PostTypeBgStyle[type], { marginLeft: -12 }]}
             />
           )}
         </View>

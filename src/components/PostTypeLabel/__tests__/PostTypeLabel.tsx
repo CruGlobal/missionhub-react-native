@@ -13,6 +13,7 @@ import PostTypeLabel, {
   PostTypeNullState,
 } from '..';
 
+const onPress = jest.fn();
 it('renders correctly', () => {
   renderWithContext(<PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} />, {
     noWrappers: true,
@@ -21,53 +22,37 @@ it('renders correctly', () => {
 
 it('renders pressable correctly', () => {
   renderWithContext(
-    <PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} onPress={jest.fn()} />,
-    {
-      noWrappers: true,
-    },
+    <PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} onPress={onPress} />,
+    { noWrappers: true },
   ).snapshot();
 });
 
 describe('post types', () => {
-  it('renders God Story Label', () => {
-    renderWithContext(<PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} />, {
+  function postType(type: FeedItemSubjectTypeEnum) {
+    renderWithContext(<PostTypeLabel type={type} />, {
       noWrappers: true,
     }).snapshot();
+  }
+  it('renders God Story Label', () => {
+    postType(FeedItemSubjectTypeEnum.STORY);
   });
   it('renders Prayer Request Label', () => {
-    renderWithContext(
-      <PostTypeLabel type={FeedItemSubjectTypeEnum.PRAYER_REQUEST} />,
-      { noWrappers: true },
-    ).snapshot();
+    postType(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
   });
   it('renders Spiritual Question Label', () => {
-    renderWithContext(
-      <PostTypeLabel type={FeedItemSubjectTypeEnum.QUESTION} />,
-      { noWrappers: true },
-    ).snapshot();
+    postType(FeedItemSubjectTypeEnum.QUESTION);
   });
   it('renders Care Request Label', () => {
-    renderWithContext(
-      <PostTypeLabel type={FeedItemSubjectTypeEnum.HELP_REQUEST} />,
-      { noWrappers: true },
-    ).snapshot();
+    postType(FeedItemSubjectTypeEnum.HELP_REQUEST);
   });
   it('renders On Your Mind Label', () => {
-    renderWithContext(
-      <PostTypeLabel type={FeedItemSubjectTypeEnum.THOUGHT} />,
-      { noWrappers: true },
-    ).snapshot();
+    postType(FeedItemSubjectTypeEnum.THOUGHT);
   });
   it('renders Announcement Label', () => {
-    renderWithContext(
-      <PostTypeLabel type={FeedItemSubjectTypeEnum.ANNOUNCEMENT} />,
-      { noWrappers: true },
-    ).snapshot();
+    postType(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
   });
   it('renders Step Of Faith Label', () => {
-    renderWithContext(<PostTypeLabel type={FeedItemSubjectTypeEnum.STEP} />, {
-      noWrappers: true,
-    }).snapshot();
+    postType(FeedItemSubjectTypeEnum.STEP);
   });
 });
 
@@ -100,12 +85,9 @@ describe('label variations', () => {
 });
 
 it('fires onPress when pressed', () => {
-  const onPress = jest.fn();
   const { getByTestId } = renderWithContext(
     <PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} onPress={onPress} />,
-    {
-      noWrappers: true,
-    },
+    { noWrappers: true },
   );
 
   fireEvent.press(getByTestId('STORYButton'));
@@ -113,69 +95,32 @@ it('fires onPress when pressed', () => {
 });
 
 describe('post types cards', () => {
-  const onPress = jest.fn();
-  it('renders God Story Label', () => {
+  function card(type: FeedItemSubjectTypeEnum) {
     renderWithContext(
-      <PostTypeCardWithPeople
-        onPress={onPress}
-        type={FeedItemSubjectTypeEnum.STORY}
-      />,
+      <PostTypeCardWithPeople onPress={onPress} type={type} />,
       { noWrappers: true },
     ).snapshot();
+  }
+  it('renders God Story Label', () => {
+    card(FeedItemSubjectTypeEnum.STORY);
   });
   it('renders Prayer Request Label', () => {
-    renderWithContext(
-      <PostTypeCardWithPeople
-        onPress={onPress}
-        type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
-      />,
-      { noWrappers: true },
-    ).snapshot();
+    card(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
   });
   it('renders Spiritual Question Label', () => {
-    renderWithContext(
-      <PostTypeCardWithPeople
-        onPress={onPress}
-        type={FeedItemSubjectTypeEnum.QUESTION}
-      />,
-      { noWrappers: true },
-    ).snapshot();
+    card(FeedItemSubjectTypeEnum.QUESTION);
   });
   it('renders Care Request Label', () => {
-    renderWithContext(
-      <PostTypeCardWithPeople
-        onPress={onPress}
-        type={FeedItemSubjectTypeEnum.HELP_REQUEST}
-      />,
-      { noWrappers: true },
-    ).snapshot();
+    card(FeedItemSubjectTypeEnum.HELP_REQUEST);
   });
   it('renders On Your Mind Label', () => {
-    renderWithContext(
-      <PostTypeCardWithPeople
-        onPress={onPress}
-        type={FeedItemSubjectTypeEnum.THOUGHT}
-      />,
-      { noWrappers: true },
-    ).snapshot();
+    card(FeedItemSubjectTypeEnum.THOUGHT);
   });
   it('renders Announcement Label', () => {
-    renderWithContext(
-      <PostTypeCardWithPeople
-        onPress={onPress}
-        type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
-      />,
-      { noWrappers: true },
-    ).snapshot();
+    card(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
   });
   it('renders Step Of Faith Label', () => {
-    renderWithContext(
-      <PostTypeCardWithPeople
-        onPress={onPress}
-        type={FeedItemSubjectTypeEnum.STEP}
-      />,
-      { noWrappers: true },
-    ).snapshot();
+    card(FeedItemSubjectTypeEnum.STEP);
   });
 
   const people = [
@@ -211,7 +156,6 @@ describe('post types cards', () => {
   });
 
   it('fires onPress when pressed', () => {
-    const onPress = jest.fn();
     const { getByTestId } = renderWithContext(
       <PostTypeCardWithPeople
         onPress={onPress}
@@ -219,56 +163,39 @@ describe('post types cards', () => {
         people={people}
         countOnly={true}
       />,
-      {
-        noWrappers: true,
-      },
+      { noWrappers: true },
     );
 
     fireEvent.press(getByTestId('STORYCardWithPeople'));
     expect(onPress).toHaveBeenCalled();
   });
 });
+
 describe('post types null states', () => {
+  function nullState(type: FeedItemSubjectTypeEnum) {
+    renderWithContext(<PostTypeNullState type={type} />, {
+      noWrappers: true,
+    }).snapshot();
+  }
   it('renders God Story Null State', () => {
-    renderWithContext(
-      <PostTypeNullState type={FeedItemSubjectTypeEnum.STORY} />,
-      { noWrappers: true },
-    ).snapshot();
+    nullState(FeedItemSubjectTypeEnum.STORY);
   });
   it('renders Prayer Request Null State', () => {
-    renderWithContext(
-      <PostTypeNullState type={FeedItemSubjectTypeEnum.PRAYER_REQUEST} />,
-      { noWrappers: true },
-    ).snapshot();
+    nullState(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
   });
   it('renders Spiritual Question Null State', () => {
-    renderWithContext(
-      <PostTypeNullState type={FeedItemSubjectTypeEnum.QUESTION} />,
-      { noWrappers: true },
-    ).snapshot();
+    nullState(FeedItemSubjectTypeEnum.QUESTION);
   });
   it('renders Care Request Null State', () => {
-    renderWithContext(
-      <PostTypeNullState type={FeedItemSubjectTypeEnum.HELP_REQUEST} />,
-      { noWrappers: true },
-    ).snapshot();
+    nullState(FeedItemSubjectTypeEnum.HELP_REQUEST);
   });
   it('renders On Your Mind Null State', () => {
-    renderWithContext(
-      <PostTypeNullState type={FeedItemSubjectTypeEnum.THOUGHT} />,
-      { noWrappers: true },
-    ).snapshot();
+    nullState(FeedItemSubjectTypeEnum.THOUGHT);
   });
   it('renders Announcement Null State', () => {
-    renderWithContext(
-      <PostTypeNullState type={FeedItemSubjectTypeEnum.ANNOUNCEMENT} />,
-      { noWrappers: true },
-    ).snapshot();
+    nullState(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
   });
   it('renders Step Of Faith Null State', () => {
-    renderWithContext(
-      <PostTypeNullState type={FeedItemSubjectTypeEnum.STEP} />,
-      { noWrappers: true },
-    ).snapshot();
+    nullState(FeedItemSubjectTypeEnum.STEP);
   });
 });

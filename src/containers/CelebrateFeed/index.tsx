@@ -278,7 +278,7 @@ export const CelebrateFeed = ({
   );
   const renderEmpty = useCallback(
     () =>
-      filteredFeedType ? <PostTypeNullState type={filteredFeedType} /> : <></>,
+      filteredFeedType ? <PostTypeNullState type={filteredFeedType} /> : null,
     [filteredFeedType],
   );
 
