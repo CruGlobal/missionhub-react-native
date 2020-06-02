@@ -29,7 +29,6 @@ export default StyleSheet.create({
   cancelWrap: {
     backgroundColor: theme.grey,
     borderRadius: 25,
-    marginLeft: 8,
   },
   cancelIcon: {
     color: theme.white,

@@ -5,7 +5,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
 - First value
 + Second value
 
-@@ -98,15 +98,15 @@
+@@ -98,13 +98,12 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -16,11 +16,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
       />
     </View>
     <SvgMock
--     color=\\"#505256\\"
--     disabled={false}
-+     color=\\"#ECEEF2\\"
-+     disabled={true}
-      onPress={[Function handleSubmit]}
+-     onPress={[Function handleSubmit]}
       testID=\\"SubmitButton\\"
     />
   </RCTSafeAreaView>"
@@ -36,15 +32,16 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -55,10 +55,87 @@
-      </Text>
-    </View>
+@@ -9,53 +9,84 @@
+      }
+    }
+  >
     <View
       style={
-        Object {
+-       Array [
++       Object {
 +         \\"backgroundColor\\": \\"#505256\\",
 +         \\"borderRadius\\": 25,
-+         \\"marginLeft\\": 8,
 +       }
 +     }
 +   >
@@ -60,7 +57,10 @@ exports[`handles start edit 1`] = `
 +       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
 +       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 +       style={
-+         Object {
+          Object {
+-           \\"alignItems\\": \\"center\\",
+-           \\"justifyContent\\": \\"center\\",
+-         },
 +           \\"opacity\\": 1,
 +         }
 +       }
@@ -68,63 +68,74 @@ exports[`handles start edit 1`] = `
 +     >
 +       <View
 +         style={
-+           Array [
-+             Object {
+            Array [
+-           Object {
+-             \\"borderRadius\\": 18,
+-             \\"height\\": 36,
+-             \\"width\\": 36,
+-           },
+              Object {
+-             \\"backgroundColor\\": \\"rgb(199, 163, 67)\\",
 +               \\"backgroundColor\\": \\"transparent\\",
-+             },
+              },
+-           undefined,
+-         ],
 +             null,
 +             Object {},
 +             null,
-+           ]
-+         }
-+       >
-+         <Text
+            ]
+          }
+        >
+          <Text
 +           allowFontScaling={false}
-+           style={
-+             Array [
-+               Object {
+            style={
+              Array [
+                Object {
+-             \\"color\\": \\"#505256\\",
 +                 \\"color\\": undefined,
 +                 \\"fontSize\\": 12,
 +               },
 +               Array [
 +                 Object {
 +                   \\"color\\": \\"#ffffff\\",
-+                 },
-+                 Object {
-+                   \\"fontSize\\": 10,
-+                 },
-+                 Array [
-+                   Object {
+                  },
+                  Object {
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 16,
+                  },
+                  Array [
+                    Object {
+-               \\"color\\": \\"#ffffff\\",
 +                     \\"margin\\": 10,
-+                   },
-+                   Object {
+                    },
+                    Object {
+-               \\"fontSize\\": 20,
+-               \\"fontWeight\\": \\"300\\",
 +                     \\"color\\": \\"#ffffff\\",
-+                   },
+                    },
 +                 ],
-+               ],
+                ],
 +               Object {
 +                 \\"fontFamily\\": \\"icomoon\\",
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
 +               },
 +               Object {},
-+             ]
-+           }
-+         >
+              ]
+            }
+          >
+-       -
 +           
-+         </Text>
+          </Text>
 +       </View>
-+     </View>
+      </View>
 +   </View>
-+   <View
-+     style={
-+       Object {
+    <View
+      style={
+        Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
           \\"borderRadius\\": 8,
-          \\"flex\\": 1,
-          \\"marginHorizontal\\": 8,
-        }
-@@ -98,15 +175,15 @@
+@@ -98,12 +129,13 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -135,11 +146,7 @@ exports[`handles start edit 1`] = `
       />
     </View>
     <SvgMock
--     color=\\"#ECEEF2\\"
--     disabled={true}
-+     color=\\"#505256\\"
-+     disabled={false}
-      onPress={[Function handleSubmit]}
++     onPress={[Function handleSubmit]}
       testID=\\"SubmitButton\\"
     />
   </RCTSafeAreaView>"
@@ -150,7 +157,7 @@ exports[`renders with disabled submit button 1`] = `
 - First value
 + Second value
 
-@@ -98,15 +98,15 @@
+@@ -98,13 +98,12 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -161,11 +168,7 @@ exports[`renders with disabled submit button 1`] = `
       />
     </View>
     <SvgMock
--     color=\\"#505256\\"
--     disabled={false}
-+     color=\\"#ECEEF2\\"
-+     disabled={true}
-      onPress={[Function handleSubmit]}
+-     onPress={[Function handleSubmit]}
       testID=\\"SubmitButton\\"
     />
   </RCTSafeAreaView>"
@@ -176,7 +179,7 @@ exports[`renders with text entered 1`] = `
 - First value
 + Second value
 
-@@ -98,15 +98,15 @@
+@@ -98,12 +98,13 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -187,11 +190,7 @@ exports[`renders with text entered 1`] = `
       />
     </View>
     <SvgMock
--     color=\\"#ECEEF2\\"
--     disabled={true}
-+     color=\\"#505256\\"
-+     disabled={false}
-      onPress={[Function handleSubmit]}
++     onPress={[Function handleSubmit]}
       testID=\\"SubmitButton\\"
     />
   </RCTSafeAreaView>"
@@ -304,9 +303,6 @@ exports[`renders without actions 1`] = `
     />
   </View>
   <SvgMock
-    color="#ECEEF2"
-    disabled={true}
-    onPress={[Function]}
     testID="SubmitButton"
   />
 </RCTSafeAreaView>

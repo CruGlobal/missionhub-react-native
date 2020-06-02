@@ -8,7 +8,8 @@ import { FeedItemEditingComment } from '../../containers/Communities/Community/C
 import Avatar, { AvatarPerson } from '../Avatar';
 
 import styles from './styles';
-import SubmitPostArrow from './submitPostArrow.svg';
+import SubmitPostArrowDisabled from './submitPostArrowDisabled.svg';
+import SubmitPostArrowActive from './submitPostArrowActive.svg';
 
 interface CommentBoxProps {
   avatarPerson?: AvatarPerson;
@@ -79,24 +80,26 @@ const CommentBox = ({
     setText(t);
   };
 
-  const renderCancelButton = () =>
-    editingComment ? (
-      <View style={cancelWrap}>
-        <IconButton
-          testID="CancelButton"
-          name="deleteIcon"
-          type="MissionHub"
-          onPress={handleCancel}
-          style={cancelIcon}
-          size={10}
-        />
-      </View>
-    ) : null;
+  const renderCancelButton = () => (
+    <View style={cancelWrap}>
+      <IconButton
+        testID="CancelButton"
+        name="deleteIcon"
+        type="MissionHub"
+        onPress={handleCancel}
+        style={cancelIcon}
+        size={16}
+      />
+    </View>
+  );
 
   return (
     <SafeAreaView style={container}>
-      <Avatar size="small" person={avatarPerson} />
-      {renderCancelButton()}
+      {editingComment ? (
+        renderCancelButton()
+      ) : (
+        <Avatar size="small" person={avatarPerson} />
+      )}
       <View style={inputBox}>
         <Input
           ref={commentInput}
@@ -113,12 +116,11 @@ const CommentBox = ({
           placeholderTextColor={theme.grey1}
         />
       </View>
-      <SubmitPostArrow
-        testID="SubmitButton"
-        disabled={!text || isSubmitting}
-        onPress={handleSubmit}
-        color={!text || isSubmitting ? theme.extraLightGrey : theme.grey}
-      />
+      {!text || isSubmitting ? (
+        <SubmitPostArrowDisabled testID="SubmitButton" />
+      ) : (
+        <SubmitPostArrowActive testID="SubmitButton" onPress={handleSubmit} />
+      )}
     </SafeAreaView>
   );
 };

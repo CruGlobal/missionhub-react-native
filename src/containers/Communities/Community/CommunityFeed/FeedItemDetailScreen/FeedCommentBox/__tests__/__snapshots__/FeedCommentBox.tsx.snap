@@ -83,9 +83,6 @@ exports[`renders correctly 1`] = `
     />
   </View>
   <SvgMock
-    color="#ECEEF2"
-    disabled={true}
-    onPress={[Function]}
     testID="SubmitButton"
   />
 </RCTSafeAreaView>
@@ -103,33 +100,11 @@ exports[`renders editing correctly 1`] = `
     }
   }
 >
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "quisquam recusandae alias",
-      }
-    }
-    style={
-      Array [
-        Object {
-          "borderRadius": 18,
-          "height": 36,
-          "width": 36,
-        },
-        Object {
-          "backgroundColor": "rgb(135, 123, 115)",
-        },
-        undefined,
-      ]
-    }
-  />
   <View
     style={
       Object {
         "backgroundColor": "#505256",
         "borderRadius": 25,
-        "marginLeft": 8,
       }
     }
   >
@@ -176,7 +151,7 @@ exports[`renders editing correctly 1`] = `
                   "color": "#ffffff",
                 },
                 Object {
-                  "fontSize": 10,
+                  "fontSize": 16,
                 },
                 Array [
                   Object {
@@ -251,8 +226,6 @@ exports[`renders editing correctly 1`] = `
     />
   </View>
   <SvgMock
-    color="#505256"
-    disabled={false}
     onPress={[Function]}
     testID="SubmitButton"
   />

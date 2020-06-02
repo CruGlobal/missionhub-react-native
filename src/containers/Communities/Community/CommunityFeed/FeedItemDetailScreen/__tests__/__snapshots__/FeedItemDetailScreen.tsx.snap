@@ -1193,9 +1193,6 @@ exports[`renders correctly 1`] = `
       />
     </View>
     <SvgMock
-      color="#ECEEF2"
-      disabled={true}
-      onPress={[Function]}
       testID="SubmitButton"
     />
   </RCTSafeAreaView>
