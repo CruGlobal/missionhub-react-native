@@ -267,6 +267,7 @@ export const CommunityProfile = () => {
                 style={styles.input}
                 blurOnSubmit={true}
                 underlineColorAndroid={theme.transparent}
+                maxLength={44}
               />
               <PopupMenu
                 actions={[
