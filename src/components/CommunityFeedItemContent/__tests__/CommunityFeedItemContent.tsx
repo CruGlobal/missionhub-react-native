@@ -19,7 +19,6 @@ jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
 
-// const feedItem = mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT);
 const initialState = {
   auth: { person: { id: '1' } },
 };
