@@ -80,23 +80,19 @@ const CommentBox = ({
     setText(t);
   };
 
-  const renderCancelButton = () => (
-    <View style={cancelWrap}>
-      <IconButton
-        testID="CancelButton"
-        name="deleteIcon"
-        type="MissionHub"
-        onPress={handleCancel}
-        style={cancelIcon}
-        size={16}
-      />
-    </View>
-  );
-
   return (
     <SafeAreaView style={container}>
       {editingComment ? (
-        renderCancelButton()
+        <View style={cancelWrap}>
+          <IconButton
+            testID="CancelButton"
+            name="deleteIcon"
+            type="MissionHub"
+            onPress={handleCancel}
+            style={cancelIcon}
+            size={16}
+          />
+        </View>
       ) : (
         <Avatar size="small" person={avatarPerson} />
       )}
