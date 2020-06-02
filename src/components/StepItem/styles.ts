@@ -19,9 +19,6 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'normal',
   },
-  flex1: {
-    flex: 1,
-  },
   reminderButton: {
     flexDirection: 'row',
     justifyContent: 'flex-start',
