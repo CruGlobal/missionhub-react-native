@@ -201,10 +201,13 @@ exports[`renders correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {},
+              ],
             ]
           }
           testID="Text"
@@ -633,10 +636,13 @@ exports[`report item Reported Story call handleDelete 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {},
+              ],
             ]
           }
           testID="Text"
@@ -1065,10 +1071,13 @@ exports[`report item Reported Story call handleIgnore 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {},
+              ],
             ]
           }
           testID="Text"
@@ -1497,10 +1506,13 @@ exports[`report item Reported comment call handleDelete 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {},
+              ],
             ]
           }
           testID="Text"
@@ -1929,10 +1941,13 @@ exports[`report item Reported comment call handleIgnore 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {},
+              ],
             ]
           }
           testID="Text"

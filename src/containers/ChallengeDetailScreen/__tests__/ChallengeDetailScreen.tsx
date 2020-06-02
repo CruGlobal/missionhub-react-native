@@ -257,6 +257,6 @@ it('should call navigateBack from press', async () => {
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'detail']);
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
-  await fireEvent.press(getByTestId('BackButton'));
+  await fireEvent.press(getByTestId('DeprecatedBackButton'));
   expect(navigateBack).toHaveBeenCalled();
 });

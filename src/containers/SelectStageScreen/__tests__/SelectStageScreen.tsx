@@ -31,7 +31,7 @@ jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
 }));
-jest.mock('../../BackButton', () => 'BackButton');
+jest.mock('../../DeprecatedBackButton', () => 'DeprecatedBackButton');
 jest.mock('../../../components/Header', () => 'Header');
 
 const baseStage: Stage = {

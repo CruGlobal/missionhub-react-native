@@ -21,8 +21,14 @@ import {
 } from '../constants';
 import { AuthState } from '../reducers/auth';
 import { OnboardingState } from '../reducers/onboarding';
-import { PermissionEnum } from '../../__generated__/globalTypes';
+import {
+  PermissionEnum,
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../__generated__/globalTypes';
 import { StagesState } from '../reducers/stages';
+import { CommunityFeedItem_subject } from '../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { CommunityFeedPost } from '../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 
 export const isAndroid = Platform.OS === 'android';
 
@@ -96,17 +102,23 @@ export const userIsJean = (
   orgPermissions: { organization: { user_created: boolean } }[],
 ) => orgPermissions.some(p => !p.organization.user_created);
 
-// @ts-ignore
-export const orgIsPersonalMinistry = org =>
-  org && (!org.id || org.id === 'personal');
-// @ts-ignore
-export const orgIsUserCreated = org =>
-  !!(org && (org.user_created || org.userCreated));
-// @ts-ignore
-export const orgIsGlobal = org => org && org.id === GLOBAL_COMMUNITY_ID;
-// @ts-ignore
-export const orgIsCru = org =>
-  org &&
+export const orgIsPersonalMinistry = (org?: { id?: string }) =>
+  !!org && (!org.id || org.id === 'personal');
+
+export const orgIsUserCreated = (org?: {
+  user_created?: boolean;
+  userCreated?: boolean;
+}) => !!(org && (org.user_created || org.userCreated));
+
+export const orgIsGlobal = (org?: { id?: string }) =>
+  !!org && org.id === GLOBAL_COMMUNITY_ID;
+
+export const orgIsCru = (org?: {
+  id?: string;
+  user_created?: boolean;
+  userCreated?: boolean;
+}) =>
+  !!org &&
   !orgIsPersonalMinistry(org) &&
   !orgIsUserCreated(org) &&
   !orgIsGlobal(org);
@@ -136,10 +148,13 @@ export const hasOrgPermissions = (
 };
 
 export const isAdminOrOwner = (
-  orgPermission: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  } | null,
+  orgPermission:
+    | {
+        permission_id?: string;
+        permission?: PermissionEnum;
+      }
+    | null
+    | undefined,
 ) =>
   (!!orgPermission &&
     [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
@@ -174,6 +189,13 @@ export const isAdmin = (
   (!!orgPermission &&
     !!orgPermission.permission &&
     orgPermission.permission === PermissionEnum.admin);
+
+export const canEditCommunity = (
+  permission?: PermissionEnum,
+  userCreated?: boolean,
+) =>
+  permission === PermissionEnum.owner ||
+  (!userCreated && permission === PermissionEnum.admin);
 
 // @ts-ignore
 export const shouldQueryReportedComments = (org, orgPermission) =>
@@ -266,8 +288,10 @@ export const getIconName = (type, interaction_type_id) => {
   return null;
 };
 
-// @ts-ignore
-export function getPagination(action, currentLength) {
+export function getPagination(
+  action: { meta?: { total?: number }; query?: { page?: { offset?: number } } },
+  currentLength: number,
+) {
   const offset =
     action.query && action.query.page && action.query.page.offset
       ? action.query.page.offset
@@ -395,3 +419,50 @@ export function copyText(string) {
 }
 
 export const keyExtractorId = ({ id }: { id: string }) => id;
+
+export const mapPostTypeToFeedType = (postType: PostTypeEnum) => {
+  switch (postType) {
+    case PostTypeEnum.story:
+      return FeedItemSubjectTypeEnum.STORY;
+    case PostTypeEnum.prayer_request:
+      return FeedItemSubjectTypeEnum.PRAYER_REQUEST;
+    case PostTypeEnum.question:
+      return FeedItemSubjectTypeEnum.QUESTION;
+    case PostTypeEnum.help_request:
+      return FeedItemSubjectTypeEnum.HELP_REQUEST;
+    case PostTypeEnum.thought:
+      return FeedItemSubjectTypeEnum.THOUGHT;
+    case PostTypeEnum.announcement:
+      return FeedItemSubjectTypeEnum.ANNOUNCEMENT;
+  }
+};
+
+export const mapFeedTypeToPostType = (feedType: FeedItemSubjectTypeEnum) => {
+  switch (feedType) {
+    case FeedItemSubjectTypeEnum.STORY:
+      return PostTypeEnum.story;
+    case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
+      return PostTypeEnum.prayer_request;
+    case FeedItemSubjectTypeEnum.QUESTION:
+      return PostTypeEnum.question;
+    case FeedItemSubjectTypeEnum.HELP_REQUEST:
+      return PostTypeEnum.help_request;
+    case FeedItemSubjectTypeEnum.THOUGHT:
+      return PostTypeEnum.thought;
+    case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
+      return PostTypeEnum.announcement;
+  }
+};
+
+export const getFeedItemType = (subject: CommunityFeedItem_subject) => {
+  switch (subject.__typename) {
+    case 'CommunityChallenge':
+      return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
+    case 'Step':
+      return FeedItemSubjectTypeEnum.STEP;
+    case 'Post':
+      return mapPostTypeToFeedType((subject as CommunityFeedPost).postType);
+    default:
+      return FeedItemSubjectTypeEnum.STORY;
+  }
+};

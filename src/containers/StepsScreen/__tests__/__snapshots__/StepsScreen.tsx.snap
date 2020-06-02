@@ -1518,66 +1518,11 @@ exports[`renders screen with steps correctly 1`] = `
           ]
         }
       >
-        <View
-          accessible={true}
-          focusable={true}
-          hitSlop={
-            Object {
-              "bottom": 10,
-              "left": 10,
-              "right": 10,
-              "top": 10,
-            }
-          }
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Image
-              source={
-                Object {
-                  "testUri": "../../../assets/images/closeIcon.png",
-                }
-              }
-              style={
-                Object {
-                  "margin": 10,
-                }
-              }
-            />
-          </View>
-        </View>
+        <SvgMock
+          color="#B4B6BA"
+          onPress={[Function]}
+          testID="CloseIcon"
+        />
       </View>
     </View>
     <RCTScrollView
@@ -1748,7 +1693,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -711,10 +711,54 @@
+@@ -656,10 +656,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1803,7 +1748,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -815,9 +859,82 @@
+@@ -760,9 +804,82 @@
                 }
               }
               testID=\\"stepItem\\"

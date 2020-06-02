@@ -25,7 +25,7 @@ import {
 } from '../../reducers/celebrateComments';
 import { Organization } from '../../reducers/organizations';
 import { Person } from '../../reducers/people';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
 
 import styles from './styles';
 
@@ -35,7 +35,7 @@ export interface CommentsListProps {
     {},
     AnyAction
   >;
-  event: GetCelebrateFeed_community_celebrationItems_nodes;
+  event: CelebrateItem;
   organization: Organization;
   me: Person;
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
@@ -189,7 +189,7 @@ const mapStateToProps = (
     auth,
     celebrateComments,
   }: { auth: AuthState; celebrateComments: CelebrateCommentsState },
-  { event }: { event: GetCelebrateFeed_community_celebrationItems_nodes },
+  { event }: { event: CelebrateItem },
 ) => ({
   me: auth.person,
   celebrateComments: celebrateCommentsSelector(

@@ -2,8 +2,11 @@ import React from 'react';
 import MockDate from 'mockdate';
 import moment from 'moment';
 
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { renderWithContext } from '../../../../testUtils';
 import { INTERACTION_TYPES } from '../../../constants';
+import { CommunityMemberPerson } from '../../../components/CommunityMemberItem/__generated__/CommunityMemberPerson';
+import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../../../components/CommunityMemberItem/queries';
 
 import GroupsContactItem from '..';
 
@@ -47,9 +50,9 @@ const item = {
   },
 };
 
-const person = {
-  first_name: 'Test User',
-};
+const person = mockFragment<CommunityMemberPerson>(
+  COMMUNITY_MEMBER_PERSON_FRAGMENT,
+);
 
 const myId = '234234';
 

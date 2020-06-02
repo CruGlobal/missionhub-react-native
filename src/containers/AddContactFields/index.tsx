@@ -18,6 +18,9 @@ import { Organization } from '../../reducers/organizations';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { relationshipTypeList } from '../PersonCategoryScreen';
 import DropdownIcon from '../../../assets/images/dropdownIcon.svg';
+import Avatar from '../../components/Avatar';
+import ImagePicker from '../../components/ImagePicker';
+import PencilIcon from '../../../assets/images/pencilIcon.svg';
 
 import styles from './styles';
 
@@ -43,7 +46,7 @@ const AddContactFields = ({
   const [currentInputField, changeCurrentInputField] = useState('');
   const dispatch = useDispatch();
   const isMe = useIsMe(person.id);
-  const isEdit = !!person.id && person.stage; // Person in onboarding won't have a stage by the time they are at this screen
+  const isEdit = !!person.id && !!person.stage; // Person in onboarding won't have a stage by the time they are at this screen
   const personOrgPermission = useSelector(() =>
     orgPermissionSelector({}, { person, organization }),
   );
@@ -63,6 +66,10 @@ const AddContactFields = ({
         });
         break;
     }
+  };
+
+  const handleImageChange = (data: { data: string }) => {
+    onUpdateData({ ...person, picture: data.data });
   };
 
   const categoryOptions = relationshipTypeList.map(type => {
@@ -95,7 +102,23 @@ const AddContactFields = ({
   return (
     <KeyboardAvoidingView style={styles.fieldsWrap} behavior="position">
       <Flex direction="column">
-        {isEdit ? null : (
+        {isEdit ? (
+          <Flex align="center">
+            {isMe ? (
+              <ImagePicker
+                // @ts-ignore
+                testID="ImagePicker"
+                onSelectImage={handleImageChange}
+                circleOverlay={true}
+              >
+                <Avatar person={person} size="large" />
+                <View style={styles.changeAvatarButton}>
+                  <PencilIcon color={theme.white} />
+                </View>
+              </ImagePicker>
+            ) : null}
+          </Flex>
+        ) : (
           <Flex value={2} justify="end" align="center">
             {isMe ? null : (
               <View style={styles.textWrap}>

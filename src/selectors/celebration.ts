@@ -1,54 +1,45 @@
 import { createSelector } from 'reselect';
 
-import { momentUtc } from '../utils/date';
+import { momentUtc, isLastTwentyFourHours } from '../utils/date';
 import { CELEBRATEABLE_TYPES } from '../constants';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../containers/CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CelebrateItem } from '../components/CommunityFeedItem/__generated__/CelebrateItem';
 import { CommunityCelebrationCelebrateableEnum } from '../../__generated__/globalTypes';
 
 export interface CelebrateFeedSection {
   id: number;
-  date: string;
-  data: GetCelebrateFeed_community_celebrationItems_nodes[];
+  title: string;
+  data: CelebrateItem[];
 }
 
 export const celebrationSelector = createSelector(
-  ({
-    celebrateItems,
-  }: {
-    celebrateItems: GetCelebrateFeed_community_celebrationItems_nodes[];
-  }) => celebrateItems,
+  ({ celebrateItems }: { celebrateItems: CelebrateItem[] }) => celebrateItems,
   celebrateItems => {
     const filteredCelebrateItems = filterCelebrationFeedItems(celebrateItems);
     const sortByDate = filteredCelebrateItems;
     sortByDate.sort(compare);
 
-    const dateSections: CelebrateFeedSection[] = [];
+    const dateSections: CelebrateFeedSection[] = [
+      { id: 1, title: 'dates.today', data: [] },
+      { id: 2, title: 'dates.earlier', data: [] },
+    ];
     sortByDate.forEach(item => {
-      const length = dateSections.length;
       const itemMoment = momentUtc(item.changedAttributeValue);
-
-      if (
-        length > 0 &&
-        itemMoment.isSame(momentUtc(dateSections[length - 1].date), 'day')
-      ) {
-        dateSections[length - 1].data.push(item);
+      if (isLastTwentyFourHours(itemMoment)) {
+        dateSections[0].data.push(item);
       } else {
-        dateSections.push({
-          id: dateSections.length,
-          date: item.changedAttributeValue,
-          data: [item],
-        });
+        dateSections[1].data.push(item);
       }
     });
+    // Filter out any sections with no data
+    const filteredSections = dateSections.filter(
+      section => section.data.length > 0,
+    );
 
-    return dateSections;
+    return filteredSections;
   },
 );
 
-const compare = (
-  a: GetCelebrateFeed_community_celebrationItems_nodes,
-  b: GetCelebrateFeed_community_celebrationItems_nodes,
-) => {
+const compare = (a: CelebrateItem, b: CelebrateItem) => {
   const aValue = a.changedAttributeValue,
     bValue = b.changedAttributeValue;
 
@@ -61,9 +52,7 @@ const compare = (
   return 0;
 };
 
-const filterCelebrationFeedItems = (
-  items: GetCelebrateFeed_community_celebrationItems_nodes[],
-) => {
+const filterCelebrationFeedItems = (items: CelebrateItem[]) => {
   const { validInteractionTypes } = CELEBRATEABLE_TYPES;
 
   return items.filter(item => {

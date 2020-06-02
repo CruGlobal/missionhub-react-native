@@ -405,6 +405,17 @@ exports[`GroupCardItem renders for join screen userCreated no owner 1`] = `
       ]
     }
   >
+    <Image
+      resizeMode="cover"
+      source={Object {}}
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
     <View
       style={
         Array [
@@ -609,6 +620,17 @@ exports[`GroupCardItem renders user created group 1`] = `
       ]
     }
   >
+    <Image
+      resizeMode="cover"
+      source={Object {}}
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
     <View
       style={
         Array [
@@ -733,6 +755,17 @@ exports[`GroupCardItem renders user created group with member count 1`] = `
       ]
     }
   >
+    <Image
+      resizeMode="cover"
+      source={Object {}}
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
     <View
       style={
         Array [
@@ -857,6 +890,17 @@ exports[`GroupCardItem renders user created group with singular member count 1`]
       ]
     }
   >
+    <Image
+      resizeMode="cover"
+      source={Object {}}
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
     <View
       style={
         Array [
@@ -1613,6 +1657,17 @@ exports[`GroupCardItem renders with no report counts for user created org 1`] = 
       ]
     }
   >
+    <Image
+      resizeMode="cover"
+      source={Object {}}
+      style={
+        Object {
+          "borderRadius": 4,
+          "height": "100%",
+          "width": "100%",
+        }
+      }
+    />
     <View
       style={
         Array [

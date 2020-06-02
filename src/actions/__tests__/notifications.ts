@@ -35,16 +35,16 @@ import {
   navigatePush,
   navigateReset,
   navigateToMainTabs,
-  navigateToCommunity,
   navigateToCelebrateComments,
 } from '../navigation';
 import { refreshCommunity } from '../organizations';
 import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
-import { GROUP_CHALLENGES } from '../../containers/Groups/GroupScreen';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
+import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
+import { COMMUNITY_CHALLENGES } from '../../containers/Groups/GroupChallenges';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -483,7 +483,6 @@ describe('askNotificationPermissions', () => {
     const refreshCommunityResult = organization;
     const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
     const navToCelebrateResult = { type: 'navigated to celebrate comments' };
-    const navToCommunityResult = { type: 'navigated to community' };
 
     beforeEach(() => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
@@ -499,7 +498,6 @@ describe('askNotificationPermissions', () => {
       (navigateToCelebrateComments as jest.Mock).mockReturnValue(
         navToCelebrateResult,
       );
-      (navigateToCommunity as jest.Mock).mockReturnValue(navToCommunityResult);
       (navigateToMainTabs as jest.Mock).mockReturnValue(
         navigateToMainTabsResult,
       );
@@ -701,8 +699,9 @@ describe('askNotificationPermissions', () => {
           },
         });
 
-        expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCommunity).toHaveBeenCalledWith(organization);
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+          communityId: organization.id,
+        });
       });
       it('should not navigate if no organization_id', async () => {
         await testNotification(({
@@ -715,7 +714,7 @@ describe('askNotificationPermissions', () => {
         } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(navigateToCommunity).not.toHaveBeenCalled();
+        expect(navigatePush).not.toHaveBeenCalled();
       });
     });
 
@@ -788,10 +787,9 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCommunity).toHaveBeenCalledWith(
-          organization,
-          GROUP_CHALLENGES,
-        );
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_CHALLENGES, {
+          communityId: organization.id,
+        });
       });
 
       it('should navigate to global community if no id passed', async () => {
@@ -804,10 +802,9 @@ describe('askNotificationPermissions', () => {
         } as unknown) as PushNotificationPayloadData);
         expect(refreshCommunity).toHaveBeenCalledWith(undefined);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
-        expect(navigateToCommunity).toHaveBeenCalledWith(
-          global_community,
-          GROUP_CHALLENGES,
-        );
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_CHALLENGES, {
+          communityId: undefined,
+        });
       });
     });
   });

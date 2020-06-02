@@ -8,11 +8,11 @@ import Header from '../../components/Header';
 import { Button } from '../../components/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import BackButton from '../BackButton';
+import DeprecatedBackButton from '../DeprecatedBackButton';
 import { TrackStateContext } from '../../actions/analytics';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
-import CelebrateFeed from '../CelebrateFeed';
+import { CelebrateFeed } from '../CelebrateFeed';
 import theme from '../../theme';
 import { refreshCommunity } from '../../actions/organizations';
 import { OrganizationsState, Organization } from '../../reducers/organizations';
@@ -22,7 +22,7 @@ import {
   markCommentRead,
 } from '../../actions/unreadComments';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { GetCelebrateFeed_community_celebrationItems_nodes } from '../CelebrateFeed/__generated__/GetCelebrateFeed';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
 import styles from './styles';
 
@@ -52,15 +52,14 @@ const GroupUnreadFeed = ({
     back();
   };
 
-  const handleClearNotification = (
-    event: GetCelebrateFeed_community_celebrationItems_nodes,
-  ) => dispatch(markCommentRead(event.id, organization.id));
+  const handleClearNotification = (item: CommunityFeedItem) =>
+    dispatch(markCommentRead(item.id, organization.id));
 
   return (
     <View style={styles.pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={<BackButton iconStyle={styles.backIcon} />}
+        left={<DeprecatedBackButton iconStyle={styles.backIcon} />}
         right={
           <Button
             testID="MarkAllButton"

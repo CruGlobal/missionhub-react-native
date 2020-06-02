@@ -83,7 +83,10 @@ function addCommentsToState(state: CelebrateCommentsState, action: AnyAction) {
       [eventId]: {
         ...event,
         comments,
-        pagination: getPagination(action, comments.length),
+        pagination: getPagination(
+          { meta: action.meta, query: action.query },
+          comments.length,
+        ),
       },
     },
   };

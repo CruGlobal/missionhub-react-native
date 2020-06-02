@@ -19,7 +19,6 @@ export default StyleSheet.create({
   itemContent: {
     backgroundColor: 'white',
     padding: 14,
-    marginTop: 0,
   },
   backButtonStyle: { marginLeft: 10 },
   backButtonIconStyle: { color: theme.black },

@@ -2,11 +2,25 @@ import 'react-native';
 import React from 'react';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
 
+import * as common from '../../../utils/common';
 import { renderWithContext } from '../../../../testUtils';
 
 import TabIcon from '..';
 
+beforeEach(() => {
+  ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
+});
+
 describe('renders', () => {
+  it('correctly | NonAndroid', () => {
+    renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />).snapshot();
+  });
+
+  it('correctly | Android', () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+    renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />).snapshot();
+  });
+
   it('steps', () => {
     renderWithContext(<TabIcon name={'steps'} tintColor={'blue'} />).snapshot();
   });
@@ -31,9 +45,9 @@ describe('renders', () => {
     snapshot();
   });
 
-  it('group', async () => {
+  it('communities', async () => {
     const { snapshot } = renderWithContext(
-      <TabIcon name={'group'} tintColor={'blue'} />,
+      <TabIcon name={'communities'} tintColor={'blue'} />,
       {
         mocks: {
           Int: () => 0,
@@ -46,9 +60,34 @@ describe('renders', () => {
     snapshot();
   });
 
-  it('group with notification dot', async () => {
+  it('communities with notification dot', async () => {
     const { snapshot } = renderWithContext(
-      <TabIcon name={'group'} tintColor={'blue'} />,
+      <TabIcon name={'communities'} tintColor={'blue'} />,
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
+  });
+
+  it('notifications', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name="notifications" tintColor={'blue'} />,
+      {
+        mocks: {
+          Int: () => 0,
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    snapshot();
+  });
+
+  it('notifications with notification dot', async () => {
+    const { snapshot } = renderWithContext(
+      <TabIcon name="notifications" tintColor={'blue'} />,
     );
 
     await flushMicrotasksQueue();
