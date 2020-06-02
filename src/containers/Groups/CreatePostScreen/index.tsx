@@ -31,6 +31,7 @@ import { CommunityFeedPost } from '../../../components/CommunityFeedItem/__gener
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import CameraIcon from './cameraIcon.svg';
+import SendIcon from './sendIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
@@ -150,6 +151,29 @@ export const CreatePostScreen = () => {
     );
   }, [imageData]);
 
+  const renderSendButton = () =>
+    text ? (
+      post ? (
+        <Button
+          type="transparent"
+          onPress={savePost}
+          testID="CreatePostButton"
+          text={t('done')}
+          style={styles.headerButton}
+          buttonTextStyle={styles.createPostButtonText}
+        />
+      ) : (
+        <Button
+          type="transparent"
+          onPress={savePost}
+          testID="CreatePostButton"
+          style={styles.headerButton}
+        >
+          <SendIcon style={styles.icon} />
+        </Button>
+      )
+    ) : null;
+
   const renderHeader = () => (
     <Header
       left={
@@ -160,18 +184,7 @@ export const CreatePostScreen = () => {
           {t(`postTypes:${mapPostTypeToFeedType(postType)}`)}
         </Text>
       }
-      right={
-        text ? (
-          <Button
-            type="transparent"
-            onPress={savePost}
-            testID="CreatePostButton"
-            text={t('done')}
-            style={styles.headerButton}
-            buttonTextStyle={styles.createPostButtonText}
-          />
-        ) : null
-      }
+      right={renderSendButton()}
     />
   );
 
