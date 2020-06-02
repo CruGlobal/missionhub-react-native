@@ -5,13 +5,12 @@ exports[`Creating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -137,12 +137,78 @@
+@@ -137,12 +137,56 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
             ]
           }
--       />
 +       >
 +         <View
 +           accessible={true}
@@ -46,36 +45,14 @@ exports[`Creating a post user types a post 1`] = `
 +               ]
 +             }
 +           >
-+             <Text
++             <SvgMock
 +               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Array [
-+                     Object {
-+                       \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
-+                       \\"color\\": \\"#ffffff\\",
-+                       \\"fontSize\\": 14,
-+                       \\"fontWeight\\": \\"500\\",
-+                       \\"letterSpacing\\": 1.5,
-+                       \\"textAlign\\": \\"center\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#3CC8E6\\",
-+                       \\"fontSize\\": 16,
-+                       \\"fontWeight\\": \\"normal\\",
-+                       \\"lineHeight\\": 24,
-+                     },
-+                   ],
-+                 ]
++                 Object {
++                   \\"height\\": 24,
++                   \\"width\\": 24,
++                 }
 +               }
-+             >
-+               Done
-+             </Text>
+              />
 +           </View>
           </View>
 +       </View>
@@ -85,7 +62,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -265,11 +331,11 @@
+@@ -265,11 +309,11 @@
               },
             ]
           }
