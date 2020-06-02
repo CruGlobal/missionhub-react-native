@@ -5,7 +5,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
 - First value
 + Second value
 
-@@ -98,13 +98,12 @@
+@@ -98,11 +98,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -15,10 +15,19 @@ exports[`click submit button calls onSubmit prop 1`] = `
 +       value=\\"\\"
       />
     </View>
-    <SvgMock
--     onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +120,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#3CC8E6\\"
++       color=\\"#ECEEF2\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -32,7 +41,7 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -9,53 +9,84 @@
+@@ -9,52 +9,83 @@
       }
     }
   >
@@ -69,15 +78,15 @@ exports[`handles start edit 1`] = `
 +       <View
 +         style={
             Array [
--           Object {
+              Object {
 -             \\"borderRadius\\": 18,
 -             \\"height\\": 36,
 -             \\"width\\": 36,
--           },
-              Object {
--             \\"backgroundColor\\": \\"rgb(199, 163, 67)\\",
 +               \\"backgroundColor\\": \\"transparent\\",
               },
+-           Object {
+-             \\"backgroundColor\\": \\"rgb(199, 163, 67)\\",
+-           },
 -           undefined,
 -         ],
 +             null,
@@ -105,21 +114,21 @@ exports[`handles start edit 1`] = `
                   },
                   Array [
                     Object {
--               \\"color\\": \\"#ffffff\\",
 +                     \\"margin\\": 10,
-                    },
-                    Object {
--               \\"fontSize\\": 20,
--               \\"fontWeight\\": \\"300\\",
-+                     \\"color\\": \\"#ffffff\\",
++                   },
++                   Object {
+                      \\"color\\": \\"#ffffff\\",
                     },
 +                 ],
-                ],
-+               Object {
++               ],
+                Object {
+-               \\"fontSize\\": 20,
+-               \\"fontWeight\\": \\"300\\",
 +                 \\"fontFamily\\": \\"icomoon\\",
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
-+               },
+                },
+-           ],
 +               Object {},
               ]
             }
@@ -128,14 +137,13 @@ exports[`handles start edit 1`] = `
 +           
           </Text>
 +       </View>
-      </View>
-+   </View>
++     </View>
+    </View>
     <View
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-          \\"borderRadius\\": 8,
-@@ -98,12 +129,13 @@
+@@ -98,11 +129,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -145,10 +153,19 @@ exports[`handles start edit 1`] = `
 +       value=\\"esse repellat quisquam\\"
       />
     </View>
-    <SvgMock
-+     onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +151,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#ECEEF2\\"
++       color=\\"#3CC8E6\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -157,7 +174,7 @@ exports[`renders with disabled submit button 1`] = `
 - First value
 + Second value
 
-@@ -98,13 +98,12 @@
+@@ -98,11 +98,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -167,10 +184,19 @@ exports[`renders with disabled submit button 1`] = `
 +       value=\\"\\"
       />
     </View>
-    <SvgMock
--     onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +120,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#3CC8E6\\"
++       color=\\"#ECEEF2\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -179,7 +205,7 @@ exports[`renders with text entered 1`] = `
 - First value
 + Second value
 
-@@ -98,12 +98,13 @@
+@@ -98,11 +98,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -189,10 +215,19 @@ exports[`renders with text entered 1`] = `
 +       value=\\"test\\"
       />
     </View>
-    <SvgMock
-+     onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +120,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#ECEEF2\\"
++       color=\\"#3CC8E6\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -302,8 +337,27 @@ exports[`renders without actions 1`] = `
       value=""
     />
   </View>
-  <SvgMock
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
     testID="SubmitButton"
-  />
+  >
+    <SvgMock
+      color="#ECEEF2"
+    />
+  </View>
 </RCTSafeAreaView>
 `;
