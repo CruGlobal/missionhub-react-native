@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Keyboard, View, SafeAreaView, TextInput } from 'react-native';
 
-import { IconButton, Input } from '../common';
+import { IconButton, Input, Touchable } from '../common';
 import theme from '../../theme';
 import { FeedItemEditingComment } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
 import Avatar, { AvatarPerson } from '../Avatar';
@@ -112,11 +112,17 @@ const CommentBox = ({
           placeholderTextColor={theme.grey1}
         />
       </View>
-      {!text || isSubmitting ? (
-        <SubmitPostArrowDisabled testID="SubmitButton" />
-      ) : (
-        <SubmitPostArrowActive testID="SubmitButton" onPress={handleSubmit} />
-      )}
+      <Touchable
+        testID="SubmitButton"
+        onPress={handleSubmit}
+        disabled={!text || isSubmitting}
+      >
+        {!text || isSubmitting ? (
+          <SubmitPostArrowDisabled color={theme.extraLightGrey} />
+        ) : (
+          <SubmitPostArrowActive color={theme.parakeetBlue} />
+        )}
+      </Touchable>
     </SafeAreaView>
   );
 };
