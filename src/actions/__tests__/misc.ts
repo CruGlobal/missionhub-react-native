@@ -155,24 +155,24 @@ describe('assignContactAndPickStage', () => {
     // @ts-ignore
     await store.dispatch(assignContactAndPickStage(person, organization));
 
-    expect(createContactAssignment).toHaveBeenCalledWith(orgId, myId, personId);
+    expect(createContactAssignment).toHaveBeenCalledWith(
+      undefined,
+      myId,
+      personId,
+    );
     expect(contactAssignmentSelector).toHaveBeenCalledWith(state, {
       person,
-      orgId,
     });
     expect(getPersonScreenRoute).toHaveBeenCalledWith(
       mePerson,
       person,
-      organization,
       contactAssignment,
     );
     expect(navigateReplace).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
       person,
-      organization,
     });
     expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
       personId,
-      orgId: orgId,
       section: 'people',
       subsection: 'person',
     });

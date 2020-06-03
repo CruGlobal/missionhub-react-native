@@ -47,8 +47,8 @@ const StepItem = ({
   };
 
   const onPressName = () => {
-    const { receiver, community } = step;
-    dispatch(navToPersonScreen(receiver, community));
+    const { receiver } = step;
+    dispatch(navToPersonScreen(receiver.id));
   };
 
   const onPressCheckbox = async () => {
@@ -68,7 +68,7 @@ const StepItem = ({
   } = styles;
   return (
     <Card testID="StepItemCard" onPress={onPressCard} style={styles.card}>
-      <View style={styles.flex1}>
+      <View>
         <View style={cardHeader}>
           {showName ? (
             <Touchable

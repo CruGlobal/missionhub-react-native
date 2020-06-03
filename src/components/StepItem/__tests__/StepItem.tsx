@@ -113,10 +113,7 @@ it('should navigate to person screen', () => {
     initialState,
   });
   fireEvent.press(getByTestId('StepItemPersonButton'));
-  expect(navToPersonScreen).toHaveBeenCalledWith(
-    mockStep.receiver,
-    mockStep.community,
-  );
+  expect(navToPersonScreen).toHaveBeenCalledWith(mockStep.receiver.id);
 });
 
 it('should complete steps with checkbox', () => {

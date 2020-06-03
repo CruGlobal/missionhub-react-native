@@ -27,14 +27,12 @@ import styles from './styles';
 interface CreatePostModalProps {
   closeModal: () => void;
   communityId: string;
-  refreshItems: () => void;
   adminOrOwner: boolean;
 }
 
 const CreatePostModal = ({
   closeModal,
   communityId,
-  refreshItems,
   adminOrOwner,
 }: CreatePostModalProps) => {
   const {
@@ -60,7 +58,6 @@ const CreatePostModal = ({
     closeModal();
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        onComplete: refreshItems,
         communityId,
         postType,
       }),

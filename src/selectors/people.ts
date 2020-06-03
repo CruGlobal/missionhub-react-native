@@ -2,8 +2,7 @@ import { createSelector } from 'reselect';
 
 import { PeopleState, Person } from '../reducers/people';
 import { AuthState } from '../reducers/auth';
-import { Organization } from '../reducers/organizations';
-import { CommunityPermission } from '../components/CommunityFeedItem/__generated__/CommunityPermission';
+import { Organization, OrganizationsState } from '../reducers/organizations';
 
 import { removeHiddenOrgs } from './selectorUtils';
 
@@ -14,102 +13,53 @@ interface Org {
   name: string;
 }
 
-export const peopleByOrgSelector = createSelector(
-  ({ people }: { auth: AuthState; people: PeopleState }) => people.allByOrg,
-  ({ auth }: { auth: AuthState; people: PeopleState }) => auth.person,
-  (orgs, authUser) =>
-    sortOrgs(removeHiddenOrgs(Object.values(orgs), authUser), authUser)
-      .map((org: Org) => ({
-        ...org,
-        people: Object.values(org.people)
-          .filter(person => isAssignedToMeInOrganization(person, org, authUser))
-          .sort((a, b) => sortPeople(a, b, authUser)),
-      }))
-      .filter(
-        (o: Org) => o.people && (o.id === 'personal' || o.people.length > 0),
-      ),
-);
-
 export const allAssignedPeopleSelector = createSelector(
-  ({ people }: { auth: AuthState; people: PeopleState }) => people.allByOrg,
+  ({ people }: { auth: AuthState; people: PeopleState }) => people.people,
+  ({
+    organizations,
+  }: {
+    auth: AuthState;
+    people: PeopleState;
+    organizations: OrganizationsState;
+  }) => organizations.all,
   ({ auth }: { auth: AuthState; people: PeopleState }) => auth.person,
-  (orgs, authUser) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const allPeople: any = {};
-    removeHiddenOrgs(Object.values(orgs), authUser).forEach((org: Org) => {
-      Object.values(org.people)
-        .filter((person: Person) =>
-          isAssignedToMeInOrganization(person, org, authUser),
-        )
-        .forEach((person: Person) => {
-          allPeople[person.id] = {
-            ...(allPeople[person.id] || {}),
-            ...person,
-          };
-        });
-    });
-    return (Object.values(allPeople) || []).sort((a, b) =>
-      sortPeople(a, b, authUser),
-    );
+  (people, orgs, authUser) => {
+    return Object.values(people)
+      .filter((person: Person) =>
+        isAssignedToMeInSomeOrganization(person, orgs, authUser),
+      )
+      .sort((a, b) => sortPeople(a, b, authUser));
   },
 );
 
-const isAssignedToMeInOrganization = (
+const isAssignedToMeInSomeOrganization = (
   person: Person,
-  org: Org,
-  appUserPerson: Person,
+  orgs: Organization[],
+  me: Person,
 ) => {
   const { reverse_contact_assignments } = person;
 
-  if (person.id === appUserPerson.id && org.id === 'personal') {
+  if (person.id === me.id) {
     return true;
   }
+
+  const visibleOrgs = removeHiddenOrgs(orgs, me);
 
   return (
     reverse_contact_assignments &&
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    reverse_contact_assignments.filter((a: any) => {
+    reverse_contact_assignments.some((a: any) => {
       const { assigned_to, organization } = a;
 
       return (
         assigned_to &&
-        assigned_to.id === appUserPerson.id &&
-        (!organization || organization.id === org.id)
+        assigned_to.id === me.id &&
+        (!organization ||
+          visibleOrgs.some(({ id }: { id: string }) => organization.id === id))
       );
-    }).length > 0
+    })
   );
 };
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const sortOrgs = (orgs: any, authUser: Person) => {
-  const orgOrder = authUser.user.organization_order;
-
-  return orgOrder
-    ? sortWithPersonalInFront(
-        orgs,
-        (a: Org, b: Org) => orgOrder.indexOf(a.id) > orgOrder.indexOf(b.id),
-      )
-    : sortWithPersonalInFront(orgs, (a: Org, b: Org) =>
-        a.name ? a.name.localeCompare(b.name) : 1,
-      );
-};
-
-const sortWithPersonalInFront = (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  orgs: any,
-  sortFn: (a: Org, b: Org) => boolean | number,
-) =>
-  orgs.sort((a: Org, b: Org) => {
-    // Sort orgs by name
-    // Keep Personal Ministry org in front
-    if (a.id === 'personal') {
-      return -1;
-    }
-    if (b.id === 'personal') {
-      return 1;
-    }
-    return sortFn(a, b);
-  });
 
 const sortPeople = (a: Person, b: Person, authUser: Person) => {
   // Sort people in org by first name, then last name
@@ -127,54 +77,26 @@ const sortPeople = (a: Person, b: Person, authUser: Person) => {
 };
 
 export const personSelector = createSelector(
-  ({ people }: { people: PeopleState }) => people.allByOrg,
-  (
-    _: { people: PeopleState },
-    { orgId }: { personId: string; orgId?: string },
-  ) => orgId,
-  (
-    _: { people: PeopleState },
-    { personId }: { personId: string; orgId?: string },
-  ) => personId,
-  (orgs, orgId, personId) => {
-    const org = orgs[orgId || 'personal'];
-    return org && org.people[personId];
+  ({ people }: { people: PeopleState }) => people.people,
+  (_: { people: PeopleState }, { personId }: { personId: string }) => personId,
+  (people, personId) => {
+    return people[personId];
   },
 );
 
 export const contactAssignmentSelector = createSelector(
-  (_: { auth: AuthState }, { person }: { person: Person; orgId?: string }) =>
-    person || {},
-  (_: { auth: AuthState }, { orgId }: { person: Person; orgId?: string }) =>
-    orgId,
+  (_: { auth: AuthState }, { person }: { person: Person }) => person || {},
   ({ auth }: { auth: AuthState }) => auth.person.id,
-  (person, orgId, authUserId) =>
-    selectContactAssignment(person, authUserId, orgId),
+  (person, authUserId) => selectContactAssignment(person, authUserId),
 );
 
-export const selectContactAssignment = (
-  person: Person,
-  authUserId: string,
-  orgId?: string,
-) => {
-  const {
-    reverse_contact_assignments = [],
-    organizational_permissions = [],
-  } = person;
+export const selectContactAssignment = (person: Person, authUserId: string) => {
+  const { reverse_contact_assignments = [] } = person;
 
+  // Just return the first one found regardless of org since after the split there will only be one and we will have dropped org ids. There is an edge case where the same user is assigned to you in 2 orgs but we are ok breaking that since it has such little usage.
   return reverse_contact_assignments.find(
-    (assignment: {
-      assigned_to?: { id: string };
-      organization?: { id: string };
-    }) =>
-      assignment.assigned_to?.id === authUserId &&
-      (!orgId || orgId === 'personal'
-        ? !assignment.organization
-        : orgId === assignment.organization?.id &&
-          organizational_permissions.some(
-            (org_permission: { organization_id: string }) =>
-              org_permission.organization_id === assignment.organization?.id,
-          )),
+    (assignment: { assigned_to?: { id: string } }) =>
+      assignment.assigned_to?.id === authUserId,
   );
 };
 
@@ -196,6 +118,6 @@ export const selectOrgPermission = (
           orgPermission.organization_id === organization.id,
       )
     : (person?.communityPermissions?.nodes || []).find(
-        (orgPermission: CommunityPermission) =>
+        (orgPermission: { community: { id: string } }) =>
           orgPermission.community.id === organization.id,
       );

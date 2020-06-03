@@ -6,6 +6,7 @@ export const GET_PERSON = gql`
       id
       firstName
       lastName
+      fullName
       stage {
         id
         name

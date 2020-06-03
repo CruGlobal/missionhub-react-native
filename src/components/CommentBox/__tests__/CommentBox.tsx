@@ -5,6 +5,9 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import Input from '../../../components/Input';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { FeedItemEditingComment } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
+import { FEED_ITEM_EDITING_COMMENT_FRAGMENT } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/queries';
 
 import CommentBox from '..';
 
@@ -17,36 +20,13 @@ const text = 'test';
 
 let onSubmit: jest.Mock;
 let onCancel: jest.Mock;
+const editingComment = mockFragment<FeedItemEditingComment>(
+  FEED_ITEM_EDITING_COMMENT_FRAGMENT,
+);
 
 beforeEach(() => {
   onSubmit = jest.fn();
   onCancel = jest.fn();
-});
-
-it('renders with actions, hidden', () => {
-  renderWithContext(
-    <CommentBox
-      onSubmit={onSubmit}
-      onCancel={onCancel}
-      placeholderTextKey={'Placeholder'}
-      showInteractions={true}
-    />,
-  ).snapshot();
-});
-
-it('renders with actions, shown', () => {
-  const { getByTestId, snapshot } = renderWithContext(
-    <CommentBox
-      onSubmit={onSubmit}
-      onCancel={onCancel}
-      placeholderTextKey={'Placeholder'}
-      showInteractions={true}
-    />,
-  );
-
-  fireEvent.press(getByTestId('ActionAddButton'));
-
-  snapshot();
 });
 
 it('renders without actions', () => {
@@ -54,20 +34,9 @@ it('renders without actions', () => {
     <CommentBox
       onSubmit={onSubmit}
       onCancel={onCancel}
-      placeholderTextKey={'Placeholder'}
+      placeholderText={'Placeholder'}
     />,
   ).snapshot();
-});
-
-it('renders with custom style', () => {
-  renderWithContext(
-    <CommentBox
-      onSubmit={onSubmit}
-      onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
-      containerStyle={{ backgroundColor: 'green' }}
-    />,
-  );
 });
 
 it('renders with text entered', () => {
@@ -75,7 +44,7 @@ it('renders with text entered', () => {
     <CommentBox
       onSubmit={onSubmit}
       onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
+      placeholderText={'Placeholder'}
     />,
   );
 
@@ -96,7 +65,7 @@ it('renders with disabled submit button', () => {
     <CommentBox
       onSubmit={onSubmit}
       onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
+      placeholderText={'Placeholder'}
     />,
   );
   fireEvent(getAllByType(Input)[0], 'onChangeText', text);
@@ -107,30 +76,13 @@ it('renders with disabled submit button', () => {
   diffSnapshot();
 });
 
-it('handles action press', () => {
-  const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-    <CommentBox
-      onSubmit={onSubmit}
-      onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
-      showInteractions={true}
-    />,
-  );
-
-  recordSnapshot();
-
-  fireEvent.press(getByTestId('ActionAddButton'));
-
-  diffSnapshot();
-});
-
 it('handles cancel', () => {
   const { getByTestId } = renderWithContext(
     <CommentBox
       onSubmit={onSubmit}
       onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
-      editingComment={{ id: '1', content: 'test' }}
+      placeholderText={'Placeholder'}
+      editingComment={editingComment}
     />,
   );
 
@@ -145,7 +97,7 @@ it('handles start edit', async () => {
     <CommentBox
       onSubmit={onSubmit}
       onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
+      placeholderText={'Placeholder'}
     />,
   );
 
@@ -157,38 +109,13 @@ it('handles start edit', async () => {
     <CommentBox
       onSubmit={onSubmit}
       onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
-      editingComment={{ id: '1', content: 'test' }}
+      placeholderText={'Placeholder'}
+      editingComment={editingComment}
     />,
   );
 
   await flushMicrotasksQueue();
 
-  diffSnapshot();
-});
-
-it('handles select and clear action', () => {
-  const {
-    recordSnapshot,
-    diffSnapshot,
-    getByTestId,
-    getAllByTestId,
-  } = renderWithContext(
-    <CommentBox
-      onSubmit={onSubmit}
-      onCancel={onCancel}
-      placeholderTextKey={'actions:commentBoxPlaceholder'}
-      showInteractions={true}
-    />,
-  );
-  fireEvent.press(getByTestId('ActionAddButton'));
-  recordSnapshot();
-
-  fireEvent.press(getAllByTestId('ActionButton')[0]);
-  diffSnapshot();
-
-  recordSnapshot();
-  fireEvent.press(getByTestId('ClearActionButton'));
   diffSnapshot();
 });
 
@@ -203,7 +130,7 @@ describe('click submit button', () => {
       <CommentBox
         onSubmit={onSubmit}
         onCancel={onCancel}
-        placeholderTextKey={'actions:commentBoxPlaceholder'}
+        placeholderText={'Placeholder'}
       />,
     );
     fireEvent(getAllByType(Input)[0], 'onChangeText', text);
@@ -215,7 +142,7 @@ describe('click submit button', () => {
     diffSnapshot();
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
-    expect(onSubmit).toHaveBeenCalledWith(null, text);
+    expect(onSubmit).toHaveBeenCalledWith(text);
   });
 
   it('calls onSubmit prop fails', async () => {
@@ -230,7 +157,7 @@ describe('click submit button', () => {
       <CommentBox
         onSubmit={onSubmit}
         onCancel={onCancel}
-        placeholderTextKey={'actions:commentBoxPlaceholder'}
+        placeholderText={'Placeholder'}
       />,
     );
     fireEvent(getAllByType(Input)[0], 'onChangeText', text);
@@ -242,6 +169,6 @@ describe('click submit button', () => {
     diffSnapshot();
 
     expect(Keyboard.dismiss).toHaveBeenCalled();
-    expect(onSubmit).toHaveBeenCalledWith(null, text);
+    expect(onSubmit).toHaveBeenCalledWith(text);
   });
 });

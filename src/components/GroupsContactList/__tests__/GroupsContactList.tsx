@@ -2,18 +2,17 @@ import React from 'react';
 import MockDate from 'mockdate';
 
 import { renderWithContext } from '../../../../testUtils';
-import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { CommunityMemberPerson } from '../../../components/CommunityMemberItem/__generated__/CommunityMemberPerson';
-import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../../../components/CommunityMemberItem/queries';
 
 import GroupsContactList from '..';
 
 const date = '2019-08-25T13:00:00.000';
 MockDate.set('2019-08-25 13:00:00', 300);
 
-const person = mockFragment<CommunityMemberPerson>(
-  COMMUNITY_MEMBER_PERSON_FRAGMENT,
-);
+const person = {
+  first_name: 'Test',
+  last_name: 'Person',
+  full_name: 'Test Person',
+};
 
 const organization = {
   id: '900',

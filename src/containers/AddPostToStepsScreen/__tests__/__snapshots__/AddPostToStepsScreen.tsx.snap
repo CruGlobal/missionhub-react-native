@@ -255,7 +255,7 @@ exports[`should render correctly | Care Step 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "quam ipsam nobis",
+                "uri": "corporis repellat ratione",
               }
             }
             style={
@@ -266,7 +266,7 @@ exports[`should render correctly | Care Step 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(123, 167, 115)",
+                  "backgroundColor": "rgb(140, 123, 152)",
                 },
                 undefined,
               ]
@@ -298,7 +298,7 @@ exports[`should render correctly | Care Step 1`] = `
                 ]
               }
             >
-              Kali Stamm
+              Aaliyah Champlin
             </Text>
             <View
               style={
@@ -329,7 +329,7 @@ exports[`should render correctly | Care Step 1`] = `
                 }
                 testID="Text"
               >
-                Sep 19 @ 3:58 AM
+                Mar 5 @ 3:36 AM
               </Text>
               <Text
                 style={
@@ -380,7 +380,7 @@ exports[`should render correctly | Care Step 1`] = `
               ]
             }
           >
-            et porro ut
+            ut sunt qui
           </Text>
         </View>
       </View>
@@ -396,12 +396,12 @@ exports[`should render correctly | Care Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "eligendi occaecati debitis",
+              "uri": "iure ut libero",
             }
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -685,7 +685,6 @@ exports[`should render correctly | Pray Step 1`] = `
         }
         testID="stepTitleInput"
         underlineColorAndroid="transparent"
-        value="Pray for Hayden's request."
       />
       <View
         style={
@@ -728,7 +727,7 @@ exports[`should render correctly | Pray Step 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "quam ipsam nobis",
+                "uri": "corporis repellat ratione",
               }
             }
             style={
@@ -739,7 +738,7 @@ exports[`should render correctly | Pray Step 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(123, 167, 115)",
+                  "backgroundColor": "rgb(140, 123, 152)",
                 },
                 undefined,
               ]
@@ -771,7 +770,7 @@ exports[`should render correctly | Pray Step 1`] = `
                 ]
               }
             >
-              Kali Stamm
+              Aaliyah Champlin
             </Text>
             <View
               style={
@@ -802,7 +801,7 @@ exports[`should render correctly | Pray Step 1`] = `
                 }
                 testID="Text"
               >
-                Sep 19 @ 3:58 AM
+                Mar 5 @ 3:36 AM
               </Text>
               <Text
                 style={
@@ -853,7 +852,7 @@ exports[`should render correctly | Pray Step 1`] = `
               ]
             }
           >
-            repudiandae esse blanditiis
+            ut sunt qui
           </Text>
         </View>
       </View>
@@ -869,7 +868,7 @@ exports[`should render correctly | Pray Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "itaque velit omnis",
+              "uri": "iure ut libero",
             }
           }
           style={
@@ -1201,7 +1200,7 @@ exports[`should render correctly | Share Step 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "quam ipsam nobis",
+                "uri": "corporis repellat ratione",
               }
             }
             style={
@@ -1212,7 +1211,7 @@ exports[`should render correctly | Share Step 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(123, 167, 115)",
+                  "backgroundColor": "rgb(140, 123, 152)",
                 },
                 undefined,
               ]
@@ -1244,7 +1243,7 @@ exports[`should render correctly | Share Step 1`] = `
                 ]
               }
             >
-              Kali Stamm
+              Aaliyah Champlin
             </Text>
             <View
               style={
@@ -1275,7 +1274,7 @@ exports[`should render correctly | Share Step 1`] = `
                 }
                 testID="Text"
               >
-                Sep 19 @ 3:58 AM
+                Mar 5 @ 3:36 AM
               </Text>
               <Text
                 style={
@@ -1326,7 +1325,7 @@ exports[`should render correctly | Share Step 1`] = `
               ]
             }
           >
-            et saepe eum
+            ut sunt qui
           </Text>
         </View>
       </View>
@@ -1342,12 +1341,12 @@ exports[`should render correctly | Share Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "enim ipsum inventore",
+              "uri": "iure ut libero",
             }
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />

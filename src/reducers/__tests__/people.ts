@@ -7,23 +7,10 @@ import {
   GET_ORGANIZATION_PEOPLE,
 } from '../../constants';
 
-const orgId = '100';
-const orgs = {
-  [orgId]: {
-    id: orgId,
-    name: 'Test Org',
-    people: {
-      '1': { id: '1' },
-      '2': { id: '2', first_name: 'Fname', last_name: 'Lname' },
-    },
-  },
-  personal: {
-    id: 'personal',
-    people: {
-      '2': { id: '2', first_name: 'Fname', last_name: 'Lname' },
-      '3': { id: '3' },
-    },
-  },
+const peopleArray = {
+  '1': { id: '1' },
+  '2': { id: '2', first_name: 'Fname', last_name: 'Lname' },
+  '3': { id: '3' },
 };
 
 const org1Id = '123';
@@ -43,10 +30,10 @@ const newPerson2 = {
 const newPerson3 = { id: person3Id, name: 'Peter' };
 const newPerson4 = { id: person4Id, name: 'Paul' };
 
-it('should replace a person in allByOrg when it is loaded with more includes', () => {
+it('should replace a person when it is loaded with more includes', () => {
   const state = people(
     {
-      allByOrg: orgs,
+      people: peopleArray,
     },
     {
       type: LOAD_PERSON_DETAILS,
@@ -54,45 +41,27 @@ it('should replace a person in allByOrg when it is loaded with more includes', (
     },
   );
 
-  expect(state.allByOrg).toMatchSnapshot();
+  expect(state.people).toMatchSnapshot();
 });
 
-it('should add an org for a person in allByOrg when it is loaded and the org does not exist', () => {
+it('should add a person when it is loaded and the person does not exist', () => {
   const state = people(
     {
-      allByOrg: orgs,
-    },
-    {
-      type: LOAD_PERSON_DETAILS,
-      person: { id: '2', first_name: 'Test Person' },
-      orgId: '105',
-      org: { id: '105', name: 'test org 1' },
-    },
-  );
-
-  expect(state.allByOrg).toMatchSnapshot();
-});
-
-it('should add a person to an org in allByOrg when it is loaded and the person in that org does not exist', () => {
-  const state = people(
-    {
-      allByOrg: orgs,
+      people: peopleArray,
     },
     {
       type: LOAD_PERSON_DETAILS,
       person: { id: '4', first_name: 'Test Person' },
-      orgId: '100',
-      org: { id: '100', name: 'test org 2' },
     },
   );
 
-  expect(state.allByOrg).toMatchSnapshot();
+  expect(state.people).toMatchSnapshot();
 });
 
-it('should update attributes of a person in allByOrg ', () => {
+it('should update attributes of a person ', () => {
   const state = people(
     {
-      allByOrg: orgs,
+      people: peopleArray,
     },
     {
       type: UPDATE_PERSON_ATTRIBUTES,
@@ -100,35 +69,34 @@ it('should update attributes of a person in allByOrg ', () => {
     },
   );
 
-  expect(state.allByOrg).toMatchSnapshot();
+  expect(state.people).toMatchSnapshot();
 });
 
-it('should delete a person from allByOrg ', () => {
+it('should delete a person ', () => {
   const state = people(
     {
-      allByOrg: orgs,
+      people: peopleArray,
     },
     {
       type: DELETE_PERSON,
       personId: '2',
-      personOrgId: '100',
     },
   );
 
-  expect(state.allByOrg).toMatchSnapshot();
+  expect(state.people).toMatchSnapshot();
 });
 
-it('should save people allByOrg', () => {
+it('should save people', () => {
   const state = people(
     // @ts-ignore
     {},
     {
       type: PEOPLE_WITH_ORG_SECTIONS,
-      orgs: orgs,
+      response: Object.values(peopleArray),
     },
   );
 
-  expect(state.allByOrg).toEqual(orgs);
+  expect(state.people).toEqual(peopleArray);
 });
 
 it('should save new people and update existing people', () => {
@@ -139,7 +107,7 @@ it('should save new people and update existing people', () => {
   const newPeople = [newPerson1, newPerson2, newPerson3, newPerson4];
 
   const state = people(
-    { allByOrg: { [org1Id]: { people: existingPeople } } },
+    { people: existingPeople },
     {
       type: GET_ORGANIZATION_PEOPLE,
       response: newPeople,
@@ -147,43 +115,14 @@ it('should save new people and update existing people', () => {
     },
   );
 
-  expect(state.allByOrg).toEqual({
-    [org1Id]: {
-      people: {
-        [person1Id]: newPerson1,
-        [person2Id]: {
-          id: person2Id,
-          name: existingPerson2.name,
-          organizational_permissions: newPerson2.organizational_permissions,
-        },
-        [person3Id]: newPerson3,
-        [person4Id]: newPerson4,
-      },
+  expect(state.people).toEqual({
+    [person1Id]: newPerson1,
+    [person2Id]: {
+      id: person2Id,
+      name: existingPerson2.name,
+      organizational_permissions: newPerson2.organizational_permissions,
     },
-  });
-});
-
-it('should save new people in new org', () => {
-  const newPeople = [newPerson1, newPerson2, newPerson3, newPerson4];
-
-  const state = people(
-    { allByOrg: {} },
-    {
-      type: GET_ORGANIZATION_PEOPLE,
-      response: newPeople,
-      orgId: org1Id,
-    },
-  );
-
-  expect(state.allByOrg).toEqual({
-    [org1Id]: {
-      id: org1Id,
-      people: {
-        [person1Id]: newPerson1,
-        [person2Id]: newPerson2,
-        [person3Id]: newPerson3,
-        [person4Id]: newPerson4,
-      },
-    },
+    [person3Id]: newPerson3,
+    [person4Id]: newPerson4,
   });
 });

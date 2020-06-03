@@ -18,7 +18,7 @@ import {
   archiveOrgPermission,
 } from '../../actions/person';
 import { navigateBack } from '../../actions/navigation';
-import { CommunityMemberPerson } from '../CommunityMemberItem/__generated__/CommunityMemberPerson';
+import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
@@ -32,7 +32,7 @@ class MemberOptionsMenu extends Component<{
   dispatch: ThunkDispatch<{}, {}, any>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   t: any;
-  person: CommunityMemberPerson;
+  person: Person;
   organization: { id: string; name: string };
   personOrgPermission: { id: string; permission: string };
   onActionTaken: Function;
@@ -150,7 +150,7 @@ class MemberOptionsMenu extends Component<{
   createOption = (optionName, optionMethod, hasDescription = false) => {
     const {
       t,
-      person: { fullName: personName },
+      person: { full_name: personName },
       organization: { name: communityName },
     } = this.props;
 

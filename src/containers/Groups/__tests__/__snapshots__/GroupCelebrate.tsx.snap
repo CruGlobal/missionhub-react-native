@@ -2,14 +2,9 @@
 
 exports[`should render correctly 1`] = `
 <CelebrateFeed
+  communityId="1"
   itemNamePressable={true}
   onRefetch={[Function]}
-  organization={
-    Object {
-      "id": "1",
-      "user_created": false,
-    }
-  }
   testID="CelebrateFeed"
 />
 `;
