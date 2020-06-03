@@ -2,13 +2,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Keyboard, View, SafeAreaView, TextInput } from 'react-native';
 
-import { IconButton, Input } from '../common';
+import { IconButton, Input, Touchable } from '../common';
 import theme from '../../theme';
 import { FeedItemEditingComment } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
 import Avatar, { AvatarPerson } from '../Avatar';
 
 import styles from './styles';
-import SubmitPostArrow from './submitPostArrow.svg';
+import SubmitPostArrowDisabled from './submitPostArrowDisabled.svg';
+import SubmitPostArrowActive from './submitPostArrowActive.svg';
 
 interface CommentBoxProps {
   avatarPerson?: AvatarPerson;
@@ -79,24 +80,22 @@ const CommentBox = ({
     setText(t);
   };
 
-  const renderCancelButton = () =>
-    editingComment ? (
-      <View style={cancelWrap}>
-        <IconButton
-          testID="CancelButton"
-          name="deleteIcon"
-          type="MissionHub"
-          onPress={handleCancel}
-          style={cancelIcon}
-          size={10}
-        />
-      </View>
-    ) : null;
-
   return (
     <SafeAreaView style={container}>
-      <Avatar size="small" person={avatarPerson} />
-      {renderCancelButton()}
+      {editingComment ? (
+        <View style={cancelWrap}>
+          <IconButton
+            testID="CancelButton"
+            name="deleteIcon"
+            type="MissionHub"
+            onPress={handleCancel}
+            style={cancelIcon}
+            size={16}
+          />
+        </View>
+      ) : (
+        <Avatar size="small" person={avatarPerson} />
+      )}
       <View style={inputBox}>
         <Input
           ref={commentInput}
@@ -113,12 +112,17 @@ const CommentBox = ({
           placeholderTextColor={theme.grey1}
         />
       </View>
-      <SubmitPostArrow
+      <Touchable
         testID="SubmitButton"
-        disabled={!text || isSubmitting}
         onPress={handleSubmit}
-        color={!text || isSubmitting ? theme.extraLightGrey : theme.grey}
-      />
+        disabled={!text || isSubmitting}
+      >
+        {!text || isSubmitting ? (
+          <SubmitPostArrowDisabled color={theme.extraLightGrey} />
+        ) : (
+          <SubmitPostArrowActive color={theme.parakeetBlue} />
+        )}
+      </Touchable>
     </SafeAreaView>
   );
 };

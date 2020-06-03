@@ -5,7 +5,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
 - First value
 + Second value
 
-@@ -98,15 +98,15 @@
+@@ -98,11 +98,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -15,14 +15,19 @@ exports[`click submit button calls onSubmit prop 1`] = `
 +       value=\\"\\"
       />
     </View>
-    <SvgMock
--     color=\\"#505256\\"
--     disabled={false}
-+     color=\\"#ECEEF2\\"
-+     disabled={true}
-      onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +120,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#3CC8E6\\"
++       color=\\"#ECEEF2\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -36,15 +41,16 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -55,10 +55,87 @@
-      </Text>
-    </View>
+@@ -9,52 +9,83 @@
+      }
+    }
+  >
     <View
       style={
-        Object {
+-       Array [
++       Object {
 +         \\"backgroundColor\\": \\"#505256\\",
 +         \\"borderRadius\\": 25,
-+         \\"marginLeft\\": 8,
 +       }
 +     }
 +   >
@@ -60,7 +66,10 @@ exports[`handles start edit 1`] = `
 +       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
 +       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 +       style={
-+         Object {
+          Object {
+-           \\"alignItems\\": \\"center\\",
+-           \\"justifyContent\\": \\"center\\",
+-         },
 +           \\"opacity\\": 1,
 +         }
 +       }
@@ -68,63 +77,73 @@ exports[`handles start edit 1`] = `
 +     >
 +       <View
 +         style={
-+           Array [
-+             Object {
+            Array [
+              Object {
+-             \\"borderRadius\\": 18,
+-             \\"height\\": 36,
+-             \\"width\\": 36,
 +               \\"backgroundColor\\": \\"transparent\\",
-+             },
+              },
+-           Object {
+-             \\"backgroundColor\\": \\"rgb(199, 163, 67)\\",
+-           },
+-           undefined,
+-         ],
 +             null,
 +             Object {},
 +             null,
-+           ]
-+         }
-+       >
-+         <Text
+            ]
+          }
+        >
+          <Text
 +           allowFontScaling={false}
-+           style={
-+             Array [
-+               Object {
+            style={
+              Array [
+                Object {
+-             \\"color\\": \\"#505256\\",
 +                 \\"color\\": undefined,
 +                 \\"fontSize\\": 12,
 +               },
 +               Array [
 +                 Object {
 +                   \\"color\\": \\"#ffffff\\",
-+                 },
-+                 Object {
-+                   \\"fontSize\\": 10,
-+                 },
-+                 Array [
-+                   Object {
+                  },
+                  Object {
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 16,
+                  },
+                  Array [
+                    Object {
 +                     \\"margin\\": 10,
 +                   },
 +                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                   },
+                      \\"color\\": \\"#ffffff\\",
+                    },
 +                 ],
 +               ],
-+               Object {
+                Object {
+-               \\"fontSize\\": 20,
+-               \\"fontWeight\\": \\"300\\",
 +                 \\"fontFamily\\": \\"icomoon\\",
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
-+               },
+                },
+-           ],
 +               Object {},
-+             ]
-+           }
-+         >
+              ]
+            }
+          >
+-       -
 +           
-+         </Text>
+          </Text>
 +       </View>
 +     </View>
-+   </View>
-+   <View
-+     style={
-+       Object {
+    </View>
+    <View
+      style={
+        Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-          \\"borderRadius\\": 8,
-          \\"flex\\": 1,
-          \\"marginHorizontal\\": 8,
-        }
-@@ -98,15 +175,15 @@
+@@ -98,11 +129,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -134,14 +153,19 @@ exports[`handles start edit 1`] = `
 +       value=\\"esse repellat quisquam\\"
       />
     </View>
-    <SvgMock
--     color=\\"#ECEEF2\\"
--     disabled={true}
-+     color=\\"#505256\\"
-+     disabled={false}
-      onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +151,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#ECEEF2\\"
++       color=\\"#3CC8E6\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -150,7 +174,7 @@ exports[`renders with disabled submit button 1`] = `
 - First value
 + Second value
 
-@@ -98,15 +98,15 @@
+@@ -98,11 +98,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -160,14 +184,19 @@ exports[`renders with disabled submit button 1`] = `
 +       value=\\"\\"
       />
     </View>
-    <SvgMock
--     color=\\"#505256\\"
--     disabled={false}
-+     color=\\"#ECEEF2\\"
-+     disabled={true}
-      onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +120,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#3CC8E6\\"
++       color=\\"#ECEEF2\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -176,7 +205,7 @@ exports[`renders with text entered 1`] = `
 - First value
 + Second value
 
-@@ -98,15 +98,15 @@
+@@ -98,11 +98,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -186,14 +215,19 @@ exports[`renders with text entered 1`] = `
 +       value=\\"test\\"
       />
     </View>
-    <SvgMock
--     color=\\"#ECEEF2\\"
--     disabled={true}
-+     color=\\"#505256\\"
-+     disabled={false}
-      onPress={[Function handleSubmit]}
+    <View
+      accessible={true}
+      focusable={true}
+@@ -120,9 +120,9 @@
+        }
+      }
       testID=\\"SubmitButton\\"
-    />
+    >
+      <SvgMock
+-       color=\\"#ECEEF2\\"
++       color=\\"#3CC8E6\\"
+      />
+    </View>
   </RCTSafeAreaView>"
 `;
 
@@ -303,11 +337,27 @@ exports[`renders without actions 1`] = `
       value=""
     />
   </View>
-  <SvgMock
-    color="#ECEEF2"
-    disabled={true}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
     testID="SubmitButton"
-  />
+  >
+    <SvgMock
+      color="#ECEEF2"
+    />
+  </View>
 </RCTSafeAreaView>
 `;

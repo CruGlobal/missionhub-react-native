@@ -82,12 +82,28 @@ exports[`renders correctly 1`] = `
       value=""
     />
   </View>
-  <SvgMock
-    color="#ECEEF2"
-    disabled={true}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
     testID="SubmitButton"
-  />
+  >
+    <SvgMock
+      color="#ECEEF2"
+    />
+  </View>
 </RCTSafeAreaView>
 `;
 
@@ -103,33 +119,11 @@ exports[`renders editing correctly 1`] = `
     }
   }
 >
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "quisquam recusandae alias",
-      }
-    }
-    style={
-      Array [
-        Object {
-          "borderRadius": 18,
-          "height": 36,
-          "width": 36,
-        },
-        Object {
-          "backgroundColor": "rgb(135, 123, 115)",
-        },
-        undefined,
-      ]
-    }
-  />
   <View
     style={
       Object {
         "backgroundColor": "#505256",
         "borderRadius": 25,
-        "marginLeft": 8,
       }
     }
   >
@@ -176,7 +170,7 @@ exports[`renders editing correctly 1`] = `
                   "color": "#ffffff",
                 },
                 Object {
-                  "fontSize": 10,
+                  "fontSize": 16,
                 },
                 Array [
                   Object {
@@ -250,11 +244,27 @@ exports[`renders editing correctly 1`] = `
       value="consequuntur corporis repellat"
     />
   </View>
-  <SvgMock
-    color="#505256"
-    disabled={false}
-    onPress={[Function]}
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
     testID="SubmitButton"
-  />
+  >
+    <SvgMock
+      color="#3CC8E6"
+    />
+  </View>
 </RCTSafeAreaView>
 `;
