@@ -10,12 +10,12 @@ import {
   FeedItemSubjectTypeEnum,
   NotificationTriggerEnum,
 } from '../../../__generated__/globalTypes';
-import { GetNotifications_notifications_nodes as Notification } from '../../containers/NotificationCenterScreen/__generated__/GetNotifications';
+import { NotificationItem } from './__generated__/NotificationItem';
 import { mapPostTypeToFeedType } from '../../utils/common';
 
 import styles from './styles';
 
-const NotificationCenterItem = ({ event }: { event: Notification }) => {
+const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
   const { t } = useTranslation('notificationsCenter');
   const {
     messageTemplate,
@@ -41,12 +41,12 @@ const NotificationCenterItem = ({ event }: { event: Notification }) => {
           );
         case '<<post_type>>':
           return <Text key={word}>{t(`${messageVariables.postType}`)}</Text>;
-        case '<<organization_name>>':
+        case '<<community_name>>':
           return (
             <Text key={word} style={styles.boldedItemText}>
               {`${word.replace(
-                /<<organization_name>>/,
-                messageVariables.organizationName || '',
+                /<<community_name>>/,
+                messageVariables.communityName || '',
               )}`}
             </Text>
           );
@@ -71,6 +71,7 @@ const NotificationCenterItem = ({ event }: { event: Notification }) => {
     switch (trigger) {
       case NotificationTriggerEnum.story_notification:
       case NotificationTriggerEnum.community_challenge_created_alert:
+      case NotificationTriggerEnum.feed_items_comment_notification:
         return renderTemplateMessage();
     }
   };

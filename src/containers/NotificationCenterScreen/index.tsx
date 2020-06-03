@@ -14,21 +14,17 @@ import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 
 import { GET_NOTIFICATIONS, UPDATE_HAS_UNREAD_NOTIFICATIONS } from './queries';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
-import {
-  GetNotifications,
-  GetNotifications_notifications_nodes,
-} from './__generated__/GetNotifications';
+import { GetNotifications } from './__generated__/GetNotifications';
+import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
 import { UpdateHasUnreadNotifications } from './__generated__/UpdateHasUnreadNotifications';
 import styles from './styles';
 
 interface SectionsInterface {
   id: number;
   name: string;
-  data: GetNotifications_notifications_nodes[];
+  data: NotificationItem[];
 }
-const sortNotificationFeed = (
-  nodes: GetNotifications_notifications_nodes[],
-) => {
+const sortNotificationFeed = (nodes: NotificationItem[]) => {
   const sections: SectionsInterface[] = [
     { id: 0, name: 'reportedActivity', data: [] },
     { id: 1, name: 'dates.today', data: [] },
@@ -86,11 +82,7 @@ const NotificationCenterScreen = () => {
     [],
   );
 
-  const renderItem = ({
-    item,
-  }: {
-    item: GetNotifications_notifications_nodes;
-  }) => {
+  const renderItem = ({ item }: { item: NotificationItem }) => {
     return <NotificationCenterItem event={item} />;
   };
 
@@ -107,7 +99,7 @@ const NotificationCenterScreen = () => {
             onPress={onOpenMainMenu}
           />
         }
-        right={<SettingsIcon color={theme.white} style={{ marginRight: 10 }} />}
+        // right={<SettingsIcon color={theme.white} style={{ marginRight: 10 }} />}
         title={t('title')}
         titleStyle={styles.title}
       />

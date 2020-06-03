@@ -101,28 +101,4 @@ export const globalMocks: IMocks = {
       subjectPersonName: `${firstName} ${lastName}`,
     };
   },
-  Notification: () => {
-    const firstName = faker.name.firstName();
-    const lastName = faker.name.lastName();
-    return {
-      trigger: faker.random.arrayElement(
-        Object.values(NotificationTriggerEnum),
-      ),
-      messageVariables: {
-        challengeName: faker.lorem.sentence(),
-        organizationCount: faker.random.number(),
-        organizationName: faker.company.catchPhrase(),
-        originalPoster: `${faker.name.firstName()} ${faker.name.lastName()}`,
-        postType: faker.random.arrayElement(Object.values(PostTypeEnum)),
-        subjectPerson: `${firstName} ${lastName}`,
-        user: `${firstName} ${lastName}`,
-      },
-      messageTemplate: 'A new story has been added in <<organization_name>>.',
-      subjectPerson: {
-        fullName: `${firstName} ${lastName}`,
-        picture: `${firstName}ProfileImage.jpeg`,
-      },
-      createdAt: moment(faker.date.past(10, '2020-01-14')).toISOString(),
-    };
-  },
 };

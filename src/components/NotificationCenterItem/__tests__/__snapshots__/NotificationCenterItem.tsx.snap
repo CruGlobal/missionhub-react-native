@@ -36,7 +36,7 @@ exports[`renders correctly 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "mockProfilePic.jpeg",
+          "uri": "recusandae alias consequuntur",
         }
       }
       style={
@@ -47,7 +47,7 @@ exports[`renders correctly 1`] = `
             "width": 48,
           },
           Object {
-            "backgroundColor": "rgb(51, 155, 125)",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
           undefined,
         ]
@@ -166,7 +166,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          Bleh 2.0
+          
         </Text>
       </Text>
       <Text
@@ -187,7 +187,7 @@ exports[`renders correctly 1`] = `
         }
         testID="Text"
       >
-        May 18, 2020 5:48 PM
+        November 13, 2015 8:52 PM
       </Text>
     </View>
   </View>
