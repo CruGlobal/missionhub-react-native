@@ -53,26 +53,22 @@ describe('initialRoute', () => {
         },
         onboarding: { skippedAddingPerson: false },
         people: {
-          allByOrg: {
-            personal: {
-              people: {
-                [myId]: {
-                  id: myId,
-                  reverse_contact_assignments: [],
+          people: {
+            [myId]: {
+              id: myId,
+              reverse_contact_assignments: [],
+            },
+            '2': {
+              reverse_contact_assignments: [
+                {
+                  assigned_to: { id: '3' },
+                  pathway_stage_id: '4',
                 },
-                '2': {
-                  reverse_contact_assignments: [
-                    {
-                      assigned_to: { id: '3' },
-                      pathway_stage_id: '4',
-                    },
-                    {
-                      assigned_to: { id: myId },
-                      pathway_stage_id: '5',
-                    },
-                  ],
+                {
+                  assigned_to: { id: myId },
+                  pathway_stage_id: '5',
                 },
-              },
+              ],
             },
           },
         },
@@ -100,23 +96,18 @@ describe('initialRoute', () => {
           },
           onboarding: { skippedAddingPerson: false },
           people: {
-            allByOrg: {
-              personal: { people: {} },
-              '100': {
-                people: {
-                  '2': {
-                    reverse_contact_assignments: [
-                      {
-                        assigned_to: { id: '3' },
-                        pathway_stage_id: '4',
-                      },
-                      {
-                        assigned_to: { id: myId },
-                        pathway_stage_id: null,
-                      },
-                    ],
+            people: {
+              '2': {
+                reverse_contact_assignments: [
+                  {
+                    assigned_to: { id: '3' },
+                    pathway_stage_id: '4',
                   },
-                },
+                  {
+                    assigned_to: { id: myId },
+                    pathway_stage_id: null,
+                  },
+                ],
               },
             },
           },
@@ -134,19 +125,15 @@ describe('initialRoute', () => {
           },
           onboarding: { skippedAddingPerson: false },
           people: {
-            allByOrg: {
-              personal: {
-                people: {
-                  [myId]: { reverse_contact_assignments: [] },
-                  '2': {
-                    reverse_contact_assignments: [
-                      {
-                        assigned_to: { id: myId },
-                        pathway_stage_id: null,
-                      },
-                    ],
+            people: {
+              [myId]: { reverse_contact_assignments: [] },
+              '2': {
+                reverse_contact_assignments: [
+                  {
+                    assigned_to: { id: myId },
+                    pathway_stage_id: null,
                   },
-                },
+                ],
               },
             },
           },
@@ -164,19 +151,15 @@ describe('initialRoute', () => {
           },
           onboarding: { skippedAddingPerson: false },
           people: {
-            allByOrg: {
-              personal: {
-                people: {
-                  [myId]: {
-                    id: myId,
-                    reverse_contact_assignments: [
-                      {
-                        assigned_to: { id: myId },
-                        pathway_stage_id: '3',
-                      },
-                    ],
+            people: {
+              [myId]: {
+                id: myId,
+                reverse_contact_assignments: [
+                  {
+                    assigned_to: { id: myId },
+                    pathway_stage_id: '3',
                   },
-                },
+                ],
               },
             },
           },

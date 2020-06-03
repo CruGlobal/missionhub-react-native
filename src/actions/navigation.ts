@@ -9,7 +9,7 @@ import {
 } from 'react-navigation';
 
 import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
-import { CELEBRATE_DETAIL_SCREEN } from '../containers/CelebrateDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { MAIN_TABS, PEOPLE_TAB, COMMUNITIES_TAB } from '../constants';
 import { Organization } from '../reducers/organizations';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
@@ -99,13 +99,9 @@ export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
 
 export const navigateToCelebrateComments = (
   community: Organization,
-  celebrationItemId?: string | null,
+  itemId?: string | null,
 ) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-  const orgId = community.id;
-
-  const event = { id: celebrationItemId };
-
-  if (celebrationItemId) {
+  if (itemId) {
     dispatch(
       navigateNestedReset([
         {
@@ -114,13 +110,13 @@ export const navigateToCelebrateComments = (
         },
         {
           routeName: COMMUNITY_TABS,
-          params: { communityId: orgId },
+          params: { communityId: community.id },
         },
         {
           routeName: GROUP_UNREAD_FEED_SCREEN,
-          params: { organization: community },
+          params: { communityId: community.id },
         },
-        { routeName: CELEBRATE_DETAIL_SCREEN, params: { event, orgId } },
+        { routeName: FEED_ITEM_DETAIL_SCREEN, params: { feedItemId: itemId } },
       ]),
     );
   } else {

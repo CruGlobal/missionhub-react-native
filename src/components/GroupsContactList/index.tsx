@@ -6,7 +6,6 @@ import SEARCH_NULL from '../../../assets/images/searchNull.png';
 import { Flex, Text } from '../../components/common';
 import GroupsContactItem from '../../components/GroupsContactItem';
 import AssignToMeButton from '../AssignToMeButton/index';
-import { CommunityMemberPerson } from '../CommunityMemberItem/__generated__/CommunityMemberPerson';
 
 import styles from './styles';
 
@@ -15,8 +14,7 @@ type ActivityItem = any;
 
 interface GroupsContactListProps {
   activity: ActivityItem[];
-  person: CommunityMemberPerson;
-  organization: object;
+  person: { full_name?: string; first_name?: string; last_name?: string };
   myId: string;
   onAssign?: () => void;
 }
@@ -26,7 +24,6 @@ const GroupsContactList = ({
   person,
   myId,
   onAssign,
-  organization,
 }: GroupsContactListProps) => {
   const { t } = useTranslation('groupsContactList');
   const keyExtractor = (i: ActivityItem) => `${i.id}-${i._type}`;
@@ -57,12 +54,8 @@ const GroupsContactList = ({
   return (
     <Flex style={{ flex: 1 }}>
       <Flex style={styles.header} align="center" justify="center">
-        <Text style={styles.name}>{person.fullName}</Text>
-        <AssignToMeButton
-          person={person}
-          organization={organization}
-          onComplete={onAssign}
-        />
+        <Text style={styles.name}>{person.full_name}</Text>
+        <AssignToMeButton person={person} onComplete={onAssign} />
       </Flex>
       <Flex value={1} style={styles.content}>
         {renderContent()}

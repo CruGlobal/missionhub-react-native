@@ -50,12 +50,8 @@ const initialState = {
   auth: { person: me },
   drawer: { isOpen: true },
   people: {
-    allByOrg: {
-      [organization.id]: {
-        people: {
-          [person.id]: person,
-        },
-      },
+    people: {
+      [person.id]: person,
     },
   },
 };
@@ -192,7 +188,6 @@ describe('PersonSideMenu', () => {
         menuItems.filter(item => item.label === 'Assign')[0].action();
         expect(assignContactAndPickStage).toHaveBeenCalledWith(
           unassignedPerson,
-          organization,
         );
       });
     });

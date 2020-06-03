@@ -561,6 +561,7 @@ describe('savePerson', () => {
             firstName: newName,
             __typename: 'Person',
             lastName: '',
+            fullName: 'esse repellat quisquam',
             id: person.id,
             relationshipType: null,
             stage: {

@@ -36,12 +36,8 @@ const mockState = {
     all: [organization],
   },
   people: {
-    allByOrg: {
-      [organization.id]: {
-        people: {
-          [personWithContactAssignments.id]: personWithContactAssignments,
-        },
-      },
+    people: {
+      [personWithContactAssignments.id]: personWithContactAssignments,
     },
   },
 };

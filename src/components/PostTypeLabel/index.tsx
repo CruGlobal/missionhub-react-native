@@ -17,9 +17,7 @@ import { Card, Flex } from '../common';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import Avatar from '../Avatar';
-import { FeedItemPostCard_author } from '../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
-import { FeedItemStepCard_owner } from '../../containers/CelebrateFeedPostCards/__generated__/FeedItemStepCard';
+import Avatar, { AvatarPerson } from '../Avatar';
 
 import styles from './styles';
 
@@ -186,7 +184,7 @@ function getExtraCount(numPeople = 0, countOnly = false) {
 interface PostTypeCardWithPeopleProps {
   type: FeedItemSubjectTypeEnum;
   onPress: TouchablePress;
-  people?: (FeedItemPostCard_author | FeedItemStepCard_owner)[];
+  people?: AvatarPerson[];
   countOnly?: boolean;
   testID?: string;
 }
@@ -225,7 +223,6 @@ export const PostTypeCardWithPeople = ({
             ))}
           {num > 0 && (
             <Avatar
-              person={null}
               customText={`+${num}`}
               size="extrasmall"
               style={[PostTypeBgStyle[type], { marginLeft: -12 }]}

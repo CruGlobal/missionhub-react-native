@@ -17,11 +17,9 @@ jest.mock('../../../../utils/analytics');
 jest.mock('../../../../selectors/people');
 
 const closeModal = jest.fn();
-const refreshItems = jest.fn();
 const mockCommunityId = '1';
 
 const props = {
-  refreshItems,
   communityId: mockCommunityId,
   closeModal,
   adminOrOwner: false,
@@ -82,7 +80,6 @@ it('fires onPress and navigates | member', async () => {
   fireEvent.press(getByTestId('STORYButton'));
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.story,
   });
@@ -102,7 +99,6 @@ it('fires onPress and navigates | owner', async () => {
   fireEvent.press(getByTestId('ANNOUNCEMENTButton'));
   expect(closeModal).toHaveBeenCalledWith();
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
-    onComplete: refreshItems,
     communityId: mockCommunityId,
     postType: PostTypeEnum.announcement,
   });

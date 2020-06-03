@@ -9,9 +9,6 @@ import MockDate from 'mockdate';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
-import { organizationSelector } from '../../../selectors/organizations';
-import { Organization } from '../../../reducers/organizations';
-import { Person } from '../../../reducers/people';
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 
@@ -37,8 +34,8 @@ jest.mock('../../../containers/CelebrateFeedPostCards', () => ({
 }));
 
 const myId = '123';
-const organization: Organization = { id: '456' };
-const person: Person = { id: '789' };
+const communityId = '456';
+const personId = '789';
 const mockDate = '2020-05-20 12:00:00 PM GMT+0';
 
 MockDate.set(mockDate);
@@ -46,22 +43,17 @@ const navigatePushResult = { type: 'navigated' };
 
 const initialState = {
   auth: { person: { id: myId } },
-  organizations: { all: [organization] },
-  reportedComments: { all: { [organization.id]: [] } },
   swipe: { groupOnboarding: {} },
 };
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
-  ((organizationSelector as unknown) as jest.Mock).mockReturnValue(
-    organization,
-  );
   jest.useFakeTimers();
 });
 
 it('renders empty correctly', () => {
   renderWithContext(
-    <CelebrateFeed organization={organization} itemNamePressable={true} />,
+    <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
     {
       initialState,
       mocks: {
@@ -75,7 +67,7 @@ it('renders empty correctly', () => {
 
 it('renders with items correctly', async () => {
   const { snapshot } = renderWithContext(
-    <CelebrateFeed organization={organization} itemNamePressable={true} />,
+    <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
     {
       initialState,
       mocks: {
@@ -92,7 +84,7 @@ it('renders with items correctly', async () => {
   expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
     skip: false,
     variables: {
-      communityId: organization.id,
+      communityId,
       hasUnreadComments: undefined,
       personIds: undefined,
     },
@@ -105,7 +97,7 @@ it('renders with items correctly', async () => {
 describe('sections', () => {
   it('renders New section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed organization={organization} itemNamePressable={true} />,
+      <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -126,7 +118,7 @@ describe('sections', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       variables: {
-        communityId: organization.id,
+        communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
       },
@@ -138,7 +130,7 @@ describe('sections', () => {
 
   it('renders Today section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed organization={organization} itemNamePressable={true} />,
+      <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -159,7 +151,7 @@ describe('sections', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       variables: {
-        communityId: organization.id,
+        communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
       },
@@ -171,7 +163,7 @@ describe('sections', () => {
 
   it('renders Earlier section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed organization={organization} itemNamePressable={true} />,
+      <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -192,7 +184,7 @@ describe('sections', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       variables: {
-        communityId: organization.id,
+        communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
       },
@@ -207,8 +199,8 @@ describe('renders for member', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
       <CelebrateFeed
-        organization={organization}
-        person={person}
+        communityId={communityId}
+        personId={personId}
         itemNamePressable={true}
       />,
       {
@@ -227,9 +219,9 @@ describe('renders for member', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       variables: {
-        communityId: organization.id,
+        communityId,
         hasUnreadComments: undefined,
-        personIds: person.id,
+        personIds: personId,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -240,8 +232,8 @@ describe('renders for member', () => {
   it('renders without header', async () => {
     const { snapshot } = renderWithContext(
       <CelebrateFeed
-        organization={organization}
-        person={person}
+        communityId={communityId}
+        personId={personId}
         itemNamePressable={true}
         noHeader={true}
       />,
@@ -259,9 +251,9 @@ describe('renders for member', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       variables: {
-        communityId: organization.id,
+        communityId,
         hasUnreadComments: undefined,
-        personIds: person.id,
+        personIds: personId,
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -272,8 +264,8 @@ describe('renders for member', () => {
   it('renders with type', async () => {
     const { snapshot } = renderWithContext(
       <CelebrateFeed
-        organization={organization}
-        person={person}
+        communityId={communityId}
+        personId={personId}
         itemNamePressable={true}
         filteredFeedType={FeedItemSubjectTypeEnum.STEP}
       />,
@@ -292,7 +284,7 @@ describe('renders with clear notification', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
       <CelebrateFeed
-        organization={organization}
+        communityId={communityId}
         itemNamePressable={true}
         onClearNotification={jest.fn()}
       />,
@@ -312,7 +304,7 @@ describe('renders with clear notification', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       variables: {
-        communityId: organization.id,
+        communityId,
         hasUnreadComments: undefined,
         personIds: undefined,
       },
@@ -327,7 +319,7 @@ describe('renders for Unread Comments', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
       <CelebrateFeed
-        organization={organization}
+        communityId={communityId}
         itemNamePressable={true}
         showUnreadOnly={true}
       />,
@@ -347,7 +339,7 @@ describe('renders for Unread Comments', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
       skip: false,
       variables: {
-        communityId: organization.id,
+        communityId,
         hasUnreadComments: true,
         personIds: undefined,
       },
@@ -362,7 +354,7 @@ describe('renders for Global Community', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
       <CelebrateFeed
-        organization={{ ...organization, id: GLOBAL_COMMUNITY_ID }}
+        communityId={GLOBAL_COMMUNITY_ID}
         itemNamePressable={true}
       />,
       {
@@ -398,7 +390,7 @@ describe('handle refreshing', () => {
 
     const { getByType } = renderWithContext(
       <CelebrateFeed
-        organization={organization}
+        communityId={communityId}
         itemNamePressable={true}
         onRefetch={onRefetch}
       />,
@@ -420,7 +412,7 @@ describe('handle refreshing', () => {
 
     const { getByType } = renderWithContext(
       <CelebrateFeed
-        organization={{ ...organization, id: GLOBAL_COMMUNITY_ID }}
+        communityId={GLOBAL_COMMUNITY_ID}
         itemNamePressable={true}
         onRefetch={onRefetch}
       />,
@@ -444,7 +436,7 @@ describe('handle pagination', () => {
 
     const testScroll = async () => {
       const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
-        <CelebrateFeed organization={organization} itemNamePressable={true} />,
+        <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
         {
           initialState,
           mocks,
@@ -517,7 +509,7 @@ describe('handle pagination', () => {
     const testScroll = async () => {
       const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
         <CelebrateFeed
-          organization={{ ...organization, id: GLOBAL_COMMUNITY_ID }}
+          communityId={GLOBAL_COMMUNITY_ID}
           itemNamePressable={true}
         />,
         {

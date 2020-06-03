@@ -1,120 +1,80 @@
 import React from 'react';
 import { View } from 'react-native';
-import { connect } from 'react-redux-legacy';
+import { useTranslation } from 'react-i18next';
 
-import { Text, Flex } from '../../components/common';
+import { Text } from '../../components/common';
 import CardTime from '../../components/CardTime';
 import PopupMenu from '../../components/PopupMenu';
 import { CommunityFeedItemName } from '../../components/CommunityFeedItemName';
-import { AuthState } from '../../reducers/auth';
-import {
-  CelebrateCommentsState,
-  CelebrateComment,
-} from '../../reducers/celebrateComments';
-import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
+import Avatar from '../../components/Avatar';
 
 import styles from './styles';
+import { FeedItemCommentItem } from './__generated__/FeedItemCommentItem';
 
 export interface CommentItemProps {
   testID?: string;
-  item: CelebrateComment;
+  comment: FeedItemCommentItem;
   menuActions?: {
     text: string;
     onPress: () => void;
     destructive?: boolean;
   }[];
-  organization: Organization;
   isReported?: boolean;
-  me: Person;
-  isEditing: boolean;
+  isEditing?: boolean;
 }
 
 const CommentItem = ({
-  item,
+  comment,
   menuActions,
-  organization,
   isReported,
-  me,
   isEditing,
 }: CommentItemProps) => {
-  const { content, person, author, created_at, createdAt } = item;
-  const {
-    itemStyle,
-    myStyle,
-    text,
-    myText,
-    content: contentStyle,
-    editingStyle,
-    name: nameStyle,
-  } = styles;
-  const isMine = person?.id === me.id || author?.id === me.id;
-  const isMineNotReported = isMine && !isReported;
-  const itemDate = created_at ? created_at : createdAt ? createdAt : '';
-  const name = person
-    ? person.first_name
-      ? `${person.first_name} ${person.last_name}`
-      : person.fullName
-    : author?.fullName;
+  const { t } = useTranslation('commentItem');
 
-  const renderContent = () => {
+  const { content, person, createdAt } = comment;
+  const name = person.fullName;
+
+  const renderComment = () => {
     return (
-      <View style={[itemStyle, isMineNotReported ? myStyle : null]}>
-        <Text style={[text, isMineNotReported ? myText : null]}>{content}</Text>
+      <View style={[styles.commentBody, isEditing && styles.editingComment]}>
+        <Text>{content}</Text>
       </View>
     );
   };
 
   return (
-    // Android needs the collapsable property to use '.measure' properly within the <CelebrateDetailScreen>
-    // https://github.com/facebook/react-native/issues/3282#issuecomment-201934117
-    <View
-      collapsable={false}
-      style={[contentStyle, isEditing ? editingStyle : null]}
-    >
-      <Flex direction="row" align="end">
-        {isMineNotReported ? (
-          <Flex value={1} />
-        ) : (
+    <View style={styles.container}>
+      <Avatar person={comment.person} size="small" />
+      <View style={styles.contentContainer}>
+        <View style={styles.commentHeader}>
           <CommunityFeedItemName
             name={name}
-            person={person}
-            communityId={organization.id}
+            personId={person.id}
             pressable={!isReported}
-            customContent={<Text style={nameStyle}>{name}</Text>}
+            customContent={<Text style={styles.name}>{name}</Text>}
           />
-        )}
-        <CardTime date={itemDate} />
-      </Flex>
-      <Flex direction="row">
-        {isMineNotReported ? <Flex value={1} /> : null}
+          <CardTime date={createdAt} />
+          {comment.createdAt !== comment.updatedAt ? ( // TODO: replace updatedAt with contentUpdatedAt
+            <>
+              <Text style={[styles.edited, styles.editedBullet]}> • </Text>
+              <Text style={styles.edited}>{t('edited')}</Text>
+            </>
+          ) : null}
+        </View>
         {menuActions ? (
           <PopupMenu
-            // @ts-ignore
             actions={menuActions}
             triggerOnLongPress={true}
             disabled={isReported}
           >
-            {renderContent()}
+            {renderComment()}
           </PopupMenu>
         ) : (
-          renderContent()
+          renderComment()
         )}
-        {!isMineNotReported ? <Flex value={1} /> : null}
-      </Flex>
+      </View>
     </View>
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    celebrateComments: { editingCommentId },
-  }: { auth: AuthState; celebrateComments: CelebrateCommentsState },
-  { item }: { item: CelebrateComment },
-) => ({
-  me: auth.person,
-  isEditing: editingCommentId === item.id,
-});
-
-export default connect(mapStateToProps)(CommentItem);
+export default CommentItem;

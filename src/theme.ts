@@ -60,6 +60,7 @@ export const COLORS = {
   LIGHT_BLUE: '#66D9F0',
   BLUE: '#52C5DC',
   PARAKEET_BLUE: '#3CC8E6',
+  GLACIER_BLUE: '#B2ECF7',
   DARK_BLUE: '#007398',
   ACCENT_BLUE: '#005A7F',
   WHITE: '#ffffff',

@@ -1,42 +1,22 @@
 import gql from 'graphql-tag';
 
-import {
-  GLOBAL_COMMUNITY_FEED_ITEM_FRAGMENT,
-  COMMUNITY_FEED_ITEM_FRAGMENT,
-} from '../../components/CommunityFeedItem/queries';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
+import { CURRENT_USER_AVATAR_FRAGMENT } from '../../components/Avatar/queries';
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
-  query GetGlobalCommunityFeed($feedCursor: String) {
-    globalCommunity {
-      feedItems(sortBy: createdAt_DESC, first: 25, after: $feedCursor) {
-        nodes {
-          ...GlobalCommunityFeedItem
-        }
-        pageInfo {
-          endCursor
-          hasNextPage
-        }
-      }
-    }
-  }
-  ${GLOBAL_COMMUNITY_FEED_ITEM_FRAGMENT}
-`;
-
-export const GET_COMMUNITY_FEED = gql`
-  query GetCommunityFeed(
-    $communityId: ID!
-    $subjectType: FeedItemSubjectTypeEnum = null
-    $feedCursor: String
+  query GetGlobalCommunityFeed(
+    $subjectType: FeedItemSubjectTypeEnum
+    $feedItemsCursor: String
+    $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
   ) {
-    community(id: $communityId) {
-      id
+    globalCommunity {
       feedItems(
         subjectType: $subjectType
         sortBy: createdAt_DESC
-        first: 25
-        after: $feedCursor
+        after: $feedItemsCursor
       ) {
         nodes {
+          read
           ...CommunityFeedItem
         }
         pageInfo {
@@ -45,6 +25,38 @@ export const GET_COMMUNITY_FEED = gql`
         }
       }
     }
+    ...CurrentUserAvatar
   }
   ${COMMUNITY_FEED_ITEM_FRAGMENT}
+  ${CURRENT_USER_AVATAR_FRAGMENT}
+`;
+
+export const GET_COMMUNITY_FEED = gql`
+  query GetCommunityFeed(
+    $communityId: ID!
+    $subjectType: FeedItemSubjectTypeEnum
+    $feedItemsCursor: String
+    $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
+  ) {
+    community(id: $communityId) {
+      id
+      feedItems(
+        subjectType: $subjectType
+        sortBy: createdAt_DESC
+        after: $feedItemsCursor
+      ) {
+        nodes {
+          read
+          ...CommunityFeedItem
+        }
+        pageInfo {
+          endCursor
+          hasNextPage
+        }
+      }
+    }
+    ...CurrentUserAvatar
+  }
+  ${COMMUNITY_FEED_ITEM_FRAGMENT}
+  ${CURRENT_USER_AVATAR_FRAGMENT}
 `;

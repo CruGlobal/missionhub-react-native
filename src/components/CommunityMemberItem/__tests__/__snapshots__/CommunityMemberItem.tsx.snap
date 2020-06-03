@@ -61,7 +61,7 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(161, 125, 115)",
+            "backgroundColor": "rgb(135, 123, 115)",
           },
           Object {
             "marginRight": 8,
@@ -295,7 +295,7 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(161, 125, 115)",
+            "backgroundColor": "rgb(135, 123, 115)",
           },
           Object {
             "marginRight": 8,
@@ -571,7 +571,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(161, 125, 115)",
+            "backgroundColor": "rgb(135, 123, 115)",
           },
           Object {
             "marginRight": 8,
@@ -805,7 +805,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(161, 125, 115)",
+            "backgroundColor": "rgb(135, 123, 115)",
           },
           Object {
             "marginRight": 8,
@@ -1039,7 +1039,7 @@ exports[`render contacts count user created org should render admin permissions 
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(161, 125, 115)",
+            "backgroundColor": "rgb(135, 123, 115)",
           },
           Object {
             "marginRight": 8,
@@ -1294,7 +1294,7 @@ exports[`render contacts count user created org should render member permissions
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(161, 125, 115)",
+            "backgroundColor": "rgb(135, 123, 115)",
           },
           Object {
             "marginRight": 8,
@@ -1528,7 +1528,7 @@ exports[`render contacts count user created org should render owner permissions 
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(161, 125, 115)",
+            "backgroundColor": "rgb(135, 123, 115)",
           },
           Object {
             "marginRight": 8,

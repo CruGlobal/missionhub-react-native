@@ -3791,7 +3791,7 @@ exports[`savePerson update existing person without org updates users profile pic
                           "width": 96,
                         },
                         Object {
-                          "backgroundColor": "rgb(192, 115, 216)",
+                          "backgroundColor": "rgb(155, 101, 11)",
                         },
                         undefined,
                       ],
@@ -3819,7 +3819,7 @@ exports[`savePerson update existing person without org updates users profile pic
                       ]
                     }
                   >
-                    n
+                    e
                   </Text>
                 </View>
                 <View

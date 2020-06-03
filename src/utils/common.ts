@@ -28,7 +28,6 @@ import {
 } from '../../__generated__/globalTypes';
 import { StagesState } from '../reducers/stages';
 import { CommunityFeedItem_subject } from '../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { CommunityFeedPost } from '../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 
 export const isAndroid = Platform.OS === 'android';
 
@@ -461,7 +460,7 @@ export const getFeedItemType = (subject: CommunityFeedItem_subject) => {
     case 'Step':
       return FeedItemSubjectTypeEnum.STEP;
     case 'Post':
-      return mapPostTypeToFeedType((subject as CommunityFeedPost).postType);
+      return mapPostTypeToFeedType(subject.postType);
     default:
       return FeedItemSubjectTypeEnum.STORY;
   }

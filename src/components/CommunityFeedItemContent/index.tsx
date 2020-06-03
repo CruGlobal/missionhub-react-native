@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, StyleProp, ViewStyle } from 'react-native';
+import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Markdown from 'react-native-markdown-renderer';
 
-import { Text, Button } from '../common';
+import { Text, Button, Touchable } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
@@ -13,32 +13,54 @@ import {
   getFeedItemType,
 } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CombinedFeedItem } from '../CommunityFeedItem';
-import {
-  CommunityFeedStep,
-  CommunityFeedStep_receiverStageAtCompletion,
-} from '../CommunityFeedItem/__generated__/CommunityFeedStep';
-import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
-import { CommunityFeedChallenge } from '../CommunityFeedItem/__generated__/CommunityFeedChallenge';
+import PostTypeLabel from '../PostTypeLabel';
+import Avatar from '../Avatar';
+import { CommunityFeedItemName } from '../CommunityFeedItemName';
+import CardTime from '../CardTime';
+import { CommentLikeComponent } from '../CommentLikeComponent';
+import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
+import Separator from '../Separator';
+import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
+import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
+import {
+  CommunityFeedItemContent as FeedItem,
+  CommunityFeedItemContent_subject_Post,
+  CommunityFeedItemContent_subject_Step,
+  CommunityFeedItemContent_subject_Step_receiverStageAtCompletion,
+  CommunityFeedItemContent_subject_CommunityChallenge,
+} from './__generated__/CommunityFeedItemContent';
+import StepIcon from './stepIcon.svg';
+import PlusIcon from './plusIcon.svg';
 import styles, { markdown } from './styles';
 
 export interface CommunityFeedItemContentProps {
-  item: CombinedFeedItem;
-  communityId: string;
-  style?: StyleProp<ViewStyle>;
+  feedItem: FeedItem;
+  namePressable?: boolean;
 }
 
 export const CommunityFeedItemContent = ({
-  item,
-  communityId,
-  style,
+  feedItem,
+  namePressable = false,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
-  const { subject, subjectPerson, subjectPersonName } = item;
+  const imageData =
+    (feedItem.subject.__typename === 'Post' &&
+      feedItem.subject.mediaExpiringUrl) ||
+    null;
+
+  const imageAspectRatio = useAspectRatio(imageData);
+
+  const { subject, subjectPerson, subjectPersonName } = feedItem;
   const itemType = getFeedItemType(subject);
+  const addToSteps = [
+    FeedItemSubjectTypeEnum.HELP_REQUEST,
+    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    FeedItemSubjectTypeEnum.QUESTION,
+  ].includes(itemType);
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(
@@ -49,21 +71,43 @@ export const CommunityFeedItemContent = ({
     ? subjectPersonName
     : t('aMissionHubUser');
 
+  const isGlobal = !feedItem.community;
+
   const onPressChallengeLink = async () => {
     const challengeId = subject.id;
-    if (communityId) {
-      await dispatch(reloadGroupChallengeFeed(communityId));
-      dispatch(
-        navigatePush(CHALLENGE_DETAIL_SCREEN, {
-          challengeId,
-          orgId: communityId,
-        }),
-      );
-    }
+    const communityId = feedItem.community
+      ? feedItem.community.id
+      : GLOBAL_COMMUNITY_ID;
+    await dispatch(reloadGroupChallengeFeed(communityId));
+    dispatch(
+      navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        challengeId,
+        orgId: communityId,
+      }),
+    );
   };
 
-  const buildChallengeMessage = () => {
-    const isCompleted = (subject as CommunityFeedChallenge).acceptedCommunityChallengesList.some(
+  const navToFilteredFeed = () => {
+    dispatch(
+      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+        type: itemType,
+        communityId: feedItem.community?.id,
+      }),
+    );
+  };
+
+  const handleAddToMySteps = () =>
+    dispatch(
+      navigatePush(ADD_POST_TO_STEPS_SCREEN, {
+        feedItemId: feedItem.id,
+        communityId: feedItem.community?.id,
+      }),
+    );
+
+  const renderChallengeMessage = (
+    subject: CommunityFeedItemContent_subject_CommunityChallenge,
+  ) => {
+    const isCompleted = subject.acceptedCommunityChallengesList.some(
       acceptedChallege => !!acceptedChallege.completedAt,
     );
 
@@ -72,8 +116,10 @@ export const CommunityFeedItemContent = ({
     });
   };
 
-  const renderStepOfFaithMessage = () => {
-    const { receiverStageAtCompletion } = subject as CommunityFeedStep;
+  const renderStepOfFaithMessage = (
+    subject: CommunityFeedItemContent_subject_Step,
+  ) => {
+    const { receiverStageAtCompletion } = subject;
 
     return t(
       receiverStageAtCompletion
@@ -89,7 +135,7 @@ export const CommunityFeedItemContent = ({
   };
 
   const renderStage = (
-    stage: CommunityFeedStep_receiverStageAtCompletion | null,
+    stage: CommunityFeedItemContent_subject_Step_receiverStageAtCompletion | null,
   ) => {
     switch (stage?.id || '') {
       case '1':
@@ -110,11 +156,11 @@ export const CommunityFeedItemContent = ({
   const renderMessage = () => {
     switch (subject.__typename) {
       case 'Step':
-        return renderText(renderStepOfFaithMessage());
+        return renderText(renderStepOfFaithMessage(subject));
       case 'CommunityChallenge':
-        return renderText(buildChallengeMessage());
+        return renderText(renderChallengeMessage(subject));
       case 'Post':
-        return renderPostMessage();
+        return renderPostMessage(subject);
     }
   };
 
@@ -122,13 +168,13 @@ export const CommunityFeedItemContent = ({
     <Text style={styles.messageText}>{text}</Text>
   );
 
-  const renderPostMessage = () => (
-    <Markdown style={markdown}>
-      {(subject as CommunityFeedPost).content}
-    </Markdown>
-  );
+  const renderPostMessage = (
+    subject: CommunityFeedItemContent_subject_Post,
+  ) => <Markdown style={markdown}>{subject.content}</Markdown>;
 
-  const renderChallengeLink = () => (
+  const renderChallengeLink = (
+    subject: CommunityFeedItemContent_subject_CommunityChallenge,
+  ) => (
     <View style={styles.row}>
       <Button
         testID="ChallengeLinkButton"
@@ -137,18 +183,81 @@ export const CommunityFeedItemContent = ({
         style={styles.challengeLinkButton}
       >
         <Text numberOfLines={2} style={styles.challengeLinkText}>
-          {(subject as CommunityFeedChallenge).title}
+          {subject.title}
         </Text>
       </Button>
     </View>
   );
 
-  return (
-    <View style={style}>
-      {renderMessage()}
-      {itemType === FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE
-        ? renderChallengeLink()
-        : null}
+  const renderHeader = () => (
+    <View style={styles.headerWrap}>
+      <View style={styles.headerRow}>
+        <PostTypeLabel type={itemType} onPress={navToFilteredFeed} />
+      </View>
+      <View style={styles.headerRow}>
+        {!isGlobal && feedItem.subjectPerson ? (
+          <Avatar size={'medium'} person={feedItem.subjectPerson} />
+        ) : null}
+        <View
+          style={
+            isGlobal ? styles.globalHeaderNameWrapper : styles.headerNameWrapper
+          }
+        >
+          <CommunityFeedItemName
+            name={subjectPersonName}
+            personId={feedItem.subjectPerson?.id}
+            pressable={namePressable}
+          />
+          <CardTime date={feedItem.createdAt} style={styles.headerTime} />
+        </View>
+      </View>
     </View>
+  );
+
+  const renderImage = () =>
+    imageData ? (
+      <Image
+        source={{ uri: imageData }}
+        style={{
+          aspectRatio: imageAspectRatio,
+        }}
+        resizeMode="cover"
+      />
+    ) : null;
+
+  const renderFooter = () => (
+    <View style={styles.footerWrap}>
+      {addToSteps ? renderAddToStepsButton() : null}
+      <View style={styles.commentLikeWrap}>
+        <CommentLikeComponent feedItem={feedItem} />
+      </View>
+    </View>
+  );
+
+  const renderAddToStepsButton = () => (
+    <Touchable
+      style={styles.addStepWrap}
+      onPress={handleAddToMySteps}
+      testID="AddToMyStepsButton"
+    >
+      <StepIcon style={styles.stepIcon} />
+      <PlusIcon style={styles.plusIcon} />
+      <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
+    </Touchable>
+  );
+
+  return (
+    <>
+      {renderHeader()}
+      <View style={styles.postTextWrap}>
+        {renderMessage()}
+        {subject.__typename === 'CommunityChallenge'
+          ? renderChallengeLink(subject)
+          : null}
+      </View>
+      {renderImage()}
+      <Separator />
+      {renderFooter()}
+    </>
   );
 };

@@ -6,20 +6,19 @@ import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { CelebrateFeed } from '../CelebrateFeed';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { organizationSelector } from '../../selectors/organizations';
-import { Organization, OrganizationsState } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
-import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { personSelector } from '../../selectors/people';
+import { RootState } from '../../reducers';
 
 export interface MemberCelebrateProps {
-  organization: Organization;
-  person: Person;
+  communityId: string;
+  personId: string;
   analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
 const MemberCelebrate = ({
-  organization,
-  person,
+  communityId,
+  personId,
   analyticsAssignmentType,
 }: MemberCelebrateProps) => {
   useAnalytics(['person', 'celebrate'], {
@@ -28,31 +27,28 @@ const MemberCelebrate = ({
 
   return (
     <CelebrateFeed
-      organization={organization}
-      person={person}
+      communityId={communityId}
+      personId={personId}
       itemNamePressable={false}
     />
   );
 };
 
 const mapStateToProps = (
-  {
-    auth,
-    organizations,
-  }: { auth: AuthState; organizations: OrganizationsState },
-  { person, organization }: { person: Person; organization: Organization },
+  { auth, organizations, people }: RootState,
+  { personId, communityId }: { personId: string; communityId: string },
 ) => {
   const selectorOrg = organizationSelector(
     { organizations },
-    { orgId: organization.id },
+    { orgId: communityId },
   );
+  const person = personSelector({ people }, { personId });
 
   return {
-    organization: selectorOrg as Organization,
     analyticsAssignmentType: getAnalyticsAssignmentType(
       person,
       auth,
-      organization,
+      selectorOrg,
     ),
   };
 };

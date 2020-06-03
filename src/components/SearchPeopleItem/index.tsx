@@ -9,12 +9,8 @@ export default class SearchPeopleItem extends Component {
   handleSelect = () => {
     // @ts-ignore
     const { person } = this.props;
-    let org;
-    if (person && person.organization) {
-      org = person.organization;
-    }
     // @ts-ignore
-    this.props.onSelect(this.props.person, org);
+    this.props.onSelect(person);
   };
 
   render() {

@@ -32,7 +32,7 @@ PathwayStageDisplay.propTypes = {
 };
 
 // @ts-ignore
-const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
+const mapStateToProps = ({ people, auth, stages }, { person }) => {
   const authPerson = auth.person;
   const stagesList = stages.stages || [];
 
@@ -46,10 +46,10 @@ const mapStateToProps = ({ people, auth, stages }, { orgId, person }) => {
   }
 
   const loadedPerson =
-    personSelector({ people }, { personId: person.id, orgId }) || person;
+    personSelector({ people }, { personId: person.id }) || person;
   const contactAssignment = contactAssignmentSelector(
     { auth },
-    { person: loadedPerson, orgId },
+    { person: loadedPerson },
   );
 
   return {

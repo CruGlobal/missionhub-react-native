@@ -5,11 +5,9 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { CelebrateFeed } from '../CelebrateFeed';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
-import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
+import { orgIsGlobal } from '../../utils/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { getReportedComments } from '../../actions/reportComments';
-import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -24,14 +22,7 @@ const GroupCelebrate = () => {
     ({ organizations }: { organizations: OrganizationsState }) =>
       organizationSelector({ organizations }, { orgId: communityId }),
   );
-  const myOrgPermission = useSelector(({ auth }: { auth: AuthState }) =>
-    orgPermissionSelector({}, { person: auth.person, organization }),
-  );
 
-  const shouldQueryReport = shouldQueryReportedComments(
-    organization,
-    myOrgPermission,
-  );
   const analyticsPermissionType = useSelector(({ auth }: { auth: AuthState }) =>
     getAnalyticsPermissionType(auth, organization),
   );
@@ -41,8 +32,8 @@ const GroupCelebrate = () => {
   });
 
   const handleRefetch = () => {
+    // TODO: this still needed?
     dispatch(refreshCommunity(organization.id));
-    shouldQueryReport && dispatch(getReportedComments(organization.id));
   };
 
   const { collapsibleScrollViewProps } = useContext(
@@ -52,7 +43,7 @@ const GroupCelebrate = () => {
   return (
     <CelebrateFeed
       testID="CelebrateFeed"
-      organization={organization}
+      communityId={communityId}
       onRefetch={handleRefetch}
       itemNamePressable={!orgIsGlobal(organization)}
       collapsibleScrollViewProps={collapsibleScrollViewProps}

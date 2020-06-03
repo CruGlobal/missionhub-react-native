@@ -409,8 +409,8 @@ export default {
     interactionNote: 'Comment',
     commentBoxPlaceholder: 'Share something to be remembered...',
   },
-  celebrateCommentBox: {
-    placeholder: 'Write a comment...',
+  feedCommentBox: {
+    placeholder: 'Add a comment...',
   },
   notes: {
     header: 'MY NOTES',
@@ -579,8 +579,8 @@ export default {
     saveStory: 'Save Changes',
     inputPlaceholder: 'Share a Story...',
   },
-  celebrateFeed: {
-    errorLoadingCelebrateFeed: 'Error loading celebrate feed',
+  communityFeed: {
+    errorLoadingCommunityFeed: 'Error loading community feed',
   },
   communityFeedItems: {
     edit: {
@@ -864,6 +864,9 @@ export default {
     deleteAreYouSure:
       'This post will be deleted and you won’t be able to find it anymore.',
   },
+  commentItem: {
+    edited: 'Edited',
+  },
   celebrateFeedHeader: {
     reports: '{{count}} New Reported Item',
     reports_plural: '{{count}} New Reported Items',
@@ -974,6 +977,8 @@ export default {
       thought: "What's on your mind?",
       announcement: 'Make an announcement...',
     },
+    errorCreatingPost: 'Error creating post',
+    errorUpdatingPost: 'Error updating post',
   },
   stepTypes: {
     relate: 'Relate',
@@ -1029,5 +1034,8 @@ export default {
     shareStepMessage: "Answer {{personName}}'s question.",
     careStepMessage: "Help with {{personName}}'s request.",
     errorSavingStep: 'Error saving step',
+  },
+  feedItemDetail: {
+    errorLoadingFeedItemDetails: 'Error loading feed item details',
   },
 };
