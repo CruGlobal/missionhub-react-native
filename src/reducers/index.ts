@@ -16,8 +16,6 @@ import analytics, { AnalyticsState } from './analytics';
 import swipe, { SwipeState } from './swipe';
 import drawer, { DrawerState } from './drawer';
 import journey from './journey';
-import celebrateComments, { CelebrateCommentsState } from './celebrateComments';
-import reportedComments, { ReportedCommentsState } from './reportedComments';
 import stepReminders, { StepReminderState } from './stepReminders';
 
 export type RootState = {
@@ -37,8 +35,6 @@ export type RootState = {
   stepReminders: StepReminderState;
   surveys: any;
   swipe: SwipeState;
-  celebrateComments: CelebrateCommentsState;
-  reportedComments: ReportedCommentsState;
 };
 
 export default combineReducers({
@@ -58,6 +54,4 @@ export default combineReducers({
   stepReminders,
   surveys,
   swipe,
-  celebrateComments,
-  reportedComments,
 });

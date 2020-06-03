@@ -29,7 +29,7 @@ const mePerson = {
 
 const store = configureStore([thunk])({
   auth: { person: mePerson },
-  people: { allByOrg: { personal: { people: { [myId]: mePerson } } } },
+  people: { people: { [myId]: mePerson } },
   stages: { stages: [stage] },
   onboarding: { currentlyOnboarding: false },
 });

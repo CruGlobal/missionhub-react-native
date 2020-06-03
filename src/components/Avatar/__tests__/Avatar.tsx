@@ -2,13 +2,18 @@ import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
 import { personSelector } from '../../../selectors/people';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { AVATAR_FRAGMENT } from '../queries';
+import { Avatar as AvatarFragment } from '../__generated__/Avatar';
 
 import Avatar, { AvatarProps } from '..';
 
 jest.mock('../../../selectors/people');
 
-const person = { id: '123', full_name: 'Person One' };
-const personImage = { ...person, picture: '123' };
+const person = mockFragment<AvatarFragment>(AVATAR_FRAGMENT, {
+  mocks: { Person: () => ({ picture: null }) },
+});
+const personImage = mockFragment<AvatarFragment>(AVATAR_FRAGMENT);
 
 beforeEach(() => {
   ((personSelector as unknown) as jest.Mock).mockReturnValue(person);
@@ -52,43 +57,6 @@ it('renders image large', () => {
   renders({ person: personImage, size: 'large' });
 });
 
-it('renders person firstName', () => {
-  renders({ person: { id: '123', firstName: 'test' }, size: 'small' });
-});
-
-it('renders person first_name', () => {
-  renders({ person: { id: '123', first_name: 'test' }, size: 'small' });
-});
-
-it('renders person fullName', () => {
-  renders({ person: { id: '123', fullName: 'test' }, size: 'small' });
-});
-
-it('renders person full_name', () => {
-  renders({ person: { id: '123', full_name: 'test' }, size: 'small' });
-});
-
-it('renders person without name', () => {
-  renders({ person: { id: '123' }, size: 'small' });
-});
-
-it('renders person without custom text', () => {
-  renders({ customText: '+5', person: { id: '123' }, size: 'small' });
-});
-
-describe('lookup person by id', () => {
-  const initialState = {
-    people: { allByOrg: { personal: { people: { [person.id]: person } } } },
-  };
-  it('renders person lookup by id', () => {
-    renderWithContext(<Avatar personId={person.id} size="small" />, {
-      initialState,
-    }).snapshot();
-  });
-  it('renders empty when cant find person', () => {
-    ((personSelector as unknown) as jest.Mock).mockReturnValue(undefined);
-    renderWithContext(<Avatar personId={'noperson'} size="small" />, {
-      initialState,
-    }).snapshot();
-  });
+it('renders person with custom text', () => {
+  renders({ customText: '+5', person, size: 'small' });
 });

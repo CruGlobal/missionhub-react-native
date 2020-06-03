@@ -51,12 +51,8 @@ const stages = [pathwayStage];
 
 const store = {
   people: {
-    allByOrg: {
-      [organization.id]: {
-        people: {
-          [person.id]: person,
-        },
-      },
+    people: {
+      [person.id]: person,
     },
   },
   auth: {

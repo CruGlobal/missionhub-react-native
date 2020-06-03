@@ -253,15 +253,11 @@ exports[`should render items correctly 1`] = `
     }
   >
     <CelebrateFeed
+      communityId="1"
       itemNamePressable={true}
       noHeader={true}
       onClearNotification={[Function]}
       onRefetch={[Function]}
-      organization={
-        Object {
-          "id": "orgId",
-        }
-      }
       showUnreadOnly={true}
       testID="CelebrateFeed"
     />

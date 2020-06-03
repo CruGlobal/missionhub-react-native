@@ -152,11 +152,6 @@ exports[`isContact with contact assignment renders status button if contact is p
 exports[`isContact with no contact assignment renders with no contact assignment 1`] = `
 <Flex>
   <Connect(AssignToMeButton)
-    organization={
-      Object {
-        "id": "50",
-      }
-    }
     person={
       Object {
         "first_name": "Roge",
@@ -237,11 +232,6 @@ exports[`isMember renders null with no contact assignment for User-Created Org 1
 exports[`isMember renders with no contact assignment and no contact info 1`] = `
 <Flex>
   <Connect(AssignToMeButton)
-    organization={
-      Object {
-        "id": "50",
-      }
-    }
     person={
       Object {
         "first_name": "Roge",
