@@ -211,7 +211,6 @@ import CelebrateFeedWithType, {
 import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
-import { FEED_ITEM_DETAIL_SCREEN } from './containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -501,7 +500,7 @@ export const trackableScreens = {
   ...SignUpFlowScreens,
 };
 
-const MODAL_SCREENS = [FEED_ITEM_DETAIL_SCREEN, ADD_POST_TO_STEPS_SCREEN];
+const MODAL_SCREENS = [ADD_POST_TO_STEPS_SCREEN];
 
 export const MainStackRoutes = createStackNavigator(
   {

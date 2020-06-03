@@ -104,7 +104,7 @@ export const CommunityFeedItemContent = ({
       }),
     );
 
-  const buildChallengeMessage = (
+  const renderChallengeMessage = (
     subject: CommunityFeedItemContent_subject_CommunityChallenge,
   ) => {
     const isCompleted = subject.acceptedCommunityChallengesList.some(
@@ -158,7 +158,7 @@ export const CommunityFeedItemContent = ({
       case 'Step':
         return renderText(renderStepOfFaithMessage(subject));
       case 'CommunityChallenge':
-        return renderText(buildChallengeMessage(subject));
+        return renderText(renderChallengeMessage(subject));
       case 'Post':
         return renderPostMessage(subject);
     }

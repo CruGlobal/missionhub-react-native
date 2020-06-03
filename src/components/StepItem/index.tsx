@@ -68,7 +68,7 @@ const StepItem = ({
   } = styles;
   return (
     <Card testID="StepItemCard" onPress={onPressCard} style={styles.card}>
-      <View style={styles.flex1}>
+      <View>
         <View style={cardHeader}>
           {showName ? (
             <Touchable

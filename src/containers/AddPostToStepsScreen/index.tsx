@@ -50,7 +50,7 @@ const AddPostToStepsScreen = () => {
   const person = data?.feedItem.subjectPerson;
   if (subject && subject.__typename !== 'Post') {
     throw new Error(
-      'Subject type of FeedItem passed to AddPostToStepsScreen must me Post',
+      'Subject type of FeedItem passed to AddPostToStepsScreen must be Post',
     );
   }
 
