@@ -82,45 +82,42 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -252,30 +294,130 @@
+@@ -252,30 +294,131 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
             }
           >
--           <Text
 +           <TextInput
 +             allowFontScaling={true}
 +             autoCorrect={true}
 +             autoFocus={true}
 +             blurOnSubmit={true}
++             maxLength={44}
 +             multiline={false}
 +             onChangeText={[Function handleChangeName]}
 +             placeholderTextColor=\\"#505256\\"
 +             rejectResponderTermination={true}
 +             returnKeyType=\\"done\\"
 +             selectionColor=\\"#ffffff\\"
-              style={
-                Array [
-                  Object {
--                   \\"color\\": \\"#505256\\",
--                 },
--                 Object {
++             style={
++               Array [
++                 Object {
 +                   \\"backgroundColor\\": \\"transparent\\",
 +                   \\"borderBottomColor\\": \\"#52C5DC\\",
 +                   \\"borderBottomWidth\\": 1,
 +                   \\"color\\": \\"#ffffff\\",
-                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 16,
 +                   \\"letterSpacing\\": 0.25,
 +                   \\"paddingVertical\\": 5,
-                  },
-                  Object {
++                 },
++                 Object {
 +                   \\"borderBottomWidth\\": 0,
-                    \\"color\\": \\"#ffffff\\",
++                   \\"color\\": \\"#ffffff\\",
 +                   \\"flex\\": 1,
-                    \\"fontSize\\": 32,
-                    \\"letterSpacing\\": 0.25,
++                   \\"fontSize\\": 32,
++                   \\"letterSpacing\\": 0.25,
 +                   \\"paddingVertical\\": 0,
 +                   \\"textAlign\\": \\"left\\",
 +                 },
@@ -159,24 +156,25 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                     Object {
 +                       \\"alignItems\\": \\"center\\",
 +                       \\"justifyContent\\": \\"center\\",
-                      },
++                     },
 +                     undefined,
 +                   ],
 +                   null,
-                  ]
-                }
-              >
--             esse repellat quisquam
-+               <Text
++                 ]
++               }
++             >
+                <Text
 +                 allowFontScaling={false}
-+                 style={
-+                   Array [
-+                     Object {
+                  style={
+                    Array [
+                      Object {
+-                   \\"color\\": \\"#505256\\",
 +                       \\"color\\": undefined,
 +                       \\"fontSize\\": 12,
-+                     },
+                      },
 +                     Array [
-+                       Object {
+                        Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                         \\"color\\": \\"#ffffff\\",
 +                       },
 +                       Object {
@@ -191,9 +189,11 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                             \\"color\\": \\"#B2B0B2\\",
 +                             \\"margin\\": 0,
 +                             \\"paddingHorizontal\\": 10,
-+                           },
-+                           Object {
-+                             \\"color\\": \\"#ffffff\\",
+                            },
+                            Object {
+                              \\"color\\": \\"#ffffff\\",
+-                   \\"fontSize\\": 32,
+-                   \\"letterSpacing\\": 0.25,
 +                             \\"marginLeft\\": 15,
 +                           },
 +                         ],
@@ -203,11 +203,12 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                       \\"fontFamily\\": \\"icomoon\\",
 +                       \\"fontStyle\\": \\"normal\\",
 +                       \\"fontWeight\\": \\"normal\\",
-+                     },
+                      },
 +                     Object {},
-+                   ]
-+                 }
-+               >
+                    ]
+                  }
+                >
+-             esse repellat quisquam
 +                 
                 </Text>
               </View>
@@ -218,7 +219,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -537,25 +679,30 @@
+@@ -537,25 +680,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -250,7 +251,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 }
               >
                 <Text
-@@ -583,11 +730,11 @@
+@@ -583,11 +731,11 @@
                         },
                       ],
                     ]
@@ -263,7 +264,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
             </View>
           </View>
           <View
-@@ -680,25 +827,30 @@
+@@ -680,25 +828,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -295,7 +296,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 }
               >
                 <Text
-@@ -726,11 +878,11 @@
+@@ -726,11 +879,11 @@
                         },
                       ],
                     ]
@@ -392,7 +393,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -294,130 +252,30 @@
+@@ -294,131 +252,30 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -403,34 +404,31 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -             autoCorrect={true}
 -             autoFocus={true}
 -             blurOnSubmit={true}
+-             maxLength={44}
 -             multiline={false}
 -             onChangeText={[Function handleChangeName]}
 -             placeholderTextColor=\\"#505256\\"
 -             rejectResponderTermination={true}
 -             returnKeyType=\\"done\\"
 -             selectionColor=\\"#ffffff\\"
-+           <Text
-              style={
-                Array [
-                  Object {
+-             style={
+-               Array [
+-                 Object {
 -                   \\"backgroundColor\\": \\"transparent\\",
 -                   \\"borderBottomColor\\": \\"#52C5DC\\",
 -                   \\"borderBottomWidth\\": 1,
 -                   \\"color\\": \\"#ffffff\\",
-+                   \\"color\\": \\"#505256\\",
-+                 },
-+                 Object {
-                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                   \\"fontSize\\": 16,
 -                   \\"letterSpacing\\": 0.25,
 -                   \\"paddingVertical\\": 5,
-                  },
-                  Object {
+-                 },
+-                 Object {
 -                   \\"borderBottomWidth\\": 0,
-                    \\"color\\": \\"#ffffff\\",
+-                   \\"color\\": \\"#ffffff\\",
 -                   \\"flex\\": 1,
-                    \\"fontSize\\": 32,
-                    \\"letterSpacing\\": 0.25,
+-                   \\"fontSize\\": 32,
+-                   \\"letterSpacing\\": 0.25,
 -                   \\"paddingVertical\\": 0,
 -                   \\"textAlign\\": \\"left\\",
 -                 },
@@ -469,23 +467,24 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                     Object {
 -                       \\"alignItems\\": \\"center\\",
 -                       \\"justifyContent\\": \\"center\\",
-                  },
+-                     },
 -                     undefined,
 -                   ],
 -                   null,
-                ]
-              }
-            >
--               <Text
+-                 ]
+-               }
+-             >
+            <Text
 -                 allowFontScaling={false}
--                 style={
--                   Array [
--                     Object {
+              style={
+                Array [
+                  Object {
 -                       \\"color\\": undefined,
 -                       \\"fontSize\\": 12,
--                     },
++                   \\"color\\": \\"#505256\\",
+                  },
 -                     Array [
--                       Object {
+                  Object {
 -                         \\"color\\": \\"#ffffff\\",
 -                       },
 -                       Object {
@@ -500,9 +499,10 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                             \\"color\\": \\"#B2B0B2\\",
 -                             \\"margin\\": 0,
 -                             \\"paddingHorizontal\\": 10,
--                           },
--                           Object {
--                             \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                  },
+                  Object {
+                    \\"color\\": \\"#ffffff\\",
 -                             \\"marginLeft\\": 15,
 -                           },
 -                         ],
@@ -512,11 +512,13 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                       \\"fontFamily\\": \\"icomoon\\",
 -                       \\"fontStyle\\": \\"normal\\",
 -                       \\"fontWeight\\": \\"normal\\",
--                     },
++                   \\"fontSize\\": 32,
++                   \\"letterSpacing\\": 0.25,
+                  },
 -                     Object {},
--                   ]
--                 }
--               >
+                ]
+              }
+            >
 -                 
 +             esse repellat quisquam
             </Text>
@@ -528,7 +530,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -679,30 +537,25 @@
+@@ -680,30 +537,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -560,7 +562,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 }
               >
                 <Text
-@@ -730,11 +583,11 @@
+@@ -731,11 +583,11 @@
                         },
                       ],
                     ]
@@ -573,7 +575,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             </View>
           </View>
           <View
-@@ -827,30 +680,25 @@
+@@ -828,30 +680,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -605,7 +607,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 }
               >
                 <Text
-@@ -878,11 +726,11 @@
+@@ -879,11 +726,11 @@
                         },
                       ],
                     ]
