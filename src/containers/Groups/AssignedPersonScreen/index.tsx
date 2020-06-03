@@ -123,7 +123,7 @@ const memberImpact = {
   ),
 };
 const memberCelebrate = {
-  name: i18next.t('personTabs:celebrate'),
+  name: i18next.t('personTabs:feed'),
   navigationAction: MEMBER_CELEBRATE,
   component: ({
     navigation: {

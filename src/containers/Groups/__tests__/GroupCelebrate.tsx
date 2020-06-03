@@ -2,7 +2,7 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
-import GroupCelebrate from '../GroupCelebrate';
+import CommunityFeed from '../GroupCelebrate';
 import { renderWithContext } from '../../../../testUtils';
 import { refreshCommunity } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
@@ -14,6 +14,7 @@ import {
 } from '../../../constants';
 import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { CommunitiesCollapsibleHeaderContext } from '../../Communities/Community/CommunityHeader/CommunityHeader';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/celebration');
@@ -49,12 +50,17 @@ beforeEach(() => {
 });
 
 it('should render correctly', () => {
-  renderWithContext(<GroupCelebrate />, {
-    initialState,
-    navParams: {
-      communityId: orgId,
+  renderWithContext(
+    <CommunityFeed
+      collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+    />,
+    {
+      initialState,
+      navParams: {
+        communityId: orgId,
+      },
     },
-  }).snapshot();
+  ).snapshot();
 });
 
 describe('refresh', () => {
@@ -72,12 +78,17 @@ describe('refresh', () => {
           user_created: true,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -95,12 +106,17 @@ describe('refresh', () => {
           user_created: false,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -118,12 +134,17 @@ describe('refresh', () => {
           id: GLOBAL_COMMUNITY_ID,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: GLOBAL_COMMUNITY_ID,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: GLOBAL_COMMUNITY_ID,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -149,12 +170,17 @@ describe('refresh', () => {
           user_created: true,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -172,12 +198,17 @@ describe('refresh', () => {
           user_created: false,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -195,12 +226,17 @@ describe('refresh', () => {
           id: GLOBAL_COMMUNITY_ID,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: GLOBAL_COMMUNITY_ID,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: GLOBAL_COMMUNITY_ID,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -226,12 +262,17 @@ describe('refresh', () => {
           user_created: true,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -249,12 +290,17 @@ describe('refresh', () => {
           user_created: false,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -271,12 +317,17 @@ describe('refresh', () => {
           id: GLOBAL_COMMUNITY_ID,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: GLOBAL_COMMUNITY_ID,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: GLOBAL_COMMUNITY_ID,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 

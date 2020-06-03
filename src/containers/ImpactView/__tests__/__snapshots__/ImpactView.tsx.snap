@@ -880,7 +880,7 @@ exports[`ImpactView user created member impact renders empty state 1`] = `
         ]
       }
     >
-      Here you will see all the steps Test Fname has taken.
+      Here you will see all the steps Hayden has taken.
     </Text>
   </View>
   <Image
@@ -972,7 +972,7 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
         ]
       }
     >
-      In 2018, Test Fname has taken 11 steps of faith with 6 people in their life.
+      In 2018, Hayden has taken 11 steps of faith with 6 people in their life.
 
 4 people reached a new stage on their spiritual journey.
     </Text>
@@ -1066,7 +1066,7 @@ exports[`ImpactView user created member impact renders singular state 1`] = `
         ]
       }
     >
-      In 2018, Test Fname has taken 1 step of faith with 1 person in their life.
+      In 2018, Hayden has taken 1 step of faith with 1 person in their life.
 
 1 person reached a new stage on their spiritual journey.
     </Text>
