@@ -8,6 +8,8 @@ import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { STEP_DETAIL_POST_FRAGMENT } from '../../../components/StepDetailScreen/queries';
 
 import AcceptedStepDetailScreen from '..';
 
@@ -27,11 +29,6 @@ jest.mock('../../../components/ReminderDateText', () => ({
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '4';
-const myPerson = {
-  id: myId,
-  fullName: 'Christian Huffman',
-  picture: 'myavatar.jpg',
-};
 const otherId = '5';
 const person: AcceptedStepDetail_step_receiver = {
   __typename: 'Person',
@@ -44,6 +41,7 @@ const completeStepResult = { type: 'completed step' };
 const deleteStepResult = { type: 'deleted step' };
 const removeReminderResult = { type: 'remove reminder' };
 const navigateBackResult = { type: 'navigate back' };
+const mockPost = mockFragment(STEP_DETAIL_POST_FRAGMENT);
 
 const initialState = { auth: { person: { id: myId } } };
 
@@ -118,11 +116,7 @@ it('should render correctly post details', async () => {
         receiver: { id: otherId },
         reminder: null,
         stepSuggestion: null,
-        post: {
-          id: '1234',
-          author: myPerson,
-          content: 'A care request',
-        },
+        post: mockPost,
       }),
     },
   });
@@ -183,9 +177,6 @@ it('should delete step', async () => {
     {
       initialState,
       navParams: { stepId, personId: otherId },
-      mocks: {
-        Step: () => ({ post: null }),
-      },
     },
   );
 

@@ -1,5 +1,796 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`post renders with post 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="BackButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#B4B6BA"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          Completed Step
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 32,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          STEP OF FAITH
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "marginHorizontal": 32,
+              "marginVertical": 16,
+            },
+          ]
+        }
+      >
+        esse repellat quisquam
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 16,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Completed Sunday, September 19 2010
+        </Text>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/checkIcon-grey.png",
+            }
+          }
+          style={
+            Object {
+              "height": 24,
+              "margin": 10,
+              "width": 24,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
+        }
+      >
+        <View
+          style={Object {}}
+        >
+          <View
+            style={
+              Object {
+                "marginVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                }
+              }
+            >
+              <Text>
+                consequuntur corporis repellat
+              </Text>
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "recusandae alias consequuntur",
+              }
+            }
+            style={
+              Array [
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                },
+                Object {
+                  "backgroundColor": "rgb(115, 115, 152)",
+                },
+                undefined,
+              ]
+            }
+          />
+          <View
+            style={
+              Array [
+                Object {
+                  "marginLeft": 10,
+                },
+                Object {},
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                  },
+                ]
+              }
+            >
+              Zion Reichel
+            </Text>
+            <View
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "center",
+                  },
+                ]
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                Jan 27 @ 11:31 AM
+              </Text>
+              <Text
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 12,
+                      "paddingLeft": 10,
+                    },
+                  ]
+                }
+                testID="openPostButton"
+              >
+                Open Post
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingTop": 10,
+              },
+              Object {},
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "paddingBottom": 20,
+                },
+              ]
+            }
+          >
+            ratione ut sunt
+          </Text>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "amet iure ut",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 1.3333333333333333,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`post renders without post 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="BackButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#B4B6BA"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          Completed Step
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    contentContainerStyle={
+      Object {
+        "paddingBottom": undefined,
+      }
+    }
+    contentInset={
+      Object {
+        "bottom": 32,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+            },
+            Object {
+              "paddingHorizontal": 32,
+              "paddingTop": 13,
+            },
+          ]
+        }
+      >
+        <SvgMock
+          color="#B4B6BA"
+          height={24}
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "paddingLeft": 4,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          STEP OF FAITH
+        </Text>
+      </View>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 32,
+              "fontWeight": "300",
+              "lineHeight": 38,
+              "marginHorizontal": 32,
+              "marginVertical": 16,
+            },
+          ]
+        }
+      >
+        esse repellat quisquam
+      </Text>
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "borderBottomWidth": 1,
+            "borderColor": "#ECEEF2",
+            "borderTopWidth": 1,
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingHorizontal": 16,
+            "paddingVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+              },
+            ]
+          }
+        >
+          Completed Sunday, September 19 2010
+        </Text>
+        <Image
+          source={
+            Object {
+              "testUri": "../../../assets/images/checkIcon-grey.png",
+            }
+          }
+          style={
+            Object {
+              "height": 24,
+              "margin": 10,
+              "width": 24,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "paddingHorizontal": 32,
+            "paddingTop": 26,
+          }
+        }
+      >
+        <View
+          style={Object {}}
+        >
+          <View
+            style={
+              Object {
+                "marginVertical": 10,
+              }
+            }
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                }
+              }
+            >
+              <Text>
+                consequuntur corporis repellat
+              </Text>
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
 exports[`renders loading state correctly 1`] = `
 <View
   style={
@@ -486,7 +1277,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
           ]
         }
       >
-        Repellat quisquam recusandae alias consequuntur corporis.
+        esse repellat quisquam
       </Text>
       <View
         style={
@@ -518,7 +1309,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
             ]
           }
         >
-          Completed Tuesday, January 19 2010
+          Completed Sunday, September 19 2010
         </Text>
         <Image
           source={
@@ -564,7 +1355,7 @@ exports[`with challenge suggestion renders correctly 1`] = `
               }
             >
               <Text>
-                ut sunt qui
+                consequuntur corporis repellat
               </Text>
             </Text>
           </View>
@@ -794,7 +1585,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
           ]
         }
       >
-        Repellat quisquam recusandae alias consequuntur corporis.
+        esse repellat quisquam
       </Text>
       <View
         style={
@@ -826,7 +1617,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
             ]
           }
         >
-          Completed Tuesday, January 19 2010
+          Completed Sunday, September 19 2010
         </Text>
         <Image
           source={
@@ -872,7 +1663,7 @@ exports[`without challenge suggestion renders correctly 1`] = `
               }
             >
               <Text>
-                ut sunt qui
+                consequuntur corporis repellat
               </Text>
             </Text>
           </View>

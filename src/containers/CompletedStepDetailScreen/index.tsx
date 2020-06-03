@@ -83,6 +83,7 @@ const CompletedStepDetailScreen = () => {
           <Image source={GREY_CHECKBOX} style={styles.completedIcon} />
         </View>
       }
+      post={data?.step.post ?? undefined}
       markdown={data?.step.stepSuggestion?.descriptionMarkdown ?? undefined}
       text={data?.step.title}
       stepType={data?.step.stepType}

@@ -242,7 +242,7 @@ exports[`Post is not null renders correctly with post 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "mockpicture.jpeg",
+                "uri": "recusandae alias consequuntur",
               }
             }
             style={
@@ -253,7 +253,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(155, 155, 152)",
+                  "backgroundColor": "rgb(115, 115, 152)",
                 },
                 undefined,
               ]
@@ -285,7 +285,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                 ]
               }
             >
-              Robert Eldredge
+              Zion Reichel
             </Text>
             <View
               style={
@@ -316,9 +316,10 @@ exports[`Post is not null renders correctly with post 1`] = `
                 }
                 testID="Text"
               >
-                May 18 @ 5:48 PM
+                Jan 27 @ 11:31 AM
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -334,6 +335,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                     },
                   ]
                 }
+                testID="openPostButton"
               >
                 Open Post
               </Text>
@@ -367,9 +369,31 @@ exports[`Post is not null renders correctly with post 1`] = `
               ]
             }
           >
-            cool mock post
+            ratione ut sunt
           </Text>
         </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {},
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "amet iure ut",
+            }
+          }
+          style={
+            Object {
+              "aspectRatio": 2,
+            }
+          }
+        />
       </View>
     </View>
   </RCTScrollView>
@@ -618,7 +642,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "mockpicture.jpeg",
+                "uri": "recusandae alias consequuntur",
               }
             }
             style={
@@ -629,7 +653,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(155, 155, 152)",
+                  "backgroundColor": "rgb(115, 115, 152)",
                 },
                 undefined,
               ]
@@ -661,7 +685,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 ]
               }
             >
-              Robert Eldredge
+              Zion Reichel
             </Text>
             <View
               style={
@@ -692,9 +716,10 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 }
                 testID="Text"
               >
-                May 18 @ 5:48 PM
+                Jan 27 @ 11:31 AM
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -710,6 +735,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                     },
                   ]
                 }
+                testID="openPostButton"
               >
                 Open Post
               </Text>
@@ -743,7 +769,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
               ]
             }
           >
-            cool mock post
+            ratione ut sunt
           </Text>
         </View>
       </View>
@@ -759,7 +785,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "mockImage.jpeg",
+              "uri": "amet iure ut",
             }
           }
           style={
@@ -997,7 +1023,7 @@ exports[`Post is not null renders with an input 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "mockpicture.jpeg",
+                "uri": "recusandae alias consequuntur",
               }
             }
             style={
@@ -1008,7 +1034,7 @@ exports[`Post is not null renders with an input 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(155, 155, 152)",
+                  "backgroundColor": "rgb(115, 115, 152)",
                 },
                 undefined,
               ]
@@ -1040,7 +1066,7 @@ exports[`Post is not null renders with an input 1`] = `
                 ]
               }
             >
-              Robert Eldredge
+              Zion Reichel
             </Text>
             <View
               style={
@@ -1071,9 +1097,10 @@ exports[`Post is not null renders with an input 1`] = `
                 }
                 testID="Text"
               >
-                May 18 @ 5:48 PM
+                Jan 27 @ 11:31 AM
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1089,6 +1116,7 @@ exports[`Post is not null renders with an input 1`] = `
                     },
                   ]
                 }
+                testID="openPostButton"
               >
                 Open Post
               </Text>
@@ -1122,7 +1150,7 @@ exports[`Post is not null renders with an input 1`] = `
               ]
             }
           >
-            cool mock post
+            ratione ut sunt
           </Text>
         </View>
       </View>
@@ -1138,7 +1166,7 @@ exports[`Post is not null renders with an input 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "mockImage.jpeg",
+              "uri": "amet iure ut",
             }
           }
           style={

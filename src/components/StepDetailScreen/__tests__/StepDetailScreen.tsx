@@ -1,20 +1,25 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { STEP_DETAIL_POST_FRAGMENT } from '../queries';
+import { StepDetailPost } from '../__generated__/StepDetailPost';
+import { StepTypeEnum } from '../../../../__generated__/globalTypes';
+import { navigatePush } from '../../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import StepDetailScreen from '..';
 
+jest.mock('../../../actions/navigation');
 const firstName = 'Christian';
-const mockPost = {
-  author: { fullName: 'Robert Eldredge', id: '2', picture: 'mockpicture.jpeg' },
-  createdAt: '2020-05-18T17:48:43Z',
-  content: 'cool mock post',
-};
+const mockPost: StepDetailPost = mockFragment(STEP_DETAIL_POST_FRAGMENT);
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
 });
 
 const snapshot = (props = {}) => {
@@ -32,20 +37,40 @@ const snapshot = (props = {}) => {
 
 describe('Post is not null', () => {
   it('renders correctly with post', () => {
-    snapshot({ post: mockPost, stepType: 'care' });
+    snapshot({ post: mockPost, stepType: StepTypeEnum.care });
   });
 
   it('renders correctly with post with image', () => {
     snapshot({
-      post: { ...mockPost, mediaExpiringUrl: 'mockImage.jpeg' },
-      stepType: 'care',
+      post: mockPost,
+      stepType: StepTypeEnum.care,
     });
   });
   it('renders with an input', () => {
     snapshot({
-      post: { ...mockPost, mediaExpiringUrl: 'mockImage.jpeg' },
-      stepType: 'care',
+      post: mockPost,
+      stepType: StepTypeEnum.care,
       Input: <View>Input</View>,
+    });
+  });
+  it('navigates to post when user presses open post', async () => {
+    const newPost: StepDetailPost = mockFragment(STEP_DETAIL_POST_FRAGMENT);
+
+    const { getByTestId } = renderWithContext(
+      <StepDetailScreen
+        firstName={firstName}
+        text="Roge is well behaved"
+        CenterHeader={<View />}
+        RightHeader={<View />}
+        CenterContent={<Text>Center content</Text>}
+        post={newPost}
+        stepType={StepTypeEnum.care}
+      />,
+    );
+    await flushMicrotasksQueue();
+    fireEvent.press(getByTestId('openPostButton'));
+    expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
+      feedItemId: newPost.feedItem.id,
     });
   });
 });
