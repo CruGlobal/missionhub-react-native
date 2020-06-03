@@ -2,112 +2,164 @@
 
 exports[`renders correctly 1`] = `
 <View
-  collapsable={false}
   style={
-    Array [
-      Object {
-        "paddingHorizontal": 20,
-        "paddingVertical": 8,
-      },
-      null,
-    ]
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 30,
+      "paddingVertical": 8,
+    }
   }
 >
-  <View
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "repellat ratione ut",
+      }
+    }
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "flex-end",
-          "flexDirection": "row",
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
         },
+        Object {
+          "backgroundColor": "rgb(161, 161, 152)",
+        },
+        undefined,
       ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingLeft": 10,
+      }
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "flex-end",
+          "flexDirection": "row",
         }
       }
-      testID="NameButton"
     >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
+        testID="NameButton"
       >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "backgroundColor": "transparent",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
+              null,
+              Object {},
+              null,
             ]
           }
         >
-          Roge Goers
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "paddingRight": 6,
+                },
+              ]
+            }
+          >
+            Branson Gutkowski
+          </Text>
+        </View>
       </View>
-    </View>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
+      <Text
+        style={
           Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {},
+            ],
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 @ 3:58 AM
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {
+                "paddingHorizontal": 2,
+              },
+            ],
+          ]
+        }
+      >
+         • 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#B2B0B2",
               "fontSize": 12,
             },
-            Object {},
-          ],
-        ]
-      }
-      testID="Text"
-    >
-      June 11, 2018 @ 12:00 PM
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
+          ]
+        }
+      >
+        Edited
+      </Text>
+    </View>
     <View
       accessible={true}
       focusable={true}
@@ -130,13 +182,14 @@ exports[`renders correctly 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
+              "alignSelf": "flex-start",
+              "backgroundColor": "#ECEEF2",
               "borderRadius": 8,
               "marginVertical": 5,
               "paddingHorizontal": 13,
               "paddingVertical": 8,
             },
-            null,
+            undefined,
           ]
         }
       >
@@ -149,110 +202,178 @@ exports[`renders correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "paddingVertical": 3,
-                },
-                null,
-              ],
+              Object {},
             ]
           }
         >
-          hello roge
+          esse repellat quisquam
         </Text>
       </View>
     </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    />
   </View>
 </View>
 `;
 
 exports[`renders correctly as mine 1`] = `
 <View
-  collapsable={false}
   style={
-    Array [
-      Object {
-        "paddingHorizontal": 20,
-        "paddingVertical": 8,
-      },
-      null,
-    ]
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 30,
+      "paddingVertical": 8,
+    }
   }
 >
-  <View
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "repellat ratione ut",
+      }
+    }
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "flex-end",
-          "flexDirection": "row",
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
         },
+        Object {
+          "backgroundColor": "rgb(155, 161, 152)",
+        },
+        undefined,
       ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingLeft": 10,
+      }
     }
   >
     <View
       style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
+        Object {
+          "alignItems": "flex-end",
+          "flexDirection": "row",
+        }
       }
-    />
-    <Text
-      style={
-        Array [
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
           Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
+            "opacity": 1,
+          }
+        }
+        testID="NameButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "transparent",
+              },
+              null,
+              Object {},
+              null,
+            ]
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "paddingRight": 6,
+                },
+              ]
+            }
+          >
+            Branson Gutkowski
+          </Text>
+        </View>
+      </View>
+      <Text
+        style={
           Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {},
+            ],
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 @ 3:58 AM
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {
+                "paddingHorizontal": 2,
+              },
+            ],
+          ]
+        }
+      >
+         • 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#B2B0B2",
               "fontSize": 12,
             },
-            Object {},
-          ],
-        ]
-      }
-      testID="Text"
-    >
-      June 11, 2018 @ 12:00 PM
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    />
+          ]
+        }
+      >
+        Edited
+      </Text>
+    </View>
     <View
       accessible={true}
       focusable={true}
@@ -275,15 +396,14 @@ exports[`renders correctly as mine 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
+              "alignSelf": "flex-start",
+              "backgroundColor": "#ECEEF2",
               "borderRadius": 8,
               "marginVertical": 5,
               "paddingHorizontal": 13,
               "paddingVertical": 8,
             },
-            Object {
-              "backgroundColor": "#52C5DC",
-            },
+            undefined,
           ]
         }
       >
@@ -296,18 +416,11 @@ exports[`renders correctly as mine 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "paddingVertical": 3,
-                },
-                Object {
-                  "color": "#ffffff",
-                },
-              ],
+              Object {},
             ]
           }
         >
-          hello roge
+          esse repellat quisquam
         </Text>
       </View>
     </View>
@@ -317,112 +430,164 @@ exports[`renders correctly as mine 1`] = `
 
 exports[`renders editing correctly 1`] = `
 <View
-  collapsable={false}
   style={
-    Array [
-      Object {
-        "paddingHorizontal": 20,
-        "paddingVertical": 8,
-      },
-      null,
-    ]
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 30,
+      "paddingVertical": 8,
+    }
   }
 >
-  <View
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "repellat ratione ut",
+      }
+    }
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "flex-end",
-          "flexDirection": "row",
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
         },
+        Object {
+          "backgroundColor": "rgb(161, 161, 152)",
+        },
+        undefined,
       ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingLeft": 10,
+      }
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "flex-end",
+          "flexDirection": "row",
         }
       }
-      testID="NameButton"
     >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
+        testID="NameButton"
       >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "backgroundColor": "transparent",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
+              null,
+              Object {},
+              null,
             ]
           }
         >
-          Roge Goers
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "paddingRight": 6,
+                },
+              ]
+            }
+          >
+            Branson Gutkowski
+          </Text>
+        </View>
       </View>
-    </View>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
+      <Text
+        style={
           Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {},
+            ],
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 @ 3:58 AM
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {
+                "paddingHorizontal": 2,
+              },
+            ],
+          ]
+        }
+      >
+         • 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#B2B0B2",
               "fontSize": 12,
             },
-            Object {},
-          ],
-        ]
-      }
-      testID="Text"
-    >
-      June 11, 2018 @ 12:00 PM
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
+          ]
+        }
+      >
+        Edited
+      </Text>
+    </View>
     <View
       accessible={true}
       focusable={true}
@@ -445,13 +610,14 @@ exports[`renders editing correctly 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
+              "alignSelf": "flex-start",
+              "backgroundColor": "#ECEEF2",
               "borderRadius": 8,
               "marginVertical": 5,
               "paddingHorizontal": 13,
               "paddingVertical": 8,
             },
-            null,
+            undefined,
           ]
         }
       >
@@ -464,109 +630,146 @@ exports[`renders editing correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "paddingVertical": 3,
-                },
-                null,
-              ],
+              Object {},
             ]
           }
         >
-          hello roge
+          esse repellat quisquam
         </Text>
       </View>
     </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    />
   </View>
 </View>
 `;
 
 exports[`renders my reported comment 1`] = `
 <View
-  collapsable={false}
   style={
-    Array [
-      Object {
-        "paddingHorizontal": 20,
-        "paddingVertical": 8,
-      },
-      null,
-    ]
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 30,
+      "paddingVertical": 8,
+    }
   }
 >
-  <View
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "repellat ratione ut",
+      }
+    }
     style={
       Array [
-        Object {},
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(155, 161, 152)",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingLeft": 10,
+      }
+    }
+  >
+    <View
+      style={
         Object {
           "alignItems": "flex-end",
           "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "paddingLeft": 10,
-            "paddingRight": 5,
-          },
-        ]
+        }
       }
     >
-      Roge Goers
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
+      <Text
+        style={
           Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "paddingRight": 6,
+            },
+          ]
+        }
+      >
+        Branson Gutkowski
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {},
+            ],
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 @ 3:58 AM
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {
+                "paddingHorizontal": 2,
+              },
+            ],
+          ]
+        }
+      >
+         • 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#B2B0B2",
               "fontSize": 12,
             },
-            Object {},
-          ],
-        ]
-      }
-      testID="Text"
-    >
-      June 11, 2018 @ 12:00 PM
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
+          ]
+        }
+      >
+        Edited
+      </Text>
+    </View>
     <View
       accessible={true}
       focusable={true}
@@ -589,13 +792,14 @@ exports[`renders my reported comment 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
+              "alignSelf": "flex-start",
+              "backgroundColor": "#ECEEF2",
               "borderRadius": 8,
               "marginVertical": 5,
               "paddingHorizontal": 13,
               "paddingVertical": 8,
             },
-            null,
+            undefined,
           ]
         }
       >
@@ -608,109 +812,146 @@ exports[`renders my reported comment 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "paddingVertical": 3,
-                },
-                null,
-              ],
+              Object {},
             ]
           }
         >
-          hello roge
+          esse repellat quisquam
         </Text>
       </View>
     </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    />
   </View>
 </View>
 `;
 
 exports[`renders reported comment 1`] = `
 <View
-  collapsable={false}
   style={
-    Array [
-      Object {
-        "paddingHorizontal": 20,
-        "paddingVertical": 8,
-      },
-      null,
-    ]
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 30,
+      "paddingVertical": 8,
+    }
   }
 >
-  <View
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "repellat ratione ut",
+      }
+    }
     style={
       Array [
-        Object {},
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(161, 161, 152)",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingLeft": 10,
+      }
+    }
+  >
+    <View
+      style={
         Object {
           "alignItems": "flex-end",
           "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "paddingLeft": 10,
-            "paddingRight": 5,
-          },
-        ]
+        }
       }
     >
-      Roge Goers
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
+      <Text
+        style={
           Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "paddingRight": 6,
+            },
+          ]
+        }
+      >
+        Branson Gutkowski
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {},
+            ],
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 @ 3:58 AM
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {
+                "paddingHorizontal": 2,
+              },
+            ],
+          ]
+        }
+      >
+         • 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#B2B0B2",
               "fontSize": 12,
             },
-            Object {},
-          ],
-        ]
-      }
-      testID="Text"
-    >
-      June 11, 2018 @ 12:00 PM
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
+          ]
+        }
+      >
+        Edited
+      </Text>
+    </View>
     <View
       accessible={true}
       focusable={true}
@@ -733,13 +974,14 @@ exports[`renders reported comment 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
+              "alignSelf": "flex-start",
+              "backgroundColor": "#ECEEF2",
               "borderRadius": 8,
               "marginVertical": 5,
               "paddingHorizontal": 13,
               "paddingVertical": 8,
             },
-            null,
+            undefined,
           ]
         }
       >
@@ -752,109 +994,146 @@ exports[`renders reported comment 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "paddingVertical": 3,
-                },
-                null,
-              ],
+              Object {},
             ]
           }
         >
-          hello roge
+          esse repellat quisquam
         </Text>
       </View>
     </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    />
   </View>
 </View>
 `;
 
 exports[`renders reported story 1`] = `
 <View
-  collapsable={false}
   style={
-    Array [
-      Object {
-        "paddingHorizontal": 20,
-        "paddingVertical": 8,
-      },
-      null,
-    ]
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 30,
+      "paddingVertical": 8,
+    }
   }
 >
-  <View
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "repellat ratione ut",
+      }
+    }
     style={
       Array [
-        Object {},
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(161, 161, 152)",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingLeft": 10,
+      }
+    }
+  >
+    <View
+      style={
         Object {
           "alignItems": "flex-end",
           "flexDirection": "row",
-        },
-      ]
-    }
-  >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "paddingLeft": 10,
-            "paddingRight": 5,
-          },
-        ]
+        }
       }
     >
-      Roge Goers
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
+      <Text
+        style={
           Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "paddingRight": 6,
+            },
+          ]
+        }
+      >
+        Branson Gutkowski
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {},
+            ],
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 @ 3:58 AM
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {
+                "paddingHorizontal": 2,
+              },
+            ],
+          ]
+        }
+      >
+         • 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#B2B0B2",
               "fontSize": 12,
             },
-            Object {},
-          ],
-        ]
-      }
-      testID="Text"
-    >
-      June 11, 2018 @ 12:00 PM
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
+          ]
+        }
+      >
+        Edited
+      </Text>
+    </View>
     <View
       accessible={true}
       focusable={true}
@@ -877,13 +1156,14 @@ exports[`renders reported story 1`] = `
         style={
           Array [
             Object {
-              "backgroundColor": "#ffffff",
+              "alignSelf": "flex-start",
+              "backgroundColor": "#ECEEF2",
               "borderRadius": 8,
               "marginVertical": 5,
               "paddingHorizontal": 13,
               "paddingVertical": 8,
             },
-            null,
+            undefined,
           ]
         }
       >
@@ -896,152 +1176,190 @@ exports[`renders reported story 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "paddingVertical": 3,
-                },
-                null,
-              ],
+              Object {},
             ]
           }
         >
-          hello roge
+          esse repellat quisquam
         </Text>
       </View>
     </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    />
   </View>
 </View>
 `;
 
 exports[`renders without menu actions 1`] = `
 <View
-  collapsable={false}
   style={
-    Array [
-      Object {
-        "paddingHorizontal": 20,
-        "paddingVertical": 8,
-      },
-      null,
-    ]
+    Object {
+      "flex": 1,
+      "flexDirection": "row",
+      "paddingHorizontal": 30,
+      "paddingVertical": 8,
+    }
   }
 >
-  <View
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "repellat ratione ut",
+      }
+    }
     style={
       Array [
-        Object {},
         Object {
-          "alignItems": "flex-end",
-          "flexDirection": "row",
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
         },
+        Object {
+          "backgroundColor": "rgb(161, 161, 152)",
+        },
+        undefined,
       ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "paddingLeft": 10,
+      }
     }
   >
     <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "alignItems": "flex-end",
+          "flexDirection": "row",
         }
       }
-      testID="NameButton"
     >
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
-          Array [
-            Object {
-              "backgroundColor": "transparent",
-            },
-            null,
-            Object {},
-            null,
-          ]
+          Object {
+            "opacity": 1,
+          }
         }
+        testID="NameButton"
       >
-        <Text
+        <View
           style={
             Array [
               Object {
-                "color": "#505256",
+                "backgroundColor": "transparent",
               },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "paddingLeft": 10,
-                "paddingRight": 5,
-              },
+              null,
+              Object {},
+              null,
             ]
           }
         >
-          Roge Goers
-        </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "paddingRight": 6,
+                },
+              ]
+            }
+          >
+            Branson Gutkowski
+          </Text>
+        </View>
       </View>
-    </View>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
+      <Text
+        style={
           Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {},
+            ],
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 @ 3:58 AM
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#B2B0B2",
+                "fontSize": 12,
+              },
+              Object {
+                "paddingHorizontal": 2,
+              },
+            ],
+          ]
+        }
+      >
+         • 
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
             Object {
               "color": "#B2B0B2",
               "fontSize": 12,
             },
-            Object {},
-          ],
-        ]
-      }
-      testID="Text"
-    >
-      June 11, 2018 @ 12:00 PM
-    </Text>
-  </View>
-  <View
-    style={
-      Array [
-        Object {},
-        Object {
-          "flexDirection": "row",
-        },
-      ]
-    }
-  >
+          ]
+        }
+      >
+        Edited
+      </Text>
+    </View>
     <View
       style={
         Array [
           Object {
-            "backgroundColor": "#ffffff",
+            "alignSelf": "flex-start",
+            "backgroundColor": "#ECEEF2",
             "borderRadius": 8,
             "marginVertical": 5,
             "paddingHorizontal": 13,
             "paddingVertical": 8,
           },
-          null,
+          undefined,
         ]
       }
     >
@@ -1054,28 +1372,13 @@ exports[`renders without menu actions 1`] = `
             Object {
               "fontFamily": "SourceSansPro-Regular",
             },
-            Array [
-              Object {
-                "paddingVertical": 3,
-              },
-              null,
-            ],
+            Object {},
           ]
         }
       >
-        hello roge
+        esse repellat quisquam
       </Text>
     </View>
-    <View
-      style={
-        Array [
-          Object {},
-          Object {
-            "flex": 1,
-          },
-        ]
-      }
-    />
   </View>
 </View>
 `;

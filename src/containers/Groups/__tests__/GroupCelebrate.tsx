@@ -4,7 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 
 import GroupCelebrate from '../GroupCelebrate';
 import { renderWithContext } from '../../../../testUtils';
-import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { orgPermissionSelector } from '../../../selectors/people';
@@ -18,7 +17,6 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/celebration');
-jest.mock('../../../actions/reportComments');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/hooks/useAnalytics');
@@ -41,9 +39,6 @@ const initialState = {
 };
 
 beforeEach(() => {
-  (getReportedComments as jest.Mock).mockReturnValue(() => ({
-    type: 'got repoerted comments',
-  }));
   (refreshCommunity as jest.Mock).mockReturnValue({
     type: 'refreshed community',
   });
@@ -90,7 +85,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
     });
 
@@ -114,7 +108,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
     });
 
@@ -138,7 +131,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
   });
@@ -170,7 +162,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
 
@@ -194,7 +185,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
     });
 
@@ -218,7 +208,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
   });
@@ -250,7 +239,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
 
@@ -274,7 +262,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
     describe('global community', () => {
@@ -297,7 +284,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
   });

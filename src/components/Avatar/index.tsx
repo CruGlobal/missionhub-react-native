@@ -1,22 +1,16 @@
 import React, { useMemo } from 'react';
 import { View, StyleProp, Image, ImageStyle, TextStyle } from 'react-native';
-import { useSelector } from 'react-redux';
 import colorThis from '@eknowles/color-this';
 
-import { PeopleState } from '../../reducers/people';
-import { personSelector } from '../../selectors/people';
 import { Text } from '../common';
 import theme from '../../theme';
 
 import styles from './styles';
 
-type PersonType = {
+export type AvatarPerson = {
   id: string | number;
-  first_name?: string;
-  firstName?: string;
-  fullName?: string;
-  full_name?: string;
-  picture?: string | null;
+  fullName: string; // Requiring fullName because switching between fullName and firstName results in different random colors for the same person
+  picture: string | null;
 };
 
 type AvatarSize = 'extrasmall' | 'small' | 'medium' | 'large';
@@ -40,67 +34,43 @@ const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
   large: { fontSize: 64, fontWeight: '300' },
 };
 
-interface AvatarPropsCommon {
+export interface AvatarProps {
+  person?: AvatarPerson;
   size: AvatarSize;
   style?: StyleProp<ImageStyle>;
-  personId?: string;
-  person?: PersonType | null;
-  orgId?: string;
   customText?: string;
 }
-interface AvatarPropsPerson extends AvatarPropsCommon {
-  person: PersonType | null;
-}
-interface AvatarPropsPersonId extends AvatarPropsCommon {
-  personId: string;
-}
-export type AvatarProps = AvatarPropsPerson | AvatarPropsPersonId;
 
-const EMPTY_PERSON = { id: '-', first_name: '-' };
+const EMPTY_PERSON = { id: '-', fullName: '-', picture: null };
 
-const AvatarView = React.memo(
-  ({ person, size, style, customText }: AvatarPropsPerson) => {
-    const name =
-      person?.firstName ||
-      person?.first_name ||
-      person?.fullName ||
-      person?.full_name ||
-      '';
-    const initial = customText || name[0] || '-';
-    const color = useMemo(() => colorThis(`${name}${person?.id}`, 1), [person]);
+const Avatar = ({
+  person = EMPTY_PERSON,
+  size,
+  style,
+  customText,
+}: AvatarProps) => {
+  const initial = customText || person.fullName[0] || '-';
+  const color = useMemo(() => colorThis(`${person.fullName}${person.id}`, 1), [
+    person,
+  ]);
 
-    const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
+  const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
 
-    if (person?.picture) {
-      return (
-        <Image
-          source={{ uri: person?.picture }}
-          style={wrapStyle}
-          resizeMode="cover"
-        />
-      );
-    }
-
+  if (person?.picture) {
     return (
-      <View style={[styles.avatar, wrapStyle]}>
-        <Text style={[styles.text, textStyles[size]]}>{initial}</Text>
-      </View>
+      <Image
+        source={{ uri: person?.picture }}
+        style={wrapStyle}
+        resizeMode="cover"
+      />
     );
-  },
-);
-
-const AvatarPersonId = ({ personId, orgId, ...rest }: AvatarPropsPersonId) => {
-  const person = useSelector<{ people: PeopleState }, PersonType>(
-    ({ people }) => personSelector({ people }, { personId, orgId }),
-  );
-  return <AvatarView person={person || EMPTY_PERSON} {...rest} />;
-};
-
-const Avatar = ({ person, personId, ...rest }: AvatarProps) => {
-  if (personId) {
-    return <AvatarPersonId personId={personId} {...rest} />;
   }
-  return <AvatarView person={person || EMPTY_PERSON} {...rest} />;
+
+  return (
+    <View style={[styles.avatar, wrapStyle]}>
+      <Text style={[styles.text, textStyles[size]]}>{initial}</Text>
+    </View>
+  );
 };
 
 export default Avatar;

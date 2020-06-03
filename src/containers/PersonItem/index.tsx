@@ -5,6 +5,7 @@ import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -26,6 +27,8 @@ import { StagesObj, StagesState } from '../../reducers/stages';
 import { Person } from '../../reducers/people';
 import { localizedStageSelector } from '../../selectors/stages';
 import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../components/PeopleList/__generated__/GetPeopleStepsCount';
+import { RootState } from '../../reducers';
+import { contactAssignmentSelector } from '../../selectors/people';
 
 import styles from './styles';
 
@@ -53,11 +56,9 @@ const PersonItem = ({
   const totalCount = stepsData ? stepsData.steps.pageInfo.totalCount : 0;
   const orgId = organization && organization.id;
   const isMe = person.id === me.id;
-  const isPersonal = orgId === 'personal';
   const contactAssignment =
-    (person.reverse_contact_assignments || []).find(
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      (a: any) => a.assigned_to && a.assigned_to.id === me.id,
+    useSelector(({ auth }: RootState) =>
+      contactAssignmentSelector({ auth }, { person }),
     ) || {};
 
   const personName = isMe ? t('me') : person.full_name || '';
@@ -80,13 +81,7 @@ const PersonItem = ({
       ? personOrgPermissions.followup_status || ''
       : 'uncontacted';
 
-  const handleSelect = () =>
-    dispatch(
-      navToPersonScreen(
-        person,
-        organization && !isPersonal ? organization : undefined,
-      ),
-    );
+  const handleSelect = () => dispatch(navToPersonScreen(person.id));
 
   const handleChangeStage = () =>
     dispatch(

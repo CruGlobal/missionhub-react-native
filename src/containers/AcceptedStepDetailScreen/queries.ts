@@ -2,22 +2,7 @@ import gql from 'graphql-tag';
 
 import { REMINDER_BUTTON_FRAGMENT } from '../../components/ReminderButton/queries';
 import { REMINDER_DATE_TEXT_FRAGMENT } from '../../components/ReminderDateText/queries';
-
-const POST_FRAGMENT = gql`
-  fragment Post on Post {
-    id
-    author {
-      id
-      firstName
-      lastName
-      fullName
-      picture
-    }
-    content
-    createdAt
-    mediaExpiringUrl
-  }
-`;
+import { STEP_DETAIL_POST_FRAGMENT } from '../../components/StepDetailScreen/queries';
 
 export const ACCEPTED_STEP_DETAIL_QUERY = gql`
   query AcceptedStepDetail($id: ID!) {
@@ -41,11 +26,11 @@ export const ACCEPTED_STEP_DETAIL_QUERY = gql`
         ...ReminderDateText
       }
       post {
-        ...Post
+        ...StepDetailPost
       }
     }
   }
   ${REMINDER_BUTTON_FRAGMENT}
   ${REMINDER_DATE_TEXT_FRAGMENT}
-  ${POST_FRAGMENT}
+  ${STEP_DETAIL_POST_FRAGMENT}
 `;

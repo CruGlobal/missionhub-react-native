@@ -4,30 +4,32 @@ import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import {
-  CommunityFeedItem,
-  CombinedFeedItem,
-} from '../../components/CommunityFeedItem';
+import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal } from '../../utils/common';
 import { CreatePostButton } from '../Groups/CreatePostButton';
-import { CelebrateFeedSection } from '../../selectors/celebration';
-import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
+import { PostTypeNullState } from '../../components/PostTypeLabel';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
-import { GetCommunityFeed } from './__generated__/GetCommunityFeed';
-import { GetGlobalCommunityFeed } from './__generated__/GetGlobalCommunityFeed';
+import {
+  GetCommunityFeed,
+  GetCommunityFeedVariables,
+  GetCommunityFeed_community_feedItems_nodes,
+} from './__generated__/GetCommunityFeed';
+import {
+  GetGlobalCommunityFeed,
+  GetGlobalCommunityFeedVariables,
+} from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
 export interface CelebrateFeedProps {
-  organization: Organization;
-  person?: Person;
+  communityId: string;
+  personId?: string;
   itemNamePressable: boolean;
   noHeader?: boolean;
   showUnreadOnly?: boolean;
@@ -45,7 +47,9 @@ export interface CommunityFeedSection {
   data: FeedItemFragment[];
 }
 
-const sortCommunityFeed = (items: FeedItemFragment[]) => {
+const groupCommunityFeed = (
+  items: GetCommunityFeed_community_feedItems_nodes[],
+) => {
   const dateSections: CommunityFeedSection[] = [
     { id: 0, title: 'dates.new', data: [] },
     { id: 1, title: 'dates.today', data: [] },
@@ -72,8 +76,8 @@ const sortCommunityFeed = (items: FeedItemFragment[]) => {
 };
 
 export const CelebrateFeed = ({
-  organization,
-  person,
+  communityId,
+  personId,
   itemNamePressable,
   noHeader,
   showUnreadOnly,
@@ -83,11 +87,11 @@ export const CelebrateFeed = ({
   filteredFeedType,
   collapsibleScrollViewProps,
 }: CelebrateFeedProps) => {
-  const { t } = useTranslation('celebrateFeed');
-  const isGlobal = orgIsGlobal(organization);
+  const { t } = useTranslation('communityFeed');
+  const isGlobal = orgIsGlobal({ id: communityId });
   const queryVariables = {
-    communityId: organization.id,
-    personIds: person && person.id,
+    communityId,
+    personIds: personId,
     hasUnreadComments: showUnreadOnly,
     subjectType: filteredFeedType,
   };
@@ -100,15 +104,19 @@ export const CelebrateFeed = ({
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
       } = {},
+      currentUser: { person = undefined } = {},
     } = {},
     loading,
     error,
     fetchMore,
     refetch,
-  } = useQuery<GetCommunityFeed>(GET_COMMUNITY_FEED, {
-    variables: queryVariables,
-    skip: isGlobal,
-  });
+  } = useQuery<GetCommunityFeed, GetCommunityFeedVariables>(
+    GET_COMMUNITY_FEED,
+    {
+      variables: queryVariables,
+      skip: isGlobal,
+    },
+  );
 
   const {
     data: {
@@ -121,18 +129,20 @@ export const CelebrateFeed = ({
           } = {},
         } = {},
       } = {},
+      currentUser: { person: globalPerson = undefined } = {},
     } = {},
     loading: globalLoading,
     error: globalError,
     fetchMore: globalFetchMore,
     refetch: globalRefetch,
-  } = useQuery<GetGlobalCommunityFeed>(GET_GLOBAL_COMMUNITY_FEED, {
-    skip: !isGlobal,
-  });
-
-  const items = sortCommunityFeed(
-    (isGlobal ? globalNodes : nodes) as CombinedFeedItem[],
+  } = useQuery<GetGlobalCommunityFeed, GetGlobalCommunityFeedVariables>(
+    GET_GLOBAL_COMMUNITY_FEED,
+    {
+      skip: !isGlobal,
+    },
   );
+
+  const items = groupCommunityFeed(isGlobal ? globalNodes : nodes);
 
   const handleRefreshing = () => {
     if (loading || globalLoading) {
@@ -150,8 +160,7 @@ export const CelebrateFeed = ({
 
     fetchMore({
       variables: {
-        ...queryVariables,
-        feedCursor: endCursor,
+        feedItemsCursor: endCursor,
       },
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
@@ -183,7 +192,7 @@ export const CelebrateFeed = ({
 
     globalFetchMore({
       variables: {
-        feedCursor: globalEndCursor,
+        feedItemsCursor: globalEndCursor,
       },
       updateQuery: (prev, { fetchMoreResult }) =>
         fetchMoreResult
@@ -212,7 +221,7 @@ export const CelebrateFeed = ({
     ({
       section: { title },
     }: {
-      section: SectionListData<CelebrateFeedSection>;
+      section: SectionListData<CommunityFeedSection>;
     }) => (
       <View style={styles.header}>
         <Text style={styles.title}>{t(`${title}`)}</Text>
@@ -224,10 +233,8 @@ export const CelebrateFeed = ({
   const renderItem = ({ item }: { item: FeedItemFragment }) => (
     <CommunityFeedItem
       onClearNotification={onClearNotification}
-      item={item}
-      communityId={organization.id}
+      feedItem={item}
       namePressable={itemNamePressable}
-      onRefresh={handleRefreshing}
     />
   );
 
@@ -235,27 +242,25 @@ export const CelebrateFeed = ({
     () => (
       <>
         <ErrorNotice
-          message={t('errorLoadingCelebrateFeed')}
+          message={t('errorLoadingCommunityFeed')}
           error={error}
           refetch={refetch}
         />
         <ErrorNotice
-          message={t('errorLoadingCelebrateFeed')}
+          message={t('errorLoadingCommunityFeed')}
           error={globalError}
           refetch={globalRefetch}
         />
         {noHeader ? null : (
           <>
-            {!person ? (
-              <CreatePostButton
-                refreshItems={handleRefreshing}
-                communityId={organization.id}
-                type={filteredFeedType}
-              />
-            ) : null}
+            <CreatePostButton
+              person={person || globalPerson}
+              communityId={communityId}
+              type={filteredFeedType}
+            />
             {filteredFeedType || isGlobal ? null : (
               <CelebrateFeedPostCards
-                community={organization}
+                communityId={communityId}
                 // Refetch the feed to update new section once read
                 feedRefetch={refetch}
               />
@@ -270,16 +275,22 @@ export const CelebrateFeed = ({
       globalError,
       globalRefetch,
       noHeader,
-      person,
-      organization,
+      communityId,
+      personId,
       filteredFeedType,
     ],
+  );
+  const renderEmpty = useCallback(
+    () =>
+      filteredFeedType ? <PostTypeNullState type={filteredFeedType} /> : null,
+    [filteredFeedType],
   );
 
   return (
     <Animated.SectionList
       {...collapsibleScrollViewProps}
       sections={items}
+      ListEmptyComponent={renderEmpty}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
       renderItem={renderItem}
@@ -293,6 +304,7 @@ export const CelebrateFeed = ({
         collapsibleScrollViewProps?.contentContainerStyle,
         styles.listContent,
       ]}
+      scrollIndicatorInsets={{ right: 1 }} // Fix for scrollbar occasionally floating away from the right https://github.com/facebook/react-native/issues/26610#issuecomment-539843444
     />
   );
 };

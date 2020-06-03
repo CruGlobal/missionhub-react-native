@@ -1,71 +1,52 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux-legacy';
+import React from 'react';
 import { Alert, FlatList } from 'react-native';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { useTranslation } from 'react-i18next';
+import { useMutation } from '@apollo/react-hooks';
 
-import { celebrateCommentsSelector } from '../../selectors/celebrateComments';
-import {
-  reloadCelebrateComments,
-  getCelebrateCommentsNextPage,
-  deleteCelebrateComment,
-  setCelebrateEditingComment,
-  resetCelebrateEditingComment,
-} from '../../actions/celebrateComments';
-import { reportComment } from '../../actions/reportComments';
-import LoadMore from '../../components/LoadMore';
-import { keyExtractorId, isOwner } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import CommentItem from '../CommentItem';
-import { orgPermissionSelector } from '../../selectors/people';
-import { AuthState } from '../../reducers/auth';
+import { useMyId } from '../../utils/hooks/useIsMe';
+import { FeedItemCommentItem } from '../CommentItem/__generated__/FeedItemCommentItem';
 import {
-  CelebrateCommentsState,
-  CelebrateComment,
-} from '../../reducers/celebrateComments';
-import { Organization } from '../../reducers/organizations';
-import { Person } from '../../reducers/people';
-import { CelebrateItem } from '../../components/CommunityFeedItem/__generated__/CelebrateItem';
+  FeedItemDetail,
+  FeedItemDetailVariables,
+} from '../Communities/Community/CommunityFeed/FeedItemDetailScreen/__generated__/FeedItemDetail';
+import { FEED_ITEM_DETAIL_QUERY } from '../Communities/Community/CommunityFeed/FeedItemDetailScreen/queries';
 
 import styles from './styles';
+import {
+  DELETE_FEED_ITEM_COMMENT_MUTATION,
+  REPORT_FEED_ITEM_COMMENT_MUTATION,
+} from './queries';
+import {
+  DeleteFeedItemComment,
+  DeleteFeedItemCommentVariables,
+} from './__generated__/DeleteFeedItemComment';
+import {
+  ReportFeedItemComment,
+  ReportFeedItemCommentVariables,
+} from './__generated__/ReportFeedItemComment';
 
 export interface CommentsListProps {
-  dispatch: ThunkDispatch<
-    { auth: AuthState; celebrateComments: CelebrateCommentsState },
-    {},
-    AnyAction
-  >;
-  event: CelebrateItem;
-  organization: Organization;
-  me: Person;
-  /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
-  celebrateComments?: { comments: CelebrateComment[]; pagination: any };
+  feedItemId: string;
+  comments: FeedItemCommentItem[];
+  editingCommentId?: string;
+  setEditingCommentId: (id?: string) => void;
+  isOwner: boolean;
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
   listProps: { [key: string]: any };
 }
 
 const CommentsList = ({
-  dispatch,
-  event,
-  organization,
-  me,
-  celebrateComments,
+  feedItemId,
+  comments,
+  editingCommentId,
+  setEditingCommentId,
+  isOwner,
   listProps,
 }: CommentsListProps) => {
   const { t } = useTranslation('commentsList');
-
-  useEffect(() => {
-    dispatch(reloadCelebrateComments(event.id, organization.id));
-    dispatch(resetCelebrateEditingComment());
-  }, []);
-
-  const handleLoadMore = () => {
-    dispatch(getCelebrateCommentsNextPage(event.id, organization.id));
-  };
-
-  const handleEdit = (item: CelebrateComment) => {
-    dispatch(setCelebrateEditingComment(item.id));
-  };
+  const myId = useMyId();
 
   const alert = ({
     title,
@@ -90,29 +71,69 @@ const CommentsList = ({
     ]);
   };
 
-  const handleDelete = (item: CelebrateComment) => {
+  const [deleteComment] = useMutation<
+    DeleteFeedItemComment,
+    DeleteFeedItemCommentVariables
+  >(DELETE_FEED_ITEM_COMMENT_MUTATION, {
+    update: (cache, { data }) => {
+      const originalData = cache.readQuery<
+        FeedItemDetail,
+        FeedItemDetailVariables
+      >({
+        query: FEED_ITEM_DETAIL_QUERY,
+        variables: { feedItemId, myId },
+      });
+      cache.writeQuery({
+        query: FEED_ITEM_DETAIL_QUERY,
+        data: {
+          ...originalData,
+          feedItem: {
+            ...originalData?.feedItem,
+            comments: {
+              ...originalData?.feedItem.comments,
+              nodes: (originalData?.feedItem.comments.nodes || []).filter(
+                ({ id }) => id !== data?.deleteFeedItemComment?.id,
+              ),
+              pageInfo: {
+                ...originalData?.feedItem.comments.pageInfo,
+                totalCount:
+                  originalData?.feedItem?.comments?.pageInfo?.totalCount ===
+                  undefined
+                    ? undefined
+                    : originalData?.feedItem?.comments?.pageInfo?.totalCount -
+                      1,
+              },
+            },
+          },
+        },
+      });
+    },
+  });
+
+  const handleDelete = (comment: FeedItemCommentItem) => {
     alert({
       title: 'deletePostHeader',
       message: 'deleteAreYouSure',
       actionText: 'deletePost',
-      action: () => {
-        dispatch(deleteCelebrateComment(organization.id, event.id, item.id));
-      },
+      action: () => deleteComment({ variables: { id: comment.id } }),
     });
   };
 
-  const handleReport = (item: CelebrateComment) => {
+  const [reportComment] = useMutation<
+    ReportFeedItemComment,
+    ReportFeedItemCommentVariables
+  >(REPORT_FEED_ITEM_COMMENT_MUTATION);
+
+  const handleReport = (comment: FeedItemCommentItem) => {
     alert({
       title: 'reportToOwnerHeader',
       message: 'reportAreYouSure',
       actionText: 'reportPost',
-      action: () => {
-        dispatch(reportComment(organization.id, item));
-      },
+      action: () => reportComment({ variables: { id: comment.id } }),
     });
   };
 
-  const menuActions = (item: CelebrateComment) => {
+  const menuActions = (comment: FeedItemCommentItem) => {
     const actions: {
       text: string;
       onPress: () => void;
@@ -121,31 +142,23 @@ const CommentsList = ({
 
     const deleteAction = {
       text: t('deletePost'),
-      onPress: () => handleDelete(item),
+      onPress: () => handleDelete(comment),
       destructive: true,
     };
 
-    if (me.id === item.person.id) {
+    if (myId === comment.person.id) {
       actions.push({
         text: t('editPost'),
-        onPress: () => handleEdit(item),
+        onPress: () => setEditingCommentId(comment.id),
       });
       actions.push(deleteAction);
     } else {
-      const orgPermission =
-        orgPermissionSelector(
-          {},
-          {
-            person: me,
-            organization,
-          },
-        ) || {};
-      if (isOwner(orgPermission)) {
+      if (isOwner) {
         actions.push(deleteAction);
       } else {
         actions.push({
           text: t('reportToOwner'),
-          onPress: () => handleReport(item),
+          onPress: () => handleReport(comment),
         });
       }
     }
@@ -153,16 +166,15 @@ const CommentsList = ({
     return actions;
   };
 
-  const renderItem = ({ item }: { item: CelebrateComment }) => (
+  const renderItem = ({ item: comment }: { item: FeedItemCommentItem }) => (
     <CommentItem
       testID="CommentItem"
-      item={item}
-      menuActions={menuActions(item)}
-      organization={organization}
+      comment={comment}
+      menuActions={menuActions(comment)}
+      isEditing={comment.id === editingCommentId}
     />
   );
 
-  const { comments = [], pagination } = celebrateComments || {};
   const { list, listContent } = styles;
 
   return (
@@ -172,29 +184,10 @@ const CommentsList = ({
       renderItem={renderItem}
       style={list}
       contentContainerStyle={listContent}
-      ListFooterComponent={
-        pagination &&
-        pagination.hasNextPage && (
-          <LoadMore testID="LoadMore" onPress={handleLoadMore} />
-        )
-      }
       bounces={false}
       {...listProps}
     />
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    celebrateComments,
-  }: { auth: AuthState; celebrateComments: CelebrateCommentsState },
-  { event }: { event: CelebrateItem },
-) => ({
-  me: auth.person,
-  celebrateComments: celebrateCommentsSelector(
-    { celebrateComments },
-    { eventId: event.id },
-  ),
-});
-export default connect(mapStateToProps)(CommentsList);
+export default CommentsList;

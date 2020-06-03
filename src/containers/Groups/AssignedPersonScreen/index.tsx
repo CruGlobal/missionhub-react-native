@@ -76,10 +76,10 @@ const personSteps = {
     navigation: {
       state: {
         // @ts-ignore
-        params: { organization, person },
+        params: { person },
       },
     },
-  }) => <ContactSteps organization={organization} person={person} />,
+  }) => <ContactSteps person={person} />,
 };
 const personNotes = {
   name: i18next.t('personTabs:notes'),
@@ -113,12 +113,12 @@ const memberImpact = {
     navigation: {
       state: {
         // @ts-ignore
-        params: { organization, person },
+        params: { person },
       },
     },
   }) => (
     <ScrollView>
-      <ImpactView orgId={organization.id} person={person} />
+      <ImpactView person={person} />
     </ScrollView>
   ),
 };
@@ -132,7 +132,7 @@ const memberCelebrate = {
         params: { organization, person },
       },
     },
-  }) => <MemberCelebrate organization={organization} person={person} />,
+  }) => <MemberCelebrate communityId={organization.id} personId={person.id} />,
 };
 const assignedContacts = {
   name: i18next.t('personTabs:assignedContacts'),
@@ -280,9 +280,7 @@ export class AssignedPersonScreen extends Component {
           self="stretch"
         >
           <Text style={styles.name}>{name}</Text>
-          {isCruOrg ? (
-            <PathwayStageDisplay orgId={organization.id} person={person} />
-          ) : null}
+          {isCruOrg ? <PathwayStageDisplay person={person} /> : null}
           <GroupsPersonHeader
             // @ts-ignore
             isVisible={!keyboardVisible}
@@ -327,12 +325,9 @@ export const mapStateToProps = (
 
   const organization =
     organizationSelector({ organizations }, { orgId }) || navOrg;
-  const person = personSelector({ people }, { orgId, personId }) || navPerson;
+  const person = personSelector({ people }, { personId }) || navPerson;
 
-  const contactAssignment = contactAssignmentSelector(
-    { auth },
-    { person, orgId: organization.id },
-  );
+  const contactAssignment = contactAssignmentSelector({ auth }, { person });
   const authPerson = auth.person;
 
   return {

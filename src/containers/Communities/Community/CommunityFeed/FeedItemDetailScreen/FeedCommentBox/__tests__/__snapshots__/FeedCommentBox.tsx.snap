@@ -1,0 +1,270 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 12,
+    }
+  }
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "quisquam recusandae alias",
+      }
+    }
+    style={
+      Array [
+        Object {
+          "borderRadius": 18,
+          "height": 36,
+          "width": 36,
+        },
+        Object {
+          "backgroundColor": "rgb(135, 123, 115)",
+        },
+        undefined,
+      ]
+    }
+  />
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 8,
+        "flex": 1,
+        "marginHorizontal": 8,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={true}
+      autoFocus={false}
+      blurOnSubmit={true}
+      multiline={false}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Add a comment..."
+      placeholderTextColor="#B2B0B2"
+      rejectResponderTermination={true}
+      returnKeyType="done"
+      selectionColor="#005A7F"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "letterSpacing": 0.25,
+            "paddingVertical": 5,
+          },
+          Object {
+            "borderBottomWidth": 0,
+            "color": "#4E4C4E",
+            "flex": 1,
+            "fontSize": 14,
+            "paddingHorizontal": 12,
+            "paddingVertical": 6,
+          },
+        ]
+      }
+      underlineColorAndroid="rgba(0,0,0,0)"
+      value=""
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="SubmitButton"
+  >
+    <SvgMock
+      color="#ECEEF2"
+    />
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`renders editing correctly 1`] = `
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginHorizontal": 16,
+      "marginVertical": 12,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#505256",
+        "borderRadius": 25,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="IconButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <Text
+          allowFontScaling={false}
+          style={
+            Array [
+              Object {
+                "color": undefined,
+                "fontSize": 12,
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 16,
+                },
+                Array [
+                  Object {
+                    "margin": 10,
+                  },
+                  Object {
+                    "color": "#ffffff",
+                  },
+                ],
+              ],
+              Object {
+                "fontFamily": "icomoon",
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+              },
+              Object {},
+            ]
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "borderRadius": 8,
+        "flex": 1,
+        "marginHorizontal": 8,
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={true}
+      autoFocus={false}
+      blurOnSubmit={true}
+      multiline={false}
+      onChangeText={[Function]}
+      onSubmitEditing={[Function]}
+      placeholder="Add a comment..."
+      placeholderTextColor="#B2B0B2"
+      rejectResponderTermination={true}
+      returnKeyType="done"
+      selectionColor="#005A7F"
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+            "borderBottomColor": "#52C5DC",
+            "borderBottomWidth": 1,
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "letterSpacing": 0.25,
+            "paddingVertical": 5,
+          },
+          Object {
+            "borderBottomWidth": 0,
+            "color": "#4E4C4E",
+            "flex": 1,
+            "fontSize": 14,
+            "paddingHorizontal": 12,
+            "paddingVertical": 6,
+          },
+        ]
+      }
+      underlineColorAndroid="rgba(0,0,0,0)"
+      value="consequuntur corporis repellat"
+    />
+  </View>
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="SubmitButton"
+  >
+    <SvgMock
+      color="#3CC8E6"
+    />
+  </View>
+</RCTSafeAreaView>
+`;

@@ -17,6 +17,7 @@ import DeprecatedBackButton from '../DeprecatedBackButton';
 import { navToPersonScreen } from '../../actions/person';
 import { findAllNonPlaceHolders } from '../../utils/common';
 import { LOG } from '../../utils/logging';
+import { Person } from '../../reducers/people';
 
 import styles from './styles';
 
@@ -42,10 +43,9 @@ export class SearchPeopleScreen extends Component {
     this.clearSearch = this.clearSearch.bind(this);
   }
 
-  // @ts-ignore
-  handleSelectPerson(person, organization) {
+  handleSelectPerson(person: Person) {
     // @ts-ignore
-    this.props.dispatch(navToPersonScreen(person, organization));
+    this.props.dispatch(navToPersonScreen(person.id));
   }
 
   handleFilter() {

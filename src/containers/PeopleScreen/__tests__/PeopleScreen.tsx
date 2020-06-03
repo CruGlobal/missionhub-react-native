@@ -7,7 +7,6 @@ import * as common from '../../../utils/common';
 import { navigatePush } from '../../../actions/navigation';
 import { getMyPeople } from '../../../actions/people';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../../routes/constants';
-import { SEARCH_SCREEN } from '../../../containers/SearchPeopleScreen';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
@@ -133,16 +132,6 @@ it('renders correctly as Casey', () => {
   });
 });
 
-it('renders correctly as Jean', () => {
-  renderWithContext(
-    <PeopleScreen {...props} isJean={true} items={orgs} />,
-  ).snapshot();
-
-  expect(useAnalytics).toHaveBeenCalledWith('people', {
-    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-  });
-});
-
 it('should open main menu', () => {
   (common.openMainMenu as jest.Mock) = jest.fn();
 
@@ -152,8 +141,6 @@ it('should open main menu', () => {
 });
 
 describe('handleAddContact', () => {
-  const organization = orgs[0];
-
   describe('not isJean', () => {
     describe('press header button', () => {
       it('should navigate to add person flow', () => {
@@ -176,52 +163,6 @@ describe('handleAddContact', () => {
       it('should navigate to add person flow', () => {
         const { getByTestId } = renderWithContext(
           <PeopleScreen {...props} isJean={false} hasNoContacts={true} />,
-        );
-
-        fireEvent.press(getByTestId('bottomButton'));
-
-        expect(navigatePush).toHaveBeenCalledWith(
-          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          {
-            organization: undefined,
-          },
-        );
-      });
-    });
-  });
-
-  describe('isJean', () => {
-    describe('press header button', () => {
-      it('should replace top right icon with search', () => {
-        const { getByTestId } = renderWithContext(
-          <PeopleScreen {...props} isJean={true} />,
-        );
-
-        fireEvent.press(getByTestId('header').props.right);
-        expect(navigatePush).toHaveBeenCalledWith(SEARCH_SCREEN);
-      });
-    });
-
-    describe('press section header button', () => {
-      it('should navigate to add person flow', () => {
-        const { getByTestId } = renderWithContext(
-          <PeopleScreen {...props} isJean={true} />,
-        );
-        fireEvent(getByTestId('peopleList'), 'addContact', organization);
-
-        expect(navigatePush).toHaveBeenCalledWith(
-          ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW,
-          {
-            organization,
-          },
-        );
-      });
-    });
-
-    describe('press bottom button', () => {
-      it('should navigate to add person flow', () => {
-        const { getByTestId } = renderWithContext(
-          <PeopleScreen {...props} isJean={true} hasNoContacts={true} />,
         );
 
         fireEvent.press(getByTestId('bottomButton'));
