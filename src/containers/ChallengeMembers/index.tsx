@@ -8,17 +8,16 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Flex, Text } from '../../components/common';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';
-import { navToPersonScreen } from '../../actions/person';
 import { acceptedChallengesSelector } from '../../selectors/challenges';
 import { keyExtractorId } from '../../utils/common';
 import { Person } from '../../reducers/people';
 import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import ChallengeMemberItem from '../../components/ChallengeMemberItem';
-
-import styles from './styles';
 import { navigatePush } from '../../actions/navigation';
 import { COMMUNITY_MEMBER_TABS } from '../Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
+
+import styles from './styles';
 
 const ChallengeMembers = () => {
   const { t } = useTranslation('challengeMembers');

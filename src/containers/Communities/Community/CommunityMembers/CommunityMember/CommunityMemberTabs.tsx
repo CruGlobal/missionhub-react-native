@@ -4,7 +4,6 @@ import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
 import { NavigationProp, NavigationState } from 'react-navigation';
 import i18next from 'i18next';
 
-import { Text } from '../../../../../components/common';
 import {
   CollapsibleViewProvider,
   createCollapsibleViewContext,

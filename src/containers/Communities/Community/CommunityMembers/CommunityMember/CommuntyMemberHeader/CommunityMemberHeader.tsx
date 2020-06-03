@@ -15,6 +15,7 @@ import {
   communityMemberTabs,
   CommunityMemberCollapsibleHeaderContext,
 } from '../CommunityMemberTabs';
+import { CollapsibleViewHeader } from '../../../../../../components/CollapsibleView/CollapsibleView';
 
 import { COMMUNITY_MEMBER_HEADER_QUERY } from './queries';
 import {
@@ -22,7 +23,6 @@ import {
   CommunityMemberHeaderVariables,
 } from './__generated__/CommunityMemberHeader';
 import styles from './styles';
-import { CollapsibleViewHeader } from '../../../../../../components/CollapsibleView/CollapsibleView';
 
 export const CommunityMemberHeader = () => {
   const { t } = useTranslation('communityMemberHeader');
