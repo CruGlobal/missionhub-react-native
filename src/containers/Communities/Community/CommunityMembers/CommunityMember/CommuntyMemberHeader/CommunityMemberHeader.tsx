@@ -11,7 +11,10 @@ import theme from '../../../../../../theme';
 import Avatar from '../../../../../../components/Avatar';
 import { ErrorNotice } from '../../../../../../components/ErrorNotice/ErrorNotice';
 import { HeaderTabBar } from '../../../../../../components/HeaderTabBar/HeaderTabBar';
-import { communityMemberTabs } from '../CommunityMemberTabs';
+import {
+  communityMemberTabs,
+  CommunityMemberCollapsibleHeaderContext,
+} from '../CommunityMemberTabs';
 
 import { COMMUNITY_MEMBER_HEADER_QUERY } from './queries';
 import {
@@ -19,6 +22,7 @@ import {
   CommunityMemberHeaderVariables,
 } from './__generated__/CommunityMemberHeader';
 import styles from './styles';
+import { CollapsibleViewHeader } from '../../../../../../components/CollapsibleView/CollapsibleView';
 
 export const CommunityMemberHeader = () => {
   const { t } = useTranslation('communityMemberHeader');
@@ -30,18 +34,23 @@ export const CommunityMemberHeader = () => {
   >(COMMUNITY_MEMBER_HEADER_QUERY, { variables: { personId } });
 
   return (
-    <View style={styles.container}>
-      <Header left={<BackButton iconColor={theme.white} />} />
-      <ErrorNotice
-        message={t('errorLoadingPersonDetails')}
-        error={error}
-        refetch={refetch}
-      />
-      <View style={styles.content}>
-        <Avatar size="large" person={data?.person} />
-        <Text style={styles.personName}>{data?.person.fullName}</Text>
+    <CollapsibleViewHeader
+      context={CommunityMemberCollapsibleHeaderContext}
+      headerHeight={287}
+    >
+      <View style={styles.container}>
+        <Header left={<BackButton iconColor={theme.white} />} />
+        <ErrorNotice
+          message={t('errorLoadingPersonDetails')}
+          error={error}
+          refetch={refetch}
+        />
+        <View style={styles.content}>
+          <Avatar size="large" person={data?.person} />
+          <Text style={styles.personName}>{data?.person.fullName}</Text>
+        </View>
+        <HeaderTabBar tabs={communityMemberTabs} />
       </View>
-      <HeaderTabBar tabs={communityMemberTabs} />
-    </View>
+    </CollapsibleViewHeader>
   );
 };

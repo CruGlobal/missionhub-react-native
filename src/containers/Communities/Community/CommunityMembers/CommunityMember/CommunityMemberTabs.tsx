@@ -9,14 +9,23 @@ import {
   CollapsibleViewProvider,
   createCollapsibleViewContext,
 } from '../../../../../components/CollapsibleView/CollapsibleView';
+import CommunityFeed, {
+  COMMUNITY_FEED,
+} from '../../../../Groups/GroupCelebrate';
 
 import { CommunityMemberHeader } from './CommuntyMemberHeader/CommunityMemberHeader';
+
+export const CommunityMemberCollapsibleHeaderContext = createCollapsibleViewContext();
 
 export const communityMemberTabs = [
   {
     name: i18next.t('personTabs:feed'),
-    navigationAction: 'testFeed',
-    component: () => <Text>feed</Text>,
+    navigationAction: COMMUNITY_FEED,
+    component: () => (
+      <CommunityFeed
+        collapsibleHeaderContext={CommunityMemberCollapsibleHeaderContext}
+      />
+    ),
   },
   {
     name: i18next.t('personTabs:impact'),
@@ -39,8 +48,6 @@ const CommunityMemberTabsNavigator = createMaterialTopTabNavigator(
     tabBarComponent: CommunityMemberHeader,
   },
 );
-
-export const CommunityMemberCollapsibleHeaderContext = createCollapsibleViewContext();
 
 export const CommunityMemberTabs = ({
   navigation,
