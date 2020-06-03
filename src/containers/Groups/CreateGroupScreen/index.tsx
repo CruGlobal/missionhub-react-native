@@ -177,6 +177,7 @@ class CreateGroupScreen extends Component {
                 style={styles.input}
                 blurOnSubmit={true}
                 placeholder=""
+                maxLength={44}
               />
             </Flex>
           </KeyboardAvoidingView>
