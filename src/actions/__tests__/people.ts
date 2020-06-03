@@ -29,108 +29,32 @@ describe('getMyPeople', () => {
       'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
   };
 
-  describe('as Casey', () => {
-    const peopleList = [
-      {
-        id: 123,
-        organizational_permissions: [],
-        reverse_contact_assignments: [{ assigned_to: { id: myId } }],
-      },
-    ];
-
-    it('should return one org with people', async () => {
-      // @ts-ignore
-      callApi.mockReturnValue({
-        type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
-        response: peopleList,
-      });
-      store = mockStore({
-        auth: {
-          isJean: false,
-          person: mockUser,
-        },
-      });
-
-      // @ts-ignore
-      await store.dispatch(getMyPeople());
-
-      expect(callApi).toHaveBeenCalledWith(
-        REQUESTS.GET_PEOPLE_LIST,
-        peopleQuery,
-      );
-      expect(store.getActions()[1]).toMatchSnapshot();
-    });
-  });
-
-  describe('as Jean', () => {
-    const organizationOne = {
-      id: 101,
-      name: 'organizationOne',
-    };
-    const organizationTwo = {
-      id: 111,
-      name: 'organizationTwo',
-    };
-    const personOne = {
-      id: 7777,
-      organizational_permissions: [{ organization: organizationOne }],
-      reverse_contact_assignments: [
-        { organization: { id: 103 }, assigned_to: { id: myId } },
-        { organization: organizationOne, assigned_to: { id: myId } },
-      ],
-    };
-    const personTwo = {
-      id: 8888,
-      organizational_permissions: [{ organization: { id: 102 } }],
-      reverse_contact_assignments: [
-        { organization: organizationOne, assigned_to: { id: myId } },
-      ],
-    };
-    const personThree = {
-      id: 9999,
+  const peopleList = [
+    {
+      id: 123,
       organizational_permissions: [],
       reverse_contact_assignments: [{ assigned_to: { id: myId } }],
-    };
-    const personFour = {
-      id: 10000,
-      organizational_permissions: [
-        { organization: organizationTwo },
-        { organization: organizationOne },
-      ],
-      reverse_contact_assignments: [
-        { organization: organizationTwo, assigned_to: { id: myId } },
-        { organization: organizationOne, assigned_to: { id: 24 } },
-      ],
-    };
-    const personFive = {
-      id: myId,
-      organizational_permissions: [{ organization: organizationTwo }],
-      reverse_contact_assignments: [
-        { organization: organizationTwo, assigned_to: { id: myId } },
-      ],
-    };
+    },
+  ];
 
-    it('should return all orgs with assigned people', async () => {
-      store = mockStore({
-        auth: {
-          isJean: true,
-          person: mockUser,
-        },
-      });
-      // @ts-ignore
-      callApi.mockReturnValue({
-        type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
-        response: [personOne, personTwo, personThree, personFour, personFive],
-      });
-
-      // @ts-ignore
-      await store.dispatch(getMyPeople());
-      expect(callApi).toHaveBeenCalledWith(
-        REQUESTS.GET_PEOPLE_LIST,
-        peopleQuery,
-      );
-      expect(store.getActions()[1]).toMatchSnapshot();
+  it('should return one org with people', async () => {
+    // @ts-ignore
+    callApi.mockReturnValue({
+      type: REQUESTS.GET_PEOPLE_LIST.SUCCESS,
+      response: peopleList,
     });
+    store = mockStore({
+      auth: {
+        isJean: false,
+        person: mockUser,
+      },
+    });
+
+    // @ts-ignore
+    await store.dispatch(getMyPeople());
+
+    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PEOPLE_LIST, peopleQuery);
+    expect(store.getActions()[1]).toMatchSnapshot();
   });
 });
 

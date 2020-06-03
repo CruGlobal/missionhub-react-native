@@ -17,9 +17,7 @@ import { Card, Flex } from '../common';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import Avatar from '../Avatar';
-import { FeedItemPostCard_author } from '../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
-import { FeedItemStepCard_owner } from '../../containers/CelebrateFeedPostCards/__generated__/FeedItemStepCard';
+import Avatar, { AvatarPerson } from '../Avatar';
 
 import styles from './styles';
 
@@ -31,7 +29,7 @@ export enum PostLabelSizeEnum {
 }
 
 export const PostTypeBgStyle: {
-  [key in FeedItemSubjectTypeEnum]: StyleProp<ViewStyle>;
+  [key in FeedItemSubjectTypeEnum]: StyleProp<{ backgroundColor: string }>;
 } = {
   ANNOUNCEMENT: styles.ANNOUNCEMENT,
   COMMUNITY_CHALLENGE: styles.COMMUNITY_CHALLENGE,
@@ -41,6 +39,18 @@ export const PostTypeBgStyle: {
   STEP: styles.STEP,
   STORY: styles.STORY,
   THOUGHT: styles.THOUGHT,
+};
+export const PostTypeColorStyle: {
+  [key in FeedItemSubjectTypeEnum]: StyleProp<{ color: string }>;
+} = {
+  ANNOUNCEMENT: styles.colorANNOUNCEMENT,
+  COMMUNITY_CHALLENGE: styles.colorCOMMUNITY_CHALLENGE,
+  HELP_REQUEST: styles.colorHELP_REQUEST,
+  PRAYER_REQUEST: styles.colorPRAYER_REQUEST,
+  QUESTION: styles.colorQUESTION,
+  STEP: styles.colorSTEP,
+  STORY: styles.colorSTORY,
+  THOUGHT: styles.colorTHOUGHT,
 };
 
 interface PostTypeIconProps {
@@ -53,7 +63,7 @@ interface PostTypeIconProps {
 export function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
   const iconSize =
     size === PostLabelSizeEnum.extraLarge
-      ? 72
+      ? 225
       : size === PostLabelSizeEnum.large
       ? 24
       : size === PostLabelSizeEnum.small
@@ -104,16 +114,23 @@ const PostTypeLabel = ({
 
   if (size === PostLabelSizeEnum.extraLarge) {
     return (
-      <SafeAreaView style={[styles[type]]}>
-        <Card style={[styles.headerCard, styles[type], { shadowOpacity: 0 }]}>
+      <SafeAreaView style={[PostTypeBgStyle[type]]}>
+        <Card
+          style={[
+            styles.headerCard,
+            PostTypeBgStyle[type],
+            { shadowOpacity: 0 },
+          ]}
+        >
           <Flex
             value={1}
             align="center"
             justify="center"
             style={styles.headerContainer}
           >
-            <PostTypeIcon type={type} size={size} />
+            <PostTypeIcon type={type} size={size} style={styles.headerIcon} />
             <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
+            <Text style={styles.subheaderText}>{t(`subheader.${type}`)}</Text>
           </Flex>
           <Flex style={styles.headerBackButtonWrap}>
             <DeprecatedBackButton />
@@ -130,7 +147,7 @@ const PostTypeLabel = ({
         pill={true}
         style={[
           styles.button,
-          styles[type],
+          PostTypeBgStyle[type],
           size === PostLabelSizeEnum.large ? styles.largeSize : null,
           showText ? null : styles.noText,
         ]}
@@ -148,7 +165,7 @@ const PostTypeLabel = ({
       testID={`${type}Label`}
       style={[
         styles.button,
-        styles[type],
+        PostTypeBgStyle[type],
         showText ? null : styles.noText,
         size === PostLabelSizeEnum.large
           ? styles.largeSize
@@ -176,7 +193,7 @@ function getExtraCount(numPeople = 0, countOnly = false) {
 interface PostTypeCardWithPeopleProps {
   type: FeedItemSubjectTypeEnum;
   onPress: TouchablePress;
-  people?: (FeedItemPostCard_author | FeedItemStepCard_owner)[];
+  people?: AvatarPerson[];
   countOnly?: boolean;
   testID?: string;
 }
@@ -196,7 +213,7 @@ export const PostTypeCardWithPeople = ({
       onPress={onPress}
       style={styles.peopleCard}
     >
-      <View style={[styles[type], styles.peopleCardTop]}>
+      <View style={[PostTypeBgStyle[type], styles.peopleCardTop]}>
         <PostTypeIcon
           type={type}
           size={PostLabelSizeEnum.large}
@@ -215,10 +232,9 @@ export const PostTypeCardWithPeople = ({
             ))}
           {num > 0 && (
             <Avatar
-              person={null}
               customText={`+${num}`}
               size="extrasmall"
-              style={[styles[type], { marginLeft: -12 }]}
+              style={[PostTypeBgStyle[type], { marginLeft: -12 }]}
             />
           )}
         </View>
@@ -227,6 +243,22 @@ export const PostTypeCardWithPeople = ({
         <Text style={styles.peopleCardText}>{t(`card.${type}`)}</Text>
       </View>
     </Card>
+  );
+};
+
+export const PostTypeNullState = ({
+  type,
+}: {
+  type: FeedItemSubjectTypeEnum;
+}) => {
+  const { t } = useTranslation('postTypes');
+  return (
+    <View style={styles.nullState}>
+      <Text style={styles.nullStateText}>{t(`nullState.${type}`)}</Text>
+      <Text style={[PostTypeColorStyle[type], styles.nullStateReferenceText]}>
+        {t(`nullStateReference.${type}`).toUpperCase()}
+      </Text>
+    </View>
   );
 };
 

@@ -166,7 +166,7 @@ exports[`CommunityMembers renders with content 1`] = `
                     "width": 36,
                   },
                   Object {
-                    "backgroundColor": "rgb(216, 122, 125)",
+                    "backgroundColor": "rgb(110, 167, 125)",
                   },
                   Object {
                     "marginRight": 8,
@@ -595,7 +595,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"width\\": 36,
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(192, 102, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(160, 159, 115)\\",
 +                   },
 +                   Object {
 +                     \\"marginRight\\": 8,
@@ -750,7 +750,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"width\\": 36,
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(167, 162, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(161, 122, 155)\\",
 +                   },
 +                   Object {
 +                     \\"marginRight\\": 8,

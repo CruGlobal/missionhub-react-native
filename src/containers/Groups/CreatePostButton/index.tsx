@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { useMyId } from '../../../utils/hooks/useIsMe';
 import { Button, Text } from '../../../components/common';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
-import Avatar from '../../../components/Avatar';
+import Avatar, { AvatarPerson } from '../../../components/Avatar';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 import CreatePostModal from '../CreatePostModal';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
@@ -22,13 +22,13 @@ import { GET_MY_COMMUNITY_PERMISSION_QUERY } from './queries';
 import styles from './styles';
 
 interface CreatePostButtonProps {
-  refreshItems: () => void;
+  person?: AvatarPerson;
   type?: FeedItemSubjectTypeEnum;
   communityId: string;
 }
 
 export const CreatePostButton = ({
-  refreshItems,
+  person,
   type,
   communityId,
 }: CreatePostButtonProps) => {
@@ -63,7 +63,6 @@ export const CreatePostButton = ({
     const postType = mapFeedTypeToPostType(type);
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        onComplete: refreshItems,
         communityId,
         postType,
       }),
@@ -83,7 +82,6 @@ export const CreatePostButton = ({
         <CreatePostModal
           closeModal={closeModal}
           communityId={communityId}
-          refreshItems={refreshItems}
           adminOrOwner={adminOrOwner}
         />
       ) : null}
@@ -92,11 +90,7 @@ export const CreatePostButton = ({
         onPress={type ? navigateToCreatePostScreen : openModal}
         testID="CreatePostButton"
       >
-        <Avatar
-          size="extrasmall"
-          personId={personId}
-          style={{ marginLeft: -15 }}
-        />
+        <Avatar size="extrasmall" person={person} style={{ marginLeft: -15 }} />
         <Text style={buttonText}>
           {type ? t(`createPostButton.${type}`) : t('inputPlaceholder')}
         </Text>

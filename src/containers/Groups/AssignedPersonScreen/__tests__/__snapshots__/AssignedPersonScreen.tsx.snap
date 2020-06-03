@@ -53,7 +53,6 @@ exports[`Contact hides the header when the keyboard is shown 1`] = `
       Test Person
     </MyText>
     <Connect(PathwayStageDisplay)
-      orgId="1"
       person={
         Object {
           "first_name": "Test Person",
@@ -248,7 +247,6 @@ exports[`Contact should render AssignedPersonScreen correctly with stage for cru
       Test Person
     </MyText>
     <Connect(PathwayStageDisplay)
-      orgId="1"
       person={
         Object {
           "first_name": "Test Person",
@@ -350,7 +348,6 @@ exports[`Contact should render AssignedPersonScreen correctly without stage 1`] 
       Test Person
     </MyText>
     <Connect(PathwayStageDisplay)
-      orgId="1"
       person={
         Object {
           "first_name": "Test Person",

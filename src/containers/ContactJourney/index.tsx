@@ -23,7 +23,6 @@ import {
 } from '../../constants';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
-import { orgIsCru } from '../../utils/common';
 import Analytics from '../Analytics';
 
 import styles from './styles';
@@ -174,8 +173,6 @@ class ContactJourney extends Component {
       organization,
       // @ts-ignore
       analyticsAssignmentType,
-      // @ts-ignore
-      isCruOrg,
     } = this.props;
     return (
       <View style={styles.container}>
@@ -190,11 +187,7 @@ class ContactJourney extends Component {
         />
         {this.renderContent()}
         <Flex justify="end">
-          <JourneyCommentBox
-            person={person}
-            organization={organization}
-            showInteractions={isCruOrg}
-          />
+          <JourneyCommentBox person={person} organization={organization} />
         </Flex>
       </View>
     );
@@ -227,7 +220,6 @@ const mapStateToProps = (
       auth,
       organization,
     ),
-    isCruOrg: orgIsCru(organization),
   };
 };
 

@@ -39,12 +39,7 @@ const initialState = {
   auth: { person: me },
   onboarding: { personId: otherId, currentlyOnboarding: false },
   people: {
-    allByOrg: {
-      [orgId]: {
-        id: orgId,
-        people: { [person.id]: person },
-      },
-    },
+    people: { [person.id]: person },
   },
   organizations: { all: [] },
   steps: { suggestedForOthers: { [stageId]: [stage] } },

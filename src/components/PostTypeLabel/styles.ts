@@ -23,12 +23,26 @@ export default StyleSheet.create({
     paddingVertical: 35,
     padding: 25,
   },
+  headerIcon: {
+    opacity: 0.2,
+    position: 'absolute',
+    bottom: -75,
+    right: -30,
+  },
   headerText: {
     fontSize: 24,
     fontWeight: '300',
     color: theme.white,
     textAlign: 'center',
+    paddingTop: 20,
+  },
+  subheaderText: {
+    fontSize: 14,
+    lineHeight: 20,
+    color: theme.white,
+    textAlign: 'center',
     paddingTop: 10,
+    paddingHorizontal: 35,
   },
   headerBackButtonWrap: {
     position: 'absolute',
@@ -85,26 +99,64 @@ export default StyleSheet.create({
     paddingHorizontal: 10,
   },
   peopleCardText: { fontSize: 14 },
+  nullState: {
+    paddingHorizontal: 45,
+    marginTop: 100,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  nullStateText: {
+    fontSize: 32,
+    fontWeight: '300',
+    color: theme.lightGrey,
+    textAlign: 'center',
+    marginBottom: 20,
+  },
+  nullStateReferenceText: { fontSize: 16, fontWeight: 'bold' },
+  colorSTORY: {
+    color: theme.communityGodStoryPurple,
+  },
   STORY: {
     backgroundColor: theme.communityGodStoryPurple,
+  },
+  colorPRAYER_REQUEST: {
+    color: theme.communityPrayerRequestPurple,
   },
   PRAYER_REQUEST: {
     backgroundColor: theme.communityPrayerRequestPurple,
   },
+  colorQUESTION: {
+    color: theme.communityQuestionOrange,
+  },
   QUESTION: {
     backgroundColor: theme.communityQuestionOrange,
+  },
+  colorHELP_REQUEST: {
+    color: theme.communityCareRequestRed,
   },
   HELP_REQUEST: {
     backgroundColor: theme.communityCareRequestRed,
   },
+  colorTHOUGHT: {
+    color: theme.communityThoughtGrey,
+  },
   THOUGHT: {
     backgroundColor: theme.communityThoughtGrey,
+  },
+  colorCOMMUNITY_CHALLENGE: {
+    color: theme.communityChallengeGreen,
   },
   COMMUNITY_CHALLENGE: {
     backgroundColor: theme.communityChallengeGreen,
   },
+  colorANNOUNCEMENT: {
+    color: theme.communityAnnouncementGrey,
+  },
   ANNOUNCEMENT: {
     backgroundColor: theme.communityAnnouncementGrey,
+  },
+  colorSTEP: {
+    color: theme.parakeetBlue,
   },
   STEP: {
     backgroundColor: theme.parakeetBlue,

@@ -54,7 +54,7 @@ const ChallengeDetailHeader = ({
                 ? details_markdown
                 : isAdmin
                 ? t('detailsPlaceholder')
-                : null}
+                : ''}
             </Markdown>
           </Flex>
         </Flex>

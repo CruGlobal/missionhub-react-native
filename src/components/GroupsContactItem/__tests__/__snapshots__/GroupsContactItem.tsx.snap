@@ -1199,7 +1199,7 @@ exports[`renders contact assignment item 1`] = `
         ]
       }
     >
-      Hayden was assigned to Iron Man by Captain America
+      Test was assigned to Iron Man by Captain America
     </Text>
     <Text
       style={
@@ -1352,7 +1352,7 @@ exports[`renders contact unassignment item 1`] = `
         ]
       }
     >
-      Hayden was unassigned from Iron Man
+      Test was unassigned from Iron Man
     </Text>
     <Text
       style={
@@ -1505,7 +1505,7 @@ exports[`renders contact unassignment item with note 1`] = `
         ]
       }
     >
-      Hayden was unassigned from Iron Man
+      Test was unassigned from Iron Man
     </Text>
     <Text
       style={

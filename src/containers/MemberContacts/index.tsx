@@ -19,9 +19,7 @@ class MemberContacts extends Component {
 
   // @ts-ignore
   renderItem = ({ item }) => {
-    // @ts-ignore
-    const { organization } = this.props;
-    return <PersonListItem person={item.person} organization={organization} />;
+    return <PersonListItem person={item.person} />;
   };
 
   renderList() {
@@ -74,10 +72,7 @@ MemberContacts.propTypes = {
 
 // @ts-ignore
 const mapStateToProps = ({ people }, { person, organization }) => {
-  const currentPerson = personSelector(
-    { people },
-    { personId: person.id, orgId: organization.id },
-  );
+  const currentPerson = personSelector({ people }, { personId: person.id });
 
   return currentPerson
     ? {

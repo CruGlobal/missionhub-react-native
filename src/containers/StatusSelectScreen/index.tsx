@@ -147,9 +147,8 @@ StatusSelectScreen.propTypes = {
 export const mapStateToProps = ({ auth, people }, { navigation }) => {
   const navParams = navigation.state.params || {};
   const { person: navPerson = {}, organization: navOrg = {} } = navParams;
-  const orgId = navOrg.id;
   const person =
-    personSelector({ people }, { personId: navPerson.id, orgId }) || navPerson;
+    personSelector({ people }, { personId: navPerson.id }) || navPerson;
   const organization = navOrg;
   // @ts-ignore
   const orgPermission = orgPermissionSelector(null, {
@@ -162,7 +161,7 @@ export const mapStateToProps = ({ auth, people }, { navigation }) => {
     person,
     organization,
     orgPermission: orgPermission,
-    contactAssignment: contactAssignmentSelector({ auth }, { person, orgId }),
+    contactAssignment: contactAssignmentSelector({ auth }, { person }),
     status: orgPermission.followup_status,
   };
 };

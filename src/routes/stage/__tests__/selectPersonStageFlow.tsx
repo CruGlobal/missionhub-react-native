@@ -35,7 +35,7 @@ const person = {
   reverse_contact_assignments: [{ id: contactAssignmentId }],
 };
 
-const people = { allByOrg: { [orgId]: { people: { [otherId]: person } } } };
+const people = { people: { [otherId]: person } };
 
 const store = configureStore([thunk])({
   auth: { person: { id: myId, user: { pathway_stage_id: '0' } } },
@@ -114,7 +114,7 @@ describe('SelectStageScreen next', () => {
       it('should select person', () => {
         expect(personSelector).toHaveBeenCalledWith(
           { people },
-          { personId: otherId, orgId },
+          { personId: otherId },
         );
       });
 
@@ -172,7 +172,7 @@ describe('SelectStageScreen next', () => {
       it('should select person', () => {
         expect(personSelector).toHaveBeenCalledWith(
           { people },
-          { personId: otherId, orgId },
+          { personId: otherId },
         );
       });
 
@@ -229,7 +229,7 @@ describe('SelectStageScreen next', () => {
       it('should select person', () => {
         expect(personSelector).toHaveBeenCalledWith(
           { people },
-          { personId: otherId, orgId },
+          { personId: otherId },
         );
       });
 
@@ -287,7 +287,7 @@ describe('SelectStageScreen next', () => {
       it('should select person', () => {
         expect(personSelector).toHaveBeenCalledWith(
           { people },
-          { personId: otherId, orgId },
+          { personId: otherId },
         );
       });
 

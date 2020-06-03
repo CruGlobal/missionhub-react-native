@@ -12,46 +12,35 @@ const person = {
   last_name: 'Last',
   reverse_contact_assignments: [{ organization }],
 };
+const initialState = { auth: { person: {} } };
 
 it('render assigned contact', () => {
-  renderWithContext(
-    <PersonListItem
-      onSelect={jest.fn()}
-      organization={organization}
-      person={person}
-    />,
-    { noWrappers: true },
-  ).snapshot();
+  renderWithContext(<PersonListItem onSelect={jest.fn()} person={person} />, {
+    initialState,
+  }).snapshot();
 });
 
 it('render unassigned contact', () => {
   renderWithContext(
     <PersonListItem
       onSelect={jest.fn()}
-      organization={organization}
       person={{ ...person, reverse_contact_assignments: [] }}
     />,
-    { noWrappers: true },
+    { initialState },
   ).snapshot();
 });
 
 it('render without touchable', () => {
   renderWithContext(
-    <PersonListItem
-      organization={organization}
-      person={{ ...person, reverse_contact_assignments: [] }}
-    />,
-    { noWrappers: true },
+    <PersonListItem person={{ ...person, reverse_contact_assignments: [] }} />,
+    { initialState },
   ).snapshot();
 });
 
 it('render without last name', () => {
   renderWithContext(
-    <PersonListItem
-      organization={organization}
-      person={{ ...person, last_name: undefined }}
-    />,
-    { noWrappers: true },
+    <PersonListItem person={{ ...person, last_name: undefined }} />,
+    { initialState },
   ).snapshot();
 });
 
@@ -59,12 +48,8 @@ it('calls onSelect prop', () => {
   const onSelect = jest.fn();
 
   const { getByTestId } = renderWithContext(
-    <PersonListItem
-      onSelect={onSelect}
-      organization={organization}
-      person={person}
-    />,
-    { noWrappers: true },
+    <PersonListItem onSelect={onSelect} person={person} />,
+    { initialState },
   );
 
   fireEvent.press(getByTestId('PersonListItemButton'));
