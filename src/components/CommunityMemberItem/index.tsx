@@ -13,7 +13,8 @@ import Avatar from '../Avatar';
 import { RootState } from '../../reducers';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
 import { PermissionEnum } from '../../../__generated__/globalTypes';
-import { navToPersonScreen } from '../../actions/person';
+import { navigatePush } from '../../actions/navigation';
+import { COMMUNITY_MEMBER_TABS } from '../../containers/Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
 
 import styles from './styles';
 import { CommunityMemberPerson } from './__generated__/CommunityMemberPerson';
@@ -45,7 +46,14 @@ const CommunityMemberItem = ({
 
   return (
     <Touchable
-      onPress={() => dispatch(navToPersonScreen(person.id))}
+      onPress={() =>
+        dispatch(
+          navigatePush(COMMUNITY_MEMBER_TABS, {
+            personId: person.id,
+            communityId: organization.id,
+          }),
+        )
+      }
       testID="CommunityMemberItem"
       style={styles.card}
     >

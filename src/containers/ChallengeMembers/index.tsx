@@ -17,6 +17,8 @@ import { ChallengeItem } from '../../components/ChallengeStats';
 import ChallengeMemberItem from '../../components/ChallengeMemberItem';
 
 import styles from './styles';
+import { navigatePush } from '../../actions/navigation';
+import { COMMUNITY_MEMBER_TABS } from '../Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
 
 const ChallengeMembers = () => {
   const { t } = useTranslation('challengeMembers');
@@ -37,7 +39,12 @@ const ChallengeMembers = () => {
   const members = currentAcceptedChallenge.joined;
 
   const handleSelect = (person: Person) => {
-    dispatch(navToPersonScreen(person.id));
+    dispatch(
+      navigatePush(COMMUNITY_MEMBER_TABS, {
+        personId: person.id,
+        communityId: challenge.organization.id,
+      }),
+    );
   };
 
   const renderItem = ({ item }: { item: ChallengeItem }) => {

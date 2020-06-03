@@ -538,7 +538,7 @@ export default {
     impact: 'Impact',
   },
   personTabs: {
-    celebrate: 'Celebrate',
+    feed: 'Feed',
     steps: 'My Steps',
     notes: 'My Notes',
     ourJourney: 'Our Journey',
@@ -996,6 +996,9 @@ export default {
     memberCount_plural: '{{count}} Members',
     errorLoadingCommunityDetails: 'Error loading community details',
     globalCommunity: 'MissionHub Community',
+  },
+  communityMemberHeader: {
+    errorLoadingPersonDetails: 'Error loading person details',
   },
   createPost: {
     godStory: {
