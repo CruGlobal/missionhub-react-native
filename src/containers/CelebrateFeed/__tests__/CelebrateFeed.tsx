@@ -20,7 +20,10 @@ jest.mock('../../../components/CommunityFeedItem', () => ({
   CommunityFeedItem: 'CommunityFeedItem',
 }));
 jest.mock('../../../components/PostTypeLabel', () => ({
+  PostTypeBgStyle: 'PostTypeBgStyle',
+  PostTypeColorStyle: 'PostTypeColorStyle',
   PostTypeCardWithPeople: 'PostTypeCardWithPeople',
+  PostTypeNullState: 'PostTypeNullState',
 }));
 jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
