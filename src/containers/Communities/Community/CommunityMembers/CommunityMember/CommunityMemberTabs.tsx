@@ -12,6 +12,10 @@ import {
 import CommunityFeed, {
   COMMUNITY_FEED,
 } from '../../../../Groups/GroupCelebrate';
+import {
+  COMMUNITY_IMPACT,
+  CommunityImpactTab,
+} from '../../CommunityImpactTab/CommunityImpactTab';
 
 import { CommunityMemberHeader } from './CommuntyMemberHeader/CommunityMemberHeader';
 
@@ -29,8 +33,12 @@ export const communityMemberTabs = [
   },
   {
     name: i18next.t('personTabs:impact'),
-    navigationAction: 'testImpact',
-    component: () => <Text>impact</Text>,
+    navigationAction: COMMUNITY_IMPACT,
+    component: () => (
+      <CommunityImpactTab
+        collapsibleHeaderContext={CommunityMemberCollapsibleHeaderContext}
+      />
+    ),
   },
 ];
 

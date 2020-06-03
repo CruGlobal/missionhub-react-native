@@ -1,13 +1,12 @@
 import { createSelector } from 'reselect';
 
-import { Person } from '../reducers/people';
 import { Organization } from '../reducers/organizations';
 import { RootState } from '../reducers';
 
 const personIdSelector = (
   _: unknown,
-  { person = {} }: { person?: Person } = {},
-) => person.id || '';
+  { person }: { person?: { id: string } } = {},
+) => person?.id || '';
 const orgIdSelector = (
   _: unknown,
   { organization = {} }: { organization?: Organization } = {},

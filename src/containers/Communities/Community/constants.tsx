@@ -33,6 +33,10 @@ export const communityTabs = [
   {
     name: i18next.t('communityTabs:impact'),
     navigationAction: COMMUNITY_IMPACT,
-    component: CommunityImpactTab,
+    component: () => (
+      <CommunityImpactTab
+        collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+      />
+    ),
   },
 ];
