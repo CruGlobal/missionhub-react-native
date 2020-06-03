@@ -118,7 +118,7 @@ const memberImpact = {
     },
   }) => (
     <ScrollView>
-      <ImpactView person={person} />
+      <ImpactView personId={person.id} />
     </ScrollView>
   ),
 };
@@ -170,7 +170,7 @@ const myImpact = {
     },
   }) => (
     <ScrollView>
-      <ImpactView orgId={organization.id} person={person} />
+      <ImpactView communityId={organization.id} personId={person.id} />
     </ScrollView>
   ),
 };

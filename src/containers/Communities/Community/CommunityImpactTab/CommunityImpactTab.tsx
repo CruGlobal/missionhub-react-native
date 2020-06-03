@@ -19,7 +19,7 @@ export const CommunityImpactTab = ({
 
   return (
     <CollapsibleViewContent context={collapsibleHeaderContext}>
-      <ImpactView orgId={communityId} person={{ id: personId }} />
+      <ImpactView communityId={communityId} personId={personId} />
     </CollapsibleViewContent>
   );
 };

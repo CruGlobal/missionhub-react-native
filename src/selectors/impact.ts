@@ -3,10 +3,8 @@ import { createSelector } from 'reselect';
 import { Organization } from '../reducers/organizations';
 import { RootState } from '../reducers';
 
-const personIdSelector = (
-  _: unknown,
-  { person }: { person?: { id: string } } = {},
-) => person?.id || '';
+const personIdSelector = (_: unknown, { personId }: { personId?: string }) =>
+  personId || '';
 const orgIdSelector = (
   _: unknown,
   { organization = {} }: { organization?: Organization } = {},
