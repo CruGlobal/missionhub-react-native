@@ -46,6 +46,18 @@ describe('Post is not null', () => {
       stepType: StepTypeEnum.care,
     });
   });
+  it('renders post without image', () => {
+    snapshot({
+      post: mockFragment<StepDetailPost>(STEP_DETAIL_POST_FRAGMENT, {
+        mocks: {
+          Post: () => ({
+            mediaExpiringUrl: () => null,
+          }),
+        },
+      }),
+      stepType: StepTypeEnum.care,
+    });
+  });
   it('renders with an input', () => {
     snapshot({
       post: mockPost,
