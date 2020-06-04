@@ -12,9 +12,6 @@ import {
 } from '../../constants';
 import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
-import OnboardingCard, {
-  GROUP_ONBOARDING_TYPES,
-} from '../Groups/OnboardingCard';
 import {
   getAnalyticsAssignmentType,
   getAnalyticsPermissionType,
@@ -150,9 +147,6 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
 
   return (
     <View style={styles.container}>
-      {organization.id !== 'personal' ? (
-        <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
-      ) : null}
       <Flex style={styles.topSection}>
         <Text style={styles.text}>{buildImpactSentence(impact)}</Text>
       </Flex>
