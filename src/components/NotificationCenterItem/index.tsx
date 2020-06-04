@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import Avatar from '../Avatar';
@@ -12,18 +13,26 @@ import {
 } from '../../../__generated__/globalTypes';
 import { NotificationItem } from './__generated__/NotificationItem';
 import { mapPostTypeToFeedType } from '../../utils/common';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { navigatePush } from '../../actions/navigation';
 
 import styles from './styles';
 
 const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
   const { t } = useTranslation('notificationsCenter');
+  const dispatch = useDispatch();
   const {
     messageTemplate,
     messageVariables,
     subjectPerson,
     trigger,
     createdAt,
+    screenData,
   } = event;
+
+  const getMessageVariable = (variable: string) => {
+    return messageVariables.find(i => i.key === variable)?.value;
+  };
 
   const renderTemplateMessage = () => {
     const templateArray = messageTemplate.split(/(<<.*?>>)/).filter(Boolean);
@@ -34,19 +43,19 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
             <Text key={word} style={styles.boldedItemText}>
               {`${word.replace(
                 /<<subject_person>>/,
-                messageVariables.subjectPerson ||
+                getMessageVariable('subject_person') ||
                   t('profileLabels.aMissionHubUser'),
               )}`}
             </Text>
           );
         case '<<post_type>>':
-          return <Text key={word}>{t(`${messageVariables.postType}`)}</Text>;
+          return <Text key={word}>{getMessageVariable('post_type')}</Text>;
         case '<<community_name>>':
           return (
             <Text key={word} style={styles.boldedItemText}>
               {`${word.replace(
                 /<<community_name>>/,
-                messageVariables.communityName || '',
+                getMessageVariable('community_name') || '',
               )}`}
             </Text>
           );
@@ -55,10 +64,7 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
       }
     });
   };
-  const iconType =
-    (messageVariables.postType &&
-      mapPostTypeToFeedType(messageVariables.postType)) ||
-    FeedItemSubjectTypeEnum.STORY;
+  const iconType = FeedItemSubjectTypeEnum.STORY;
 
   // const buildReportedMessage = () => (
   //   <>
@@ -68,13 +74,28 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
   // );
 
   const renderText = () => {
-    switch (trigger) {
-      case NotificationTriggerEnum.story_notification:
-      case NotificationTriggerEnum.community_challenge_created_alert:
-      case NotificationTriggerEnum.feed_items_comment_notification:
-        return renderTemplateMessage();
+    if (NotificationTriggerEnum[trigger]) {
+      return renderTemplateMessage();
     }
   };
+
+  const shouldNavigate = () => {
+    return (
+      trigger !== NotificationTriggerEnum.community_challenge_created_alert &&
+      trigger !== NotificationTriggerEnum.feed_items_assigned_to_alert_step
+    );
+  };
+
+  const handleNotificationPress = () => {
+    if (shouldNavigate()) {
+      dispatch(
+        navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+          feedItemId: screenData.feedItemId,
+        }),
+      );
+    }
+  };
+
   return (
     <Flex style={styles.itemContainer} direction="row" justify="between">
       <Flex
@@ -92,7 +113,9 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
           />
         </View>
         <Flex style={{ paddingHorizontal: 20 }}>
-          <Text style={styles.itemText}>{renderText()}</Text>
+          <Text style={styles.itemText} onPress={handleNotificationPress}>
+            {renderText()}
+          </Text>
           <DateComponent
             style={styles.dateText}
             date={createdAt}

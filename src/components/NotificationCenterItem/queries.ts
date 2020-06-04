@@ -11,14 +11,12 @@ export const NOTIFICATION_ITEM_FRAGMENT = gql`
       fullName
       picture
     }
+    screenData {
+      feedItemId
+    }
     messageVariables {
-      challengeName
-      communityCount
-      communityName
-      originalPoster
-      postType
-      subjectPerson
-      user
+      key
+      value
     }
   }
 `;
