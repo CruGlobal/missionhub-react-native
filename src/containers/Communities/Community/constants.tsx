@@ -1,3 +1,4 @@
+import React from 'react';
 import i18next from 'i18next';
 
 import GroupCelebrate, { COMMUNITY_FEED } from '../../Groups/GroupCelebrate';
@@ -9,6 +10,7 @@ import {
   COMMUNITY_IMPACT,
   CommunityImpactTab,
 } from './CommunityImpactTab/CommunityImpactTab';
+import { CommunitiesCollapsibleHeaderContext } from './CommunityHeader/CommunityHeader';
 
 // Moved here to prevent circular dependency
 export const COMMUNITY_TABS = 'nav/COMMUNITY_TABS';
@@ -17,7 +19,11 @@ export const communityTabs = [
   {
     name: i18next.t('communityTabs:feed'),
     navigationAction: COMMUNITY_FEED,
-    component: GroupCelebrate,
+    component: () => (
+      <GroupCelebrate
+        collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+      />
+    ),
   },
   {
     name: i18next.t('communityTabs:challenges'),
@@ -27,6 +33,10 @@ export const communityTabs = [
   {
     name: i18next.t('communityTabs:impact'),
     navigationAction: COMMUNITY_IMPACT,
-    component: CommunityImpactTab,
+    component: () => (
+      <CommunityImpactTab
+        collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+      />
+    ),
   },
 ];

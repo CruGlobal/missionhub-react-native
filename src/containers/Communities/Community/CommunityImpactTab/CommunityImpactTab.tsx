@@ -1,16 +1,25 @@
 import React from 'react';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { CollapsibleViewContent } from '../../../../components/CollapsibleView/CollapsibleView';
-import { CommunitiesCollapsibleHeaderContext } from '../CommunityHeader/CommunityHeader';
+import {
+  CollapsibleViewContent,
+  CollapsibleViewContext,
+} from '../../../../components/CollapsibleView/CollapsibleView';
 import ImpactView from '../../../ImpactView';
 
-export const CommunityImpactTab = () => {
+interface CommunityImpactTabProps {
+  collapsibleHeaderContext: CollapsibleViewContext;
+}
+
+export const CommunityImpactTab = ({
+  collapsibleHeaderContext,
+}: CommunityImpactTabProps) => {
   const communityId: string = useNavigationParam('communityId');
+  const personId: string = useNavigationParam('personId');
 
   return (
-    <CollapsibleViewContent context={CommunitiesCollapsibleHeaderContext}>
-      <ImpactView orgId={communityId} />
+    <CollapsibleViewContent context={collapsibleHeaderContext}>
+      <ImpactView communityId={communityId} personId={personId} />
     </CollapsibleViewContent>
   );
 };
