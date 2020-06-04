@@ -59,9 +59,13 @@ describe('GroupsListScreen', () => {
       },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('communities', {
-      screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'communities',
+      {},
+      {
+        screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+      },
+    );
   });
 
   it('renders with communities', async () => {
@@ -76,9 +80,13 @@ describe('GroupsListScreen', () => {
     snapshot();
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
 
-    expect(useAnalytics).toHaveBeenCalledWith('communities', {
-      screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'communities',
+      {},
+      {
+        screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+      },
+    );
   });
 
   describe('card item press', () => {

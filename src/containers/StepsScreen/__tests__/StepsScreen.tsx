@@ -75,9 +75,13 @@ it('tracks screen change on mount', () => {
     initialState,
   });
 
-  expect(useAnalytics).toHaveBeenCalledWith('steps', {
-    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    'steps',
+    {},
+    {
+      screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+    },
+  );
 });
 
 describe('handleOpenMainMenu', () => {

@@ -81,9 +81,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
       });
     });
@@ -104,9 +108,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
       });
     });
@@ -127,9 +135,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
       });
     });
@@ -158,9 +170,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
       });
     });
@@ -181,9 +197,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
       });
     });
@@ -204,9 +224,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
       });
     });
@@ -235,9 +259,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
       });
     });
@@ -258,9 +286,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
       });
     });
@@ -280,9 +312,13 @@ describe('refresh', () => {
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
-        });
+        expect(useAnalytics).toHaveBeenCalledWith(
+          ['community', 'celebrate'],
+          {},
+          {
+            includePermissionType: true,
+          },
+        );
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
       });
     });

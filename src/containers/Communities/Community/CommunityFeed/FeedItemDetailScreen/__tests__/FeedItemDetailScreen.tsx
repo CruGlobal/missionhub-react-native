@@ -4,10 +4,6 @@ import MockDate from 'mockdate';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../../testUtils';
-import {
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../../../../constants';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
 import { Organization } from '../../../../../../reducers/organizations';
@@ -53,12 +49,14 @@ it('renders loading', () => {
     navParams: { feedItemId },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: '', //'community member',
-      [ANALYTICS_PERMISSION_TYPE]: '', //'member',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['celebrate item', 'comments'],
+    {},
+    {
+      includeAssignmentType: true,
+      includePermissionType: true,
     },
-  });
+  );
   expect(navigateBack).not.toHaveBeenCalled();
 });
 
@@ -72,12 +70,14 @@ it('renders correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: '', //'community member',
-      [ANALYTICS_PERMISSION_TYPE]: '', //'member',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['celebrate item', 'comments'],
+    {},
+    {
+      includeAssignmentType: true,
+      includePermissionType: true,
     },
-  });
+  );
   expect(navigateBack).not.toHaveBeenCalled();
 });
 

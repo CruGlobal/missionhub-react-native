@@ -56,12 +56,14 @@ it('renders correctly', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step detail', 'add step'],
+    {},
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
     },
-  });
+  );
 });
 
 it('renders correctly for me', async () => {
@@ -77,12 +79,14 @@ it('renders correctly for me', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step detail', 'add step'],
+    {},
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
     },
-  });
+  );
 });
 
 it('renders correctly in onboarding', async () => {
@@ -101,12 +105,14 @@ it('renders correctly in onboarding', async () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: 'onboarding',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step detail', 'add step'],
+    {},
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
     },
-  });
+  );
 });
 
 describe('bottomButtonProps', () => {

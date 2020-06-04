@@ -29,13 +29,13 @@ export enum ANALYTICS_SCREEN_TYPES {
   drawer,
 }
 
-interface UseAnalyticsParams {
+export interface UseAnalyticsParams {
   communityId?: string;
   personId?: string;
   isEdit?: boolean;
 }
 
-interface UseAnalyticsOptions {
+export interface UseAnalyticsOptions {
   screenType?: ANALYTICS_SCREEN_TYPES;
   includeAssignmentType?: boolean;
   includeSectionType?: boolean;

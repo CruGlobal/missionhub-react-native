@@ -5,7 +5,6 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { updatePerson } from '../../../actions/person';
-import { ANALYTICS_SECTION_TYPE } from '../../../constants';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { createMyPerson, createPerson } from '../../../actions/onboarding';
@@ -52,9 +51,13 @@ it('renders isMe version correctly', () => {
     initialState: mockState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'self name'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['onboarding', 'self name'],
+    {},
+    {
+      includeSectionType: true,
+    },
+  );
 });
 
 it('renders other person version correctly', () => {
@@ -62,9 +65,13 @@ it('renders other person version correctly', () => {
     initialState: mockState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'contact name'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['onboarding', 'contact name'],
+    {},
+    {
+      includeSectionType: true,
+    },
+  );
 });
 
 describe('setup screen methods', () => {

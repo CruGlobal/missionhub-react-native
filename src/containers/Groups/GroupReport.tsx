@@ -3,23 +3,18 @@ import { FlatList, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
-import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
 import gql from 'graphql-tag';
 
-import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { keyExtractorId } from '../../utils/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
 import Header from '../../components/Header';
 import { IconButton, RefreshControl } from '../../components/common';
 import NullStateComponent from '../../components/NullStateComponent';
 import NULL from '../../../assets/images/curiousIcon.png';
-import { TrackStateContext } from '../../actions/analytics';
 import { navigateBack } from '../../actions/navigation';
 import ReportedItem from '../ReportedItem';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Organization } from '../../reducers/organizations';
-import { AuthState } from '../../reducers/auth';
 import { REPORTED_ITEM_FRAGMENT } from '../ReportedItem/queries';
 
 import {
@@ -47,15 +42,15 @@ export const GET_REPORTED_CONTENT = gql`
   ${REPORTED_ITEM_FRAGMENT}
 `;
 
-interface GroupReportProps {
-  analyticsPermissionType: TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-}
-
-const GroupReport = ({ analyticsPermissionType }: GroupReportProps) => {
+const GroupReport = () => {
   const { t } = useTranslation('groupsReport');
-  useAnalytics(['celebrate', 'reported content'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
-  });
+  useAnalytics(
+    ['celebrate', 'reported content'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
   const dispatch = useDispatch();
   const organization: Organization = useNavigationParam('organization');
   const {
@@ -124,19 +119,5 @@ const GroupReport = ({ analyticsPermissionType }: GroupReportProps) => {
   );
 };
 
-const mapStateToProps = (
-  { auth }: { auth: AuthState },
-  {
-    navigation: {
-      state: {
-        params: { organization },
-      },
-    },
-  }: // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  any,
-) => ({
-  analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
-});
-
-export default connect(mapStateToProps)(GroupReport);
+export default GroupReport;
 export const GROUPS_REPORT_SCREEN = 'nav/GROUPS_REPORT_SCREEN';

@@ -19,7 +19,6 @@ import Header from '../../components/Header';
 import Skip from '../../components/Skip';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { getAnalyticsSectionType } from '../../utils/analytics';
 import {
   trackActionWithoutData,
   TrackStateContext,
@@ -61,15 +60,18 @@ interface SetupScreenProps {
 const SetupScreen = ({
   next,
   isMe,
-  analyticsSection,
   personId,
   loadedFirstName = '',
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
-  useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
-  });
+  useAnalytics(
+    ['onboarding', `${isMe ? 'self' : 'contact'} name`],
+    {},
+    {
+      includeSectionType: true,
+    },
+  );
   const { t } = useTranslation('onboardingCreatePerson');
   const relationshipType: RelationshipTypeEnum = useNavigationParam(
     'relationshipType',
@@ -257,7 +259,6 @@ const mapStateToProps = (
 
   return {
     isMe,
-    analyticsSection: getAnalyticsSectionType(onboarding),
     ...(isMe
       ? {
           loadedFirstName: auth.person.first_name,

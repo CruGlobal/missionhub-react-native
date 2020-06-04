@@ -5,10 +5,6 @@ import i18next from 'i18next';
 import { useQuery } from '@apollo/react-hooks';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import {
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-} from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { STEP_SUGGESTIONS_QUERY } from '../queries';
 import { StepTypeEnum } from '../../../../__generated__/globalTypes';
@@ -52,12 +48,14 @@ describe('loading', () => {
   it('should render correctly', () => {
     screen.snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'add step',
+      {},
+      {
+        includeSectionType: true,
+        includeAssignmentType: true,
       },
-    });
+    );
   });
 
   it('should render for self steps correctly', () => {
@@ -66,12 +64,14 @@ describe('loading', () => {
       navParams: { personId: me.id, orgId, enableSkipButton },
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'add step',
+      {},
+      {
+        includeSectionType: true,
+        includeAssignmentType: true,
       },
-    });
+    );
   });
 
   describe('skip button', () => {
@@ -82,12 +82,14 @@ describe('loading', () => {
     it('should render skip button correctly', () => {
       screen.snapshot();
 
-      expect(useAnalytics).toHaveBeenCalledWith('add step', {
-        screenContext: {
-          [ANALYTICS_SECTION_TYPE]: '',
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+      expect(useAnalytics).toHaveBeenCalledWith(
+        'add step',
+        {},
+        {
+          includeSectionType: true,
+          includeAssignmentType: true,
         },
-      });
+      );
     });
 
     it('should call next when pressed', () => {
@@ -110,12 +112,14 @@ describe('loading', () => {
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'add step',
+      {},
+      {
+        includeSectionType: true,
+        includeAssignmentType: true,
       },
-    });
+    );
 
     i18next.language = originalLanguage;
   });
@@ -127,12 +131,14 @@ describe('loading', () => {
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'add step',
+      {},
+      {
+        includeSectionType: true,
+        includeAssignmentType: true,
       },
-    });
+    );
 
     i18next.language = originalLanguage;
   });
@@ -144,12 +150,14 @@ describe('loading', () => {
     screen.rerender(<SelectStepScreen next={next} />);
     screen.diffSnapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'add step',
+      {},
+      {
+        includeSectionType: true,
+        includeAssignmentType: true,
       },
-    });
+    );
 
     i18next.language = originalLanguage;
   });
@@ -170,12 +178,14 @@ describe('in onboarding', () => {
       initialApolloState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: 'onboarding',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+    expect(useAnalytics).toHaveBeenCalledWith(
+      'add step',
+      {},
+      {
+        includeSectionType: true,
+        includeAssignmentType: true,
       },
-    });
+    );
   });
 });
 

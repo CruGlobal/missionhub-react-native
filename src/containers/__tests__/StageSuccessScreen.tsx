@@ -5,7 +5,6 @@ import { fireEvent } from 'react-native-testing-library';
 import { navigateBack } from '../../actions/navigation';
 import StageSuccessScreen from '../StageSuccessScreen';
 import { renderWithContext } from '../../../testUtils';
-import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 jest.mock('react-native-device-info');
@@ -43,7 +42,8 @@ it('renders correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['onboarding', 'stage confirmation'],
-    { screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' } },
+    {},
+    { includeSectionType: true },
   );
 });
 

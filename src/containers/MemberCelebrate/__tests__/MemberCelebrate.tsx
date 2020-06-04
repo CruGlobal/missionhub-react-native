@@ -37,9 +37,13 @@ describe('MemberCelebrate', () => {
       },
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'celebrate'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['person', 'celebrate'],
+      {},
+      {
+        includeAssignmentType: true,
+      },
+    );
   });
 
   it('renders correctly for me', () => {
@@ -50,9 +54,13 @@ describe('MemberCelebrate', () => {
       },
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'celebrate'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['person', 'celebrate'],
+      {},
+      {
+        includeAssignmentType: true,
+      },
+    );
   });
 
   it('renders correctly for owner', () => {
@@ -80,8 +88,12 @@ describe('MemberCelebrate', () => {
       },
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'celebrate'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['person', 'celebrate'],
+      {},
+      {
+        includeAssignmentType: true,
+      },
+    );
   });
 });

@@ -2,7 +2,6 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
 import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
@@ -84,9 +83,11 @@ it('should render correctly without description and without reminder for me', as
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step detail', 'active step'],
+    {},
+    { includeAssignmentType: true },
+  );
 });
 
 it('should render correctly without description and without reminder for other', async () => {
@@ -104,9 +105,13 @@ it('should render correctly without description and without reminder for other',
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step detail', 'active step'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('should render correctly post details', async () => {
@@ -128,9 +133,13 @@ it('should render correctly post details', async () => {
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'active step'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step detail', 'active step'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
+  );
 });
 
 describe('with description, without reminder', () => {

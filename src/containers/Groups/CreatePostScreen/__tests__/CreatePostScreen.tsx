@@ -2,12 +2,7 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
-import {
-  ACTIONS,
-  ORG_PERMISSIONS,
-  ANALYTICS_PERMISSION_TYPE,
-  ANALYTICS_EDIT_MODE,
-} from '../../../../constants';
+import { ACTIONS, ORG_PERMISSIONS } from '../../../../constants';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import { trackActionWithoutData } from '../../../../actions/analytics';
 import { renderWithContext } from '../../../../../testUtils';
@@ -63,12 +58,14 @@ it('renders correctly for new post', () => {
     navParams: { communityId, postType },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'owner',
-      [ANALYTICS_EDIT_MODE]: 'set',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['post', 'prayer request'],
+    {},
+    {
+      includePermissionType: true,
+      includeEditMode: true,
     },
-  });
+  );
 });
 
 it('renders correctly for update post', () => {
@@ -80,12 +77,14 @@ it('renders correctly for update post', () => {
     },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'owner',
-      [ANALYTICS_EDIT_MODE]: 'update',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['post', 'prayer request'],
+    {},
+    {
+      includePermissionType: true,
+      includeEditMode: true,
     },
-  });
+  );
 });
 
 it('renders correctly on android', () => {

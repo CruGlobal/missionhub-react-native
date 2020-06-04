@@ -40,9 +40,13 @@ export const PeopleScreen = ({
   hasNoContacts,
   person,
 }: PeopleScreenProps) => {
-  useAnalytics('people', {
-    screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-  });
+  useAnalytics(
+    'people',
+    {},
+    {
+      screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+    },
+  );
   const { t } = useTranslation('peopleScreen');
 
   const onOpenMainMenu = () => dispatch(openMainMenu());

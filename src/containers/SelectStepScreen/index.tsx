@@ -2,21 +2,13 @@
 
 import React, { useState, useCallback } from 'react';
 import { SafeAreaView, View, FlatList } from 'react-native';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
 import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 
-import {
-  getAnalyticsSectionType,
-  getAnalyticsAssignmentType,
-} from '../../utils/analytics';
-import {
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-} from '../../constants';
 import {
   Text,
   Touchable,
@@ -29,8 +21,6 @@ import Skip from '../../components/Skip';
 import theme from '../../theme';
 import Header from '../../components/Header';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { AuthState } from '../../reducers/auth';
-import { OnboardingState } from '../../reducers/onboarding';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import SelectStepExplainerModal from '../../components/SelectStepExplainerModal';
 import InfoIcon from '../../../assets/images/infoIcon.svg';
@@ -93,19 +83,15 @@ const SelectStepScreen = ({ next }: SelectStepScreenProps) => {
   const [isExplainerOpen, setIsExplainerOpen] = useState(
     !isMe && !viewedData?.viewedState.stepExplainerModal,
   );
-  const analyticsSection = useSelector(
-    ({ onboarding }: { onboarding: OnboardingState }) =>
-      getAnalyticsSectionType(onboarding),
-  );
-  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsAssignmentType({ id: personId }, auth),
-  );
-  useAnalytics('add step', {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: analyticsSection,
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+
+  useAnalytics(
+    'add step',
+    {},
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
     },
-  });
+  );
 
   const enableStepTypeFilters =
     !isMe &&

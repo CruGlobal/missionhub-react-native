@@ -2,7 +2,6 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
@@ -15,50 +14,45 @@ const next = jest.fn();
 const back = jest.fn();
 const nextResult = { type: 'next' };
 
-const initialState = { onboarding: { currentlyOnboarding: true } };
-
 beforeEach(() => {
   (next as jest.Mock).mockReturnValue(nextResult);
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 
 it('renders correctly', () => {
-  renderWithContext(<AddSomeoneScreen next={next} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(<AddSomeoneScreen next={next} />).snapshot();
 });
 
 it('renders without skip button correctly', () => {
-  renderWithContext(<AddSomeoneScreen next={next} hideSkipBtn={true} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(
+    <AddSomeoneScreen next={next} hideSkipBtn={true} />,
+  ).snapshot();
 });
 
 it('renders without back button correctly', () => {
   (useLogoutOnBack as jest.Mock).mockReturnValue(null);
 
-  renderWithContext(<AddSomeoneScreen next={next} enableBackButton={false} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(
+    <AddSomeoneScreen next={next} enableBackButton={false} />,
+  ).snapshot();
 });
 
 it('tracks screen change on mount', () => {
-  renderWithContext(<AddSomeoneScreen next={next} />, {
-    initialState,
-  });
+  renderWithContext(<AddSomeoneScreen next={next} />);
 
-  expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'add someone'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['onboarding', 'add someone'],
+    {},
+    {
+      includeSectionType: true,
+    },
+  );
 });
 
 describe('onComplete', () => {
   it('calls next', () => {
     const { getByTestId, store } = renderWithContext(
       <AddSomeoneScreen next={next} />,
-      {
-        initialState,
-      },
     );
 
     fireEvent.press(getByTestId('bottomButton'));
@@ -72,9 +66,6 @@ describe('onSkip prop', () => {
   it('calls next', () => {
     const { getByTestId, store } = renderWithContext(
       <AddSomeoneScreen next={next} />,
-      {
-        initialState,
-      },
     );
 
     fireEvent.press(getByTestId('skipButton'));
@@ -89,9 +80,6 @@ describe('onBack prop', () => {
     it('calls callback from useLogoutOnBack', () => {
       const { getByTestId } = renderWithContext(
         <AddSomeoneScreen next={next} />,
-        {
-          initialState,
-        },
       );
 
       fireEvent.press(getByTestId('DeprecatedBackButton'));
@@ -105,9 +93,6 @@ describe('onBack prop', () => {
     it('calls callback from useLogoutOnBack', () => {
       const { getByTestId } = renderWithContext(
         <AddSomeoneScreen next={next} logoutOnBack={true} />,
-        {
-          initialState,
-        },
       );
 
       fireEvent.press(getByTestId('DeprecatedBackButton'));

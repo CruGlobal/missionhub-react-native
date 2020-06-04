@@ -6,8 +6,6 @@ import { useNavigationParam } from 'react-navigation-hooks';
 
 import Header from '../../components/Header';
 import { Button } from '../../components/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
-import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
@@ -34,13 +32,14 @@ const GroupUnreadFeed = () => {
   );
 
   const count = (selectorOrg.unread_comments_count || 0) as number;
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, selectorOrg),
-  );
 
-  useAnalytics(['celebrate', 'new comment items'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
-  });
+  useAnalytics(
+    ['celebrate', 'new comment items'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 
   const back = () => dispatch(navigateBack());
 

@@ -45,9 +45,13 @@ describe('contact notes', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['person', 'my notes'],
+      {},
+      {
+        includeAssignmentType: true,
+      },
+    );
   });
 
   it('icon and prompt are shown if no notes as me', () => {
@@ -55,9 +59,13 @@ describe('contact notes', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['person', 'my notes'],
+      {},
+      {
+        includeAssignmentType: true,
+      },
+    );
   });
 
   it('icon and prompt are shown if no notes as community member', () => {
@@ -90,9 +98,13 @@ describe('contact notes', () => {
 
     snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['person', 'my notes'],
+      {},
+      {
+        includeAssignmentType: true,
+      },
+    );
     expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
   });
 

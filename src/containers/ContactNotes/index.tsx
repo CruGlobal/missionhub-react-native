@@ -8,17 +8,13 @@ import { AnyAction } from 'redux';
 import { useIsFocused } from 'react-navigation-hooks';
 
 import { Text, Input } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/analytics';
-import { TrackStateContext } from '../../actions/analytics';
 import { savePersonNote, getPersonNote } from '../../actions/person';
 import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
-import { Organization } from '../../reducers/organizations';
 import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
@@ -27,18 +23,16 @@ export interface ContactNotesProps {
   person: Person;
   myPersonId: string;
   myUserId: string;
-  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
 }
 
-const ContactNotes = ({
-  person,
-  myPersonId,
-  myUserId,
-  analyticsAssignmentType,
-}: ContactNotesProps) => {
-  useAnalytics(['person', 'my notes'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
-  });
+const ContactNotes = ({ person, myPersonId, myUserId }: ContactNotesProps) => {
+  useAnalytics(
+    ['person', 'my notes'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
+  );
   const { t } = useTranslation('notes');
   const dispatch = useDispatch<ThunkDispatch<{}, {}, AnyAction>>();
   const [text, setText] = useState<string | undefined>(undefined);
@@ -143,17 +137,9 @@ const ContactNotes = ({
   );
 };
 
-const mapStateToProps = (
-  { auth }: { auth: AuthState },
-  { person, organization }: { person: Person; organization?: Organization },
-) => ({
+const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
   myPersonId: auth.person.id,
   myUserId: auth.person.user.id,
-  analyticsAssignmentType: getAnalyticsAssignmentType(
-    person,
-    auth,
-    organization,
-  ),
 });
 
 export default connect(mapStateToProps)(ContactNotes);

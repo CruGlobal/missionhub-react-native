@@ -8,9 +8,7 @@ import { FetchMoreOptions } from 'apollo-client';
 import { Button, RefreshControl, Text } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import NULL from '../../../assets/images/footprints.png';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { keyExtractorId } from '../../utils/common';
-import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import { promptToAssign } from '../../utils/prompt';
 import { contactAssignmentSelector } from '../../selectors/people';
 import {
@@ -39,12 +37,13 @@ interface ContactStepsProps {
 }
 
 const ContactSteps = ({ person }: ContactStepsProps) => {
-  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsAssignmentType(person, auth),
+  useAnalytics(
+    ['person', 'my steps'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
   );
-  useAnalytics(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
-  });
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
   const dispatch = useDispatch();

@@ -3,15 +3,10 @@ import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import {
-  ACTIONS,
-  ANALYTICS_PERMISSION_TYPE,
-  ANALYTICS_EDIT_MODE,
-} from '../../../constants';
+import { ACTIONS } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
-import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
@@ -20,12 +15,8 @@ import ImagePicker, {
 import PostTypeLabel from '../../../components/PostTypeLabel';
 import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
-import { AuthState } from '../../../reducers/auth';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import {
-  trackActionWithoutData,
-  TrackStateContext,
-} from '../../../actions/analytics';
+import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
@@ -42,8 +33,6 @@ import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
-
-type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
 interface CreatePostScreenParams {
   onComplete: () => void;
@@ -97,16 +86,14 @@ export const CreatePostScreen = () => {
   );
   const [imageHeight, changeImageHeight] = useState<number>(0);
 
-  const analyticsPermissionType = useSelector<
-    { auth: AuthState },
-    permissionType
-  >(({ auth }) => getAnalyticsPermissionType(auth, { id: communityId }));
-  useAnalytics(['post', getPostTypeAnalytics(postType)], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-      [ANALYTICS_EDIT_MODE]: post ? 'update' : 'set',
+  useAnalytics(
+    ['post', getPostTypeAnalytics(postType)],
+    {},
+    {
+      includePermissionType: true,
+      includeEditMode: true,
     },
-  });
+  );
 
   const [createPost, { error: errorCreatePost }] = useMutation<
     CreatePost,

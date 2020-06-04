@@ -9,8 +9,6 @@ import {
   EDIT_JOURNEY_ITEM,
   CREATE_STEP,
   STEP_NOTE,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -83,10 +81,8 @@ it('renders create step correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 
@@ -105,10 +101,8 @@ it('renders create step in onboarding correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: 'onboarding',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 
@@ -119,10 +113,8 @@ it('renders edit journey step correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 
@@ -133,10 +125,8 @@ it('renders edit journey step for me correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 
@@ -147,10 +137,8 @@ it('renders edit journey item correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 
@@ -161,10 +149,8 @@ it('renders edit journey item for me correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 
@@ -175,10 +161,8 @@ it('renders step note correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 
@@ -189,10 +173,8 @@ it('renders step note correctly for me', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-    },
+    includeSectionType: true,
+    includeAssignmentType: true,
   });
 });
 

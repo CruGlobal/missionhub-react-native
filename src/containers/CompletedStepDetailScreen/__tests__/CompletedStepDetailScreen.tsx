@@ -2,7 +2,6 @@ import React from 'react';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import CompletedStepDetailScreen from '..';
@@ -21,11 +20,13 @@ it('renders loading state correctly', () => {
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'completed step'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step detail', 'completed step'],
+    {},
+    {
+      includeAssignmentType: true,
     },
-  });
+  );
 });
 
 describe('with challenge suggestion', () => {
@@ -40,10 +41,9 @@ describe('with challenge suggestion', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['step detail', 'completed step'],
+      {},
       {
-        screenContext: {
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-        },
+        includeAssignmentType: true,
       },
     );
   });
@@ -61,7 +61,8 @@ describe('without challenge suggestion', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['step detail', 'completed step'],
-      { screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' } },
+      {},
+      { includeAssignmentType: true },
     );
   });
 });

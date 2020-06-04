@@ -1,7 +1,7 @@
 /* eslint complexity: 0 */
 
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { StatusBar, Keyboard, Alert, View, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
@@ -15,15 +15,11 @@ import {
   EDIT_JOURNEY_ITEM,
   STEP_NOTE,
   CREATE_STEP,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
-import { AuthState } from '../../reducers/auth';
-import { OnboardingState } from '../../reducers/onboarding';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
@@ -32,10 +28,6 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
 import { PERSON_STEPS_QUERY } from '../ContactSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
-import {
-  getAnalyticsSectionType,
-  getAnalyticsAssignmentType,
-} from '../../utils/analytics';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { isAndroid } from '../../utils/common';
 
@@ -92,19 +84,15 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
       : 'our journey'
     : '';
   const screenSubsection = isEdit ? 'edit' : 'add';
-  const analyticsSection = useSelector(
-    ({ onboarding }: { onboarding: OnboardingState }) =>
-      getAnalyticsSectionType(onboarding),
-  );
-  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsAssignmentType({ id: personId }, auth),
-  );
-  useAnalytics([screenSection, screenSubsection], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: analyticsSection,
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+
+  useAnalytics(
+    [screenSection, screenSubsection],
+    {},
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
     },
-  });
+  );
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
 

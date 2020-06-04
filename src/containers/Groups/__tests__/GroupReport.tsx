@@ -2,7 +2,7 @@ import React from 'react';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
-import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import GroupReport from '../GroupReport';
 import { renderWithContext } from '../../../../testUtils';
@@ -64,9 +64,13 @@ it('should render correctly', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['celebrate', 'reported content'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
   expect(queryByText('No items have been reported.')).not.toBeTruthy();
   snapshot();
 });
@@ -87,9 +91,13 @@ it('should render empty correctly', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['celebrate', 'reported content'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
   expect(queryByText('No items have been reported.')).toBeTruthy();
   snapshot();
 });
@@ -113,9 +121,13 @@ it('should call navigate back', async () => {
   );
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['celebrate', 'reported content'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
   expect(queryByText('No comments have been reported.')).not.toBeTruthy();
   await fireEvent.press(getByTestId('closeButton'));
   snapshot();
@@ -142,9 +154,13 @@ it('should refresh correctly', async () => {
   );
 
   await flushMicrotasksQueue();
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate', 'reported content'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['celebrate', 'reported content'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
   expect(queryByText('No comments have been reported.')).not.toBeTruthy();
   await fireEvent.press(getAllByTestId('ignoreButton')[0]);
   expect(useMutation).toHaveBeenCalled();

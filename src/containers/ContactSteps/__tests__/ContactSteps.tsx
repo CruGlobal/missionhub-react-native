@@ -81,9 +81,13 @@ it('renders correctly when no steps', () => {
     initialState,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['person', 'my steps'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders correctly when me and no steps', () => {
@@ -95,9 +99,13 @@ it('renders correctly when me and no steps', () => {
   );
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['person', 'my steps'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
+  );
   expect(getByText('Your Steps of Faith will appear here.')).toBeTruthy();
 });
 
@@ -116,9 +124,13 @@ it('renders correctly with steps', async () => {
     },
   });
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['person', 'my steps'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
+  );
 
   await flushMicrotasksQueue();
 
@@ -147,9 +159,13 @@ it('should paginate', async () => {
 
   recordSnapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['person', 'my steps'],
+    {},
+    {
+      includeAssignmentType: true,
+    },
+  );
 
   fireEvent(getByType(SectionList), 'onEndReached');
 

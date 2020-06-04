@@ -5,20 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { getImpactSummary } from '../../actions/impact';
 import { Flex, Text } from '../../components/common';
-import {
-  GLOBAL_COMMUNITY_ID,
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../constants';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
 import OnboardingCard, {
   GROUP_ONBOARDING_TYPES,
 } from '../Groups/OnboardingCard';
-import {
-  getAnalyticsAssignmentType,
-  getAnalyticsPermissionType,
-} from '../../utils/analytics';
 import { Person } from '../../reducers/people';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
 import { RootState } from '../../reducers';
@@ -58,24 +50,20 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
     impactSummarySelector(state, {}),
   );
 
-  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-    person.id ? getAnalyticsAssignmentType(person, auth, organization) : '',
-  );
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    !person.id ? getAnalyticsPermissionType(auth, organization) : '',
-  );
   const screenSection = isOrgImpact ? 'community' : 'person';
   const screenSubsection = isOrgImpact
     ? 'impact'
     : isMe && !isPersonalMinistryMe
     ? 'my impact'
     : 'impact';
-  useAnalytics([screenSection, screenSubsection], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+  useAnalytics(
+    [screenSection, screenSubsection],
+    {},
+    {
+      includeAssignmentType: true,
+      includePermissionType: true,
     },
-  });
+  );
 
   useEffect(() => {
     // We don't scope summary sentence by org unless we are only scoping by org (person is not specified)

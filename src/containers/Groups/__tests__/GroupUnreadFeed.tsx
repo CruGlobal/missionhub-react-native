@@ -59,8 +59,9 @@ it('should render items correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['celebrate', 'new comment items'],
+    {},
     {
-      screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+      includePermissionType: true,
     },
   );
 });

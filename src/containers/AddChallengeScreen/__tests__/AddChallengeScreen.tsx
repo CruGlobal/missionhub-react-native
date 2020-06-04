@@ -6,7 +6,7 @@ import moment from 'moment';
 import { fireEvent } from 'react-native-testing-library';
 
 import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
@@ -15,8 +15,6 @@ import AddChallengeScreen from '..';
 
 const mockDate = '2020-02-13';
 MockDate.set(mockDate);
-
-const organization = { id: '7' };
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../selectors/people');
@@ -29,12 +27,6 @@ const editChallenge = {
 };
 const onComplete = jest.fn();
 
-const initialState = {
-  auth: {
-    person: { id: '111' },
-  },
-};
-
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue({
@@ -45,24 +37,24 @@ beforeEach(() => {
 
 it('renders correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
-    initialState,
     navParams: {
-      organization,
       onComplete,
       isEdit: false,
     },
   }).snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'create'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['challenge', 'create'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 });
 
 it('renders correctly on android', () => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
   renderWithContext(<AddChallengeScreen />, {
-    initialState,
     navParams: {
-      organization,
       onComplete,
       isEdit: false,
     },
@@ -71,16 +63,14 @@ it('renders correctly on android', () => {
 
 it('renders edit challenge correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
-    initialState,
     navParams: {
-      organization,
       onComplete,
       challenge: editChallenge,
       isEdit: true,
     },
   }).snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'edit'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    includePermissionType: true,
   });
 });
 
@@ -89,9 +79,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -105,9 +93,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -122,9 +108,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -140,9 +124,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -158,9 +140,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -178,9 +158,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -199,9 +177,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -217,9 +193,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -237,8 +211,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
-        navParams: { organization, onComplete, isEdit: false },
+        navParams: { onComplete, isEdit: false },
       },
     );
     recordSnapshot();
@@ -262,9 +235,7 @@ describe('create methods', () => {
     const { getByTestId, snapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: false,
         },
@@ -293,9 +264,7 @@ describe('edit methods', () => {
     const { getByTestId, snapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },
@@ -311,9 +280,7 @@ describe('edit methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },
@@ -331,9 +298,7 @@ describe('edit methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        initialState,
         navParams: {
-          organization,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },

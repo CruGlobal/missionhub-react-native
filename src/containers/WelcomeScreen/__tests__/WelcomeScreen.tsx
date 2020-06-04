@@ -40,9 +40,13 @@ describe('WelcomeScreen', () => {
       initialState,
     }).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome'], {
-      screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['onboarding', 'welcome'],
+      {},
+      {
+        includeSectionType: true,
+      },
+    );
   });
 
   it('should render correctly with sign in button', () => {
@@ -51,9 +55,13 @@ describe('WelcomeScreen', () => {
       allowSignInVariantConfig,
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'welcome'], {
-      screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['onboarding', 'welcome'],
+      {},
+      {
+        includeSectionType: true,
+      },
+    );
   });
 
   it('getStarted btn should call next', () => {

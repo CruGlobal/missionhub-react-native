@@ -1,18 +1,15 @@
 import React from 'react';
 import { View, Modal, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
   PostLabelSizeEnum,
 } from '../../../components/PostTypeLabel';
 import LineIcon from '../../../../assets/images/lineIcon.svg';
-import { AuthState } from '../../../reducers/auth';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
-import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import CloseButton from '../../../components/CloseButton';
@@ -44,15 +41,14 @@ const CreatePostModal = ({
   } = styles;
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
-  const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
 
-  useAnalytics(['post', 'choose type'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(auth, {
-        id: communityId,
-      }),
+  useAnalytics(
+    ['post', 'choose type'],
+    {},
+    {
+      includePermissionType: true,
     },
-  });
+  );
 
   const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
     closeModal();

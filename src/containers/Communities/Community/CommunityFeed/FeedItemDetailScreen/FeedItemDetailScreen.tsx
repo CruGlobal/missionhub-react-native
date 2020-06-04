@@ -13,14 +13,6 @@ import {
   Text,
   Separator,
 } from '../../../../../components/common';
-import {
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../../../constants';
-// import {
-//   getAnalyticsAssignmentType,
-//   getAnalyticsPermissionType,
-// } from '../../../../../utils/analytics';
 import { useKeyboardListeners } from '../../../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import BackButton from '../../../../../components/BackButton';
@@ -43,18 +35,14 @@ import {
 const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
 
-  // const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-  //   getAnalyticsAssignmentType(subjectPerson, auth, organization),
-  // );
-  // const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-  //   getAnalyticsPermissionType(auth, organization),
-  // );
-  useAnalytics(['celebrate item', 'comments'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: '', //analyticsAssignmentType,
-      [ANALYTICS_PERMISSION_TYPE]: '', // analyticsPermissionType,
+  useAnalytics(
+    ['celebrate item', 'comments'],
+    {},
+    {
+      includeAssignmentType: true,
+      includePermissionType: true,
     },
-  });
+  );
 
   const feedItemId: string = useNavigationParam('feedItemId');
 

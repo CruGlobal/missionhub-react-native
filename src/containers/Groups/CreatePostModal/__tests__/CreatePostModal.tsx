@@ -2,7 +2,6 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
 import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
@@ -40,9 +39,13 @@ it('renders correctly', async () => {
   });
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(
+    ['post', 'choose type'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 });
 
 it('renders correctly for admin', async () => {
@@ -53,9 +56,13 @@ it('renders correctly for admin', async () => {
   );
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(
+    ['post', 'choose type'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 });
 
 it('renders correctly for owner', async () => {
@@ -66,9 +73,13 @@ it('renders correctly for owner', async () => {
   );
   await flushMicrotasksQueue();
   snapshot();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(
+    ['post', 'choose type'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 });
 
 it('fires onPress and navigates | member', async () => {
@@ -83,9 +94,13 @@ it('fires onPress and navigates | member', async () => {
     communityId: mockCommunityId,
     postType: PostTypeEnum.story,
   });
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(
+    ['post', 'choose type'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 });
 
 it('fires onPress and navigates | owner', async () => {
@@ -102,9 +117,13 @@ it('fires onPress and navigates | owner', async () => {
     communityId: mockCommunityId,
     postType: PostTypeEnum.announcement,
   });
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(
+    ['post', 'choose type'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 });
 
 it('closes modal when close button is pressed', async () => {
@@ -115,7 +134,11 @@ it('closes modal when close button is pressed', async () => {
 
   fireEvent.press(getByTestId('CloseButton'));
   expect(closeModal).toHaveBeenCalledWith();
-  expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
-  });
+  expect(useAnalytics).toHaveBeenLastCalledWith(
+    ['post', 'choose type'],
+    {},
+    {
+      includePermissionType: true,
+    },
+  );
 });
