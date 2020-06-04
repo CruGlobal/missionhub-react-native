@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<RCTScrollView
+  scrollEventThrottle={0.0001}
+>
+  <View>
+    <ImpactView
+      communityId="1"
+      personId="2"
+    />
+  </View>
+</RCTScrollView>
+`;
