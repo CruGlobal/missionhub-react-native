@@ -17,6 +17,11 @@ it('renders loading state correctly', () => {
   const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
     initialState: { auth },
     navParams: { stepId },
+    mocks: {
+      Step: () => ({
+        post: () => null,
+      }),
+    },
   });
 
   snapshot();
@@ -33,6 +38,11 @@ describe('with challenge suggestion', () => {
     const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
       initialState: { auth },
       navParams: { stepId },
+      mocks: {
+        Step: () => ({
+          post: () => null,
+        }),
+      },
     });
 
     await flushMicrotasksQueue();
@@ -51,6 +61,48 @@ describe('with challenge suggestion', () => {
 
 describe('without challenge suggestion', () => {
   it('renders correctly', async () => {
+    const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
+      initialState: { auth },
+      navParams: { stepId },
+      mocks: {
+        Step: () => ({
+          post: () => null,
+        }),
+      },
+    });
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['step detail', 'completed step'],
+      { screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' } },
+    );
+  });
+});
+
+describe('post', () => {
+  it('renders without post', async () => {
+    const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
+      initialState: { auth },
+      navParams: { stepId },
+      mocks: {
+        Step: () => ({
+          post: () => null,
+        }),
+      },
+    });
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['step detail', 'completed step'],
+      { screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' } },
+    );
+  });
+
+  it('renders with post', async () => {
     const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
       initialState: { auth },
       navParams: { stepId },
