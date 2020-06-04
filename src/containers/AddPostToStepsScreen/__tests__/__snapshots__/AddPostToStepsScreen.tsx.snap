@@ -329,9 +329,10 @@ exports[`should render correctly | Care Step 1`] = `
                 }
                 testID="Text"
               >
-                Mar 5 @ 3:36 AM
+                Jul 31 @ 4:52 PM
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -347,6 +348,7 @@ exports[`should render correctly | Care Step 1`] = `
                     },
                   ]
                 }
+                testID="openPostButton"
               >
                 Open Post
               </Text>
@@ -380,7 +382,7 @@ exports[`should render correctly | Care Step 1`] = `
               ]
             }
           >
-            ut sunt qui
+            qui amet iure
           </Text>
         </View>
       </View>
@@ -396,7 +398,7 @@ exports[`should render correctly | Care Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "iure ut libero",
+              "uri": "libero qui recusandae",
             }
           }
           style={
@@ -801,9 +803,10 @@ exports[`should render correctly | Pray Step 1`] = `
                 }
                 testID="Text"
               >
-                Mar 5 @ 3:36 AM
+                Jul 31 @ 4:52 PM
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -819,6 +822,7 @@ exports[`should render correctly | Pray Step 1`] = `
                     },
                   ]
                 }
+                testID="openPostButton"
               >
                 Open Post
               </Text>
@@ -852,7 +856,7 @@ exports[`should render correctly | Pray Step 1`] = `
               ]
             }
           >
-            ut sunt qui
+            qui amet iure
           </Text>
         </View>
       </View>
@@ -868,7 +872,7 @@ exports[`should render correctly | Pray Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "iure ut libero",
+              "uri": "libero qui recusandae",
             }
           }
           style={
@@ -1274,9 +1278,10 @@ exports[`should render correctly | Share Step 1`] = `
                 }
                 testID="Text"
               >
-                Mar 5 @ 3:36 AM
+                Jul 31 @ 4:52 PM
               </Text>
               <Text
+                onPress={[Function]}
                 style={
                   Array [
                     Object {
@@ -1292,6 +1297,7 @@ exports[`should render correctly | Share Step 1`] = `
                     },
                   ]
                 }
+                testID="openPostButton"
               >
                 Open Post
               </Text>
@@ -1325,7 +1331,7 @@ exports[`should render correctly | Share Step 1`] = `
               ]
             }
           >
-            ut sunt qui
+            qui amet iure
           </Text>
         </View>
       </View>
@@ -1341,7 +1347,7 @@ exports[`should render correctly | Share Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "iure ut libero",
+              "uri": "libero qui recusandae",
             }
           }
           style={
