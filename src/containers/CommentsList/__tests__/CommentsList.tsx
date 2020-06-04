@@ -169,11 +169,11 @@ describe('with comments', () => {
       it('creates array', () => {
         testActionArray([
           {
-            text: i18n.t('commentsList:editPost'),
+            text: i18n.t('commentsList:editComment'),
             onPress: expect.any(Function),
           },
           {
-            text: i18n.t('commentsList:deletePost'),
+            text: i18n.t('commentsList:deleteComment'),
             onPress: expect.any(Function),
             destructive: true,
           },
@@ -200,7 +200,7 @@ describe('with comments', () => {
           },
         );
         expect(Alert.alert).toHaveBeenCalledWith(
-          i18n.t('commentsList:deletePostHeader'),
+          i18n.t('commentsList:deleteCommentHeader'),
           i18n.t('commentsList:deleteAreYouSure'),
           [
             {
@@ -208,7 +208,7 @@ describe('with comments', () => {
               style: 'cancel',
             },
             {
-              text: i18n.t('commentsList:deletePost'),
+              text: i18n.t('commentsList:deleteComment'),
               onPress: expect.any(Function),
             },
           ],
@@ -224,7 +224,7 @@ describe('with comments', () => {
       it('creates array', () => {
         testActionArray([
           {
-            text: i18n.t('commentsList:deletePost'),
+            text: i18n.t('commentsList:deleteComment'),
             onPress: expect.any(Function),
             destructive: true,
           },
@@ -246,7 +246,7 @@ describe('with comments', () => {
           },
         );
         expect(Alert.alert).toHaveBeenCalledWith(
-          i18n.t('commentsList:deletePostHeader'),
+          i18n.t('commentsList:deleteCommentHeader'),
           i18n.t('commentsList:deleteAreYouSure'),
           [
             {
@@ -254,7 +254,7 @@ describe('with comments', () => {
               style: 'cancel',
             },
             {
-              text: i18n.t('commentsList:deletePost'),
+              text: i18n.t('commentsList:deleteComment'),
               onPress: expect.any(Function),
             },
           ],
@@ -299,7 +299,7 @@ describe('with comments', () => {
               style: 'cancel',
             },
             {
-              text: i18n.t('commentsList:reportPost'),
+              text: i18n.t('commentsList:reportComment'),
               onPress: expect.any(Function),
             },
           ],
