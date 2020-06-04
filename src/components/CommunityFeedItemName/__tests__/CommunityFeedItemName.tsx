@@ -3,47 +3,72 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { CommunityFeedItemName } from '../index';
 import { renderWithContext } from '../../../../testUtils';
-import { navToPersonScreen } from '../../../actions/person';
+import { COMMUNITY_MEMBER_TABS } from '../../../containers/Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
+import { navigatePush } from '../../../actions/navigation';
 
-jest.mock('../../../actions/person');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/people');
 
 const name = 'Test Person';
 const personId = '1';
+const communityId = '2';
 
-const navToPersonScreenResult = { type: 'navigated to person screen' };
+const navigatePushResult = { type: 'navigatePush' };
 
 beforeEach(() => {
-  (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
 });
 
 it('renders correctly without name', () => {
   renderWithContext(
-    <CommunityFeedItemName name={null} personId={personId} pressable={true} />,
+    <CommunityFeedItemName
+      name={null}
+      personId={personId}
+      communityId={communityId}
+      pressable={true}
+    />,
   ).snapshot();
 });
 
 it('renders correctly with name', () => {
   renderWithContext(
-    <CommunityFeedItemName name={name} personId={personId} pressable={true} />,
+    <CommunityFeedItemName
+      name={name}
+      personId={personId}
+      communityId={communityId}
+      pressable={true}
+    />,
   ).snapshot();
 });
 
 it('renders correctly not pressable', () => {
   renderWithContext(
-    <CommunityFeedItemName name={name} personId={personId} pressable={false} />,
+    <CommunityFeedItemName
+      name={name}
+      personId={personId}
+      communityId={communityId}
+      pressable={false}
+    />,
   ).snapshot();
 });
 
 it('navigates to person screen', () => {
   const { store, getByTestId } = renderWithContext(
-    <CommunityFeedItemName name={name} personId={personId} pressable={true} />,
+    <CommunityFeedItemName
+      name={name}
+      personId={personId}
+      communityId={communityId}
+      pressable={true}
+    />,
   );
 
   fireEvent.press(getByTestId('NameButton'));
 
-  expect(navToPersonScreen).toHaveBeenCalledWith(personId);
-  expect(store.getActions()).toEqual([navToPersonScreenResult]);
+  expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_MEMBER_TABS, {
+    personId,
+    communityId,
+  });
+  expect(store.getActions()).toEqual([navigatePushResult]);
 });
 
 it('does not navigate if not apart of community', () => {
@@ -53,6 +78,6 @@ it('does not navigate if not apart of community', () => {
 
   fireEvent.press(getByTestId('NameButton'));
 
-  expect(navToPersonScreen).not.toHaveBeenCalled();
+  expect(navigatePush).not.toHaveBeenCalled();
   expect(store.getActions()).toEqual([]);
 });

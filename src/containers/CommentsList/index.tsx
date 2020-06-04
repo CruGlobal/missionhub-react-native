@@ -112,9 +112,9 @@ const CommentsList = ({
 
   const handleDelete = (comment: FeedItemCommentItem) => {
     alert({
-      title: 'deletePostHeader',
+      title: 'deleteCommentHeader',
       message: 'deleteAreYouSure',
-      actionText: 'deletePost',
+      actionText: 'deleteComment',
       action: () => deleteComment({ variables: { id: comment.id } }),
     });
   };
@@ -128,7 +128,7 @@ const CommentsList = ({
     alert({
       title: 'reportToOwnerHeader',
       message: 'reportAreYouSure',
-      actionText: 'reportPost',
+      actionText: 'reportComment',
       action: () => reportComment({ variables: { id: comment.id } }),
     });
   };
@@ -141,14 +141,14 @@ const CommentsList = ({
     }[] = [];
 
     const deleteAction = {
-      text: t('deletePost'),
+      text: t('deleteComment'),
       onPress: () => handleDelete(comment),
       destructive: true,
     };
 
     if (myId === comment.person.id) {
       actions.push({
-        text: t('editPost'),
+        text: t('editComment'),
         onPress: () => setEditingCommentId(comment.id),
       });
       actions.push(deleteAction);

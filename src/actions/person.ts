@@ -4,7 +4,7 @@ import { AnyAction } from 'redux';
 
 import {
   ME_PERSONAL_PERSON_SCREEN,
-  MEMBER_PERSON_SCREEN,
+  CONTACT_PERSON_SCREEN,
 } from '../containers/Groups/AssignedPersonScreen/constants';
 import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
 import {
@@ -485,7 +485,7 @@ export function getPersonScreenRoute(
   }
 
   if (contactAssignment) {
-    return MEMBER_PERSON_SCREEN;
+    return CONTACT_PERSON_SCREEN;
   }
 
   return UNASSIGNED_PERSON_SCREEN;

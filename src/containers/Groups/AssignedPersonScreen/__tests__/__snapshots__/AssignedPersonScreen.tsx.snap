@@ -424,7 +424,7 @@ exports[`Contact should render group member tabs correctly 1`] = `
 Array [
   Object {
     "component": [Function],
-    "name": "Celebrate",
+    "name": "Feed",
     "navigationAction": "nav/MEMBER_CELEBRATE",
   },
   Object {
@@ -459,7 +459,7 @@ exports[`Contact should render user created member tabs correctly 1`] = `
 Array [
   Object {
     "component": [Function],
-    "name": "Celebrate",
+    "name": "Feed",
     "navigationAction": "nav/MEMBER_CELEBRATE",
   },
   Object {

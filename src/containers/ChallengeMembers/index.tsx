@@ -8,13 +8,14 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Flex, Text } from '../../components/common';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';
-import { navToPersonScreen } from '../../actions/person';
 import { acceptedChallengesSelector } from '../../selectors/challenges';
 import { keyExtractorId } from '../../utils/common';
 import { Person } from '../../reducers/people';
 import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import ChallengeMemberItem from '../../components/ChallengeMemberItem';
+import { navigatePush } from '../../actions/navigation';
+import { COMMUNITY_MEMBER_TABS } from '../Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
 
 import styles from './styles';
 
@@ -37,7 +38,12 @@ const ChallengeMembers = () => {
   const members = currentAcceptedChallenge.joined;
 
   const handleSelect = (person: Person) => {
-    dispatch(navToPersonScreen(person.id));
+    dispatch(
+      navigatePush(COMMUNITY_MEMBER_TABS, {
+        personId: person.id,
+        communityId: challenge.organization.id,
+      }),
+    );
   };
 
   const renderItem = ({ item }: { item: ChallengeItem }) => {
