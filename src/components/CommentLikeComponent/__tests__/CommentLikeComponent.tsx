@@ -14,11 +14,16 @@ import {
   SET_FEED_ITEM_LIKE_MUTATION,
 } from '../queries';
 import { CommunityFeedItemCommentLike } from '../__generated__/CommunityFeedItemCommentLike';
+import { navigatePush } from '../../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import { CommentLikeComponent } from '..';
 
 jest.mock('../../../actions/celebration');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../actions/navigation', () => ({
+  navigatePush: jest.fn().mockReturnValue({ type: 'navigatePush' }),
+}));
 
 const trackActionResponse = { type: 'tracked action' };
 
@@ -218,6 +223,23 @@ describe('with subject person', () => {
         });
         expect(trackActionWithoutData).not.toHaveBeenCalled();
       });
+    });
+  });
+
+  it('onPress comment button', () => {
+    const { getByTestId } = renderWithContext(
+      <CommentLikeComponent
+        feedItem={mockFragment(COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT, {
+          mocks: { FeedItem: () => ({ id: feedItemId }) },
+        })}
+      />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('CommentIconButton'));
+
+    expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
+      feedItemId,
     });
   });
 });
