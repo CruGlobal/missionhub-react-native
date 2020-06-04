@@ -12,7 +12,10 @@ import {
   getFirstNameAndLastInitial,
   getFeedItemType,
 } from '../../utils/common';
-import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
+import {
+  FeedItemSubjectTypeEnum,
+  PostStepStatusEnum,
+} from '../../../__generated__/globalTypes';
 import PostTypeLabel from '../PostTypeLabel';
 import Avatar from '../Avatar';
 import { CommunityFeedItemName } from '../CommunityFeedItemName';
@@ -52,15 +55,21 @@ export const CommunityFeedItemContent = ({
       feedItem.subject.mediaExpiringUrl) ||
     null;
 
+  const stepStatus =
+    (feedItem.subject.__typename === 'Post' && feedItem.subject.stepStatus) ||
+    PostStepStatusEnum.NOT_SUPPORTED;
+
   const imageAspectRatio = useAspectRatio(imageData);
 
   const { subject, subjectPerson, subjectPersonName } = feedItem;
+
   const itemType = getFeedItemType(subject);
-  const addToSteps = [
-    FeedItemSubjectTypeEnum.HELP_REQUEST,
-    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
-    FeedItemSubjectTypeEnum.QUESTION,
-  ].includes(itemType);
+  const addToSteps =
+    [
+      FeedItemSubjectTypeEnum.HELP_REQUEST,
+      FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+      FeedItemSubjectTypeEnum.QUESTION,
+    ].includes(itemType) && [PostStepStatusEnum.NONE].includes(stepStatus);
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(

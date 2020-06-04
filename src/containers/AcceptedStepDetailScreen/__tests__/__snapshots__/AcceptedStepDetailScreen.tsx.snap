@@ -499,7 +499,7 @@ exports[`should render correctly post details 1`] = `
                 }
                 testID="Text"
               >
-                Mar 5 @ 3:36 AM
+                Feb 28 @ 3:01 AM
               </Text>
               <Text
                 style={
@@ -566,7 +566,7 @@ exports[`should render correctly post details 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "iure ut libero",
+              "uri": "ut libero qui",
             }
           }
           style={
