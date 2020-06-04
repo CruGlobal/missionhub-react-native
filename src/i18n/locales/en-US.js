@@ -853,16 +853,16 @@ export default {
     member: 'Already a Member?',
   },
   commentsList: {
-    editPost: 'Edit Comment',
-    deletePost: 'Delete Comment',
-    reportPost: 'Report Comment',
+    editComment: 'Edit Comment',
+    deleteComment: 'Delete Comment',
+    reportComment: 'Report Comment',
     reportToOwner: 'Report to Owner',
     reportToOwnerHeader: 'Report to Owner?',
     reportAreYouSure:
       'Are you sure you want to report this comment to the community owner?',
-    deletePostHeader: 'Delete Post?',
+    deleteCommentHeader: 'Delete Comment?',
     deleteAreYouSure:
-      'This post will be deleted and you won’t be able to find it anymore.',
+      'This comment will be deleted and you won’t be able to find it anymore.',
   },
   commentItem: {
     edited: 'Edited',

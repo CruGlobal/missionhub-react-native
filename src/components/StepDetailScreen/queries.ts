@@ -8,6 +8,9 @@ export const STEP_DETAIL_POST_FRAGMENT = gql`
       fullName
       picture
     }
+    feedItem {
+      id
+    }
     content
     createdAt
     mediaExpiringUrl
