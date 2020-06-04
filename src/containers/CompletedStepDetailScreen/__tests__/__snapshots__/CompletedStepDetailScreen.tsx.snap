@@ -219,7 +219,7 @@ exports[`post renders with post 1`] = `
           ]
         }
       >
-        esse repellat quisquam
+        Repellat quisquam recusandae alias consequuntur corporis.
       </Text>
       <View
         style={
@@ -251,7 +251,7 @@ exports[`post renders with post 1`] = `
             ]
           }
         >
-          Completed Sunday, September 19 2010
+          Completed Tuesday, January 19 2010
         </Text>
         <Image
           source={
@@ -297,7 +297,7 @@ exports[`post renders with post 1`] = `
               }
             >
               <Text>
-                consequuntur corporis repellat
+                ut sunt qui
               </Text>
             </Text>
           </View>
@@ -325,7 +325,7 @@ exports[`post renders with post 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "recusandae alias consequuntur",
+                "uri": "recusandae ut nulla",
               }
             }
             style={
@@ -336,7 +336,7 @@ exports[`post renders with post 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(115, 115, 152)",
+                  "backgroundColor": "rgb(102, 167, 115)",
                 },
                 undefined,
               ]
@@ -368,7 +368,7 @@ exports[`post renders with post 1`] = `
                 ]
               }
             >
-              Zion Reichel
+              Marcellus Hyatt
             </Text>
             <View
               style={
@@ -399,7 +399,7 @@ exports[`post renders with post 1`] = `
                 }
                 testID="Text"
               >
-                Jan 27 @ 11:31 AM
+                Aug 9 @ 9:31 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -452,7 +452,7 @@ exports[`post renders with post 1`] = `
               ]
             }
           >
-            ratione ut sunt
+            nobis cupiditate sed
           </Text>
         </View>
       </View>
@@ -468,7 +468,7 @@ exports[`post renders with post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "amet iure ut",
+              "uri": "debitis incidunt accusantium",
             }
           }
           style={

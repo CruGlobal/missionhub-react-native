@@ -8,8 +8,6 @@ import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
-import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { STEP_DETAIL_POST_FRAGMENT } from '../../../components/StepDetailScreen/queries';
 
 import AcceptedStepDetailScreen from '..';
 
@@ -41,7 +39,6 @@ const completeStepResult = { type: 'completed step' };
 const deleteStepResult = { type: 'deleted step' };
 const removeReminderResult = { type: 'remove reminder' };
 const navigateBackResult = { type: 'navigate back' };
-const mockPost = mockFragment(STEP_DETAIL_POST_FRAGMENT);
 
 const initialState = { auth: { person: { id: myId } } };
 
@@ -116,7 +113,6 @@ it('should render correctly post details', async () => {
         receiver: { id: otherId },
         reminder: null,
         stepSuggestion: null,
-        post: mockPost,
       }),
     },
   });

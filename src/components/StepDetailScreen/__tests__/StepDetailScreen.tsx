@@ -15,7 +15,7 @@ import StepDetailScreen from '..';
 
 jest.mock('../../../actions/navigation');
 const firstName = 'Christian';
-const mockPost: StepDetailPost = mockFragment(STEP_DETAIL_POST_FRAGMENT);
+const mockPost = mockFragment<StepDetailPost>(STEP_DETAIL_POST_FRAGMENT);
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
@@ -54,7 +54,7 @@ describe('Post is not null', () => {
     });
   });
   it('navigates to post when user presses open post', async () => {
-    const newPost: StepDetailPost = mockFragment(STEP_DETAIL_POST_FRAGMENT);
+    const newPost = mockFragment<StepDetailPost>(STEP_DETAIL_POST_FRAGMENT);
 
     const { getByTestId } = renderWithContext(
       <StepDetailScreen

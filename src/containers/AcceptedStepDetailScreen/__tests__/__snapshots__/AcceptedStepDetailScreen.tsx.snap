@@ -441,7 +441,7 @@ exports[`should render correctly post details 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "recusandae alias consequuntur",
+                "uri": "amet iure ut",
               }
             }
             style={
@@ -452,7 +452,7 @@ exports[`should render correctly post details 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(115, 115, 152)",
+                  "backgroundColor": "rgb(152, 167, 125)",
                 },
                 undefined,
               ]
@@ -484,7 +484,7 @@ exports[`should render correctly post details 1`] = `
                 ]
               }
             >
-              Zion Reichel
+              Audrey Huels
             </Text>
             <View
               style={
@@ -515,7 +515,7 @@ exports[`should render correctly post details 1`] = `
                 }
                 testID="Text"
               >
-                Jan 27 @ 11:31 AM
+                Nov 5 @ 10:33 PM
               </Text>
               <Text
                 onPress={[Function]}
@@ -568,7 +568,7 @@ exports[`should render correctly post details 1`] = `
               ]
             }
           >
-            ratione ut sunt
+            recusandae ut nulla
           </Text>
         </View>
       </View>
@@ -584,7 +584,7 @@ exports[`should render correctly post details 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "amet iure ut",
+              "uri": "ipsam nobis cupiditate",
             }
           }
           style={
