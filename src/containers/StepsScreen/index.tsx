@@ -42,9 +42,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   useAnalytics(
     'steps',
     {},
-    {
-      screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-    },
+    { screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer },
   );
 
   const {

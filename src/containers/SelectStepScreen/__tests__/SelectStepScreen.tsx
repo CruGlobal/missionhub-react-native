@@ -50,7 +50,7 @@ describe('loading', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       'add step',
-      {},
+      { personId },
       {
         includeSectionType: true,
         includeAssignmentType: true,
@@ -66,7 +66,8 @@ describe('loading', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       'add step',
-      {},
+      { personId },
+
       {
         includeSectionType: true,
         includeAssignmentType: true,
@@ -84,7 +85,7 @@ describe('loading', () => {
 
       expect(useAnalytics).toHaveBeenCalledWith(
         'add step',
-        {},
+        { personId },
         {
           includeSectionType: true,
           includeAssignmentType: true,
@@ -114,7 +115,7 @@ describe('loading', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       'add step',
-      {},
+      { personId },
       {
         includeSectionType: true,
         includeAssignmentType: true,
@@ -133,7 +134,7 @@ describe('loading', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       'add step',
-      {},
+      { personId },
       {
         includeSectionType: true,
         includeAssignmentType: true,
@@ -152,7 +153,7 @@ describe('loading', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       'add step',
-      {},
+      { personId },
       {
         includeSectionType: true,
         includeAssignmentType: true,
@@ -180,7 +181,7 @@ describe('in onboarding', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       'add step',
-      {},
+      { personId },
       {
         includeSectionType: true,
         includeAssignmentType: true,

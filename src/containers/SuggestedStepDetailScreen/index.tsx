@@ -47,7 +47,7 @@ const SuggestedStepDetailScreen = ({
 
   useAnalytics(
     ['step detail', 'add step'],
-    {},
+    { personId },
     {
       includeSectionType: true,
       includeAssignmentType: true,

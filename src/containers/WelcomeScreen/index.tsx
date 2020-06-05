@@ -2,7 +2,8 @@ import React, { useEffect } from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { ThunkDispatch, ThunkAction } from 'redux-thunk';
+import { ThunkAction } from 'redux-thunk';
+import { useDispatch } from 'react-redux';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -15,12 +16,11 @@ import DeprecatedBackButton from '../DeprecatedBackButton';
 import styles from './styles';
 
 interface WelcomeScreenProps {
-  dispatch: ThunkDispatch<{}, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
 }
 
-const WelcomeScreen = ({ dispatch, next }: WelcomeScreenProps) => {
+const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
   useAnalytics(
     ['onboarding', 'welcome'],
     {},
@@ -29,6 +29,7 @@ const WelcomeScreen = ({ dispatch, next }: WelcomeScreenProps) => {
     },
   );
 
+  const dispatch = useDispatch();
   useEffect(() => {
     dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   }, [dispatch]);

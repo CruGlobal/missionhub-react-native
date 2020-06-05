@@ -54,10 +54,11 @@ export const useAnalytics = (
     includePermissionType,
   }: UseAnalyticsOptions = {},
 ) => {
+  console.log('herere');
   const myId = useMyId();
   const isMe = useIsMe(personId);
   const isOnboarding = useIsOnboarding();
-
+  console.log('hmmm');
   const {
     data: { community: { people: { edges = [] } = {} } = {} } = {},
   } = useQuery<getMyCommunityPermission>(GET_MY_COMMUNITY_PERMISSION_QUERY, {
@@ -98,7 +99,7 @@ export const useAnalytics = (
       ),
     };
   }
-
+  console.log('here');
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
   const isDrawerOpen = useSelector(
