@@ -27,11 +27,6 @@ jest.mock('../../../components/ReminderDateText', () => ({
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '4';
-const myPerson = {
-  id: myId,
-  fullName: 'Christian Huffman',
-  picture: 'myavatar.jpg',
-};
 const otherId = '5';
 const person: AcceptedStepDetail_step_receiver = {
   __typename: 'Person',
@@ -118,11 +113,6 @@ it('should render correctly post details', async () => {
         receiver: { id: otherId },
         reminder: null,
         stepSuggestion: null,
-        post: {
-          id: '1234',
-          author: myPerson,
-          content: 'A care request',
-        },
       }),
     },
   });
@@ -183,9 +173,6 @@ it('should delete step', async () => {
     {
       initialState,
       navParams: { stepId, personId: otherId },
-      mocks: {
-        Step: () => ({ post: null }),
-      },
     },
   );
 

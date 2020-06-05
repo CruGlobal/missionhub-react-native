@@ -3,6 +3,7 @@
 import 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
+import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
 import { renderWithContext } from '../../../../testUtils';
@@ -17,7 +18,7 @@ MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 
 (getImpactSummary as jest.Mock).mockReturnValue({ type: 'getImpactSummary' });
 
-const userCreatedOrgId = '43';
+const userCreatedcommunityId = '43';
 
 const me = {
   id: '1',
@@ -25,7 +26,7 @@ const me = {
   first_name: 'ME',
   organizational_permissions: [
     {
-      organization_id: userCreatedOrgId,
+      organization_id: userCreatedcommunityId,
       permission_id: ORG_PERMISSIONS.USER,
     },
   ],
@@ -66,7 +67,7 @@ const globalOrg = {
   user_created: true,
 };
 const userCreatedOrg = {
-  id: userCreatedOrgId,
+  id: userCreatedcommunityId,
   name: 'User Created Org',
   user_created: true,
 };
@@ -79,7 +80,7 @@ const state = {
     summary: {
       [`${me.id}-`]: myImpact,
       [`${person.id}-`]: personImpact,
-      [`-${userCreatedOrgId}`]: userCreatedOrgImpact,
+      [`-${userCreatedcommunityId}`]: userCreatedOrgImpact,
       '-': globalImpact,
     },
   },
@@ -95,13 +96,13 @@ const state = {
 
 describe('ImpactView', () => {
   it('should refresh impact data', () => {
-    renderWithContext(<ImpactView person={me} />, { initialState: state });
+    renderWithContext(<ImpactView personId={me.id} />, { initialState: state });
     expect(getImpactSummary).toHaveBeenCalledTimes(2);
   });
 
   describe('ME person personal impact view', () => {
     it('renders empty state', () => {
-      renderWithContext(<ImpactView person={me} />, {
+      renderWithContext(<ImpactView personId={me.id} />, {
         initialState: {
           ...state,
           impact: {
@@ -126,7 +127,7 @@ describe('ImpactView', () => {
     });
 
     it('renders singular state', () => {
-      renderWithContext(<ImpactView person={me} />, {
+      renderWithContext(<ImpactView personId={me.id} />, {
         initialState: {
           ...state,
           impact: {
@@ -153,7 +154,7 @@ describe('ImpactView', () => {
     });
 
     it('renders plural state', () => {
-      renderWithContext(<ImpactView person={me} />, {
+      renderWithContext(<ImpactView personId={me.id} />, {
         initialState: state,
       }).snapshot();
     });
@@ -164,7 +165,7 @@ describe('ImpactView', () => {
       ...me,
       organizational_permissions: [
         {
-          organization_id: userCreatedOrgId,
+          organization_id: userCreatedcommunityId,
           permission_id: ORG_PERMISSIONS.OWNER,
         },
       ],
@@ -172,7 +173,10 @@ describe('ImpactView', () => {
 
     it('renders empty state', () => {
       renderWithContext(
-        <ImpactView person={meWithOrgPermission} orgId={userCreatedOrgId} />,
+        <ImpactView
+          personId={meWithOrgPermission.id}
+          communityId={userCreatedcommunityId}
+        />,
         {
           initialState: {
             ...state,
@@ -200,7 +204,10 @@ describe('ImpactView', () => {
 
     it('renders singular state', () => {
       renderWithContext(
-        <ImpactView person={meWithOrgPermission} orgId={userCreatedOrgId} />,
+        <ImpactView
+          personId={meWithOrgPermission.id}
+          communityId={userCreatedcommunityId}
+        />,
         {
           initialState: {
             ...state,
@@ -230,7 +237,10 @@ describe('ImpactView', () => {
 
     it('renders plural state', () => {
       renderWithContext(
-        <ImpactView person={meWithOrgPermission} orgId={userCreatedOrgId} />,
+        <ImpactView
+          personId={meWithOrgPermission.id}
+          communityId={userCreatedcommunityId}
+        />,
         {
           initialState: state,
         },
@@ -243,17 +253,17 @@ describe('ImpactView', () => {
       ...person,
       organizational_permissions: [
         {
-          organization_id: userCreatedOrgId,
+          organization_id: userCreatedcommunityId,
           permission_id: ORG_PERMISSIONS.OWNER,
         },
       ],
     };
 
-    it('renders empty state', () => {
-      renderWithContext(
+    it('renders empty state', async () => {
+      const { snapshot } = renderWithContext(
         <ImpactView
-          person={personWithOrgPermission}
-          orgId={userCreatedOrgId}
+          personId={personWithOrgPermission.id}
+          communityId={userCreatedcommunityId}
         />,
         {
           initialState: {
@@ -277,14 +287,18 @@ describe('ImpactView', () => {
             },
           },
         },
-      ).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
     });
 
-    it('renders singular state', () => {
-      renderWithContext(
+    it('renders singular state', async () => {
+      const { snapshot } = renderWithContext(
         <ImpactView
-          person={personWithOrgPermission}
-          orgId={userCreatedOrgId}
+          personId={personWithOrgPermission.id}
+          communityId={userCreatedcommunityId}
         />,
         {
           initialState: {
@@ -310,32 +324,40 @@ describe('ImpactView', () => {
             },
           },
         },
-      ).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
     });
 
-    it('renders plural state', () => {
-      renderWithContext(
+    it('renders plural state', async () => {
+      const { snapshot } = renderWithContext(
         <ImpactView
-          person={personWithOrgPermission}
-          orgId={userCreatedOrgId}
+          personId={personWithOrgPermission.id}
+          communityId={userCreatedcommunityId}
         />,
         {
           initialState: state,
         },
-      ).snapshot();
+      );
+
+      await flushMicrotasksQueue();
+
+      snapshot();
     });
   });
 
   describe('user-created community impact', () => {
     it('renders empty state', () => {
-      renderWithContext(<ImpactView orgId={userCreatedOrgId} />, {
+      renderWithContext(<ImpactView communityId={userCreatedcommunityId} />, {
         initialState: {
           ...state,
           impact: {
             ...state.impact,
             summary: {
               ...state.impact.summary,
-              [`-${userCreatedOrgId}`]: {
+              [`-${userCreatedcommunityId}`]: {
                 ...userCreatedOrgImpact,
                 steps_count: 0,
                 pathway_moved_count: 0,
@@ -353,14 +375,14 @@ describe('ImpactView', () => {
     });
 
     it('renders singular state', () => {
-      renderWithContext(<ImpactView orgId={userCreatedOrgId} />, {
+      renderWithContext(<ImpactView communityId={userCreatedcommunityId} />, {
         initialState: {
           ...state,
           impact: {
             ...state.impact,
             summary: {
               ...state.impact.summary,
-              [`-${userCreatedOrgId}`]: {
+              [`-${userCreatedcommunityId}`]: {
                 ...userCreatedOrgImpact,
                 steps_count: 1,
                 receivers_count: 1,
@@ -380,7 +402,7 @@ describe('ImpactView', () => {
     });
 
     it('renders plural state', () => {
-      renderWithContext(<ImpactView orgId={userCreatedOrgId} />, {
+      renderWithContext(<ImpactView communityId={userCreatedcommunityId} />, {
         initialState: state,
       }).snapshot();
     });
@@ -388,7 +410,7 @@ describe('ImpactView', () => {
 
   describe('global community impact', () => {
     it('renders empty state', () => {
-      renderWithContext(<ImpactView orgId={GLOBAL_COMMUNITY_ID} />, {
+      renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
         initialState: {
           ...state,
           impact: {
@@ -413,7 +435,7 @@ describe('ImpactView', () => {
     });
 
     it('renders singular state', () => {
-      renderWithContext(<ImpactView orgId={GLOBAL_COMMUNITY_ID} />, {
+      renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
         initialState: {
           ...state,
           impact: {
@@ -440,7 +462,7 @@ describe('ImpactView', () => {
     });
 
     it('renders plural state', () => {
-      renderWithContext(<ImpactView orgId={GLOBAL_COMMUNITY_ID} />, {
+      renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
         initialState: state,
       }).snapshot();
     });

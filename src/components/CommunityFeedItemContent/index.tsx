@@ -206,6 +206,7 @@ export const CommunityFeedItemContent = ({
           <CommunityFeedItemName
             name={subjectPersonName}
             personId={feedItem.subjectPerson?.id}
+            communityId={feedItem.community?.id}
             pressable={namePressable}
           />
           <CardTime date={feedItem.createdAt} style={styles.headerTime} />

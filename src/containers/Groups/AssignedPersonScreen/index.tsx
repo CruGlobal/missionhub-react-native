@@ -118,12 +118,12 @@ const memberImpact = {
     },
   }) => (
     <ScrollView>
-      <ImpactView person={person} />
+      <ImpactView personId={person.id} />
     </ScrollView>
   ),
 };
 const memberCelebrate = {
-  name: i18next.t('personTabs:celebrate'),
+  name: i18next.t('personTabs:feed'),
   navigationAction: MEMBER_CELEBRATE,
   component: ({
     navigation: {
@@ -170,7 +170,7 @@ const myImpact = {
     },
   }) => (
     <ScrollView>
-      <ImpactView orgId={organization.id} person={person} />
+      <ImpactView communityId={organization.id} personId={person.id} />
     </ScrollView>
   ),
 };
