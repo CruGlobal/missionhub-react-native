@@ -85,7 +85,7 @@ it('should render correctly without description and without reminder for me', as
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['step detail', 'active step'],
-    {},
+    { personId: myId },
     { includeAssignmentType: true },
   );
 });
@@ -107,7 +107,7 @@ it('should render correctly without description and without reminder for other',
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['step detail', 'active step'],
-    {},
+    { personId: otherId },
     {
       includeAssignmentType: true,
     },
@@ -135,7 +135,7 @@ it('should render correctly post details', async () => {
   snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['step detail', 'active step'],
-    {},
+    { personId: otherId },
     {
       includeAssignmentType: true,
     },

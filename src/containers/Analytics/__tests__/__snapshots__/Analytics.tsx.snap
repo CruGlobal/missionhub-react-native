@@ -3,3 +3,5 @@
 exports[`renders and calls useAnalytics hook 1`] = `null`;
 
 exports[`renders and calls useAnalytics hook with context 1`] = `null`;
+
+exports[`renders and calls useAnalytics hook with params and options 1`] = `null`;

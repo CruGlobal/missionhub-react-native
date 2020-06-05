@@ -87,7 +87,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
 
   useAnalytics(
     [screenSection, screenSubsection],
-    {},
+    { personId },
     {
       includeSectionType: true,
       includeAssignmentType: true,

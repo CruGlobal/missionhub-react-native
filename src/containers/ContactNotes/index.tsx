@@ -13,22 +13,27 @@ import NOTES from '../../../assets/images/myNotes.png';
 import NullStateComponent from '../../components/NullStateComponent';
 import BottomButton from '../../components/BottomButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
 import { isAndroid } from '../../utils/common';
 
 import styles from './styles';
 
 export interface ContactNotesProps {
-  person: Person;
+  person: { id: string; first_name: string };
+  communityId?: string;
   myPersonId: string;
   myUserId: string;
 }
 
-const ContactNotes = ({ person, myPersonId, myUserId }: ContactNotesProps) => {
+const ContactNotes = ({
+  person,
+  communityId,
+  myPersonId,
+  myUserId,
+}: ContactNotesProps) => {
   useAnalytics(
     ['person', 'my notes'],
-    {},
+    { personId: person.id, communityId },
     {
       includeAssignmentType: true,
     },

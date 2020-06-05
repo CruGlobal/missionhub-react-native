@@ -41,7 +41,7 @@ const StepItem = ({
         step.completedAt
           ? COMPLETED_STEP_DETAIL_SCREEN
           : ACCEPTED_STEP_DETAIL_SCREEN,
-        { stepId: step.id },
+        { stepId: step.id, personId: step.receiver.id },
       ),
     );
   };

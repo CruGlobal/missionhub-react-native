@@ -37,7 +37,7 @@ const FeedItemDetailScreen = () => {
 
   useAnalytics(
     ['celebrate item', 'comments'],
-    {},
+    { personId, communityId },
     {
       includeAssignmentType: true,
       includePermissionType: true,

@@ -20,7 +20,7 @@ import {
   ANALYTICS_PERMISSION_TYPE,
 } from '../../constants';
 
-import { useIsMe } from './useIsMe';
+import { useIsMe, useMyId } from './useIsMe';
 import { useIsOnboarding } from './useIsOnboarding';
 
 export enum ANALYTICS_SCREEN_TYPES {
@@ -54,6 +54,7 @@ export const useAnalytics = (
     includePermissionType,
   }: UseAnalyticsOptions = {},
 ) => {
+  const myId = useMyId();
   const isMe = useIsMe(personId);
   const isOnboarding = useIsOnboarding();
 
@@ -61,8 +62,8 @@ export const useAnalytics = (
     data: { community: { people: { edges = [] } = {} } = {} } = {},
   } = useQuery<getMyCommunityPermission>(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
-      communityId,
-      personId,
+      id: communityId,
+      myId,
     },
     fetchPolicy: 'cache-first',
   });

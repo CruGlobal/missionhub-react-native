@@ -21,6 +21,12 @@ beforeEach(() => {
 
 it('renders correctly', () => {
   renderWithContext(<AddSomeoneScreen next={next} />).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['onboarding', 'add someone'],
+    {},
+    { includeSectionType: true },
+  );
 });
 
 it('renders without skip button correctly', () => {

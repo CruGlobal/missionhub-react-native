@@ -20,7 +20,7 @@ const screenOptions = {
 it('renders and calls useAnalytics hook', () => {
   renderWithContext(<Analytics screenName={screenName} />).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(screenName, undefined);
+  expect(useAnalytics).toHaveBeenCalledWith(screenName, undefined, undefined);
 });
 
 it('renders and calls useAnalytics hook with params and options', () => {

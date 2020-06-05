@@ -35,6 +35,9 @@ const AddChallengeScreen = () => {
     details?: string;
   }) => void = useNavigationParam('onComplete');
   const challenge: ChallengeInterface = useNavigationParam('challenge');
+  const { id: communityId }: { id: string } = useNavigationParam(
+    'organization',
+  );
   const [title, changeTitle] = useState(isEdit ? challenge.title : '');
   const [detail, changeDetail] = useState(
     isEdit ? challenge.details_markdown : '',
@@ -53,7 +56,7 @@ const AddChallengeScreen = () => {
 
   useAnalytics(
     ['challenge', isEdit ? 'edit' : 'create'],
-    {},
+    { communityId },
     {
       includePermissionType: true,
     },

@@ -20,10 +20,11 @@ import {
 
 const CompletedStepDetailScreen = () => {
   const stepId = useNavigationParam('stepId');
+  const personId = useNavigationParam('personId');
 
   useAnalytics(
     ['step detail', 'completed step'],
-    {},
+    { personId },
     {
       includeAssignmentType: true,
     },

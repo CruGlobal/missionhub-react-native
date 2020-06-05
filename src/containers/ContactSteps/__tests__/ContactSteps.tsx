@@ -7,7 +7,7 @@ import { MockList } from 'graphql-tools';
 import { SectionList } from 'react-native';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_ASSIGNMENT_TYPE, ORG_PERMISSIONS } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import {
   navigateToStageScreen,
   navigateToAddStepFlow,
@@ -83,7 +83,7 @@ it('renders correctly when no steps', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['person', 'my steps'],
-    {},
+    { personId: person.id },
     {
       includeAssignmentType: true,
     },
@@ -101,7 +101,7 @@ it('renders correctly when me and no steps', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['person', 'my steps'],
-    {},
+    { personId: myId },
     {
       includeAssignmentType: true,
     },
@@ -126,7 +126,7 @@ it('renders correctly with steps', async () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['person', 'my steps'],
-    {},
+    { personId: person.id },
     {
       includeAssignmentType: true,
     },
@@ -161,7 +161,7 @@ it('should paginate', async () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['person', 'my steps'],
-    {},
+    { personId: person.id },
     {
       includeAssignmentType: true,
     },

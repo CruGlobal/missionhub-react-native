@@ -24,7 +24,6 @@ import {
   getCommunityUrl,
   canEditCommunity,
 } from '../../../../utils/common';
-import { getAnalyticsPermissionTypeGraphQL } from '../../../../utils/analytics';
 import {
   navigateBack,
   navigateToMainTabs,
@@ -41,11 +40,7 @@ import {
   trackActionWithoutData,
   trackScreenChange,
 } from '../../../../actions/analytics';
-import {
-  ACTIONS,
-  COMMUNITIES_TAB,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../../constants';
+import { ACTIONS, COMMUNITIES_TAB } from '../../../../constants';
 import PopupMenu from '../../../../components/PopupMenu';
 import Header from '../../../../components/Header';
 import Analytics from '../../../Analytics';
@@ -215,11 +210,8 @@ export const CommunityProfile = () => {
     <>
       <Analytics
         screenName={['community', 'detail']}
-        screenContext={{
-          [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionTypeGraphQL(
-            permission,
-          ),
-        }}
+        params={{ communityId }}
+        options={{ includePermissionType: true }}
       />
       <View style={styles.container}>
         <Header

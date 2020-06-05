@@ -58,7 +58,7 @@ export const CommunityMembersScreen = () => {
 
   useAnalytics(
     ['community', 'members'],
-    {},
+    { communityId },
     {
       includePermissionType: true,
     },

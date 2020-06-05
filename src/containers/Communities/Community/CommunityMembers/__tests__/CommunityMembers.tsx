@@ -18,6 +18,7 @@ import { navigateBack, navigatePush } from '../../../../../actions/navigation';
 import CommunityMembers from '../CommunityMembers';
 import { ACTIONS } from '../../../../../constants';
 import { organizationSelector } from '../../../../../selectors/organizations';
+import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../../../actions/navigation', () => ({
   navigateBack: jest.fn(() => ({ type: 'back' })),
@@ -29,6 +30,7 @@ jest.mock('../../../../../actions/person');
 jest.mock('../../../../../actions/swipe');
 jest.mock('../../../../../actions/analytics');
 jest.mock('../../../../../utils/common');
+jest.mock('../../../../../utils/hooks/useAnalytics');
 
 // @ts-ignore
 common.refresh = jest.fn();
@@ -80,6 +82,12 @@ describe('CommunityMembers', () => {
       initialState,
       navParams: { communityId },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['community', 'members'],
+      { communityId },
+      { includePermissionType: true },
+    );
   });
 
   it('should render empty state', () => {

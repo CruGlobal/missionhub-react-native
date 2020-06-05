@@ -92,6 +92,7 @@ describe('AcceptedStepItem', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(COMPLETED_STEP_DETAIL_SCREEN, {
       stepId: completedStep.id,
+      personId: completedStep.receiver.id,
     });
   });
 

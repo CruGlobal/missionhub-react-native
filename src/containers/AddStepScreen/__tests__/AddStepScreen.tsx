@@ -26,10 +26,11 @@ jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/hooks/useAnalytics');
 
+const myId = '123123';
 const next = jest.fn();
 const nextResult = { type: 'next' };
 const trackStepAddedResponse = { type: 'trackStepAdded' };
-const auth = { person: { id: '123123' } };
+const auth = { person: { id: myId } };
 const onboarding = { currentlyOnboarding: false };
 
 const text = 'Comment';
@@ -80,10 +81,14 @@ it('renders create step correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['custom step', 'add'],
+    { personId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders create step correctly on android', () => {
@@ -100,10 +105,14 @@ it('renders create step in onboarding correctly', () => {
     navParams: createStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['custom step', 'add'],
+    { personId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders edit journey step correctly', () => {
@@ -112,10 +121,14 @@ it('renders edit journey step correctly', () => {
     navParams: editJourneyStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['our journey', 'edit'],
+    { personId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders edit journey step for me correctly', () => {
@@ -124,10 +137,14 @@ it('renders edit journey step for me correctly', () => {
     navParams: editMyJourneyStepParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['my journey', 'edit'],
+    { personId: myId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders edit journey item correctly', () => {
@@ -136,10 +153,14 @@ it('renders edit journey item correctly', () => {
     navParams: editJourneyItemParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['our journey', 'edit'],
+    { personId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders edit journey item for me correctly', () => {
@@ -148,10 +169,14 @@ it('renders edit journey item for me correctly', () => {
     navParams: editMyJourneyItemParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['my journey', 'edit'],
+    { personId: myId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders step note correctly', () => {
@@ -160,10 +185,14 @@ it('renders step note correctly', () => {
     navParams: stepNoteParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step note', 'add'],
+    { personId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('renders step note correctly for me', () => {
@@ -172,10 +201,14 @@ it('renders step note correctly for me', () => {
     navParams: myStepNoteParams,
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    includeSectionType: true,
-    includeAssignmentType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['step note', 'add'],
+    { personId: myId },
+    {
+      includeSectionType: true,
+      includeAssignmentType: true,
+    },
+  );
 });
 
 it('updates text', () => {

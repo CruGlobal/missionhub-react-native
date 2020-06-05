@@ -11,18 +11,19 @@ jest.mock('../../../utils/hooks/useAnalytics');
 const myId = '1';
 const auth = { person: { id: myId } };
 const stepId = '5';
+const personId = '9';
 
 it('renders loading state correctly', () => {
   const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
     initialState: { auth },
-    navParams: { stepId },
+    navParams: { stepId, personId },
   });
 
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['step detail', 'completed step'],
-    {},
+    { personId },
     {
       includeAssignmentType: true,
     },
@@ -33,7 +34,7 @@ describe('with challenge suggestion', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
       initialState: { auth },
-      navParams: { stepId },
+      navParams: { stepId, personId },
     });
 
     await flushMicrotasksQueue();
@@ -41,7 +42,7 @@ describe('with challenge suggestion', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['step detail', 'completed step'],
-      {},
+      { personId },
       {
         includeAssignmentType: true,
       },
@@ -53,7 +54,7 @@ describe('without challenge suggestion', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(<CompletedStepDetailScreen />, {
       initialState: { auth },
-      navParams: { stepId },
+      navParams: { stepId, personId },
     });
 
     await flushMicrotasksQueue();
@@ -61,7 +62,7 @@ describe('without challenge suggestion', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['step detail', 'completed step'],
-      {},
+      { personId },
       { includeAssignmentType: true },
     );
   });

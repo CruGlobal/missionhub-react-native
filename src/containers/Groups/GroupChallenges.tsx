@@ -13,8 +13,6 @@ import {
 import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { refresh, isAdminOrOwner } from '../../utils/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
-import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
@@ -84,8 +82,6 @@ class GroupChallenges extends Component {
       organization,
       // @ts-ignore
       myOrgPermissions,
-      // @ts-ignore
-      analyticsPermissionType,
     } = this.props;
 
     const canCreate = isAdminOrOwner(myOrgPermissions);
@@ -94,8 +90,9 @@ class GroupChallenges extends Component {
       <>
         <Analytics
           screenName={['community', 'challenges']}
-          screenContext={{
-            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+          params={{ communityId: organization.id }}
+          options={{
+            includePermissionType: true,
           }}
         />
         <View style={styles.cardList}>
@@ -153,7 +150,6 @@ const mapStateToProps = (
         organization,
       },
     ),
-    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
   };
 };
 

@@ -16,6 +16,9 @@ import AddChallengeScreen from '..';
 const mockDate = '2020-02-13';
 MockDate.set(mockDate);
 
+const communityId = '7';
+const organization = { id: communityId };
+
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../selectors/people');
 jest.mock('../../../components/DatePicker', () => 'DatePicker');
@@ -38,13 +41,14 @@ beforeEach(() => {
 it('renders correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
     navParams: {
+      organization,
       onComplete,
       isEdit: false,
     },
   }).snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['challenge', 'create'],
-    {},
+    { communityId },
     {
       includePermissionType: true,
     },
@@ -55,6 +59,7 @@ it('renders correctly on android', () => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
   renderWithContext(<AddChallengeScreen />, {
     navParams: {
+      organization,
       onComplete,
       isEdit: false,
     },
@@ -64,14 +69,19 @@ it('renders correctly on android', () => {
 it('renders edit challenge correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
     navParams: {
+      organization,
       onComplete,
       challenge: editChallenge,
       isEdit: true,
     },
   }).snapshot();
-  expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'edit'], {
-    includePermissionType: true,
-  });
+  expect(useAnalytics).toHaveBeenCalledWith(
+    ['challenge', 'edit'],
+    { communityId },
+    {
+      includePermissionType: true,
+    },
+  );
 });
 
 describe('create methods', () => {
@@ -80,6 +90,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -94,6 +105,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -109,6 +121,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -125,6 +138,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -141,6 +155,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -159,6 +174,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -178,6 +194,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -194,6 +211,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -211,7 +229,7 @@ describe('create methods', () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <AddChallengeScreen />,
       {
-        navParams: { onComplete, isEdit: false },
+        navParams: { organization, onComplete, isEdit: false },
       },
     );
     recordSnapshot();
@@ -236,6 +254,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: false,
         },
@@ -265,6 +284,7 @@ describe('edit methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },
@@ -281,6 +301,7 @@ describe('edit methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },
@@ -299,6 +320,7 @@ describe('edit methods', () => {
       <AddChallengeScreen />,
       {
         navParams: {
+          organization,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },

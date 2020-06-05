@@ -105,6 +105,7 @@ it('should navigate to completed step detail screen', () => {
   fireEvent.press(getByTestId('StepItemCard'));
   expect(navigatePush).toHaveBeenCalledWith(COMPLETED_STEP_DETAIL_SCREEN, {
     stepId: mockStep.id,
+    personId: mockStep.receiver.id,
   });
 });
 

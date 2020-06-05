@@ -87,12 +87,19 @@ const personNotes = {
   component: ({
     navigation: {
       state: {
-        // @ts-ignore
         params: { organization, person },
       },
     },
-    // @ts-ignore
-  }) => <ContactNotes organization={organization} person={person} />,
+  }: {
+    navigation: {
+      state: {
+        params: {
+          organization?: { id: string };
+          person: { id: string; first_name: string };
+        };
+      };
+    };
+  }) => <ContactNotes communityId={organization?.id} person={person} />,
 };
 const personJourney = {
   name: i18next.t('personTabs:ourJourney'),

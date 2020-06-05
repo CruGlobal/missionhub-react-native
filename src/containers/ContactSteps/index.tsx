@@ -18,7 +18,6 @@ import {
 } from '../../actions/misc';
 import NullStateComponent from '../../components/NullStateComponent';
 import { AuthState } from '../../reducers/auth';
-import { Person } from '../../reducers/people';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import StepItem from '../../components/StepItem';
 import { useIsMe } from '../../utils/hooks/useIsMe';
@@ -33,13 +32,13 @@ import {
 } from './__generated__/PersonStepsList';
 
 interface ContactStepsProps {
-  person: Person;
+  person: { id: string; first_name: string };
 }
 
 const ContactSteps = ({ person }: ContactStepsProps) => {
   useAnalytics(
     ['person', 'my steps'],
-    {},
+    { personId: person.id },
     {
       includeAssignmentType: true,
     },

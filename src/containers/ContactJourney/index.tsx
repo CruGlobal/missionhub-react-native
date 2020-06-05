@@ -14,12 +14,10 @@ import NULL from '../../../assets/images/ourJourney.png';
 import { removeSwipeJourney } from '../../actions/swipe';
 import NullStateComponent from '../../components/NullStateComponent';
 import { JOURNEY_EDIT_FLOW } from '../../routes/constants';
-import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
-  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../constants';
 import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
@@ -171,8 +169,6 @@ class ContactJourney extends Component {
       person,
       // @ts-ignore
       organization,
-      // @ts-ignore
-      analyticsAssignmentType,
     } = this.props;
     return (
       <View style={styles.container}>
@@ -181,8 +177,9 @@ class ContactJourney extends Component {
             'person',
             person.id === myId ? 'my journey' : 'our journey',
           ]}
-          screenContext={{
-            [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+          params={{ personId: person.id, communityId: organization.id }}
+          options={{
+            includeAssignmentType: true,
           }}
         />
         {this.renderContent()}
@@ -215,11 +212,6 @@ const mapStateToProps = (
     isCasey: !auth.isJean,
     myId: auth.person.id,
     showReminder: swipe.journey,
-    analyticsAssignmentType: getAnalyticsAssignmentType(
-      person,
-      auth,
-      organization,
-    ),
   };
 };
 
