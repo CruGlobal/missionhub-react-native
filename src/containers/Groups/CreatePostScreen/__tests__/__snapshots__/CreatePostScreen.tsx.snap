@@ -164,7 +164,7 @@ exports[`Updating a post user types a post 1`] = `
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"recusandae alias consequuntur\\"
+-         value=\\"alias consequuntur corporis\\"
 +         value=\\"This is my cool story! 📘✏️\\"
         />
         <View
@@ -862,7 +862,7 @@ exports[`renders correctly for update post 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="recusandae alias consequuntur"
+        value="alias consequuntur corporis"
       />
       <View
         accessible={true}
@@ -886,7 +886,7 @@ exports[`renders correctly for update post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "corporis repellat ratione",
+              "uri": "repellat ratione ut",
             }
           }
           style={
@@ -1238,7 +1238,7 @@ exports[`renders correctly on android 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="recusandae alias consequuntur"
+        value="alias consequuntur corporis"
       />
       <View
         accessible={true}
@@ -1262,7 +1262,7 @@ exports[`renders correctly on android 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "corporis repellat ratione",
+              "uri": "repellat ratione ut",
             }
           }
           style={

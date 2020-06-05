@@ -137,37 +137,38 @@ export const CreatePostScreen = () => {
           },
         },
       });
-
-      const originalFilteredData = cache.readQuery<
-        GetCommunityFeed,
-        GetCommunityFeedVariables
-      >({
-        query: GET_COMMUNITY_FEED,
-        variables: {
-          communityId,
-          subjectType: mapPostTypeToFeedType(postType),
-        },
-      });
-      cache.writeQuery({
-        query: GET_COMMUNITY_FEED,
-        variables: {
-          communityId,
-          subjectType: mapPostTypeToFeedType(postType),
-        },
-        data: {
-          ...originalFilteredData,
-          community: {
-            ...originalFilteredData?.community,
-            feedItems: {
-              ...originalFilteredData?.community.feedItems,
-              nodes: [
-                data?.createPost?.post?.feedItem,
-                ...(originalFilteredData?.community.feedItems.nodes || []),
-              ],
+      try {
+        const originalFilteredData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId,
+            subjectType: mapPostTypeToFeedType(postType),
+          },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId,
+            subjectType: mapPostTypeToFeedType(postType),
+          },
+          data: {
+            ...originalFilteredData,
+            community: {
+              ...originalFilteredData?.community,
+              feedItems: {
+                ...originalFilteredData?.community.feedItems,
+                nodes: [
+                  data?.createPost?.post?.feedItem,
+                  ...(originalFilteredData?.community.feedItems.nodes || []),
+                ],
+              },
             },
           },
-        },
-      });
+        });
+      } catch {}
     },
   });
   const [updatePost, { error: errorUpdatePost }] = useMutation<
