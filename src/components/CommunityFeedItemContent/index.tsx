@@ -69,7 +69,7 @@ export const CommunityFeedItemContent = ({
       FeedItemSubjectTypeEnum.HELP_REQUEST,
       FeedItemSubjectTypeEnum.PRAYER_REQUEST,
       FeedItemSubjectTypeEnum.QUESTION,
-    ].includes(itemType) && [PostStepStatusEnum.NONE].includes(stepStatus);
+    ].includes(itemType) && stepStatus === PostStepStatusEnum.NONE;
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(

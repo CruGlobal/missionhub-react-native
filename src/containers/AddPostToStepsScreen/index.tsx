@@ -57,30 +57,7 @@ const AddPostToStepsScreen = () => {
   const [addPostToMySteps, { error: createStepError }] = useMutation<
     AddPostToMySteps,
     AddPostToMyStepsVariables
-  >(ADD_POST_TO_MY_STEPS, {
-    update: (cache, { data }) => {
-      const originalData = cache.readQuery<
-        AddPostToMyStepsScreenDetails,
-        AddPostToMyStepsScreenDetailsVariables
-      >({
-        query: ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY,
-        variables: { feedItemId },
-      });
-      cache.writeQuery({
-        query: ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY,
-        data: {
-          ...originalData,
-          feedItem: {
-            ...originalData?.feedItem,
-            subject: {
-              ...originalData?.feedItem.subject,
-              stepStatus: data?.addPostToMySteps?.step?.post?.stepStatus,
-            },
-          },
-        },
-      });
-    },
-  });
+  >(ADD_POST_TO_MY_STEPS);
 
   const getTitleText = (
     subject?: AddPostToMyStepsScreenDetails_feedItem_subject_Post,
