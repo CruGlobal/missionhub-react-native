@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { useQuery } from '@apollo/react-hooks';
 
 import { getImpactSummary } from '../../actions/impact';
 import { Flex, Text } from '../../components/common';
@@ -12,46 +13,52 @@ import {
 } from '../../constants';
 import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
-import OnboardingCard, {
-  GROUP_ONBOARDING_TYPES,
-} from '../Groups/OnboardingCard';
 import {
   getAnalyticsAssignmentType,
   getAnalyticsPermissionType,
 } from '../../utils/analytics';
-import { Person } from '../../reducers/people';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
 import { RootState } from '../../reducers';
 import { orgIsPersonalMinistry } from '../../utils/common';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
+import { IMPACT_QUERY } from './queries';
+import { Impact, ImpactVariables } from './__generated__/Impact';
 
 interface ImpactViewProps {
-  person?: Person;
-  orgId?: string;
+  personId?: string;
+  communityId?: string;
 }
 
-const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
+const ImpactView = ({
+  personId,
+  communityId = 'personal',
+}: ImpactViewProps) => {
   const { t } = useTranslation('impact');
   const dispatch = useDispatch();
   const myId = useMyId();
-  const isMe = useIsMe(person.id);
+  const isMe = useIsMe(personId ?? '');
 
-  const isGlobalCommunity = orgId === GLOBAL_COMMUNITY_ID;
+  const isGlobalCommunity = communityId === GLOBAL_COMMUNITY_ID;
+
+  const { data } = useQuery<Impact, ImpactVariables>(IMPACT_QUERY, {
+    variables: { personId: personId ?? '' },
+    skip: !personId,
+  });
 
   const organization = useSelector(({ organizations }: RootState) =>
-    organizationSelector({ organizations }, { orgId }),
+    organizationSelector({ organizations }, { orgId: communityId }),
   );
 
   const isPersonalMinistryMe = isMe && orgIsPersonalMinistry(organization);
-  const isOrgImpact = !person.id;
+  const isOrgImpact = !personId;
   const isUserCreatedOrg = organization.user_created;
   // Impact summary isn't scoped by org unless showing org summary. See above comment
   const impact = useSelector((state: RootState) =>
     impactSummarySelector(state, {
-      person: isGlobalCommunity ? { id: myId } : person,
-      organization: person.id || isGlobalCommunity ? undefined : organization,
+      personId: isGlobalCommunity ? myId : personId,
+      organization: personId || isGlobalCommunity ? undefined : organization,
     }),
   );
   const globalImpact = useSelector((state: RootState) =>
@@ -59,10 +66,12 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
   );
 
   const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-    person.id ? getAnalyticsAssignmentType(person, auth, organization) : '',
+    personId
+      ? getAnalyticsAssignmentType({ id: personId }, auth, organization)
+      : '',
   );
   const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    !person.id ? getAnalyticsPermissionType(auth, organization) : '',
+    !personId ? getAnalyticsPermissionType(auth, organization) : '',
   );
   const screenSection = isOrgImpact ? 'community' : 'person';
   const screenSubsection = isOrgImpact
@@ -82,8 +91,8 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
     // The summary sentence should include what the user has done in all of their orgs
     dispatch(
       getImpactSummary(
-        isGlobalCommunity ? myId : person.id,
-        person.id || isGlobalCommunity ? undefined : organization.id,
+        isGlobalCommunity ? myId : personId,
+        personId || isGlobalCommunity ? undefined : organization.id,
       ),
     );
     dispatch(getImpactSummary()); // Get global impact by calling without person or org
@@ -102,8 +111,8 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
       ? '$t(users)'
       : isMe || isGlobalCommunity
       ? '$t(you)'
-      : person.id
-      ? person.first_name
+      : personId
+      ? data?.person.firstName
       : steps_count === 0
       ? '$t(we)'
       : '$t(togetherWe)';
@@ -112,7 +121,7 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
       c === 0 ? (paramGlobal ? 'emptyGlobal' : 'empty') : '';
 
     const isSpecificContact =
-      !paramGlobal && !isMe && !isGlobalCommunity && person.id;
+      !paramGlobal && !isMe && !isGlobalCommunity && personId;
 
     const hideStageSentence =
       !paramGlobal && isUserCreatedOrg && pathway_moved_count === 0;
@@ -136,7 +145,9 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
     };
     const stageSentenceOptions = {
       context: context(pathway_moved_count),
-      initiator: ['$t(users)', '$t(we)', '$t(togetherWe)'].includes(initiator)
+      initiator: ['$t(users)', '$t(we)', '$t(togetherWe)'].includes(
+        initiator ?? '',
+      )
         ? '$t(allOfUs)'
         : initiator,
       pathwayMovedCount: pathway_moved_count,
@@ -150,9 +161,6 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
 
   return (
     <View style={styles.container}>
-      {organization.id !== 'personal' ? (
-        <OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />
-      ) : null}
       <Flex style={styles.topSection}>
         <Text style={styles.text}>{buildImpactSentence(impact)}</Text>
       </Flex>

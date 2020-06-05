@@ -11,9 +11,13 @@ import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
+import { CollapsibleViewContext } from '../../components/CollapsibleView/CollapsibleView';
 
-const GroupCelebrate = () => {
+interface CommunityFeedProps {
+  collapsibleHeaderContext: CollapsibleViewContext;
+}
+
+const CommunityFeed = ({ collapsibleHeaderContext }: CommunityFeedProps) => {
   const dispatch = useDispatch();
 
   const communityId: string = useNavigationParam('communityId');
@@ -36,9 +40,7 @@ const GroupCelebrate = () => {
     dispatch(refreshCommunity(organization.id));
   };
 
-  const { collapsibleScrollViewProps } = useContext(
-    CommunitiesCollapsibleHeaderContext,
-  );
+  const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
 
   return (
     <CelebrateFeed
@@ -51,6 +53,6 @@ const GroupCelebrate = () => {
   );
 };
 
-export default GroupCelebrate;
+export default CommunityFeed;
 
 export const COMMUNITY_FEED = 'nav/COMMUNITY_FEED';

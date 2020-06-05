@@ -222,7 +222,7 @@ export const useCollapsibleHeader = ({
       onScrollEndDrag: onScrollEndDrag,
       onScroll: Animated.event(
         [{ nativeEvent: { contentOffset: { y: scrollAnim.current } } }],
-        { useNativeDriver: false }, // ImpactView doesn't make the header collapse if this is set to true :( Changing the number of tabs makes different tabs work.
+        { useNativeDriver: true }, // ImpactView doesn't make the header collapse if this is set to true :( Changing the number of tabs makes different tabs work.
       ),
     };
 
