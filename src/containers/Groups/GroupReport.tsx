@@ -44,15 +44,15 @@ export const GET_REPORTED_CONTENT = gql`
 
 const GroupReport = () => {
   const { t } = useTranslation('groupsReport');
+  const organization: Organization = useNavigationParam('organization');
   useAnalytics(
     ['celebrate', 'reported content'],
-    {},
+    { communityId: organization.id },
     {
       includePermissionType: true,
     },
   );
   const dispatch = useDispatch();
-  const organization: Organization = useNavigationParam('organization');
   const {
     data: {
       community: {

@@ -58,10 +58,10 @@ const ImpactView = ({ person = {}, orgId = 'personal' }: ImpactViewProps) => {
     : 'impact';
   useAnalytics(
     [screenSection, screenSubsection],
-    {},
+    { personId: person.id, communityId: orgId },
     {
-      includeAssignmentType: true,
-      includePermissionType: true,
+      includeAssignmentType: !!person.id,
+      includePermissionType: !person.id,
     },
   );
 

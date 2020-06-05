@@ -7,11 +7,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { refreshCommunity } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { orgPermissionSelector } from '../../../selectors/people';
-import {
-  ORG_PERMISSIONS,
-  GLOBAL_COMMUNITY_ID,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../constants';
+import { ORG_PERMISSIONS, GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
@@ -83,7 +79,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: orgId },
           {
             includePermissionType: true,
           },
@@ -110,7 +106,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: orgId },
           {
             includePermissionType: true,
           },
@@ -137,7 +133,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: GLOBAL_COMMUNITY_ID },
           {
             includePermissionType: true,
           },
@@ -172,7 +168,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: orgId },
           {
             includePermissionType: true,
           },
@@ -199,7 +195,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: orgId },
           {
             includePermissionType: true,
           },
@@ -226,7 +222,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: GLOBAL_COMMUNITY_ID },
           {
             includePermissionType: true,
           },
@@ -261,7 +257,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: orgId },
           {
             includePermissionType: true,
           },
@@ -288,7 +284,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: orgId },
           {
             includePermissionType: true,
           },
@@ -314,7 +310,7 @@ describe('refresh', () => {
 
         expect(useAnalytics).toHaveBeenCalledWith(
           ['community', 'celebrate'],
-          {},
+          { communityId: GLOBAL_COMMUNITY_ID },
           {
             includePermissionType: true,
           },

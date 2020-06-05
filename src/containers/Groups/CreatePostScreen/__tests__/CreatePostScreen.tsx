@@ -60,7 +60,7 @@ it('renders correctly for new post', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['post', 'prayer request'],
-    {},
+    { isEdit: false, communityId },
     {
       includePermissionType: true,
       includeEditMode: true,
@@ -79,7 +79,7 @@ it('renders correctly for update post', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['post', 'prayer request'],
-    {},
+    { isEdit: true, communityId },
     {
       includePermissionType: true,
       includeEditMode: true,

@@ -10,9 +10,15 @@ exports[`ContactJourney renders loading screen correctly 1`] = `
   }
 >
   <Analytics
-    screenContext={
+    options={
       Object {
-        "cru.assignment-type": "contact",
+        "includeAssignmentType": true,
+      }
+    }
+    params={
+      Object {
+        "communityId": undefined,
+        "personId": "123",
       }
     }
     screenName={
@@ -66,9 +72,15 @@ exports[`ContactJourney renders null screen correctly 1`] = `
   }
 >
   <Analytics
-    screenContext={
+    options={
       Object {
-        "cru.assignment-type": "self",
+        "includeAssignmentType": true,
+      }
+    }
+    params={
+      Object {
+        "communityId": undefined,
+        "personId": "123",
       }
     }
     screenName={
@@ -130,9 +142,15 @@ exports[`ContactJourney renders screen as personal ministry 1`] = `
   }
 >
   <Analytics
-    screenContext={
+    options={
       Object {
-        "cru.assignment-type": "self",
+        "includeAssignmentType": true,
+      }
+    }
+    params={
+      Object {
+        "communityId": "personal",
+        "personId": "123",
       }
     }
     screenName={
@@ -223,9 +241,15 @@ exports[`ContactJourney renders screen with steps correctly 1`] = `
   }
 >
   <Analytics
-    screenContext={
+    options={
       Object {
-        "cru.assignment-type": "self",
+        "includeAssignmentType": true,
+      }
+    }
+    params={
+      Object {
+        "communityId": undefined,
+        "personId": "123",
       }
     }
     screenName={

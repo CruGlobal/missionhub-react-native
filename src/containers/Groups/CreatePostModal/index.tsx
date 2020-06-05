@@ -44,7 +44,7 @@ const CreatePostModal = ({
 
   useAnalytics(
     ['post', 'choose type'],
-    {},
+    { communityId },
     {
       includePermissionType: true,
     },

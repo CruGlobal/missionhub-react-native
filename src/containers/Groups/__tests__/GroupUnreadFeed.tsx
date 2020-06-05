@@ -59,7 +59,7 @@ it('should render items correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['celebrate', 'new comment items'],
-    {},
+    { communityId },
     {
       includePermissionType: true,
     },

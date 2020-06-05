@@ -88,7 +88,7 @@ export const CreatePostScreen = () => {
 
   useAnalytics(
     ['post', getPostTypeAnalytics(postType)],
-    {},
+    { isEdit: !!post, communityId },
     {
       includePermissionType: true,
       includeEditMode: true,

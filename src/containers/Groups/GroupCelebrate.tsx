@@ -22,7 +22,7 @@ const GroupCelebrate = () => {
 
   useAnalytics(
     ['community', 'celebrate'],
-    {},
+    { communityId },
     {
       includePermissionType: true,
     },

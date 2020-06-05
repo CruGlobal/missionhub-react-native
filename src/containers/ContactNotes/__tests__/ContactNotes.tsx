@@ -47,7 +47,7 @@ describe('contact notes', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['person', 'my notes'],
-      {},
+      { personId: person.id, communityId: undefined },
       {
         includeAssignmentType: true,
       },
@@ -61,7 +61,7 @@ describe('contact notes', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['person', 'my notes'],
-      {},
+      { personId: myPersonId, communityId: undefined },
       {
         includeAssignmentType: true,
       },
@@ -77,16 +77,20 @@ describe('contact notes', () => {
             { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
           ],
         }}
-        organization={{ id: orgId }}
+        communityId={orgId}
       />,
       {
         initialState,
       },
     ).snapshot();
 
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'community member' },
-    });
+    expect(useAnalytics).toHaveBeenCalledWith(
+      ['person', 'my notes'],
+      { personId: person.id, communityId: orgId },
+      {
+        includeAssignmentType: true,
+      },
+    );
   });
 
   it('notes are shown', async () => {
@@ -100,7 +104,7 @@ describe('contact notes', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['person', 'my notes'],
-      {},
+      { personId: person.id, communityId: undefined },
       {
         includeAssignmentType: true,
       },

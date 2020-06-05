@@ -41,7 +41,7 @@ it('renders correctly', async () => {
   snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(
     ['post', 'choose type'],
-    {},
+    { communityId: mockCommunityId },
     {
       includePermissionType: true,
     },
@@ -58,7 +58,7 @@ it('renders correctly for admin', async () => {
   snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(
     ['post', 'choose type'],
-    {},
+    { communityId: mockCommunityId },
     {
       includePermissionType: true,
     },
@@ -75,7 +75,7 @@ it('renders correctly for owner', async () => {
   snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(
     ['post', 'choose type'],
-    {},
+    { communityId: mockCommunityId },
     {
       includePermissionType: true,
     },
@@ -96,7 +96,7 @@ it('fires onPress and navigates | member', async () => {
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(
     ['post', 'choose type'],
-    {},
+    { communityId: mockCommunityId },
     {
       includePermissionType: true,
     },
@@ -119,7 +119,7 @@ it('fires onPress and navigates | owner', async () => {
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(
     ['post', 'choose type'],
-    {},
+    { communityId: mockCommunityId },
     {
       includePermissionType: true,
     },
@@ -136,7 +136,7 @@ it('closes modal when close button is pressed', async () => {
   expect(closeModal).toHaveBeenCalledWith();
   expect(useAnalytics).toHaveBeenLastCalledWith(
     ['post', 'choose type'],
-    {},
+    { communityId: mockCommunityId },
     {
       includePermissionType: true,
     },

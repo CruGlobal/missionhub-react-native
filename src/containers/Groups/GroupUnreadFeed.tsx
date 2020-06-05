@@ -35,7 +35,7 @@ const GroupUnreadFeed = () => {
 
   useAnalytics(
     ['celebrate', 'new comment items'],
-    {},
+    { communityId },
     {
       includePermissionType: true,
     },

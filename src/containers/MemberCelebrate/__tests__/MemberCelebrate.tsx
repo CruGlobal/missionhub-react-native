@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ORG_PERMISSIONS, ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import { Person } from '../../../reducers/people';
 import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -14,9 +14,11 @@ jest.mock('../../CelebrateFeed', () => ({
 }));
 
 const myId = '2';
-const organization: Organization = { id: '123' };
+const personId = '1';
+const communityId = '123';
+const organization: Organization = { id: communityId };
 const person: Person = {
-  id: '1',
+  id: personId,
   organizational_permission: [
     { organization_id: organization.id, permission_id: ORG_PERMISSIONS.OWNER },
   ],
@@ -39,7 +41,7 @@ describe('MemberCelebrate', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['person', 'celebrate'],
-      {},
+      { personId, communityId },
       {
         includeAssignmentType: true,
       },
@@ -56,7 +58,7 @@ describe('MemberCelebrate', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['person', 'celebrate'],
-      {},
+      { personId: myId, communityId },
       {
         includeAssignmentType: true,
       },
@@ -90,7 +92,7 @@ describe('MemberCelebrate', () => {
 
     expect(useAnalytics).toHaveBeenCalledWith(
       ['person', 'celebrate'],
-      {},
+      { personId, communityId },
       {
         includeAssignmentType: true,
       },

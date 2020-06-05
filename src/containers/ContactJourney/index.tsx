@@ -177,7 +177,7 @@ class ContactJourney extends Component {
             'person',
             person.id === myId ? 'my journey' : 'our journey',
           ]}
-          params={{ personId: person.id, communityId: organization.id }}
+          params={{ personId: person.id, communityId: organization?.id }}
           options={{
             includeAssignmentType: true,
           }}

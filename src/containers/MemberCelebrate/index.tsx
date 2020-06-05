@@ -11,7 +11,7 @@ export interface MemberCelebrateProps {
 const MemberCelebrate = ({ communityId, personId }: MemberCelebrateProps) => {
   useAnalytics(
     ['person', 'celebrate'],
-    {},
+    { personId, communityId },
     {
       includeAssignmentType: true,
     },

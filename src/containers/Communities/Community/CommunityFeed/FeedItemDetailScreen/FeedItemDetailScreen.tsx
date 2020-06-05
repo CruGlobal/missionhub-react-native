@@ -56,6 +56,18 @@ const FeedItemDetailScreen = () => {
     variables: { feedItemId, myId },
   });
 
+  useMemo(() => {
+    if (!data) {
+      return;
+    }
+
+    const {
+      feedItem: {
+        subjectPerson: { id: personId },
+      },
+    } = data;
+  }, [loading]);
+
   const handleNextPage = () => {
     if (loading || !data?.feedItem.comments.pageInfo.hasNextPage) {
       return;

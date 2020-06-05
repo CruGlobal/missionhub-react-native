@@ -66,7 +66,7 @@ it('should render correctly', async () => {
   await flushMicrotasksQueue();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['celebrate', 'reported content'],
-    {},
+    { communityId: organization.id },
     {
       includePermissionType: true,
     },
@@ -93,7 +93,7 @@ it('should render empty correctly', async () => {
   await flushMicrotasksQueue();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['celebrate', 'reported content'],
-    {},
+    { communityId: organization.id },
     {
       includePermissionType: true,
     },
@@ -123,7 +123,7 @@ it('should call navigate back', async () => {
   await flushMicrotasksQueue();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['celebrate', 'reported content'],
-    {},
+    { communityId: organization.id },
     {
       includePermissionType: true,
     },
@@ -156,7 +156,7 @@ it('should refresh correctly', async () => {
   await flushMicrotasksQueue();
   expect(useAnalytics).toHaveBeenCalledWith(
     ['celebrate', 'reported content'],
-    {},
+    { communityId: organization.id },
     {
       includePermissionType: true,
     },
