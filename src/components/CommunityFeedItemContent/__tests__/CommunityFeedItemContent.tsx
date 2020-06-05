@@ -11,7 +11,10 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 import { CommunityFeedItemContent as FeedItem } from '../__generated__/CommunityFeedItemContent';
 import { COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT } from '../queries';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import {
+  PostTypeEnum,
+  PostStepStatusEnum,
+} from '../../../../__generated__/globalTypes';
 
 import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
 
@@ -187,6 +190,36 @@ describe('CommunityFeedItemContent', () => {
               subject: () => ({
                 __typename: 'Post',
                 postType: PostTypeEnum.story,
+              }),
+            }),
+          },
+        }),
+      );
+    });
+    it('renders post with AddToMySteps', () => {
+      testEvent(
+        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+          mocks: {
+            FeedItem: () => ({
+              subject: () => ({
+                __typename: 'Post',
+                postType: PostTypeEnum.prayer_request,
+                stepStatus: PostStepStatusEnum.NONE,
+              }),
+            }),
+          },
+        }),
+      );
+    });
+    it('renders post without AddToMyStepsButton', () => {
+      testEvent(
+        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+          mocks: {
+            FeedItem: () => ({
+              subject: () => ({
+                __typename: 'Post',
+                postType: PostTypeEnum.prayer_request,
+                stepStatus: PostStepStatusEnum.INCOMPLETE,
               }),
             }),
           },

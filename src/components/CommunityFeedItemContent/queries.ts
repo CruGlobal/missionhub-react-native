@@ -26,6 +26,7 @@ export const COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT = gql`
         id
         content
         mediaExpiringUrl
+        stepStatus
       }
     }
     subjectPerson {

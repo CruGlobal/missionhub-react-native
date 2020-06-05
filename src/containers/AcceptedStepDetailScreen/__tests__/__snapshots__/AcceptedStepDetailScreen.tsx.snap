@@ -32,18 +32,18 @@ Array [
       "__typename": "Post",
       "author": Object {
         "__typename": "Person",
-        "fullName": "Kali Stamm",
+        "fullName": "Roscoe Johnson",
         "id": "7",
-        "picture": "quam ipsam nobis",
+        "picture": "ipsam nobis cupiditate",
       },
-      "content": "dignissimos debitis incidunt",
-      "createdAt": "2019-10-06T00:50:46.763Z",
+      "content": "debitis incidunt accusantium",
+      "createdAt": "2014-09-11T09:20:29.756Z",
       "feedItem": Object {
         "__typename": "FeedItem",
         "id": "8",
       },
       "id": "6",
-      "mediaExpiringUrl": "sed libero repudiandae",
+      "mediaExpiringUrl": "libero repudiandae esse",
     },
     "receiver": Object {
       "__typename": "Person",
@@ -441,7 +441,7 @@ exports[`should render correctly post details 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "amet iure ut",
+                "uri": "iure ut libero",
               }
             }
             style={
@@ -452,7 +452,7 @@ exports[`should render correctly post details 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(152, 167, 125)",
+                  "backgroundColor": "rgb(190, 136, 115)",
                 },
                 undefined,
               ]
@@ -484,7 +484,7 @@ exports[`should render correctly post details 1`] = `
                 ]
               }
             >
-              Audrey Huels
+              Grace Dibbert
             </Text>
             <View
               style={
@@ -515,7 +515,7 @@ exports[`should render correctly post details 1`] = `
                 }
                 testID="Text"
               >
-                Nov 5 @ 10:33 PM
+                Nov 26 @ 1:14 PM
               </Text>
               <Text
                 onPress={[Function]}
@@ -568,7 +568,7 @@ exports[`should render correctly post details 1`] = `
               ]
             }
           >
-            recusandae ut nulla
+            ut nulla quam
           </Text>
         </View>
       </View>
@@ -584,7 +584,7 @@ exports[`should render correctly post details 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "ipsam nobis cupiditate",
+              "uri": "nobis cupiditate sed",
             }
           }
           style={

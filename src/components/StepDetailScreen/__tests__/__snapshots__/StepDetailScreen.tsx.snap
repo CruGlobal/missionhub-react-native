@@ -242,7 +242,7 @@ exports[`Post is not null renders correctly with post 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "recusandae alias consequuntur",
+                "uri": "alias consequuntur corporis",
               }
             }
             style={
@@ -253,7 +253,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(115, 115, 152)",
+                  "backgroundColor": "rgb(154, 199, 115)",
                 },
                 undefined,
               ]
@@ -285,7 +285,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                 ]
               }
             >
-              Zion Reichel
+              Mina Watsica
             </Text>
             <View
               style={
@@ -316,7 +316,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                 }
                 testID="Text"
               >
-                Jan 27 @ 11:31 AM
+                Mar 5 @ 3:36 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -369,7 +369,7 @@ exports[`Post is not null renders correctly with post 1`] = `
               ]
             }
           >
-            ratione ut sunt
+            ut sunt qui
           </Text>
         </View>
       </View>
@@ -385,7 +385,7 @@ exports[`Post is not null renders correctly with post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "amet iure ut",
+              "uri": "iure ut libero",
             }
           }
           style={
@@ -642,7 +642,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "recusandae alias consequuntur",
+                "uri": "alias consequuntur corporis",
               }
             }
             style={
@@ -653,7 +653,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(115, 115, 152)",
+                  "backgroundColor": "rgb(154, 199, 115)",
                 },
                 undefined,
               ]
@@ -685,7 +685,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 ]
               }
             >
-              Zion Reichel
+              Mina Watsica
             </Text>
             <View
               style={
@@ -716,7 +716,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 }
                 testID="Text"
               >
-                Jan 27 @ 11:31 AM
+                Mar 5 @ 3:36 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -769,7 +769,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
               ]
             }
           >
-            ratione ut sunt
+            ut sunt qui
           </Text>
         </View>
       </View>
@@ -785,7 +785,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "amet iure ut",
+              "uri": "iure ut libero",
             }
           }
           style={
@@ -1401,7 +1401,7 @@ exports[`Post is not null renders with an input 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "recusandae alias consequuntur",
+                "uri": "alias consequuntur corporis",
               }
             }
             style={
@@ -1412,7 +1412,7 @@ exports[`Post is not null renders with an input 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(115, 115, 152)",
+                  "backgroundColor": "rgb(154, 199, 115)",
                 },
                 undefined,
               ]
@@ -1444,7 +1444,7 @@ exports[`Post is not null renders with an input 1`] = `
                 ]
               }
             >
-              Zion Reichel
+              Mina Watsica
             </Text>
             <View
               style={
@@ -1475,7 +1475,7 @@ exports[`Post is not null renders with an input 1`] = `
                 }
                 testID="Text"
               >
-                Jan 27 @ 11:31 AM
+                Mar 5 @ 3:36 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1528,7 +1528,7 @@ exports[`Post is not null renders with an input 1`] = `
               ]
             }
           >
-            ratione ut sunt
+            ut sunt qui
           </Text>
         </View>
       </View>
@@ -1544,7 +1544,7 @@ exports[`Post is not null renders with an input 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "amet iure ut",
+              "uri": "iure ut libero",
             }
           }
           style={
