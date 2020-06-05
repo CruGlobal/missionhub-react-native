@@ -9,7 +9,7 @@ import Header from '../../components/Header';
 import { IconButton, Flex } from '../../components/common';
 import NotificationCenterItem from '../../components/NotificationCenterItem';
 import { openMainMenu } from '../../utils/common';
-import SettingsIcon from '../../../assets/images/settingsIcon.svg';
+// import SettingsIcon from '../../../assets/images/settingsIcon.svg';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 
 import { GET_NOTIFICATIONS, UPDATE_HAS_UNREAD_NOTIFICATIONS } from './queries';
@@ -24,7 +24,7 @@ interface SectionsInterface {
   name: string;
   data: NotificationItem[];
 }
-const sortNotificationFeed = (nodes: NotificationItem[]) => {
+const groupNotificationFeed = (nodes: NotificationItem[]) => {
   const sections: SectionsInterface[] = [
     { id: 0, name: 'reportedActivity', data: [] },
     { id: 1, name: 'dates.today', data: [] },
@@ -86,7 +86,7 @@ const NotificationCenterScreen = () => {
     return <NotificationCenterItem event={item} />;
   };
 
-  const filteredSection = sortNotificationFeed(nodes);
+  const filteredSections = groupNotificationFeed(nodes);
 
   return (
     <View style={styles.pageContainer}>
@@ -107,13 +107,13 @@ const NotificationCenterScreen = () => {
       <SectionList
         style={{
           backgroundColor:
-            filteredSection.length === 0 ? theme.white : theme.extraLightGrey,
+            filteredSections.length === 0 ? theme.white : theme.extraLightGrey,
         }}
         onRefresh={refetch}
         refreshing={loading}
         renderSectionHeader={renderSectionHeader}
         ListEmptyComponent={renderNull}
-        sections={filteredSection}
+        sections={filteredSections}
         renderItem={renderItem}
       />
     </View>

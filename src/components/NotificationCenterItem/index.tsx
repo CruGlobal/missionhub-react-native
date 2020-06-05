@@ -10,6 +10,7 @@ import PostTypeLabel, { PostLabelSizeEnum } from '../PostTypeLabel';
 import {
   FeedItemSubjectTypeEnum,
   NotificationTriggerEnum,
+  PostTypeEnum,
 } from '../../../__generated__/globalTypes';
 import { NotificationItem } from './__generated__/NotificationItem';
 import { mapPostTypeToFeedType } from '../../utils/common';
@@ -48,8 +49,20 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
               )}`}
             </Text>
           );
-        case '<<post_type>>':
-          return <Text key={word}>{getMessageVariable('post_type')}</Text>;
+        case '<<person_name>>':
+          return (
+            <Text key={word} style={styles.boldedItemText}>
+              {`${word.replace(
+                /<<person_name>>/,
+                getMessageVariable('person_name') ||
+                  t('profileLabels.aMissionHubUser'),
+              )}`}
+            </Text>
+          );
+        case '<<localized_post_type>>':
+          return (
+            <Text key={word}>{getMessageVariable('localized_post_type')}</Text>
+          );
         case '<<community_name>>':
           return (
             <Text key={word} style={styles.boldedItemText}>
@@ -64,7 +77,10 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
       }
     });
   };
-  const iconType = FeedItemSubjectTypeEnum.STORY;
+  const iconType =
+    mapPostTypeToFeedType(
+      getMessageVariable('post_type_enum') as PostTypeEnum,
+    ) || FeedItemSubjectTypeEnum.STORY;
 
   // const buildReportedMessage = () => (
   //   <>
@@ -105,7 +121,7 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
         style={{ paddingHorizontal: 20, maxWidth: 350 }}
       >
         <Avatar person={subjectPerson} size="medium" />
-        <View style={{ position: 'absolute', top: 25, left: 50 }}>
+        <View style={{ position: 'absolute', top: 30, left: 50 }}>
           <PostTypeLabel
             showText={false}
             size={PostLabelSizeEnum.small}
