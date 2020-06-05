@@ -18,7 +18,9 @@ export const createCollapsibleViewContext = () =>
     setCollapsibleScrollViewProps: () => {},
   });
 
-type CollapsibleViewContext = ReturnType<typeof createCollapsibleViewContext>;
+export type CollapsibleViewContext = ReturnType<
+  typeof createCollapsibleViewContext
+>;
 
 interface CollapsibleViewProviderProps {
   context: CollapsibleViewContext;

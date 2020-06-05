@@ -4,13 +4,14 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderWithContext } from '../../../../testUtils';
-import { navToPersonScreen } from '../../../actions/person';
 import { organizationSelector } from '../../../selectors/organizations';
 import { acceptedChallengesSelector } from '../../../selectors/challenges';
+import { navigatePush } from '../../../actions/navigation';
+import { COMMUNITY_MEMBER_TABS } from '../../Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
 
 import ChallengeMembers from '..';
 
-jest.mock('../../../actions/person');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/challenges');
 jest.mock('../../../utils/hooks/useAnalytics');
@@ -38,6 +39,7 @@ const accepted_community_challenges = [
 const challenge = {
   id: challengeId,
   accepted_community_challenges,
+  organization: { id: orgId },
 };
 const organization = {
   id: orgId,
@@ -69,7 +71,7 @@ const sortedAcceptedChallenges = {
   ],
 };
 
-const navResponse = { type: 'nav to person screen ' };
+const navigatePushResult = { type: 'navigatePush' };
 
 ((organizationSelector as unknown) as jest.Mock).mockReturnValue(organization);
 
@@ -77,7 +79,7 @@ const navResponse = { type: 'nav to person screen ' };
   sortedAcceptedChallenges,
 );
 
-(navToPersonScreen as jest.Mock).mockReturnValue(navResponse);
+(navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
 
 it('renders correctly for joined members', () => {
   renderWithContext(<ChallengeMembers />, {
@@ -198,6 +200,9 @@ it('navigates to person screen when handleSelect fires', async () => {
   });
 
   await fireEvent.press(getByTestId('ChallengeMemberItemButton'));
-  expect(navToPersonScreen).toHaveBeenCalled();
+  expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_MEMBER_TABS, {
+    personId: '111',
+    communityId: organization.id,
+  });
   useAnalytics(['challenge', 'detail', 'joined']);
 });
