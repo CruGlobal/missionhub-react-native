@@ -23,6 +23,7 @@ import {
 import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
+  PostStepStatusEnum,
 } from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
@@ -181,7 +182,24 @@ describe('Community', () => {
 
   it('renders post correctly with add to steps button', () => {
     renderWithContext(
-      <CommunityFeedItem feedItem={prayerPostItem} namePressable={false} />,
+      <CommunityFeedItem
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.NONE,
+                }),
+              }),
+            },
+          },
+        )}
+        namePressable={false}
+      />,
       {
         initialState,
       },
@@ -391,7 +409,21 @@ describe('add to steps button', () => {
   it('calls handleAddToMySteps', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        feedItem={prayerPostItem}
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.NONE,
+                }),
+              }),
+            },
+          },
+        )}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -400,6 +432,38 @@ describe('add to steps button', () => {
     fireEvent.press(getByTestId('AddToMyStepsButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
+      feedItemId: prayerPostItem.id,
+      communityId,
+    });
+  });
+
+  it('does not show addToMySteps button', () => {
+    const { queryByTestId } = renderWithContext(
+      <CommunityFeedItem
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.INCOMPLETE,
+                }),
+              }),
+            },
+          },
+        )}
+        onClearNotification={onClearNotification}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+
+    expect(queryByTestId('AddToMyStepsButton')).toBeFalsy();
+
+    expect(navigatePush).not.toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
       feedItemId: prayerPostItem.id,
       communityId,
     });

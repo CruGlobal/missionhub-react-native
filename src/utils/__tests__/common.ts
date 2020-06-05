@@ -50,6 +50,7 @@ import {
   PermissionEnum,
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
+  PostStepStatusEnum,
 } from '../../../__generated__/globalTypes';
 import {
   CommunityFeedItem_subject_Post,
@@ -826,6 +827,7 @@ describe('getFeedItemType', () => {
     content: 'asdf',
     mediaExpiringUrl: '',
     postType: PostTypeEnum.story,
+    stepStatus: PostStepStatusEnum.INCOMPLETE,
   };
 
   it('returns STEP', () => {

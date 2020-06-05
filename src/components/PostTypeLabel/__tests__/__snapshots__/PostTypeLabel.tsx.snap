@@ -1165,7 +1165,7 @@ exports[`post types cards renders people 1`] = `
         resizeMode="cover"
         source={
           Object {
-            "uri": "recusandae alias consequuntur",
+            "uri": "alias consequuntur corporis",
           }
         }
         style={
@@ -1178,7 +1178,7 @@ exports[`post types cards renders people 1`] = `
               "width": 24,
             },
             Object {
-              "backgroundColor": "rgb(115, 115, 152)",
+              "backgroundColor": "rgb(154, 199, 115)",
             },
             Object {
               "marginLeft": -12,
@@ -1190,7 +1190,7 @@ exports[`post types cards renders people 1`] = `
         resizeMode="cover"
         source={
           Object {
-            "uri": "ut sunt qui",
+            "uri": "qui amet iure",
           }
         }
         style={
@@ -1203,7 +1203,7 @@ exports[`post types cards renders people 1`] = `
               "width": 24,
             },
             Object {
-              "backgroundColor": "rgb(115, 19, 155)",
+              "backgroundColor": "rgb(161, 123, 130)",
             },
             Object {
               "marginLeft": -12,
@@ -1215,7 +1215,7 @@ exports[`post types cards renders people 1`] = `
         resizeMode="cover"
         source={
           Object {
-            "uri": "libero qui recusandae",
+            "uri": "ut nulla quam",
           }
         }
         style={
@@ -1228,7 +1228,7 @@ exports[`post types cards renders people 1`] = `
               "width": 24,
             },
             Object {
-              "backgroundColor": "rgb(167, 136, 115)",
+              "backgroundColor": "rgb(152, 55, 155)",
             },
             Object {
               "marginLeft": -12,
