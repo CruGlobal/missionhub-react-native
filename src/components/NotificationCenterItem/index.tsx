@@ -1,7 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 import Avatar from '../Avatar';
 import { Text, Flex, Touchable } from '../common';
@@ -21,7 +20,6 @@ import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
 
 const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
-  const { t } = useTranslation('notificationsCenter');
   const dispatch = useDispatch();
   const {
     messageTemplate,
