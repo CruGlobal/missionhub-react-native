@@ -1,4 +1,5 @@
 import gql from 'graphql-tag';
+
 import { NOTIFICATION_ITEM_FRAGMENT } from '../../components/NotificationCenterItem/queries';
 
 export const GET_NOTIFICATIONS = gql`

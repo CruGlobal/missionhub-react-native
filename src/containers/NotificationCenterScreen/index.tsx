@@ -9,14 +9,13 @@ import Header from '../../components/Header';
 import { IconButton, Flex } from '../../components/common';
 import NotificationCenterItem from '../../components/NotificationCenterItem';
 import { openMainMenu } from '../../utils/common';
-// import SettingsIcon from '../../../assets/images/settingsIcon.svg';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
+import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
 
-import { GET_NOTIFICATIONS, UPDATE_HAS_UNREAD_NOTIFICATIONS } from './queries';
+import { UpdateHasUnreadNotifications } from './__generated__/UpdateHasUnreadNotifications';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
 import { GetNotifications } from './__generated__/GetNotifications';
-import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
-import { UpdateHasUnreadNotifications } from './__generated__/UpdateHasUnreadNotifications';
+import { GET_NOTIFICATIONS, UPDATE_HAS_UNREAD_NOTIFICATIONS } from './queries';
 import styles from './styles';
 
 interface SectionsInterface {
@@ -99,7 +98,6 @@ const NotificationCenterScreen = () => {
             onPress={onOpenMainMenu}
           />
         }
-        // right={<SettingsIcon color={theme.white} style={{ marginRight: 10 }} />}
         title={t('title')}
         titleStyle={styles.title}
       />

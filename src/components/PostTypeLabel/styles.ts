@@ -69,8 +69,8 @@ export default StyleSheet.create({
     borderRadius: 12,
     alignItems: 'center',
     justifyContent: 'center',
-    paddingVertical: 0,
-    paddingHorizontal: 0,
+    paddingVertical: 5,
+    paddingHorizontal: 5,
   },
 
   buttonText: {

@@ -4,19 +4,20 @@ import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
 import Avatar from '../Avatar';
-import { Text, Flex } from '../common';
+import { Text, Flex, Touchable } from '../common';
 import DateComponent from '../DateComponent';
 import PostTypeLabel, { PostLabelSizeEnum } from '../PostTypeLabel';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import CommentIcon from '../../../assets/images/commentIcon.svg';
 import {
   FeedItemSubjectTypeEnum,
   NotificationTriggerEnum,
   PostTypeEnum,
 } from '../../../__generated__/globalTypes';
-import { NotificationItem } from './__generated__/NotificationItem';
-import { mapPostTypeToFeedType } from '../../utils/common';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 import { navigatePush } from '../../actions/navigation';
+import { mapPostTypeToFeedType } from '../../utils/common';
 
+import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
 
 const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
@@ -77,17 +78,6 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
       }
     });
   };
-  const iconType =
-    mapPostTypeToFeedType(
-      getMessageVariable('post_type_enum') as PostTypeEnum,
-    ) || FeedItemSubjectTypeEnum.STORY;
-
-  // const buildReportedMessage = () => (
-  //   <>
-  //     {renderTemplateMessage()}
-  //     <Text style={styles.boldedItemText}>{` ${t('review')}`}</Text>
-  //   </>
-  // );
 
   const renderText = () => {
     if (NotificationTriggerEnum[trigger]) {
@@ -95,7 +85,45 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
     }
   };
 
+  const iconType =
+    mapPostTypeToFeedType(
+      getMessageVariable('post_type_enum') as PostTypeEnum,
+    ) || FeedItemSubjectTypeEnum.STORY;
+
+  const renderIcon = () => {
+    // Comments and Challenges don't return a FeedItemSubjectType, so we have to check
+    // for them seperately
+    if (
+      [
+        NotificationTriggerEnum.feed_items_comment_notification,
+        NotificationTriggerEnum.community_challenge_created_alert,
+      ].includes(trigger)
+    ) {
+      switch (trigger) {
+        case NotificationTriggerEnum.feed_items_comment_notification:
+          return <CommentIcon />;
+        case NotificationTriggerEnum.community_challenge_created_alert:
+          return (
+            <PostTypeLabel
+              showText={false}
+              size={PostLabelSizeEnum.small}
+              type={FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE}
+            />
+          );
+      }
+    } else {
+      return (
+        <PostTypeLabel
+          showText={false}
+          size={PostLabelSizeEnum.small}
+          type={iconType}
+        />
+      );
+    }
+  };
+
   const shouldNavigate = () => {
+    // Currently can't handle navigating to challenge and step feed items
     return (
       trigger !== NotificationTriggerEnum.community_challenge_created_alert &&
       trigger !== NotificationTriggerEnum.feed_items_assigned_to_alert_step
@@ -113,33 +141,29 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
   };
 
   return (
-    <Flex style={styles.itemContainer} direction="row" justify="between">
-      <Flex
-        direction="row"
-        justify="between"
-        align="center"
-        style={{ paddingHorizontal: 20, maxWidth: 350 }}
-      >
-        <Avatar person={subjectPerson} size="medium" />
-        <View style={{ position: 'absolute', top: 30, left: 50 }}>
-          <PostTypeLabel
-            showText={false}
-            size={PostLabelSizeEnum.small}
-            type={iconType}
-          />
-        </View>
-        <Flex style={{ paddingHorizontal: 20 }}>
-          <Text style={styles.itemText} onPress={handleNotificationPress}>
-            {renderText()}
-          </Text>
-          <DateComponent
-            style={styles.dateText}
-            date={createdAt}
-            format={'LLL'}
-          />
+    <Touchable onPress={handleNotificationPress} testID="notificationButton">
+      <Flex style={styles.itemContainer} direction="row" justify="between">
+        <Flex
+          direction="row"
+          justify="between"
+          align="center"
+          style={{ paddingHorizontal: 20, maxWidth: 350 }}
+        >
+          <Avatar person={subjectPerson} size="medium" />
+          <View style={{ position: 'absolute', top: 30, left: 50 }}>
+            {renderIcon()}
+          </View>
+          <Flex style={{ paddingHorizontal: 20 }}>
+            <Text style={styles.itemText}>{renderText()}</Text>
+            <DateComponent
+              style={styles.dateText}
+              date={createdAt}
+              format={'LLL'}
+            />
+          </Flex>
         </Flex>
       </Flex>
-    </Flex>
+    </Touchable>
   );
 };
 export default NotificationCenterItem;
