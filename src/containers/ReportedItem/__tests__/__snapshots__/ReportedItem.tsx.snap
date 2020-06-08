@@ -271,7 +271,7 @@ exports[`Reported Post call handleDelete 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "incidunt accusantium sed",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -282,7 +282,7 @@ exports[`Reported Post call handleDelete 1`] = `
                 "width": 48,
               },
               Object {
-                "backgroundColor": "rgb(152, 155, 11)",
+                "backgroundColor": "rgb(197, 19, 67)",
               },
               undefined,
             ]
@@ -382,7 +382,7 @@ exports[`Reported Post call handleDelete 1`] = `
             }
           >
             <Text>
-              nulla quam ipsam
+              quam ipsam nobis
             </Text>
           </Text>
         </View>
@@ -392,7 +392,7 @@ exports[`Reported Post call handleDelete 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "nobis cupiditate sed",
+          "uri": "cupiditate sed dignissimos",
         }
       }
       style={
@@ -438,70 +438,6 @@ exports[`Reported Post call handleDelete 1`] = `
           }
         }
       >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "flex-start",
-              "opacity": 1,
-            }
-          }
-          testID="AddToMyStepsButton"
-        >
-          <SvgMock
-            style={
-              Object {
-                "alignItems": "center",
-                "height": 24,
-                "justifyContent": "center",
-                "width": 24,
-              }
-            }
-          />
-          <SvgMock
-            style={
-              Object {
-                "alignItems": "center",
-                "height": 11,
-                "justifyContent": "center",
-                "left": 16,
-                "position": "absolute",
-                "top": 16,
-                "width": 11,
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingLeft": 12,
-                },
-              ]
-            }
-          >
-            Add to My Steps
-          </Text>
-        </View>
         <View
           style={
             Object {
@@ -591,8 +527,7 @@ exports[`Reported Post call handleDelete 1`] = `
                   }
                 >
                   <SvgMock
-                    color="#FF5532"
-                    fill="#FF5532"
+                    color="#505256"
                   />
                 </View>
               </View>
@@ -626,7 +561,7 @@ exports[`Reported Post call handleDelete 1`] = `
                   ]
                 }
               >
-                45720
+                55868
               </Text>
               <View
                 accessible={true}
@@ -1108,7 +1043,7 @@ exports[`Reported Post call handleIgnore 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "incidunt accusantium sed",
+              "uri": "accusantium sed libero",
             }
           }
           style={
@@ -1119,7 +1054,7 @@ exports[`Reported Post call handleIgnore 1`] = `
                 "width": 48,
               },
               Object {
-                "backgroundColor": "rgb(152, 155, 11)",
+                "backgroundColor": "rgb(197, 19, 67)",
               },
               undefined,
             ]
@@ -1219,7 +1154,7 @@ exports[`Reported Post call handleIgnore 1`] = `
             }
           >
             <Text>
-              nulla quam ipsam
+              quam ipsam nobis
             </Text>
           </Text>
         </View>
@@ -1229,7 +1164,7 @@ exports[`Reported Post call handleIgnore 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "nobis cupiditate sed",
+          "uri": "cupiditate sed dignissimos",
         }
       }
       style={
@@ -1275,70 +1210,6 @@ exports[`Reported Post call handleIgnore 1`] = `
           }
         }
       >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "flex": 1,
-              "flexDirection": "row",
-              "justifyContent": "flex-start",
-              "opacity": 1,
-            }
-          }
-          testID="AddToMyStepsButton"
-        >
-          <SvgMock
-            style={
-              Object {
-                "alignItems": "center",
-                "height": 24,
-                "justifyContent": "center",
-                "width": 24,
-              }
-            }
-          />
-          <SvgMock
-            style={
-              Object {
-                "alignItems": "center",
-                "height": 11,
-                "justifyContent": "center",
-                "left": 16,
-                "position": "absolute",
-                "top": 16,
-                "width": 11,
-              }
-            }
-          />
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingLeft": 12,
-                },
-              ]
-            }
-          >
-            Add to My Steps
-          </Text>
-        </View>
         <View
           style={
             Object {
@@ -1428,8 +1299,7 @@ exports[`Reported Post call handleIgnore 1`] = `
                   }
                 >
                   <SvgMock
-                    color="#FF5532"
-                    fill="#FF5532"
+                    color="#505256"
                   />
                 </View>
               </View>
@@ -1463,7 +1333,7 @@ exports[`Reported Post call handleIgnore 1`] = `
                   ]
                 }
               >
-                45720
+                55868
               </Text>
               <View
                 accessible={true}

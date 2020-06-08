@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar, View, Image } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
@@ -16,6 +17,8 @@ import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
 import BackButton from '../BackButton';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
+import { navigatePush } from '../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import styles from './styles';
 import { StepDetailPost } from './__generated__/StepDetailPost';
@@ -60,6 +63,15 @@ const StepDetailScreen = ({
   } = styles;
   const { t } = useTranslation('stepDetail');
   const aspectRatio = useAspectRatio(post?.mediaExpiringUrl);
+  const dispatch = useDispatch();
+
+  const handleOpenPost = () => {
+    dispatch(
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        feedItemId: post?.feedItem.id,
+      }),
+    );
+  };
 
   const renderPostSection = () => {
     if (post) {
@@ -77,7 +89,8 @@ const StepDetailScreen = ({
                     format={'MMM D @ LT'}
                   />
                   <Text
-                    // TODO Add openPost action
+                    testID={'openPostButton'}
+                    onPress={handleOpenPost}
                     style={{
                       paddingLeft: 10,
                       color: theme.parakeetBlue,

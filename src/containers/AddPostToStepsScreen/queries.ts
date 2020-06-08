@@ -11,6 +11,7 @@ export const ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY = gql`
         ... on Post {
           id
           postType
+          stepStatus
           ...StepDetailPost
         }
       }
@@ -30,6 +31,10 @@ export const ADD_POST_TO_MY_STEPS = gql`
       step {
         id
         title
+        post {
+          id
+          stepStatus
+        }
       }
     }
   }

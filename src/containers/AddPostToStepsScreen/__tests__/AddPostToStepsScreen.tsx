@@ -1,13 +1,19 @@
 import React from 'react';
 import MockDate from 'mockdate';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { ADD_POST_TO_MY_STEPS } from '../queries';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import {
+  ADD_POST_TO_MY_STEPS,
+  ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY,
+} from '../queries';
+import {
+  PostTypeEnum,
+  PostStepStatusEnum,
+} from '../../../../__generated__/globalTypes';
 
 import AddPostToStepsScreen from '..';
 
@@ -84,6 +90,7 @@ it('creates a new step when user clicks add to my steps button', async () => {
       Post: () => ({
         id: mockPostId,
         postType: () => PostTypeEnum.prayer_request,
+        stepStatus: () => PostStepStatusEnum.NONE,
       }),
     },
   });
@@ -99,6 +106,15 @@ it('creates a new step when user clicks add to my steps button', async () => {
       },
     },
   });
+  expect(useQuery).toHaveBeenCalledWith(
+    ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY,
+    {
+      onCompleted: expect.any(Function),
+      variables: {
+        feedItemId,
+      },
+    },
+  );
   expect(useAnalytics).toHaveBeenCalledWith(['add steps', 'step detail']);
 });
 

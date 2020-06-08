@@ -10,10 +10,15 @@ import {
 import FeedItemDetailScreen, {
   FEED_ITEM_DETAIL_SCREEN,
 } from './Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import {
+  CommunityMemberTabs,
+  COMMUNITY_MEMBER_TABS,
+} from './Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
 
 export const CommunitiesRoutes = {
   [COMMUNITY_TABS]: CommunityTabs,
   [COMMUNITY_PROFILE]: CommunityProfile,
   [COMMUNITY_MEMBERS]: CommunityMembers,
+  [COMMUNITY_MEMBER_TABS]: CommunityMemberTabs,
   [FEED_ITEM_DETAIL_SCREEN]: FeedItemDetailScreen,
 };

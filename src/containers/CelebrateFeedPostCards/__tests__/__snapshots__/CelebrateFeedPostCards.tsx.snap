@@ -83,31 +83,7 @@ exports[`renders with feed items correctly 1`] = `
     />
     <PostTypeCardWithPeople
       onPress={[Function]}
-      people={
-        Array [
-          Object {
-            "__typename": "Person",
-            "firstName": "Roberta",
-            "fullName": "Roberta Jenkins",
-            "id": "9",
-            "picture": "sit aperiam placeat",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Janelle",
-            "fullName": "Janelle Upton",
-            "id": "11",
-            "picture": "explicabo exercitationem ut",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Coty",
-            "fullName": "Coty Vandervort",
-            "id": "13",
-            "picture": "ut ullam quos",
-          },
-        ]
-      }
+      people={Array []}
       testID="PostCard_STEP"
       type="STEP"
     />
@@ -121,30 +97,23 @@ exports[`renders with feed items correctly 1`] = `
   >
     <PostTypeCardWithPeople
       onPress={[Function]}
-      people={Array []}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Magnolia",
+            "fullName": "Magnolia Rogahn",
+            "id": "11",
+            "picture": "ullam minima ducimus",
+          },
+        ]
+      }
       testID="PostCard_QUESTION"
       type="QUESTION"
     />
     <PostTypeCardWithPeople
       onPress={[Function]}
-      people={
-        Array [
-          Object {
-            "__typename": "Person",
-            "firstName": "Arvel",
-            "fullName": "Arvel Simonis",
-            "id": "5",
-            "picture": "eaque enim ipsum",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Ayden",
-            "fullName": "Ayden Medhurst",
-            "id": "7",
-            "picture": "quam tempore a",
-          },
-        ]
-      }
+      people={Array []}
       testID="PostCard_STORY"
       type="STORY"
     />
@@ -162,10 +131,24 @@ exports[`renders with feed items correctly 1`] = `
         Array [
           Object {
             "__typename": "Person",
-            "firstName": "Augusta",
-            "fullName": "Augusta Pouros",
+            "firstName": "Mathias",
+            "fullName": "Mathias Larson",
             "id": "3",
-            "picture": "occaecati debitis et",
+            "picture": "debitis et saepe",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Bryce",
+            "fullName": "Bryce Pfannerstill",
+            "id": "9",
+            "picture": "repellendus fugiat velit",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Antwon",
+            "fullName": "Antwon King",
+            "id": "13",
+            "picture": "totam voluptates explicabo",
           },
         ]
       }
@@ -175,7 +158,24 @@ exports[`renders with feed items correctly 1`] = `
     <PostTypeCardWithPeople
       countOnly={true}
       onPress={[Function]}
-      people={Array []}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Alison",
+            "fullName": "Alison Goldner",
+            "id": "5",
+            "picture": "ipsum inventore debitis",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Helena",
+            "fullName": "Helena Osinski",
+            "id": "7",
+            "picture": "a velit provident",
+          },
+        ]
+      }
       testID="PostCard_ANNOUNCEMENT"
       type="ANNOUNCEMENT"
     />
