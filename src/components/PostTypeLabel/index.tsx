@@ -137,7 +137,7 @@ const PostTypeLabel = ({
   if (onPress) {
     return (
       <Button
-        onPress={() => onPress && onPress()}
+        onPress={onPress}
         testID={`${type}Button`}
         pill={true}
         style={[

@@ -231,8 +231,7 @@ exports[`label variations renders label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -272,8 +271,7 @@ exports[`label variations renders large label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -1902,8 +1900,7 @@ exports[`post types renders Announcement Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#505256",
@@ -1960,8 +1957,7 @@ exports[`post types renders Care Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#FD726D",
@@ -2018,8 +2014,7 @@ exports[`post types renders God Story Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -2076,8 +2071,7 @@ exports[`post types renders On Your Mind Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#B4B6BA",
@@ -2134,8 +2128,7 @@ exports[`post types renders Prayer Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#A97398",
@@ -2192,8 +2185,7 @@ exports[`post types renders Spiritual Question Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#FFA178",
@@ -2250,8 +2242,7 @@ exports[`post types renders Step Of Faith Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#3CC8E6",
@@ -2308,8 +2299,7 @@ exports[`renders correctly 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -2397,8 +2387,7 @@ exports[`renders pressable correctly 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
+            "paddingVertical": 0,
           },
           Object {
             "backgroundColor": "#7076B5",

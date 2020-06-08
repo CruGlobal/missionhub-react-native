@@ -8,8 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 36,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 0,
     borderRadius: 18,
   },
   headerCard: {
