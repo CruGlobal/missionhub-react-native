@@ -8,6 +8,7 @@ import {
   StepTypeEnum,
   PostTypeEnum,
   RelationshipTypeEnum,
+  NotificationTriggerEnum,
   PostStepStatusEnum,
 } from '../__generated__/globalTypes';
 
@@ -86,6 +87,13 @@ export const globalMocks: IMocks = {
     return {
       subjectPerson: { firstName, lastName },
       subjectPersonName: `${firstName} ${lastName}`,
+    };
+  },
+  Notification: () => {
+    return {
+      trigger: faker.random.arrayElement(
+        Object.values(NotificationTriggerEnum),
+      ),
     };
   },
 };
