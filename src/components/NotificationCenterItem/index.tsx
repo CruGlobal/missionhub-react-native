@@ -45,8 +45,7 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
             <Text key={word} style={styles.boldedItemText}>
               {`${word.replace(
                 /<<subject_person>>/,
-                getMessageVariable('subject_person') ||
-                  t('profileLabels.aMissionHubUser'),
+                getMessageVariable('subject_person') || '',
               )}`}
             </Text>
           );
@@ -55,8 +54,7 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
             <Text key={word} style={styles.boldedItemText}>
               {`${word.replace(
                 /<<person_name>>/,
-                getMessageVariable('person_name') ||
-                  t('profileLabels.aMissionHubUser'),
+                getMessageVariable('person_name') || '',
               )}`}
             </Text>
           );
