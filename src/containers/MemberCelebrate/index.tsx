@@ -3,7 +3,7 @@ import { connect } from 'react-redux-legacy';
 
 import { TrackStateContext } from '../../actions/analytics';
 import { getAnalyticsAssignmentType } from '../../utils/analytics';
-import { CelebrateFeed } from '../CelebrateFeed';
+import { CommunityFeed } from '../CommunityFeed';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { organizationSelector } from '../../selectors/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -26,7 +26,7 @@ const MemberCelebrate = ({
   });
 
   return (
-    <CelebrateFeed
+    <CommunityFeed
       communityId={communityId}
       personId={personId}
       itemNamePressable={false}

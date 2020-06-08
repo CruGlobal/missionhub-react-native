@@ -6,8 +6,8 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import Input from '../../../components/Input';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { FeedItemEditingComment } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
-import { FEED_ITEM_EDITING_COMMENT_FRAGMENT } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/queries';
+import { FeedItemEditingComment } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
+import { FEED_ITEM_EDITING_COMMENT_FRAGMENT } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedCommentBox/queries';
 
 import CommentBox from '..';
 

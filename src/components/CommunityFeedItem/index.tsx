@@ -18,12 +18,12 @@ import {
   CommunityFeedItem_subject,
   CommunityFeedItem_subject_Post,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
-} from '../../containers/CelebrateFeed/__generated__/GetCommunityFeed';
-import { GET_COMMUNITY_FEED } from '../../containers/CelebrateFeed/queries';
+} from '../../containers/CommunityFeed/__generated__/GetCommunityFeed';
+import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
 import { getFeedItemType } from '../../utils/common';
 
 import styles from './styles';

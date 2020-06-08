@@ -9,7 +9,7 @@ import {
 } from './Community/CommunityProfile/CommunityProfile';
 import FeedItemDetailScreen, {
   FEED_ITEM_DETAIL_SCREEN,
-} from './Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+} from './Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import {
   CommunityMemberTabs,
   COMMUNITY_MEMBER_TABS,

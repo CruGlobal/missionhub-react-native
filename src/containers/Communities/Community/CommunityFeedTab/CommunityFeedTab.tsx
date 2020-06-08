@@ -1,28 +1,26 @@
 import React, { useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { CommunityFeed } from '../CommunityFeed';
-import { refreshCommunity } from '../../actions/organizations';
-import { organizationSelector } from '../../selectors/organizations';
-import { orgIsGlobal } from '../../utils/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
-import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { AuthState } from '../../reducers/auth';
-import { OrganizationsState } from '../../reducers/organizations';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { CollapsibleViewContext } from '../../components/CollapsibleView/CollapsibleView';
+import { CollapsibleViewContext } from '../../../../components/CollapsibleView/CollapsibleView';
+import { CommunityFeed } from '../../../CommunityFeed';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import { getAnalyticsPermissionType } from '../../../../utils/analytics';
+import { organizationSelector } from '../../../../selectors/organizations';
+import { OrganizationsState } from '../../../../reducers/organizations';
+import { AuthState } from '../../../../reducers/auth';
+import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
+import { orgIsGlobal } from '../../../../utils/common';
 
-interface CommunityFeedProps {
+interface CommunityImpactTabProps {
   collapsibleHeaderContext: CollapsibleViewContext;
 }
 
-const GroupCommunityFeed = ({
+export const CommunityFeedTab = ({
   collapsibleHeaderContext,
-}: CommunityFeedProps) => {
-  const dispatch = useDispatch();
-
+}: CommunityImpactTabProps) => {
   const communityId: string = useNavigationParam('communityId');
+  const personId: string | undefined = useNavigationParam('personId');
 
   const organization = useSelector(
     ({ organizations }: { organizations: OrganizationsState }) =>
@@ -37,24 +35,17 @@ const GroupCommunityFeed = ({
     screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
   });
 
-  const handleRefetch = () => {
-    // TODO: this still needed?
-    dispatch(refreshCommunity(organization.id));
-  };
-
   const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
 
   return (
     <CommunityFeed
       testID="CelebrateFeed"
       communityId={communityId}
-      onRefetch={handleRefetch}
+      personId={personId}
       itemNamePressable={!orgIsGlobal(organization)}
       collapsibleScrollViewProps={collapsibleScrollViewProps}
     />
   );
 };
-
-export default GroupCommunityFeed;
 
 export const COMMUNITY_FEED = 'nav/COMMUNITY_FEED';

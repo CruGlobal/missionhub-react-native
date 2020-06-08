@@ -10,8 +10,8 @@ import { FeedItemCommentItem } from '../CommentItem/__generated__/FeedItemCommen
 import {
   FeedItemDetail,
   FeedItemDetailVariables,
-} from '../Communities/Community/CommunityFeed/FeedItemDetailScreen/__generated__/FeedItemDetail';
-import { FEED_ITEM_DETAIL_QUERY } from '../Communities/Community/CommunityFeed/FeedItemDetailScreen/queries';
+} from '../Communities/Community/CommunityFeedTab/FeedItemDetailScreen/__generated__/FeedItemDetail';
+import { FEED_ITEM_DETAIL_QUERY } from '../Communities/Community/CommunityFeedTab/FeedItemDetailScreen/queries';
 
 import styles from './styles';
 import {

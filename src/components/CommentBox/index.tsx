@@ -4,7 +4,7 @@ import { Keyboard, View, SafeAreaView, TextInput } from 'react-native';
 
 import { IconButton, Input, Touchable } from '../common';
 import theme from '../../theme';
-import { FeedItemEditingComment } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
+import { FeedItemEditingComment } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
 import Avatar, { AvatarPerson } from '../Avatar';
 
 import styles from './styles';
