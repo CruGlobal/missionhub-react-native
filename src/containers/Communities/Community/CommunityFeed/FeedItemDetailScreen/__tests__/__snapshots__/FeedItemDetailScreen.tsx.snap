@@ -141,34 +141,34 @@ exports[`refresh calls refreshComments 1`] = `
             style={
               Object {
                 \\"aspectRatio\\": 1.3333333333333333,
-@@ -608,12 +608,11 @@
-                            null,
-                          ]
-                        }
-                      >
-                        <SvgMock
--                         color=\\"#FF5532\\"
--                         fill=\\"#FF5532\\"
-+                         color=\\"#505256\\"
-                        />
-                      </View>
-                    </View>
-                  </View>
-                  <View
-@@ -643,11 +642,11 @@
-                            \\"width\\": 30,
-                          },
+@@ -602,12 +602,11 @@
+                          null,
                         ]
                       }
                     >
--                     68521
-+                     68650
-                    </Text>
-                    <View
-                      accessible={true}
-                      focusable={true}
-                      isTVSelectable={true}
-@@ -713,20 +712,20 @@
+                      <SvgMock
+-                       color=\\"#FF5532\\"
+-                       fill=\\"#FF5532\\"
++                       color=\\"#505256\\"
+                      />
+                    </View>
+                  </View>
+                </View>
+                <View
+@@ -637,11 +636,11 @@
+                          \\"width\\": 30,
+                        },
+                      ]
+                    }
+                  >
+-                   68521
++                   68650
+                  </Text>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    isTVSelectable={true}
+@@ -706,20 +705,20 @@
         >
           <CommentItem
             comment={
@@ -196,7 +196,7 @@ exports[`refresh calls refreshComments 1`] = `
             isEditing={false}
             menuActions={
               Array [
-@@ -745,20 +744,20 @@
+@@ -738,20 +737,20 @@
         >
           <CommentItem
             comment={
@@ -224,7 +224,7 @@ exports[`refresh calls refreshComments 1`] = `
             isEditing={false}
             menuActions={
               Array [
-@@ -786,22 +785,22 @@
+@@ -779,22 +778,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -762,23 +762,26 @@ exports[`renders correctly 1`] = `
           onStartShouldSetResponder={[Function]}
           style={
             Object {
+              "flexDirection": "row",
               "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 16,
             }
           }
         >
           <View
             style={
               Object {
-                "flexDirection": "row",
-                "paddingHorizontal": 20,
-                "paddingVertical": 16,
+                "flex": 1,
+                "justifyContent": "flex-end",
               }
             }
           >
             <View
               style={
                 Object {
-                  "flex": 1,
+                  "alignItems": "center",
+                  "flexDirection": "row",
                   "justifyContent": "flex-end",
                 }
               }
@@ -789,158 +792,148 @@ exports[`renders correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "width": 80,
                   }
                 }
               >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                        "paddingRight": 10,
+                        "textAlign": "right",
+                        "width": 30,
+                      },
+                    ]
+                  }
+                />
                 <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
                   style={
                     Object {
-                      "alignItems": "center",
-                      "flexDirection": "row",
-                      "justifyContent": "flex-end",
-                      "width": 80,
+                      "opacity": 1,
                     }
                   }
+                  testID="LikeIconButton"
                 >
-                  <Text
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
-                          "color": "#505256",
+                          "backgroundColor": "transparent",
                         },
+                        null,
                         Object {
-                          "fontFamily": "SourceSansPro-Regular",
+                          "height": 24,
+                          "marginRight": 20,
+                          "width": 24,
                         },
-                        Object {
-                          "fontSize": 14,
-                          "lineHeight": 20,
-                          "paddingRight": 10,
-                          "textAlign": "right",
-                          "width": 30,
-                        },
+                        null,
                       ]
                     }
-                  />
-                  <View
-                    accessible={true}
-                    focusable={true}
-                    isTVSelectable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                    testID="LikeIconButton"
                   >
-                    <View
-                      hitSlop={
-                        Object {
-                          "bottom": 25,
-                          "left": 25,
-                          "right": 25,
-                          "top": 25,
-                        }
-                      }
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          null,
-                          Object {
-                            "height": 24,
-                            "marginRight": 20,
-                            "width": 24,
-                          },
-                          null,
-                        ]
-                      }
-                    >
-                      <SvgMock
-                        color="#FF5532"
-                        fill="#FF5532"
-                      />
-                    </View>
+                    <SvgMock
+                      color="#FF5532"
+                      fill="#FF5532"
+                    />
                   </View>
                 </View>
-                <View
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "width": 40,
+                  }
+                }
+              >
+                <Text
                   style={
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "row",
-                      "justifyContent": "flex-end",
-                      "width": 40,
-                    }
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                        "paddingRight": 10,
+                        "textAlign": "right",
+                        "width": 30,
+                      },
+                    ]
                   }
                 >
-                  <Text
+                  68521
+                </Text>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
-                          "color": "#505256",
+                          "backgroundColor": "transparent",
                         },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "fontSize": 14,
-                          "lineHeight": 20,
-                          "paddingRight": 10,
-                          "textAlign": "right",
-                          "width": 30,
-                        },
+                        null,
+                        Object {},
+                        null,
                       ]
                     }
                   >
-                    68521
-                  </Text>
-                  <View
-                    accessible={true}
-                    focusable={true}
-                    isTVSelectable={true}
-                    onClick={[Function]}
-                    onResponderGrant={[Function]}
-                    onResponderMove={[Function]}
-                    onResponderRelease={[Function]}
-                    onResponderTerminate={[Function]}
-                    onResponderTerminationRequest={[Function]}
-                    onStartShouldSetResponder={[Function]}
-                    style={
-                      Object {
-                        "opacity": 1,
-                      }
-                    }
-                    testID="CommentIconButton"
-                  >
-                    <View
-                      hitSlop={
-                        Object {
-                          "bottom": 25,
-                          "left": 25,
-                          "right": 25,
-                          "top": 25,
-                        }
-                      }
-                      style={
-                        Array [
-                          Object {
-                            "backgroundColor": "transparent",
-                          },
-                          null,
-                          Object {},
-                          null,
-                        ]
-                      }
-                    >
-                      <SvgMock />
-                    </View>
+                    <SvgMock />
                   </View>
                 </View>
               </View>
