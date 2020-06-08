@@ -42,6 +42,7 @@ export const CommunityFeedTab = ({
       testID="CelebrateFeed"
       communityId={communityId}
       personId={personId}
+      noHeader={!!personId}
       itemNamePressable={!orgIsGlobal(organization)}
       collapsibleScrollViewProps={collapsibleScrollViewProps}
     />

@@ -233,6 +233,7 @@ export const CommunityFeed = ({
       onClearNotification={onClearNotification}
       feedItem={item}
       namePressable={itemNamePressable}
+      postTypePressable={!personId}
     />
   );
 

@@ -34,12 +34,14 @@ import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 export interface CommunityFeedItemProps {
   feedItem: FeedItemFragment;
   namePressable: boolean;
+  postTypePressable?: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
 }
 
 export const CommunityFeedItem = ({
   feedItem,
   namePressable,
+  postTypePressable = true,
   onClearNotification,
 }: CommunityFeedItemProps) => {
   const { subject, subjectPerson } = feedItem;
@@ -201,6 +203,7 @@ export const CommunityFeedItem = ({
       <CommunityFeedItemContent
         feedItem={feedItem}
         namePressable={namePressable}
+        postLabelPressable={postTypePressable}
       />
       {onClearNotification ? renderClearNotificationButton() : null}
     </View>
