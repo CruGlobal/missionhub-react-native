@@ -4,7 +4,8 @@ import theme from '../../../../../../theme';
 
 export default StyleSheet.create({
   container: { backgroundColor: theme.primaryColor },
-  content: { alignItems: 'center', marginTop: -30 },
+  content: { alignItems: 'center' },
+  avatar: { marginTop: -30 },
   personName: {
     fontWeight: '300',
     fontSize: 24,
