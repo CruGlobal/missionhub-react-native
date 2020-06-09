@@ -9,6 +9,8 @@ import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
+import { navigatePush } from '../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import CommentIcon from './commentIcon.svg';
 import HeartIcon from './heartIcon.svg';
@@ -51,6 +53,11 @@ export const CommentLikeComponent = ({
     { variables: { id, liked: !liked } },
   );
 
+  const handleCommentPress = () =>
+    dispatch(
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, { feedItemId: feedItem.id }),
+    );
+
   const onPressLikeIcon = async () => {
     try {
       setIsLikeDisabled(true);
@@ -65,11 +72,18 @@ export const CommentLikeComponent = ({
     const displayCommentCount = commentsCount > 0;
 
     return (
-      <View style={styles.iconAndCountWrap}>
+      <View style={styles.commentWrap}>
         <Text style={styles.likeCount}>
           {displayCommentCount ? commentsCount : null}
         </Text>
-        <CommentIcon />
+        <Button
+          testID="CommentIconButton"
+          type="transparent"
+          onPress={handleCommentPress}
+          viewProps={{ hitSlop: theme.hitSlop(25) }}
+        >
+          <CommentIcon />
+        </Button>
       </View>
     );
   };
@@ -78,7 +92,7 @@ export const CommentLikeComponent = ({
     const displayLikeCount = isMe && likesCount > 0;
 
     return (
-      <View style={styles.iconAndCountWrap}>
+      <View style={styles.likeWrap}>
         <Text style={styles.likeCount}>
           {displayLikeCount ? likesCount : null}
         </Text>
@@ -88,6 +102,7 @@ export const CommentLikeComponent = ({
           disabled={isLikeDisabled}
           onPress={onPressLikeIcon}
           style={styles.icon}
+          viewProps={{ hitSlop: theme.hitSlop(25) }}
         >
           {isPrayer ? (
             <PrayerIcon
