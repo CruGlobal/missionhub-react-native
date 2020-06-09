@@ -329,6 +329,7 @@ exports[`Community renders challenge correctly 1`] = `
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -778,7 +779,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -812,6 +813,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             accessible={true}
@@ -1326,7 +1328,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -1360,6 +1362,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -1832,6 +1835,7 @@ exports[`Community renders post correctly without image 1`] = `
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -2315,7 +2319,7 @@ exports[`Community renders post created by me correctly without add to steps but
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -2349,6 +2353,7 @@ exports[`Community renders post created by me correctly without add to steps but
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -2792,6 +2797,7 @@ exports[`Community renders step correctly 1`] = `
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -3241,7 +3247,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -3275,6 +3281,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -3773,6 +3780,7 @@ exports[`global community renders correctly 1`] = `
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -4219,6 +4227,7 @@ exports[`global community renders post item correctly 1`] = `
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -4645,6 +4654,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -5196,7 +5206,7 @@ exports[`renders with name pressable correctly 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -5230,6 +5240,7 @@ exports[`renders with name pressable correctly 1`] = `
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={

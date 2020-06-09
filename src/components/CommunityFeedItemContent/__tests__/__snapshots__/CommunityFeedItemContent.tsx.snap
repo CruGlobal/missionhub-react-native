@@ -328,6 +328,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -831,6 +832,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -1312,6 +1314,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -1793,6 +1796,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -2250,6 +2254,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -2707,6 +2712,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       accessible={true}
@@ -3228,6 +3234,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -3665,6 +3672,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -4102,6 +4110,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -4539,6 +4548,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -4976,6 +4986,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -5413,6 +5424,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -5850,6 +5862,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -6287,6 +6300,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -6703,6 +6717,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -7119,6 +7134,7 @@ Array [
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={

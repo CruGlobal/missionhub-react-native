@@ -241,6 +241,7 @@ export const CommunityFeedItemContent = ({
       activeOpacity={1}
       onPress={() => {}}
       style={styles.footerWrap}
+      testID="FooterTouchable"
     >
       {addToSteps ? renderAddToStepsButton() : null}
       <View style={styles.commentLikeWrap}>
