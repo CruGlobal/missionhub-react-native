@@ -29,6 +29,12 @@ export default StyleSheet.create({
     lineHeight: 16,
     color: theme.lightGrey,
   },
+  contentContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+    maxWidth: 350,
+  },
   itemText: {
     fontSize: 16,
     lineHeight: 20,

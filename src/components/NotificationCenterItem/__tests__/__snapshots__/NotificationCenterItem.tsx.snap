@@ -14,126 +14,123 @@ exports[`different notification types renders correctly | Care request 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
-            },
-            Object {
-              "backgroundColor": "rgb(115, 115, 152)",
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#FD726D",
-              },
-              Object {
-                "width": 20,
-              },
-              Object {
-                "alignItems": "center",
-                "borderRadius": 12,
-                "height": 24,
-                "justifyContent": "center",
-                "paddingHorizontal": 5,
-                "paddingVertical": 5,
-                "width": 24,
-              },
-            ]
-          }
-          testID="HELP_REQUESTLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={15}
-            style={
-              Array [
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                },
-                undefined,
-              ]
-            }
-            width={15}
-          />
-        </View>
-      </View>
       <View
         style={
           Array [
             Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
               "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
-            Object {},
+            Object {
+              "backgroundColor": "#FD726D",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+              "width": 24,
+            },
+          ]
+        }
+        testID="HELP_REQUESTLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
           ]
         }
       >
@@ -147,92 +144,57 @@ exports[`different notification types renders correctly | Care request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
+                "fontWeight": "600",
               },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Christian Huffman
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             posted a new 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            care request
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             in 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Bleh 2.0
-          </Text>
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           posted a new 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          care request
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
         </Text>
         <Text
           style={
@@ -244,17 +206,34 @@ exports[`different notification types renders correctly | Care request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          Bleh 2.0
         </Text>
-      </View>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>
@@ -274,81 +253,78 @@ exports[`different notification types renders correctly | Comment 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
+      <SvgMock />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
         }
+      }
+    >
+      <Text
         style={
           Array [
             Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
+              "color": "#505256",
             },
             Object {
-              "backgroundColor": "rgb(115, 115, 152)",
+              "fontFamily": "SourceSansPro-Regular",
             },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <SvgMock />
-      </View>
-      <View
-        style={
-          Array [
             Object {
-              "paddingHorizontal": 20,
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
             },
-            Object {},
           ]
         }
       >
@@ -361,61 +337,11 @@ exports[`different notification types renders correctly | Comment 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            There's a new comment in a step of faith 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Christian
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             took! Go see what God did.
-          </Text>
+          There's a new comment in a step of faith 
         </Text>
         <Text
           style={
@@ -427,17 +353,49 @@ exports[`different notification types renders correctly | Comment 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          Christian
         </Text>
-      </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           took! Go see what God did.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>
@@ -457,126 +415,123 @@ exports[`different notification types renders correctly | Community Challenge 1`
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
-            },
-            Object {
-              "backgroundColor": "rgb(115, 115, 152)",
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#00CA99",
-              },
-              Object {
-                "width": 20,
-              },
-              Object {
-                "alignItems": "center",
-                "borderRadius": 12,
-                "height": 24,
-                "justifyContent": "center",
-                "paddingHorizontal": 5,
-                "paddingVertical": 5,
-                "width": 24,
-              },
-            ]
-          }
-          testID="COMMUNITY_CHALLENGELabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={15}
-            style={
-              Array [
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                },
-                undefined,
-              ]
-            }
-            width={15}
-          />
-        </View>
-      </View>
       <View
         style={
           Array [
             Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
               "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
-            Object {},
+            Object {
+              "backgroundColor": "#00CA99",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+              "width": 24,
+            },
+          ]
+        }
+        testID="COMMUNITY_CHALLENGELabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
           ]
         }
       >
@@ -589,46 +544,11 @@ exports[`different notification types renders correctly | Community Challenge 1`
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            You have a new Challenge in 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Bleh 2.0
-          </Text>
+          You have a new Challenge in 
         </Text>
         <Text
           style={
@@ -640,17 +560,34 @@ exports[`different notification types renders correctly | Community Challenge 1`
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          Bleh 2.0
         </Text>
-      </View>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>
@@ -670,126 +607,123 @@ exports[`different notification types renders correctly | God Story 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
-            },
-            Object {
-              "backgroundColor": "rgb(115, 115, 152)",
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#7076B5",
-              },
-              Object {
-                "width": 20,
-              },
-              Object {
-                "alignItems": "center",
-                "borderRadius": 12,
-                "height": 24,
-                "justifyContent": "center",
-                "paddingHorizontal": 5,
-                "paddingVertical": 5,
-                "width": 24,
-              },
-            ]
-          }
-          testID="STORYLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={15}
-            style={
-              Array [
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                },
-                undefined,
-              ]
-            }
-            width={15}
-          />
-        </View>
-      </View>
       <View
         style={
           Array [
             Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
               "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
-            Object {},
+            Object {
+              "backgroundColor": "#7076B5",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+              "width": 24,
+            },
+          ]
+        }
+        testID="STORYLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
           ]
         }
       >
@@ -803,92 +737,57 @@ exports[`different notification types renders correctly | God Story 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
+                "fontWeight": "600",
               },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Christian Huffman
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             posted a new 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            god story
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             in 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Bleh 2.0
-          </Text>
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           posted a new 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          god story
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
         </Text>
         <Text
           style={
@@ -900,17 +799,34 @@ exports[`different notification types renders correctly | God Story 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          Bleh 2.0
         </Text>
-      </View>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>
@@ -930,126 +846,123 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
-            },
-            Object {
-              "backgroundColor": "rgb(115, 115, 152)",
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#A97398",
-              },
-              Object {
-                "width": 20,
-              },
-              Object {
-                "alignItems": "center",
-                "borderRadius": 12,
-                "height": 24,
-                "justifyContent": "center",
-                "paddingHorizontal": 5,
-                "paddingVertical": 5,
-                "width": 24,
-              },
-            ]
-          }
-          testID="PRAYER_REQUESTLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={15}
-            style={
-              Array [
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                },
-                undefined,
-              ]
-            }
-            width={15}
-          />
-        </View>
-      </View>
       <View
         style={
           Array [
             Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
               "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
-            Object {},
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+              "width": 24,
+            },
+          ]
+        }
+        testID="PRAYER_REQUESTLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
           ]
         }
       >
@@ -1063,92 +976,57 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
+                "fontWeight": "600",
               },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Christian Huffman
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             posted a new 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            prayer request
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             in 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Bleh 2.0
-          </Text>
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           posted a new 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          prayer request
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
         </Text>
         <Text
           style={
@@ -1160,17 +1038,34 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          Bleh 2.0
         </Text>
-      </View>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>
@@ -1190,126 +1085,123 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
-            },
-            Object {
-              "backgroundColor": "rgb(115, 115, 152)",
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#FFA178",
-              },
-              Object {
-                "width": 20,
-              },
-              Object {
-                "alignItems": "center",
-                "borderRadius": 12,
-                "height": 24,
-                "justifyContent": "center",
-                "paddingHorizontal": 5,
-                "paddingVertical": 5,
-                "width": 24,
-              },
-            ]
-          }
-          testID="QUESTIONLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={15}
-            style={
-              Array [
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                },
-                undefined,
-              ]
-            }
-            width={15}
-          />
-        </View>
-      </View>
       <View
         style={
           Array [
             Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
               "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
-            Object {},
+            Object {
+              "backgroundColor": "#FFA178",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+              "width": 24,
+            },
+          ]
+        }
+        testID="QUESTIONLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
           ]
         }
       >
@@ -1323,92 +1215,57 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
+                "fontWeight": "600",
               },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Christian Huffman
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             posted a new 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            spiritual question
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             in 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Bleh 2.0
-          </Text>
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           posted a new 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          spiritual question
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
         </Text>
         <Text
           style={
@@ -1420,17 +1277,34 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          Bleh 2.0
         </Text>
-      </View>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>
@@ -1450,126 +1324,123 @@ exports[`different notification types renders correctly | Thought 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
-            },
-            Object {
-              "backgroundColor": "rgb(115, 115, 152)",
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#B4B6BA",
-              },
-              Object {
-                "width": 20,
-              },
-              Object {
-                "alignItems": "center",
-                "borderRadius": 12,
-                "height": 24,
-                "justifyContent": "center",
-                "paddingHorizontal": 5,
-                "paddingVertical": 5,
-                "width": 24,
-              },
-            ]
-          }
-          testID="THOUGHTLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={15}
-            style={
-              Array [
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                },
-                undefined,
-              ]
-            }
-            width={15}
-          />
-        </View>
-      </View>
       <View
         style={
           Array [
             Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
               "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
-            Object {},
+            Object {
+              "backgroundColor": "#B4B6BA",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+              "width": 24,
+            },
+          ]
+        }
+        testID="THOUGHTLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
           ]
         }
       >
@@ -1583,92 +1454,57 @@ exports[`different notification types renders correctly | Thought 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
+                "fontWeight": "600",
               },
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Christian Huffman
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             posted a new 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            thought
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-             in 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            Bleh 2.0
-          </Text>
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           posted a new 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          thought
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
         </Text>
         <Text
           style={
@@ -1680,17 +1516,34 @@ exports[`different notification types renders correctly | Thought 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          Bleh 2.0
         </Text>
-      </View>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>
@@ -1710,126 +1563,123 @@ exports[`renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
       "opacity": 1,
+      "paddingVertical": 15,
     }
   }
   testID="notificationButton"
 >
   <View
     style={
-      Array [
-        Object {
-          "backgroundColor": "#ffffff",
-          "borderBottomColor": "#ECEEF2",
-          "borderBottomWidth": 1,
-          "paddingVertical": 15,
-        },
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "space-between",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
     }
   >
-    <View
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
       style={
         Array [
           Object {
-            "maxWidth": 350,
-            "paddingHorizontal": 20,
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
           },
           Object {
-            "alignItems": "center",
-            "flexDirection": "row",
-            "justifyContent": "space-between",
+            "backgroundColor": "rgb(115, 115, 152)",
           },
+          undefined,
         ]
       }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
     >
-      <Image
-        resizeMode="cover"
-        source={
-          Object {
-            "uri": "recusandae alias consequuntur",
-          }
-        }
-        style={
-          Array [
-            Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
-            },
-            Object {
-              "backgroundColor": "rgb(115, 115, 152)",
-            },
-            undefined,
-          ]
-        }
-      />
-      <View
-        style={
-          Object {
-            "left": 50,
-            "position": "absolute",
-            "top": 30,
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "alignItems": "center",
-                "borderRadius": 18,
-                "flexDirection": "row",
-                "height": 36,
-                "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
-              },
-              Object {
-                "backgroundColor": "#7076B5",
-              },
-              Object {
-                "width": 20,
-              },
-              Object {
-                "alignItems": "center",
-                "borderRadius": 12,
-                "height": 24,
-                "justifyContent": "center",
-                "paddingHorizontal": 5,
-                "paddingVertical": 5,
-                "width": 24,
-              },
-            ]
-          }
-          testID="STORYLabel"
-        >
-          <SvgMock
-            color="#ffffff"
-            height={15}
-            style={
-              Array [
-                Object {
-                  "marginLeft": 0,
-                  "marginRight": 0,
-                },
-                undefined,
-              ]
-            }
-            width={15}
-          />
-        </View>
-      </View>
       <View
         style={
           Array [
             Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
               "paddingHorizontal": 20,
+              "paddingVertical": 10,
             },
-            Object {},
+            Object {
+              "backgroundColor": "#7076B5",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingHorizontal": 5,
+              "paddingVertical": 5,
+              "width": 24,
+            },
+          ]
+        }
+        testID="STORYLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
           ]
         }
       >
@@ -1842,46 +1692,11 @@ exports[`renders correctly 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
+              Object {},
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
-            A new story has been added in 
-          </Text>
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontWeight": "600",
-                },
-              ]
-            }
-          >
-            
-          </Text>
+          A new story has been added in 
         </Text>
         <Text
           style={
@@ -1893,17 +1708,34 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "lineHeight": 16,
+                "fontWeight": "600",
               },
             ]
           }
-          testID="Text"
         >
-          November 13, 2015 8:52 PM
+          
         </Text>
-      </View>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
     </View>
   </View>
 </View>

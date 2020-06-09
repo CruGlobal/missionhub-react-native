@@ -8,6 +8,7 @@ import theme from '../../theme';
 import Header from '../../components/Header';
 import { IconButton, Flex } from '../../components/common';
 import NotificationCenterItem from '../../components/NotificationCenterItem';
+import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { openMainMenu } from '../../utils/common';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
@@ -29,15 +30,18 @@ const groupNotificationFeed = (nodes: NotificationItem[]) => {
     { id: 1, name: 'dates.today', data: [] },
     { id: 2, name: 'dates.earlier', data: [] },
   ];
-  nodes.map(notification => {
-    if (isLastTwentyFourHours(getMomentDate(notification.createdAt))) {
-      sections[1].data.push(notification);
-    } else {
-      sections[2].data.push(notification);
-    }
-  });
-  const filteredSection = sections.filter(section => section.data.length > 0);
-  return filteredSection;
+
+  return nodes
+    .reduce((acc, c) => {
+      if (isLastTwentyFourHours(getMomentDate(c.createdAt))) {
+        acc[1].data.push(c);
+      } else {
+        acc[2].data.push(c);
+      }
+
+      return [...acc];
+    }, sections)
+    .filter(section => section.data.length > 0);
 };
 
 const NotificationCenterScreen = () => {
@@ -45,12 +49,17 @@ const NotificationCenterScreen = () => {
   const { t } = useTranslation('notificationsCenter');
   const {
     data: {
-      notifications: { nodes = [] } = {},
+      notifications: {
+        nodes = [],
+        pageInfo: { endCursor = null, hasNextPage = false } = {},
+      } = {},
       notificationState: { latestNotification = '' } = {},
     } = {},
     refetch,
+    fetchMore,
     loading,
-  } = useQuery<GetNotifications>(GET_NOTIFICATIONS, { pollInterval: 30000 });
+    error,
+  } = useQuery<GetNotifications>(GET_NOTIFICATIONS);
 
   const [setHasUnreadNotifications] = useMutation<UpdateHasUnreadNotifications>(
     UPDATE_HAS_UNREAD_NOTIFICATIONS,
@@ -84,6 +93,41 @@ const NotificationCenterScreen = () => {
   const renderItem = ({ item }: { item: NotificationItem }) => {
     return <NotificationCenterItem event={item} />;
   };
+  const handleRefreshing = () => {
+    if (loading) {
+      return;
+    }
+    refetch();
+  };
+
+  const handleOnEndReached = () => {
+    if (loading || error || !hasNextPage) {
+      return;
+    }
+
+    fetchMore({
+      variables: {
+        notificationCursor: endCursor,
+      },
+      updateQuery: (prev, { fetchMoreResult }) =>
+        fetchMoreResult
+          ? {
+              ...prev,
+              ...fetchMoreResult,
+              ...prev.notificationState,
+              ...fetchMoreResult.notificationState,
+              notifications: {
+                ...prev.notifications,
+                ...fetchMoreResult.notifications,
+                nodes: [
+                  ...(prev.notifications.nodes || []),
+                  ...(fetchMoreResult.notifications.nodes || []),
+                ],
+              },
+            }
+          : prev,
+    });
+  };
 
   const filteredSections = groupNotificationFeed(nodes);
 
@@ -101,18 +145,26 @@ const NotificationCenterScreen = () => {
         title={t('title')}
         titleStyle={styles.title}
       />
-
+      <ErrorNotice
+        error={error}
+        message={t('errorLoadingNotifications')}
+        refetch={refetch}
+      />
       <SectionList
+        testID="notificationCenter"
         style={{
           backgroundColor:
             filteredSections.length === 0 ? theme.white : theme.extraLightGrey,
         }}
-        onRefresh={refetch}
+        onRefresh={handleRefreshing}
         refreshing={loading}
+        onEndReachedThreshold={0.2}
+        onEndReached={handleOnEndReached}
         renderSectionHeader={renderSectionHeader}
         ListEmptyComponent={renderNull}
         sections={filteredSections}
         renderItem={renderItem}
+        scrollIndicatorInsets={{ right: 1 }}
       />
     </View>
   );

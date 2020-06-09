@@ -129,9 +129,6 @@ export const initializeLocalState = (
     client.readQuery<ViewedStateQuery>({
       query: VIEWED_STATE_QUERY,
     });
-    client.readQuery<NotificationStateQuery>({
-      query: NOTIFICATION_STATE_QUERY,
-    });
   } catch {
     client.writeQuery<ViewedStateQuery>({
       query: VIEWED_STATE_QUERY,
@@ -139,6 +136,12 @@ export const initializeLocalState = (
         viewedState: { __typename: 'ViewedState', stepExplainerModal: false },
       },
     });
+  }
+  try {
+    client.readQuery<NotificationStateQuery>({
+      query: NOTIFICATION_STATE_QUERY,
+    });
+  } catch {
     client.writeQuery<NotificationStateQuery>({
       query: NOTIFICATION_STATE_QUERY,
       data: {

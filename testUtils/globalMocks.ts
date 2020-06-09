@@ -40,6 +40,8 @@ export const globalMocks: IMocks = {
   StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
   RelationshipTypeEnum: () =>
     faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
+  NotificationTriggerEnum: () =>
+    faker.random.arrayElement(Object.values(NotificationTriggerEnum)),
   Step: () => ({
     title: faker.lorem.sentence(),
   }),
@@ -87,13 +89,6 @@ export const globalMocks: IMocks = {
     return {
       subjectPerson: { firstName, lastName },
       subjectPersonName: `${firstName} ${lastName}`,
-    };
-  },
-  Notification: () => {
-    return {
-      trigger: faker.random.arrayElement(
-        Object.values(NotificationTriggerEnum),
-      ),
     };
   },
 };

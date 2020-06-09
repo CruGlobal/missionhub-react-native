@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
-export const GET_UNREAD_COMMENTS_AND_NOTIFICATION = gql`
-  query getUnreadCommentAndNotification {
+export const GET_UNREAD_NOTIFICATION_STATUS = gql`
+  query getUnreadNotificationStatus {
     notificationState @client {
       latestNotification
       hasUnreadNotifications

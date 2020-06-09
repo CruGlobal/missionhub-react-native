@@ -12,10 +12,10 @@ import NotificationsIcon from '../../../assets/images/mainNav/notificationsIcon.
 
 import styles from './styles';
 import {
-  GET_UNREAD_COMMENTS_AND_NOTIFICATION,
+  GET_UNREAD_NOTIFICATION_STATUS,
   UPDATE_LATEST_NOTIFICATION,
 } from './queries';
-import { getUnreadCommentAndNotification } from './__generated__/getUnreadCommentAndNotification';
+import { getUnreadNotificationStatus } from './__generated__/getUnreadNotificationStatus';
 
 interface TabIconProps {
   name: string;
@@ -25,13 +25,10 @@ interface TabIconProps {
 const TabIcon = ({ name, tintColor }: TabIconProps) => {
   const {
     data: { notifications: { nodes = [] } = {}, notificationState } = {},
-  } = useQuery<getUnreadCommentAndNotification>(
-    GET_UNREAD_COMMENTS_AND_NOTIFICATION,
-    {
-      skip: name != 'notifications',
-      pollInterval: 30000,
-    },
-  );
+  } = useQuery<getUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS, {
+    skip: name != 'notifications',
+    pollInterval: 30000,
+  });
   const latestNotification = nodes[0]?.createdAt;
   const iconSize = isAndroid ? 22 : 24;
 

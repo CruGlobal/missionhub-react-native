@@ -26,9 +26,6 @@ const initialApolloState = {
   },
 };
 
-// Use fake timers for pollInterval
-jest.useFakeTimers();
-
 beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
 });
@@ -45,9 +42,7 @@ it('renders with no data', async () => {
 
   await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
-    pollInterval: 30000,
-  });
+  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS);
   expect(useMutation).toHaveBeenCalledWith(UPDATE_HAS_UNREAD_NOTIFICATIONS);
 });
 
@@ -62,9 +57,7 @@ it('renders correctly', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
-    pollInterval: 30000,
-  });
+  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS);
   expect(useMutation).toHaveBeenCalledWith(UPDATE_HAS_UNREAD_NOTIFICATIONS);
 
   snapshot();
@@ -99,9 +92,7 @@ it('renders Today section correctly ', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
-    pollInterval: 30000,
-  });
+  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS);
   expect(useMutation).toHaveBeenCalledWith(UPDATE_HAS_UNREAD_NOTIFICATIONS);
 
   snapshot();
@@ -121,10 +112,79 @@ it('renders Earlier section correctly ', async () => {
   });
 
   await flushMicrotasksQueue();
-  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
-    pollInterval: 30000,
-  });
+  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS);
   expect(useMutation).toHaveBeenCalledWith(UPDATE_HAS_UNREAD_NOTIFICATIONS);
 
   snapshot();
+});
+
+describe('handle pagination', () => {
+  let mocks = {};
+  const testScroll = async () => {
+    const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
+      <NotificationCenterScreen />,
+      {
+        initialApolloState,
+        mocks,
+      },
+    );
+
+    await flushMicrotasksQueue();
+
+    const scrollDown = () =>
+      fireEvent(getByTestId('notificationCenter'), 'onEndReached');
+    return {
+      scrollDown,
+      recordSnapshot,
+      diffSnapshot,
+      flushMicrotasksQueue,
+    };
+  };
+
+  it('paginates when close to bottom', async () => {
+    mocks = {
+      NotificationConnection: () => ({
+        nodes: () => new MockList(10),
+        pageInfo: () => ({ hasNextPage: true }),
+      }),
+    };
+
+    const {
+      scrollDown,
+      recordSnapshot,
+      diffSnapshot,
+      flushMicrotasksQueue,
+    } = await testScroll();
+
+    recordSnapshot();
+
+    scrollDown();
+
+    await flushMicrotasksQueue();
+
+    diffSnapshot();
+  });
+
+  it('should not load more when no next page', async () => {
+    mocks = {
+      NotificationConnection: () => ({
+        nodes: () => new MockList(10),
+        pageInfo: () => ({ hasNextPage: false }),
+      }),
+    };
+    const {
+      scrollDown,
+      recordSnapshot,
+      diffSnapshot,
+      flushMicrotasksQueue,
+    } = await testScroll();
+
+    recordSnapshot();
+
+    scrollDown();
+
+    await flushMicrotasksQueue();
+
+    diffSnapshot();
+  });
 });
