@@ -15,8 +15,7 @@ import {
   COMMUNITY_IMPACT,
   CommunityImpactTab,
 } from '../../CommunityImpactTab/CommunityImpactTab';
-
-import { CommunityMemberHeader } from './CommuntyMemberHeader/CommunityMemberHeader';
+import { PersonHeader } from '../../../../../components/PersonHeader/PersonHeader';
 
 export const CommunityMemberCollapsibleHeaderContext = createCollapsibleViewContext();
 
@@ -52,7 +51,7 @@ const CommunityMemberTabsNavigator = createMaterialTopTabNavigator(
   {
     backBehavior: 'none',
     lazy: true,
-    tabBarComponent: CommunityMemberHeader,
+    tabBarComponent: () => <PersonHeader isMember />,
   },
 );
 

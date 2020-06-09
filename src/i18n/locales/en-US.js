@@ -997,7 +997,7 @@ export default {
     errorLoadingCommunityDetails: 'Error loading community details',
     globalCommunity: 'MissionHub Community',
   },
-  communityMemberHeader: {
+  personHeader: {
     errorLoadingPersonDetails: 'Error loading person details',
   },
   createPost: {
