@@ -141,7 +141,7 @@ exports[`refresh calls refreshComments 1`] = `
             style={
               Object {
                 \\"aspectRatio\\": 1.3333333333333333,
-@@ -602,12 +602,11 @@
+@@ -603,12 +603,11 @@
                           null,
                         ]
                       }
@@ -155,7 +155,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -637,11 +636,11 @@
+@@ -638,11 +637,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -168,7 +168,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -706,20 +705,20 @@
+@@ -707,20 +706,20 @@
         >
           <CommentItem
             comment={
@@ -196,7 +196,7 @@ exports[`refresh calls refreshComments 1`] = `
             isEditing={false}
             menuActions={
               Array [
-@@ -738,20 +737,20 @@
+@@ -739,20 +738,20 @@
         >
           <CommentItem
             comment={
@@ -224,7 +224,7 @@ exports[`refresh calls refreshComments 1`] = `
             isEditing={false}
             menuActions={
               Array [
-@@ -779,22 +778,22 @@
+@@ -780,22 +779,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -768,6 +768,7 @@ exports[`renders correctly 1`] = `
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={

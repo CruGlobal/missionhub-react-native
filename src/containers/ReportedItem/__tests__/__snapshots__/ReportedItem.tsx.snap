@@ -431,6 +431,7 @@ exports[`Reported Post call handleDelete 1`] = `
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -1196,6 +1197,7 @@ exports[`Reported Post call handleIgnore 1`] = `
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
