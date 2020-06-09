@@ -4,7 +4,11 @@ import { NOTIFICATION_ITEM_FRAGMENT } from '../../components/NotificationCenterI
 
 export const GET_NOTIFICATIONS = gql`
   query GetNotifications($notificationCursor: String) {
-    notifications(sortBy: createdAt_DESC, after: $notificationCursor) {
+    notifications(
+      sortBy: createdAt_DESC
+      after: $notificationCursor
+      first: 25
+    ) {
       pageInfo {
         hasNextPage
         endCursor
