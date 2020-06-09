@@ -5,9 +5,9 @@ exports[`should load person data correctly 1`] = `
 - First value
 + Second value
 
-@@ -134,55 +134,31 @@
+@@ -133,57 +133,33 @@
+          Object {
             \\"alignItems\\": \\"center\\",
-            \\"marginTop\\": -30,
           }
         }
       >
@@ -35,7 +35,9 @@ exports[`should load person data correctly 1`] = `
 -                 \\"backgroundColor\\": \\"rgb(199, 163, 67)\\",
 +               \\"backgroundColor\\": \\"rgb(135, 123, 115)\\",
               },
-              undefined,
+              Object {
+                \\"marginTop\\": -30,
+              },
 -             ],
             ]
           }
@@ -70,7 +72,7 @@ exports[`should load person data correctly 1`] = `
             Array [
               Object {
                 \\"color\\": \\"#505256\\",
-@@ -197,11 +173,13 @@
+@@ -198,11 +174,13 @@
                 \\"marginBottom\\": 24,
                 \\"marginTop\\": 12,
               },
@@ -222,7 +224,6 @@ exports[`should render loading 1`] = `
       style={
         Object {
           "alignItems": "center",
-          "marginTop": -30,
         }
       }
     >
@@ -242,7 +243,9 @@ exports[`should render loading 1`] = `
               Object {
                 "backgroundColor": "rgb(199, 163, 67)",
               },
-              undefined,
+              Object {
+                "marginTop": -30,
+              },
             ],
           ]
         }
