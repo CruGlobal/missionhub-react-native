@@ -60,6 +60,7 @@ const myPrayerPostItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'Post',
           postType: PostTypeEnum.prayer_request,
+          stepStatus: PostStepStatusEnum.NOT_SUPPORTED,
         }),
         subjectPerson: () => ({ id: myId }),
       }),
