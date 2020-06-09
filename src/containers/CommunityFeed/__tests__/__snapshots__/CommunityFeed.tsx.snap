@@ -2568,6 +2568,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2614,6 +2615,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2660,6 +2662,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2706,6 +2709,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2752,6 +2756,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2798,6 +2803,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2844,6 +2850,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2890,6 +2897,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -2936,6 +2944,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -3859,6 +3868,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -3905,6 +3915,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -3951,6 +3962,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -3997,6 +4009,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -4043,6 +4056,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -4089,6 +4103,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -4135,6 +4150,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -4181,6 +4197,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -4227,6 +4244,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -5150,6 +5168,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5196,6 +5215,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5242,6 +5262,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5288,6 +5309,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5334,6 +5356,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5380,6 +5403,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5426,6 +5450,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5472,6 +5497,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5518,6 +5544,7 @@ exports[`renders for member renders correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -5790,6 +5817,7 @@ exports[`renders for member renders with type 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -6709,6 +6737,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -6755,6 +6784,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -6801,6 +6831,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -6847,6 +6878,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -6893,6 +6925,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -6939,6 +6972,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -6985,6 +7019,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -7031,6 +7066,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -7077,6 +7113,7 @@ exports[`renders for member renders without header 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View
@@ -8001,6 +8038,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8048,6 +8086,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8095,6 +8134,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8142,6 +8182,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8189,6 +8230,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8236,6 +8278,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8283,6 +8326,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8330,6 +8374,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -8377,6 +8422,7 @@ exports[`renders with clear notification renders correctly 1`] = `
         }
         namePressable={true}
         onClearNotification={[MockFunction]}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9300,6 +9346,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9346,6 +9393,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9392,6 +9440,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9438,6 +9487,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9484,6 +9534,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9530,6 +9581,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9576,6 +9628,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9622,6 +9675,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9668,6 +9722,7 @@ exports[`renders with items correctly 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -9943,6 +9998,7 @@ exports[`sections renders Earlier section 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -10222,6 +10278,7 @@ exports[`sections renders New section 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View
@@ -10501,6 +10558,7 @@ exports[`sections renders Today section 1`] = `
           }
         }
         namePressable={true}
+        postTypePressable={true}
       />
     </View>
     <View

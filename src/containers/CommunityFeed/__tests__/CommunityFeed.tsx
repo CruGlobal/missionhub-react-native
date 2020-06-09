@@ -221,7 +221,7 @@ describe('renders for member', () => {
       variables: {
         communityId,
         hasUnreadComments: undefined,
-        personIds: personId,
+        personIds: [personId],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -253,7 +253,7 @@ describe('renders for member', () => {
       variables: {
         communityId,
         hasUnreadComments: undefined,
-        personIds: personId,
+        personIds: [personId],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
