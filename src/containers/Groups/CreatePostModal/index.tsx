@@ -83,7 +83,7 @@ const CreatePostModal = ({
           {adminOrOwner ? (
             <Flex direction="row" justify="center" align="center">
               <LineIcon color={theme.extraLightGrey} />
-              <Text style={sectionTitle}>{t('everyone')}</Text>
+              <Text style={sectionTitle}>{t('postAsYou')}</Text>
               <LineIcon color={theme.extraLightGrey} />
             </Flex>
           ) : null}

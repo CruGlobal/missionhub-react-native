@@ -83,6 +83,17 @@ describe('label variations', () => {
     ).snapshot();
   });
 
+  it('renders label with on press with no text', () => {
+    renderWithContext(
+      <PostTypeLabel
+        type={FeedItemSubjectTypeEnum.STORY}
+        showText={false}
+        onPress={onPress}
+      />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+
   it('renders small label with no text', () => {
     renderWithContext(
       <PostTypeLabel
