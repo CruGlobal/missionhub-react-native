@@ -1,7 +1,7 @@
 import gql from 'graphql-tag';
 
 export const GET_UNREAD_NOTIFICATION_STATUS = gql`
-  query getUnreadNotificationStatus {
+  query GetUnreadNotificationStatus {
     notificationState @client {
       lastReadDateTime
     }

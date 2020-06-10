@@ -12,7 +12,7 @@ import NotificationsIcon from '../../../assets/images/mainNav/notificationsIcon.
 
 import styles from './styles';
 import { GET_UNREAD_NOTIFICATION_STATUS } from './queries';
-import { getUnreadNotificationStatus } from './__generated__/getUnreadNotificationStatus';
+import { GetUnreadNotificationStatus } from './__generated__/GetUnreadNotificationStatus';
 
 interface TabIconProps {
   name: string;
@@ -22,7 +22,7 @@ interface TabIconProps {
 const TabIcon = ({ name, tintColor }: TabIconProps) => {
   const {
     data: { notifications: { nodes = [] } = {}, notificationState } = {},
-  } = useQuery<getUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS, {
+  } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS, {
     skip: name != 'notifications',
     pollInterval: 30000,
   });

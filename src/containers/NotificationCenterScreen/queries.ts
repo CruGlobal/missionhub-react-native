@@ -22,7 +22,7 @@ export const GET_NOTIFICATIONS = gql`
 `;
 
 export const UPDATE_LATEST_NOTIFICATION = gql`
-  mutation updateLatestNotification($latestNotification: String!) {
+  mutation UpdateLatestNotification($latestNotification: String!) {
     updateLatestNotification(latestNotification: $latestNotification) @client {
       lastReadDateTime
     }

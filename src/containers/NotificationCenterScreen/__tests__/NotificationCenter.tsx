@@ -21,8 +21,7 @@ const openMainMenuResponse = { type: 'open main menu' };
 const initialApolloState = {
   notificationState: {
     __typename: 'NotificationState',
-    hasUnreadNotifications: false,
-    latestNotification: '',
+    lastReadDateTime: '',
   },
 };
 

@@ -13,9 +13,9 @@ import { openMainMenu } from '../../utils/common';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
 // import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
-// import { getUnreadNotificationStatus } from '../../components/TabIcon/__generated__/getUnreadNotificationStatus';
+// import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
 
-import { updateLatestNotification } from './__generated__/updateLatestNotification';
+import { UpdateLatestNotification } from './__generated__/UpdateLatestNotification';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
 import { GetNotifications } from './__generated__/GetNotifications';
 import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
@@ -79,9 +79,9 @@ const NotificationCenterScreen = () => {
   //     notifications: { nodes: latestNotification = [] } = {},
   //     notificationState,
   //   } = {},
-  // } = useQuery<getUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
+  // } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
 
-  const [setHasUnreadNotifications] = useMutation<updateLatestNotification>(
+  const [setHasUnreadNotifications] = useMutation<UpdateLatestNotification>(
     UPDATE_LATEST_NOTIFICATION,
   );
 
