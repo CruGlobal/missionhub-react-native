@@ -6,7 +6,7 @@ import Avatar from '../Avatar';
 import { Text, Touchable } from '../common';
 import DateComponent from '../DateComponent';
 import PostTypeLabel, { PostLabelSizeEnum } from '../PostTypeLabel';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import CommentIcon from '../../../assets/images/commentIcon.svg';
 import {
   FeedItemSubjectTypeEnum,

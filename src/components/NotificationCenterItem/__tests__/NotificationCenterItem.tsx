@@ -6,7 +6,7 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { renderWithContext } from '../../../../testUtils';
 import { NOTIFICATION_ITEM_FRAGMENT } from '../queries';
 import { NotificationItem } from '../__generated__/NotificationItem';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import {
   NotificationTriggerEnum,
   PostTypeEnum,
