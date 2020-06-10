@@ -12,13 +12,13 @@ import { AuthState } from '../../../../reducers/auth';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
 import { orgIsGlobal } from '../../../../utils/common';
 
-interface CommunityImpactTabProps {
+interface CommunityFeedTabProps {
   collapsibleHeaderContext: CollapsibleViewContext;
 }
 
 export const CommunityFeedTab = ({
   collapsibleHeaderContext,
-}: CommunityImpactTabProps) => {
+}: CommunityFeedTabProps) => {
   const communityId: string = useNavigationParam('communityId');
   const personId: string | undefined = useNavigationParam('personId');
 

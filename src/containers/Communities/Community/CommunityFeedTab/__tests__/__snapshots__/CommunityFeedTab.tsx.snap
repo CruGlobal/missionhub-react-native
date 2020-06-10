@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<CommunityFeed
+  communityId="1"
+  itemNamePressable={true}
+  noHeader={true}
+  personId="2"
+  testID="CelebrateFeed"
+/>
+`;

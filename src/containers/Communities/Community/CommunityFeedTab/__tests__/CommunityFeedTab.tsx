@@ -6,9 +6,11 @@ import { CommunitiesCollapsibleHeaderContext } from '../../CommunityHeader/Commu
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../../../constants';
-import { getAnalyticsAssignmentType } from '../../../../../utils/analytics';
+import { getAnalyticsPermissionType } from '../../../../../utils/analytics';
 
-jest.mock('../../../../CommunityFeed', () => 'CommunityFeed');
+jest.mock('../../../../CommunityFeed', () => ({
+  CommunityFeed: 'CommunityFeed',
+}));
 jest.mock('../../../../../utils/analytics');
 jest.mock('../../../../../utils/hooks/useAnalytics');
 
@@ -21,7 +23,7 @@ const initialState = {
   auth: { person: { id: personId } },
 };
 
-(getAnalyticsAssignmentType as jest.Mock).mockReturnValue(permissionType);
+(getAnalyticsPermissionType as jest.Mock).mockReturnValue(permissionType);
 
 it('should render correctly', () => {
   renderWithContext(
