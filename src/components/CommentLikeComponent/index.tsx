@@ -10,7 +10,7 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
 import { navigatePush } from '../../actions/navigation';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import CommentIcon from './commentIcon.svg';
 import HeartIcon from './heartIcon.svg';
