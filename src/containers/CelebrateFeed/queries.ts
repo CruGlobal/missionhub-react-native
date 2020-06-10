@@ -14,6 +14,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
         subjectType: $subjectType
         sortBy: createdAt_DESC
         after: $feedItemsCursor
+        first: 25
       ) {
         nodes {
           read
@@ -44,6 +45,7 @@ export const GET_COMMUNITY_FEED = gql`
         subjectType: $subjectType
         sortBy: createdAt_DESC
         after: $feedItemsCursor
+        first: 25
       ) {
         nodes {
           read
