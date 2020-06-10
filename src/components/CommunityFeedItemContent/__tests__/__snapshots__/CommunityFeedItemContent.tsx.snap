@@ -310,13 +310,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -341,7 +353,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -383,6 +395,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -391,6 +411,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -410,7 +431,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -435,7 +456,47 @@ Array [
           >
             53881
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -753,13 +814,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -784,7 +857,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -826,6 +899,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -834,6 +915,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -852,7 +934,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -877,7 +959,47 @@ Array [
           >
             41919
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -1174,13 +1296,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -1205,7 +1339,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -1247,6 +1381,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -1255,6 +1397,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -1273,7 +1416,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -1298,7 +1441,47 @@ Array [
           >
             18626
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -1595,13 +1778,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -1626,7 +1821,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -1668,6 +1863,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -1676,6 +1879,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -1694,7 +1898,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -1719,7 +1923,47 @@ Array [
           >
             66974
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -1992,13 +2236,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -2023,7 +2279,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -2065,6 +2321,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -2073,6 +2337,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -2091,7 +2356,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -2116,7 +2381,47 @@ Array [
           >
             84631
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -2389,13 +2694,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       accessible={true}
@@ -2484,7 +2801,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -2526,6 +2843,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -2534,6 +2859,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -2552,7 +2878,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -2577,7 +2903,47 @@ Array [
           >
             84631
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -2850,13 +3216,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -2881,7 +3259,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -2923,6 +3301,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -2931,6 +3317,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -2949,7 +3336,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -2974,7 +3361,47 @@ Array [
           >
             84631
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -3227,13 +3654,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -3258,7 +3697,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -3300,6 +3739,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -3308,6 +3755,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -3326,7 +3774,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -3351,7 +3799,47 @@ Array [
           >
             38791
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -3604,13 +4092,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -3635,7 +4135,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -3677,6 +4177,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -3685,6 +4193,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -3703,7 +4212,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -3728,7 +4237,47 @@ Array [
           >
             38791
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -3981,13 +4530,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -4012,7 +4573,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -4054,6 +4615,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -4062,6 +4631,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -4080,7 +4650,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -4105,7 +4675,47 @@ Array [
           >
             38791
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -4358,13 +4968,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -4389,7 +5011,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -4431,6 +5053,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -4439,6 +5069,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -4457,7 +5088,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -4482,7 +5113,47 @@ Array [
           >
             38791
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -4735,13 +5406,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -4766,7 +5449,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -4808,6 +5491,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -4816,6 +5507,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -4834,7 +5526,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -4859,7 +5551,47 @@ Array [
           >
             38791
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -5112,13 +5844,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -5143,7 +5887,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -5185,6 +5929,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -5193,6 +5945,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -5211,7 +5964,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -5236,7 +5989,47 @@ Array [
           >
             38791
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -5489,13 +6282,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -5520,7 +6325,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -5562,6 +6367,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -5570,6 +6383,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -5588,7 +6402,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -5613,7 +6427,47 @@ Array [
           >
             38791
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -5845,13 +6699,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -5876,7 +6742,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -5918,6 +6784,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -5926,6 +6800,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -5944,7 +6819,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -5969,7 +6844,47 @@ Array [
           >
             12812
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -6201,13 +7116,25 @@ Array [
     }
   />,
   <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
     style={
       Object {
         "flexDirection": "row",
+        "opacity": 1,
         "paddingHorizontal": 20,
         "paddingVertical": 16,
       }
     }
+    testID="FooterTouchable"
   >
     <View
       style={
@@ -6232,7 +7159,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 80,
             }
           }
         >
@@ -6274,6 +7201,14 @@ Array [
             testID="LikeIconButton"
           >
             <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
               style={
                 Array [
                   Object {
@@ -6282,6 +7217,7 @@ Array [
                   null,
                   Object {
                     "height": 24,
+                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -6300,7 +7236,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
-              "width": 60,
+              "width": 40,
             }
           }
         >
@@ -6325,7 +7261,47 @@ Array [
           >
             14675
           </Text>
-          <SvgMock />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
         </View>
       </View>
     </View>

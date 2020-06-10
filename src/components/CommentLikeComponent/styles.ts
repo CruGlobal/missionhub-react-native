@@ -12,9 +12,22 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
   },
+  likeWrap: {
+    width: 80,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
+  commentWrap: {
+    width: 40,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+  },
   icon: {
     height: 24,
     width: 24,
+    marginRight: 20,
   },
   likeCount: {
     width: 30,

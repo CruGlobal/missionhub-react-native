@@ -296,3 +296,25 @@ describe('onPressChallengeLink', () => {
     ]);
   });
 });
+
+describe('press footer', () => {
+  it('nothing should happen', () => {
+    const challengeFeedItem = mockFragment<FeedItem>(
+      COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT,
+      {
+        mocks: {
+          FeedItem: () => ({
+            subject: () => ({ __typename: 'CommunityChallenge' }),
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItemContent feedItem={challengeFeedItem} />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('FooterTouchable'));
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+});

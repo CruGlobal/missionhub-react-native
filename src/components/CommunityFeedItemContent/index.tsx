@@ -241,12 +241,18 @@ export const CommunityFeedItemContent = ({
     ) : null;
 
   const renderFooter = () => (
-    <View style={styles.footerWrap}>
+    <Touchable
+      isAndroidOpacity={true}
+      activeOpacity={1}
+      onPress={() => {}}
+      style={styles.footerWrap}
+      testID="FooterTouchable"
+    >
       {addToSteps ? renderAddToStepsButton() : null}
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent feedItem={feedItem} />
       </View>
-    </View>
+    </Touchable>
   );
 
   const renderAddToStepsButton = () => (

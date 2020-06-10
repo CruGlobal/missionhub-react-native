@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
@@ -60,6 +60,7 @@ const myPrayerPostItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'Post',
           postType: PostTypeEnum.prayer_request,
+          stepStatus: PostStepStatusEnum.NOT_SUPPORTED,
         }),
         subjectPerson: () => ({ id: myId }),
       }),
@@ -162,26 +163,30 @@ describe('global community', () => {
 });
 
 describe('Community', () => {
-  it('renders post correctly without add to steps button ', () => {
-    renderWithContext(
+  it('renders post correctly without add to steps button ', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders post created by me correctly without add to steps button', () => {
-    renderWithContext(
+  it('renders post created by me correctly without add to steps button', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={myPrayerPostItem} namePressable={true} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders post correctly with add to steps button', () => {
-    renderWithContext(
+  it('renders post correctly with add to steps button', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
         feedItem={mockFragment<CommunityFeedItemFragment>(
           COMMUNITY_FEED_ITEM_FRAGMENT,
@@ -203,11 +208,13 @@ describe('Community', () => {
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders post correctly without image', () => {
-    renderWithContext(
+  it('renders post correctly without image', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
         feedItem={{
           ...storyPostItem,
@@ -219,29 +226,35 @@ describe('Community', () => {
         namePressable={false}
       />,
       { initialState },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders step correctly', () => {
-    renderWithContext(
+  it('renders step correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders challenge correctly', () => {
-    renderWithContext(
+  it('renders challenge correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders with clear notification button correctly', () => {
-    renderWithContext(
+  it('renders with clear notification button correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
         feedItem={storyPostItem}
         onClearNotification={onClearNotification}
@@ -250,17 +263,21 @@ describe('Community', () => {
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 });
 
-it('renders with name pressable correctly', () => {
-  renderWithContext(
+it('renders with name pressable correctly', async () => {
+  const { snapshot } = renderWithContext(
     <CommunityFeedItem feedItem={storyPostItem} namePressable={true} />,
     {
       initialState,
     },
-  ).snapshot();
+  );
+  await flushMicrotasksQueue();
+  snapshot();
 });
 
 describe('press card', () => {

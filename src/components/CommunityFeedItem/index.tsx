@@ -124,9 +124,7 @@ export const CommunityFeedItem = ({
 
   const handlePress = () =>
     dispatch(
-      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
-        feedItemId: feedItem.id,
-      }),
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, { feedItemId: feedItem.id }),
     );
 
   const clearNotification = () =>
