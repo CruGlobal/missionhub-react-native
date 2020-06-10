@@ -91,6 +91,7 @@ describe('navs to screens', () => {
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
       type,
       communityId,
+      communityName,
     });
     expect(useMutation).toHaveBeenMutatedWith(MARK_COMMUNITY_FEED_ITEMS_READ, {
       variables: {
