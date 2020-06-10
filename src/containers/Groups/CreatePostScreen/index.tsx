@@ -29,12 +29,12 @@ import {
 import { navigateBack } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { GET_COMMUNITY_FEED } from '../../CelebrateFeed/queries';
+import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
 import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
-} from '../../CelebrateFeed/__generated__/GetCommunityFeed';
+} from '../../CommunityFeed/__generated__/GetCommunityFeed';
 
 import CameraIcon from './cameraIcon.svg';
 import SendIcon from './sendIcon.svg';

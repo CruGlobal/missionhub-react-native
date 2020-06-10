@@ -4,7 +4,8 @@ exports[`should render correctly 1`] = `
 <CommunityFeed
   communityId="1"
   itemNamePressable={true}
-  onRefetch={[Function]}
+  noHeader={true}
+  personId="2"
   testID="CelebrateFeed"
 />
 `;

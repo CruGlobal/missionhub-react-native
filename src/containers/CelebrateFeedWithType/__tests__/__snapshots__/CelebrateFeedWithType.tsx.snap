@@ -226,7 +226,7 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <CelebrateFeed
+  <CommunityFeed
     filteredFeedType="STEP"
     itemNamePressable={true}
   />
@@ -459,7 +459,7 @@ exports[`renders correctly with id 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <CelebrateFeed
+  <CommunityFeed
     communityId="1"
     filteredFeedType="STEP"
     itemNamePressable={true}
