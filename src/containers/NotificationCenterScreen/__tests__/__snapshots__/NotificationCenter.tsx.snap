@@ -1014,8 +1014,7 @@ exports[`renders Earlier section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#7076B5",
@@ -1532,8 +1531,7 @@ exports[`renders Today section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#7076B5",
@@ -2572,8 +2570,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#00CA99",
@@ -2881,8 +2878,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#00CA99",
@@ -3058,8 +3054,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#7076B5",
@@ -3235,8 +3230,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#7076B5",
@@ -3412,8 +3406,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#7076B5",
@@ -3589,8 +3582,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#7076B5",
@@ -3766,8 +3758,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#00CA99",
@@ -3943,8 +3934,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "paddingVertical": 0,
                     },
                     Object {
                       "backgroundColor": "#7076B5",

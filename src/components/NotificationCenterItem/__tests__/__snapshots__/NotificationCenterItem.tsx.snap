@@ -72,8 +72,7 @@ exports[`different notification types renders correctly | Care request 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingVertical": 0,
             },
             Object {
               "backgroundColor": "#FD726D",
@@ -473,8 +472,7 @@ exports[`different notification types renders correctly | Community Challenge 1`
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingVertical": 0,
             },
             Object {
               "backgroundColor": "#00CA99",
@@ -665,8 +663,7 @@ exports[`different notification types renders correctly | God Story 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingVertical": 0,
             },
             Object {
               "backgroundColor": "#7076B5",
@@ -904,8 +901,7 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingVertical": 0,
             },
             Object {
               "backgroundColor": "#A97398",
@@ -1143,8 +1139,7 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingVertical": 0,
             },
             Object {
               "backgroundColor": "#FFA178",
@@ -1382,8 +1377,7 @@ exports[`different notification types renders correctly | Thought 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingVertical": 0,
             },
             Object {
               "backgroundColor": "#B4B6BA",
@@ -1621,8 +1615,7 @@ exports[`renders correctly 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
-              "paddingVertical": 10,
+              "paddingVertical": 0,
             },
             Object {
               "backgroundColor": "#7076B5",
