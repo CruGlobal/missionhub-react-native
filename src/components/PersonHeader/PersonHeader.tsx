@@ -53,7 +53,7 @@ export const PersonHeader = ({
   return (
     <CollapsibleViewHeader
       context={collapsibleHeaderContext}
-      headerHeight={287}
+      headerHeight={isMember ? 287 : 304}
     >
       <View style={styles.container}>
         <Header

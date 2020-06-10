@@ -8,10 +8,10 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   list: {
+    flex: 1,
     paddingTop: 16,
   },
   completedStepsButtonWrap: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
   },

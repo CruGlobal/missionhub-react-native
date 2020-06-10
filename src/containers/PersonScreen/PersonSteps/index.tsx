@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, SectionList, SectionListData } from 'react-native';
+import React, { useState, useContext } from 'react';
+import { View, Animated, SectionListData } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
@@ -174,10 +174,14 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
   };
 
   const stepListSections = [
-    {
-      key: 'active',
-      data: steps,
-    },
+    ...(steps.length > 0
+      ? [
+          {
+            key: 'active',
+            data: steps,
+          },
+        ]
+      : []),
     ...(hideCompleted ? [] : [{ key: 'completed', data: stepsCompleted }]),
   ];
 
@@ -211,47 +215,51 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
     section: SectionListData<{ key: string }>;
   }) => (key === 'active' ? renderCompletedStepsButton() : null);
 
-  const renderSteps = () => (
-    <SectionList
-      contentContainerStyle={styles.list}
-      contentInset={{ bottom: 90 }}
-      sections={stepListSections}
-      keyExtractor={keyExtractorId}
-      renderItem={renderItem}
-      onEndReachedThreshold={0.2}
-      onEndReached={handleOnEndReached}
-      renderSectionFooter={renderSectionFooter}
-      showsVerticalScrollIndicator={false}
-      refreshControl={
-        <RefreshControl refreshing={loading} onRefresh={refetch} />
-      }
-    />
-  );
-
-  const renderNull = () => (
-    <NullStateComponent
-      imageSource={NULL}
-      headerText={t('header').toUpperCase()}
-      descriptionText={
-        isMe ? t('stepSelfNull') : t('stepNull', { name: person.first_name })
-      }
-      content={renderCompletedStepsButton()}
-    />
-  );
+  const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
 
   return (
     <View style={styles.container}>
-      <ErrorNotice
-        message={t('errorLoadingStepsForThisPerson')}
-        error={error}
-        refetch={refetch}
+      <Animated.SectionList
+        {...collapsibleScrollViewProps}
+        style={styles.list}
+        contentInset={{ bottom: 90 }}
+        sections={stepListSections}
+        keyExtractor={keyExtractorId}
+        renderItem={renderItem}
+        onEndReachedThreshold={0.2}
+        onEndReached={handleOnEndReached}
+        renderSectionFooter={renderSectionFooter}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={refetch} />
+        }
+        ListEmptyComponent={
+          <NullStateComponent
+            imageSource={NULL}
+            headerText={t('header').toUpperCase()}
+            descriptionText={
+              isMe
+                ? t('stepSelfNull')
+                : t('stepNull', { name: person.first_name })
+            }
+            content={renderCompletedStepsButton()}
+            style={{ backgroundColor: undefined }}
+          />
+        }
+        ListHeaderComponent={
+          <>
+            <ErrorNotice
+              message={t('errorLoadingStepsForThisPerson')}
+              error={error}
+              refetch={refetch}
+            />
+            <ErrorNotice
+              message={t('errorLoadingCompletedStepsForThisPerson')}
+              error={errorCompleted}
+              refetch={refetchCompleted}
+            />
+          </>
+        }
       />
-      <ErrorNotice
-        message={t('errorLoadingCompletedStepsForThisPerson')}
-        error={errorCompleted}
-        refetch={refetchCompleted}
-      />
-      {steps.length > 0 || !hideCompleted ? renderSteps() : renderNull()}
       <BottomButton onPress={handleCreateStep} text={t('addStep')} />
     </View>
   );
