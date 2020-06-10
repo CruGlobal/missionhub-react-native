@@ -18,4 +18,7 @@ export default StyleSheet.create({
   list: {
     backgroundColor: theme.transparent,
   },
+  nullState: {
+    marginTop: 20,
+  },
 });

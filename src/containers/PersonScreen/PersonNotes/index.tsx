@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { View, ScrollView, Keyboard, TextInput } from 'react-native';
+import React, { useState, useEffect, useRef, useContext } from 'react';
+import { View, Keyboard, TextInput, Animated } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
@@ -98,35 +98,6 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
     }
   };
 
-  const renderNotes = () => (
-    <ScrollView
-      style={{ flex: 1, marginBottom: isAndroid && editing ? 80 : undefined }}
-      contentInset={{ bottom: 90 }}
-      // @ts-ignore
-      persistentScrollbar={true}
-    >
-      {editing ? (
-        <Input
-          ref={notesInput}
-          scrollEnabled={false}
-          onChangeText={onTextChanged}
-          editable={true}
-          value={text}
-          style={styles.notesText}
-          multiline={true}
-          blurOnSubmit={false}
-          autoCorrect={true}
-        />
-      ) : (
-        <Text
-          style={[styles.notesText, isAndroid ? { paddingBottom: 80 } : null]}
-        >
-          {text}
-        </Text>
-      )}
-    </ScrollView>
-  );
-
   const renderEmpty = () => {
     const text = t(isMe ? 'promptMe' : 'prompt', {
       personFirstName: person.first_name,
@@ -137,13 +108,42 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
         imageSource={NOTES}
         headerText={t('header').toUpperCase()}
         descriptionText={text}
+        style={styles.nullState}
       />
     );
   };
 
+  const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
+
   return (
     <View style={styles.container}>
-      {text || editing ? renderNotes() : renderEmpty()}
+      <Animated.ScrollView
+        {...collapsibleScrollViewProps}
+        style={{ flex: 1, marginBottom: isAndroid && editing ? 80 : undefined }}
+        contentInset={{ bottom: 90 }}
+      >
+        {editing ? (
+          <Input
+            ref={notesInput}
+            scrollEnabled={false}
+            onChangeText={onTextChanged}
+            editable={true}
+            value={text}
+            style={styles.notesText}
+            multiline={true}
+            blurOnSubmit={false}
+            autoCorrect={true}
+          />
+        ) : text ? (
+          <Text
+            style={[styles.notesText, isAndroid ? { paddingBottom: 80 } : null]}
+          >
+            {text}
+          </Text>
+        ) : (
+          renderEmpty()
+        )}
+      </Animated.ScrollView>
       <BottomButton onPress={onButtonPress} text={getButtonText()} />
     </View>
   );
