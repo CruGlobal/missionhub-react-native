@@ -15,7 +15,7 @@ import { NotificationItem } from '../../components/NotificationCenterItem/__gene
 // import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
 // import { getUnreadNotificationStatus } from '../../components/TabIcon/__generated__/getUnreadNotificationStatus';
 
-import { UpdateHasUnreadNotifications } from './__generated__/UpdateHasUnreadNotifications';
+import { updateLatestNotification } from './__generated__/updateLatestNotification';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
 import { GetNotifications } from './__generated__/GetNotifications';
 import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
@@ -81,7 +81,7 @@ const NotificationCenterScreen = () => {
   //   } = {},
   // } = useQuery<getUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
 
-  const [setHasUnreadNotifications] = useMutation<UpdateHasUnreadNotifications>(
+  const [setHasUnreadNotifications] = useMutation<updateLatestNotification>(
     UPDATE_LATEST_NOTIFICATION,
   );
 
