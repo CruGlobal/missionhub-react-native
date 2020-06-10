@@ -18,12 +18,12 @@ import {
   CommunityFeedItem_subject,
   CommunityFeedItem_subject_Post,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
-} from '../../containers/CelebrateFeed/__generated__/GetCommunityFeed';
-import { GET_COMMUNITY_FEED } from '../../containers/CelebrateFeed/queries';
+} from '../../containers/CommunityFeed/__generated__/GetCommunityFeed';
+import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
 import { getFeedItemType } from '../../utils/common';
 
 import styles from './styles';
@@ -34,12 +34,14 @@ import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 export interface CommunityFeedItemProps {
   feedItem: FeedItemFragment;
   namePressable: boolean;
+  postTypePressable?: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
 }
 
 export const CommunityFeedItem = ({
   feedItem,
   namePressable,
+  postTypePressable = true,
   onClearNotification,
 }: CommunityFeedItemProps) => {
   const { subject, subjectPerson } = feedItem;
@@ -199,6 +201,7 @@ export const CommunityFeedItem = ({
       <CommunityFeedItemContent
         feedItem={feedItem}
         namePressable={namePressable}
+        postLabelPressable={postTypePressable}
       />
       {onClearNotification ? renderClearNotificationButton() : null}
     </View>

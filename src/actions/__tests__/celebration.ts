@@ -1,7 +1,7 @@
 import { apolloClient } from '../../apolloClient';
 import { getCelebrateFeed } from '../celebration';
 import callApi from '../api';
-import { GET_COMMUNITY_FEED } from '../../containers/CelebrateFeed/queries';
+import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
 
 jest.mock('../api');
 
