@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useIsFocused } from 'react-navigation-hooks';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
 
 import { trackScreenChange, ScreenContext } from '../../actions/analytics';
-import { DrawerState } from '../../reducers/drawer';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../containers/Groups/CreatePostButton/queries';
 import { getMyCommunityPermission } from '../../containers/Groups/CreatePostButton/__generated__/getMyCommunityPermission';
 import {
@@ -22,6 +21,7 @@ import {
 
 import { useIsMe, useMyId } from './useIsMe';
 import { useIsOnboarding } from './useIsOnboarding';
+import { useIsDrawerOpen } from './useIsDrawerOpen';
 
 export enum ANALYTICS_SCREEN_TYPES {
   screen,
@@ -101,9 +101,7 @@ export const useAnalytics = (
 
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
-  const isDrawerOpen = useSelector(
-    ({ drawer }: { drawer: DrawerState }) => drawer.isOpen,
-  );
+  const isDrawerOpen = useIsDrawerOpen();
 
   const handleScreenChange = (
     name: string | string[],
