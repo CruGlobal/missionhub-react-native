@@ -53,7 +53,6 @@ export interface AddStepScreenNextProps {
   id?: string;
   type: string;
   personId: string;
-  orgId?: string;
 }
 
 interface AddStepScreenProps {
@@ -70,7 +69,6 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   const type: string = useNavigationParam('type');
   const stepType: StepTypeEnum | undefined = useNavigationParam('stepType');
   const personId: string = useNavigationParam('personId');
-  const orgId: string | undefined = useNavigationParam('orgId');
   const id: string | undefined = useNavigationParam('id');
   const initialText: string | undefined = useNavigationParam('initialText');
   const onSetComplete: (() => void) | undefined = useNavigationParam(
@@ -133,7 +131,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   const navigateNext = async (text?: string) => {
     onSetComplete && (await onSetComplete());
 
-    dispatch(next({ text, id, type, personId, orgId }));
+    dispatch(next({ text, id, type, personId }));
   };
 
   const handleSaveStep = async () => {

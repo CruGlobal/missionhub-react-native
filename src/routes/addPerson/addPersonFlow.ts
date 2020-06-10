@@ -24,10 +24,7 @@ import SelectStepScreen, {
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
-import AddStepScreen, {
-  ADD_STEP_SCREEN,
-  AddStepScreenNextProps,
-} from '../../containers/AddStepScreen';
+import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
 import { wrapNextAction } from '../helpers';
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
@@ -103,14 +100,9 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
     SuggestedStepDetailScreen,
-    ({ orgId }) => onFlowComplete({ orgId }),
+    () => onFlowComplete(),
   ),
-  [ADD_STEP_SCREEN]: wrapNextAction(
-    AddStepScreen,
-    ({ orgId }: AddStepScreenNextProps) => dispatch => {
-      dispatch(onFlowComplete({ orgId }));
-    },
-  ),
+  [ADD_STEP_SCREEN]: wrapNextAction(AddStepScreen, () => onFlowComplete()),
 });
 
 export const AddPersonThenStepScreenFlowNavigator = createStackNavigator(

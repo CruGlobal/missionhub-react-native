@@ -11,8 +11,8 @@ import Header from '../../../components/Header';
 import DeprecatedBackButton from '../../DeprecatedBackButton';
 import MemberCelebrate from '../../MemberCelebrate';
 import { PersonSteps } from '../../PersonScreen/PersonSteps';
-import { ContactNotes } from '../../PersonScreen/PersonNotes';
-import { ContactJourney } from '../../PersonScreen/PersonJourney';
+import { PersonNotes } from '../../PersonScreen/PersonNotes';
+import { PersonJourney } from '../../PersonScreen/PersonJourney';
 import ImpactView from '../../ImpactView';
 import MemberContacts from '../../MemberContacts';
 import { PERSON_MENU_DRAWER } from '../../../constants';
@@ -92,7 +92,7 @@ const personNotes = {
       },
     },
     // @ts-ignore
-  }) => <ContactNotes organization={organization} person={person} />,
+  }) => <PersonNotes organization={organization} person={person} />,
 };
 const personJourney = {
   name: i18next.t('personTabs:ourJourney'),
@@ -104,7 +104,7 @@ const personJourney = {
         params: { organization, person },
       },
     },
-  }) => <ContactJourney organization={organization} person={person} />,
+  }) => <PersonJourney organization={organization} person={person} />,
 };
 const memberImpact = {
   name: i18next.t('personTabs:impact'),

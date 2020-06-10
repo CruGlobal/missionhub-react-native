@@ -34,9 +34,9 @@ export const SelectPersonStageFlowScreens = {
                     : assignment,
               ),
             })
-          : getPersonDetails(personId, orgId),
+          : getPersonDetails(personId),
       );
-      dispatch(reloadJourney(personId, orgId));
+      dispatch(reloadJourney(personId));
 
       dispatch(
         isAlreadySelected

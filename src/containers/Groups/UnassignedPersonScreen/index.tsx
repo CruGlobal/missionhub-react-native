@@ -24,8 +24,8 @@ class UnassignedPersonScreen extends Component {
   loadFeed = async () => {
     // @ts-ignore
     const { dispatch, person } = this.props;
-    dispatch(getPersonDetails(person.id, undefined));
-    const results = await dispatch(getGroupJourney(person.id, undefined));
+    dispatch(getPersonDetails(person.id));
+    const results = await dispatch(getGroupJourney(person.id));
     this.setState({ activity: results });
   };
 

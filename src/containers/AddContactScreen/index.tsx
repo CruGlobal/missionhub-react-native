@@ -51,7 +51,6 @@ interface AddContactScreenProps {
   next: (props: {
     personId?: string;
     relationshipType?: RelationshipTypeEnum | null;
-    orgId: string;
     didSavePerson?: boolean;
     isMe?: boolean;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
@@ -112,7 +111,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       next({
         personId: person?.id,
         relationshipType: person?.relationshipType,
-        orgId: organization?.id,
         didSavePerson,
         isMe: isMe,
       }),
@@ -142,12 +140,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         });
         // Update person's data in redux
         updateData?.updatePerson?.person &&
-          dispatch(
-            getPersonDetails(
-              updateData?.updatePerson?.person?.id,
-              organization?.id,
-            ),
-          );
+          dispatch(getPersonDetails(updateData?.updatePerson?.person?.id));
         results = updateData?.updatePerson?.person;
       } else {
         const { data: createData } = await createPerson({
