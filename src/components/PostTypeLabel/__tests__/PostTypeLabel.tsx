@@ -93,7 +93,7 @@ describe('label variations', () => {
       { noWrappers: true },
     ).snapshot();
   });
-  
+
   it('renders small label with no text', () => {
     renderWithContext(
       <PostTypeLabel
