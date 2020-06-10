@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import HEARTS from '../../../assets/images/celebrateHearts.png';
 import TARGET from '../../../assets/images/challengeTarget.png';
 import GLOBE from '../../../assets/images/globe.png';
-import JOURNEY from '../../../assets/images/ourJourney.png';
 import STEPS from '../../../assets/images/footprints.png';
 import CloseIcon from '../../../assets/images/closeIcon.svg';
 import { Flex, Text, Card } from '../../components/common';
@@ -35,8 +34,6 @@ const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
         return TARGET;
       case GROUP_ONBOARDING_TYPES.impact:
         return GLOBE;
-      case GROUP_ONBOARDING_TYPES.members:
-        return JOURNEY;
       case GROUP_ONBOARDING_TYPES.steps:
         return STEPS;
       default:
@@ -56,9 +53,6 @@ const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
           : t(`${GROUP_ONBOARDING_TYPES.challenges}MemberDescription`);
       case GROUP_ONBOARDING_TYPES.celebrate:
       case GROUP_ONBOARDING_TYPES.impact:
-      case GROUP_ONBOARDING_TYPES.members:
-      case GROUP_ONBOARDING_TYPES.contacts:
-      case GROUP_ONBOARDING_TYPES.surveys:
       case GROUP_ONBOARDING_TYPES.steps:
         return t(`${type}Description`);
     }
@@ -103,10 +97,7 @@ export enum PermissionTypesEnum {
 export enum GROUP_ONBOARDING_TYPES {
   celebrate = 'celebrate',
   challenges = 'challenges',
-  members = 'members',
   impact = 'impact',
-  contacts = 'contacts',
-  surveys = 'surveys',
   steps = 'steps',
 }
 

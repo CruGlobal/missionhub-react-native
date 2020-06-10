@@ -29,7 +29,6 @@ interface AddContactFieldsProps {
   organization?: Organization;
   onUpdateData: (data: PersonType) => void;
   next: (props: {
-    orgId: string;
     navigateToStageSelection: boolean;
     person: PersonType;
     updatePerson: (person: PersonType) => void;
