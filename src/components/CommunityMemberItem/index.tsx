@@ -12,9 +12,9 @@ import { Organization } from '../../reducers/organizations';
 import Avatar from '../Avatar';
 import { RootState } from '../../reducers';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
-import { PermissionEnum } from '../../../__generated__/globalTypes';
 import { navigatePush } from '../../actions/navigation';
 import { COMMUNITY_MEMBER_TABS } from '../../containers/Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
+import { CommunityMembers_community_people_edges_communityPermission } from '../../containers/Communities/Community/CommunityMembers/__generated__/CommunityMembers';
 
 import styles from './styles';
 import { CommunityMemberPerson } from './__generated__/CommunityMemberPerson';
@@ -22,7 +22,7 @@ import { CommunityMemberPerson } from './__generated__/CommunityMemberPerson';
 export interface CommunityMemberItemProps {
   person: CommunityMemberPerson;
   organization: Organization;
-  personOrgPermission: { id: string; permission: PermissionEnum };
+  personOrgPermission: CommunityMembers_community_people_edges_communityPermission;
   onRefreshMembers: Function;
 }
 
@@ -78,7 +78,7 @@ const CommunityMemberItem = ({
               {t('memberSince')}{' '}
               <DateComponent
                 style={styles.info}
-                date={person.createdAt}
+                date={personOrgPermission.createdAt}
                 format="MMMM YYYY"
               />
             </Text>
