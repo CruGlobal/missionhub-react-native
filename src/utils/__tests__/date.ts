@@ -32,7 +32,7 @@ describe('isLastTwentyFourHours', () => {
     expect(isLastTwentyFourHours(getMomentDate(mockDate))).toEqual(true);
   });
   it('returns false for date past twenty four hours', () => {
-    const date = getMomentDate('2020-04-15 12:00:00 PM GMT+0');
+    const date = getMomentDate('2018-09-10 11:00:00 AM GMT+0');
     expect(isLastTwentyFourHours(date)).toEqual(false);
   });
 });
