@@ -44,15 +44,6 @@ import NotificationPrimerScreen, {
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from './containers/CelebrationScreen';
-import SearchPeopleScreen, {
-  SEARCH_SCREEN,
-} from './containers/SearchPeopleScreen';
-import SearchPeopleFilterScreen, {
-  SEARCH_FILTER_SCREEN,
-} from './containers/SearchPeopleFilterScreen';
-import SearchPeopleFilterRefineScreen, {
-  SEARCH_REFINE_SCREEN,
-} from './containers/SearchPeopleFilterRefineScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
@@ -67,15 +58,6 @@ import {
 } from './constants';
 import { buildTrackingObj } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
-import SurveyContactsFilter, {
-  SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
-} from './containers/Groups/SurveyContactsFilter';
-import SurveyQuestionsFilter, {
-  SEARCH_QUESTIONS_FILTER_SCREEN,
-} from './containers/Groups/SurveyQuestionsFilter';
-import ContactsFilter, {
-  SEARCH_CONTACTS_FILTER_SCREEN,
-} from './containers/Groups/ContactsFilter';
 import CreateGroupScreen, {
   CREATE_GROUP_SCREEN,
 } from './containers/Groups/CreateGroupScreen';
@@ -119,46 +101,21 @@ import {
   AddPersonThenCommunityMembersFlowNavigator,
 } from './routes/addPerson/addPersonFlow';
 import { EditPersonFlowNavigator } from './routes/editPerson/editPersonFlow';
-import {
-  JoinByCodeFlowNavigator,
-  JoinByCodeFlowScreens,
-} from './routes/groups/joinByCodeFlow';
-import {
-  JoinByCodeOnboardingFlowNavigator,
-  JoinByCodeOnboardingFlowScreens,
-} from './routes/onboarding/joinByCodeOnboardingFlow';
-import {
-  GetStartedOnboardingFlowScreens,
-  GetStartedOnboardingFlowNavigator,
-} from './routes/onboarding/getStartedOnboardingFlow';
-import {
-  FullOnboardingFlowScreens,
-  FullOnboardingFlowNavigator,
-} from './routes/onboarding/fullOnboardingFlow';
-import {
-  AddSomeoneOnboardingFlowScreens,
-  AddSomeoneOnboardingFlowNavigator,
-} from './routes/onboarding/addSomeoneOnboardingFlow';
-import {
-  DeepLinkJoinCommunityAuthenticatedNavigator,
-  DeepLinkJoinCommunityAuthenticatedScreens,
-} from './routes/deepLink/deepLinkJoinCommunityAuthenticated';
-import {
-  DeepLinkJoinCommunityUnauthenticatedNavigator,
-  DeepLinkJoinCommunityUnauthenticatedScreens,
-} from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
+import { JoinByCodeFlowNavigator } from './routes/groups/joinByCodeFlow';
+import { JoinByCodeOnboardingFlowNavigator } from './routes/onboarding/joinByCodeOnboardingFlow';
+import { GetStartedOnboardingFlowNavigator } from './routes/onboarding/getStartedOnboardingFlow';
+import { FullOnboardingFlowNavigator } from './routes/onboarding/fullOnboardingFlow';
+import { AddSomeoneOnboardingFlowNavigator } from './routes/onboarding/addSomeoneOnboardingFlow';
+import { DeepLinkJoinCommunityAuthenticatedNavigator } from './routes/deepLink/deepLinkJoinCommunityAuthenticated';
+import { DeepLinkJoinCommunityUnauthenticatedNavigator } from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
 import {
   CompleteStepFlowNavigator,
   CompleteStepFlowAndNavigateBackNavigator,
-  CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
 import { JourneyEditFlowNavigator } from './routes/journey/journeyEditFlow';
-import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
-import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
-import {
-  CreateCommunityUnauthenticatedFlowNavigator,
-  CreateCommunityUnauthenticatedFlowScreens,
-} from './routes/groups/createCommunityUnauthenticatedFlow';
+import { SignInFlowNavigator } from './routes/auth/signIn';
+import { SignUpFlowNavigator } from './routes/auth/signUp';
+import { CreateCommunityUnauthenticatedFlowNavigator } from './routes/groups/createCommunityUnauthenticatedFlow';
 import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
 import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
@@ -203,11 +160,9 @@ import { PersonTabs } from './containers/PersonScreen/PersonTabs';
 //   },
 // });
 
-export const navItem = (name: string) => ({
-  tintColor,
-}: {
-  tintColor: string;
-}) => <TabIcon name={name} tintColor={tintColor} />;
+const navItem = (name: string) => ({ tintColor }: { tintColor: string }) => (
+  <TabIcon name={name} tintColor={tintColor} />
+);
 
 const tabs = {
   [PEOPLE_TAB]: {
@@ -240,7 +195,7 @@ const tabs = {
   },
 };
 
-export const MainTabBar = createBottomTabNavigator(tabs, {
+const MainTabBar = createBottomTabNavigator(tabs, {
   tabBarOptions: {
     showIcon: false,
     showLabel: true,
@@ -262,7 +217,7 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
   lazy: true,
 });
 
-export const MAIN_TABS_SCREEN = createDrawerNavigator(
+const MAIN_TABS_SCREEN = createDrawerNavigator(
   {
     Main: MainTabBar,
   },
@@ -325,19 +280,6 @@ const screens = {
     // @ts-ignore
     buildTrackingObj('menu : notifications : off', 'menu', 'notifications'),
   ),
-  [SEARCH_SCREEN]: buildTrackedScreen(
-    SearchPeopleScreen,
-    // @ts-ignore
-    buildTrackingObj('search', 'search'),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(
-    SearchPeopleFilterScreen,
-    // @ts-ignore
-    buildTrackingObj('search : refine', 'search', 'refine'),
-    { gesturesEnabled: true },
-  ),
-
   [GROUP_UNREAD_FEED_SCREEN]: buildTrackedScreen(
     GroupUnreadFeed,
     // @ts-ignore
@@ -346,36 +288,6 @@ const screens = {
       'communities',
       'comments',
       'unread',
-    ),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
-    SurveyContactsFilter,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : community : survey contacts filer',
-      'communities',
-      'community',
-    ),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_QUESTIONS_FILTER_SCREEN]: buildTrackedScreen(
-    SurveyQuestionsFilter,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : community : questions filter',
-      'communities',
-      'community',
-    ),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
-    ContactsFilter,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : community : contacts filter',
-      'communities',
-      'community',
     ),
     { gesturesEnabled: true },
   ),
@@ -424,25 +336,9 @@ const screens = {
   [ADD_POST_TO_STEPS_SCREEN]: AddPostToStepsScreen,
 };
 
-export const trackableScreens = {
-  ...screens,
-  ...tabs,
-  ...JoinByCodeFlowScreens,
-  ...JoinByCodeOnboardingFlowScreens,
-  ...AddSomeoneOnboardingFlowScreens,
-  ...FullOnboardingFlowScreens,
-  ...GetStartedOnboardingFlowScreens,
-  ...DeepLinkJoinCommunityAuthenticatedScreens,
-  ...DeepLinkJoinCommunityUnauthenticatedScreens,
-  ...CompleteStepFlowScreens,
-  ...CreateCommunityUnauthenticatedFlowScreens,
-  ...SignInFlowScreens,
-  ...SignUpFlowScreens,
-};
-
 const MODAL_SCREENS = [ADD_POST_TO_STEPS_SCREEN];
 
-export const MainStackRoutes = createStackNavigator(
+const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     ...CommunitiesRoutes,
@@ -453,11 +349,6 @@ export const MainStackRoutes = createStackNavigator(
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [SELECT_STAGE_SCREEN]: {
       screen: SelectStageScreen,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [SEARCH_REFINE_SCREEN]: {
-      screen: SearchPeopleFilterRefineScreen,
       // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },

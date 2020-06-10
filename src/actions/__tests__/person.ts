@@ -33,17 +33,16 @@ import { trackActionWithoutData, setAnalyticsMinistryMode } from '../analytics';
 import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
 import {
-  ME_PERSONAL_PERSON_SCREEN,
-  CONTACT_PERSON_SCREEN,
-} from '../../containers/Groups/AssignedPersonScreen/constants';
-import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
-import {
   personSelector,
   contactAssignmentSelector,
 } from '../../selectors/people';
 import { PeopleState } from '../../reducers/people';
 import { OrganizationsState } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
+import {
+  ME_PERSON_TABS,
+  PERSON_TABS,
+} from '../../containers/PersonScreen/PersonTabs';
 
 jest.mock('../api');
 jest.mock('../navigation');
@@ -815,77 +814,24 @@ describe('navToPersonScreen', () => {
         { auth },
         { person: me, orgId: undefined },
       );
-      expect(navigatePush).toHaveBeenCalledWith(ME_PERSONAL_PERSON_SCREEN, {
-        person: me,
+      expect(navigatePush).toHaveBeenCalledWith(ME_PERSON_TABS, {
+        personId: me.id,
       });
     });
   });
 
   describe('is not me', () => {
-    describe('is not in org', () => {
-      beforeEach(() => {
+    describe('has ContactAssignment', () => {
+      it('navigates to contact person screen', () => {
         // @ts-ignore
-        personSelector.mockReturnValue(person);
-      });
+        contactAssignmentSelector.mockReturnValue(contactAssignment);
 
-      afterEach(() => {
-        expect(personSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { people },
-          { personId: person.id },
-        );
-        expect(contactAssignmentSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { auth },
-          { person, orgId: undefined },
-        );
-      });
+        // @ts-ignore
+        store.dispatch(navToPersonScreen(person.id));
 
-      describe('has ContactAssignment', () => {
-        it('navigates to contact person screen', () => {
-          // @ts-ignore
-          contactAssignmentSelector.mockReturnValue(contactAssignment);
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person.id));
-
-          expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
-            person,
-          });
+        expect(navigatePush).toHaveBeenCalledWith(PERSON_TABS, {
+          personId: person.id,
         });
-      });
-
-      describe('does not have ContactAssignment', () => {
-        it('navigates to unassigned person screen', () => {
-          // @ts-ignore
-          contactAssignmentSelector.mockReturnValue(undefined);
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person.id));
-
-          expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
-            person,
-          });
-        });
-      });
-    });
-  });
-
-  describe('with extra props', () => {
-    // @ts-ignore
-    contactAssignmentSelector.mockReturnValue(undefined);
-    // @ts-ignore
-    personSelector.mockReturnValue(person);
-
-    const onAssign = jest.fn();
-
-    it('includes props in navigation', () => {
-      // @ts-ignore
-      store.dispatch(navToPersonScreen(person, { onAssign }));
-
-      expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
-        person,
-        onAssign,
       });
     });
   });

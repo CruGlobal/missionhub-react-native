@@ -27,12 +27,12 @@ import {
   MarkCommunityFeedItemsRead,
 } from './__generated__/MarkCommunityFeedItemsRead';
 
-export interface CelebrateFeedPostCardsProps {
+interface CelebrateFeedPostCardsProps {
   communityId: string;
   feedRefetch: () => void;
 }
 
-export interface CommunityFeedSection {
+interface CommunityFeedSection {
   id: number;
   date: string;
   data: FeedItemFragment[];

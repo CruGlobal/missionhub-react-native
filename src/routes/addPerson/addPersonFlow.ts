@@ -10,7 +10,6 @@ import {
   navigateBack,
   navigateToMainTabs,
 } from '../../actions/navigation';
-import { getOrganizationMembers } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../../containers/AddContactScreen';
@@ -125,8 +124,7 @@ export const AddPersonThenPeopleScreenFlowNavigator = createStackNavigator(
 
 export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
   // @ts-ignore
-  AddPersonFlowScreens(({ orgId }) => dispatch => {
-    dispatch(getOrganizationMembers(orgId));
+  AddPersonFlowScreens(() => dispatch => {
     dispatch(StackActions.popToTop());
     // @ts-ignore
     dispatch(StackActions.pop());

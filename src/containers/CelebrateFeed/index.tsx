@@ -27,7 +27,7 @@ import {
 } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
-export interface CelebrateFeedProps {
+interface CelebrateFeedProps {
   communityId: string;
   personId?: string;
   itemNamePressable: boolean;
@@ -41,7 +41,7 @@ export interface CelebrateFeedProps {
   collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
-export interface CommunityFeedSection {
+interface CommunityFeedSection {
   id: number;
   title: string;
   data: FeedItemFragment[];

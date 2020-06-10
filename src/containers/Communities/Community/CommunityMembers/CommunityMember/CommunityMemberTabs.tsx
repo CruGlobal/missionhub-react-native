@@ -14,7 +14,7 @@ import CommunityFeed, {
 import { ImpactTab, IMPACT_TAB } from '../../../../ImpactTab/ImpactTab';
 import { PersonHeader } from '../../../../../components/PersonHeader/PersonHeader';
 
-export const CommunityMemberCollapsibleHeaderContext = createCollapsibleViewContext();
+const CommunityMemberCollapsibleHeaderContext = createCollapsibleViewContext();
 
 export const communityMemberTabs = [
   {

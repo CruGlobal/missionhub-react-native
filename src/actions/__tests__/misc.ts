@@ -12,14 +12,9 @@ import {
   GET_FEATURE_FLAGS,
   getFeatureFlags,
 } from '../misc';
-import {
-  createContactAssignment,
-  updatePersonAttributes,
-  getPersonScreenRoute,
-} from '../person';
+import { createContactAssignment, updatePersonAttributes } from '../person';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
-import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen/constants';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
@@ -93,8 +88,6 @@ beforeEach(() => {
   // @ts-ignore
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
   // @ts-ignore
-  getPersonScreenRoute.mockReturnValue(CONTACT_PERSON_SCREEN);
-  // @ts-ignore
   orgPermissionSelector.mockReturnValue(orgPermission);
   // @ts-ignore
   hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
@@ -161,14 +154,6 @@ describe('assignContactAndPickStage', () => {
       personId,
     );
     expect(contactAssignmentSelector).toHaveBeenCalledWith(state, {
-      person,
-    });
-    expect(getPersonScreenRoute).toHaveBeenCalledWith(
-      mePerson,
-      person,
-      contactAssignment,
-    );
-    expect(navigateReplace).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
       person,
     });
     expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {

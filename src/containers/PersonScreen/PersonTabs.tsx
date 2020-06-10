@@ -16,7 +16,7 @@ import { PersonSteps, PERSON_STEPS } from './PersonSteps';
 import { PersonNotes, PERSON_NOTES } from './PersonNotes';
 import { PersonJourney, PERSON_JOURNEY } from './PersonJourney';
 
-export const PersonCollapsibleHeaderContext = createCollapsibleViewContext();
+const PersonCollapsibleHeaderContext = createCollapsibleViewContext();
 
 const personTabs = ({ isMe }: { isMe: boolean }) => [
   {

@@ -3,7 +3,6 @@
 import { Linking } from 'react-native';
 import gql from 'graphql-tag';
 
-import { contactAssignmentSelector } from '../selectors/people';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
@@ -17,7 +16,7 @@ import { apolloClient } from '../apolloClient';
 
 import { trackActionWithoutData } from './analytics';
 import { createContactAssignment } from './person';
-import { navigatePush, navigateReplace } from './navigation';
+import { navigatePush } from './navigation';
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
 
 export const GET_FEATURE_FLAGS = gql`

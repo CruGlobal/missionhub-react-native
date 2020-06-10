@@ -37,7 +37,7 @@ type Resolver = (
   },
 ) => unknown;
 // Resolvers from node_modules/apollo-client/core/types.d.ts has a lot of any types on the resolver functions
-export interface Resolvers {
+interface Resolvers {
   [key: string]: {
     [field: string]: Resolver;
   };

@@ -21,7 +21,7 @@ import { getPagination } from '../utils/common';
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Organization = any; // TODO: use GraphQL type
 
-export interface PaginationObject {
+interface PaginationObject {
   hasNextPage: boolean;
   page: number;
 }

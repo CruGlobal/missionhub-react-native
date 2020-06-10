@@ -27,7 +27,7 @@ export enum PostLabelSizeEnum {
   extraLarge = 'extraLarge',
 }
 
-export const PostTypeBgStyle: {
+const PostTypeBgStyle: {
   [key in FeedItemSubjectTypeEnum]: StyleProp<{ backgroundColor: string }>;
 } = {
   ANNOUNCEMENT: styles.ANNOUNCEMENT,
@@ -39,7 +39,7 @@ export const PostTypeBgStyle: {
   STORY: styles.STORY,
   THOUGHT: styles.THOUGHT,
 };
-export const PostTypeColorStyle: {
+const PostTypeColorStyle: {
   [key in FeedItemSubjectTypeEnum]: StyleProp<{ color: string }>;
 } = {
   ANNOUNCEMENT: styles.colorANNOUNCEMENT,
@@ -59,7 +59,7 @@ interface PostTypeIconProps {
   style?: StyleProp<ViewStyle>;
 }
 
-export function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
+function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
   const iconSize =
     size === PostLabelSizeEnum.extraLarge
       ? 225

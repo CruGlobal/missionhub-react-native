@@ -42,7 +42,7 @@ export interface SetNotificationAnalyticsAction {
   notificationName: string;
 }
 
-export const setNotificationAnalytics = (
+const setNotificationAnalytics = (
   notificationName: string,
 ): SetNotificationAnalyticsAction => ({
   type: SET_NOTIFICATION_ANALYTICS,
@@ -119,7 +119,7 @@ type ParsedNotificationData =
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
 
-export interface HasShownPromptAction {
+interface HasShownPromptAction {
   type: typeof HAS_SHOWN_NOTIFICATION_PROMPT;
 }
 

@@ -22,7 +22,7 @@ import { personSelector } from '../../../selectors/people';
 
 import styles from './styles';
 
-export interface PersonNotesProps {
+interface PersonNotesProps {
   collapsibleHeaderContext: CollapsibleViewContext;
 }
 

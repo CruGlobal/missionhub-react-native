@@ -421,45 +421,6 @@ export default {
     promptMe:
       'Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.',
   },
-  search: {
-    inputPlaceholder: 'Search',
-    loading: 'Loading',
-    noResults: 'No Results.',
-    nullHeader: 'Search',
-    nullDescription: 'Search results will appear here.',
-  },
-  searchFilter: {
-    title: 'Filter',
-    titleSurvey: 'Filter Survey',
-    titleQuestions: 'Questions',
-    titleAnswers: 'Answers',
-    ministry: 'Ministry',
-    label: 'Label',
-    groups: 'Groups',
-    surveys: 'Survey',
-    gender: 'Gender',
-    male: 'Male',
-    female: 'Female',
-    other: 'Other',
-    time: 'Time Period',
-    time7: 'Last 7 days',
-    time30: 'Last 30 days',
-    time60: 'Last 60 days',
-    time90: 'Last 90 days',
-    time180: 'Last 6 Months',
-    time270: 'Last 9 Months',
-    time365: 'Last 12 Months',
-    surveyQuestions: 'Questions/Answers',
-    uncontacted: 'Uncontacted',
-    unassigned: 'Unassigned',
-    archived: 'Include Archived Contacts',
-    multiple: 'Multiple',
-    includeUsers: 'Include Users and Admins',
-  },
-  searchFilterRefine: {
-    title: 'Refine',
-    any: 'Any',
-  },
   notificationPrimer: {
     onboarding:
       'MissionHub will send you reminders to help you take your steps.',
@@ -660,10 +621,6 @@ export default {
     impactHeader: 'See God at Work',
     impactDescription:
       'See what God is doing as you take Steps of Faith together. ',
-    contactsHeader: 'Journey Together',
-    contactsDescription: 'Stay engaged with contacts in your community.',
-    surveysHeader: 'Grow Together',
-    surveysDescription: 'Learn about one another through survey responses.',
     stepsHeader: 'Steps of Faith',
     stepsDescription: 'Choose a person in People view to add a new step',
   },
@@ -714,23 +671,6 @@ export default {
   groupsImpact: {
     title: '',
   },
-  groupsContacts: {
-    title: '',
-    searchPlaceholder: 'Search Contacts',
-    movingToWeb: 'We are moving Contacts to the web!',
-    findThemHere: 'Find them here',
-  },
-  memberContacts: {
-    nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
-  },
-  groupsSurveys: {
-    title: '',
-    movingToWeb: 'We are moving Surveys to the web!',
-    findThemHere: 'Find them here',
-  },
-  groupsSurveyContacts: {
-    searchPlaceholder: 'Search Contacts',
-  },
   datePicker: {
     date: 'Date',
   },
@@ -779,15 +719,6 @@ export default {
     communityNotFoundLink:
       "Sorry, we couldn't find your community.\nDouble check your link.",
     findingCommunity: 'Finding your new community...',
-  },
-  shareSurveyMenu: {
-    shareMessage: '{{name}} {{url}}',
-    shareSurvey: 'Share Survey',
-    takeSurvey: 'Take Survey',
-  },
-  groupsContactList: {
-    nullHeader: 'Activity Feed',
-    nullDescription: 'No activity to display.',
   },
   loadMore: {
     load: 'Load More',

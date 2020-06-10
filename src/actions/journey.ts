@@ -1,7 +1,6 @@
 /* eslint max-params: 0 */
 
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
-import { isAdminOrOwner } from '../utils/common';
 import { REQUESTS } from '../api/routes';
 
 import callApi from './api';
@@ -14,41 +13,6 @@ export function reloadJourney(personId) {
     const personFeed = org && org[personId];
     // If personFeed has been loaded, we need to reload it. If it has not, wait for ContactJourney screen to lazy load it
     return personFeed && dispatch(getJourney(personId));
-  };
-}
-
-// @ts-ignore
-export function getGroupJourney(personId, orgId) {
-  // @ts-ignore
-  return async (dispatch, getState) => {
-    try {
-      // Find out if I am an admin for this organization
-      const me = getState().auth.person;
-      const orgPermission = (me.organizational_permissions || []).find(
-        // @ts-ignore
-        o => o.organization_id === orgId,
-      );
-      const isAdmin = isAdminOrOwner(orgPermission);
-      let include =
-        'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,' +
-        'all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,' +
-        'all.contact_assignment.assigned_to,all.contact_assignment.person,all.receiver,all.initiators';
-      // If I have admin permission, get me everything
-      // Otherwise, just get me survey information
-      if (!isAdmin) {
-        include = 'all.answers.question,all.survey';
-      }
-      const filters = {
-        scope_to_current_user: !isAdmin,
-      };
-      const {
-        response: { all: feed },
-      } = await dispatch(getPersonFeed(personId, orgId, include, filters));
-
-      return feed;
-    } catch (e) {
-      return [];
-    }
   };
 }
 
@@ -101,7 +65,7 @@ function getPersonFeed(personId, orgId, include, filters = {}) {
 }
 
 // @ts-ignore
-export function updateJourney(personId, personFeed) {
+function updateJourney(personId, personFeed) {
   return {
     type: UPDATE_JOURNEY_ITEMS,
     personId,

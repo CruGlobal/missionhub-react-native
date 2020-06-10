@@ -27,7 +27,7 @@ import {
   ReportFeedItemCommentVariables,
 } from './__generated__/ReportFeedItemComment';
 
-export interface CommentsListProps {
+interface CommentsListProps {
   feedItemId: string;
   comments: FeedItemCommentItem[];
   editingCommentId?: string;

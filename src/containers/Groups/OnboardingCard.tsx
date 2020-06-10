@@ -7,8 +7,6 @@ import HEARTS from '../../../assets/images/celebrateHearts.png';
 import TARGET from '../../../assets/images/challengeTarget.png';
 import GLOBE from '../../../assets/images/globe.png';
 import JOURNEY from '../../../assets/images/ourJourney.png';
-import CONTACTS from '../../../assets/images/MemberContacts.png';
-import SURVEY from '../../../assets/images/curiousIcon.png';
 import STEPS from '../../../assets/images/footprints.png';
 import CloseIcon from '../../../assets/images/closeIcon.svg';
 import { Flex, Text, Card } from '../../components/common';
@@ -39,10 +37,6 @@ const OnboardingCard = ({ type, permissions }: OnboardingCardProps) => {
         return GLOBE;
       case GROUP_ONBOARDING_TYPES.members:
         return JOURNEY;
-      case GROUP_ONBOARDING_TYPES.contacts:
-        return CONTACTS;
-      case GROUP_ONBOARDING_TYPES.surveys:
-        return SURVEY;
       case GROUP_ONBOARDING_TYPES.steps:
         return STEPS;
       default:

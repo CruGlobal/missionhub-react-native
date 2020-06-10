@@ -19,7 +19,7 @@ import { COMMUNITY_MEMBER_TABS } from '../../containers/Communities/Community/Co
 import styles from './styles';
 import { CommunityMemberPerson } from './__generated__/CommunityMemberPerson';
 
-export interface CommunityMemberItemProps {
+interface CommunityMemberItemProps {
   person: CommunityMemberPerson;
   organization: Organization;
   personOrgPermission: { id: string; permission: PermissionEnum };

@@ -10,7 +10,7 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { personSelector } from '../../selectors/people';
 import { RootState } from '../../reducers';
 
-export interface MemberCelebrateProps {
+interface MemberCelebrateProps {
   communityId: string;
   personId: string;
   analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
