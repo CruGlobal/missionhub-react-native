@@ -56,27 +56,7 @@ import SearchPeopleFilterRefineScreen, {
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
-import {
-  ALL_PERSON_TAB_ROUTES,
-  ContactPersonScreen,
-  IsGroupsMeCommunityPersonScreen,
-  IsGroupsMemberPersonScreen,
-  IsUserCreatedMemberPersonScreen,
-  MeCommunityPersonScreen,
-  MemberPersonScreen,
-  MePersonalPersonScreen,
-} from './containers/Groups/AssignedPersonScreen';
-import {
-  CONTACT_PERSON_SCREEN,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
-  ME_COMMUNITY_PERSON_SCREEN,
-  ME_PERSONAL_PERSON_SCREEN,
-  MEMBER_PERSON_SCREEN,
-} from './containers/Groups/AssignedPersonScreen/constants';
 import SettingsMenu from './components/SettingsMenu';
-import { PersonSideMenu } from './components/PersonSideMenu';
 import theme from './theme';
 import {
   MAIN_TABS,
@@ -85,11 +65,8 @@ import {
   COMMUNITIES_TAB,
   NOTIFICATIONS_TAB,
 } from './constants';
-import { buildTrackingObj, isAndroid } from './utils/common';
+import { buildTrackingObj } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
-import UnassignedPersonScreen, {
-  UNASSIGNED_PERSON_SCREEN,
-} from './containers/Groups/UnassignedPersonScreen';
 import SurveyContactsFilter, {
   SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
 } from './containers/Groups/SurveyContactsFilter';
@@ -211,6 +188,7 @@ import CelebrateFeedWithType, {
 import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
+import { PersonTabs } from './containers/PersonScreen/PersonTabs';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -293,24 +271,6 @@ export const MAIN_TABS_SCREEN = createDrawerNavigator(
     backBehavior: 'none', // We're handling it on our own
   },
 );
-
-// @ts-ignore
-const buildPersonScreenRoute = screen =>
-  buildTrackedScreen(
-    createDrawerNavigator(
-      {
-        Main: { screen },
-      },
-      {
-        contentComponent: PersonSideMenu,
-        drawerPosition: 'right',
-        backBehavior: 'none', // We're handling it on our own
-      },
-    ),
-    // @ts-ignore
-    buildTrackingObj('person', 'person'),
-    { gesturesEnabled: !isAndroid },
-  );
 
 const screens = {
   [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
@@ -425,26 +385,7 @@ const screens = {
     buildTrackingObj('communities : create', 'communities', 'create'),
     { gesturesEnabled: true },
   ),
-  [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
-    UnassignedPersonScreen,
-    // @ts-ignore
-    buildTrackingObj('person : unassigned', 'person'),
-    { gesturesEnabled: true },
-  ),
   [ONBOARDING_ADD_PHOTO_SCREEN]: OnboardingAddPhotoScreen,
-  [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
-  [IS_USER_CREATED_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
-    IsUserCreatedMemberPersonScreen,
-  ),
-  [IS_GROUPS_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
-    IsGroupsMemberPersonScreen,
-  ),
-  [MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(MemberPersonScreen),
-  [ME_PERSONAL_PERSON_SCREEN]: buildPersonScreenRoute(MePersonalPersonScreen),
-  [IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(
-    IsGroupsMeCommunityPersonScreen,
-  ),
-  [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
   [SIGN_IN_FLOW]: SignInFlowNavigator,
   [SIGN_UP_FLOW]: SignUpFlowNavigator,
@@ -486,7 +427,6 @@ const screens = {
 export const trackableScreens = {
   ...screens,
   ...tabs,
-  ...ALL_PERSON_TAB_ROUTES,
   ...JoinByCodeFlowScreens,
   ...JoinByCodeOnboardingFlowScreens,
   ...AddSomeoneOnboardingFlowScreens,
@@ -506,6 +446,7 @@ export const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     ...CommunitiesRoutes,
+    ...PersonTabs,
     [LANDING_SCREEN]: { screen: LandingScreen },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },

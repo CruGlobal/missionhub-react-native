@@ -30,7 +30,7 @@ import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../../components/StepTypeBadge/StepTypeBadge';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
-import { PERSON_STEPS_QUERY } from '../ContactSteps/queries';
+import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
 import {
   getAnalyticsSectionType,

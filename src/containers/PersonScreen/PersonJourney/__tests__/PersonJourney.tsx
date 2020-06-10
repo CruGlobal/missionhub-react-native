@@ -3,17 +3,17 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
-import * as navigation from '../../../actions/navigation';
-import { JOURNEY_EDIT_FLOW } from '../../../routes/constants';
+import * as navigation from '../../../../actions/navigation';
+import { JOURNEY_EDIT_FLOW } from '../../../../routes/constants';
 import {
   ACCEPTED_STEP,
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   ORG_PERMISSIONS,
-} from '../../../constants';
-import { renderShallow, renderWithContext } from '../../../../testUtils';
+} from '../../../../constants';
+import { renderShallow, renderWithContext } from '../../../../../testUtils';
 
-import ContactJourney from '..';
+import { PersonJourney } from '..';
 
 const personId = '123';
 const orgId = '222';
@@ -70,7 +70,7 @@ const personalOrg = { id: 'personal' };
 // @ts-ignore
 const createComponent = props => {
   return renderShallow(
-    <ContactJourney person={mockPerson} {...props} />,
+    <PersonJourney person={mockPerson} {...props} />,
     // @ts-ignore
     store,
   );
@@ -234,7 +234,7 @@ describe('journey methods', () => {
 
 it('renders with an organization correctly', () => {
   renderWithContext(
-    <ContactJourney person={mockPerson} organization={{ id: 1 }} />,
+    <PersonJourney person={mockPerson} organization={{ id: 1 }} />,
     {
       initialState: {
         auth: {

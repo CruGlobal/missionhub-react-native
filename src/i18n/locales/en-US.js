@@ -539,13 +539,10 @@ export default {
   },
   personTabs: {
     feed: 'Feed',
-    steps: 'My Steps',
-    notes: 'My Notes',
-    ourJourney: 'Our Journey',
-    myJourney: 'My Journey',
+    steps: 'Steps',
+    notes: 'Notes',
+    journey: 'Journey',
     impact: 'Impact',
-    myImpact: 'My Impact',
-    assignedContacts: 'Contacts',
   },
   onboarding: {
     screen1: {

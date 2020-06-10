@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-import { STEP_ITEM_FRAGMENT } from '../../components/StepItem/queries';
+import { STEP_ITEM_FRAGMENT } from '../../../components/StepItem/queries';
 
 export const PERSON_STEPS_QUERY = gql`
   query PersonStepsList($personId: ID!, $completed: Boolean!, $after: String) {

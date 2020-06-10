@@ -2,13 +2,16 @@ import React from 'react';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useIsFocused } from 'react-navigation-hooks';
 
-import { renderWithContext } from '../../../../testUtils';
-import { ORG_PERMISSIONS, ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
-import { getPersonNote, savePersonNote } from '../../../actions/person';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import * as common from '../../../utils/common';
+import { renderWithContext } from '../../../../../testUtils';
+import {
+  ORG_PERMISSIONS,
+  ANALYTICS_ASSIGNMENT_TYPE,
+} from '../../../../constants';
+import { getPersonNote, savePersonNote } from '../../../../actions/person';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import * as common from '../../../../utils/common';
 
-import ContactNotes from '..';
+import { PersonNotes } from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('react-navigation-hooks');
@@ -41,7 +44,7 @@ beforeEach(() => {
 
 describe('contact notes', () => {
   it('icon and prompt are shown if no notes', () => {
-    renderWithContext(<ContactNotes person={person} />, {
+    renderWithContext(<PersonNotes person={person} />, {
       initialState,
     }).snapshot();
 
@@ -51,7 +54,7 @@ describe('contact notes', () => {
   });
 
   it('icon and prompt are shown if no notes as me', () => {
-    renderWithContext(<ContactNotes person={{ ...person, id: myPersonId }} />, {
+    renderWithContext(<PersonNotes person={{ ...person, id: myPersonId }} />, {
       initialState,
     }).snapshot();
 
@@ -62,7 +65,7 @@ describe('contact notes', () => {
 
   it('icon and prompt are shown if no notes as community member', () => {
     renderWithContext(
-      <ContactNotes
+      <PersonNotes
         person={{
           ...person,
           organizational_permissions: [
@@ -82,7 +85,7 @@ describe('contact notes', () => {
   });
 
   it('notes are shown', async () => {
-    const { snapshot } = renderWithContext(<ContactNotes person={person} />, {
+    const { snapshot } = renderWithContext(<PersonNotes person={person} />, {
       initialState,
     });
 
@@ -99,7 +102,7 @@ describe('contact notes', () => {
   describe('press bottom button', () => {
     it('switches to editing state', async () => {
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
-        <ContactNotes person={person} />,
+        <PersonNotes person={person} />,
         {
           initialState,
         },
@@ -116,7 +119,7 @@ describe('contact notes', () => {
     it('switches to editing state on android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
-        <ContactNotes person={person} />,
+        <PersonNotes person={person} />,
         {
           initialState,
         },
@@ -132,7 +135,7 @@ describe('contact notes', () => {
 
     it('saves and switches to not editing state', async () => {
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
-        <ContactNotes person={person} />,
+        <PersonNotes person={person} />,
         {
           initialState,
         },
@@ -157,7 +160,7 @@ describe('contact notes', () => {
 
   it('should save on blur', async () => {
     const { rerender, getByTestId } = renderWithContext(
-      <ContactNotes person={person} />,
+      <PersonNotes person={person} />,
       {
         initialState,
       },
@@ -169,7 +172,7 @@ describe('contact notes', () => {
     fireEvent.press(getByTestId('bottomButton'));
 
     (useIsFocused as jest.Mock).mockReturnValue(false);
-    rerender(<ContactNotes person={person} />);
+    rerender(<PersonNotes person={person} />);
 
     expect(savePersonNote).toHaveBeenCalledWith(
       person.id,

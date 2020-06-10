@@ -11,12 +11,11 @@ import Header from '../Header';
 import theme from '../../theme';
 import Avatar from '../Avatar';
 import { ErrorNotice } from '../ErrorNotice/ErrorNotice';
-import { HeaderTabBar } from '../HeaderTabBar/HeaderTabBar';
+import { HeaderTabBar, HeaderTabs } from '../HeaderTabBar/HeaderTabBar';
 import {
-  communityMemberTabs,
-  CommunityMemberCollapsibleHeaderContext,
-} from '../../containers/Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
-import { CollapsibleViewHeader } from '../CollapsibleView/CollapsibleView';
+  CollapsibleViewHeader,
+  CollapsibleViewContext,
+} from '../CollapsibleView/CollapsibleView';
 import EditIcon from '../../../assets/images/editIcon.svg';
 import { navigatePush } from '../../actions/navigation';
 import { EDIT_PERSON_FLOW } from '../../routes/constants';
@@ -30,9 +29,15 @@ import styles from './styles';
 
 interface PersonHeaderProps {
   isMember?: boolean;
+  collapsibleHeaderContext: CollapsibleViewContext;
+  tabs: HeaderTabs;
 }
 
-export const PersonHeader = ({ isMember = false }: PersonHeaderProps) => {
+export const PersonHeader = ({
+  isMember = false,
+  collapsibleHeaderContext,
+  tabs,
+}: PersonHeaderProps) => {
   const { t } = useTranslation('personHeader');
   const dispatch = useDispatch();
 
@@ -47,7 +52,7 @@ export const PersonHeader = ({ isMember = false }: PersonHeaderProps) => {
 
   return (
     <CollapsibleViewHeader
-      context={CommunityMemberCollapsibleHeaderContext}
+      context={collapsibleHeaderContext}
       headerHeight={287}
     >
       <View style={styles.container}>
@@ -83,7 +88,7 @@ export const PersonHeader = ({ isMember = false }: PersonHeaderProps) => {
             </Text>
           ) : null}
         </View>
-        <HeaderTabBar tabs={communityMemberTabs} />
+        <HeaderTabBar tabs={tabs} />
       </View>
     </CollapsibleViewHeader>
   );

@@ -10,9 +10,9 @@ import PropTypes from 'prop-types';
 import Header from '../../../components/Header';
 import DeprecatedBackButton from '../../DeprecatedBackButton';
 import MemberCelebrate from '../../MemberCelebrate';
-import ContactSteps from '../../ContactSteps';
-import ContactNotes from '../../ContactNotes';
-import ContactJourney from '../../ContactJourney';
+import { PersonSteps } from '../../PersonScreen/PersonSteps';
+import { ContactNotes } from '../../PersonScreen/PersonNotes';
+import { ContactJourney } from '../../PersonScreen/PersonJourney';
 import ImpactView from '../../ImpactView';
 import MemberContacts from '../../MemberContacts';
 import { PERSON_MENU_DRAWER } from '../../../constants';
@@ -79,7 +79,7 @@ const personSteps = {
         params: { person },
       },
     },
-  }) => <ContactSteps person={person} />,
+  }) => <PersonSteps person={person} />,
 };
 const personNotes = {
   name: i18next.t('personTabs:notes'),

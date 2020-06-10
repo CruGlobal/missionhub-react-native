@@ -43,11 +43,7 @@ class UnassignedPersonScreen extends Component {
           myId={me.id}
           onAssign={onAssign}
         />
-        <JourneyCommentBox
-          onSubmit={this.loadFeed}
-          person={person}
-          organization={null}
-        />
+        <JourneyCommentBox onSubmit={this.loadFeed} person={person} />
       </View>
     );
   }

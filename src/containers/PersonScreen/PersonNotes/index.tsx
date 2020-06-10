@@ -1,41 +1,45 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, ScrollView, Keyboard, TextInput } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
-import { useIsFocused } from 'react-navigation-hooks';
+import { useIsFocused, useNavigationParam } from 'react-navigation-hooks';
 
-import { Text, Input } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/analytics';
-import { TrackStateContext } from '../../actions/analytics';
-import { savePersonNote, getPersonNote } from '../../actions/person';
-import NOTES from '../../../assets/images/myNotes.png';
-import NullStateComponent from '../../components/NullStateComponent';
-import BottomButton from '../../components/BottomButton';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
-import { Person } from '../../reducers/people';
-import { AuthState } from '../../reducers/auth';
-import { Organization } from '../../reducers/organizations';
-import { isAndroid } from '../../utils/common';
+import { Text, Input } from '../../../components/common';
+import { getAnalyticsAssignmentType } from '../../../utils/analytics';
+import { savePersonNote, getPersonNote } from '../../../actions/person';
+import NOTES from '../../../../assets/images/myNotes.png';
+import NullStateComponent from '../../../components/NullStateComponent';
+import BottomButton from '../../../components/BottomButton';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
+import { isAndroid } from '../../../utils/common';
+import { CollapsibleViewContext } from '../../../components/CollapsibleView/CollapsibleView';
+import { RootState } from '../../../reducers';
+import { useIsMe } from '../../../utils/hooks/useIsMe';
+import { personSelector } from '../../../selectors/people';
 
 import styles from './styles';
 
-export interface ContactNotesProps {
-  person: Person;
-  myPersonId: string;
-  myUserId: string;
-  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
+export interface PersonNotesProps {
+  collapsibleHeaderContext: CollapsibleViewContext;
 }
 
-const ContactNotes = ({
-  person,
-  myPersonId,
-  myUserId,
-  analyticsAssignmentType,
-}: ContactNotesProps) => {
+export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
+  const personId: string = useNavigationParam('personId');
+
+  const person = useSelector(
+    ({ people }: RootState) =>
+      personSelector({ people }, { personId }) || {
+        id: personId,
+      },
+  );
+
+  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
+    getAnalyticsAssignmentType(person, auth),
+  );
+
   useAnalytics(['person', 'my notes'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
   });
@@ -47,8 +51,11 @@ const ContactNotes = ({
   const isFocused = useIsFocused();
   const notesInput = useRef<TextInput>(null);
 
+  const isMe = useIsMe(personId);
+  const myUserId = useSelector(({ auth }: RootState) => auth.person.user.id);
+
   const getNote = async () => {
-    const results = await dispatch(getPersonNote(person.id, myUserId));
+    const results = await dispatch(getPersonNote(personId, myUserId));
 
     setText(results ? results.content : undefined);
     setNoteId(results ? results.id : null);
@@ -121,7 +128,6 @@ const ContactNotes = ({
   );
 
   const renderEmpty = () => {
-    const isMe = person.id === myPersonId;
     const text = t(isMe ? 'promptMe' : 'prompt', {
       personFirstName: person.first_name,
     });
@@ -143,17 +149,4 @@ const ContactNotes = ({
   );
 };
 
-const mapStateToProps = (
-  { auth }: { auth: AuthState },
-  { person, organization }: { person: Person; organization?: Organization },
-) => ({
-  myPersonId: auth.person.id,
-  myUserId: auth.person.user.id,
-  analyticsAssignmentType: getAnalyticsAssignmentType(
-    person,
-    auth,
-    organization,
-  ),
-});
-
-export default connect(mapStateToProps)(ContactNotes);
+export const PERSON_NOTES = 'nav/PERSON_NOTES';

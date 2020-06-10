@@ -16,7 +16,7 @@ import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
 
 import { trackActionWithoutData } from './analytics';
-import { createContactAssignment, getPersonScreenRoute } from './person';
+import { createContactAssignment } from './person';
 import { navigatePush, navigateReplace } from './navigation';
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
 
@@ -65,26 +65,11 @@ export function assignContactAndPickStage(person) {
   // @ts-ignore
   return async (dispatch, getState) => {
     const auth = getState().auth;
-    const authPerson = auth.person;
     const myId = auth.person.id;
     const personId = person.id;
 
     const { person: resultPerson } = await dispatch(
       createContactAssignment(undefined, myId, personId),
-    );
-
-    const contactAssignment = contactAssignmentSelector(
-      { auth },
-      { person: resultPerson },
-    );
-
-    dispatch(
-      navigateReplace(
-        getPersonScreenRoute(authPerson, resultPerson, contactAssignment),
-        {
-          person: resultPerson,
-        },
-      ),
     );
 
     dispatch(

@@ -3,11 +3,6 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import {
-  ME_PERSONAL_PERSON_SCREEN,
-  CONTACT_PERSON_SCREEN,
-} from '../containers/Groups/AssignedPersonScreen/constants';
-import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
-import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
   ACTIONS,
@@ -15,12 +10,15 @@ import {
   ORG_PERMISSIONS,
 } from '../constants';
 import { exists } from '../utils/common';
-import { personSelector, contactAssignmentSelector } from '../selectors/people';
 import { REQUESTS } from '../api/routes';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { AuthState } from '../reducers/auth';
-import { Person } from '../reducers/people';
+import { RootState } from '../reducers';
+import {
+  ME_PERSON_TABS,
+  PERSON_TABS,
+} from '../containers/PersonScreen/PersonTabs';
 
 import callApi from './api';
 import { trackActionWithoutData, setAnalyticsMinistryMode } from './analytics';
@@ -47,7 +45,7 @@ export const getMe = (extraInclude?: string) => async (
 };
 
 // @ts-ignore
-export function getPersonDetails(id, orgId) {
+export function getPersonDetails(id) {
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
@@ -66,17 +64,10 @@ export function getPersonDetails(id, orgId) {
     const { response: person } = await dispatch(
       callApi(REQUESTS.GET_PERSON, query),
     );
-    const orgPermission =
-      orgId &&
-      (person.organizational_permissions || []).find(
-        // @ts-ignore
-        o => o.organization_id === orgId,
-      );
+
     return dispatch({
       type: LOAD_PERSON_DETAILS,
       person,
-      orgId,
-      org: orgPermission && orgPermission.organization,
     });
   };
 }
@@ -412,7 +403,7 @@ export function createContactAssignment(
       callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data),
     );
     dispatch(trackActionWithoutData(ACTIONS.ASSIGNED_TO_ME));
-    return dispatch(getPersonDetails(personReceiverId, organizationId));
+    return dispatch(getPersonDetails(personReceiverId));
   };
 }
 
@@ -446,47 +437,19 @@ export function deleteContactAssignment(id, personId, personOrgId, note = '') {
   };
 }
 
-export function navToPersonScreen(personId: string, props = {}) {
-  // @ts-ignore
-  return (dispatch, getState) => {
-    const { auth, people } = getState();
+export function navToPersonScreen(personId: string) {
+  return (
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
+    getState: () => RootState,
+  ) => {
+    const { auth } = getState();
 
-    const selectorPerson = personSelector({ people }, { personId }) || {
-      id: personId,
-    };
-
-    const contactAssignment = contactAssignmentSelector(
-      { auth },
-      { person: selectorPerson },
-    );
-    const authPerson = auth.person;
+    const isMe = auth.person.id === personId;
 
     dispatch(
-      navigatePush(
-        getPersonScreenRoute(authPerson, selectorPerson, contactAssignment),
-        {
-          ...props,
-          person: selectorPerson,
-        },
-      ),
+      navigatePush(isMe ? ME_PERSON_TABS : PERSON_TABS, {
+        personId,
+      }),
     );
   };
-}
-
-export function getPersonScreenRoute(
-  mePerson: Person,
-  person: Person,
-  contactAssignment: unknown,
-) {
-  const isMe = person.id === mePerson.id;
-
-  if (isMe) {
-    return ME_PERSONAL_PERSON_SCREEN;
-  }
-
-  if (contactAssignment) {
-    return CONTACT_PERSON_SCREEN;
-  }
-
-  return UNASSIGNED_PERSON_SCREEN;
 }

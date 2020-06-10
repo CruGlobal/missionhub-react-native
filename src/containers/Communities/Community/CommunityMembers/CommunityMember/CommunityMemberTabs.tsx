@@ -11,10 +11,7 @@ import {
 import CommunityFeed, {
   COMMUNITY_FEED,
 } from '../../../../Groups/GroupCelebrate';
-import {
-  COMMUNITY_IMPACT,
-  CommunityImpactTab,
-} from '../../CommunityImpactTab/CommunityImpactTab';
+import { ImpactTab, IMPACT_TAB } from '../../../../ImpactTab/ImpactTab';
 import { PersonHeader } from '../../../../../components/PersonHeader/PersonHeader';
 
 export const CommunityMemberCollapsibleHeaderContext = createCollapsibleViewContext();
@@ -31,9 +28,9 @@ export const communityMemberTabs = [
   },
   {
     name: i18next.t('personTabs:impact'),
-    navigationAction: COMMUNITY_IMPACT,
+    navigationAction: IMPACT_TAB,
     component: () => (
-      <CommunityImpactTab
+      <ImpactTab
         collapsibleHeaderContext={CommunityMemberCollapsibleHeaderContext}
       />
     ),
@@ -51,7 +48,13 @@ const CommunityMemberTabsNavigator = createMaterialTopTabNavigator(
   {
     backBehavior: 'none',
     lazy: true,
-    tabBarComponent: () => <PersonHeader isMember />,
+    tabBarComponent: () => (
+      <PersonHeader
+        isMember
+        tabs={communityMemberTabs}
+        collapsibleHeaderContext={CommunityMemberCollapsibleHeaderContext}
+      />
+    ),
   },
 );
 

@@ -6,15 +6,18 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 import { SectionList } from 'react-native';
 
-import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_ASSIGNMENT_TYPE, ORG_PERMISSIONS } from '../../../constants';
+import { renderWithContext } from '../../../../../testUtils';
+import {
+  ANALYTICS_ASSIGNMENT_TYPE,
+  ORG_PERMISSIONS,
+} from '../../../../constants';
 import {
   navigateToStageScreen,
   navigateToAddStepFlow,
-} from '../../../actions/misc';
-import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+} from '../../../../actions/misc';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
-import ContactSteps from '..';
+import { PersonSteps } from '..';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/misc');
@@ -77,7 +80,7 @@ beforeEach(() => {
 });
 
 it('renders correctly when no steps', () => {
-  renderWithContext(<ContactSteps person={person} />, {
+  renderWithContext(<PersonSteps person={person} />, {
     initialState,
   }).snapshot();
 
@@ -88,7 +91,7 @@ it('renders correctly when no steps', () => {
 
 it('renders correctly when me and no steps', () => {
   const { getByText, snapshot } = renderWithContext(
-    <ContactSteps person={mePerson} />,
+    <PersonSteps person={mePerson} />,
     {
       initialState,
     },
@@ -102,7 +105,7 @@ it('renders correctly when me and no steps', () => {
 });
 
 it('renders correctly with steps', async () => {
-  const { snapshot } = renderWithContext(<ContactSteps person={person} />, {
+  const { snapshot } = renderWithContext(<PersonSteps person={person} />, {
     initialState,
     mocks: {
       Query: () => ({
@@ -127,7 +130,7 @@ it('renders correctly with steps', async () => {
 
 it('should paginate', async () => {
   const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
-    <ContactSteps person={person} />,
+    <PersonSteps person={person} />,
     {
       initialState,
       mocks: {
@@ -159,7 +162,7 @@ it('should paginate', async () => {
 
 it('renders correctly with completed steps', async () => {
   const { getByTestId, snapshot } = renderWithContext(
-    <ContactSteps person={person} />,
+    <PersonSteps person={person} />,
     {
       initialState,
       mocks: {
@@ -190,7 +193,7 @@ describe('handleCreateStep', () => {
       const mePerson = { ...person, id: myId };
 
       const { getByTestId } = renderWithContext(
-        <ContactSteps person={mePerson} />,
+        <PersonSteps person={mePerson} />,
         {
           initialState,
         },
@@ -209,7 +212,7 @@ describe('handleCreateStep', () => {
   describe('for contact without stage', () => {
     it('navigates to select stage flow', () => {
       const { getByTestId } = renderWithContext(
-        <ContactSteps person={assignedPerson} />,
+        <PersonSteps person={assignedPerson} />,
         {
           initialState,
         },
@@ -237,7 +240,7 @@ describe('handleCreateStep', () => {
       };
 
       const { getByTestId } = renderWithContext(
-        <ContactSteps person={personWithStage} />,
+        <PersonSteps person={personWithStage} />,
         {
           initialState,
         },

@@ -4,27 +4,32 @@ import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { useQuery, useLazyQuery } from '@apollo/react-hooks';
 import { FetchMoreOptions } from 'apollo-client';
+import { useNavigationParam } from 'react-navigation-hooks';
 
-import { Button, RefreshControl, Text } from '../../components/common';
-import BottomButton from '../../components/BottomButton';
-import NULL from '../../../assets/images/footprints.png';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
-import { keyExtractorId } from '../../utils/common';
-import { getAnalyticsAssignmentType } from '../../utils/analytics';
-import { promptToAssign } from '../../utils/prompt';
-import { contactAssignmentSelector } from '../../selectors/people';
+import { Button, RefreshControl, Text } from '../../../components/common';
+import BottomButton from '../../../components/BottomButton';
+import NULL from '../../../../assets/images/footprints.png';
+import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
+import { keyExtractorId } from '../../../utils/common';
+import { getAnalyticsAssignmentType } from '../../../utils/analytics';
+import { promptToAssign } from '../../../utils/prompt';
+import {
+  contactAssignmentSelector,
+  personSelector,
+} from '../../../selectors/people';
 import {
   assignContactAndPickStage,
   navigateToStageScreen,
   navigateToAddStepFlow,
-} from '../../actions/misc';
-import NullStateComponent from '../../components/NullStateComponent';
-import { AuthState } from '../../reducers/auth';
-import { Person } from '../../reducers/people';
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import StepItem from '../../components/StepItem';
-import { useIsMe } from '../../utils/hooks/useIsMe';
-import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+} from '../../../actions/misc';
+import NullStateComponent from '../../../components/NullStateComponent';
+import { AuthState } from '../../../reducers/auth';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import StepItem from '../../../components/StepItem';
+import { useIsMe } from '../../../utils/hooks/useIsMe';
+import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
+import { CollapsibleViewContext } from '../../../components/CollapsibleView/CollapsibleView';
+import { RootState } from '../../../reducers';
 
 import styles from './styles';
 import { PERSON_STEPS_QUERY } from './queries';
@@ -34,21 +39,32 @@ import {
   PersonStepsList_person_steps_nodes,
 } from './__generated__/PersonStepsList';
 
-interface ContactStepsProps {
-  person: Person;
+interface PersonStepsProps {
+  collapsibleHeaderContext: CollapsibleViewContext;
 }
 
-const ContactSteps = ({ person }: ContactStepsProps) => {
+export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
+  const personId: string = useNavigationParam('personId');
+
+  const person = useSelector(
+    ({ people }: RootState) =>
+      personSelector({ people }, { personId }) || {
+        id: personId,
+      },
+  );
+
   const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
     getAnalyticsAssignmentType(person, auth),
   );
   useAnalytics(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+    screenContext: {
+      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
+    },
   });
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);
   const dispatch = useDispatch();
-  const isMe = useIsMe(person.id);
+  const isMe = useIsMe(personId);
   const showAssignPrompt = false;
   const contactAssignment = useSelector(({ auth }: { auth: AuthState }) =>
     contactAssignmentSelector({ auth }, { person }),
@@ -58,7 +74,7 @@ const ContactSteps = ({ person }: ContactStepsProps) => {
     PersonStepsList,
     PersonStepsListVariables
   >(PERSON_STEPS_QUERY, {
-    variables: { personId: person.id, completed: false },
+    variables: { personId, completed: false },
   });
 
   const steps = data?.person.steps.nodes ?? [];
@@ -77,7 +93,7 @@ const ContactSteps = ({ person }: ContactStepsProps) => {
     },
   ] = useLazyQuery<PersonStepsList, PersonStepsListVariables>(
     PERSON_STEPS_QUERY,
-    { variables: { personId: person.id, completed: true } },
+    { variables: { personId, completed: true } },
   );
 
   const stepsCompleted = dataCompleted?.person.steps.nodes ?? [];
@@ -241,4 +257,4 @@ const ContactSteps = ({ person }: ContactStepsProps) => {
   );
 };
 
-export default ContactSteps;
+export const PERSON_STEPS = 'nav/PERSON_STEPS';

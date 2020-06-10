@@ -7,13 +7,13 @@ import { REQUESTS } from '../api/routes';
 import callApi from './api';
 
 // @ts-ignore
-export function reloadJourney(personId, orgId) {
+export function reloadJourney(personId) {
   // @ts-ignore
   return (dispatch, getState) => {
-    const org = getState().journey[orgId ? orgId : 'personal'];
+    const org = getState().journey['personal'];
     const personFeed = org && org[personId];
     // If personFeed has been loaded, we need to reload it. If it has not, wait for ContactJourney screen to lazy load it
-    return personFeed && dispatch(getJourney(personId, orgId));
+    return personFeed && dispatch(getJourney(personId));
   };
 }
 
@@ -53,14 +53,14 @@ export function getGroupJourney(personId, orgId) {
 }
 
 // @ts-ignore
-export function getJourney(personId, orgId) {
+export function getJourney(personId) {
   // @ts-ignore
   return async dispatch => {
     try {
       const {
         response: { all: personFeed },
         // @ts-ignore
-      } = await dispatch(getPersonFeed(personId, orgId));
+      } = await dispatch(getPersonFeed(personId));
 
       // Add this so we know where to show the bump action on comments
       // We only want to show it if it's one of the first couple of items, otherwise the user won't see it.
@@ -72,7 +72,7 @@ export function getJourney(personId, orgId) {
         }
       }
 
-      dispatch(updateJourney(personId, orgId, personFeed));
+      dispatch(updateJourney(personId, personFeed));
       return personFeed;
     } catch (e) {
       return [];
@@ -101,11 +101,10 @@ function getPersonFeed(personId, orgId, include, filters = {}) {
 }
 
 // @ts-ignore
-export function updateJourney(personId, orgId, personFeed) {
+export function updateJourney(personId, personFeed) {
   return {
     type: UPDATE_JOURNEY_ITEMS,
     personId,
-    orgId,
     journeyItems: personFeed,
   };
 }

@@ -1,14 +1,14 @@
 import React from 'react';
 
-import { renderWithContext } from '../../../../../../testUtils';
-import { CommunityImpactTab } from '../CommunityImpactTab';
-import { CommunitiesCollapsibleHeaderContext } from '../../CommunityHeader/CommunityHeader';
+import { renderWithContext } from '../../../../testUtils';
+import { CommunitiesCollapsibleHeaderContext } from '../../Communities/Community/CommunityHeader/CommunityHeader';
+import { ImpactTab } from '../ImpactTab';
 
 jest.mock('../../../../ImpactView', () => 'ImpactView');
 
 it('should render correctly', () => {
   renderWithContext(
-    <CommunityImpactTab
+    <ImpactTab
       collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
     />,
     { navParams: { communityId: '1', personId: '2' } },

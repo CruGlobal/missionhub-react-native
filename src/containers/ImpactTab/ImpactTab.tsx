@@ -4,14 +4,14 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import {
   CollapsibleViewContent,
   CollapsibleViewContext,
-} from '../../../../components/CollapsibleView/CollapsibleView';
-import ImpactView from '../../../ImpactView';
+} from '../../components/CollapsibleView/CollapsibleView';
+import ImpactView from '../ImpactView';
 
 interface CommunityImpactTabProps {
   collapsibleHeaderContext: CollapsibleViewContext;
 }
 
-export const CommunityImpactTab = ({
+export const ImpactTab = ({
   collapsibleHeaderContext,
 }: CommunityImpactTabProps) => {
   const communityId: string = useNavigationParam('communityId');
@@ -24,4 +24,4 @@ export const CommunityImpactTab = ({
   );
 };
 
-export const COMMUNITY_IMPACT = 'nav/COMMUNITY_IMPACT';
+export const IMPACT_TAB = 'nav/IMPACT_TAB';
