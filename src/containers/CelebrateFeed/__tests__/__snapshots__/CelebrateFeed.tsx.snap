@@ -5,7 +5,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 - First value
 + Second value
 
-@@ -380,10 +380,406 @@
+@@ -390,10 +390,416 @@
                 \\"lastName\\": \\"Paucek\\",
                 \\"picture\\": \\"qui accusantium odit\\",
               },
@@ -23,6 +23,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"57\\",
++               \\"name\\": \\"Upgradable logistical framework\\",
 +             },
 +             \\"createdAt\\": \\"2018-09-27T08:10:54.037Z\\",
 +             \\"id\\": \\"52\\",
@@ -68,6 +69,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"63\\",
++               \\"name\\": \\"Multi-tiered secondary methodology\\",
 +             },
 +             \\"createdAt\\": \\"2017-08-21T13:20:08.561Z\\",
 +             \\"id\\": \\"58\\",
@@ -113,6 +115,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"67\\",
++               \\"name\\": \\"Business-focused real-time framework\\",
 +             },
 +             \\"createdAt\\": \\"2014-09-20T20:00:11.427Z\\",
 +             \\"id\\": \\"64\\",
@@ -149,6 +152,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"71\\",
++               \\"name\\": \\"Up-sized mobile data-warehouse\\",
 +             },
 +             \\"createdAt\\": \\"2019-01-30T17:16:26.190Z\\",
 +             \\"id\\": \\"68\\",
@@ -185,6 +189,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"75\\",
++               \\"name\\": \\"User-friendly upward-trending knowledge user\\",
 +             },
 +             \\"createdAt\\": \\"2014-10-24T00:16:17.521Z\\",
 +             \\"id\\": \\"72\\",
@@ -221,6 +226,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"80\\",
++               \\"name\\": \\"Integrated mission-critical toolset\\",
 +             },
 +             \\"createdAt\\": \\"2010-10-11T19:40:39.659Z\\",
 +             \\"id\\": \\"76\\",
@@ -257,6 +263,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"86\\",
++               \\"name\\": \\"Configurable empowering installation\\",
 +             },
 +             \\"createdAt\\": \\"2019-04-02T09:39:01.504Z\\",
 +             \\"id\\": \\"81\\",
@@ -302,6 +309,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"92\\",
++               \\"name\\": \\"Optimized encompassing projection\\",
 +             },
 +             \\"createdAt\\": \\"2016-08-03T17:04:07.894Z\\",
 +             \\"id\\": \\"87\\",
@@ -347,6 +355,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"97\\",
++               \\"name\\": \\"Total secondary leverage\\",
 +             },
 +             \\"createdAt\\": \\"2010-07-17T08:12:22.606Z\\",
 +             \\"id\\": \\"93\\",
@@ -383,6 +392,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"102\\",
++               \\"name\\": \\"Adaptive systemic utilisation\\",
 +             },
 +             \\"createdAt\\": \\"2014-02-24T17:37:17.350Z\\",
 +             \\"id\\": \\"98\\",
@@ -412,7 +422,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
           \\"title\\": \\"dates.earlier\\",
         },
       ]
-@@ -789,10 +1185,406 @@
+@@ -809,10 +1215,416 @@
                 \\"id\\": \\"47\\",
                 \\"lastName\\": \\"Paucek\\",
                 \\"picture\\": \\"qui accusantium odit\\",
@@ -431,6 +441,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"57\\",
++               \\"name\\": \\"Upgradable logistical framework\\",
 +             },
 +             \\"createdAt\\": \\"2018-09-27T08:10:54.037Z\\",
 +             \\"id\\": \\"52\\",
@@ -476,6 +487,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"63\\",
++               \\"name\\": \\"Multi-tiered secondary methodology\\",
 +             },
 +             \\"createdAt\\": \\"2017-08-21T13:20:08.561Z\\",
 +             \\"id\\": \\"58\\",
@@ -521,6 +533,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"67\\",
++               \\"name\\": \\"Business-focused real-time framework\\",
 +             },
 +             \\"createdAt\\": \\"2014-09-20T20:00:11.427Z\\",
 +             \\"id\\": \\"64\\",
@@ -557,6 +570,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"71\\",
++               \\"name\\": \\"Up-sized mobile data-warehouse\\",
 +             },
 +             \\"createdAt\\": \\"2019-01-30T17:16:26.190Z\\",
 +             \\"id\\": \\"68\\",
@@ -593,6 +607,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"75\\",
++               \\"name\\": \\"User-friendly upward-trending knowledge user\\",
 +             },
 +             \\"createdAt\\": \\"2014-10-24T00:16:17.521Z\\",
 +             \\"id\\": \\"72\\",
@@ -629,6 +644,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"80\\",
++               \\"name\\": \\"Integrated mission-critical toolset\\",
 +             },
 +             \\"createdAt\\": \\"2010-10-11T19:40:39.659Z\\",
 +             \\"id\\": \\"76\\",
@@ -665,6 +681,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"86\\",
++               \\"name\\": \\"Configurable empowering installation\\",
 +             },
 +             \\"createdAt\\": \\"2019-04-02T09:39:01.504Z\\",
 +             \\"id\\": \\"81\\",
@@ -710,6 +727,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"92\\",
++               \\"name\\": \\"Optimized encompassing projection\\",
 +             },
 +             \\"createdAt\\": \\"2016-08-03T17:04:07.894Z\\",
 +             \\"id\\": \\"87\\",
@@ -755,6 +773,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"97\\",
++               \\"name\\": \\"Total secondary leverage\\",
 +             },
 +             \\"createdAt\\": \\"2010-07-17T08:12:22.606Z\\",
 +             \\"id\\": \\"93\\",
@@ -791,6 +810,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"102\\",
++               \\"name\\": \\"Adaptive systemic utilisation\\",
 +             },
 +             \\"createdAt\\": \\"2014-02-24T17:37:17.350Z\\",
 +             \\"id\\": \\"98\\",
@@ -831,7 +851,7 @@ exports[`handle pagination global community feed pagination paginates when close
 - First value
 + Second value
 
-@@ -371,10 +371,388 @@
+@@ -381,10 +381,398 @@
                 \\"lastName\\": \\"Stamm\\",
                 \\"picture\\": \\"aut eos quis\\",
               },
@@ -849,6 +869,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"50\\",
++               \\"name\\": \\"Balanced static portal\\",
 +             },
 +             \\"createdAt\\": \\"2010-05-15T10:35:36.651Z\\",
 +             \\"id\\": \\"46\\",
@@ -885,6 +906,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"54\\",
++               \\"name\\": \\"Multi-channelled eco-centric internet solution\\",
 +             },
 +             \\"createdAt\\": \\"2013-11-03T03:52:46.284Z\\",
 +             \\"id\\": \\"51\\",
@@ -921,6 +943,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"59\\",
++               \\"name\\": \\"Centralized composite archive\\",
 +             },
 +             \\"createdAt\\": \\"2016-03-27T11:37:58.174Z\\",
 +             \\"id\\": \\"55\\",
@@ -957,6 +980,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"65\\",
++               \\"name\\": \\"Business-focused object-oriented policy\\",
 +             },
 +             \\"createdAt\\": \\"2017-06-07T20:23:48.675Z\\",
 +             \\"id\\": \\"60\\",
@@ -1002,6 +1026,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"69\\",
++               \\"name\\": \\"Universal 24 hour model\\",
 +             },
 +             \\"createdAt\\": \\"2018-05-20T06:25:27.436Z\\",
 +             \\"id\\": \\"66\\",
@@ -1038,6 +1063,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"74\\",
++               \\"name\\": \\"Versatile 4th generation circuit\\",
 +             },
 +             \\"createdAt\\": \\"2018-05-14T15:02:24.942Z\\",
 +             \\"id\\": \\"70\\",
@@ -1074,6 +1100,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"79\\",
++               \\"name\\": \\"Devolved attitude-oriented flexibility\\",
 +             },
 +             \\"createdAt\\": \\"2013-02-08T20:58:35.614Z\\",
 +             \\"id\\": \\"75\\",
@@ -1110,6 +1137,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"84\\",
++               \\"name\\": \\"Multi-channelled global intranet\\",
 +             },
 +             \\"createdAt\\": \\"2014-09-11T12:32:42.622Z\\",
 +             \\"id\\": \\"80\\",
@@ -1146,6 +1174,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"89\\",
++               \\"name\\": \\"Optimized client-server collaboration\\",
 +             },
 +             \\"createdAt\\": \\"2018-10-09T04:18:29.844Z\\",
 +             \\"id\\": \\"85\\",
@@ -1182,6 +1211,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"95\\",
++               \\"name\\": \\"Virtual asymmetric matrix\\",
 +             },
 +             \\"createdAt\\": \\"2019-07-01T05:32:50.243Z\\",
 +             \\"id\\": \\"90\\",
@@ -1220,7 +1250,7 @@ exports[`handle pagination global community feed pagination paginates when close
           \\"title\\": \\"dates.earlier\\",
         },
       ]
-@@ -771,10 +1149,388 @@
+@@ -791,10 +1179,398 @@
                 \\"id\\": \\"42\\",
                 \\"lastName\\": \\"Stamm\\",
                 \\"picture\\": \\"aut eos quis\\",
@@ -1239,6 +1269,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"50\\",
++               \\"name\\": \\"Balanced static portal\\",
 +             },
 +             \\"createdAt\\": \\"2010-05-15T10:35:36.651Z\\",
 +             \\"id\\": \\"46\\",
@@ -1275,6 +1306,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"54\\",
++               \\"name\\": \\"Multi-channelled eco-centric internet solution\\",
 +             },
 +             \\"createdAt\\": \\"2013-11-03T03:52:46.284Z\\",
 +             \\"id\\": \\"51\\",
@@ -1311,6 +1343,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"59\\",
++               \\"name\\": \\"Centralized composite archive\\",
 +             },
 +             \\"createdAt\\": \\"2016-03-27T11:37:58.174Z\\",
 +             \\"id\\": \\"55\\",
@@ -1347,6 +1380,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"65\\",
++               \\"name\\": \\"Business-focused object-oriented policy\\",
 +             },
 +             \\"createdAt\\": \\"2017-06-07T20:23:48.675Z\\",
 +             \\"id\\": \\"60\\",
@@ -1392,6 +1426,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"69\\",
++               \\"name\\": \\"Universal 24 hour model\\",
 +             },
 +             \\"createdAt\\": \\"2018-05-20T06:25:27.436Z\\",
 +             \\"id\\": \\"66\\",
@@ -1428,6 +1463,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"74\\",
++               \\"name\\": \\"Versatile 4th generation circuit\\",
 +             },
 +             \\"createdAt\\": \\"2018-05-14T15:02:24.942Z\\",
 +             \\"id\\": \\"70\\",
@@ -1464,6 +1500,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"79\\",
++               \\"name\\": \\"Devolved attitude-oriented flexibility\\",
 +             },
 +             \\"createdAt\\": \\"2013-02-08T20:58:35.614Z\\",
 +             \\"id\\": \\"75\\",
@@ -1500,6 +1537,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"84\\",
++               \\"name\\": \\"Multi-channelled global intranet\\",
 +             },
 +             \\"createdAt\\": \\"2014-09-11T12:32:42.622Z\\",
 +             \\"id\\": \\"80\\",
@@ -1536,6 +1574,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"89\\",
++               \\"name\\": \\"Optimized client-server collaboration\\",
 +             },
 +             \\"createdAt\\": \\"2018-10-09T04:18:29.844Z\\",
 +             \\"id\\": \\"85\\",
@@ -1572,6 +1611,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"95\\",
++               \\"name\\": \\"Virtual asymmetric matrix\\",
 +             },
 +             \\"createdAt\\": \\"2019-07-01T05:32:50.243Z\\",
 +             \\"id\\": \\"90\\",
@@ -1682,6 +1722,7 @@ exports[`renders empty correctly 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -1717,6 +1758,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "4",
+              "name": "De-engineered 6th generation structure",
             },
             "createdAt": "2012-11-17T16:58:59.414Z",
             "id": "1",
@@ -1753,6 +1795,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "8",
+              "name": "Reverse-engineered modular website",
             },
             "createdAt": "2013-04-28T11:06:05.319Z",
             "id": "5",
@@ -1789,6 +1832,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Advanced asymmetric neural-net",
             },
             "createdAt": "2015-07-30T14:37:03.315Z",
             "id": "9",
@@ -1825,6 +1869,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Inverse value-added open system",
             },
             "createdAt": "2017-01-17T21:43:19.533Z",
             "id": "13",
@@ -1861,6 +1906,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Triple-buffered interactive budgetary management",
             },
             "createdAt": "2012-05-20T23:30:16.359Z",
             "id": "18",
@@ -1897,6 +1943,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Pre-emptive multimedia pricing structure",
             },
             "createdAt": "2016-04-05T19:36:40.284Z",
             "id": "23",
@@ -1933,6 +1980,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Monitored even-keeled leverage",
             },
             "createdAt": "2016-06-21T15:49:17.120Z",
             "id": "28",
@@ -1969,6 +2017,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Grass-roots holistic support",
             },
             "createdAt": "2012-05-30T08:12:07.377Z",
             "id": "32",
@@ -2005,6 +2054,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "39",
+              "name": "Business-focused contextually-based pricing structure",
             },
             "createdAt": "2017-05-07T03:30:28.240Z",
             "id": "36",
@@ -2041,6 +2091,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "43",
+              "name": "Operative contextually-based knowledge user",
             },
             "createdAt": "2019-07-18T00:56:52.114Z",
             "id": "40",
@@ -2118,6 +2169,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "4",
+              "name": "De-engineered 6th generation structure",
             },
             "createdAt": "2012-11-17T16:58:59.414Z",
             "id": "1",
@@ -2154,6 +2206,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "8",
+              "name": "Reverse-engineered modular website",
             },
             "createdAt": "2013-04-28T11:06:05.319Z",
             "id": "5",
@@ -2190,6 +2243,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Advanced asymmetric neural-net",
             },
             "createdAt": "2015-07-30T14:37:03.315Z",
             "id": "9",
@@ -2226,6 +2280,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Inverse value-added open system",
             },
             "createdAt": "2017-01-17T21:43:19.533Z",
             "id": "13",
@@ -2262,6 +2317,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Triple-buffered interactive budgetary management",
             },
             "createdAt": "2012-05-20T23:30:16.359Z",
             "id": "18",
@@ -2298,6 +2354,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Pre-emptive multimedia pricing structure",
             },
             "createdAt": "2016-04-05T19:36:40.284Z",
             "id": "23",
@@ -2334,6 +2391,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Monitored even-keeled leverage",
             },
             "createdAt": "2016-06-21T15:49:17.120Z",
             "id": "28",
@@ -2370,6 +2428,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Grass-roots holistic support",
             },
             "createdAt": "2012-05-30T08:12:07.377Z",
             "id": "32",
@@ -2406,6 +2465,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "39",
+              "name": "Business-focused contextually-based pricing structure",
             },
             "createdAt": "2017-05-07T03:30:28.240Z",
             "id": "36",
@@ -2442,6 +2502,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "43",
+              "name": "Operative contextually-based knowledge user",
             },
             "createdAt": "2019-07-18T00:56:52.114Z",
             "id": "40",
@@ -2542,6 +2603,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "4",
+              "name": "De-engineered 6th generation structure",
             },
             "createdAt": "2012-11-17T16:58:59.414Z",
             "id": "1",
@@ -2588,6 +2650,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "8",
+              "name": "Reverse-engineered modular website",
             },
             "createdAt": "2013-04-28T11:06:05.319Z",
             "id": "5",
@@ -2634,6 +2697,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Advanced asymmetric neural-net",
             },
             "createdAt": "2015-07-30T14:37:03.315Z",
             "id": "9",
@@ -2680,6 +2744,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Inverse value-added open system",
             },
             "createdAt": "2017-01-17T21:43:19.533Z",
             "id": "13",
@@ -2726,6 +2791,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Triple-buffered interactive budgetary management",
             },
             "createdAt": "2012-05-20T23:30:16.359Z",
             "id": "18",
@@ -2772,6 +2838,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Pre-emptive multimedia pricing structure",
             },
             "createdAt": "2016-04-05T19:36:40.284Z",
             "id": "23",
@@ -2818,6 +2885,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Monitored even-keeled leverage",
             },
             "createdAt": "2016-06-21T15:49:17.120Z",
             "id": "28",
@@ -2864,6 +2932,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Grass-roots holistic support",
             },
             "createdAt": "2012-05-30T08:12:07.377Z",
             "id": "32",
@@ -2910,6 +2979,7 @@ exports[`renders for Global Community renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "39",
+              "name": "Business-focused contextually-based pricing structure",
             },
             "createdAt": "2017-05-07T03:30:28.240Z",
             "id": "36",
@@ -2977,6 +3047,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -3022,6 +3093,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -3058,6 +3130,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -3094,6 +3167,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -3130,6 +3204,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -3166,6 +3241,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -3202,6 +3278,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -3238,6 +3315,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -3274,6 +3352,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -3310,6 +3389,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -3387,6 +3467,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -3432,6 +3513,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -3468,6 +3550,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -3504,6 +3587,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -3540,6 +3624,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -3576,6 +3661,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -3612,6 +3698,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -3648,6 +3735,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -3684,6 +3772,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -3720,6 +3809,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -3775,6 +3865,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -3824,6 +3915,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -3879,6 +3971,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -3925,6 +4018,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -3971,6 +4065,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -4017,6 +4112,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -4063,6 +4159,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -4109,6 +4206,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -4155,6 +4253,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -4201,6 +4300,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -4268,6 +4368,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -4313,6 +4414,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -4349,6 +4451,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -4385,6 +4488,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -4421,6 +4525,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -4457,6 +4562,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -4493,6 +4599,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -4529,6 +4636,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -4565,6 +4673,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -4601,6 +4710,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -4678,6 +4788,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -4723,6 +4834,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -4759,6 +4871,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -4795,6 +4908,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -4831,6 +4945,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -4867,6 +4982,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -4903,6 +5019,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -4939,6 +5056,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -4975,6 +5093,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -5011,6 +5130,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -5066,6 +5186,7 @@ exports[`renders for member renders correctly 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -5115,6 +5236,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -5170,6 +5292,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -5216,6 +5339,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -5262,6 +5386,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -5308,6 +5433,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -5354,6 +5480,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -5400,6 +5527,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -5446,6 +5574,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -5492,6 +5621,7 @@ exports[`renders for member renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -5559,6 +5689,7 @@ exports[`renders for member renders with type 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Public-key incremental concept",
             },
             "createdAt": "2018-07-27T08:11:00.872Z",
             "id": "2",
@@ -5645,6 +5776,7 @@ exports[`renders for member renders with type 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Public-key incremental concept",
             },
             "createdAt": "2018-07-27T08:11:00.872Z",
             "id": "2",
@@ -5755,6 +5887,7 @@ exports[`renders for member renders with type 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Public-key incremental concept",
             },
             "createdAt": "2018-07-27T08:11:00.872Z",
             "id": "2",
@@ -5835,6 +5968,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -5880,6 +6014,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -5916,6 +6051,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -5952,6 +6088,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -5988,6 +6125,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -6024,6 +6162,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -6060,6 +6199,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -6096,6 +6236,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -6132,6 +6273,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -6168,6 +6310,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -6245,6 +6388,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -6290,6 +6434,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -6326,6 +6471,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -6362,6 +6508,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -6398,6 +6545,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -6434,6 +6582,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -6470,6 +6619,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -6506,6 +6656,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -6542,6 +6693,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -6578,6 +6730,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -6674,6 +6827,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -6729,6 +6883,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -6775,6 +6930,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -6821,6 +6977,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -6867,6 +7024,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -6913,6 +7071,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -6959,6 +7118,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -7005,6 +7165,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -7051,6 +7212,7 @@ exports[`renders for member renders without header 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -7118,6 +7280,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -7163,6 +7326,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -7199,6 +7363,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -7235,6 +7400,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -7271,6 +7437,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -7307,6 +7474,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -7343,6 +7511,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -7379,6 +7548,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -7415,6 +7585,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -7451,6 +7622,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -7528,6 +7700,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -7573,6 +7746,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -7609,6 +7783,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -7645,6 +7820,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -7681,6 +7857,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -7717,6 +7894,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -7753,6 +7931,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -7789,6 +7968,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -7825,6 +8005,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -7861,6 +8042,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -7916,6 +8098,7 @@ exports[`renders with clear notification renders correctly 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -7965,6 +8148,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -8021,6 +8205,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -8068,6 +8253,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -8115,6 +8301,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -8162,6 +8349,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -8209,6 +8397,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -8256,6 +8445,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -8303,6 +8493,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -8350,6 +8541,7 @@ exports[`renders with clear notification renders correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -8418,6 +8610,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -8463,6 +8656,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -8499,6 +8693,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -8535,6 +8730,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -8571,6 +8767,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -8607,6 +8804,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -8643,6 +8841,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -8679,6 +8878,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -8715,6 +8915,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -8751,6 +8952,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -8828,6 +9030,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -8873,6 +9076,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -8909,6 +9113,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -8945,6 +9150,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -8981,6 +9187,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -9017,6 +9224,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -9053,6 +9261,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -9089,6 +9298,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -9125,6 +9335,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -9161,6 +9372,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "48",
+              "name": "Ameliorated impactful customer loyalty",
             },
             "createdAt": "2017-09-25T04:13:05.317Z",
             "id": "45",
@@ -9216,6 +9428,7 @@ exports[`renders with items correctly 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -9265,6 +9478,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Synergized multi-tasking artificial intelligence",
             },
             "createdAt": "2016-11-26T00:02:28.431Z",
             "id": "2",
@@ -9320,6 +9534,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "12",
+              "name": "Assimilated optimizing middleware",
             },
             "createdAt": "2015-12-02T23:22:53.905Z",
             "id": "8",
@@ -9366,6 +9581,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "17",
+              "name": "Cloned national synergy",
             },
             "createdAt": "2017-03-26T09:06:21.890Z",
             "id": "13",
@@ -9412,6 +9628,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "22",
+              "name": "Enterprise-wide attitude-oriented internet solution",
             },
             "createdAt": "2015-02-14T18:11:27.665Z",
             "id": "18",
@@ -9458,6 +9675,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "27",
+              "name": "Ameliorated maximized structure",
             },
             "createdAt": "2015-11-24T05:53:46.026Z",
             "id": "23",
@@ -9504,6 +9722,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "31",
+              "name": "Cross-platform tangible open architecture",
             },
             "createdAt": "2018-08-23T15:23:31.486Z",
             "id": "28",
@@ -9550,6 +9769,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "35",
+              "name": "Seamless value-added application",
             },
             "createdAt": "2016-07-19T12:30:19.282Z",
             "id": "32",
@@ -9596,6 +9816,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "40",
+              "name": "Function-based logistical interface",
             },
             "createdAt": "2015-12-16T07:12:56.860Z",
             "id": "36",
@@ -9642,6 +9863,7 @@ exports[`renders with items correctly 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "44",
+              "name": "Customer-focused optimizing system engine",
             },
             "createdAt": "2015-05-02T03:51:55.179Z",
             "id": "41",
@@ -9709,6 +9931,7 @@ exports[`sections renders Earlier section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-18 11:00:00 PM GMT+0",
             "id": "2",
@@ -9795,6 +10018,7 @@ exports[`sections renders Earlier section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-18 11:00:00 PM GMT+0",
             "id": "2",
@@ -9859,6 +10083,7 @@ exports[`sections renders Earlier section 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -9908,6 +10133,7 @@ exports[`sections renders Earlier section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-18 11:00:00 PM GMT+0",
             "id": "2",
@@ -9988,6 +10214,7 @@ exports[`sections renders New section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",
@@ -10074,6 +10301,7 @@ exports[`sections renders New section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",
@@ -10138,6 +10366,7 @@ exports[`sections renders New section 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -10187,6 +10416,7 @@ exports[`sections renders New section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",
@@ -10267,6 +10497,7 @@ exports[`sections renders Today section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",
@@ -10353,6 +10584,7 @@ exports[`sections renders Today section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",
@@ -10417,6 +10649,7 @@ exports[`sections renders Today section 1`] = `
       />
       <CelebrateFeedPostCards
         communityId="456"
+        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -10466,6 +10699,7 @@ exports[`sections renders Today section 1`] = `
             "community": Object {
               "__typename": "Community",
               "id": "7",
+              "name": "Operative static Graphical User Interface",
             },
             "createdAt": "2020-05-20 11:00:00 PM GMT+0",
             "id": "2",

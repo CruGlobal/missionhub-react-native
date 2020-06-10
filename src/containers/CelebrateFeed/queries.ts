@@ -40,6 +40,7 @@ export const GET_COMMUNITY_FEED = gql`
   ) {
     community(id: $communityId) {
       id
+      name
       feedItems(
         subjectType: $subjectType
         sortBy: createdAt_DESC

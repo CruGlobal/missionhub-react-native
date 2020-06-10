@@ -101,6 +101,7 @@ export const CommunityFeedItemContent = ({
       navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
         type: itemType,
         communityId: feedItem.community?.id,
+        communityName: feedItem.community?.name,
       }),
     );
   };

@@ -12,11 +12,16 @@ import PostTypeLabel, {
 
 const CelebrateFeedWithType = () => {
   const communityId: string = useNavigationParam('communityId');
+  const communityName: string = useNavigationParam('communityName');
   const type: FeedItemSubjectTypeEnum = useNavigationParam('type');
   return (
     <View style={{ height: '100%' }}>
       <StatusBar {...theme.statusBar.lightContent} />
-      <PostTypeLabel type={type} size={PostLabelSizeEnum.extraLarge} />
+      <PostTypeLabel
+        communityName={communityName}
+        type={type}
+        size={PostLabelSizeEnum.extraLarge}
+      />
       <CelebrateFeed
         communityId={communityId}
         itemNamePressable={!orgIsGlobal({ id: communityId })}

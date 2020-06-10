@@ -99,11 +99,12 @@ export const CelebrateFeed = ({
   const {
     data: {
       community: {
+        name: communityName,
         feedItems: {
           nodes = [],
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
-      } = {},
+      } = { name: '' },
       currentUser: { person = undefined } = {},
     } = {},
     loading,
@@ -261,6 +262,11 @@ export const CelebrateFeed = ({
             {filteredFeedType || isGlobal ? null : (
               <CelebrateFeedPostCards
                 communityId={communityId}
+                communityName={
+                  isGlobal
+                    ? t('communityHeader:globalCommunity')
+                    : communityName
+                }
                 // Refetch the feed to update new section once read
                 feedRefetch={refetch}
               />

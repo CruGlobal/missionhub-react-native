@@ -13,11 +13,12 @@ import OnYourMindIcon from '../../../assets/images/onYourMindIcon.svg';
 import PrayerRequestIcon from '../../../assets/images/prayerRequestIcon.svg';
 import SpiritualQuestionIcon from '../../../assets/images/spiritualQuestionIcon.svg';
 import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
-import { Card, Flex } from '../common';
+import { Card } from '../common';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import Avatar, { AvatarPerson } from '../Avatar';
+import Header from '../Header';
 
 import styles from './styles';
 
@@ -97,6 +98,7 @@ interface PostTypeLabelProps {
   onPress?: TouchablePress;
   showText?: boolean;
   size?: PostLabelSizeEnum;
+  communityName?: string;
 }
 
 const PostTypeLabel = ({
@@ -104,32 +106,24 @@ const PostTypeLabel = ({
   onPress,
   size = PostLabelSizeEnum.normal,
   showText = true,
+  communityName,
 }: PostTypeLabelProps) => {
   const { t } = useTranslation('postTypes');
 
   if (size === PostLabelSizeEnum.extraLarge) {
     return (
       <SafeAreaView style={[PostTypeBgStyle[type]]}>
-        <Card
-          style={[
-            styles.headerCard,
-            PostTypeBgStyle[type],
-            { shadowOpacity: 0 },
-          ]}
-        >
-          <Flex
-            value={1}
-            align="center"
-            justify="center"
-            style={styles.headerContainer}
-          >
+        <Card style={[styles.headerCard, PostTypeBgStyle[type]]}>
+          <Header
+            left={<DeprecatedBackButton />}
+            title={communityName}
+            style={styles.header}
+          />
+          <View style={styles.headerContainer}>
             <PostTypeIcon type={type} size={size} style={styles.headerIcon} />
             <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
             <Text style={styles.subheaderText}>{t(`subheader.${type}`)}</Text>
-          </Flex>
-          <Flex style={styles.headerBackButtonWrap}>
-            <DeprecatedBackButton />
-          </Flex>
+          </View>
         </Card>
       </SafeAreaView>
     );

@@ -35,6 +35,7 @@ jest.mock('../../Avatar', () => 'Avatar');
 jest.mock('../../Card', () => 'Card');
 
 const communityId = '3';
+const communityName = 'Community Name';
 const myId = '1';
 
 const prayerPostItem = mockFragment<CommunityFeedItemFragment>(
@@ -72,7 +73,7 @@ const storyPostItem = mockFragment<CommunityFeedItemFragment>(
   {
     mocks: {
       FeedItem: () => ({
-        community: () => ({ id: communityId }),
+        community: () => ({ id: communityId, name: communityName }),
         subject: () => ({
           __typename: 'Post',
           postType: PostTypeEnum.story,
@@ -498,6 +499,7 @@ describe('navigates to post type screen', () => {
     expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
       type: FeedItemSubjectTypeEnum.STORY,
       communityId,
+      communityName,
     });
   });
 });

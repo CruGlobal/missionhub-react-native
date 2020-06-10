@@ -29,6 +29,7 @@ import {
 
 export interface CelebrateFeedPostCardsProps {
   communityId: string;
+  communityName: string;
   feedRefetch: () => void;
 }
 
@@ -81,6 +82,7 @@ const getGroupPostCards = (
 
 export const CelebrateFeedPostCards = ({
   communityId,
+  communityName,
   feedRefetch,
 }: CelebrateFeedPostCardsProps) => {
   const dispatch = useDispatch();
@@ -114,6 +116,7 @@ export const CelebrateFeedPostCards = ({
       navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
         type,
         communityId,
+        communityName,
       }),
     );
     await markCommunityFeedItemsAsRead({
