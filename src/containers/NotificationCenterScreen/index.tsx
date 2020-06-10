@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -12,11 +12,13 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { openMainMenu } from '../../utils/common';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
+// import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
+// import { getUnreadNotificationStatus } from '../../components/TabIcon/__generated__/getUnreadNotificationStatus';
 
 import { UpdateHasUnreadNotifications } from './__generated__/UpdateHasUnreadNotifications';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
 import { GetNotifications } from './__generated__/GetNotifications';
-import { GET_NOTIFICATIONS, UPDATE_HAS_UNREAD_NOTIFICATIONS } from './queries';
+import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
 import styles from './styles';
 
 interface SectionsInterface {
@@ -53,24 +55,39 @@ const NotificationCenterScreen = () => {
         nodes = [],
         pageInfo: { endCursor = null, hasNextPage = false } = {},
       } = {},
-      notificationState: { latestNotification = '' } = {},
     } = {},
     refetch,
     fetchMore,
     loading,
     error,
-  } = useQuery<GetNotifications>(GET_NOTIFICATIONS);
+  } = useQuery<GetNotifications>(GET_NOTIFICATIONS, {
+    onCompleted: data => {
+      // Update local cache with newest notification time stamp after user refreshes
+      if (data.notifications.nodes[0]) {
+        setHasUnreadNotifications({
+          variables: {
+            latestNotification: data.notifications.nodes[0].createdAt,
+          },
+        });
+      }
+    },
+  });
+
+  // TODO Connect a refresh button
+  // const {
+  //   data: {
+  //     notifications: { nodes: latestNotification = [] } = {},
+  //     notificationState,
+  //   } = {},
+  // } = useQuery<getUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
 
   const [setHasUnreadNotifications] = useMutation<UpdateHasUnreadNotifications>(
-    UPDATE_HAS_UNREAD_NOTIFICATIONS,
+    UPDATE_LATEST_NOTIFICATION,
   );
 
-  useEffect(() => {
-    // Set hasUnreadNotifications to true if there are new notifications
-    setHasUnreadNotifications();
-  }, [latestNotification]);
-
   const onOpenMainMenu = () => dispatch(openMainMenu());
+  // const hasNewNotification =
+  //   latestNotification[0].createdAt !== notificationState?.lastReadDateTime;
 
   const renderNull = () => (
     <Flex justify="center" align="center" style={{ marginTop: '50%' }}>
@@ -114,8 +131,6 @@ const NotificationCenterScreen = () => {
           ? {
               ...prev,
               ...fetchMoreResult,
-              ...prev.notificationState,
-              ...fetchMoreResult.notificationState,
               notifications: {
                 ...prev.notifications,
                 ...fetchMoreResult.notifications,
@@ -164,7 +179,6 @@ const NotificationCenterScreen = () => {
         ListEmptyComponent={renderNull}
         sections={filteredSections}
         renderItem={renderItem}
-        scrollIndicatorInsets={{ right: 1 }}
       />
     </View>
   );

@@ -1,15 +1,12 @@
 import 'react-native';
 import React from 'react';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 import { flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
 
 import * as common from '../../../utils/common';
 import { renderWithContext } from '../../../../testUtils';
-import {
-  UPDATE_LATEST_NOTIFICATION,
-  GET_UNREAD_NOTIFICATION_STATUS,
-} from '../queries';
+import { GET_UNREAD_NOTIFICATION_STATUS } from '../queries';
 
 import TabIcon from '..';
 
@@ -70,14 +67,16 @@ describe('renders', () => {
       {
         mocks: {
           NotificationConnection: () => ({
-            nodes: () => [],
+            nodes: () =>
+              new MockList(1, () => ({
+                createdAt: '2020-05-29T11:19:26-03:00',
+              })),
           }),
         },
         initialApolloState: {
           notificationState: {
             __typename: 'NotificationState',
-            hasUnreadNotifications: false,
-            latesttNotification: '',
+            lastReadDateTime: '2020-05-29T11:19:26-03:00',
           },
         },
       },
@@ -98,8 +97,7 @@ describe('renders', () => {
         initialApolloState: {
           notificationState: {
             __typename: 'NotificationState',
-            hasUnreadNotifications: true,
-            latestNotification: '',
+            lastReadDateTime: '',
           },
         },
         mocks: {
@@ -117,12 +115,6 @@ describe('renders', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_UNREAD_NOTIFICATION_STATUS, {
       pollInterval: 30000,
       skip: false,
-    });
-
-    expect(useMutation).toHaveBeenCalledWith(UPDATE_LATEST_NOTIFICATION, {
-      variables: {
-        latestNotification: '2020-05-29T11:19:26-03:00',
-      },
     });
 
     snapshot();

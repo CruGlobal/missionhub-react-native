@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import i18next from 'i18next';
-import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useQuery } from '@apollo/react-hooks';
 
 import Flex from '../Flex';
 import { Text } from '../common';
@@ -11,10 +11,7 @@ import CommunitiesIcon from '../../../assets/images/mainNav/communitiesIcon.svg'
 import NotificationsIcon from '../../../assets/images/mainNav/notificationsIcon.svg';
 
 import styles from './styles';
-import {
-  GET_UNREAD_NOTIFICATION_STATUS,
-  UPDATE_LATEST_NOTIFICATION,
-} from './queries';
+import { GET_UNREAD_NOTIFICATION_STATUS } from './queries';
 import { getUnreadNotificationStatus } from './__generated__/getUnreadNotificationStatus';
 
 interface TabIconProps {
@@ -32,25 +29,10 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
   const latestNotification = nodes[0]?.createdAt;
   const iconSize = isAndroid ? 22 : 24;
 
-  const [setLastNotification] = useMutation(UPDATE_LATEST_NOTIFICATION, {
-    variables: {
-      latestNotification,
-    },
-  });
-
-  useEffect(() => {
-    if (
-      latestNotification &&
-      notificationState?.latestNotification !== latestNotification
-    ) {
-      setLastNotification();
-    }
-  }, [latestNotification, notificationState?.latestNotification]);
-
   const showNotification = () => {
     switch (name) {
       case 'notifications':
-        return notificationState?.hasUnreadNotifications;
+        return notificationState?.lastReadDateTime !== latestNotification;
       default:
         return false;
     }

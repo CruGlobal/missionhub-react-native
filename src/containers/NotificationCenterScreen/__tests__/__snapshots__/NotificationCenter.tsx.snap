@@ -306,7 +306,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             \\"name\\": \\"dates.earlier\\",
           },
         ]
-@@ -795,10 +1085,300 @@
+@@ -790,10 +1080,300 @@
                   \\"fullName\\": \\"Nicolas Lakin\\",
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"facere quia et\\",
@@ -855,11 +855,6 @@ exports[`renders Earlier section correctly  1`] = `
     renderItem={[Function]}
     renderSectionHeader={[Function]}
     scrollEventThrottle={50}
-    scrollIndicatorInsets={
-      Object {
-        "right": 1,
-      }
-    }
     sections={
       Array [
         Object {
@@ -1378,11 +1373,6 @@ exports[`renders Today section correctly  1`] = `
     renderItem={[Function]}
     renderSectionHeader={[Function]}
     scrollEventThrottle={50}
-    scrollIndicatorInsets={
-      Object {
-        "right": 1,
-      }
-    }
     sections={
       Array [
         Object {
@@ -2162,11 +2152,6 @@ exports[`renders correctly 1`] = `
     renderItem={[Function]}
     renderSectionHeader={[Function]}
     scrollEventThrottle={50}
-    scrollIndicatorInsets={
-      Object {
-        "right": 1,
-      }
-    }
     sections={
       Array [
         Object {
@@ -4275,11 +4260,6 @@ exports[`renders with no data 1`] = `
     renderItem={[Function]}
     renderSectionHeader={[Function]}
     scrollEventThrottle={50}
-    scrollIndicatorInsets={
-      Object {
-        "right": 1,
-      }
-    }
     sections={Array []}
     stickyHeaderIndices={Array []}
     stickySectionHeadersEnabled={true}

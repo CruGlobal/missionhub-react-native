@@ -17,13 +17,11 @@ export const typeDefs = gql`
   }
 
   type NotificationState {
-    hasUnreadNotifications: Boolean!
-    latestNotification: String!
+    lastReadDateTime: String!
   }
   extend type Mutation {
     viewedStepExplainerModal: ViewedState!
     updateLatestNotification(latestNotification: String!): NotificationState!
-    updateHasUnreadNotifications: NotificationState!
   }
 `;
 
@@ -38,8 +36,7 @@ const VIEWED_STATE_QUERY = gql`
 const NOTIFICATION_STATE_QUERY = gql`
   query NotificationStateQuery {
     notificationState @client {
-      hasUnreadNotifications
-      latestNotification
+      lastReadDateTime
     }
   }
 `;
@@ -88,8 +85,7 @@ export const resolvers: Resolvers = {
 
       const newNotificationState = {
         ...(data as NonNullable<typeof data>).notificationState,
-        latestNotification,
-        hasUnreadNotifications: true,
+        lastReadDateTime: latestNotification,
       };
 
       client.writeQuery<NotificationStateQuery>({
@@ -98,25 +94,6 @@ export const resolvers: Resolvers = {
           notificationState: newNotificationState,
         },
       });
-      return newNotificationState;
-    },
-    updateHasUnreadNotifications: (_, _args, { client }) => {
-      const data = client.readQuery<NotificationStateQuery>({
-        query: NOTIFICATION_STATE_QUERY,
-      });
-
-      const newNotificationState = {
-        ...(data as NonNullable<typeof data>).notificationState,
-        hasUnreadNotifications: false,
-      };
-
-      client.writeQuery<NotificationStateQuery>({
-        query: NOTIFICATION_STATE_QUERY,
-        data: {
-          notificationState: newNotificationState,
-        },
-      });
-
       return newNotificationState;
     },
   },
@@ -147,8 +124,7 @@ export const initializeLocalState = (
       data: {
         notificationState: {
           __typename: 'NotificationState',
-          hasUnreadNotifications: false,
-          latestNotification: '',
+          lastReadDateTime: '',
         },
       },
     });
