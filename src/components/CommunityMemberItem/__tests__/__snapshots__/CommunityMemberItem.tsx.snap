@@ -96,7 +96,7 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
           ]
         }
       >
-        Hayden
+        Hayden Zieme
       </Text>
       <View
         style={
@@ -330,7 +330,7 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
           ]
         }
       >
-        Hayden
+        Hayden Zieme
       </Text>
       <View
         style={
@@ -606,7 +606,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
           ]
         }
       >
-        Hayden
+        Hayden Zieme
       </Text>
       <View
         style={
@@ -840,7 +840,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
           ]
         }
       >
-        Hayden
+        Hayden Zieme
       </Text>
       <View
         style={
@@ -1074,7 +1074,7 @@ exports[`render contacts count user created org should render admin permissions 
           ]
         }
       >
-        Hayden
+        Hayden Zieme
       </Text>
       <View
         style={
@@ -1329,7 +1329,7 @@ exports[`render contacts count user created org should render member permissions
           ]
         }
       >
-        Hayden
+        Hayden Zieme
       </Text>
       <View
         style={
@@ -1563,7 +1563,7 @@ exports[`render contacts count user created org should render owner permissions 
           ]
         }
       >
-        Hayden
+        Hayden Zieme
       </Text>
       <View
         style={

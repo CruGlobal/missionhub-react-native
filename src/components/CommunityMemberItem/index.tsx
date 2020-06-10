@@ -60,7 +60,7 @@ const CommunityMemberItem = ({
       <Flex value={1} justify="center" align="center" direction="row">
         <Avatar size="small" person={person} style={styles.avatar} />
         <Flex value={1} direction="column">
-          <Text style={styles.name}>{person.firstName}</Text>
+          <Text style={styles.name}>{person.fullName}</Text>
           <Flex align="center" direction="row">
             <Text style={styles.info}>
               {personIsOwner ? (

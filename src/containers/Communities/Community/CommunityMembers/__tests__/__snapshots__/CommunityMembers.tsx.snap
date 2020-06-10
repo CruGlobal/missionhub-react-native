@@ -202,7 +202,7 @@ exports[`CommunityMembers renders with content 1`] = `
                   ]
                 }
               >
-                Elizabeth
+                Elizabeth Zulauf
               </Text>
               <View
                 style={
@@ -633,7 +633,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                   ]
 +                 }
 +               >
-+                 Alek
++                 Alek Lesch
 +               </Text>
 +               <View
 +                 style={
@@ -788,7 +788,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                   ]
 +                 }
 +               >
-+                 Brooklyn
++                 Brooklyn Weimann
 +               </Text>
 +               <View
 +                 style={
