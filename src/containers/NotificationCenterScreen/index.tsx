@@ -15,7 +15,10 @@ import { NotificationItem } from '../../components/NotificationCenterItem/__gene
 // import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
 // import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
 
-import { UpdateLatestNotification } from './__generated__/UpdateLatestNotification';
+import {
+  UpdateLatestNotification,
+  UpdateLatestNotificationVariables,
+} from './__generated__/UpdateLatestNotification';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
 import { GetNotifications } from './__generated__/GetNotifications';
 import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
@@ -81,9 +84,10 @@ const NotificationCenterScreen = () => {
   //   } = {},
   // } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
 
-  const [setHasUnreadNotifications] = useMutation<UpdateLatestNotification>(
-    UPDATE_LATEST_NOTIFICATION,
-  );
+  const [setHasUnreadNotifications] = useMutation<
+    UpdateLatestNotification,
+    UpdateLatestNotificationVariables
+  >(UPDATE_LATEST_NOTIFICATION);
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
   // const hasNewNotification =
