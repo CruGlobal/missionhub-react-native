@@ -1030,6 +1030,10 @@ export default {
   },
   notificationsCenter: {
     title: 'Notifications',
+    nullTitle: 'No notifications yet',
+    nullDescription:
+      'Stay tuned! Notifications about your communities will show up here.',
+    errorLoadingNotifications: 'Error loading notifications',
   },
   addPostToStepsScreen: {
     addToSteps: 'Add to my steps',
