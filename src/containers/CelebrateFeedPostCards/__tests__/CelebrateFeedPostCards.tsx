@@ -25,6 +25,7 @@ jest.mock('../../../components/PostTypeLabel', () => ({
 
 const myId = '123';
 const communityId = '456';
+const communityName = 'Community Name';
 const mockFeedRefetch = jest.fn();
 
 const initialState = {
@@ -35,6 +36,7 @@ it('renders empty correctly', () => {
   renderWithContext(
     <CelebrateFeedPostCards
       communityId={communityId}
+      communityName={communityName}
       feedRefetch={mockFeedRefetch}
     />,
     {
@@ -48,6 +50,7 @@ it('renders with feed items correctly', async () => {
   const { snapshot } = renderWithContext(
     <CelebrateFeedPostCards
       communityId={communityId}
+      communityName={communityName}
       feedRefetch={mockFeedRefetch}
     />,
     {
@@ -70,6 +73,7 @@ describe('navs to screens', () => {
     const { getByTestId } = renderWithContext(
       <CelebrateFeedPostCards
         communityId={communityId}
+        communityName={communityName}
         feedRefetch={mockFeedRefetch}
       />,
       {
