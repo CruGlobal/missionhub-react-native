@@ -18,7 +18,7 @@ import { insertName } from '../../utils/steps';
 import BackButton from '../BackButton';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { navigatePush } from '../../actions/navigation';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import styles from './styles';
 import { StepDetailPost } from './__generated__/StepDetailPost';
