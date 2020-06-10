@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { View, FlatList } from 'react-native';
+import React, { useEffect, useContext } from 'react';
+import { View, Animated } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -7,7 +7,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import JourneyCommentBox from '../../../components/JourneyCommentBox';
 import { navigatePush } from '../../../actions/navigation';
 import { getJourney } from '../../../actions/journey';
-import { Flex, Separator, LoadingGuy } from '../../../components/common';
+import { Flex, Separator } from '../../../components/common';
 import JourneyItem from '../../../components/JourneyItem';
 import RowSwipeable from '../../../components/RowSwipeable';
 import NULL from '../../../../assets/images/ourJourney.png';
@@ -21,7 +21,7 @@ import {
   ACCEPTED_STEP,
   ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../../constants';
-import Analytics from '../../Analytics';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { RootState } from '../../../reducers';
 import { personSelector } from '../../../selectors/people';
 import { useMyId } from '../../../utils/hooks/useIsMe';
@@ -56,6 +56,9 @@ export const PersonJourney = ({
   const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
     getAnalyticsAssignmentType(person, auth),
   );
+  useAnalytics(['person', person.id === myId ? 'my journey' : 'our journey'], {
+    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+  });
 
   useEffect(() => {
     getInteractions();
@@ -126,53 +129,28 @@ export const PersonJourney = ({
     <Separator key={rowID} />
   );
 
-  const renderList = () => {
-    return (
-      <FlatList
-        style={styles.list}
-        data={journeyItems}
-        keyExtractor={keyExtractor}
-        renderItem={renderRow}
-        bounces={true}
-        showsVerticalScrollIndicator={false}
-        scrollEventThrottle={100}
-        ItemSeparatorComponent={itemSeparator}
-      />
-    );
-  };
-
   const renderNull = () => (
     <NullStateComponent
       imageSource={NULL}
       headerText={t('ourJourney').toUpperCase()}
       descriptionText={t('journeyNull')}
+      style={styles.nullState}
     />
   );
 
-  const renderContent = () => {
-    const isLoading = !journeyItems;
-    const hasItems = journeyItems && journeyItems.length > 0;
-    return (
-      <Flex align="center" justify="center" value={1} style={styles.container}>
-        {!isLoading && !hasItems && renderNull()}
-        {isLoading && <LoadingGuy />}
-        {hasItems && renderList()}
-      </Flex>
-    );
-  };
+  const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
 
   return (
     <View style={styles.container}>
-      <Analytics
-        screenName={[
-          'person',
-          person.id === myId ? 'my journey' : 'our journey',
-        ]}
-        screenContext={{
-          [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-        }}
+      <Animated.FlatList
+        {...collapsibleScrollViewProps}
+        style={styles.list}
+        data={journeyItems}
+        keyExtractor={keyExtractor}
+        renderItem={renderRow}
+        ItemSeparatorComponent={itemSeparator}
+        ListEmptyComponent={renderNull}
       />
-      {renderContent()}
       <Flex justify="end">
         <JourneyCommentBox person={person} />
       </Flex>

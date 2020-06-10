@@ -21,4 +21,7 @@ export default StyleSheet.create({
     color: theme.primaryColor,
     paddingVertical: 0,
   },
+  nullState: {
+    marginTop: 20,
+  },
 });
