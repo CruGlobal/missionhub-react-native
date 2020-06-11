@@ -72,6 +72,7 @@ exports[`different notification types renders correctly | Care request 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
+              "paddingHorizontal": 20,
               "paddingVertical": 0,
             },
             Object {
@@ -472,6 +473,7 @@ exports[`different notification types renders correctly | Community Challenge 1`
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
+              "paddingHorizontal": 20,
               "paddingVertical": 0,
             },
             Object {
@@ -663,6 +665,7 @@ exports[`different notification types renders correctly | God Story 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
+              "paddingHorizontal": 20,
               "paddingVertical": 0,
             },
             Object {
@@ -901,6 +904,7 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
+              "paddingHorizontal": 20,
               "paddingVertical": 0,
             },
             Object {
@@ -1139,6 +1143,7 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
+              "paddingHorizontal": 20,
               "paddingVertical": 0,
             },
             Object {
@@ -1377,6 +1382,7 @@ exports[`different notification types renders correctly | Thought 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
+              "paddingHorizontal": 20,
               "paddingVertical": 0,
             },
             Object {
@@ -1615,6 +1621,7 @@ exports[`renders correctly 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
+              "paddingHorizontal": 20,
               "paddingVertical": 0,
             },
             Object {

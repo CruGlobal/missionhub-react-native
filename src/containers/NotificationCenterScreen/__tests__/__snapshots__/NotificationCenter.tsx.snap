@@ -9,7 +9,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"facere quia et\\",
                 },
-                \\"trigger\\": \\"community_challenge_ends_in_3_days\\",
+                \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
               },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -38,7 +38,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"22\\",
 +                 \\"picture\\": \\"ut minima sunt\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
++               \\"trigger\\": \\"onboarding_verse_two\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -67,7 +67,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"24\\",
 +                 \\"picture\\": \\"dolores commodi inventore\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++               \\"trigger\\": \\"feed_items_daily_summary_gospel_presentation\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -96,7 +96,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"26\\",
 +                 \\"picture\\": \\"architecto magnam voluptatem\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
++               \\"trigger\\": \\"onboarding_add_person\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -125,7 +125,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"28\\",
 +                 \\"picture\\": \\"quasi eaque corrupti\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
++               \\"trigger\\": \\"onboarding_verse_three\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -154,7 +154,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"30\\",
 +                 \\"picture\\": \\"voluptas quis non\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_accepted_community_challenge\\",
++               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -183,7 +183,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"32\\",
 +                 \\"picture\\": \\"et qui id\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_gospel_presentation\\",
++               \\"trigger\\": \\"onboarding_add_step\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -212,7 +212,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"34\\",
 +                 \\"picture\\": \\"molestiae reprehenderit exercitationem\\",
 +               },
-+               \\"trigger\\": \\"step_reminder\\",
++               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -241,7 +241,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"36\\",
 +                 \\"picture\\": \\"voluptatem praesentium hic\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
++               \\"trigger\\": \\"onboarding_verse_four\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -311,7 +311,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"facere quia et\\",
                 },
-                \\"trigger\\": \\"community_challenge_ends_in_3_days\\",
+                \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -340,7 +340,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"22\\",
 +                 \\"picture\\": \\"ut minima sunt\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
++               \\"trigger\\": \\"onboarding_verse_two\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -369,7 +369,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"24\\",
 +                 \\"picture\\": \\"dolores commodi inventore\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++               \\"trigger\\": \\"feed_items_daily_summary_gospel_presentation\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -398,7 +398,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"26\\",
 +                 \\"picture\\": \\"architecto magnam voluptatem\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
++               \\"trigger\\": \\"onboarding_add_person\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -427,7 +427,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"28\\",
 +                 \\"picture\\": \\"quasi eaque corrupti\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
++               \\"trigger\\": \\"onboarding_verse_three\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -456,7 +456,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"30\\",
 +                 \\"picture\\": \\"voluptas quis non\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_accepted_community_challenge\\",
++               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -485,7 +485,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"32\\",
 +                 \\"picture\\": \\"et qui id\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_gospel_presentation\\",
++               \\"trigger\\": \\"onboarding_add_step\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -514,7 +514,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"34\\",
 +                 \\"picture\\": \\"molestiae reprehenderit exercitationem\\",
 +               },
-+               \\"trigger\\": \\"step_reminder\\",
++               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -543,7 +543,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"36\\",
 +                 \\"picture\\": \\"voluptatem praesentium hic\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
++               \\"trigger\\": \\"onboarding_verse_four\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -1014,6 +1014,7 @@ exports[`renders Earlier section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -1531,6 +1532,7 @@ exports[`renders Today section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -1884,7 +1886,7 @@ exports[`renders correctly 1`] = `
                 "id": "4",
                 "picture": "esse blanditiis natus",
               },
-              "trigger": "feed_items_comment_notification",
+              "trigger": "feed_items_daily_summary_personal_decision",
             },
             Object {
               "__typename": "Notification",
@@ -1942,7 +1944,7 @@ exports[`renders correctly 1`] = `
                 "id": "8",
                 "picture": "placeat ullam minima",
               },
-              "trigger": "feed_items_daily_summary_gospel_presentation",
+              "trigger": "onboarding_add_step",
             },
             Object {
               "__typename": "Notification",
@@ -1971,7 +1973,7 @@ exports[`renders correctly 1`] = `
                 "id": "10",
                 "picture": "ullam quos qui",
               },
-              "trigger": "community_challenge_ends_in_3_days",
+              "trigger": "feed_items_assigned_to_alert_interaction",
             },
             Object {
               "__typename": "Notification",
@@ -2000,7 +2002,7 @@ exports[`renders correctly 1`] = `
                 "id": "12",
                 "picture": "nam eos sint",
               },
-              "trigger": "feed_items_daily_summary_multiple",
+              "trigger": "onboarding_verse_three",
             },
             Object {
               "__typename": "Notification",
@@ -2029,7 +2031,7 @@ exports[`renders correctly 1`] = `
                 "id": "14",
                 "picture": "quidem est consequuntur",
               },
-              "trigger": "feed_items_assigned_to_alert_interaction",
+              "trigger": "feed_items_comment_notification",
             },
             Object {
               "__typename": "Notification",
@@ -2058,7 +2060,7 @@ exports[`renders correctly 1`] = `
                 "id": "16",
                 "picture": "hic veritatis qui",
               },
-              "trigger": "community_challenge_created_alert",
+              "trigger": "community_challenge_ends_in_1_day",
             },
             Object {
               "__typename": "Notification",
@@ -2116,7 +2118,7 @@ exports[`renders correctly 1`] = `
                 "id": "20",
                 "picture": "facere quia et",
               },
-              "trigger": "community_challenge_ends_in_3_days",
+              "trigger": "feed_items_assigned_to_alert_interaction",
             },
           ],
           "id": 2,
@@ -2210,7 +2212,7 @@ exports[`renders correctly 1`] = `
                 "id": "4",
                 "picture": "esse blanditiis natus",
               },
-              "trigger": "feed_items_comment_notification",
+              "trigger": "feed_items_daily_summary_personal_decision",
             },
             Object {
               "__typename": "Notification",
@@ -2268,7 +2270,7 @@ exports[`renders correctly 1`] = `
                 "id": "8",
                 "picture": "placeat ullam minima",
               },
-              "trigger": "feed_items_daily_summary_gospel_presentation",
+              "trigger": "onboarding_add_step",
             },
             Object {
               "__typename": "Notification",
@@ -2297,7 +2299,7 @@ exports[`renders correctly 1`] = `
                 "id": "10",
                 "picture": "ullam quos qui",
               },
-              "trigger": "community_challenge_ends_in_3_days",
+              "trigger": "feed_items_assigned_to_alert_interaction",
             },
             Object {
               "__typename": "Notification",
@@ -2326,7 +2328,7 @@ exports[`renders correctly 1`] = `
                 "id": "12",
                 "picture": "nam eos sint",
               },
-              "trigger": "feed_items_daily_summary_multiple",
+              "trigger": "onboarding_verse_three",
             },
             Object {
               "__typename": "Notification",
@@ -2355,7 +2357,7 @@ exports[`renders correctly 1`] = `
                 "id": "14",
                 "picture": "quidem est consequuntur",
               },
-              "trigger": "feed_items_assigned_to_alert_interaction",
+              "trigger": "feed_items_comment_notification",
             },
             Object {
               "__typename": "Notification",
@@ -2384,7 +2386,7 @@ exports[`renders correctly 1`] = `
                 "id": "16",
                 "picture": "hic veritatis qui",
               },
-              "trigger": "community_challenge_created_alert",
+              "trigger": "community_challenge_ends_in_1_day",
             },
             Object {
               "__typename": "Notification",
@@ -2442,7 +2444,7 @@ exports[`renders correctly 1`] = `
                 "id": "20",
                 "picture": "facere quia et",
               },
-              "trigger": "community_challenge_ends_in_3_days",
+              "trigger": "feed_items_assigned_to_alert_interaction",
             },
           ],
           "id": 2,
@@ -2570,6 +2572,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -2737,7 +2740,52 @@ exports[`renders correctly 1`] = `
                 }
               }
             >
-              <SvgMock />
+              <View
+                style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 18,
+                      "flexDirection": "row",
+                      "height": 36,
+                      "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 0,
+                    },
+                    Object {
+                      "backgroundColor": "#7076B5",
+                    },
+                    Object {
+                      "width": 20,
+                    },
+                    Object {
+                      "alignItems": "center",
+                      "borderRadius": 12,
+                      "height": 24,
+                      "justifyContent": "center",
+                      "paddingHorizontal": 5,
+                      "paddingVertical": 5,
+                      "width": 24,
+                    },
+                  ]
+                }
+                testID="STORYLabel"
+              >
+                <SvgMock
+                  color="#ffffff"
+                  height={15}
+                  style={
+                    Array [
+                      Object {
+                        "marginLeft": 0,
+                        "marginRight": 0,
+                      },
+                      undefined,
+                    ]
+                  }
+                  width={15}
+                />
+              </View>
             </View>
             <View
               style={
@@ -2878,6 +2926,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3054,6 +3103,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3230,6 +3280,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3406,6 +3457,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3573,51 +3625,7 @@ exports[`renders correctly 1`] = `
                 }
               }
             >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 18,
-                      "flexDirection": "row",
-                      "height": 36,
-                      "justifyContent": "space-between",
-                      "paddingVertical": 0,
-                    },
-                    Object {
-                      "backgroundColor": "#7076B5",
-                    },
-                    Object {
-                      "width": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 12,
-                      "height": 24,
-                      "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
-                      "width": 24,
-                    },
-                  ]
-                }
-                testID="STORYLabel"
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={15}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={15}
-                />
-              </View>
+              <SvgMock />
             </View>
             <View
               style={
@@ -3758,10 +3766,11 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
-                      "backgroundColor": "#00CA99",
+                      "backgroundColor": "#7076B5",
                     },
                     Object {
                       "width": 20,
@@ -3777,7 +3786,7 @@ exports[`renders correctly 1`] = `
                     },
                   ]
                 }
-                testID="COMMUNITY_CHALLENGELabel"
+                testID="STORYLabel"
               >
                 <SvgMock
                   color="#ffffff"
@@ -3934,6 +3943,7 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
+                      "paddingHorizontal": 20,
                       "paddingVertical": 0,
                     },
                     Object {
