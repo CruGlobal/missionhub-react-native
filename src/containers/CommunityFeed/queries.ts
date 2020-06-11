@@ -14,6 +14,7 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
         subjectType: $subjectType
         sortBy: createdAt_DESC
         after: $feedItemsCursor
+        first: 25
       ) {
         nodes {
           read
@@ -35,6 +36,7 @@ export const GET_COMMUNITY_FEED = gql`
   query GetCommunityFeed(
     $communityId: ID!
     $subjectType: FeedItemSubjectTypeEnum
+    $personIds: [ID!]
     $feedItemsCursor: String
     $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
   ) {
@@ -42,8 +44,10 @@ export const GET_COMMUNITY_FEED = gql`
       id
       feedItems(
         subjectType: $subjectType
+        subjectPersonIds: $personIds
         sortBy: createdAt_DESC
         after: $feedItemsCursor
+        first: 25
       ) {
         nodes {
           read

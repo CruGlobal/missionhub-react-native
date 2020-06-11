@@ -11,6 +11,7 @@ import {
   completeChallenge,
   joinChallenge,
   updateChallenge,
+  reloadGroupChallengeFeed,
 } from '../../actions/challenges';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
@@ -56,6 +57,8 @@ const ChallengeDetailScreen = () => {
   const canEditChallenges = isAdmin;
 
   useEffect(() => {
+    // needed to update redux with newest challenges
+    dispatch(reloadGroupChallengeFeed(orgId));
     dispatch(getChallenge(challenge.id));
   }, []);
 

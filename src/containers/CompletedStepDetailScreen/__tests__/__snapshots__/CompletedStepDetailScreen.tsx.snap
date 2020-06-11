@@ -325,7 +325,7 @@ exports[`post renders with post 1`] = `
             resizeMode="cover"
             source={
               Object {
-                "uri": "recusandae ut nulla",
+                "uri": "ut nulla quam",
               }
             }
             style={
@@ -336,7 +336,7 @@ exports[`post renders with post 1`] = `
                   "width": 48,
                 },
                 Object {
-                  "backgroundColor": "rgb(102, 167, 115)",
+                  "backgroundColor": "rgb(161, 155, 115)",
                 },
                 undefined,
               ]
@@ -368,7 +368,7 @@ exports[`post renders with post 1`] = `
                 ]
               }
             >
-              Marcellus Hyatt
+              Gracie Weber
             </Text>
             <View
               style={
@@ -399,7 +399,7 @@ exports[`post renders with post 1`] = `
                 }
                 testID="Text"
               >
-                Aug 9 @ 9:31 AM
+                Apr 5 @ 8:54 PM
               </Text>
               <Text
                 onPress={[Function]}
@@ -452,7 +452,7 @@ exports[`post renders with post 1`] = `
               ]
             }
           >
-            nobis cupiditate sed
+            cupiditate sed dignissimos
           </Text>
         </View>
       </View>
@@ -468,7 +468,7 @@ exports[`post renders with post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "debitis incidunt accusantium",
+              "uri": "incidunt accusantium sed",
             }
           }
           style={

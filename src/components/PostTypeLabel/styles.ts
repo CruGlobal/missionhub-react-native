@@ -8,8 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 36,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 0,
     borderRadius: 18,
   },
   headerCard: {
@@ -53,12 +52,26 @@ export default StyleSheet.create({
     marginRight: 10,
     marginLeft: -10,
   },
-  largeSize: {
-    height: 48,
+  smallIcon: {
+    marginRight: 0,
+    marginLeft: 0,
   },
   noText: {
     width: 20,
   },
+  largeSize: {
+    height: 48,
+  },
+  smallSize: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+  },
+
   buttonText: {
     fontSize: 14,
     color: theme.white,

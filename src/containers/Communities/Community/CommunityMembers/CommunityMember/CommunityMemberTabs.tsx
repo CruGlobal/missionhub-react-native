@@ -8,9 +8,10 @@ import {
   CollapsibleViewProvider,
   createCollapsibleViewContext,
 } from '../../../../../components/CollapsibleView/CollapsibleView';
-import CommunityFeed, {
+import {
+  CommunityFeedTab,
   COMMUNITY_FEED,
-} from '../../../../Groups/GroupCelebrate';
+} from '../../CommunityFeedTab/CommunityFeedTab';
 import {
   COMMUNITY_IMPACT,
   CommunityImpactTab,
@@ -25,7 +26,7 @@ export const communityMemberTabs = [
     name: i18next.t('personTabs:feed'),
     navigationAction: COMMUNITY_FEED,
     component: () => (
-      <CommunityFeed
+      <CommunityFeedTab
         collapsibleHeaderContext={CommunityMemberCollapsibleHeaderContext}
       />
     ),

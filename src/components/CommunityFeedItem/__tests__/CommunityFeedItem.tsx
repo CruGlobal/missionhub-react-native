@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
@@ -11,7 +11,7 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
 import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
@@ -23,6 +23,7 @@ import {
 import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
+  PostStepStatusEnum,
 } from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
@@ -59,6 +60,7 @@ const myPrayerPostItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'Post',
           postType: PostTypeEnum.prayer_request,
+          stepStatus: PostStepStatusEnum.NOT_SUPPORTED,
         }),
         subjectPerson: () => ({ id: myId }),
       }),
@@ -161,35 +163,58 @@ describe('global community', () => {
 });
 
 describe('Community', () => {
-  it('renders post correctly without add to steps button ', () => {
-    renderWithContext(
+  it('renders post correctly without add to steps button ', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders post created by me correctly without add to steps button', () => {
-    renderWithContext(
+  it('renders post created by me correctly without add to steps button', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={myPrayerPostItem} namePressable={true} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders post correctly with add to steps button', () => {
-    renderWithContext(
-      <CommunityFeedItem feedItem={prayerPostItem} namePressable={false} />,
+  it('renders post correctly with add to steps button', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.NONE,
+                }),
+              }),
+            },
+          },
+        )}
+        namePressable={false}
+      />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders post correctly without image', () => {
-    renderWithContext(
+  it('renders post correctly without image', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
         feedItem={{
           ...storyPostItem,
@@ -201,29 +226,35 @@ describe('Community', () => {
         namePressable={false}
       />,
       { initialState },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders step correctly', () => {
-    renderWithContext(
+  it('renders step correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders challenge correctly', () => {
-    renderWithContext(
+  it('renders challenge correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders with clear notification button correctly', () => {
-    renderWithContext(
+  it('renders with clear notification button correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
         feedItem={storyPostItem}
         onClearNotification={onClearNotification}
@@ -232,17 +263,21 @@ describe('Community', () => {
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 });
 
-it('renders with name pressable correctly', () => {
-  renderWithContext(
+it('renders with name pressable correctly', async () => {
+  const { snapshot } = renderWithContext(
     <CommunityFeedItem feedItem={storyPostItem} namePressable={true} />,
     {
       initialState,
     },
-  ).snapshot();
+  );
+  await flushMicrotasksQueue();
+  snapshot();
 });
 
 describe('press card', () => {
@@ -391,7 +426,21 @@ describe('add to steps button', () => {
   it('calls handleAddToMySteps', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        feedItem={prayerPostItem}
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.NONE,
+                }),
+              }),
+            },
+          },
+        )}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -400,6 +449,38 @@ describe('add to steps button', () => {
     fireEvent.press(getByTestId('AddToMyStepsButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
+      feedItemId: prayerPostItem.id,
+      communityId,
+    });
+  });
+
+  it('does not show addToMySteps button', () => {
+    const { queryByTestId } = renderWithContext(
+      <CommunityFeedItem
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.INCOMPLETE,
+                }),
+              }),
+            },
+          },
+        )}
+        onClearNotification={onClearNotification}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+
+    expect(queryByTestId('AddToMyStepsButton')).toBeFalsy();
+
+    expect(navigatePush).not.toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
       feedItemId: prayerPostItem.id,
       communityId,
     });

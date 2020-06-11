@@ -1,5 +1,5 @@
 import { apolloClient } from '../apolloClient';
-import { GET_COMMUNITY_FEED } from '../containers/CelebrateFeed/queries';
+import { GET_COMMUNITY_FEED } from '../containers/CommunityFeed/queries';
 
 export const getCelebrateFeed = async (
   communityId: string,

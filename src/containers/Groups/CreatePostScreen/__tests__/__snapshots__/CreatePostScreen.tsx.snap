@@ -62,7 +62,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -265,11 +309,11 @@
+@@ -264,11 +308,11 @@
               },
             ]
           }
@@ -82,7 +82,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -285,63 +285,20 @@
+@@ -284,63 +284,20 @@
               \\"opacity\\": 1,
             }
           }
@@ -158,13 +158,13 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -331,11 +331,11 @@
+@@ -330,11 +330,11 @@
               },
             ]
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
--         value=\\"recusandae alias consequuntur\\"
+-         value=\\"alias consequuntur corporis\\"
 +         value=\\"This is my cool story! 📘✏️\\"
         />
         <View
@@ -359,8 +359,7 @@ exports[`renders correctly for new post 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -778,8 +777,7 @@ exports[`renders correctly for update post 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -862,7 +860,7 @@ exports[`renders correctly for update post 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="recusandae alias consequuntur"
+        value="alias consequuntur corporis"
       />
       <View
         accessible={true}
@@ -886,7 +884,7 @@ exports[`renders correctly for update post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "corporis repellat ratione",
+              "uri": "repellat ratione ut",
             }
           }
           style={
@@ -1154,8 +1152,7 @@ exports[`renders correctly on android 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -1238,7 +1235,7 @@ exports[`renders correctly on android 1`] = `
         }
         testID="PostInput"
         underlineColorAndroid="rgba(0,0,0,0)"
-        value="recusandae alias consequuntur"
+        value="alias consequuntur corporis"
       />
       <View
         accessible={true}
@@ -1262,7 +1259,7 @@ exports[`renders correctly on android 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "corporis repellat ratione",
+              "uri": "repellat ratione ut",
             }
           }
           style={
@@ -1464,8 +1461,7 @@ exports[`renders for post types renders for announcement 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#505256",
@@ -1817,8 +1813,7 @@ exports[`renders for post types renders for help request 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#FD726D",
@@ -2170,8 +2165,7 @@ exports[`renders for post types renders for prayer request 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -2523,8 +2517,7 @@ exports[`renders for post types renders for spiritual question 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#FFA178",
@@ -2876,8 +2869,7 @@ exports[`renders for post types renders for story 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#7076B5",
@@ -3229,8 +3221,7 @@ exports[`renders for post types renders for thought 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#B4B6BA",

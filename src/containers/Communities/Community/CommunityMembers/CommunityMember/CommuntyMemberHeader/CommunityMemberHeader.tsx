@@ -46,7 +46,7 @@ export const CommunityMemberHeader = () => {
           refetch={refetch}
         />
         <View style={styles.content}>
-          <Avatar size="large" person={data?.person} />
+          <Avatar size="large" person={data?.person} style={styles.avatar} />
           <Text style={styles.personName}>{data?.person.fullName}</Text>
         </View>
         <HeaderTabBar tabs={communityMemberTabs} />

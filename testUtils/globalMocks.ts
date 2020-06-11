@@ -8,6 +8,8 @@ import {
   StepTypeEnum,
   PostTypeEnum,
   RelationshipTypeEnum,
+  NotificationTriggerEnum,
+  PostStepStatusEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -38,6 +40,8 @@ export const globalMocks: IMocks = {
   StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
   RelationshipTypeEnum: () =>
     faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
+  NotificationTriggerEnum: () =>
+    faker.random.arrayElement(Object.values(NotificationTriggerEnum)),
   Step: () => ({
     title: faker.lorem.sentence(),
   }),
@@ -67,6 +71,7 @@ export const globalMocks: IMocks = {
   Post: () => {
     return {
       postType: faker.random.arrayElement(Object.values(PostTypeEnum)),
+      stepStatus: faker.random.arrayElement(Object.values(PostStepStatusEnum)),
     };
   },
   FeedItemSubject: () => {

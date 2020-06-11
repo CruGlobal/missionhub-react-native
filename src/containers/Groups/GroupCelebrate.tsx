@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { CelebrateFeed } from '../CelebrateFeed';
+import { CommunityFeed } from '../CommunityFeed';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
 import { orgIsGlobal } from '../../utils/common';
@@ -17,7 +17,9 @@ interface CommunityFeedProps {
   collapsibleHeaderContext: CollapsibleViewContext;
 }
 
-const CommunityFeed = ({ collapsibleHeaderContext }: CommunityFeedProps) => {
+const GroupCommunityFeed = ({
+  collapsibleHeaderContext,
+}: CommunityFeedProps) => {
   const dispatch = useDispatch();
 
   const communityId: string = useNavigationParam('communityId');
@@ -43,7 +45,7 @@ const CommunityFeed = ({ collapsibleHeaderContext }: CommunityFeedProps) => {
   const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
 
   return (
-    <CelebrateFeed
+    <CommunityFeed
       testID="CelebrateFeed"
       communityId={communityId}
       onRefetch={handleRefetch}
@@ -53,6 +55,6 @@ const CommunityFeed = ({ collapsibleHeaderContext }: CommunityFeedProps) => {
   );
 };
 
-export default CommunityFeed;
+export default GroupCommunityFeed;
 
 export const COMMUNITY_FEED = 'nav/COMMUNITY_FEED';
