@@ -11,7 +11,7 @@ import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import { navigateBack } from '../../actions/navigation';
 import { organizationSelector } from '../../selectors/organizations';
-import { CelebrateFeed } from '../CelebrateFeed';
+import { CommunityFeed } from '../CommunityFeed';
 import theme from '../../theme';
 import { refreshCommunity } from '../../actions/organizations';
 import {
@@ -74,7 +74,7 @@ const GroupUnreadFeed = () => {
         titleStyle={styles.unreadTitle}
       />
       <View style={styles.cardList}>
-        <CelebrateFeed
+        <CommunityFeed
           testID="CelebrateFeed"
           communityId={communityId}
           onRefetch={handleRefetch}

@@ -267,16 +267,15 @@ exports[`label variations renders label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
       },
-      null,
       Object {
         "width": 20,
       },
+      null,
     ]
   }
   testID="STORYLabel"
@@ -298,6 +297,81 @@ exports[`label variations renders label with no text 1`] = `
 </View>
 `;
 
+exports[`label variations renders label with on press with no text 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="STORYButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 18,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "paddingVertical": 0,
+          },
+          Object {
+            "backgroundColor": "#7076B5",
+          },
+          null,
+          Object {
+            "width": 20,
+          },
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={20}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
+      }
+      width={20}
+    />
+  </View>
+</View>
+`;
+
 exports[`label variations renders large label 1`] = `
 <View
   style={
@@ -308,16 +382,15 @@ exports[`label variations renders large label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
       },
+      null,
       Object {
         "height": 48,
       },
-      null,
     ]
   }
   testID="STORYLabel"
@@ -355,6 +428,54 @@ exports[`label variations renders large label 1`] = `
   >
     God Story
   </Text>
+</View>
+`;
+
+exports[`label variations renders small label with no text 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingVertical": 0,
+      },
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+      Object {
+        "width": 20,
+      },
+      Object {
+        "alignItems": "center",
+        "borderRadius": 12,
+        "height": 24,
+        "justifyContent": "center",
+        "paddingHorizontal": 5,
+        "paddingVertical": 5,
+        "width": 24,
+      },
+    ]
+  }
+  testID="STORYLabel"
+>
+  <SvgMock
+    color="#ffffff"
+    height={15}
+    style={
+      Array [
+        Object {
+          "marginLeft": 0,
+          "marginRight": 0,
+        },
+        undefined,
+      ]
+    }
+    width={15}
+  />
 </View>
 `;
 
@@ -1938,8 +2059,7 @@ exports[`post types renders Announcement Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#505256",
@@ -1996,8 +2116,7 @@ exports[`post types renders Care Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#FD726D",
@@ -2054,8 +2173,7 @@ exports[`post types renders God Story Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -2112,8 +2230,7 @@ exports[`post types renders On Your Mind Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#B4B6BA",
@@ -2170,8 +2287,7 @@ exports[`post types renders Prayer Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#A97398",
@@ -2228,8 +2344,7 @@ exports[`post types renders Spiritual Question Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#FFA178",
@@ -2286,8 +2401,7 @@ exports[`post types renders Step Of Faith Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#3CC8E6",
@@ -2344,8 +2458,7 @@ exports[`renders correctly 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -2433,8 +2546,7 @@ exports[`renders pressable correctly 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
-            "paddingHorizontal": 20,
-            "paddingVertical": 10,
+            "paddingVertical": 0,
           },
           Object {
             "backgroundColor": "#7076B5",

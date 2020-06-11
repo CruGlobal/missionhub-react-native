@@ -69,8 +69,7 @@ exports[`Community renders challenge correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#00CA99",
@@ -598,8 +597,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#A97398",
@@ -1147,8 +1145,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",
@@ -1633,8 +1630,7 @@ exports[`Community renders post correctly without image 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",
@@ -2106,8 +2102,7 @@ exports[`Community renders post created by me correctly without add to steps but
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#A97398",
@@ -2602,8 +2597,7 @@ exports[`Community renders step correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#3CC8E6",
@@ -3066,8 +3060,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",
@@ -3598,8 +3591,7 @@ exports[`global community renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#3CC8E6",
@@ -4025,8 +4017,7 @@ exports[`global community renders post item correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#7076B5",
@@ -4472,8 +4463,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#3CC8E6",
@@ -4993,8 +4983,7 @@ exports[`renders with name pressable correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",

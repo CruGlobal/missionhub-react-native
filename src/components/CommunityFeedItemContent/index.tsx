@@ -41,11 +41,13 @@ import styles, { markdown } from './styles';
 export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;
   namePressable?: boolean;
+  postLabelPressable?: boolean;
 }
 
 export const CommunityFeedItemContent = ({
   feedItem,
   namePressable = false,
+  postLabelPressable = true,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -202,7 +204,10 @@ export const CommunityFeedItemContent = ({
   const renderHeader = () => (
     <View style={styles.headerWrap}>
       <View style={styles.headerRow}>
-        <PostTypeLabel type={itemType} onPress={navToFilteredFeed} />
+        <PostTypeLabel
+          type={itemType}
+          onPress={postLabelPressable ? navToFilteredFeed : undefined}
+        />
       </View>
       <View style={styles.headerRow}>
         {!isGlobal && feedItem.subjectPerson ? (

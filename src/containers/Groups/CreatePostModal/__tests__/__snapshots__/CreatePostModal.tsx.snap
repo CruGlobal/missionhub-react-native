@@ -87,9 +87,10 @@ exports[`renders correctly 1`] = `
                   Object {
                     "color": "#B4B6BA",
                     "justifyContent": "flex-end",
+                    "padding": 15,
                     "position": "absolute",
-                    "right": -5,
-                    "top": -40,
+                    "right": -20,
+                    "top": -50,
                   },
                 ],
                 null,
@@ -163,8 +164,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#7076B5",
@@ -263,8 +263,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#A97398",
@@ -363,8 +362,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FFA178",
@@ -463,8 +461,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FD726D",
@@ -563,8 +560,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#B4B6BA",
@@ -708,9 +704,10 @@ exports[`renders correctly for admin 1`] = `
                   Object {
                     "color": "#B4B6BA",
                     "justifyContent": "flex-end",
+                    "padding": 15,
                     "position": "absolute",
-                    "right": -5,
-                    "top": -40,
+                    "right": -20,
+                    "top": -50,
                   },
                 ],
                 null,
@@ -763,7 +760,7 @@ exports[`renders correctly for admin 1`] = `
             }
           }
         >
-          Everyone
+          Post as You
         </Text>
         <SvgMock
           color="#ECEEF2"
@@ -816,8 +813,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#7076B5",
@@ -916,8 +912,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#A97398",
@@ -1016,8 +1011,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FFA178",
@@ -1116,8 +1110,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FD726D",
@@ -1216,8 +1209,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#B4B6BA",
@@ -1298,7 +1290,7 @@ exports[`renders correctly for admin 1`] = `
             }
           }
         >
-          Owners and Admins
+          Post as Owner/Admin
         </Text>
         <SvgMock
           color="#505256"
@@ -1352,8 +1344,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#505256",
@@ -1497,9 +1488,10 @@ exports[`renders correctly for owner 1`] = `
                   Object {
                     "color": "#B4B6BA",
                     "justifyContent": "flex-end",
+                    "padding": 15,
                     "position": "absolute",
-                    "right": -5,
-                    "top": -40,
+                    "right": -20,
+                    "top": -50,
                   },
                 ],
                 null,
@@ -1552,7 +1544,7 @@ exports[`renders correctly for owner 1`] = `
             }
           }
         >
-          Everyone
+          Post as You
         </Text>
         <SvgMock
           color="#ECEEF2"
@@ -1605,8 +1597,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#7076B5",
@@ -1705,8 +1696,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#A97398",
@@ -1805,8 +1795,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FFA178",
@@ -1905,8 +1894,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FD726D",
@@ -2005,8 +1993,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#B4B6BA",
@@ -2087,7 +2074,7 @@ exports[`renders correctly for owner 1`] = `
             }
           }
         >
-          Owners and Admins
+          Post as Owner/Admin
         </Text>
         <SvgMock
           color="#505256"
@@ -2141,8 +2128,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#505256",

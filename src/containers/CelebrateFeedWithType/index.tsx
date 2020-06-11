@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { CelebrateFeed } from '../CelebrateFeed';
+import { CommunityFeed } from '../CommunityFeed';
 import { orgIsGlobal } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
@@ -22,7 +22,7 @@ const CelebrateFeedWithType = () => {
         type={type}
         size={PostLabelSizeEnum.extraLarge}
       />
-      <CelebrateFeed
+      <CommunityFeed
         communityId={communityId}
         itemNamePressable={!orgIsGlobal({ id: communityId })}
         filteredFeedType={type}
