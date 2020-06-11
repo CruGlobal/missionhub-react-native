@@ -4,7 +4,9 @@ import { renderWithContext } from '../../../../../testUtils';
 import { communityTabs } from '../constants';
 import GroupChallenges from '../../../Groups/GroupChallenges';
 
-jest.mock('../../../Groups/GroupCelebrate', () => 'CommunityFeed');
+jest.mock('../CommunityFeedTab/CommunityFeedTab', () => ({
+  CommunityFeedTab: 'CommunityFeedTab',
+}));
 jest.mock('../CommunityImpactTab/CommunityImpactTab', () => ({
   CommunityImpactTab: 'CommunityImpactTab',
 }));

@@ -6,7 +6,7 @@ import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 
 import CelebrateFeedWithType from '..';
 
-jest.mock('../../CelebrateFeed', () => ({ CelebrateFeed: 'CelebrateFeed' }));
+jest.mock('../../CommunityFeed', () => ({ CommunityFeed: 'CommunityFeed' }));
 
 const organization = { id: '1' };
 

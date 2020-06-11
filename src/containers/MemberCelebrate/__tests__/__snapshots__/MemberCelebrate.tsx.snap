@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MemberCelebrate renders correctly 1`] = `
-<CelebrateFeed
+<CommunityFeed
   communityId="123"
   itemNamePressable={false}
   personId="1"
@@ -9,7 +9,7 @@ exports[`MemberCelebrate renders correctly 1`] = `
 `;
 
 exports[`MemberCelebrate renders correctly for me 1`] = `
-<CelebrateFeed
+<CommunityFeed
   communityId="123"
   itemNamePressable={false}
   personId="2"
@@ -17,7 +17,7 @@ exports[`MemberCelebrate renders correctly for me 1`] = `
 `;
 
 exports[`MemberCelebrate renders correctly for owner 1`] = `
-<CelebrateFeed
+<CommunityFeed
   communityId="123"
   itemNamePressable={false}
   personId="1"

@@ -957,8 +957,8 @@ export default {
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
     inputPlaceholder: 'Post to community...',
-    everyone: 'Everyone',
-    ownersAndAdmins: 'Owners and Admins',
+    postAsYou: 'Post as You',
+    ownersAndAdmins: 'Post as Owner/Admin',
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {

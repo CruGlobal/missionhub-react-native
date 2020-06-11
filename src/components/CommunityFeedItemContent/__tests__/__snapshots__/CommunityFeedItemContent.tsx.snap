@@ -59,8 +59,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#00CA99",
@@ -563,8 +562,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#00CA99",
@@ -1066,8 +1064,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#00CA99",
@@ -1548,8 +1545,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#00CA99",
@@ -2030,8 +2026,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#7076B5",
@@ -2488,8 +2483,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#A97398",
@@ -3010,8 +3004,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#A97398",
@@ -3468,8 +3461,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -3906,8 +3898,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -4344,8 +4335,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -4782,8 +4772,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -5220,8 +5209,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -5658,8 +5646,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -6096,8 +6083,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -6534,8 +6520,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",
@@ -6951,8 +6936,7 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
+                  "paddingVertical": 0,
                 },
                 Object {
                   "backgroundColor": "#3CC8E6",

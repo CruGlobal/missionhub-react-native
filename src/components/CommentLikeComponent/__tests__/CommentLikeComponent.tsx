@@ -15,7 +15,7 @@ import {
 } from '../queries';
 import { CommunityFeedItemCommentLike } from '../__generated__/CommunityFeedItemCommentLike';
 import { navigatePush } from '../../../actions/navigation';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import { CommentLikeComponent } from '..';
 
