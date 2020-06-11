@@ -98,14 +98,6 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
     }
   };
 
-  const shouldNavigate = () => {
-    // Currently can't handle navigating to challenge and step feed items
-    return (
-      trigger !== NotificationTriggerEnum.community_challenge_created_alert &&
-      trigger !== NotificationTriggerEnum.feed_items_assigned_to_alert_step
-    );
-  };
-
   const handleNotificationPress = () => {
     if (trigger !== NotificationTriggerEnum.feed_items_assigned_to_alert_step) {
       switch (trigger) {
