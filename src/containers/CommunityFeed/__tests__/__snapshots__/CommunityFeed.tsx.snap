@@ -1720,9 +1720,8 @@ exports[`renders empty correctly 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -3872,9 +3871,8 @@ exports[`renders for Unread Comments renders correctly 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -5202,9 +5200,8 @@ exports[`renders for member renders correctly 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -8133,9 +8130,8 @@ exports[`renders with clear notification renders correctly 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -9472,9 +9468,8 @@ exports[`renders with items correctly 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -10136,9 +10131,8 @@ exports[`sections renders Earlier section 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -10420,9 +10414,8 @@ exports[`sections renders New section 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>
@@ -10704,9 +10697,8 @@ exports[`sections renders Today section 1`] = `
       <CreatePostButton
         communityId="456"
       />
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId="456"
-        communityName=""
         feedRefetch={[Function]}
       />
     </View>

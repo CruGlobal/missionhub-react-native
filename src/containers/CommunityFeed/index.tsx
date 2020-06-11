@@ -12,7 +12,7 @@ import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/Col
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
+import { CommunityFeedPostCards } from '../CommunityFeedPostCards';
 import { PostTypeNullState } from '../../components/PostTypeLabel';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
@@ -97,12 +97,11 @@ export const CommunityFeed = ({
   const {
     data: {
       community: {
-        name: communityName,
         feedItems: {
           nodes = [],
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
-      } = { name: '' },
+      } = {},
       currentUser: { person = undefined } = {},
     } = {},
     loading,
@@ -259,9 +258,8 @@ export const CommunityFeed = ({
               type={filteredFeedType}
             />
             {filteredFeedType || isGlobal ? null : (
-              <CelebrateFeedPostCards
+              <CommunityFeedPostCards
                 communityId={communityId}
-                communityName={communityName}
                 // Refetch the feed to update new section once read
                 feedRefetch={refetch}
               />

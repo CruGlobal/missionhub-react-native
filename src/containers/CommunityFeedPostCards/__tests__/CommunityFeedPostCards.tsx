@@ -11,9 +11,9 @@ import {
   MARK_COMMUNITY_FEED_ITEMS_READ,
 } from '../queries';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
+import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../../containers/CommunityFeedWithType';
 
-import { CelebrateFeedPostCards } from '..';
+import { CommunityFeedPostCards } from '..';
 
 jest.mock('../../../actions/navigation', () => ({
   navigatePush: jest.fn(() => ({ type: 'navigatePush' })),
@@ -25,7 +25,6 @@ jest.mock('../../../components/PostTypeLabel', () => ({
 
 const myId = '123';
 const communityId = '456';
-const communityName = 'Community Name';
 const mockFeedRefetch = jest.fn();
 
 const initialState = {
@@ -34,9 +33,8 @@ const initialState = {
 
 it('renders empty correctly', () => {
   renderWithContext(
-    <CelebrateFeedPostCards
+    <CommunityFeedPostCards
       communityId={communityId}
-      communityName={communityName}
       feedRefetch={mockFeedRefetch}
     />,
     {
@@ -48,9 +46,8 @@ it('renders empty correctly', () => {
 
 it('renders with feed items correctly', async () => {
   const { snapshot } = renderWithContext(
-    <CelebrateFeedPostCards
+    <CommunityFeedPostCards
       communityId={communityId}
-      communityName={communityName}
       feedRefetch={mockFeedRefetch}
     />,
     {
@@ -71,9 +68,8 @@ describe('navs to screens', () => {
   let myGetByTestId: (testID: string) => ReactTestInstance;
   beforeEach(() => {
     const { getByTestId } = renderWithContext(
-      <CelebrateFeedPostCards
+      <CommunityFeedPostCards
         communityId={communityId}
-        communityName={communityName}
         feedRefetch={mockFeedRefetch}
       />,
       {
@@ -88,10 +84,10 @@ describe('navs to screens', () => {
   async function check(type: FeedItemSubjectTypeEnum) {
     await flushMicrotasksQueue();
     await fireEvent.press(myGetByTestId(`PostCard_${type}`));
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
       type,
       communityId,
-      communityName,
+      communityName: expect.any(String),
     });
     expect(useMutation).toHaveBeenMutatedWith(MARK_COMMUNITY_FEED_ITEMS_READ, {
       variables: {

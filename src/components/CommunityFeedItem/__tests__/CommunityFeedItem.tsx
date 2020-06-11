@@ -14,7 +14,7 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
+import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../../containers/CommunityFeedWithType';
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../queries';
 import {
   CommunityFeedItem as CommunityFeedItemFragment,
@@ -496,7 +496,7 @@ describe('navigates to post type screen', () => {
     );
     fireEvent.press(getByTestId('STORYButton'));
 
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
       type: FeedItemSubjectTypeEnum.STORY,
       communityId,
       communityName,

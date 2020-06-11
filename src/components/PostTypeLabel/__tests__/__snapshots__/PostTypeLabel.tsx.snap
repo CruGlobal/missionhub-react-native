@@ -167,6 +167,42 @@ exports[`label variations render extra large label 1`] = `
         <View
           style={
             Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flex": 4,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Community Name
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
               Object {
                 "paddingRight": 5,
               },
