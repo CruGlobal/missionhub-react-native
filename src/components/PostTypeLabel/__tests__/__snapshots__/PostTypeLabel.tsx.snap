@@ -1673,7 +1673,7 @@ exports[`post types null states renders Announcement Null State 1`] = `
       ]
     }
   >
-    He who abides by annoucements will be blessed.
+    He who abides by announcements will be blessed.
   </Text>
   <Text
     style={
