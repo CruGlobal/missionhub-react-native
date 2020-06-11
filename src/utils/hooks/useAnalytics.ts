@@ -29,97 +29,95 @@ export enum ANALYTICS_SCREEN_TYPES {
   drawer,
 }
 
-export interface UseAnalyticsParams {
-  communityId?: string;
-  personId?: string;
-  isEdit?: boolean;
-}
-
 export interface UseAnalyticsOptions {
   screenType?: ANALYTICS_SCREEN_TYPES;
-  includeAssignmentType?: boolean;
-  includeSectionType?: boolean;
-  includeEditMode?: boolean;
-  includePermissionType?: boolean;
+  assignmentType?: { personId: string; communityId: string };
+  sectionType?: boolean;
+  editMode?: { isEdit: boolean };
+  permissionType?: { communityId: string };
 }
 
 export const useAnalytics = (
   screenName: string | string[],
-  { communityId = '', personId = '', isEdit = false }: UseAnalyticsParams = {},
   {
     screenType = ANALYTICS_SCREEN_TYPES.screen,
-    includeAssignmentType,
-    includeSectionType,
-    includeEditMode,
-    includePermissionType,
+    assignmentType,
+    sectionType,
+    editMode,
+    permissionType,
   }: UseAnalyticsOptions = {},
 ) => {
   const myId = useMyId();
-  const isMe = useIsMe(personId);
+  const isMe = useIsMe(assignmentType?.personId || '');
   const isOnboarding = useIsOnboarding();
-
-  const {
-    data: { community: { people: { edges = [] } = {} } = {} } = {},
-  } = useQuery<getMyCommunityPermission>(GET_MY_COMMUNITY_PERMISSION_QUERY, {
-    variables: {
-      id: communityId,
-      myId,
-    },
-    fetchPolicy: 'cache-first',
-  });
-
-  let screenContext: Partial<ScreenContext> = {};
-  if (includeAssignmentType) {
-    screenContext = {
-      ...screenContext,
-      [ANALYTICS_ASSIGNMENT_TYPE]: getAnalyticsAssignmentType(
-        isMe,
-        !!communityId,
-      ),
-    };
-  }
-  if (includeSectionType) {
-    screenContext = {
-      ...screenContext,
-      [ANALYTICS_SECTION_TYPE]: getAnalyticsSectionType(isOnboarding),
-    };
-  }
-  if (includeEditMode) {
-    screenContext = {
-      ...screenContext,
-      [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(isEdit),
-    };
-  }
-  if (includePermissionType) {
-    screenContext = {
-      ...screenContext,
-      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
-        edges[0].communityPermission.permission,
-      ),
-    };
-  }
-
   const dispatch = useDispatch();
   const isFocused = useIsFocused();
   const isDrawerOpen = useIsDrawerOpen();
+
+  const {
+    data: { community: { people: { edges = [] } = {} } = {} } = {},
+    loading,
+    error,
+  } = useQuery<getMyCommunityPermission>(GET_MY_COMMUNITY_PERMISSION_QUERY, {
+    variables: {
+      id: permissionType?.communityId,
+      myId,
+    },
+    fetchPolicy: 'cache-first',
+    skip: !permissionType,
+  });
+
+  const screenContext = {
+    ...(assignmentType
+      ? {
+          [ANALYTICS_ASSIGNMENT_TYPE]: getAnalyticsAssignmentType(
+            isMe,
+            !!assignmentType.communityId,
+          ),
+        }
+      : {}),
+    ...(sectionType
+      ? {
+          [ANALYTICS_SECTION_TYPE]: getAnalyticsSectionType(isOnboarding),
+        }
+      : {}),
+    ...(editMode
+      ? {
+          [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(editMode.isEdit),
+        }
+      : {}),
+    ...(permissionType
+      ? {
+          [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
+            edges[0].communityPermission.permission,
+          ),
+        }
+      : {}),
+  };
 
   const handleScreenChange = (
     name: string | string[],
     context?: Partial<ScreenContext>,
   ) => {
+    console.log(context);
     dispatch(trackScreenChange(name, context));
   };
 
   //normally screens should only respond to focus events
   useEffect(() => {
-    if (isFocused && screenType === ANALYTICS_SCREEN_TYPES.screen) {
+    if (
+      isFocused &&
+      !loading &&
+      !error &&
+      screenType === ANALYTICS_SCREEN_TYPES.screen
+    ) {
       handleScreenChange(screenName, screenContext);
     }
-  }, [isFocused]);
+  }, [isFocused, loading, error]);
 
   //if it is a drawer, or screen with a drawer, it should respond to drawer events in addition to focus events
   useEffect(() => {
-    if (isFocused) {
+    if (isFocused && !loading && !error) {
       if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
         handleScreenChange(screenName, screenContext);
       } else if (
@@ -129,7 +127,7 @@ export const useAnalytics = (
         handleScreenChange(screenName, screenContext);
       }
     }
-  }, [isFocused, isDrawerOpen]);
+  }, [isFocused, loading, error, isDrawerOpen]);
 
   return handleScreenChange;
 };
