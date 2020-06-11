@@ -261,11 +261,7 @@ export const CommunityFeed = ({
             {filteredFeedType || isGlobal ? null : (
               <CelebrateFeedPostCards
                 communityId={communityId}
-                communityName={
-                  isGlobal
-                    ? t('communityHeader:globalCommunity')
-                    : communityName
-                }
+                communityName={communityName}
                 // Refetch the feed to update new section once read
                 feedRefetch={refetch}
               />
