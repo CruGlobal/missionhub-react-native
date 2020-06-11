@@ -7,10 +7,12 @@ import { renderWithContext } from '../../../../testUtils';
 import { NOTIFICATION_ITEM_FRAGMENT } from '../queries';
 import { NotificationItem } from '../__generated__/NotificationItem';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import {
   NotificationTriggerEnum,
   PostTypeEnum,
 } from '../.../../../../../__generated__/globalTypes';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import NotificationCenterItem from '..';
 
@@ -186,6 +188,84 @@ describe('handleNotificationPress', () => {
     });
   });
 
+  it('navigates to challenge detail screen', () => {
+    const mockChallengeNotification = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              'You have a new Challenge from <<community_name>>',
+            trigger: () =>
+              NotificationTriggerEnum.community_challenge_created_alert,
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'person_name',
+                value: 'Christian Huffman',
+              },
+            ],
+            screenData: {
+              communityId: '1234',
+              challengeId: '4321',
+            },
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <NotificationCenterItem event={mockChallengeNotification} />,
+    );
+
+    fireEvent.press(getByTestId('notificationButton'));
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      orgId: mockChallengeNotification.screenData.communityId,
+      challengeId: mockChallengeNotification.screenData.challengeId,
+    });
+  });
+
+  it('navigates to global community challenge detail screen if no communityId', () => {
+    const mockChallengeNotification = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              'You have a new Challenge from <<community_name>>',
+            trigger: () =>
+              NotificationTriggerEnum.community_challenge_created_alert,
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'person_name',
+                value: 'Christian Huffman',
+              },
+            ],
+            screenData: {
+              communityId: null,
+              challengeId: '4321',
+            },
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <NotificationCenterItem event={mockChallengeNotification} />,
+    );
+
+    fireEvent.press(getByTestId('notificationButton'));
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      orgId: GLOBAL_COMMUNITY_ID,
+      challengeId: mockChallengeNotification.screenData.challengeId,
+    });
+  });
+
   it('does not navigate if notification is step', () => {
     const { getByTestId } = renderWithContext(
       <NotificationCenterItem
@@ -199,32 +279,6 @@ describe('handleNotificationPress', () => {
                 {
                   key: 'subject_person',
                   value: 'Christian',
-                },
-              ],
-            }),
-          },
-        })}
-      />,
-    );
-
-    fireEvent.press(getByTestId('notificationButton'));
-    expect(navigatePush).not.toHaveBeenCalled();
-  });
-
-  it('does not navigate if notification is challenge', () => {
-    const { getByTestId } = renderWithContext(
-      <NotificationCenterItem
-        event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
-          mocks: {
-            Notification: () => ({
-              messageTemplate: () =>
-                'You have a new Challenge in <<community_name>>',
-              trigger: () =>
-                NotificationTriggerEnum.community_challenge_created_alert,
-              messageVariables: () => [
-                {
-                  key: 'community_name',
-                  value: 'Bleh 2.0',
                 },
               ],
             }),

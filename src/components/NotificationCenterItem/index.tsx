@@ -15,6 +15,8 @@ import {
 } from '../../../__generated__/globalTypes';
 import { navigatePush } from '../../actions/navigation';
 import { mapPostTypeToFeedType } from '../../utils/common';
+import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
@@ -105,12 +107,25 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
   };
 
   const handleNotificationPress = () => {
-    if (shouldNavigate()) {
-      dispatch(
-        navigatePush(FEED_ITEM_DETAIL_SCREEN, {
-          feedItemId: screenData.feedItemId,
-        }),
-      );
+    if (trigger !== NotificationTriggerEnum.feed_items_assigned_to_alert_step) {
+      switch (trigger) {
+        case NotificationTriggerEnum.community_challenge_created_alert:
+          return dispatch(
+            navigatePush(CHALLENGE_DETAIL_SCREEN, {
+              // If no communityId, than it is a global challenge
+              orgId: screenData.communityId
+                ? screenData.communityId
+                : GLOBAL_COMMUNITY_ID,
+              challengeId: screenData.challengeId,
+            }),
+          );
+        default:
+          return dispatch(
+            navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+              feedItemId: screenData.feedItemId,
+            }),
+          );
+      }
     }
   };
 
