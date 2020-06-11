@@ -10,6 +10,7 @@ export default StyleSheet.create({
     height: 36,
     paddingVertical: 0,
     borderRadius: 18,
+    paddingHorizontal: 20,
   },
   headerCard: {
     position: 'relative',
