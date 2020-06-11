@@ -84,7 +84,6 @@ const AddContactFields = ({
   const handleStageSelect = () => {
     dispatch(
       next({
-        orgId: organization?.id,
         navigateToStageSelection: true,
         person,
         updatePerson: onUpdateData,
