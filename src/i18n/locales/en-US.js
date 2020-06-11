@@ -931,7 +931,7 @@ export default {
       PRAYER_REQUEST: 'Let your requests be known to God.',
       QUESTION: 'Teach and counsel each other with all the wisdom he gives.',
       HELP_REQUEST: "Share one another's burdens.",
-      ANNOUNCEMENT: 'He who abides by annoucements will be blessed.',
+      ANNOUNCEMENT: 'He who abides by announcements will be blessed.',
       THOUGHT:
         'Where two or three are gathered in my name, there am I among them.',
       STEP: 'Encourage one another and build each other up.',
@@ -957,8 +957,8 @@ export default {
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
     inputPlaceholder: 'Post to community...',
-    everyone: 'Everyone',
-    ownersAndAdmins: 'Owners and Admins',
+    postAsYou: 'Post as You',
+    ownersAndAdmins: 'Post as Owner/Admin',
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {
