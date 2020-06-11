@@ -13,6 +13,8 @@ export const NOTIFICATION_ITEM_FRAGMENT = gql`
     }
     screenData {
       feedItemId
+      communityId
+      challengeId
     }
     messageVariables {
       key
