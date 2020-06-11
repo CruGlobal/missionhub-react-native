@@ -10,13 +10,17 @@ import {
 import { getPersonNote, savePersonNote } from '../../../../actions/person';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import * as common from '../../../../utils/common';
+import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
 
 import { PersonNotes } from '..';
 
 jest.mock('react-native-device-info');
-jest.mock('react-navigation-hooks');
-jest.mock('../../../actions/person');
-jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('react-navigation-hooks', () => ({
+  ...jest.requireActual('react-navigation-hooks'),
+  useIsFocused: jest.fn(),
+}));
+jest.mock('../../../../actions/person');
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 const personId = '141234';
 const orgId = '234';
@@ -33,6 +37,12 @@ const note = { id: '988998', content: 'Roge rules' };
 
 const initialState = {
   auth: { person: { id: myPersonId, user: { id: myUserId } } },
+  people: {
+    people: {
+      [person.id]: person,
+      [myPersonId]: { id: myPersonId },
+    },
+  },
 };
 
 beforeEach(() => {
@@ -44,9 +54,13 @@ beforeEach(() => {
 
 describe('contact notes', () => {
   it('icon and prompt are shown if no notes', () => {
-    renderWithContext(<PersonNotes person={person} />, {
-      initialState,
-    }).snapshot();
+    renderWithContext(
+      <PersonNotes collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
+      {
+        initialState,
+        navParams: { personId },
+      },
+    ).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
       screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
@@ -54,40 +68,27 @@ describe('contact notes', () => {
   });
 
   it('icon and prompt are shown if no notes as me', () => {
-    renderWithContext(<PersonNotes person={{ ...person, id: myPersonId }} />, {
-      initialState,
-    }).snapshot();
+    renderWithContext(
+      <PersonNotes collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
+      {
+        initialState,
+        navParams: { personId: myPersonId },
+      },
+    ).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
       screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
     });
   });
 
-  it('icon and prompt are shown if no notes as community member', () => {
-    renderWithContext(
-      <PersonNotes
-        person={{
-          ...person,
-          organizational_permissions: [
-            { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
-          ],
-        }}
-        organization={{ id: orgId }}
-      />,
+  it('notes are shown', async () => {
+    const { snapshot } = renderWithContext(
+      <PersonNotes collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
       {
         initialState,
+        navParams: { personId },
       },
-    ).snapshot();
-
-    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'community member' },
-    });
-  });
-
-  it('notes are shown', async () => {
-    const { snapshot } = renderWithContext(<PersonNotes person={person} />, {
-      initialState,
-    });
+    );
 
     await flushMicrotasksQueue();
 
@@ -102,9 +103,12 @@ describe('contact notes', () => {
   describe('press bottom button', () => {
     it('switches to editing state', async () => {
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
-        <PersonNotes person={person} />,
+        <PersonNotes
+          collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+        />,
         {
           initialState,
+          navParams: { personId },
         },
       );
 
@@ -119,9 +123,12 @@ describe('contact notes', () => {
     it('switches to editing state on android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
-        <PersonNotes person={person} />,
+        <PersonNotes
+          collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+        />,
         {
           initialState,
+          navParams: { personId },
         },
       );
 
@@ -135,9 +142,12 @@ describe('contact notes', () => {
 
     it('saves and switches to not editing state', async () => {
       const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(
-        <PersonNotes person={person} />,
+        <PersonNotes
+          collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+        />,
         {
           initialState,
+          navParams: { personId },
         },
       );
 
@@ -160,9 +170,10 @@ describe('contact notes', () => {
 
   it('should save on blur', async () => {
     const { rerender, getByTestId } = renderWithContext(
-      <PersonNotes person={person} />,
+      <PersonNotes collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
       {
         initialState,
+        navParams: { personId },
       },
     );
 
@@ -172,7 +183,13 @@ describe('contact notes', () => {
     fireEvent.press(getByTestId('bottomButton'));
 
     (useIsFocused as jest.Mock).mockReturnValue(false);
-    rerender(<PersonNotes person={person} />);
+    rerender(
+      <PersonNotes
+        collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+        // @ts-ignore
+        forceRerender
+      />,
+    );
 
     expect(savePersonNote).toHaveBeenCalledWith(
       person.id,

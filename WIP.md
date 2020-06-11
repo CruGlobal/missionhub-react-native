@@ -3,7 +3,6 @@ Components to convert to TS+Hooks
 - CommentBox
 - DatePicker
 - GroupMemberItem
-- GroupsPersonHeader
 - ImagePicker
 - JourneyCommentBox
 - JourneyItem

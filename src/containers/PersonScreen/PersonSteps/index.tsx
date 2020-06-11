@@ -12,13 +12,11 @@ import NULL from '../../../../assets/images/footprints.png';
 import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { keyExtractorId } from '../../../utils/common';
 import { getAnalyticsAssignmentType } from '../../../utils/analytics';
-import { promptToAssign } from '../../../utils/prompt';
 import {
   contactAssignmentSelector,
   personSelector,
 } from '../../../selectors/people';
 import {
-  assignContactAndPickStage,
   navigateToStageScreen,
   navigateToAddStepFlow,
 } from '../../../actions/misc';
@@ -65,7 +63,6 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
   const [hideCompleted, setHideCompleted] = useState(true);
   const dispatch = useDispatch();
   const isMe = useIsMe(personId);
-  const showAssignPrompt = false;
   const contactAssignment = useSelector(({ auth }: { auth: AuthState }) =>
     contactAssignmentSelector({ auth }, { person }),
   );
@@ -141,21 +138,10 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
     }
   };
 
-  const handleAssign = async () => {
-    if (showAssignPrompt) {
-      if (!(await promptToAssign())) {
-        return;
-      }
-    }
-
-    dispatch(assignContactAndPickStage(person));
-  };
-
   const handleCreateStep = () => {
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
       ? dispatch(navigateToAddStepFlow(isMe, person, undefined))
-      : contactAssignment
-      ? dispatch(
+      : dispatch(
           navigateToStageScreen(
             false,
             person,
@@ -163,8 +149,7 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
             undefined,
             undefined,
           ),
-        )
-      : handleAssign();
+        );
   };
 
   const toggleCompletedSteps = () => {

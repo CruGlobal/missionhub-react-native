@@ -15,7 +15,6 @@ import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
 
 import { trackActionWithoutData } from './analytics';
-import { createContactAssignment } from './person';
 import { navigatePush } from './navigation';
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
 
@@ -57,29 +56,6 @@ export function openCommunicationLink(url, action) {
           });
       })
       .catch(err => WARN('An unexpected error happened', err));
-}
-
-// @ts-ignore
-export function assignContactAndPickStage(person) {
-  // @ts-ignore
-  return async (dispatch, getState) => {
-    const auth = getState().auth;
-    const myId = auth.person.id;
-    const personId = person.id;
-
-    const { person: resultPerson } = await dispatch(
-      createContactAssignment(undefined, myId, personId),
-    );
-
-    dispatch(
-      navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        personId: resultPerson.id,
-        undefined,
-        section: 'people',
-        subsection: 'person',
-      }),
-    );
-  };
 }
 
 export function navigateToStageScreen(

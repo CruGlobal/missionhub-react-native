@@ -7,7 +7,6 @@ import { trackActionWithoutData } from '../analytics';
 import {
   openCommunicationLink,
   navigateToStageScreen,
-  assignContactAndPickStage,
   navigateToAddStepFlow,
   GET_FEATURE_FLAGS,
   getFeatureFlags,
@@ -140,32 +139,6 @@ describe('openCommunicationLink', () => {
     expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
     expect(ReactNative.Linking.openURL).not.toHaveBeenCalled();
     expect(trackActionWithoutData).not.toHaveBeenCalled();
-  });
-});
-
-describe('assignContactAndPickStage', () => {
-  it('creates a new contact assignment and navigates to the stage screen', async () => {
-    // @ts-ignore
-    await store.dispatch(assignContactAndPickStage(person, organization));
-
-    expect(createContactAssignment).toHaveBeenCalledWith(
-      undefined,
-      myId,
-      personId,
-    );
-    expect(contactAssignmentSelector).toHaveBeenCalledWith(state, {
-      person,
-    });
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
-      personId,
-      section: 'people',
-      subsection: 'person',
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([
-      navigateReplaceResult,
-      navigatePushResult,
-    ]);
   });
 });
 

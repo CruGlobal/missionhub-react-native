@@ -3,19 +3,37 @@ import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { PersonHeader } from '../PersonHeader';
+import {
+  personTabs,
+  PersonCollapsibleHeaderContext,
+} from '../../../containers/PersonScreen/PersonTabs';
 
 const personId = '1';
 
+const testPersonTabs = personTabs({ isMe: false });
+
 it('should render loading', () => {
-  renderWithContext(<PersonHeader />, {
-    navParams: { personId },
-  }).snapshot();
+  renderWithContext(
+    <PersonHeader
+      collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+      tabs={testPersonTabs}
+    />,
+    {
+      navParams: { personId },
+    },
+  ).snapshot();
 });
 
 it('should load person data correctly', async () => {
-  const { recordSnapshot, diffSnapshot } = renderWithContext(<PersonHeader />, {
-    navParams: { personId },
-  });
+  const { recordSnapshot, diffSnapshot } = renderWithContext(
+    <PersonHeader
+      collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+      tabs={testPersonTabs}
+    />,
+    {
+      navParams: { personId },
+    },
+  );
 
   recordSnapshot();
   await flushMicrotasksQueue();
@@ -24,7 +42,10 @@ it('should load person data correctly', async () => {
 
 it('should hide edit and stage for members', async () => {
   const { rerender, recordSnapshot, diffSnapshot } = renderWithContext(
-    <PersonHeader />,
+    <PersonHeader
+      collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+      tabs={testPersonTabs}
+    />,
     {
       navParams: { personId },
     },
@@ -33,6 +54,12 @@ it('should hide edit and stage for members', async () => {
   await flushMicrotasksQueue();
 
   recordSnapshot();
-  rerender(<PersonHeader isMember />);
+  rerender(
+    <PersonHeader
+      isMember
+      collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+      tabs={testPersonTabs}
+    />,
+  );
   diffSnapshot();
 });

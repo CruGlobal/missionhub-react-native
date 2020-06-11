@@ -16,9 +16,9 @@ import { PersonSteps, PERSON_STEPS } from './PersonSteps';
 import { PersonNotes, PERSON_NOTES } from './PersonNotes';
 import { PersonJourney, PERSON_JOURNEY } from './PersonJourney';
 
-const PersonCollapsibleHeaderContext = createCollapsibleViewContext();
+export const PersonCollapsibleHeaderContext = createCollapsibleViewContext();
 
-const personTabs = ({ isMe }: { isMe: boolean }) => [
+export const personTabs = ({ isMe }: { isMe: boolean }) => [
   {
     name: i18next.t('personTabs:steps'),
     navigationAction: PERSON_STEPS,

@@ -9,131 +9,53 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
     }
   }
 >
-  <View
-    style={
-      Array [
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-          undefined,
-        ],
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
     }
-  >
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/myNotes.png",
-        }
-      }
-      style={
-        Object {
-          "flexShrink": 1,
-        }
-      }
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 10,
-          },
-        ]
-      }
-    >
-      MY NOTES
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 80,
-            "paddingVertical": 10,
-            "textAlign": "center",
-          },
-        ]
-      }
-    >
-      Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
-    </Text>
-  </View>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
+    scrollEventThrottle={0.0001}
     style={
       Object {
-        "bottom": 20,
-        "left": 50,
-        "position": "absolute",
+        "flex": 1,
+        "marginBottom": undefined,
       }
     }
   >
-    <View
-      accessible={true}
-      focusable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
-      testID="bottomButton"
-    >
+    <View>
       <View
         style={
           Array [
-            Object {
-              "alignItems": "center",
-              "backgroundColor": "#52C5DC",
-              "height": 60,
-              "justifyContent": "center",
-            },
-            null,
             Array [
               Object {
-                "alignItems": "center",
-                "height": 48,
-                "width": 650,
+                "backgroundColor": "#ffffff",
               },
-              undefined,
+              Object {
+                "marginTop": 20,
+              },
             ],
             Object {
-              "borderRadius": 50,
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
             },
           ]
         }
       >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/myNotes.png",
+            }
+          }
+          style={
+            Object {
+              "flexShrink": 1,
+            }
+          }
+        />
         <Text
           style={
             Array [
@@ -143,112 +65,42 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
-              ],
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+              },
             ]
           }
         >
-          ADD PRIVATE NOTES
+          MY NOTES
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 80,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
         </Text>
       </View>
     </View>
-  </RCTSafeAreaView>
-</View>
-`;
-
-exports[`contact notes icon and prompt are shown if no notes as community member 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "flex": 1,
-    }
-  }
->
-  <View
-    style={
-      Array [
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-          undefined,
-        ],
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
-    }
-  >
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/myNotes.png",
-        }
-      }
-      style={
-        Object {
-          "flexShrink": 1,
-        }
-      }
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 10,
-          },
-        ]
-      }
-    >
-      MY NOTES
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 80,
-            "paddingVertical": 10,
-            "textAlign": "center",
-          },
-        ]
-      }
-    >
-      Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
-    </Text>
-  </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -343,79 +195,98 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
     }
   }
 >
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    scrollEventThrottle={0.0001}
     style={
-      Array [
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-          },
-          undefined,
-        ],
-        Object {
-          "alignItems": "center",
-          "flex": 1,
-          "justifyContent": "center",
-        },
-      ]
+      Object {
+        "flex": 1,
+        "marginBottom": undefined,
+      }
     }
   >
-    <Image
-      resizeMode="contain"
-      source={
-        Object {
-          "testUri": "../../../assets/images/myNotes.png",
+    <View>
+      <View
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+              },
+              Object {
+                "marginTop": 20,
+              },
+            ],
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
         }
-      }
-      style={
-        Object {
-          "flexShrink": 1,
-        }
-      }
-    />
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#007398",
-            "fontFamily": "SourceSansPro-Regular",
-            "fontSize": 24,
-            "fontWeight": "300",
-            "paddingTop": 10,
-          },
-        ]
-      }
-    >
-      MY NOTES
-    </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#505256",
-            "fontSize": 16,
-            "paddingHorizontal": 80,
-            "paddingVertical": 10,
-            "textAlign": "center",
-          },
-        ]
-      }
-    >
-      Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.
-    </Text>
-  </View>
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/myNotes.png",
+            }
+          }
+          style={
+            Object {
+              "flexShrink": 1,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+              },
+            ]
+          }
+        >
+          MY NOTES
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 80,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -516,7 +387,7 @@ exports[`contact notes notes are shown 1`] = `
         "bottom": 90,
       }
     }
-    persistentScrollbar={true}
+    scrollEventThrottle={0.0001}
     style={
       Object {
         "flex": 1,
@@ -800,7 +671,7 @@ exports[`contact notes press bottom button switches to editing state on android 
 
 @@ -14,42 +14,52 @@
       }
-      persistentScrollbar={true}
+      scrollEventThrottle={0.0001}
       style={
         Object {
           \\"flex\\": 1,

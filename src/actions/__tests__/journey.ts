@@ -5,7 +5,6 @@ import MockDate from 'mockdate';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { getJourney, reloadJourney } from '../journey';
-import { isAdminOrOwner } from '../../utils/common';
 import { ACCEPTED_STEP } from '../../constants';
 
 jest.mock('../api');

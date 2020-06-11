@@ -16,14 +16,14 @@ import {
   navigateToAddStepFlow,
 } from '../../../../actions/misc';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
 
 import { PersonSteps } from '..';
 
-jest.mock('../../../actions/steps');
-jest.mock('../../../actions/misc');
-jest.mock('../../../utils/prompt');
-jest.mock('../../../components/StepItem', () => 'StepItem');
-jest.mock('../../../utils/hooks/useAnalytics');
+jest.mock('../../../../actions/steps');
+jest.mock('../../../../actions/misc');
+jest.mock('../../../../components/StepItem', () => 'StepItem');
+jest.mock('../../../../utils/hooks/useAnalytics');
 
 const myId = '123';
 const orgId = '1111';
@@ -50,7 +50,15 @@ const person = {
 };
 const assignedPerson = {
   ...person,
+  id: '2',
   reverse_contact_assignments: [contactAssignment],
+};
+const personWithStage = {
+  ...assignedPerson,
+  id: '3',
+  reverse_contact_assignments: [
+    { ...contactAssignment, pathway_stage_id: '2' },
+  ],
 };
 
 const initialState = {
@@ -68,6 +76,14 @@ const initialState = {
       id: myId,
     },
   },
+  people: {
+    people: {
+      [mePerson.id]: mePerson,
+      [person.id]: person,
+      [assignedPerson.id]: assignedPerson,
+      [personWithStage.id]: personWithStage,
+    },
+  },
 };
 
 beforeEach(() => {
@@ -80,9 +96,15 @@ beforeEach(() => {
 });
 
 it('renders correctly when no steps', () => {
-  renderWithContext(<PersonSteps person={person} />, {
-    initialState,
-  }).snapshot();
+  renderWithContext(
+    <PersonSteps collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
+    {
+      initialState,
+      navParams: {
+        personId: person.id,
+      },
+    },
+  ).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
@@ -91,9 +113,12 @@ it('renders correctly when no steps', () => {
 
 it('renders correctly when me and no steps', () => {
   const { getByText, snapshot } = renderWithContext(
-    <PersonSteps person={mePerson} />,
+    <PersonSteps collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
     {
       initialState,
+      navParams: {
+        personId: mePerson.id,
+      },
     },
   );
   snapshot();
@@ -105,19 +130,25 @@ it('renders correctly when me and no steps', () => {
 });
 
 it('renders correctly with steps', async () => {
-  const { snapshot } = renderWithContext(<PersonSteps person={person} />, {
-    initialState,
-    mocks: {
-      Query: () => ({
-        person: () => ({
-          steps: () => ({
-            nodes: () => new MockList(1, () => ({ completedAt: null })),
-            pageInfo: () => ({ totalCount: 0 }), // For completedSteps alias
+  const { snapshot } = renderWithContext(
+    <PersonSteps collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
+    {
+      initialState,
+      navParams: {
+        personId: person.id,
+      },
+      mocks: {
+        Query: () => ({
+          person: () => ({
+            steps: () => ({
+              nodes: () => new MockList(1, () => ({ completedAt: null })),
+              pageInfo: () => ({ totalCount: 0 }), // For completedSteps alias
+            }),
           }),
         }),
-      }),
+      },
     },
-  });
+  );
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
     screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
@@ -130,9 +161,12 @@ it('renders correctly with steps', async () => {
 
 it('should paginate', async () => {
   const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
-    <PersonSteps person={person} />,
+    <PersonSteps collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
     {
       initialState,
+      navParams: {
+        personId: person.id,
+      },
       mocks: {
         Query: () => ({
           person: () => ({
@@ -162,9 +196,12 @@ it('should paginate', async () => {
 
 it('renders correctly with completed steps', async () => {
   const { getByTestId, snapshot } = renderWithContext(
-    <PersonSteps person={person} />,
+    <PersonSteps collapsibleHeaderContext={PersonCollapsibleHeaderContext} />,
     {
       initialState,
+      navParams: {
+        personId: person.id,
+      },
       mocks: {
         Query: () => ({
           person: () => ({
@@ -190,12 +227,15 @@ it('renders correctly with completed steps', async () => {
 describe('handleCreateStep', () => {
   describe('for me', () => {
     it('navigates to select my steps flow', () => {
-      const mePerson = { ...person, id: myId };
-
       const { getByTestId } = renderWithContext(
-        <PersonSteps person={mePerson} />,
+        <PersonSteps
+          collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+        />,
         {
           initialState,
+          navParams: {
+            personId: mePerson.id,
+          },
         },
       );
 
@@ -212,9 +252,14 @@ describe('handleCreateStep', () => {
   describe('for contact without stage', () => {
     it('navigates to select stage flow', () => {
       const { getByTestId } = renderWithContext(
-        <PersonSteps person={assignedPerson} />,
+        <PersonSteps
+          collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+        />,
         {
           initialState,
+          navParams: {
+            personId: assignedPerson.id,
+          },
         },
       );
 
@@ -232,17 +277,15 @@ describe('handleCreateStep', () => {
 
   describe('for contact with stage', () => {
     it('navigates to select person steps flow', () => {
-      const personWithStage = {
-        ...assignedPerson,
-        reverse_contact_assignments: [
-          { ...contactAssignment, pathway_stage_id: '2' },
-        ],
-      };
-
       const { getByTestId } = renderWithContext(
-        <PersonSteps person={personWithStage} />,
+        <PersonSteps
+          collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+        />,
         {
           initialState,
+          navParams: {
+            personId: personWithStage.id,
+          },
         },
       );
 
