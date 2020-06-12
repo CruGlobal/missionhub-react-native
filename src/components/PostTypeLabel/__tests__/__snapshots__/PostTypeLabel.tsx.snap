@@ -303,6 +303,7 @@ exports[`label variations renders label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -374,6 +375,7 @@ exports[`label variations renders label with on press with no text 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
+            "paddingHorizontal": 20,
             "paddingVertical": 0,
           },
           Object {
@@ -418,6 +420,7 @@ exports[`label variations renders large label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -477,6 +480,7 @@ exports[`label variations renders small label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2095,6 +2099,7 @@ exports[`post types renders Announcement Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2152,6 +2157,7 @@ exports[`post types renders Care Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2209,6 +2215,7 @@ exports[`post types renders God Story Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2266,6 +2273,7 @@ exports[`post types renders On Your Mind Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2323,6 +2331,7 @@ exports[`post types renders Prayer Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2380,6 +2389,7 @@ exports[`post types renders Spiritual Question Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2437,6 +2447,7 @@ exports[`post types renders Step Of Faith Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2494,6 +2505,7 @@ exports[`renders correctly 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2582,6 +2594,7 @@ exports[`renders pressable correctly 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
+            "paddingHorizontal": 20,
             "paddingVertical": 0,
           },
           Object {
