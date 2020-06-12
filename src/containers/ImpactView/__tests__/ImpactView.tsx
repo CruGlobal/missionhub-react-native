@@ -9,6 +9,7 @@ import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
 import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID, ORG_PERMISSIONS } from '../../../constants';
 import { getImpactSummary } from '../../../actions/impact';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import ImpactView from '..';
 
@@ -97,7 +98,12 @@ const state = {
 describe('ImpactView', () => {
   it('should refresh impact data', () => {
     renderWithContext(<ImpactView personId={me.id} />, { initialState: state });
+
     expect(getImpactSummary).toHaveBeenCalledTimes(2);
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+      assignmentType: { personId: me.id, communityId: 'personal' },
+      permissionType: undefined,
+    });
   });
 
   describe('ME person personal impact view', () => {
@@ -124,6 +130,11 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: { personId: me.id, communityId: 'personal' },
+        permissionType: undefined,
+      });
     });
 
     it('renders singular state', () => {
@@ -151,12 +162,22 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: { personId: me.id, communityId: 'personal' },
+        permissionType: undefined,
+      });
     });
 
     it('renders plural state', () => {
       renderWithContext(<ImpactView personId={me.id} />, {
         initialState: state,
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: { personId: me.id, communityId: 'personal' },
+        permissionType: undefined,
+      });
     });
   });
 
@@ -200,6 +221,14 @@ describe('ImpactView', () => {
           },
         },
       ).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: {
+          personId: me.id,
+          communityId: userCreatedcommunityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders singular state', () => {
@@ -233,6 +262,14 @@ describe('ImpactView', () => {
           },
         },
       ).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: {
+          personId: me.id,
+          communityId: userCreatedcommunityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders plural state', () => {
@@ -245,6 +282,14 @@ describe('ImpactView', () => {
           initialState: state,
         },
       ).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: {
+          personId: me.id,
+          communityId: userCreatedcommunityId,
+        },
+        permissionType: undefined,
+      });
     });
   });
 
@@ -292,6 +337,14 @@ describe('ImpactView', () => {
       await flushMicrotasksQueue();
 
       snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: {
+          personId: person.id,
+          communityId: userCreatedcommunityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders singular state', async () => {
@@ -329,6 +382,14 @@ describe('ImpactView', () => {
       await flushMicrotasksQueue();
 
       snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: {
+          personId: person.id,
+          communityId: userCreatedcommunityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders plural state', async () => {
@@ -345,6 +406,14 @@ describe('ImpactView', () => {
       await flushMicrotasksQueue();
 
       snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: {
+          personId: person.id,
+          communityId: userCreatedcommunityId,
+        },
+        permissionType: undefined,
+      });
     });
   });
 
@@ -372,6 +441,11 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: userCreatedcommunityId },
+      });
     });
 
     it('renders singular state', () => {
@@ -399,12 +473,22 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: userCreatedcommunityId },
+      });
     });
 
     it('renders plural state', () => {
       renderWithContext(<ImpactView communityId={userCreatedcommunityId} />, {
         initialState: state,
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: userCreatedcommunityId },
+      });
     });
   });
 
@@ -432,6 +516,11 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: GLOBAL_COMMUNITY_ID },
+      });
     });
 
     it('renders singular state', () => {
@@ -459,12 +548,22 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: GLOBAL_COMMUNITY_ID },
+      });
     });
 
     it('renders plural state', () => {
       renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
         initialState: state,
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: GLOBAL_COMMUNITY_ID },
+      });
     });
   });
 });

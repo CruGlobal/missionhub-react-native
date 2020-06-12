@@ -99,7 +99,6 @@ export const useAnalytics = (
     name: string | string[],
     context?: Partial<ScreenContext>,
   ) => {
-    console.log(context);
     dispatch(trackScreenChange(name, context));
   };
 

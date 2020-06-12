@@ -142,13 +142,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+          }),
         { initialState },
       );
 
@@ -165,13 +161,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+          }),
         { initialState },
       );
 
@@ -188,13 +180,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+          }),
         { initialState },
       );
 
@@ -213,13 +201,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+          }),
         { initialState },
       );
 
@@ -238,13 +222,9 @@ describe('useAnalytics', () => {
 
       const { result } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+          }),
         { initialState },
       );
 
@@ -264,13 +244,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.drawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.drawer,
+          }),
         { initialState },
       );
 
@@ -287,13 +263,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.drawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.drawer,
+          }),
         { initialState },
       );
 
@@ -310,13 +282,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.drawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.drawer,
+          }),
         { initialState },
       );
 
@@ -335,13 +303,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.drawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.drawer,
+          }),
         { initialState },
       );
 
@@ -360,13 +324,9 @@ describe('useAnalytics', () => {
 
       const { result } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            {},
-            {
-              screenType: ANALYTICS_SCREEN_TYPES.drawer,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            screenType: ANALYTICS_SCREEN_TYPES.drawer,
+          }),
         { initialState },
       );
 
@@ -389,13 +349,9 @@ describe('useAnalytics', () => {
       it('set to "self"', () => {
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              { personId: myId, communityId },
-              {
-                includeAssignmentType: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              assignmentType: { personId: myId, communityId },
+            }),
           { initialState },
         );
 
@@ -411,13 +367,9 @@ describe('useAnalytics', () => {
       it('set to "community members"', () => {
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              { personId, communityId },
-              {
-                includeAssignmentType: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              assignmentType: { personId, communityId },
+            }),
           { initialState },
         );
 
@@ -433,13 +385,9 @@ describe('useAnalytics', () => {
       it('set to "contact"', () => {
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              { personId },
-              {
-                includeAssignmentType: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              assignmentType: { personId, communityId: '' },
+            }),
           { initialState },
         );
 
@@ -457,13 +405,9 @@ describe('useAnalytics', () => {
       it('set to "onboarding"', () => {
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              {},
-              {
-                includeSectionType: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              sectionType: true,
+            }),
           { initialState },
         );
 
@@ -479,13 +423,9 @@ describe('useAnalytics', () => {
       it('set to ""', () => {
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              {},
-              {
-                includeSectionType: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              sectionType: true,
+            }),
           {
             initialState: {
               ...initialState,
@@ -508,13 +448,9 @@ describe('useAnalytics', () => {
       it('set to "update"', () => {
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              { isEdit: true },
-              {
-                includeEditMode: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              editMode: { isEdit: true },
+            }),
           { initialState },
         );
 
@@ -530,13 +466,9 @@ describe('useAnalytics', () => {
       it('set to "set"', () => {
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              { isEdit: false },
-              {
-                includeEditMode: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              editMode: { isEdit: false },
+            }),
           {
             initialState,
           },
@@ -568,13 +500,9 @@ describe('useAnalytics', () => {
 
         const { rerender } = renderHookWithContext(
           () =>
-            useAnalytics(
-              screenFragments,
-              { communityId },
-              {
-                includePermissionType: true,
-              },
-            ),
+            useAnalytics(screenFragments, {
+              permissionType: { communityId },
+            }),
           { initialState },
         );
 
@@ -603,13 +531,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            { communityId },
-            {
-              includePermissionType: true,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            permissionType: { communityId },
+          }),
         { initialState },
       );
 
@@ -637,13 +561,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            { communityId },
-            {
-              includePermissionType: true,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            permissionType: { communityId },
+          }),
         { initialState },
       );
 
@@ -675,13 +595,9 @@ describe('useAnalytics', () => {
 
       const { rerender } = renderHookWithContext(
         () =>
-          useAnalytics(
-            screenFragments,
-            { communityId },
-            {
-              includePermissionType: true,
-            },
-          ),
+          useAnalytics(screenFragments, {
+            permissionType: { communityId },
+          }),
         { initialState },
       );
 
