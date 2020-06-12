@@ -20,6 +20,10 @@ it('renders skip with text style', () => {
   ).snapshot();
 });
 
+it('render disabled', () => {
+  renderWithContext(<Skip onSkip={jest.fn()} disabled={true} />).snapshot();
+});
+
 it('calls onSkip when pressed', () => {
   const onSkip = jest.fn();
   const { getByTestId } = renderWithContext(<Skip onSkip={onSkip} />);

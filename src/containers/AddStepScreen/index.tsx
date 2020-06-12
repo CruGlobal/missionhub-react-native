@@ -183,8 +183,12 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
       <Header
         left={<DeprecatedBackButton iconStyle={styles.backButtonStyle} />}
         right={
-          isStepNote && !hasSkipped ? (
-            <Skip onSkip={handleSkip} textStyle={styles.skipBtnText} />
+          isStepNote ? (
+            <Skip
+              onSkip={handleSkip}
+              disabled={hasSkipped}
+              textStyle={styles.skipBtnText}
+            />
           ) : null
         }
       />
