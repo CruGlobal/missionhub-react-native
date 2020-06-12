@@ -6,17 +6,9 @@ import { useQuery } from '@apollo/react-hooks';
 
 import { getImpactSummary } from '../../actions/impact';
 import { Flex, Text } from '../../components/common';
-import {
-  GLOBAL_COMMUNITY_ID,
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../constants';
+import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
-import {
-  getAnalyticsAssignmentType,
-  getAnalyticsPermissionType,
-} from '../../utils/analytics';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
 import { RootState } from '../../reducers';
 import { orgIsPersonalMinistry } from '../../utils/common';
@@ -65,14 +57,6 @@ const ImpactView = ({
     impactSummarySelector(state, {}),
   );
 
-  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-    personId
-      ? getAnalyticsAssignmentType({ id: personId }, auth, organization)
-      : '',
-  );
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    !personId ? getAnalyticsPermissionType(auth, organization) : '',
-  );
   const screenSection = isOrgImpact ? 'community' : 'person';
   const screenSubsection = isOrgImpact
     ? 'impact'
@@ -80,10 +64,8 @@ const ImpactView = ({
     ? 'my impact'
     : 'impact';
   useAnalytics([screenSection, screenSubsection], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-    },
+    assignmentType: (personId && { personId, communityId }) || undefined,
+    permissionType: (!personId && { communityId }) || undefined,
   });
 
   useEffect(() => {
