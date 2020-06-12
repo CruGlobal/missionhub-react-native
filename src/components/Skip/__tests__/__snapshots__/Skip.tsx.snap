@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`render disabled 1`] = `
+exports[`render skip 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -25,9 +25,7 @@ exports[`render disabled 1`] = `
         Object {
           "backgroundColor": "transparent",
         },
-        Object {
-          "opacity": 0.6,
-        },
+        null,
         Array [
           Object {
             "padding": 15,
@@ -72,7 +70,7 @@ exports[`render disabled 1`] = `
 </View>
 `;
 
-exports[`render skip 1`] = `
+exports[`renders disabled 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -97,7 +95,9 @@ exports[`render skip 1`] = `
         Object {
           "backgroundColor": "transparent",
         },
-        null,
+        Object {
+          "opacity": 0.6,
+        },
         Array [
           Object {
             "padding": 15,

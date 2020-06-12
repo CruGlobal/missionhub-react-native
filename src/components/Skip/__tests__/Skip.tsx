@@ -20,7 +20,7 @@ it('renders skip with text style', () => {
   ).snapshot();
 });
 
-it('render disabled', () => {
+it('renders disabled', () => {
   renderWithContext(<Skip onSkip={jest.fn()} disabled={true} />).snapshot();
 });
 
