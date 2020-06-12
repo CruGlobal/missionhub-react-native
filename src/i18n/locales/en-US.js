@@ -223,6 +223,7 @@ export default {
       coworker: 'Coworker',
       other: 'Other',
     },
+    stageNull: 'Choose a stage',
     categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',

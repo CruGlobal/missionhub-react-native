@@ -10,6 +10,7 @@ export default StyleSheet.create({
     height: 36,
     paddingVertical: 0,
     borderRadius: 18,
+    paddingHorizontal: 20,
   },
   headerCard: {
     position: 'relative',
@@ -17,10 +18,16 @@ export default StyleSheet.create({
     marginHorizontal: 0,
     marginVertical: 0,
     marginBottom: 5,
+    flexDirection: 'column',
+    shadowOpacity: 0,
   },
+  header: { width: '100%', backgroundColor: 'transparent' },
   headerContainer: {
-    paddingVertical: 35,
-    padding: 25,
+    height: 120,
+    position: 'relative',
+    paddingHorizontal: 25,
+    alignItems: 'center',
+    paddingTop: 5,
   },
   headerIcon: {
     opacity: 0.2,
@@ -33,7 +40,6 @@ export default StyleSheet.create({
     fontWeight: '300',
     color: theme.white,
     textAlign: 'center',
-    paddingTop: 20,
   },
   subheaderText: {
     fontSize: 14,
@@ -42,11 +48,6 @@ export default StyleSheet.create({
     textAlign: 'center',
     paddingTop: 10,
     paddingHorizontal: 35,
-  },
-  headerBackButtonWrap: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
   },
   icon: {
     marginRight: 10,

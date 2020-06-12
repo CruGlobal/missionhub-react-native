@@ -47,7 +47,7 @@ const AddContactFields = ({
   const [currentInputField, changeCurrentInputField] = useState('');
   const dispatch = useDispatch();
   const isMe = useIsMe(person.id);
-  const isEdit = !!person.id && !!person.stage; // Person in onboarding won't have a stage by the time they are at this screen
+  const isEdit = !!person.id;
   const personOrgPermission = useSelector(() =>
     orgPermissionSelector({}, { person, organization }),
   );
@@ -215,7 +215,7 @@ const AddContactFields = ({
                 onPress={() => handleStageSelect()}
                 style={styles.categoryText}
               >
-                {person.stage?.name || ''}
+                {person.stage?.name || t('stageNull')}
               </Text>
             </View>
           </Flex>

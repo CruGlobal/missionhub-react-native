@@ -164,6 +164,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -263,6 +264,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -362,6 +364,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -461,6 +464,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -560,6 +564,7 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -813,6 +818,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -912,6 +918,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1011,6 +1018,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1110,6 +1118,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1209,6 +1218,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1344,6 +1354,7 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1597,6 +1608,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1696,6 +1708,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1795,6 +1808,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1894,6 +1908,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1993,6 +2008,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -2128,6 +2144,7 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
+                    "paddingHorizontal": 20,
                     "paddingVertical": 0,
                   },
                   Object {
