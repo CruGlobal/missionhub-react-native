@@ -30,6 +30,7 @@ export const GET_COMMUNITY_POST_CARDS = gql`
   query GetCommunityPostCards($communityId: ID!) {
     community(id: $communityId) {
       id
+      name
       feedItems(sortBy: createdAt_DESC, first: 100, unread: true) {
         nodes {
           subject {

@@ -42,6 +42,7 @@ export const GET_COMMUNITY_FEED = gql`
   ) {
     community(id: $communityId) {
       id
+      name
       feedItems(
         subjectType: $subjectType
         subjectPersonIds: $personIds
