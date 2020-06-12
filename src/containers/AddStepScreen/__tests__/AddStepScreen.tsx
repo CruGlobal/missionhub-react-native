@@ -1,4 +1,4 @@
-import { Alert } from 'react-native';
+import { Alert, Keyboard } from 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
@@ -278,18 +278,23 @@ it('saves step with onSetComplete', async () => {
 });
 
 it('skips save step', () => {
-  const { getByTestId, store } = renderWithContext(
-    <AddStepScreen next={next} />,
-    {
-      initialState: { auth, onboarding },
-      navParams: stepNoteParams,
-    },
-  );
+  Keyboard.dismiss = jest.fn();
+  jest.useFakeTimers();
+  const {
+    getByTestId,
+    store,
+    diffSnapshot,
+    recordSnapshot,
+  } = renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth, onboarding },
+    navParams: stepNoteParams,
+  });
 
   fireEvent.changeText(getByTestId('stepInput'), text);
-
+  recordSnapshot();
   fireEvent.press(getByTestId('skipButton'));
-
+  diffSnapshot();
+  expect(Keyboard.dismiss).toHaveBeenCalled();
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
     text: undefined,
