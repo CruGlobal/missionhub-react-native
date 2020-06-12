@@ -65,14 +65,6 @@ const ImpactView = ({
     impactSummarySelector(state, {}),
   );
 
-  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-    personId
-      ? getAnalyticsAssignmentType({ id: personId }, auth, organization)
-      : '',
-  );
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    !personId ? getAnalyticsPermissionType(auth, organization) : '',
-  );
   const screenSection = isOrgImpact ? 'community' : 'person';
   const screenSubsection = isOrgImpact
     ? 'impact'
@@ -80,10 +72,8 @@ const ImpactView = ({
     ? 'my impact'
     : 'impact';
   useAnalytics([screenSection, screenSubsection], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-    },
+    assignmentType: { personId: personId || '', communityId },
+    permissionType: { communityId },
   });
 
   useEffect(() => {
