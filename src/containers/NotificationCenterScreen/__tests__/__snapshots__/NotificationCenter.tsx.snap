@@ -5,328 +5,90 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -485,10 +485,320 @@
-                  \\"id\\": \\"20\\",
-                  \\"picture\\": \\"quia itaque quae\\",
+@@ -177,55 +177,55 @@
+        Array [
+          Object {
+            \\"data\\": Array [
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"21\\",
++               \\"id\\": \\"49\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"FeedItemComment\\",
+-                 \\"content\\": \\"adipisci itaque culpa\\",
+-                 \\"createdAt\\": \\"2016-04-29T08:40:14.131Z\\",
++                 \\"__typename\\": \\"Post\\",
++                 \\"author\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Marilyne Littel\\",
++                   \\"id\\": \\"51\\",
++                 },
++                 \\"content\\": \\"ab occaecati eveniet\\",
++                 \\"createdAt\\": \\"2016-12-07T07:16:52.264Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"sed dolorum voluptatibus\\",
+-                     \\"id\\": \\"24\\",
+-                     \\"name\\": \\"Enterprise-wide disintermediate initiative\\",
++                     \\"communityPhotoUrl\\": \\"facere ratione modi\\",
++                     \\"id\\": \\"52\\",
++                     \\"name\\": \\"Open-architected bifurcated website\\",
+                    },
+                  },
+-                 \\"id\\": \\"22\\",
+-                 \\"person\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Waino Beatty\\",
+-                   \\"id\\": \\"23\\",
++                 \\"id\\": \\"50\\",
++                 \\"mediaExpiringUrl\\": \\"repellendus porro voluptatem\\",
                 },
-                \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
               },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-08-08T00:51:17.387Z\\",
-+               \\"id\\": \\"21\\",
-+               \\"messageTemplate\\": \\"neque adipisci itaque\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"omnis sit et\\",
-+                   \\"value\\": \\"quasi eaque corrupti\\",
+-             },
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"25\\",
++               \\"id\\": \\"53\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"Post\\",
+-                 \\"author\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Rhoda Trantow\\",
+-                   \\"id\\": \\"27\\",
+-                 },
+-                 \\"content\\": \\"id omnis similique\\",
+-                 \\"createdAt\\": \\"2010-02-26T13:13:29.055Z\\",
++                 \\"__typename\\": \\"FeedItemComment\\",
++                 \\"content\\": \\"quia reprehenderit officiis\\",
++                 \\"createdAt\\": \\"2019-03-25T03:20:42.091Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"eaque corrupti vel\\",
+-                     \\"id\\": \\"28\\",
+-                     \\"name\\": \\"Advanced multimedia approach\\",
++                     \\"communityPhotoUrl\\": \\"velit dolorem fuga\\",
++                     \\"id\\": \\"56\\",
++                     \\"name\\": \\"Synergistic modular throughput\\",
+                    },
+                  },
+-                 \\"id\\": \\"26\\",
+-                 \\"mediaExpiringUrl\\": \\"blanditiis voluptatem provident\\",
++                 \\"id\\": \\"54\\",
++                 \\"person\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Rosalyn Heller\\",
++                   \\"id\\": \\"55\\",
 +                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"vel id omnis\\",
-+                   \\"value\\": \\"similique blanditiis voluptatem\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"eum saepe nesciunt\\",
-+                 \\"communityId\\": \\"sed dolorum voluptatibus\\",
-+                 \\"feedItemId\\": \\"labore ullam quos\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Gabriel Wisozk\\",
-+                 \\"id\\": \\"22\\",
-+                 \\"picture\\": \\"ab nulla quod\\",
-+               },
-+               \\"trigger\\": \\"onboarding_add_person\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2014-09-20T20:00:11.427Z\\",
-+               \\"id\\": \\"23\\",
-+               \\"messageTemplate\\": \\"doloribus aut culpa\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"et architecto non\\",
-+                   \\"value\\": \\"explicabo facere neque\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"et ex quaerat\\",
-+                   \\"value\\": \\"explicabo aut qui\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"voluptas quis non\\",
-+                 \\"communityId\\": \\"voluptatem magni et\\",
-+                 \\"feedItemId\\": \\"sint libero laudantium\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Genoveva Lang\\",
-+                 \\"id\\": \\"24\\",
-+                 \\"picture\\": \\"omnis numquam maxime\\",
-+               },
-+               \\"trigger\\": \\"community_challenge_ends_in_3_days\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2018-02-06T23:09:24.398Z\\",
-+               \\"id\\": \\"25\\",
-+               \\"messageTemplate\\": \\"non rerum in\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"est perferendis molestiae\\",
-+                   \\"value\\": \\"ut qui et\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"possimus hic in\\",
-+                   \\"value\\": \\"hic molestiae iste\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"voluptates dolorem recusandae\\",
-+                 \\"communityId\\": \\"cupiditate est id\\",
-+                 \\"feedItemId\\": \\"et qui id\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Rogers Walsh\\",
-+                 \\"id\\": \\"26\\",
-+                 \\"picture\\": \\"fuga voluptatem quia\\",
-+               },
-+               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2018-01-01T04:29:45.408Z\\",
-+               \\"id\\": \\"27\\",
-+               \\"messageTemplate\\": \\"repudiandae consequatur rerum\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"sapiente aperiam quia\\",
-+                   \\"value\\": \\"ex consequuntur beatae\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"dolores eligendi quas\\",
-+                   \\"value\\": \\"perferendis voluptatem praesentium\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"consequatur qui est\\",
-+                 \\"communityId\\": \\"molestiae consequatur sint\\",
-+                 \\"feedItemId\\": \\"accusantium unde qui\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Gina Greenholt\\",
-+                 \\"id\\": \\"28\\",
-+                 \\"picture\\": \\"corrupti dolorem id\\",
-+               },
-+               \\"trigger\\": \\"story_notification\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2010-07-24T21:48:34.267Z\\",
-+               \\"id\\": \\"29\\",
-+               \\"messageTemplate\\": \\"sapiente dolorem suscipit\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eveniet debitis et\\",
-+                   \\"value\\": \\"nulla voluptatem et\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"delectus praesentium et\\",
-+                   \\"value\\": \\"unde ut quibusdam\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"earum ex culpa\\",
-+                 \\"communityId\\": \\"sed nisi veniam\\",
-+                 \\"feedItemId\\": \\"magni rerum consequatur\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Jannie Dare\\",
-+                 \\"id\\": \\"30\\",
-+                 \\"picture\\": \\"odit sit quas\\",
-+               },
-+               \\"trigger\\": \\"community_challenge_created_alert\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2014-04-08T16:52:30.857Z\\",
-+               \\"id\\": \\"31\\",
-+               \\"messageTemplate\\": \\"quis consequuntur quos\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"in perspiciatis sit\\",
-+                   \\"value\\": \\"consectetur temporibus officia\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"laborum quae illo\\",
-+                   \\"value\\": \\"perferendis quam ab\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"ut saepe vel\\",
-+                 \\"communityId\\": \\"consequatur et ipsam\\",
-+                 \\"feedItemId\\": \\"eius et dolore\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Lavon Hahn\\",
-+                 \\"id\\": \\"32\\",
-+                 \\"picture\\": \\"perferendis tenetur deserunt\\",
-+               },
-+               \\"trigger\\": \\"welcome\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2013-04-01T09:34:11.143Z\\",
-+               \\"id\\": \\"33\\",
-+               \\"messageTemplate\\": \\"in sint in\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"ut quis cumque\\",
-+                   \\"value\\": \\"officia optio placeat\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"architecto vero eaque\\",
-+                   \\"value\\": \\"possimus temporibus optio\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"in esse et\\",
-+                 \\"communityId\\": \\"nesciunt eum non\\",
-+                 \\"feedItemId\\": \\"aut vitae id\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Sandrine Wolf\\",
-+                 \\"id\\": \\"34\\",
-+                 \\"picture\\": \\"repellendus autem aliquam\\",
-+               },
-+               \\"trigger\\": \\"community_challenge_created_alert\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2011-01-14T01:41:57.280Z\\",
-+               \\"id\\": \\"35\\",
-+               \\"messageTemplate\\": \\"et consequatur quia\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"et dolorem aut\\",
-+                   \\"value\\": \\"quam cum nobis\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"velit ad molestiae\\",
-+                   \\"value\\": \\"aut nisi eius\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"magni dolorum natus\\",
-+                 \\"communityId\\": \\"in provident voluptatem\\",
-+                 \\"feedItemId\\": \\"labore velit voluptatem\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Marcos Konopelski\\",
-+                 \\"id\\": \\"36\\",
-+                 \\"picture\\": \\"qui ea eum\\",
-+               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-01-24T14:50:25.628Z\\",
-+               \\"id\\": \\"37\\",
-+               \\"messageTemplate\\": \\"doloremque aut recusandae\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"vitae minus quae\\",
-+                   \\"value\\": \\"occaecati dignissimos assumenda\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"sit similique et\\",
-+                   \\"value\\": \\"laudantium vel nisi\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"et amet sunt\\",
-+                 \\"communityId\\": \\"ut non eos\\",
-+                 \\"feedItemId\\": \\"magnam ullam at\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Oswaldo Ondricka\\",
-+                 \\"id\\": \\"38\\",
-+                 \\"picture\\": \\"sint enim sit\\",
-+               },
-+               \\"trigger\\": \\"story_notification\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2013-09-04T12:56:31.743Z\\",
-+               \\"id\\": \\"39\\",
-+               \\"messageTemplate\\": \\"et est vel\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"neque cupiditate totam\\",
-+                   \\"value\\": \\"et nisi voluptatum\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"tempora nulla deserunt\\",
-+                   \\"value\\": \\"quo enim eos\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"distinctio similique amet\\",
-+                 \\"communityId\\": \\"officiis architecto est\\",
-+                 \\"feedItemId\\": \\"veniam vel et\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Arlene Feil\\",
-+                 \\"id\\": \\"40\\",
-+                 \\"picture\\": \\"voluptatibus quae sit\\",
-+               },
-+               \\"trigger\\": \\"onboarding_verse_one\\",
-+             },
+                },
+              },
             ],
-            \\"id\\": 2,
-            \\"name\\": \\"dates.earlier\\",
-          },
-        ]
-@@ -830,10 +1140,320 @@
+            \\"id\\": 0,
+            \\"name\\": \\"reportedActivity\\",
+@@ -539,12 +539,322 @@
                   \\"fullName\\": \\"Andy Cremin\\",
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"quia itaque quae\\",
@@ -335,318 +97,830 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-08-08T00:51:17.387Z\\",
-+               \\"id\\": \\"21\\",
-+               \\"messageTemplate\\": \\"neque adipisci itaque\\",
++               \\"createdAt\\": \\"2018-12-10T22:09:38.051Z\\",
++               \\"id\\": \\"29\\",
++               \\"messageTemplate\\": \\"culpa ratione vel\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"omnis sit et\\",
-+                   \\"value\\": \\"quasi eaque corrupti\\",
++                   \\"key\\": \\"non explicabo facere\\",
++                   \\"value\\": \\"neque et ex\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"vel id omnis\\",
-+                   \\"value\\": \\"similique blanditiis voluptatem\\",
++                   \\"key\\": \\"quaerat explicabo aut\\",
++                   \\"value\\": \\"qui adipisci non\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"eum saepe nesciunt\\",
-+                 \\"communityId\\": \\"sed dolorum voluptatibus\\",
-+                 \\"feedItemId\\": \\"labore ullam quos\\",
++                 \\"challengeId\\": \\"non et architecto\\",
++                 \\"communityId\\": \\"et voluptas quis\\",
++                 \\"feedItemId\\": \\"laudantium voluptatem magni\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Gabriel Wisozk\\",
-+                 \\"id\\": \\"22\\",
-+                 \\"picture\\": \\"ab nulla quod\\",
-+               },
-+               \\"trigger\\": \\"onboarding_add_person\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2014-09-20T20:00:11.427Z\\",
-+               \\"id\\": \\"23\\",
-+               \\"messageTemplate\\": \\"doloribus aut culpa\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"et architecto non\\",
-+                   \\"value\\": \\"explicabo facere neque\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"et ex quaerat\\",
-+                   \\"value\\": \\"explicabo aut qui\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"voluptas quis non\\",
-+                 \\"communityId\\": \\"voluptatem magni et\\",
-+                 \\"feedItemId\\": \\"sint libero laudantium\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Genoveva Lang\\",
-+                 \\"id\\": \\"24\\",
-+                 \\"picture\\": \\"omnis numquam maxime\\",
-+               },
-+               \\"trigger\\": \\"community_challenge_ends_in_3_days\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2018-02-06T23:09:24.398Z\\",
-+               \\"id\\": \\"25\\",
-+               \\"messageTemplate\\": \\"non rerum in\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"est perferendis molestiae\\",
-+                   \\"value\\": \\"ut qui et\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"possimus hic in\\",
-+                   \\"value\\": \\"hic molestiae iste\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"voluptates dolorem recusandae\\",
-+                 \\"communityId\\": \\"cupiditate est id\\",
-+                 \\"feedItemId\\": \\"et qui id\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Rogers Walsh\\",
-+                 \\"id\\": \\"26\\",
-+                 \\"picture\\": \\"fuga voluptatem quia\\",
++                 \\"fullName\\": \\"Kathryn Emard\\",
++                 \\"id\\": \\"30\\",
++                 \\"picture\\": \\"maxime sint libero\\",
 +               },
 +               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2018-01-01T04:29:45.408Z\\",
-+               \\"id\\": \\"27\\",
-+               \\"messageTemplate\\": \\"repudiandae consequatur rerum\\",
++               \\"createdAt\\": \\"2013-08-23T23:13:35.984Z\\",
++               \\"id\\": \\"31\\",
++               \\"messageTemplate\\": \\"in cupiditate voluptas\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"sapiente aperiam quia\\",
-+                   \\"value\\": \\"ex consequuntur beatae\\",
++                   \\"key\\": \\"molestiae ut qui\\",
++                   \\"value\\": \\"et possimus hic\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"dolores eligendi quas\\",
-+                   \\"value\\": \\"perferendis voluptatem praesentium\\",
++                   \\"key\\": \\"in hic molestiae\\",
++                   \\"value\\": \\"iste sed repudiandae\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"consequatur qui est\\",
-+                 \\"communityId\\": \\"molestiae consequatur sint\\",
-+                 \\"feedItemId\\": \\"accusantium unde qui\\",
++                 \\"challengeId\\": \\"recusandae est perferendis\\",
++                 \\"communityId\\": \\"id voluptates dolorem\\",
++                 \\"feedItemId\\": \\"id cupiditate est\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Gina Greenholt\\",
-+                 \\"id\\": \\"28\\",
-+                 \\"picture\\": \\"corrupti dolorem id\\",
++                 \\"fullName\\": \\"Lincoln Gibson\\",
++                 \\"id\\": \\"32\\",
++                 \\"picture\\": \\"quia et qui\\",
 +               },
 +               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2010-07-24T21:48:34.267Z\\",
-+               \\"id\\": \\"29\\",
-+               \\"messageTemplate\\": \\"sapiente dolorem suscipit\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eveniet debitis et\\",
-+                   \\"value\\": \\"nulla voluptatem et\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"delectus praesentium et\\",
-+                   \\"value\\": \\"unde ut quibusdam\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"earum ex culpa\\",
-+                 \\"communityId\\": \\"sed nisi veniam\\",
-+                 \\"feedItemId\\": \\"magni rerum consequatur\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Jannie Dare\\",
-+                 \\"id\\": \\"30\\",
-+                 \\"picture\\": \\"odit sit quas\\",
-+               },
-+               \\"trigger\\": \\"community_challenge_created_alert\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2014-04-08T16:52:30.857Z\\",
-+               \\"id\\": \\"31\\",
-+               \\"messageTemplate\\": \\"quis consequuntur quos\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"in perspiciatis sit\\",
-+                   \\"value\\": \\"consectetur temporibus officia\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"laborum quae illo\\",
-+                   \\"value\\": \\"perferendis quam ab\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"ut saepe vel\\",
-+                 \\"communityId\\": \\"consequatur et ipsam\\",
-+                 \\"feedItemId\\": \\"eius et dolore\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Lavon Hahn\\",
-+                 \\"id\\": \\"32\\",
-+                 \\"picture\\": \\"perferendis tenetur deserunt\\",
-+               },
-+               \\"trigger\\": \\"welcome\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2013-04-01T09:34:11.143Z\\",
++               \\"createdAt\\": \\"2019-12-15T18:57:44.143Z\\",
 +               \\"id\\": \\"33\\",
-+               \\"messageTemplate\\": \\"in sint in\\",
++               \\"messageTemplate\\": \\"rerum molestiae reprehenderit\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"ut quis cumque\\",
-+                   \\"value\\": \\"officia optio placeat\\",
++                   \\"key\\": \\"quia ex consequuntur\\",
++                   \\"value\\": \\"beatae dolores eligendi\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"architecto vero eaque\\",
-+                   \\"value\\": \\"possimus temporibus optio\\",
++                   \\"key\\": \\"quas perferendis voluptatem\\",
++                   \\"value\\": \\"praesentium hic sapiente\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"in esse et\\",
-+                 \\"communityId\\": \\"nesciunt eum non\\",
-+                 \\"feedItemId\\": \\"aut vitae id\\",
++                 \\"challengeId\\": \\"est sapiente aperiam\\",
++                 \\"communityId\\": \\"sint consequatur qui\\",
++                 \\"feedItemId\\": \\"qui molestiae consequatur\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Sandrine Wolf\\",
++                 \\"fullName\\": \\"Jeanette Cummings\\",
 +                 \\"id\\": \\"34\\",
-+                 \\"picture\\": \\"repellendus autem aliquam\\",
-+               },
-+               \\"trigger\\": \\"community_challenge_created_alert\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2011-01-14T01:41:57.280Z\\",
-+               \\"id\\": \\"35\\",
-+               \\"messageTemplate\\": \\"et consequatur quia\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"et dolorem aut\\",
-+                   \\"value\\": \\"quam cum nobis\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"velit ad molestiae\\",
-+                   \\"value\\": \\"aut nisi eius\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"magni dolorum natus\\",
-+                 \\"communityId\\": \\"in provident voluptatem\\",
-+                 \\"feedItemId\\": \\"labore velit voluptatem\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Marcos Konopelski\\",
-+                 \\"id\\": \\"36\\",
-+                 \\"picture\\": \\"qui ea eum\\",
++                 \\"picture\\": \\"id accusantium unde\\",
 +               },
 +               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-01-24T14:50:25.628Z\\",
-+               \\"id\\": \\"37\\",
-+               \\"messageTemplate\\": \\"doloremque aut recusandae\\",
++               \\"createdAt\\": \\"2011-10-09T00:41:05.477Z\\",
++               \\"id\\": \\"35\\",
++               \\"messageTemplate\\": \\"suscipit perferendis rem\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"vitae minus quae\\",
-+                   \\"value\\": \\"occaecati dignissimos assumenda\\",
++                   \\"key\\": \\"et nulla voluptatem\\",
++                   \\"value\\": \\"et delectus praesentium\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"sit similique et\\",
-+                   \\"value\\": \\"laudantium vel nisi\\",
++                   \\"key\\": \\"et unde ut\\",
++                   \\"value\\": \\"quibusdam in quis\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"et amet sunt\\",
-+                 \\"communityId\\": \\"ut non eos\\",
-+                 \\"feedItemId\\": \\"magnam ullam at\\",
++                 \\"challengeId\\": \\"culpa eveniet debitis\\",
++                 \\"communityId\\": \\"veniam earum ex\\",
++                 \\"feedItemId\\": \\"consequatur sed nisi\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Oswaldo Ondricka\\",
++                 \\"fullName\\": \\"Ben Harris\\",
++                 \\"id\\": \\"36\\",
++                 \\"picture\\": \\"quas magni rerum\\",
++               },
++               \\"trigger\\": \\"feed_items_assigned_to_alert_accepted_community_challenge\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2018-10-09T04:18:29.844Z\\",
++               \\"id\\": \\"37\\",
++               \\"messageTemplate\\": \\"quos hic animi\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"sit consectetur temporibus\\",
++                   \\"value\\": \\"officia laborum quae\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"illo perferendis quam\\",
++                   \\"value\\": \\"ab soluta in\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"vel in perspiciatis\\",
++                 \\"communityId\\": \\"ipsam ut saepe\\",
++                 \\"feedItemId\\": \\"dolore consequatur et\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Adrienne Wilderman\\",
 +                 \\"id\\": \\"38\\",
-+                 \\"picture\\": \\"sint enim sit\\",
++                 \\"picture\\": \\"deserunt eius et\\",
++               },
++               \\"trigger\\": \\"feed_items_comment_notification\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2010-11-09T02:29:03.176Z\\",
++               \\"id\\": \\"39\\",
++               \\"messageTemplate\\": \\"in alias accusamus\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"cumque officia optio\\",
++                   \\"value\\": \\"placeat architecto vero\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"eaque possimus temporibus\\",
++                   \\"value\\": \\"optio ut et\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"et ut quis\\",
++                 \\"communityId\\": \\"non in esse\\",
++                 \\"feedItemId\\": \\"id nesciunt eum\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Paige Hirthe\\",
++                 \\"id\\": \\"40\\",
++                 \\"picture\\": \\"aliquam aut vitae\\",
++               },
++               \\"trigger\\": \\"welcome\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2019-12-27T23:29:36.678Z\\",
++               \\"id\\": \\"41\\",
++               \\"messageTemplate\\": \\"quia voluptatem tempore\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"aut quam cum\\",
++                   \\"value\\": \\"nobis velit ad\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"molestiae aut nisi\\",
++                   \\"value\\": \\"eius quibusdam doloremque\\",
+                  },
+                ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"natus et dolorem\\",
++                 \\"communityId\\": \\"voluptatem magni dolorum\\",
++                 \\"feedItemId\\": \\"voluptatem in provident\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Itzel Herzog\\",
++                 \\"id\\": \\"42\\",
++                 \\"picture\\": \\"eum labore velit\\",
++               },
++               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2011-03-30T00:09:00.106Z\\",
++               \\"id\\": \\"43\\",
++               \\"messageTemplate\\": \\"recusandae et dolor\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"quae occaecati dignissimos\\",
++                   \\"value\\": \\"assumenda sit similique\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"et laudantium vel\\",
++                   \\"value\\": \\"nisi quidem et\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"sunt vitae minus\\",
++                 \\"communityId\\": \\"eos et amet\\",
++                 \\"feedItemId\\": \\"at ut non\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Joseph Glover\\",
++                 \\"id\\": \\"44\\",
++                 \\"picture\\": \\"sit magnam ullam\\",
++               },
++               \\"trigger\\": \\"onboarding_verse_four\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2012-04-24T02:18:07.914Z\\",
++               \\"id\\": \\"45\\",
++               \\"messageTemplate\\": \\"vel nihil beatae\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"totam et nisi\\",
++                   \\"value\\": \\"voluptatum tempora nulla\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"deserunt quo enim\\",
++                   \\"value\\": \\"eos sint ut\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"amet neque cupiditate\\",
++                 \\"communityId\\": \\"est distinctio similique\\",
++                 \\"feedItemId\\": \\"et officiis architecto\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Willy Bayer\\",
++                 \\"id\\": \\"46\\",
++                 \\"picture\\": \\"sit veniam vel\\",
++               },
++               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2010-12-11T19:55:40.389Z\\",
++               \\"id\\": \\"47\\",
++               \\"messageTemplate\\": \\"totam quaerat eius\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"nesciunt et id\\",
++                   \\"value\\": \\"ut voluptatem aut\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"necessitatibus sint temporibus\\",
++                   \\"value\\": \\"voluptatum eius sequi\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"at illo esse\\",
++                 \\"communityId\\": \\"quas dolore tempore\\",
++                 \\"feedItemId\\": \\"qui aut quia\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Ignatius Dickinson\\",
++                 \\"id\\": \\"48\\",
++                 \\"picture\\": \\"deleniti et sit\\",
++               },
++               \\"trigger\\": \\"community_challenge_ends_in_3_days\\",
++             },
++           ],
+            \\"id\\": 2,
+            \\"name\\": \\"dates.earlier\\",
+          },
+        ]
+      }
+@@ -578,55 +888,55 @@
+        Array [
+          Object {
+            \\"data\\": Array [
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"21\\",
++               \\"id\\": \\"49\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"FeedItemComment\\",
+-                 \\"content\\": \\"adipisci itaque culpa\\",
+-                 \\"createdAt\\": \\"2016-04-29T08:40:14.131Z\\",
++                 \\"__typename\\": \\"Post\\",
++                 \\"author\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Marilyne Littel\\",
++                   \\"id\\": \\"51\\",
++                 },
++                 \\"content\\": \\"ab occaecati eveniet\\",
++                 \\"createdAt\\": \\"2016-12-07T07:16:52.264Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"sed dolorum voluptatibus\\",
+-                     \\"id\\": \\"24\\",
+-                     \\"name\\": \\"Enterprise-wide disintermediate initiative\\",
++                     \\"communityPhotoUrl\\": \\"facere ratione modi\\",
++                     \\"id\\": \\"52\\",
++                     \\"name\\": \\"Open-architected bifurcated website\\",
+                    },
+                  },
+-                 \\"id\\": \\"22\\",
+-                 \\"person\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Waino Beatty\\",
+-                   \\"id\\": \\"23\\",
++                 \\"id\\": \\"50\\",
++                 \\"mediaExpiringUrl\\": \\"repellendus porro voluptatem\\",
+                },
+              },
+-             },
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"25\\",
++               \\"id\\": \\"53\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"Post\\",
+-                 \\"author\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Rhoda Trantow\\",
+-                   \\"id\\": \\"27\\",
+-                 },
+-                 \\"content\\": \\"id omnis similique\\",
+-                 \\"createdAt\\": \\"2010-02-26T13:13:29.055Z\\",
++                 \\"__typename\\": \\"FeedItemComment\\",
++                 \\"content\\": \\"quia reprehenderit officiis\\",
++                 \\"createdAt\\": \\"2019-03-25T03:20:42.091Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"eaque corrupti vel\\",
+-                     \\"id\\": \\"28\\",
+-                     \\"name\\": \\"Advanced multimedia approach\\",
++                     \\"communityPhotoUrl\\": \\"velit dolorem fuga\\",
++                     \\"id\\": \\"56\\",
++                     \\"name\\": \\"Synergistic modular throughput\\",
+                    },
+                  },
+-                 \\"id\\": \\"26\\",
+-                 \\"mediaExpiringUrl\\": \\"blanditiis voluptatem provident\\",
++                 \\"id\\": \\"54\\",
++                 \\"person\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Rosalyn Heller\\",
++                   \\"id\\": \\"55\\",
++                 },
+                },
+              },
+            ],
+            \\"id\\": 0,
+            \\"name\\": \\"reportedActivity\\",
+@@ -940,12 +1250,322 @@
+                  \\"fullName\\": \\"Andy Cremin\\",
+                  \\"id\\": \\"20\\",
+                  \\"picture\\": \\"quia itaque quae\\",
+                },
+                \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2018-12-10T22:09:38.051Z\\",
++               \\"id\\": \\"29\\",
++               \\"messageTemplate\\": \\"culpa ratione vel\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"non explicabo facere\\",
++                   \\"value\\": \\"neque et ex\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"quaerat explicabo aut\\",
++                   \\"value\\": \\"qui adipisci non\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"non et architecto\\",
++                 \\"communityId\\": \\"et voluptas quis\\",
++                 \\"feedItemId\\": \\"laudantium voluptatem magni\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Kathryn Emard\\",
++                 \\"id\\": \\"30\\",
++                 \\"picture\\": \\"maxime sint libero\\",
++               },
++               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2013-08-23T23:13:35.984Z\\",
++               \\"id\\": \\"31\\",
++               \\"messageTemplate\\": \\"in cupiditate voluptas\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"molestiae ut qui\\",
++                   \\"value\\": \\"et possimus hic\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"in hic molestiae\\",
++                   \\"value\\": \\"iste sed repudiandae\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"recusandae est perferendis\\",
++                 \\"communityId\\": \\"id voluptates dolorem\\",
++                 \\"feedItemId\\": \\"id cupiditate est\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Lincoln Gibson\\",
++                 \\"id\\": \\"32\\",
++                 \\"picture\\": \\"quia et qui\\",
 +               },
 +               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2013-09-04T12:56:31.743Z\\",
-+               \\"id\\": \\"39\\",
-+               \\"messageTemplate\\": \\"et est vel\\",
++               \\"createdAt\\": \\"2019-12-15T18:57:44.143Z\\",
++               \\"id\\": \\"33\\",
++               \\"messageTemplate\\": \\"rerum molestiae reprehenderit\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"neque cupiditate totam\\",
-+                   \\"value\\": \\"et nisi voluptatum\\",
++                   \\"key\\": \\"quia ex consequuntur\\",
++                   \\"value\\": \\"beatae dolores eligendi\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"tempora nulla deserunt\\",
-+                   \\"value\\": \\"quo enim eos\\",
++                   \\"key\\": \\"quas perferendis voluptatem\\",
++                   \\"value\\": \\"praesentium hic sapiente\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"distinctio similique amet\\",
-+                 \\"communityId\\": \\"officiis architecto est\\",
-+                 \\"feedItemId\\": \\"veniam vel et\\",
++                 \\"challengeId\\": \\"est sapiente aperiam\\",
++                 \\"communityId\\": \\"sint consequatur qui\\",
++                 \\"feedItemId\\": \\"qui molestiae consequatur\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Arlene Feil\\",
-+                 \\"id\\": \\"40\\",
-+                 \\"picture\\": \\"voluptatibus quae sit\\",
++                 \\"fullName\\": \\"Jeanette Cummings\\",
++                 \\"id\\": \\"34\\",
++                 \\"picture\\": \\"id accusantium unde\\",
 +               },
-+               \\"trigger\\": \\"onboarding_verse_one\\",
-              },
-            ],
++               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2011-10-09T00:41:05.477Z\\",
++               \\"id\\": \\"35\\",
++               \\"messageTemplate\\": \\"suscipit perferendis rem\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"et nulla voluptatem\\",
++                   \\"value\\": \\"et delectus praesentium\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"et unde ut\\",
++                   \\"value\\": \\"quibusdam in quis\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"culpa eveniet debitis\\",
++                 \\"communityId\\": \\"veniam earum ex\\",
++                 \\"feedItemId\\": \\"consequatur sed nisi\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Ben Harris\\",
++                 \\"id\\": \\"36\\",
++                 \\"picture\\": \\"quas magni rerum\\",
++               },
++               \\"trigger\\": \\"feed_items_assigned_to_alert_accepted_community_challenge\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2018-10-09T04:18:29.844Z\\",
++               \\"id\\": \\"37\\",
++               \\"messageTemplate\\": \\"quos hic animi\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"sit consectetur temporibus\\",
++                   \\"value\\": \\"officia laborum quae\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"illo perferendis quam\\",
++                   \\"value\\": \\"ab soluta in\\",
+                  },
+                ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"vel in perspiciatis\\",
++                 \\"communityId\\": \\"ipsam ut saepe\\",
++                 \\"feedItemId\\": \\"dolore consequatur et\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Adrienne Wilderman\\",
++                 \\"id\\": \\"38\\",
++                 \\"picture\\": \\"deserunt eius et\\",
++               },
++               \\"trigger\\": \\"feed_items_comment_notification\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2010-11-09T02:29:03.176Z\\",
++               \\"id\\": \\"39\\",
++               \\"messageTemplate\\": \\"in alias accusamus\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"cumque officia optio\\",
++                   \\"value\\": \\"placeat architecto vero\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"eaque possimus temporibus\\",
++                   \\"value\\": \\"optio ut et\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"et ut quis\\",
++                 \\"communityId\\": \\"non in esse\\",
++                 \\"feedItemId\\": \\"id nesciunt eum\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Paige Hirthe\\",
++                 \\"id\\": \\"40\\",
++                 \\"picture\\": \\"aliquam aut vitae\\",
++               },
++               \\"trigger\\": \\"welcome\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2019-12-27T23:29:36.678Z\\",
++               \\"id\\": \\"41\\",
++               \\"messageTemplate\\": \\"quia voluptatem tempore\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"aut quam cum\\",
++                   \\"value\\": \\"nobis velit ad\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"molestiae aut nisi\\",
++                   \\"value\\": \\"eius quibusdam doloremque\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"natus et dolorem\\",
++                 \\"communityId\\": \\"voluptatem magni dolorum\\",
++                 \\"feedItemId\\": \\"voluptatem in provident\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Itzel Herzog\\",
++                 \\"id\\": \\"42\\",
++                 \\"picture\\": \\"eum labore velit\\",
++               },
++               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2011-03-30T00:09:00.106Z\\",
++               \\"id\\": \\"43\\",
++               \\"messageTemplate\\": \\"recusandae et dolor\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"quae occaecati dignissimos\\",
++                   \\"value\\": \\"assumenda sit similique\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"et laudantium vel\\",
++                   \\"value\\": \\"nisi quidem et\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"sunt vitae minus\\",
++                 \\"communityId\\": \\"eos et amet\\",
++                 \\"feedItemId\\": \\"at ut non\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Joseph Glover\\",
++                 \\"id\\": \\"44\\",
++                 \\"picture\\": \\"sit magnam ullam\\",
++               },
++               \\"trigger\\": \\"onboarding_verse_four\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2012-04-24T02:18:07.914Z\\",
++               \\"id\\": \\"45\\",
++               \\"messageTemplate\\": \\"vel nihil beatae\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"totam et nisi\\",
++                   \\"value\\": \\"voluptatum tempora nulla\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"deserunt quo enim\\",
++                   \\"value\\": \\"eos sint ut\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"amet neque cupiditate\\",
++                 \\"communityId\\": \\"est distinctio similique\\",
++                 \\"feedItemId\\": \\"et officiis architecto\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Willy Bayer\\",
++                 \\"id\\": \\"46\\",
++                 \\"picture\\": \\"sit veniam vel\\",
++               },
++               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2010-12-11T19:55:40.389Z\\",
++               \\"id\\": \\"47\\",
++               \\"messageTemplate\\": \\"totam quaerat eius\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"nesciunt et id\\",
++                   \\"value\\": \\"ut voluptatem aut\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"necessitatibus sint temporibus\\",
++                   \\"value\\": \\"voluptatum eius sequi\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"at illo esse\\",
++                 \\"communityId\\": \\"quas dolore tempore\\",
++                 \\"feedItemId\\": \\"qui aut quia\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Ignatius Dickinson\\",
++                 \\"id\\": \\"48\\",
++                 \\"picture\\": \\"deleniti et sit\\",
++               },
++               \\"trigger\\": \\"community_challenge_ends_in_3_days\\",
++             },
++           ],
             \\"id\\": 2,
             \\"name\\": \\"dates.earlier\\",
-          },"
+          },
+        ]
+      }
+@@ -1033,11 +1653,11 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"sed dolorum voluptatibus\\",
++                   \\"uri\\": \\"facere ratione modi\\",
+                  }
+                }
+                style={
+                  Object {
+                    \\"borderRadius\\": 24,
+@@ -1095,11 +1715,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   A comment from
++                   A post from
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1112,11 +1732,11 @@
+                          \\"fontWeight\\": \\"600\\",
+                        },
+                      ]
+                    }
+                  >
+-                    Enterprise-wide disintermediate initiative 
++                    Open-architected bifurcated website 
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1165,11 +1785,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 April 29, 2016 8:40 AM
++                 December 7, 2016 7:16 AM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -1211,11 +1831,11 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"eaque corrupti vel\\",
++                   \\"uri\\": \\"velit dolorem fuga\\",
+                  }
+                }
+                style={
+                  Object {
+                    \\"borderRadius\\": 24,
+@@ -1273,11 +1893,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   A post from
++                   A comment from
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1290,11 +1910,11 @@
+                          \\"fontWeight\\": \\"600\\",
+                        },
+                      ]
+                    }
+                  >
+-                    Advanced multimedia approach 
++                    Synergistic modular throughput 
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1343,11 +1963,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 February 26, 2010 1:13 PM
++                 March 25, 2019 3:20 AM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>"
 `;
 
 exports[`handle pagination should not load more when no next page 1`] = `
@@ -835,6 +1109,60 @@ exports[`renders Earlier section correctly  1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "3",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "esse blanditiis natus",
+                "createdAt": "2015-09-24T22:48:18.365Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "et ipsam explicabo",
+                    "id": "6",
+                    "name": "Self-enabling non-volatile toolset",
+                  },
+                },
+                "id": "4",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Brooklyn Weimann",
+                  "id": "5",
+                },
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "7",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "eligendi occaecati debitis",
+                "createdAt": "2011-05-23T16:13:35.303Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "inventore debitis libero",
+                    "id": "10",
+                    "name": "Assimilated didactic challenge",
+                  },
+                },
+                "id": "8",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Soledad Simonis",
+                  "id": "9",
+                },
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+        Object {
+          "data": Array [
+            Object {
               "__typename": "Notification",
               "createdAt": "2020-05-18 12:00:00 PM GMT+0",
               "id": "1",
@@ -902,6 +1230,60 @@ exports[`renders Earlier section correctly  1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "3",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "esse blanditiis natus",
+                "createdAt": "2015-09-24T22:48:18.365Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "et ipsam explicabo",
+                    "id": "6",
+                    "name": "Self-enabling non-volatile toolset",
+                  },
+                },
+                "id": "4",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Brooklyn Weimann",
+                  "id": "5",
+                },
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "7",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "eligendi occaecati debitis",
+                "createdAt": "2011-05-23T16:13:35.303Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "inventore debitis libero",
+                    "id": "10",
+                    "name": "Assimilated didactic challenge",
+                  },
+                },
+                "id": "8",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Soledad Simonis",
+                  "id": "9",
+                },
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+        Object {
+          "data": Array [
+            Object {
               "__typename": "Notification",
               "createdAt": "2020-05-18 12:00:00 PM GMT+0",
               "id": "1",
@@ -941,6 +1323,7 @@ exports[`renders Earlier section correctly  1`] = `
     stickyHeaderIndices={
       Array [
         0,
+        4,
       ]
     }
     stickySectionHeadersEnabled={true}
@@ -955,6 +1338,394 @@ exports[`renders Earlier section correctly  1`] = `
   >
     <RCTRefreshControl />
     <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "fontSize": 24,
+              "fontWeight": "300",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "200",
+                "marginLeft": 10,
+                "padding": 10,
+              }
+            }
+          >
+            Reported Activity
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
+            }
+          }
+          testID="reportedNotificationButton"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "et ipsam explicabo",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A comment from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Self-enabling non-volatile toolset 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                September 24, 2015 10:48 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
+            }
+          }
+          testID="reportedNotificationButton"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "inventore debitis libero",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A comment from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Assimilated didactic challenge 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                May 23, 2011 4:13 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
       <View
         onLayout={[Function]}
         style={null}
@@ -1357,6 +2128,60 @@ exports[`renders Today section correctly  1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "3",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "esse blanditiis natus",
+                "createdAt": "2015-09-24T22:48:18.365Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "et ipsam explicabo",
+                    "id": "6",
+                    "name": "Self-enabling non-volatile toolset",
+                  },
+                },
+                "id": "4",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Brooklyn Weimann",
+                  "id": "5",
+                },
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "7",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "eligendi occaecati debitis",
+                "createdAt": "2011-05-23T16:13:35.303Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "inventore debitis libero",
+                    "id": "10",
+                    "name": "Assimilated didactic challenge",
+                  },
+                },
+                "id": "8",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Soledad Simonis",
+                  "id": "9",
+                },
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+        Object {
+          "data": Array [
+            Object {
               "__typename": "Notification",
               "createdAt": "2020-05-20 11:00:00 AM GMT+0",
               "id": "1",
@@ -1424,6 +2249,60 @@ exports[`renders Today section correctly  1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "3",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "esse blanditiis natus",
+                "createdAt": "2015-09-24T22:48:18.365Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "et ipsam explicabo",
+                    "id": "6",
+                    "name": "Self-enabling non-volatile toolset",
+                  },
+                },
+                "id": "4",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Brooklyn Weimann",
+                  "id": "5",
+                },
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "7",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "eligendi occaecati debitis",
+                "createdAt": "2011-05-23T16:13:35.303Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "inventore debitis libero",
+                    "id": "10",
+                    "name": "Assimilated didactic challenge",
+                  },
+                },
+                "id": "8",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Soledad Simonis",
+                  "id": "9",
+                },
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+        Object {
+          "data": Array [
+            Object {
               "__typename": "Notification",
               "createdAt": "2020-05-20 11:00:00 AM GMT+0",
               "id": "1",
@@ -1463,6 +2342,7 @@ exports[`renders Today section correctly  1`] = `
     stickyHeaderIndices={
       Array [
         0,
+        4,
       ]
     }
     stickySectionHeadersEnabled={true}
@@ -1477,6 +2357,394 @@ exports[`renders Today section correctly  1`] = `
   >
     <RCTRefreshControl />
     <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "fontSize": 24,
+              "fontWeight": "300",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "200",
+                "marginLeft": 10,
+                "padding": 10,
+              }
+            }
+          >
+            Reported Activity
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
+            }
+          }
+          testID="reportedNotificationButton"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "et ipsam explicabo",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A comment from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Self-enabling non-volatile toolset 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                September 24, 2015 10:48 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
+            }
+          }
+          testID="reportedNotificationButton"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "inventore debitis libero",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A comment from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Assimilated didactic challenge 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                May 23, 2011 4:13 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
       <View
         onLayout={[Function]}
         style={null}
@@ -1879,6 +3147,61 @@ exports[`renders correctly 1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "21",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "adipisci itaque culpa",
+                "createdAt": "2016-04-29T08:40:14.131Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "sed dolorum voluptatibus",
+                    "id": "24",
+                    "name": "Enterprise-wide disintermediate initiative",
+                  },
+                },
+                "id": "22",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Waino Beatty",
+                  "id": "23",
+                },
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "25",
+              "subject": Object {
+                "__typename": "Post",
+                "author": Object {
+                  "__typename": "Person",
+                  "fullName": "Rhoda Trantow",
+                  "id": "27",
+                },
+                "content": "id omnis similique",
+                "createdAt": "2010-02-26T13:13:29.055Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "eaque corrupti vel",
+                    "id": "28",
+                    "name": "Advanced multimedia approach",
+                  },
+                },
+                "id": "26",
+                "mediaExpiringUrl": "blanditiis voluptatem provident",
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+        Object {
+          "data": Array [
+            Object {
               "__typename": "Notification",
               "createdAt": "2015-11-13T20:52:21.990Z",
               "id": "1",
@@ -2225,6 +3548,61 @@ exports[`renders correctly 1`] = `
         Object {
           "data": Array [
             Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "21",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "adipisci itaque culpa",
+                "createdAt": "2016-04-29T08:40:14.131Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "sed dolorum voluptatibus",
+                    "id": "24",
+                    "name": "Enterprise-wide disintermediate initiative",
+                  },
+                },
+                "id": "22",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Waino Beatty",
+                  "id": "23",
+                },
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "25",
+              "subject": Object {
+                "__typename": "Post",
+                "author": Object {
+                  "__typename": "Person",
+                  "fullName": "Rhoda Trantow",
+                  "id": "27",
+                },
+                "content": "id omnis similique",
+                "createdAt": "2010-02-26T13:13:29.055Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "eaque corrupti vel",
+                    "id": "28",
+                    "name": "Advanced multimedia approach",
+                  },
+                },
+                "id": "26",
+                "mediaExpiringUrl": "blanditiis voluptatem provident",
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+        Object {
+          "data": Array [
+            Object {
               "__typename": "Notification",
               "createdAt": "2015-11-13T20:52:21.990Z",
               "id": "1",
@@ -2543,6 +3921,7 @@ exports[`renders correctly 1`] = `
     stickyHeaderIndices={
       Array [
         0,
+        4,
       ]
     }
     stickySectionHeadersEnabled={true}
@@ -2557,6 +3936,394 @@ exports[`renders correctly 1`] = `
   >
     <RCTRefreshControl />
     <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "backgroundColor": "#ECEEF2",
+              "fontSize": 24,
+              "fontWeight": "300",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "200",
+                "marginLeft": 10,
+                "padding": 10,
+              }
+            }
+          >
+            Reported Activity
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
+            }
+          }
+          testID="reportedNotificationButton"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "sed dolorum voluptatibus",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A comment from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Enterprise-wide disintermediate initiative 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                April 29, 2016 8:40 AM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
+            }
+          }
+          testID="reportedNotificationButton"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "eaque corrupti vel",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A post from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Advanced multimedia approach 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                February 26, 2010 1:13 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
       <View
         onLayout={[Function]}
         style={null}
@@ -3471,714 +5238,6 @@ exports[`renders correctly 1`] = `
         </View>
       </View>
       <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderBottomColor": "#ECEEF2",
-              "borderBottomWidth": 1,
-              "opacity": 1,
-              "paddingVertical": 15,
-            }
-          }
-          testID="notificationButton"
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "row",
-                "maxWidth": 350,
-                "paddingHorizontal": 20,
-              }
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "fuga est placeat",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(160, 123, 67)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 30,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 18,
-                      "flexDirection": "row",
-                      "height": 36,
-                      "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 0,
-                    },
-                    Object {
-                      "backgroundColor": "#7076B5",
-                    },
-                    Object {
-                      "width": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 12,
-                      "height": 24,
-                      "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
-                      "width": 24,
-                    },
-                  ]
-                }
-                testID="STORYLabel"
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={15}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={15}
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  placeat quidem est
-                </Text>
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                April 30, 2014 7:38 PM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderBottomColor": "#ECEEF2",
-              "borderBottomWidth": 1,
-              "opacity": 1,
-              "paddingVertical": 15,
-            }
-          }
-          testID="notificationButton"
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "row",
-                "maxWidth": 350,
-                "paddingHorizontal": 20,
-              }
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "est sunt corporis",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(155, 123, 115)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 30,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 18,
-                      "flexDirection": "row",
-                      "height": 36,
-                      "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 0,
-                    },
-                    Object {
-                      "backgroundColor": "#7076B5",
-                    },
-                    Object {
-                      "width": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 12,
-                      "height": 24,
-                      "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
-                      "width": 24,
-                    },
-                  ]
-                }
-                testID="STORYLabel"
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={15}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={15}
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  earum voluptate vel
-                </Text>
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                April 3, 2014 9:04 PM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderBottomColor": "#ECEEF2",
-              "borderBottomWidth": 1,
-              "opacity": 1,
-              "paddingVertical": 15,
-            }
-          }
-          testID="notificationButton"
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "row",
-                "maxWidth": 350,
-                "paddingHorizontal": 20,
-              }
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "recusandae consectetur optio",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(163, 112, 125)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 30,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 18,
-                      "flexDirection": "row",
-                      "height": 36,
-                      "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 0,
-                    },
-                    Object {
-                      "backgroundColor": "#7076B5",
-                    },
-                    Object {
-                      "width": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 12,
-                      "height": 24,
-                      "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
-                      "width": 24,
-                    },
-                  ]
-                }
-                testID="STORYLabel"
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={15}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={15}
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  repellat quasi ipsum
-                </Text>
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                July 11, 2014 3:56 PM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderBottomColor": "#ECEEF2",
-              "borderBottomWidth": 1,
-              "opacity": 1,
-              "paddingVertical": 15,
-            }
-          }
-          testID="notificationButton"
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "row",
-                "maxWidth": 350,
-                "paddingHorizontal": 20,
-              }
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "minima quia ut",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(135, 19, 67)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 30,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 18,
-                      "flexDirection": "row",
-                      "height": 36,
-                      "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 0,
-                    },
-                    Object {
-                      "backgroundColor": "#7076B5",
-                    },
-                    Object {
-                      "width": 20,
-                    },
-                    Object {
-                      "alignItems": "center",
-                      "borderRadius": 12,
-                      "height": 24,
-                      "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
-                      "width": 24,
-                    },
-                  ]
-                }
-                testID="STORYLabel"
-              >
-                <SvgMock
-                  color="#ffffff"
-                  height={15}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": 0,
-                        "marginRight": 0,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={15}
-                />
-              </View>
-            </View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  quis ut incidunt
-                </Text>
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                June 10, 2011 9:33 PM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
         style={
           Object {
             "height": 0,
@@ -4366,7 +5425,65 @@ exports[`renders with no data 1`] = `
   </RCTSafeAreaView>
   <RCTScrollView
     ListEmptyComponent={[Function]}
-    data={Array []}
+    data={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "1",
+              "subject": Object {
+                "__typename": "Post",
+                "author": Object {
+                  "__typename": "Person",
+                  "fullName": "Mina Watsica",
+                  "id": "3",
+                },
+                "content": "amet iure ut",
+                "createdAt": "2014-08-26T07:39:14.970Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "ut sunt qui",
+                    "id": "4",
+                    "name": "Front-line zero tolerance capability",
+                  },
+                },
+                "id": "2",
+                "mediaExpiringUrl": "libero qui recusandae",
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "5",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "nulla quam ipsam",
+                "createdAt": "2013-03-09T22:46:17.951Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "libero repudiandae esse",
+                    "id": "8",
+                    "name": "Enhanced 3rd generation internet solution",
+                  },
+                },
+                "id": "6",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Judge Doyle",
+                  "id": "7",
+                },
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+      ]
+    }
     disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
@@ -4393,12 +5510,74 @@ exports[`renders with no data 1`] = `
     renderItem={[Function]}
     renderSectionHeader={[Function]}
     scrollEventThrottle={50}
-    sections={Array []}
-    stickyHeaderIndices={Array []}
+    sections={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "1",
+              "subject": Object {
+                "__typename": "Post",
+                "author": Object {
+                  "__typename": "Person",
+                  "fullName": "Mina Watsica",
+                  "id": "3",
+                },
+                "content": "amet iure ut",
+                "createdAt": "2014-08-26T07:39:14.970Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "ut sunt qui",
+                    "id": "4",
+                    "name": "Front-line zero tolerance capability",
+                  },
+                },
+                "id": "2",
+                "mediaExpiringUrl": "libero qui recusandae",
+              },
+            },
+            Object {
+              "__typename": "ContentComplaintGroup",
+              "id": "5",
+              "subject": Object {
+                "__typename": "FeedItemComment",
+                "content": "nulla quam ipsam",
+                "createdAt": "2013-03-09T22:46:17.951Z",
+                "feedItem": Object {
+                  "__typename": "FeedItem",
+                  "community": Object {
+                    "__typename": "Community",
+                    "communityPhotoUrl": "libero repudiandae esse",
+                    "id": "8",
+                    "name": "Enhanced 3rd generation internet solution",
+                  },
+                },
+                "id": "6",
+                "person": Object {
+                  "__typename": "Person",
+                  "fullName": "Judge Doyle",
+                  "id": "7",
+                },
+              },
+            },
+          ],
+          "id": 0,
+          "name": "reportedActivity",
+        },
+      ]
+    }
+    stickyHeaderIndices={
+      Array [
+        0,
+      ]
+    }
     stickySectionHeadersEnabled={true}
     style={
       Object {
-        "backgroundColor": "#ffffff",
+        "backgroundColor": "#ECEEF2",
       }
     }
     testID="notificationCenter"
@@ -4408,58 +5587,400 @@ exports[`renders with no data 1`] = `
     <RCTRefreshControl />
     <View>
       <View
-        style={
-          Array [
-            Object {
-              "marginTop": "50%",
-            },
-            Object {
-              "alignItems": "center",
-              "justifyContent": "center",
-            },
-          ]
-        }
+        onLayout={[Function]}
+        style={null}
       >
         <View
           style={
             Object {
-              "alignItems": "center",
               "backgroundColor": "#ECEEF2",
-              "borderRadius": 100,
-              "height": 150,
-              "justifyContent": "center",
-              "width": 150,
-            }
-          }
-        >
-          <SvgMock
-            color="#505256"
-          />
-        </View>
-        <Text
-          style={
-            Object {
               "fontSize": 24,
               "fontWeight": "300",
-              "paddingVertical": 30,
             }
           }
         >
-          No notifications yet
-        </Text>
-        <Text
+          <Text
+            style={
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "200",
+                "marginLeft": 10,
+                "padding": 10,
+              }
+            }
+          >
+            Reported Activity
+          </Text>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "fontSize": 16,
-              "lineHeight": 24,
-              "maxWidth": 300,
-              "textAlign": "center",
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
             }
           }
+          testID="reportedNotificationButton"
         >
-          Stay tuned! Notifications about your communities will show up here.
-        </Text>
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "ut sunt qui",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A post from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Front-line zero tolerance capability 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                August 26, 2014 7:39 AM
+              </Text>
+            </View>
+          </View>
+        </View>
       </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "backgroundColor": "#ffffff",
+              "borderBottomColor": "#ECEEF2",
+              "borderBottomWidth": 1,
+              "opacity": 1,
+              "paddingVertical": 15,
+            }
+          }
+          testID="reportedNotificationButton"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "flexDirection": "row",
+                "maxWidth": 350,
+                "paddingHorizontal": 20,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "libero repudiandae esse",
+                }
+              }
+              style={
+                Object {
+                  "borderRadius": 24,
+                  "height": 48,
+                  "width": 48,
+                }
+              }
+            />
+            <View
+              style={
+                Object {
+                  "left": 50,
+                  "position": "absolute",
+                  "top": 30,
+                }
+              }
+            >
+              <SvgMock
+                height={24}
+                width={24}
+              />
+            </View>
+            <View
+              style={
+                Object {
+                  "paddingHorizontal": 20,
+                }
+              }
+            >
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#505256",
+                      "fontSize": 16,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  A comment from
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Enhanced 3rd generation internet solution 
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  has been reported.
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontWeight": "600",
+                      },
+                    ]
+                  }
+                >
+                   Please Review.
+                </Text>
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#B4B6BA",
+                      "fontSize": 12,
+                      "lineHeight": 16,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                March 9, 2013 10:46 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>

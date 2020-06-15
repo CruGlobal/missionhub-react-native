@@ -7,11 +7,16 @@ import { View, Text, SectionList } from 'react-native';
 import theme from '../../theme';
 import Header from '../../components/Header';
 import { IconButton, Flex } from '../../components/common';
-import NotificationCenterItem from '../../components/NotificationCenterItem';
+import {
+  NotificationCenterItem,
+  ReportedNotificationCenterItem,
+} from '../../components/NotificationCenterItem';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { openMainMenu } from '../../utils/common';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
+import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
+
 // import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
 // import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
 
@@ -27,14 +32,19 @@ import styles from './styles';
 interface SectionsInterface {
   id: number;
   name: string;
-  data: NotificationItem[];
+  data: NotificationItem[] & ContentComplaintGroupItem[];
 }
-const groupNotificationFeed = (nodes: NotificationItem[]) => {
+const groupNotificationFeed = (
+  nodes: NotificationItem[],
+  contentComplaints: ContentComplaintGroupItem[],
+) => {
   const sections: SectionsInterface[] = [
     { id: 0, name: 'reportedActivity', data: [] },
     { id: 1, name: 'dates.today', data: [] },
     { id: 2, name: 'dates.earlier', data: [] },
   ];
+
+  contentComplaints.forEach(complaint => sections[0].data.push(complaint));
 
   return nodes
     .reduce((acc, c) => {
@@ -58,6 +68,7 @@ const NotificationCenterScreen = () => {
         nodes = [],
         pageInfo: { endCursor = null, hasNextPage = false } = {},
       } = {},
+      contentComplaints = [],
     } = {},
     refetch,
     fetchMore,
@@ -111,8 +122,16 @@ const NotificationCenterScreen = () => {
     [],
   );
 
-  const renderItem = ({ item }: { item: NotificationItem }) => {
-    return <NotificationCenterItem event={item} />;
+  const renderItem = ({
+    item,
+  }: {
+    item: NotificationItem | ContentComplaintGroupItem;
+  }) => {
+    return item.__typename === 'Notification' ? (
+      <NotificationCenterItem event={item} />
+    ) : (
+      <ReportedNotificationCenterItem event={item} />
+    );
   };
   const handleRefreshing = () => {
     if (loading) {
@@ -148,7 +167,7 @@ const NotificationCenterScreen = () => {
     });
   };
 
-  const filteredSections = groupNotificationFeed(nodes);
+  const filteredSections = groupNotificationFeed(nodes, contentComplaints);
 
   return (
     <View style={styles.pageContainer}>
