@@ -43,20 +43,14 @@ import {
 const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
 
-  // const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-  //   getAnalyticsAssignmentType(subjectPerson, auth, organization),
-  // );
-  // const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-  //   getAnalyticsPermissionType(auth, organization),
-  // );
-  useAnalytics(['celebrate item', 'comments'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: '', //analyticsAssignmentType,
-      [ANALYTICS_PERMISSION_TYPE]: '', // analyticsPermissionType,
-    },
-  });
-
   const feedItemId: string = useNavigationParam('feedItemId');
+  const personId: string = useNavigationParam('personId');
+  const communityId: string = useNavigationParam('communityId');
+
+  useAnalytics(['celebrate item', 'comments'], {
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+  });
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
 

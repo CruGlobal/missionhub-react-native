@@ -6,7 +6,7 @@ import moment from 'moment';
 import { fireEvent } from 'react-native-testing-library';
 
 import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
@@ -53,7 +53,7 @@ it('renders correctly', () => {
     },
   }).snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'create'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    permissionType: { communityId: organization.id },
   });
 });
 
@@ -80,7 +80,7 @@ it('renders edit challenge correctly', () => {
     },
   }).snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'edit'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    permissionType: { communityId: organization.id },
   });
 });
 

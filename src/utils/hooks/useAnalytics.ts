@@ -31,7 +31,7 @@ export enum ANALYTICS_SCREEN_TYPES {
 
 export interface UseAnalyticsOptions {
   screenType?: ANALYTICS_SCREEN_TYPES;
-  assignmentType?: { personId: string; communityId: string };
+  assignmentType?: { personId: string; communityId?: string };
   sectionType?: boolean;
   editMode?: { isEdit: boolean };
   permissionType?: { communityId: string };

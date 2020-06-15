@@ -9,8 +9,6 @@ import {
   EDIT_JOURNEY_ITEM,
   CREATE_STEP,
   STEP_NOTE,
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../../constants';
 import locale from '../../../i18n/locales/en-US';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -28,10 +26,11 @@ jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../utils/hooks/useAnalytics');
 
+const myId = '123123';
 const next = jest.fn();
 const nextResult = { type: 'next' };
 const trackStepAddedResponse = { type: 'trackStepAdded' };
-const auth = { person: { id: '123123' } };
+const auth = { person: { id: myId } };
 const onboarding = { currentlyOnboarding: false };
 
 const text = 'Comment';
@@ -83,10 +82,8 @@ it('renders create step correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 });
 
@@ -105,10 +102,8 @@ it('renders create step in onboarding correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['custom step', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: 'onboarding',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 });
 
@@ -119,10 +114,8 @@ it('renders edit journey step correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 });
 
@@ -133,10 +126,8 @@ it('renders edit journey step for me correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-    },
+    sectionType: true,
+    assignmentType: { personId: myId },
   });
 });
 
@@ -147,10 +138,8 @@ it('renders edit journey item correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['our journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 });
 
@@ -161,10 +150,8 @@ it('renders edit journey item for me correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['my journey', 'edit'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-    },
+    sectionType: true,
+    assignmentType: { personId: myId },
   });
 });
 
@@ -175,10 +162,8 @@ it('renders step note correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 });
 
@@ -189,10 +174,8 @@ it('renders step note correctly for me', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step note', 'add'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-    },
+    sectionType: true,
+    assignmentType: { personId: myId },
   });
 });
 
