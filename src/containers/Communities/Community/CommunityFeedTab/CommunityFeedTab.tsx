@@ -31,7 +31,7 @@ export const CommunityFeedTab = ({
     getAnalyticsPermissionType(auth, organization),
   );
 
-  useAnalytics(['community', 'celebrate'], {
+  useAnalytics('community feed', {
     screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
   });
 
