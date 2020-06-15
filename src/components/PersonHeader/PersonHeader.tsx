@@ -23,6 +23,7 @@ import { navigatePush, navigateBack } from '../../actions/navigation';
 import { EDIT_PERSON_FLOW } from '../../routes/constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { deleteContactAssignment } from '../../actions/person';
+import { isAndroid } from '../../utils/common';
 
 import { PERSON_HEADER_QUERY } from './queries';
 import {
@@ -30,7 +31,6 @@ import {
   PersonHeaderVariables,
 } from './__generated__/PersonHeader';
 import styles from './styles';
-import { isAndroid } from '../../utils/common';
 
 interface PersonHeaderProps {
   isMember?: boolean;
