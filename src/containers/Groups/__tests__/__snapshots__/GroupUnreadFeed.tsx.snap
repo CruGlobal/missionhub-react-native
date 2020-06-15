@@ -252,7 +252,7 @@ exports[`should render items correctly 1`] = `
       }
     }
   >
-    <CelebrateFeed
+    <CommunityFeed
       communityId="1"
       itemNamePressable={true}
       noHeader={true}

@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { mapPostTypeToFeedType } from '../../utils/common';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../CelebrateFeedWithType';
+import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../CommunityFeedWithType';
 import { navigatePush } from '../../actions/navigation';
 import { PostTypeCardWithPeople } from '../../components/PostTypeLabel';
 
@@ -27,7 +27,7 @@ import {
   MarkCommunityFeedItemsRead,
 } from './__generated__/MarkCommunityFeedItemsRead';
 
-interface CelebrateFeedPostCardsProps {
+interface CommunityFeedPostCardsProps {
   communityId: string;
   feedRefetch: () => void;
 }
@@ -79,10 +79,10 @@ const getGroupPostCards = (
   return groups;
 };
 
-export const CelebrateFeedPostCards = ({
+export const CommunityFeedPostCards = ({
   communityId,
   feedRefetch,
-}: CelebrateFeedPostCardsProps) => {
+}: CommunityFeedPostCardsProps) => {
   const dispatch = useDispatch();
 
   const { data } = useQuery<
@@ -96,24 +96,17 @@ export const CelebrateFeedPostCards = ({
     MarkCommunityFeedItemsRead,
     MarkCommunityFeedItemsReadVariables
   >(MARK_COMMUNITY_FEED_ITEMS_READ, {
-    refetchQueries: (data: MarkCommunityFeedItemsRead) =>
-      data.markCommunityFeedItemsAsRead?.community?.id
-        ? [
-            {
-              query: GET_COMMUNITY_POST_CARDS,
-              variables: {
-                communityId: data.markCommunityFeedItemsAsRead.community.id,
-              },
-            },
-          ]
-        : [],
+    refetchQueries: () => [
+      { query: GET_COMMUNITY_POST_CARDS, variables: { communityId } },
+    ],
   });
 
   const navToFeedType = async (type: FeedItemSubjectTypeEnum) => {
     dispatch(
-      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+      navigatePush(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
         type,
         communityId,
+        communityName: data?.community.name,
       }),
     );
     await markCommunityFeedItemsAsRead({

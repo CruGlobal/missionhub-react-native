@@ -23,7 +23,7 @@ import CardTime from '../CardTime';
 import { CommentLikeComponent } from '../CommentLikeComponent';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 import Separator from '../Separator';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
+import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../containers/CommunityFeedWithType';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
@@ -41,11 +41,13 @@ import styles, { markdown } from './styles';
 export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;
   namePressable?: boolean;
+  postLabelPressable?: boolean;
 }
 
 export const CommunityFeedItemContent = ({
   feedItem,
   namePressable = false,
+  postLabelPressable = true,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -98,9 +100,10 @@ export const CommunityFeedItemContent = ({
 
   const navToFilteredFeed = () => {
     dispatch(
-      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+      navigatePush(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
         type: itemType,
         communityId: feedItem.community?.id,
+        communityName: feedItem.community?.name,
       }),
     );
   };
@@ -201,7 +204,10 @@ export const CommunityFeedItemContent = ({
   const renderHeader = () => (
     <View style={styles.headerWrap}>
       <View style={styles.headerRow}>
-        <PostTypeLabel type={itemType} onPress={navToFilteredFeed} />
+        <PostTypeLabel
+          type={itemType}
+          onPress={postLabelPressable ? navToFilteredFeed : undefined}
+        />
       </View>
       <View style={styles.headerRow}>
         {!isGlobal && feedItem.subjectPerson ? (
@@ -236,12 +242,18 @@ export const CommunityFeedItemContent = ({
     ) : null;
 
   const renderFooter = () => (
-    <View style={styles.footerWrap}>
+    <Touchable
+      isAndroidOpacity={true}
+      activeOpacity={1}
+      onPress={() => {}}
+      style={styles.footerWrap}
+      testID="FooterTouchable"
+    >
       {addToSteps ? renderAddToStepsButton() : null}
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent feedItem={feedItem} />
       </View>
-    </View>
+    </Touchable>
   );
 
   const renderAddToStepsButton = () => (

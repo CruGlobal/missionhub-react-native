@@ -8,6 +8,7 @@ import { CommunityMemberPerson } from '../__generated__/CommunityMemberPerson';
 import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../queries';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
 import { navigatePush } from '../../../actions/navigation';
+import { CommunityMembers_community_people_edges_communityPermission } from '../../../containers/Communities/Community/CommunityMembers/__generated__/CommunityMembers';
 
 import CommunityMemberItem from '..';
 
@@ -19,11 +20,18 @@ jest.mock('../../../actions/navigation', () => ({
 const myId = '1';
 const me = { id: myId, full_name: 'Me' };
 
+const createdAt = '2020-05-25 13:00:00';
+
 const member = mockFragment<CommunityMemberPerson>(
   COMMUNITY_MEMBER_PERSON_FRAGMENT,
 );
 
-const orgPerm = { id: '111' };
+const orgPerm: CommunityMembers_community_people_edges_communityPermission = {
+  id: '111',
+  __typename: 'CommunityPermission',
+  permission: PermissionEnum.user,
+  createdAt,
+};
 
 const memberPermissions = { ...orgPerm, permission: PermissionEnum.user };
 const adminPermissions = { ...orgPerm, permission: PermissionEnum.admin };

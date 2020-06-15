@@ -20,6 +20,7 @@ export const COMMUNITY_MEMBERS_QUERY = gql`
           communityPermission {
             id
             permission
+            createdAt
           }
           node {
             ...CommunityMemberPerson

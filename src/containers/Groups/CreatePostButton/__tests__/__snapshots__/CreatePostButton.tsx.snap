@@ -151,7 +151,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,628 @@
+@@ -16,10 +16,629 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -243,9 +243,10 @@ exports[`onPress opens modal 1`] = `
 +                     Object {
 +                       \\"color\\": \\"#B4B6BA\\",
 +                       \\"justifyContent\\": \\"flex-end\\",
++                       \\"padding\\": 15,
 +                       \\"position\\": \\"absolute\\",
-+                       \\"right\\": -5,
-+                       \\"top\\": -40,
++                       \\"right\\": -20,
++                       \\"top\\": -50,
 +                     },
 +                   ],
 +                   null,
@@ -320,7 +321,7 @@ exports[`onPress opens modal 1`] = `
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
 +                       \\"paddingHorizontal\\": 20,
-+                       \\"paddingVertical\\": 10,
++                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
 +                       \\"backgroundColor\\": \\"#7076B5\\",
@@ -420,7 +421,7 @@ exports[`onPress opens modal 1`] = `
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
 +                       \\"paddingHorizontal\\": 20,
-+                       \\"paddingVertical\\": 10,
++                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
 +                       \\"backgroundColor\\": \\"#A97398\\",
@@ -520,7 +521,7 @@ exports[`onPress opens modal 1`] = `
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
 +                       \\"paddingHorizontal\\": 20,
-+                       \\"paddingVertical\\": 10,
++                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
 +                       \\"backgroundColor\\": \\"#FFA178\\",
@@ -620,7 +621,7 @@ exports[`onPress opens modal 1`] = `
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
 +                       \\"paddingHorizontal\\": 20,
-+                       \\"paddingVertical\\": 10,
++                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
 +                       \\"backgroundColor\\": \\"#FD726D\\",
@@ -720,7 +721,7 @@ exports[`onPress opens modal 1`] = `
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
 +                       \\"paddingHorizontal\\": 20,
-+                       \\"paddingVertical\\": 10,
++                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
 +                       \\"backgroundColor\\": \\"#B4B6BA\\",

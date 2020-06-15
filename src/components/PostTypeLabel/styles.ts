@@ -8,9 +8,9 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 36,
-    paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingVertical: 0,
     borderRadius: 18,
+    paddingHorizontal: 20,
   },
   headerCard: {
     position: 'relative',
@@ -18,10 +18,16 @@ export default StyleSheet.create({
     marginHorizontal: 0,
     marginVertical: 0,
     marginBottom: 5,
+    flexDirection: 'column',
+    shadowOpacity: 0,
   },
+  header: { width: '100%', backgroundColor: 'transparent' },
   headerContainer: {
-    paddingVertical: 35,
-    padding: 25,
+    height: 120,
+    position: 'relative',
+    paddingHorizontal: 25,
+    alignItems: 'center',
+    paddingTop: 5,
   },
   headerIcon: {
     opacity: 0.2,
@@ -34,7 +40,6 @@ export default StyleSheet.create({
     fontWeight: '300',
     color: theme.white,
     textAlign: 'center',
-    paddingTop: 20,
   },
   subheaderText: {
     fontSize: 14,
@@ -44,21 +49,30 @@ export default StyleSheet.create({
     paddingTop: 10,
     paddingHorizontal: 35,
   },
-  headerBackButtonWrap: {
-    position: 'absolute',
-    top: 10,
-    left: 10,
-  },
   icon: {
     marginRight: 10,
     marginLeft: -10,
   },
-  largeSize: {
-    height: 48,
+  smallIcon: {
+    marginRight: 0,
+    marginLeft: 0,
   },
   noText: {
     width: 20,
   },
+  largeSize: {
+    height: 48,
+  },
+  smallSize: {
+    width: 24,
+    height: 24,
+    borderRadius: 12,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 5,
+    paddingHorizontal: 5,
+  },
+
   buttonText: {
     fontSize: 14,
     color: theme.white,

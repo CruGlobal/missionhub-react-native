@@ -12,7 +12,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 
-import { CelebrateFeed } from '..';
+import { CommunityFeed } from '..';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
@@ -29,8 +29,8 @@ jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
 }));
 
-jest.mock('../../../containers/CelebrateFeedPostCards', () => ({
-  CelebrateFeedPostCards: 'CelebrateFeedPostCards',
+jest.mock('../../../containers/CommunityFeedPostCards', () => ({
+  CommunityFeedPostCards: 'CommunityFeedPostCards',
 }));
 
 const myId = '123';
@@ -53,7 +53,7 @@ beforeEach(() => {
 
 it('renders empty correctly', () => {
   renderWithContext(
-    <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
+    <CommunityFeed communityId={communityId} itemNamePressable={true} />,
     {
       initialState,
       mocks: {
@@ -67,7 +67,7 @@ it('renders empty correctly', () => {
 
 it('renders with items correctly', async () => {
   const { snapshot } = renderWithContext(
-    <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
+    <CommunityFeed communityId={communityId} itemNamePressable={true} />,
     {
       initialState,
       mocks: {
@@ -97,7 +97,7 @@ it('renders with items correctly', async () => {
 describe('sections', () => {
   it('renders New section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
+      <CommunityFeed communityId={communityId} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -130,7 +130,7 @@ describe('sections', () => {
 
   it('renders Today section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
+      <CommunityFeed communityId={communityId} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -163,7 +163,7 @@ describe('sections', () => {
 
   it('renders Earlier section', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
+      <CommunityFeed communityId={communityId} itemNamePressable={true} />,
       {
         initialState,
         mocks: {
@@ -198,7 +198,7 @@ describe('sections', () => {
 describe('renders for member', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={communityId}
         personId={personId}
         itemNamePressable={true}
@@ -221,7 +221,7 @@ describe('renders for member', () => {
       variables: {
         communityId,
         hasUnreadComments: undefined,
-        personIds: personId,
+        personIds: [personId],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -231,7 +231,7 @@ describe('renders for member', () => {
 
   it('renders without header', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={communityId}
         personId={personId}
         itemNamePressable={true}
@@ -253,7 +253,7 @@ describe('renders for member', () => {
       variables: {
         communityId,
         hasUnreadComments: undefined,
-        personIds: personId,
+        personIds: [personId],
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
@@ -263,7 +263,7 @@ describe('renders for member', () => {
 
   it('renders with type', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={communityId}
         personId={personId}
         itemNamePressable={true}
@@ -283,7 +283,7 @@ describe('renders for member', () => {
 describe('renders with clear notification', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={communityId}
         itemNamePressable={true}
         onClearNotification={jest.fn()}
@@ -318,7 +318,7 @@ describe('renders with clear notification', () => {
 describe('renders for Unread Comments', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={communityId}
         itemNamePressable={true}
         showUnreadOnly={true}
@@ -353,7 +353,7 @@ describe('renders for Unread Comments', () => {
 describe('renders for Global Community', () => {
   it('renders correctly', async () => {
     const { snapshot } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={GLOBAL_COMMUNITY_ID}
         itemNamePressable={true}
       />,
@@ -389,7 +389,7 @@ describe('handle refreshing', () => {
     const onRefetch = jest.fn();
 
     const { getByType } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={communityId}
         itemNamePressable={true}
         onRefetch={onRefetch}
@@ -411,7 +411,7 @@ describe('handle refreshing', () => {
     const onRefetch = jest.fn();
 
     const { getByType } = renderWithContext(
-      <CelebrateFeed
+      <CommunityFeed
         communityId={GLOBAL_COMMUNITY_ID}
         itemNamePressable={true}
         onRefetch={onRefetch}
@@ -436,7 +436,7 @@ describe('handle pagination', () => {
 
     const testScroll = async () => {
       const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
-        <CelebrateFeed communityId={communityId} itemNamePressable={true} />,
+        <CommunityFeed communityId={communityId} itemNamePressable={true} />,
         {
           initialState,
           mocks,
@@ -508,7 +508,7 @@ describe('handle pagination', () => {
 
     const testScroll = async () => {
       const { recordSnapshot, diffSnapshot, getByType } = renderWithContext(
-        <CelebrateFeed
+        <CommunityFeed
           communityId={GLOBAL_COMMUNITY_ID}
           itemNamePressable={true}
         />,

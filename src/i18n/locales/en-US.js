@@ -223,6 +223,7 @@ export default {
       coworker: 'Coworker',
       other: 'Other',
     },
+    stageNull: 'Choose a stage',
     categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
@@ -837,7 +838,7 @@ export default {
       PRAYER_REQUEST: 'Let your requests be known to God.',
       QUESTION: 'Teach and counsel each other with all the wisdom he gives.',
       HELP_REQUEST: "Share one another's burdens.",
-      ANNOUNCEMENT: 'He who abides by annoucements will be blessed.',
+      ANNOUNCEMENT: 'He who abides by announcements will be blessed.',
       THOUGHT:
         'Where two or three are gathered in my name, there am I among them.',
       STEP: 'Encourage one another and build each other up.',
@@ -863,8 +864,8 @@ export default {
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
     inputPlaceholder: 'Post to community...',
-    everyone: 'Everyone',
-    ownersAndAdmins: 'Owners and Admins',
+    postAsYou: 'Post as You',
+    ownersAndAdmins: 'Post as Owner/Admin',
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {
@@ -940,6 +941,10 @@ export default {
   },
   notificationsCenter: {
     title: 'Notifications',
+    nullTitle: 'No notifications yet',
+    nullDescription:
+      'Stay tuned! Notifications about your communities will show up here.',
+    errorLoadingNotifications: 'Error loading notifications',
   },
   addPostToStepsScreen: {
     addToSteps: 'Add to my steps',

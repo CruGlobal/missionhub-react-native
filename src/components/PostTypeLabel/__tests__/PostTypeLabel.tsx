@@ -4,8 +4,8 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
-import { FeedItemPostCard } from '../../../containers/CelebrateFeedPostCards/__generated__/FeedItemPostCard';
-import { FEED_ITEM_POST_CARD_FRAGMENT } from '../../../containers/CelebrateFeedPostCards/queries';
+import { FeedItemPostCard } from '../../../containers/CommunityFeedPostCards/__generated__/FeedItemPostCard';
+import { FEED_ITEM_POST_CARD_FRAGMENT } from '../../../containers/CommunityFeedPostCards/queries';
 
 import PostTypeLabel, {
   PostLabelSizeEnum,
@@ -71,6 +71,7 @@ describe('label variations', () => {
     renderWithContext(
       <PostTypeLabel
         type={FeedItemSubjectTypeEnum.STORY}
+        communityName="Community Name"
         size={PostLabelSizeEnum.extraLarge}
       />,
     ).snapshot();
@@ -79,6 +80,28 @@ describe('label variations', () => {
   it('renders label with no text', () => {
     renderWithContext(
       <PostTypeLabel type={FeedItemSubjectTypeEnum.STORY} showText={false} />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+
+  it('renders label with on press with no text', () => {
+    renderWithContext(
+      <PostTypeLabel
+        type={FeedItemSubjectTypeEnum.STORY}
+        showText={false}
+        onPress={onPress}
+      />,
+      { noWrappers: true },
+    ).snapshot();
+  });
+
+  it('renders small label with no text', () => {
+    renderWithContext(
+      <PostTypeLabel
+        type={FeedItemSubjectTypeEnum.STORY}
+        showText={false}
+        size={PostLabelSizeEnum.small}
+      />,
       { noWrappers: true },
     ).snapshot();
   });

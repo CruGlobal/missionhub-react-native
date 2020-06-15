@@ -7,6 +7,9 @@ jest.mock('../../../../../Groups/GroupCelebrate', () => 'CommunityFeed');
 jest.mock('../../../../../ImpactTab/ImpactTab', () => ({
   ImpactTab: 'ImpactTab',
 }));
+jest.mock('../../../CommunityFeedTab/CommunityFeedTab', () => ({
+  CommunityFeedTab: 'CommunityFeedTab',
+}));
 
 it('should render feed tab', () => {
   const FeedTab = communityMemberTabs[0].component;

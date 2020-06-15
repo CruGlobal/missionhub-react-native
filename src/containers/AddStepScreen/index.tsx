@@ -105,6 +105,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   });
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
+  const [hasSkipped, changeHasSkipped] = useState(false);
 
   const [createCustomStep, { error: errorCreateCustomStep }] = useMutation<
     CreateCustomStep,
@@ -157,7 +158,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
 
   const handleSkip = () => {
     Keyboard.dismiss();
-
+    changeHasSkipped(true);
     navigateNext();
   };
 
@@ -181,7 +182,11 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
         left={<DeprecatedBackButton iconStyle={styles.backButtonStyle} />}
         right={
           isStepNote ? (
-            <Skip onSkip={handleSkip} textStyle={styles.skipBtnText} />
+            <Skip
+              onSkip={handleSkip}
+              disabled={hasSkipped}
+              textStyle={styles.skipBtnText}
+            />
           ) : null
         }
       />
@@ -219,6 +224,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
       <BottomButton
         onPress={handleSaveStep}
         text={buttonText}
+        disabled={hasSkipped}
         testID="saveStepButton"
       />
     </View>

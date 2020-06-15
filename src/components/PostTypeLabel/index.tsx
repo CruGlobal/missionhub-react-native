@@ -13,15 +13,17 @@ import OnYourMindIcon from '../../../assets/images/onYourMindIcon.svg';
 import PrayerRequestIcon from '../../../assets/images/prayerRequestIcon.svg';
 import SpiritualQuestionIcon from '../../../assets/images/spiritualQuestionIcon.svg';
 import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
-import { Card, Flex } from '../common';
+import { Card } from '../common';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import Avatar, { AvatarPerson } from '../Avatar';
+import Header from '../Header';
 
 import styles from './styles';
 
 export enum PostLabelSizeEnum {
+  small = 'small',
   normal = 'normal',
   large = 'large',
   extraLarge = 'extraLarge',
@@ -65,10 +67,14 @@ function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
       ? 225
       : size === PostLabelSizeEnum.large
       ? 24
+      : size === PostLabelSizeEnum.small
+      ? 15
       : 20;
+  const iconStyle =
+    size === PostLabelSizeEnum.small ? styles.smallIcon : styles.icon;
   const iconProps = {
     color: color || theme.white,
-    style: [styles.icon, style],
+    style: [iconStyle, style],
     width: iconSize,
     height: iconSize,
   };
@@ -97,6 +103,7 @@ interface PostTypeLabelProps {
   onPress?: TouchablePress;
   showText?: boolean;
   size?: PostLabelSizeEnum;
+  communityName?: string;
 }
 
 const PostTypeLabel = ({
@@ -104,32 +111,24 @@ const PostTypeLabel = ({
   onPress,
   size = PostLabelSizeEnum.normal,
   showText = true,
+  communityName,
 }: PostTypeLabelProps) => {
   const { t } = useTranslation('postTypes');
 
   if (size === PostLabelSizeEnum.extraLarge) {
     return (
       <SafeAreaView style={[PostTypeBgStyle[type]]}>
-        <Card
-          style={[
-            styles.headerCard,
-            PostTypeBgStyle[type],
-            { shadowOpacity: 0 },
-          ]}
-        >
-          <Flex
-            value={1}
-            align="center"
-            justify="center"
-            style={styles.headerContainer}
-          >
+        <Card style={[styles.headerCard, PostTypeBgStyle[type]]}>
+          <Header
+            left={<DeprecatedBackButton />}
+            title={communityName}
+            style={styles.header}
+          />
+          <View style={styles.headerContainer}>
             <PostTypeIcon type={type} size={size} style={styles.headerIcon} />
             <Text style={styles.headerText}>{t(`header.${type}`)}</Text>
             <Text style={styles.subheaderText}>{t(`subheader.${type}`)}</Text>
-          </Flex>
-          <Flex style={styles.headerBackButtonWrap}>
-            <DeprecatedBackButton />
-          </Flex>
+          </View>
         </Card>
       </SafeAreaView>
     );
@@ -137,7 +136,7 @@ const PostTypeLabel = ({
   if (onPress) {
     return (
       <Button
-        onPress={() => onPress && onPress()}
+        onPress={onPress}
         testID={`${type}Button`}
         pill={true}
         style={[
@@ -161,8 +160,12 @@ const PostTypeLabel = ({
       style={[
         styles.button,
         PostTypeBgStyle[type],
-        size === PostLabelSizeEnum.large ? styles.largeSize : null,
         showText ? null : styles.noText,
+        size === PostLabelSizeEnum.large
+          ? styles.largeSize
+          : size === PostLabelSizeEnum.small
+          ? styles.smallSize
+          : null,
       ]}
     >
       <PostTypeIcon type={type} size={size} />

@@ -33,34 +33,198 @@ exports[`label variations render extra large label 1`] = `
         Array [
           Object {
             "borderRadius": 0,
+            "flexDirection": "column",
             "marginBottom": 5,
             "marginHorizontal": 0,
             "marginVertical": 0,
             "position": "relative",
+            "shadowOpacity": 0,
           },
           Object {
             "backgroundColor": "#7076B5",
-          },
-          Object {
-            "shadowOpacity": 0,
           },
         ],
       ]
     }
   >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 56,
+              "paddingTop": 0,
+            },
+            Object {
+              "backgroundColor": "transparent",
+              "width": "100%",
+            },
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 5,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "flex-start",
+                  "alignSelf": "flex-start",
+                  "justifyContent": "center",
+                },
+                undefined,
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="IconButton"
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 18,
+                        },
+                        Array [
+                          Object {
+                            "margin": 10,
+                          },
+                          Object {},
+                        ],
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flex": 4,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Community Name
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingRight": 5,
+              },
+              Object {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        />
+      </View>
+    </RCTSafeAreaView>
     <View
       style={
-        Array [
-          Object {
-            "padding": 25,
-            "paddingVertical": 35,
-          },
-          Object {
-            "alignItems": "center",
-            "flex": 1,
-            "justifyContent": "center",
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "height": 120,
+          "paddingHorizontal": 25,
+          "paddingTop": 5,
+          "position": "relative",
+        }
       }
     >
       <SvgMock
@@ -95,7 +259,6 @@ exports[`label variations render extra large label 1`] = `
               "color": "#ffffff",
               "fontSize": 24,
               "fontWeight": "300",
-              "paddingTop": 20,
               "textAlign": "center",
             },
           ]
@@ -126,97 +289,6 @@ exports[`label variations render extra large label 1`] = `
         When God does something amazing, share the joy here.
       </Text>
     </View>
-    <View
-      style={
-        Array [
-          Object {
-            "left": 10,
-            "position": "absolute",
-            "top": 10,
-          },
-          Object {},
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "alignItems": "flex-start",
-              "alignSelf": "flex-start",
-              "justifyContent": "center",
-            },
-            undefined,
-          ]
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="IconButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": undefined,
-                    "fontSize": 12,
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-            >
-              
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
   </View>
 </RCTSafeAreaView>
 `;
@@ -232,15 +304,15 @@ exports[`label variations renders label with no text 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
       },
-      null,
       Object {
         "width": 20,
       },
+      null,
     ]
   }
   testID="STORYLabel"
@@ -262,6 +334,82 @@ exports[`label variations renders label with no text 1`] = `
 </View>
 `;
 
+exports[`label variations renders label with on press with no text 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="STORYButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Array [
+          Object {
+            "alignItems": "center",
+            "borderRadius": 18,
+            "flexDirection": "row",
+            "height": 36,
+            "justifyContent": "space-between",
+            "paddingHorizontal": 20,
+            "paddingVertical": 0,
+          },
+          Object {
+            "backgroundColor": "#7076B5",
+          },
+          null,
+          Object {
+            "width": 20,
+          },
+        ],
+        Object {
+          "borderRadius": 50,
+        },
+      ]
+    }
+  >
+    <SvgMock
+      color="#ffffff"
+      height={20}
+      style={
+        Array [
+          Object {
+            "marginLeft": -10,
+            "marginRight": 10,
+          },
+          undefined,
+        ]
+      }
+      width={20}
+    />
+  </View>
+</View>
+`;
+
 exports[`label variations renders large label 1`] = `
 <View
   style={
@@ -273,15 +421,15 @@ exports[`label variations renders large label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
       },
+      null,
       Object {
         "height": 48,
       },
-      null,
     ]
   }
   testID="STORYLabel"
@@ -319,6 +467,55 @@ exports[`label variations renders large label 1`] = `
   >
     God Story
   </Text>
+</View>
+`;
+
+exports[`label variations renders small label with no text 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "borderRadius": 18,
+        "flexDirection": "row",
+        "height": 36,
+        "justifyContent": "space-between",
+        "paddingHorizontal": 20,
+        "paddingVertical": 0,
+      },
+      Object {
+        "backgroundColor": "#7076B5",
+      },
+      Object {
+        "width": 20,
+      },
+      Object {
+        "alignItems": "center",
+        "borderRadius": 12,
+        "height": 24,
+        "justifyContent": "center",
+        "paddingHorizontal": 5,
+        "paddingVertical": 5,
+        "width": 24,
+      },
+    ]
+  }
+  testID="STORYLabel"
+>
+  <SvgMock
+    color="#ffffff"
+    height={15}
+    style={
+      Array [
+        Object {
+          "marginLeft": 0,
+          "marginRight": 0,
+        },
+        undefined,
+      ]
+    }
+    width={15}
+  />
 </View>
 `;
 
@@ -1516,7 +1713,7 @@ exports[`post types null states renders Announcement Null State 1`] = `
       ]
     }
   >
-    He who abides by annoucements will be blessed.
+    He who abides by announcements will be blessed.
   </Text>
   <Text
     style={
@@ -1903,7 +2100,7 @@ exports[`post types renders Announcement Label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#505256",
@@ -1961,7 +2158,7 @@ exports[`post types renders Care Request Label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#FD726D",
@@ -2019,7 +2216,7 @@ exports[`post types renders God Story Label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -2077,7 +2274,7 @@ exports[`post types renders On Your Mind Label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#B4B6BA",
@@ -2135,7 +2332,7 @@ exports[`post types renders Prayer Request Label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#A97398",
@@ -2193,7 +2390,7 @@ exports[`post types renders Spiritual Question Label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#FFA178",
@@ -2251,7 +2448,7 @@ exports[`post types renders Step Of Faith Label 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#3CC8E6",
@@ -2309,7 +2506,7 @@ exports[`renders correctly 1`] = `
         "height": 36,
         "justifyContent": "space-between",
         "paddingHorizontal": 20,
-        "paddingVertical": 10,
+        "paddingVertical": 0,
       },
       Object {
         "backgroundColor": "#7076B5",
@@ -2398,7 +2595,7 @@ exports[`renders pressable correctly 1`] = `
             "height": 36,
             "justifyContent": "space-between",
             "paddingHorizontal": 20,
-            "paddingVertical": 10,
+            "paddingVertical": 0,
           },
           Object {
             "backgroundColor": "#7076B5",

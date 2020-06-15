@@ -12,7 +12,7 @@ import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/Col
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
+import { CommunityFeedPostCards } from '../CommunityFeedPostCards';
 import { PostTypeNullState } from '../../components/PostTypeLabel';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
@@ -27,7 +27,7 @@ import {
 } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
-interface CelebrateFeedProps {
+interface CommunityFeedProps {
   communityId: string;
   personId?: string;
   itemNamePressable: boolean;
@@ -47,9 +47,7 @@ interface CommunityFeedSection {
   data: FeedItemFragment[];
 }
 
-const groupCommunityFeed = (
-  items: GetCommunityFeed_community_feedItems_nodes[],
-) => {
+const sortFeedItems = (items: GetCommunityFeed_community_feedItems_nodes[]) => {
   const dateSections: CommunityFeedSection[] = [
     { id: 0, title: 'dates.new', data: [] },
     { id: 1, title: 'dates.today', data: [] },
@@ -75,7 +73,7 @@ const groupCommunityFeed = (
   return filteredSections;
 };
 
-export const CelebrateFeed = ({
+export const CommunityFeed = ({
   communityId,
   personId,
   itemNamePressable,
@@ -86,12 +84,12 @@ export const CelebrateFeed = ({
   onClearNotification,
   filteredFeedType,
   collapsibleScrollViewProps,
-}: CelebrateFeedProps) => {
+}: CommunityFeedProps) => {
   const { t } = useTranslation('communityFeed');
   const isGlobal = orgIsGlobal({ id: communityId });
   const queryVariables = {
     communityId,
-    personIds: personId,
+    personIds: (personId && [personId]) || undefined,
     hasUnreadComments: showUnreadOnly,
     subjectType: filteredFeedType,
   };
@@ -142,7 +140,7 @@ export const CelebrateFeed = ({
     },
   );
 
-  const items = groupCommunityFeed(isGlobal ? globalNodes : nodes);
+  const items = sortFeedItems(isGlobal ? globalNodes : nodes);
 
   const handleRefreshing = () => {
     if (loading || globalLoading) {
@@ -235,6 +233,7 @@ export const CelebrateFeed = ({
       onClearNotification={onClearNotification}
       feedItem={item}
       namePressable={itemNamePressable}
+      postTypePressable={!personId}
     />
   );
 
@@ -259,7 +258,7 @@ export const CelebrateFeed = ({
               type={filteredFeedType}
             />
             {filteredFeedType || isGlobal ? null : (
-              <CelebrateFeedPostCards
+              <CommunityFeedPostCards
                 communityId={communityId}
                 // Refetch the feed to update new section once read
                 feedRefetch={refetch}

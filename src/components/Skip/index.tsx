@@ -12,14 +12,16 @@ interface SkipProps {
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   testID?: string;
+  disabled?: boolean;
 }
 
-const Skip = ({ onSkip, style, textStyle }: SkipProps) => {
+const Skip = ({ onSkip, style, textStyle, disabled }: SkipProps) => {
   const { t } = useTranslation();
   return (
     <Button
       testID="skipButton"
       type="transparent"
+      disabled={disabled}
       onPress={onSkip}
       text={t('skip').toUpperCase()}
       style={[styles.skipBtn, style]}

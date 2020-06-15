@@ -9,7 +9,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   containerStyle: {
     width: '80%',
     justifyContent: 'space-around',
@@ -22,8 +21,9 @@ export default StyleSheet.create({
   closeButton: {
     color: theme.lightGrey,
     position: 'absolute',
-    top: -40,
-    right: -5,
+    padding: 15,
+    top: -50,
+    right: -20,
     justifyContent: 'flex-end',
   },
   titleText: {

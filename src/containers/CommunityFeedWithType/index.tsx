@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { CelebrateFeed } from '../CelebrateFeed';
+import { CommunityFeed } from '../CommunityFeed';
 import { orgIsGlobal } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
@@ -10,14 +10,19 @@ import PostTypeLabel, {
   PostLabelSizeEnum,
 } from '../../components/PostTypeLabel';
 
-const CelebrateFeedWithType = () => {
+const CommunityFeedWithType = () => {
   const communityId: string = useNavigationParam('communityId');
+  const communityName: string = useNavigationParam('communityName');
   const type: FeedItemSubjectTypeEnum = useNavigationParam('type');
   return (
     <View style={{ height: '100%' }}>
       <StatusBar {...theme.statusBar.lightContent} />
-      <PostTypeLabel type={type} size={PostLabelSizeEnum.extraLarge} />
-      <CelebrateFeed
+      <PostTypeLabel
+        communityName={communityName}
+        type={type}
+        size={PostLabelSizeEnum.extraLarge}
+      />
+      <CommunityFeed
         communityId={communityId}
         itemNamePressable={!orgIsGlobal({ id: communityId })}
         filteredFeedType={type}
@@ -26,7 +31,7 @@ const CelebrateFeedWithType = () => {
   );
 };
 
-export default CelebrateFeedWithType;
+export default CommunityFeedWithType;
 
-export const CELEBRATE_FEED_WITH_TYPE_SCREEN =
-  'nav/CELEBRATE_FEED_WITH_TYPE_SCREEN';
+export const COMMUNITY_FEED_WITH_TYPE_SCREEN =
+  'nav/COMMUNITY_FEED_WITH_TYPE_SCREEN';

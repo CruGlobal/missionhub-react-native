@@ -130,9 +130,9 @@ import {
   OnboardingAddPhotoScreen,
   ONBOARDING_ADD_PHOTO_SCREEN,
 } from './containers/OnboardingAddPhotoScreen';
-import CelebrateFeedWithType, {
-  CELEBRATE_FEED_WITH_TYPE_SCREEN,
-} from './containers/CelebrateFeedWithType';
+import CommunityFeedWithType, {
+  COMMUNITY_FEED_WITH_TYPE_SCREEN,
+} from './containers/CommunityFeedWithType';
 import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
@@ -323,7 +323,7 @@ const screens = {
   [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
   [LOADING_SCREEN]: LoadingScreen,
   [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
-  [CELEBRATE_FEED_WITH_TYPE_SCREEN]: CelebrateFeedWithType,
+  [COMMUNITY_FEED_WITH_TYPE_SCREEN]: CommunityFeedWithType,
   [ADD_POST_TO_STEPS_SCREEN]: AddPostToStepsScreen,
 };
 

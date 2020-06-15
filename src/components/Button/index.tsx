@@ -6,6 +6,7 @@ import {
   TextStyle,
   Image,
   ImageSourcePropType,
+  ViewProps,
 } from 'react-native';
 import debounce from 'lodash.debounce';
 
@@ -32,6 +33,7 @@ export interface ButtonProps {
   isAndroidOpacity?: boolean;
   activeOpacity?: number;
   testID?: string;
+  viewProps?: ViewProps;
 }
 interface ButtonState {
   clickedDisabled: boolean;
@@ -84,6 +86,7 @@ export default class Button extends Component<ButtonProps, ButtonState> {
       image,
       children,
       disabled,
+      viewProps = {},
       style = {},
       buttonTextStyle = {},
       pressProps, // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -113,6 +116,7 @@ export default class Button extends Component<ButtonProps, ButtonState> {
         onPress={this.handlePressDb}
       >
         <View
+          {...viewProps}
           style={[
             getTypeStyle(type),
             disabled ? styles.disabled : null,

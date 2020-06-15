@@ -360,7 +360,7 @@ exports[`renders correctly for new post 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -779,7 +779,7 @@ exports[`renders correctly for update post 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -1155,7 +1155,7 @@ exports[`renders correctly on android 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -1465,7 +1465,7 @@ exports[`renders for post types renders for announcement 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#505256",
@@ -1818,7 +1818,7 @@ exports[`renders for post types renders for help request 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#FD726D",
@@ -2171,7 +2171,7 @@ exports[`renders for post types renders for prayer request 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#A97398",
@@ -2524,7 +2524,7 @@ exports[`renders for post types renders for spiritual question 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#FFA178",
@@ -2877,7 +2877,7 @@ exports[`renders for post types renders for story 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#7076B5",
@@ -3230,7 +3230,7 @@ exports[`renders for post types renders for thought 1`] = `
                 "height": 36,
                 "justifyContent": "space-between",
                 "paddingHorizontal": 20,
-                "paddingVertical": 10,
+                "paddingVertical": 0,
               },
               Object {
                 "backgroundColor": "#B4B6BA",
