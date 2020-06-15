@@ -311,7 +311,7 @@ describe('transferOrgOwnership', () => {
       ACTIONS.MANAGE_MAKE_OWNER,
     );
     expect(getMe).toHaveBeenCalledWith();
-    expect(getPersonDetails).toHaveBeenCalledWith(person_id, orgId);
+    expect(getPersonDetails).toHaveBeenCalledWith(person_id);
 
     expect(store.getActions()).toEqual([
       apiResponse,

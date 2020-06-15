@@ -5,8 +5,8 @@ import { communityTabs } from '../constants';
 import GroupChallenges from '../../../Groups/GroupChallenges';
 
 jest.mock('../../../Groups/GroupCelebrate', () => 'CommunityFeed');
-jest.mock('../CommunityImpactTab/CommunityImpactTab', () => ({
-  CommunityImpactTab: 'CommunityImpactTab',
+jest.mock('../../../ImpactTab/ImpactTab', () => ({
+  ImpactTab: 'ImpactTab',
 }));
 
 it('should render feed tab', () => {

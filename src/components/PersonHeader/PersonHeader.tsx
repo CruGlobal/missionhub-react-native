@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
@@ -17,8 +17,12 @@ import {
   CollapsibleViewContext,
 } from '../CollapsibleView/CollapsibleView';
 import EditIcon from '../../../assets/images/editIcon.svg';
-import { navigatePush } from '../../actions/navigation';
+import PopupMenu from '../PopupMenu';
+import KebabIcon from '../../../assets/images/kebabIcon.svg';
+import { navigatePush, navigateBack } from '../../actions/navigation';
 import { EDIT_PERSON_FLOW } from '../../routes/constants';
+import { useIsMe } from '../../utils/hooks/useIsMe';
+import { deleteContactAssignment } from '../../actions/person';
 
 import { PERSON_HEADER_QUERY } from './queries';
 import {
@@ -42,6 +46,7 @@ export const PersonHeader = ({
   const dispatch = useDispatch();
 
   const personId: string = useNavigationParam('personId');
+  const isMe = useIsMe(personId);
 
   const { data, error, refetch } = useQuery<
     PersonHeaderQuery,
@@ -49,6 +54,35 @@ export const PersonHeader = ({
   >(PERSON_HEADER_QUERY, {
     variables: { personId, includeStage: !isMember },
   });
+
+  const editPerson = () =>
+    dispatch(
+      navigatePush(EDIT_PERSON_FLOW, {
+        person: { id: personId },
+      }),
+    );
+
+  const deletePerson = () =>
+    Alert.alert(
+      t('deletePersonQuestion', {
+        name: data?.person.fullName,
+      }),
+      t('deletePersonSentence'),
+      [
+        {
+          text: t('cancel'),
+          style: 'cancel',
+        },
+        {
+          text: t('delete'),
+          style: 'destructive',
+          onPress: () => {
+            dispatch(deleteContactAssignment(personId));
+            dispatch(navigateBack());
+          },
+        },
+      ],
+    );
 
   return (
     <CollapsibleViewHeader
@@ -60,17 +94,30 @@ export const PersonHeader = ({
           left={<BackButton iconColor={theme.white} />}
           right={
             !isMember ? (
-              <Button
-                onPress={() =>
-                  dispatch(
-                    navigatePush(EDIT_PERSON_FLOW, {
-                      person: { id: personId },
-                    }),
-                  )
-                }
-              >
-                <EditIcon color={theme.white} />
-              </Button>
+              isMe ? (
+                <Button testID="editButton" onPress={editPerson}>
+                  <EditIcon color={theme.white} />
+                </Button>
+              ) : (
+                <PopupMenu
+                  actions={[
+                    {
+                      text: t('editPerson'),
+                      onPress: editPerson,
+                    },
+                    {
+                      text: t('deletePerson'),
+                      onPress: deletePerson,
+                      destructive: true,
+                    },
+                  ]}
+                >
+                  <KebabIcon
+                    color={theme.white}
+                    style={{ paddingHorizontal: 24 }}
+                  />
+                </PopupMenu>
+              )
             ) : null
           }
         />

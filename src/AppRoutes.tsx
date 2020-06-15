@@ -61,15 +61,6 @@ import GroupsListScreen from './containers/Groups/GroupsListScreen';
 import CreateGroupScreen, {
   CREATE_GROUP_SCREEN,
 } from './containers/Groups/CreateGroupScreen';
-import StatusSelect, {
-  STATUS_SELECT_SCREEN,
-} from './containers/StatusSelectScreen';
-import StatusComplete, {
-  STATUS_COMPLETE_SCREEN,
-} from './containers/StatusCompleteScreen';
-import StatusReason, {
-  STATUS_REASON_SCREEN,
-} from './containers/StatusReasonScreen';
 import { buildTrackedScreen } from './routes/helpers';
 import {
   ADD_PERSON_THEN_STEP_SCREEN_FLOW,
@@ -349,21 +340,6 @@ const MainStackRoutes = createStackNavigator(
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [SELECT_STAGE_SCREEN]: {
       screen: SelectStageScreen,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [STATUS_SELECT_SCREEN]: {
-      screen: StatusSelect,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [STATUS_COMPLETE_SCREEN]: {
-      screen: StatusComplete,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [STATUS_REASON_SCREEN]: {
-      screen: StatusReason,
       // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },

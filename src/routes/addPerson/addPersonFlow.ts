@@ -24,13 +24,12 @@ import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
 import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
-import { wrapNextAction } from '../helpers';
+import { wrapNextAction, NextAction } from '../helpers';
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
 } from '../../containers/PersonCategoryScreen';
 
-// @ts-ignore
-export const AddPersonFlowScreens = onFlowComplete => ({
+export const AddPersonFlowScreens = (onFlowComplete: NextAction) => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(
     AddContactScreen,
     ({ personId, relationshipType, orgId, didSavePerson }) => dispatch => {
@@ -83,7 +82,7 @@ export const AddPersonFlowScreens = onFlowComplete => ({
       skip,
     }: SelectStepScreenNextProps) =>
       skip
-        ? onFlowComplete({ orgId })
+        ? onFlowComplete()
         : stepSuggestionId
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
             stepSuggestionId,

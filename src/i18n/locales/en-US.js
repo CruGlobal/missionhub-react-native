@@ -723,28 +723,6 @@ export default {
   loadMore: {
     load: 'Load More',
   },
-  statusSelect: {
-    header: 'Status',
-    cancel: 'Cancel',
-    done: 'Done',
-    uncontacted: 'Uncontacted',
-    attempted_contact: 'Attempted Contact',
-    contacted: 'Contacted',
-    completed: 'Completed',
-    do_not_contact: 'Do Not Contact',
-  },
-  statusComplete: {
-    done: 'Done',
-    continue:
-      'Great job {{userName}}!\nWould you like to continue journeying with {{statusName}}?',
-    totally: 'Totally',
-    nope: 'No Thanks',
-  },
-  statusReason: {
-    done: 'Done',
-    placeholder: 'Admin note',
-    important: 'Anything important the admins at {{organization}} should know?',
-  },
   imagePicker: {
     selectImage: 'Select Image',
     cancel: 'Cancel',
@@ -926,6 +904,10 @@ export default {
     globalCommunity: 'MissionHub Community',
   },
   personHeader: {
+    editPerson: 'Edit Person',
+    deletePerson: 'Delete Person',
+    deletePersonQuestion: 'Delete {{name}}?',
+    deletePersonSentence: 'Are you sure you want to delete this person?',
     errorLoadingPersonDetails: 'Error loading person details',
   },
   createPost: {

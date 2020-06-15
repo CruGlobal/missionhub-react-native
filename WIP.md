@@ -7,7 +7,6 @@ Components to convert to TS+Hooks
 - JourneyCommentBox
 - JourneyItem
 - MemberOptionsMenu
-- PersonSideMenu
 - PopupMenu
 - RowSwipeable
 - SearchList

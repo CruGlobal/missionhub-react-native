@@ -32,10 +32,6 @@ import { REQUESTS } from '../../api/routes';
 import { trackActionWithoutData, setAnalyticsMinistryMode } from '../analytics';
 import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
-import {
-  personSelector,
-  contactAssignmentSelector,
-} from '../../selectors/people';
 import { PeopleState } from '../../reducers/people';
 import { OrganizationsState } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
@@ -47,11 +43,12 @@ import {
 jest.mock('../api');
 jest.mock('../navigation');
 jest.mock('../organizations');
-jest.mock('../../selectors/people');
 jest.mock('../../selectors/organizations');
 jest.mock('../analytics');
 
 const myId = '1';
+const personId = '2';
+const contactAssignmentId = '3';
 
 const mockStore = configureStore([thunk]);
 // @ts-ignore
@@ -65,10 +62,23 @@ const expectedInclude =
 const expectedIncludeWithContactAssignmentPerson =
   'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
+const mePerson = { id: myId, user: { groups_feature: true } };
+const person = {
+  id: personId,
+  reverse_contact_assignments: [
+    { id: contactAssignmentId, assigned_to: { id: myId } },
+  ],
+};
+
 beforeEach(() => {
-  auth = { person: { id: myId, user: { groups_feature: true } } } as AuthState;
+  auth = { person: mePerson } as AuthState;
   organizations = ({ all: [] } as unknown) as OrganizationsState;
-  people = { people: {} };
+  people = {
+    people: {
+      [myId]: mePerson,
+      [personId]: person,
+    },
+  };
   store = mockStore({
     auth,
     organizations,
@@ -149,8 +159,6 @@ describe('getPersonDetails', () => {
       {
         type: LOAD_PERSON_DETAILS,
         person,
-        orgId,
-        org,
       },
     ]);
   });
@@ -589,32 +597,19 @@ describe('createContactAssignment', () => {
 });
 
 describe('deleteContactAssignment', () => {
-  const personId = '123';
-  const personOrgId = '456';
-  const contactAssignmentId = 1;
-
   const query = { contactAssignmentId };
-
-  const data = {
-    data: {
-      type: 'contact_assignment',
-      attributes: { unassignment_reason: '' },
-    },
-  };
 
   const callAPIResult = { type: 'call api' };
 
   const deleteAction = {
     type: DELETE_PERSON,
     personId,
-    personOrgId,
   };
 
   const testDelete = () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.DELETE_CONTACT_ASSIGNMENT,
       query,
-      data,
     );
     // @ts-ignore
     expect(store.getActions()).toEqual([callAPIResult, deleteAction]);
@@ -626,19 +621,7 @@ describe('deleteContactAssignment', () => {
 
   it('should send the correct API request', async () => {
     // @ts-ignore
-    await store.dispatch(deleteContactAssignment(1, personId, personOrgId));
-
-    testDelete();
-  });
-
-  it('should send the correct API request with note', async () => {
-    const note = 'testNote';
-    data.data.attributes.unassignment_reason = note;
-
-    // @ts-ignore
-    await store.dispatch(
-      deleteContactAssignment(1, personId, personOrgId, note),
-    );
+    await store.dispatch(deleteContactAssignment(personId));
 
     testDelete();
   });
@@ -787,11 +770,9 @@ describe('navToPersonScreen', () => {
   const person = { id: '2' };
   const me = { id: myId };
   const navigatePushResult = { type: 'test' };
-  const contactAssignment = {};
 
   beforeEach(() => {
     (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
-    (callApi as jest.Mock).mockReturnValue({});
   });
 
   // @ts-ignore
@@ -799,21 +780,9 @@ describe('navToPersonScreen', () => {
 
   describe('isMe', () => {
     it('navigates to me screen', () => {
-      ((personSelector as unknown) as jest.Mock).mockReturnValue(me);
-
       // @ts-ignore
       store.dispatch(navToPersonScreen(me.id));
 
-      expect(personSelector).toHaveBeenCalledWith(
-        // @ts-ignore
-        { people },
-        { personId: me.id },
-      );
-      expect(contactAssignmentSelector).toHaveBeenCalledWith(
-        // @ts-ignore
-        { auth },
-        { person: me, orgId: undefined },
-      );
       expect(navigatePush).toHaveBeenCalledWith(ME_PERSON_TABS, {
         personId: me.id,
       });
@@ -821,17 +790,12 @@ describe('navToPersonScreen', () => {
   });
 
   describe('is not me', () => {
-    describe('has ContactAssignment', () => {
-      it('navigates to contact person screen', () => {
-        // @ts-ignore
-        contactAssignmentSelector.mockReturnValue(contactAssignment);
+    it('navigates to contact person screen', () => {
+      // @ts-ignore
+      store.dispatch(navToPersonScreen(person.id));
 
-        // @ts-ignore
-        store.dispatch(navToPersonScreen(person.id));
-
-        expect(navigatePush).toHaveBeenCalledWith(PERSON_TABS, {
-          personId: person.id,
-        });
+      expect(navigatePush).toHaveBeenCalledWith(PERSON_TABS, {
+        personId: person.id,
       });
     });
   });

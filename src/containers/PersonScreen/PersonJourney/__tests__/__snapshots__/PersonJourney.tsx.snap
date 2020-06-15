@@ -577,7 +577,7 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  June 11, 2020
+                  June 15, 2020
                 </Text>
                 <Text
                   style={
@@ -786,7 +786,7 @@ exports[`journey methods renders a stage change row 1`] = `
               }
               testID="Text"
             >
-              June 11, 2020
+              June 15, 2020
             </Text>
             <Text
               style={
@@ -1118,7 +1118,7 @@ exports[`journey methods renders a step 1`] = `
                   }
                   testID="Text"
                 >
-                  June 11, 2020
+                  June 15, 2020
                 </Text>
                 <Text
                   style={
@@ -1425,7 +1425,7 @@ exports[`journey methods renders an interaction row 1`] = `
                   }
                   testID="Text"
                 >
-                  June 11, 2020
+                  June 15, 2020
                 </Text>
                 <Text
                   style={

@@ -4,7 +4,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { CommunitiesCollapsibleHeaderContext } from '../../Communities/Community/CommunityHeader/CommunityHeader';
 import { ImpactTab } from '../ImpactTab';
 
-jest.mock('../../../../ImpactView', () => 'ImpactView');
+jest.mock('../../ImpactView', () => 'ImpactView');
 
 it('should render correctly', () => {
   renderWithContext(

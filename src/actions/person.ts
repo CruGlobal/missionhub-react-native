@@ -19,6 +19,7 @@ import {
   ME_PERSON_TABS,
   PERSON_TABS,
 } from '../containers/PersonScreen/PersonTabs';
+import { personSelector, contactAssignmentSelector } from '../selectors/people';
 
 import callApi from './api';
 import { trackActionWithoutData, setAnalyticsMinistryMode } from './analytics';
@@ -407,32 +408,27 @@ export function createContactAssignment(
   };
 }
 
-// @ts-ignore
-export function deleteContactAssignment(id, personId, personOrgId, note = '') {
-  // @ts-ignore
-  return async dispatch => {
-    const data = {
-      data: {
-        type: 'contact_assignment',
-        attributes: {
-          unassignment_reason: note,
-        },
-      },
-    };
+export function deleteContactAssignment(personId: string) {
+  return async (
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
+    getState: () => RootState,
+  ) => {
+    const { auth, people } = getState();
+
+    const person = personSelector({ people }, { personId });
+    const { id: contactAssignmentId } =
+      contactAssignmentSelector({ auth }, { person }) || {};
 
     await dispatch(
-      callApi(
-        REQUESTS.DELETE_CONTACT_ASSIGNMENT,
-        { contactAssignmentId: id },
-        data,
-      ),
+      callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, {
+        contactAssignmentId,
+      }),
     );
 
     apolloClient.query({ query: STEPS_QUERY });
     return dispatch({
       type: DELETE_PERSON,
       personId,
-      personOrgId,
     });
   };
 }
