@@ -23,7 +23,7 @@ import CardTime from '../CardTime';
 import { CommentLikeComponent } from '../CommentLikeComponent';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
 import Separator from '../Separator';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
+import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../containers/CommunityFeedWithType';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 
@@ -100,7 +100,7 @@ export const CommunityFeedItemContent = ({
 
   const navToFilteredFeed = () => {
     dispatch(
-      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+      navigatePush(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
         type: itemType,
         communityId: feedItem.community?.id,
         communityName: feedItem.community?.name,

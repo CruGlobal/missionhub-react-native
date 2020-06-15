@@ -2895,6 +2895,44 @@ exports[`renders step note correctly for me 1`] = `
 </View>
 `;
 
+exports[`skips save step 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -160,11 +160,13 @@
+              style={
+                Array [
+                  Object {
+                    \\"backgroundColor\\": \\"transparent\\",
+                  },
+-                 null,
++                 Object {
++                   \\"opacity\\": 0.6,
++                 },
+                  Array [
+                    Object {
+                      \\"padding\\": 15,
+                    },
+                    undefined,
+@@ -309,12 +311,14 @@
+              Object {
+                \\"alignItems\\": \\"center\\",
+                \\"backgroundColor\\": \\"#52C5DC\\",
+                \\"height\\": 60,
+                \\"justifyContent\\": \\"center\\",
++             },
++             Object {
++               \\"opacity\\": 0.6,
+              },
+-             null,
+              Array [
+                Object {
+                  \\"alignItems\\": \\"center\\",
+                  \\"height\\": 48,
+                  \\"width\\": 650,"
+`;
+
 exports[`updates text 1`] = `
 "Snapshot Diff:
 - First value

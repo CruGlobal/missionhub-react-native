@@ -167,6 +167,42 @@ exports[`label variations render extra large label 1`] = `
         <View
           style={
             Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "flex": 4,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <Text
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "white",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                  },
+                  undefined,
+                ],
+              ]
+            }
+          >
+            Community Name
+          </Text>
+        </View>
+        <View
+          style={
+            Array [
               Object {
                 "paddingRight": 5,
               },
@@ -267,6 +303,7 @@ exports[`label variations renders label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -338,6 +375,7 @@ exports[`label variations renders label with on press with no text 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
+            "paddingHorizontal": 20,
             "paddingVertical": 0,
           },
           Object {
@@ -382,6 +420,7 @@ exports[`label variations renders large label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -441,6 +480,7 @@ exports[`label variations renders small label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -1673,7 +1713,7 @@ exports[`post types null states renders Announcement Null State 1`] = `
       ]
     }
   >
-    He who abides by annoucements will be blessed.
+    He who abides by announcements will be blessed.
   </Text>
   <Text
     style={
@@ -2059,6 +2099,7 @@ exports[`post types renders Announcement Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2116,6 +2157,7 @@ exports[`post types renders Care Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2173,6 +2215,7 @@ exports[`post types renders God Story Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2230,6 +2273,7 @@ exports[`post types renders On Your Mind Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2287,6 +2331,7 @@ exports[`post types renders Prayer Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2344,6 +2389,7 @@ exports[`post types renders Spiritual Question Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2401,6 +2447,7 @@ exports[`post types renders Step Of Faith Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2458,6 +2505,7 @@ exports[`renders correctly 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
+        "paddingHorizontal": 20,
         "paddingVertical": 0,
       },
       Object {
@@ -2546,6 +2594,7 @@ exports[`renders pressable correctly 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
+            "paddingHorizontal": 20,
             "paddingVertical": 0,
           },
           Object {

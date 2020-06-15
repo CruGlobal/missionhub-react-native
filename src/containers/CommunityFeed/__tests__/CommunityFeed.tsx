@@ -29,8 +29,8 @@ jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
 }));
 
-jest.mock('../../../containers/CelebrateFeedPostCards', () => ({
-  CelebrateFeedPostCards: 'CelebrateFeedPostCards',
+jest.mock('../../../containers/CommunityFeedPostCards', () => ({
+  CommunityFeedPostCards: 'CommunityFeedPostCards',
 }));
 
 const myId = '123';
