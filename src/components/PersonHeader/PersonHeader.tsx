@@ -30,6 +30,7 @@ import {
   PersonHeaderVariables,
 } from './__generated__/PersonHeader';
 import styles from './styles';
+import { isAndroid } from '../../utils/common';
 
 interface PersonHeaderProps {
   isMember?: boolean;
@@ -87,7 +88,7 @@ export const PersonHeader = ({
   return (
     <CollapsibleViewHeader
       context={collapsibleHeaderContext}
-      headerHeight={isMember ? 287 : 304}
+      headerHeight={(isMember ? 287 : 304) - (isAndroid ? 43 : 0)}
     >
       <View style={styles.container}>
         <Header
