@@ -151,7 +151,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,629 @@
+@@ -16,10 +16,634 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -320,7 +320,8 @@ exports[`onPress opens modal 1`] = `
 +                       \\"flexDirection\\": \\"row\\",
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingHorizontal\\": 20,
++                       \\"paddingLeft\\": 20,
++                       \\"paddingRight\\": 16,
 +                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
@@ -420,7 +421,8 @@ exports[`onPress opens modal 1`] = `
 +                       \\"flexDirection\\": \\"row\\",
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingHorizontal\\": 20,
++                       \\"paddingLeft\\": 20,
++                       \\"paddingRight\\": 16,
 +                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
@@ -520,7 +522,8 @@ exports[`onPress opens modal 1`] = `
 +                       \\"flexDirection\\": \\"row\\",
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingHorizontal\\": 20,
++                       \\"paddingLeft\\": 20,
++                       \\"paddingRight\\": 16,
 +                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
@@ -620,7 +623,8 @@ exports[`onPress opens modal 1`] = `
 +                       \\"flexDirection\\": \\"row\\",
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingHorizontal\\": 20,
++                       \\"paddingLeft\\": 20,
++                       \\"paddingRight\\": 16,
 +                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {
@@ -668,7 +672,7 @@ exports[`onPress opens modal 1`] = `
 +                   ]
 +                 }
 +               >
-+                 Care Request
++                 Community Need
 +               </Text>
 +             </View>
 +           </View>
@@ -720,7 +724,8 @@ exports[`onPress opens modal 1`] = `
 +                       \\"flexDirection\\": \\"row\\",
 +                       \\"height\\": 36,
 +                       \\"justifyContent\\": \\"space-between\\",
-+                       \\"paddingHorizontal\\": 20,
++                       \\"paddingLeft\\": 20,
++                       \\"paddingRight\\": 16,
 +                       \\"paddingVertical\\": 0,
 +                     },
 +                     Object {

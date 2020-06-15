@@ -131,7 +131,7 @@ export default {
   communityPrayerRequestPurple: COLORS.RED_PURPLE,
   communityQuestionOrange: COLORS.LIGHT_ORANGE,
   communityGodStoryPurple: COLORS.BLUE_PURPLE,
-  communityCareRequestRed: COLORS.LIGHT_RED,
+  communityHelpRequestRed: COLORS.LIGHT_RED,
   communityChallengeGreen: COLORS.SPEARMINT_GREEN,
   communityThoughtGrey: COLORS.NARWHAL_GREY,
   communityAnnouncementGrey: COLORS.CAVERN_GREY,

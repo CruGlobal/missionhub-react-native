@@ -1058,7 +1058,8 @@ exports[`renders Earlier section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -1580,7 +1581,8 @@ exports[`renders Today section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -2660,7 +2662,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -2837,7 +2840,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3014,7 +3018,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3191,7 +3196,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3368,7 +3374,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3545,7 +3552,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3722,7 +3730,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -3899,7 +3908,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -4076,7 +4086,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
