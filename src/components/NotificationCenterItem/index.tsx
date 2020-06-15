@@ -116,6 +116,7 @@ const NotificationCenterItem = ({ event }: { event: NotificationItem }) => {
         return dispatch(
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {
             feedItemId: screenData.feedItemId,
+            communityId: screenData.communityId,
           }),
         );
     }
