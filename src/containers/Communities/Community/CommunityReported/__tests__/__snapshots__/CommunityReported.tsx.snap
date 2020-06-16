@@ -1,0 +1,245 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`reported comment screen render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FF5532",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          Object {
+            "backgroundColor": "#FF5532",
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`reported post screen render correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FF5532",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          Object {
+            "backgroundColor": "#FF5532",
+          },
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="CloseButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  undefined,
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#ffffff"
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+      }
+    }
+  />
+</View>
+`;

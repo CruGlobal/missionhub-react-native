@@ -1035,6 +1035,16 @@ export default {
     nullDescription:
       'Stay tuned! Notifications about your communities will show up here.',
     errorLoadingNotifications: 'Error loading notifications',
+    reportedActivity: 'Reported Activity',
+    reportedComment: {
+      part1: 'A comment from',
+      part2: 'has been reported.',
+    },
+    reportedPost: {
+      part1: 'A post from',
+      part2: 'has been reported.',
+    },
+    review: 'Please Review.',
   },
   addPostToStepsScreen: {
     addToSteps: 'Add to my steps',
@@ -1045,5 +1055,11 @@ export default {
   },
   feedItemDetail: {
     errorLoadingFeedItemDetails: 'Error loading feed item details',
+  },
+  communityReported: {
+    reportedPost: 'Reported Post',
+    reportedComment: 'Reported Comment',
+    reportedBy: 'Reported By',
+    openPost: 'Open Post',
   },
 };

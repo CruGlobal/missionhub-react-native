@@ -26,6 +26,12 @@ describe('back button', () => {
     ).snapshot();
   });
 
+  it('renders correctly | thick', () => {
+    renderWithContext(
+      <CloseButton type={CloseButtonTypeEnum.thick} />,
+    ).snapshot();
+  });
+
   it('renders with different color', () => {
     renderWithContext(
       <CloseButton iconColor={theme.parakeetBlue} />,
