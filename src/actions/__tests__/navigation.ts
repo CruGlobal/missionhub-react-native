@@ -12,7 +12,7 @@ import {
   navigateReplace,
   navigateNestedReset,
   navigateToMainTabs,
-  navigateToCelebrateComments,
+  navigateToFeedItemComments,
 } from '../navigation';
 import {
   MAIN_TABS,
@@ -21,7 +21,6 @@ import {
 } from '../../constants';
 import { loadHome } from '../auth/userData';
 import { createThunkStore } from '../../../testUtils';
-import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 
@@ -195,7 +194,7 @@ describe('navigateToMainTabs', () => {
   });
 });
 
-describe('navigateToCelebrateComments', () => {
+describe('navigateToFeedItemComments', () => {
   const cruOrgId = '123456';
   const cruOrg = { id: cruOrgId, user_created: false };
   const userCreatedOrgId = '654321';
@@ -217,7 +216,7 @@ describe('navigateToCelebrateComments', () => {
   describe('no celebrationItemId', () => {
     describe('Cru org | undefined', () => {
       beforeEach(() => {
-        store.dispatch<any>(navigateToCelebrateComments(cruOrg, undefined));
+        store.dispatch<any>(navigateToFeedItemComments(cruOrg.id, undefined));
       });
 
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
@@ -235,7 +234,7 @@ describe('navigateToCelebrateComments', () => {
 
     describe('Cru org | null', () => {
       beforeEach(() => {
-        store.dispatch<any>(navigateToCelebrateComments(cruOrg, null));
+        store.dispatch<any>(navigateToFeedItemComments(cruOrg.id, null));
       });
 
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
@@ -254,7 +253,7 @@ describe('navigateToCelebrateComments', () => {
     describe('user-created Org | undefined', () => {
       beforeEach(() => {
         store.dispatch<any>(
-          navigateToCelebrateComments(userCreatedOrg, undefined),
+          navigateToFeedItemComments(userCreatedOrg.id, undefined),
         );
       });
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
@@ -272,7 +271,9 @@ describe('navigateToCelebrateComments', () => {
 
     describe('user-created Org | null', () => {
       beforeEach(() => {
-        store.dispatch<any>(navigateToCelebrateComments(userCreatedOrg, null));
+        store.dispatch<any>(
+          navigateToFeedItemComments(userCreatedOrg.id, null),
+        );
       });
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
         expect(store.getActions()).toEqual([
@@ -291,15 +292,15 @@ describe('navigateToCelebrateComments', () => {
   describe('user-created org', () => {
     beforeEach(() => {
       store.dispatch<any>(
-        navigateToCelebrateComments(userCreatedOrg, feedItemId),
+        navigateToFeedItemComments(userCreatedOrg.id, feedItemId),
       );
     });
 
-    it('navigates to CELEBRATE_DETAIL_SCREEN', () => {
+    it('navigates to FEED_ITEM_DETAIL_SCREEN', () => {
       expect(store.getActions()).toEqual([
         {
           type: 'Navigation/RESET',
-          index: 3,
+          index: 2,
           key: null,
           actions: [
             {
@@ -313,11 +314,6 @@ describe('navigateToCelebrateComments', () => {
             {
               type: 'Navigation/NAVIGATE',
               routeName: COMMUNITY_TABS,
-              params: { communityId: userCreatedOrgId },
-            },
-            {
-              type: 'Navigation/NAVIGATE',
-              routeName: GROUP_UNREAD_FEED_SCREEN,
               params: { communityId: userCreatedOrgId },
             },
             {
