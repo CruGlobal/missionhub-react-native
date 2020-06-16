@@ -8,10 +8,8 @@ import {
   NavigationNavigateAction,
 } from 'react-navigation';
 
-import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { FEED_ITEM_DETAIL_SCREEN } from '../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { MAIN_TABS, PEOPLE_TAB, COMMUNITIES_TAB } from '../constants';
-import { Organization } from '../reducers/organizations';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 
 import { loadHome } from './auth/userData';
@@ -97,8 +95,8 @@ export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
   dispatch(navigateNestedReset([{ routeName: MAIN_TABS, tabName }]));
 };
 
-export const navigateToCelebrateComments = (
-  community: Organization,
+export const navigateToFeedItemComments = (
+  communityId: string,
   itemId?: string | null,
 ) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
   if (itemId) {
@@ -110,11 +108,7 @@ export const navigateToCelebrateComments = (
         },
         {
           routeName: COMMUNITY_TABS,
-          params: { communityId: community.id },
-        },
-        {
-          routeName: GROUP_UNREAD_FEED_SCREEN,
-          params: { communityId: community.id },
+          params: { communityId },
         },
         { routeName: FEED_ITEM_DETAIL_SCREEN, params: { feedItemId: itemId } },
       ]),
@@ -122,7 +116,7 @@ export const navigateToCelebrateComments = (
   } else {
     dispatch(
       navigatePush(COMMUNITY_TABS, {
-        communityId: community.id,
+        communityId,
       }),
     );
   }
