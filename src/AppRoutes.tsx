@@ -112,9 +112,6 @@ import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
 import { SelectPersonStageFlowNavigator } from './routes/stage/selectPersonStageFlow';
 import TabIcon from './components/TabIcon';
-import GroupUnreadFeed, {
-  GROUP_UNREAD_FEED_SCREEN,
-} from './containers/Groups/GroupUnreadFeed';
 import { AddSomeoneStepFlowNavigator } from './routes/addPerson/addSomeoneStepFlow';
 import {
   CreatePostScreen,
@@ -270,17 +267,6 @@ const screens = {
     NotificationOffScreen,
     // @ts-ignore
     buildTrackingObj('menu : notifications : off', 'menu', 'notifications'),
-  ),
-  [GROUP_UNREAD_FEED_SCREEN]: buildTrackedScreen(
-    GroupUnreadFeed,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : comments : unread',
-      'communities',
-      'comments',
-      'unread',
-    ),
-    { gesturesEnabled: true },
   ),
   [CREATE_GROUP_SCREEN]: buildTrackedScreen(
     CreateGroupScreen,
