@@ -97,7 +97,7 @@ export const getPostTypeAnalytics = (
       return 'prayer request';
     case PostTypeEnum.question:
     case FeedItemSubjectTypeEnum.QUESTION:
-      return 'spritual question';
+      return 'spiritual question';
     case PostTypeEnum.help_request:
     case FeedItemSubjectTypeEnum.HELP_REQUEST:
       return 'care request';
