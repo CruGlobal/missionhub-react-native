@@ -8,7 +8,6 @@ import {
   NavigationNavigateAction,
 } from 'react-navigation';
 
-import { GROUP_UNREAD_FEED_SCREEN } from '../containers/Groups/GroupUnreadFeed';
 import { FEED_ITEM_DETAIL_SCREEN } from '../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { MAIN_TABS, PEOPLE_TAB, COMMUNITIES_TAB } from '../constants';
 import { Organization } from '../reducers/organizations';
@@ -97,7 +96,7 @@ export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
   dispatch(navigateNestedReset([{ routeName: MAIN_TABS, tabName }]));
 };
 
-export const navigateToCelebrateComments = (
+export const navigateToFeedItemComments = (
   community: Organization,
   itemId?: string | null,
 ) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
@@ -110,10 +109,6 @@ export const navigateToCelebrateComments = (
         },
         {
           routeName: COMMUNITY_TABS,
-          params: { communityId: community.id },
-        },
-        {
-          routeName: GROUP_UNREAD_FEED_SCREEN,
           params: { communityId: community.id },
         },
         { routeName: FEED_ITEM_DETAIL_SCREEN, params: { feedItemId: itemId } },

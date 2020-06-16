@@ -35,7 +35,7 @@ import {
   navigatePush,
   navigateReset,
   navigateToMainTabs,
-  navigateToCelebrateComments,
+  navigateToFeedItemComments,
 } from '../navigation';
 import { refreshCommunity } from '../organizations';
 import { reloadGroupChallengeFeed } from '../challenges';
@@ -495,7 +495,7 @@ describe('askNotificationPermissions', () => {
       (reloadGroupChallengeFeed as jest.Mock).mockReturnValue(
         reloadGroupChallengeFeedResult,
       );
-      (navigateToCelebrateComments as jest.Mock).mockReturnValue(
+      (navigateToFeedItemComments as jest.Mock).mockReturnValue(
         navToCelebrateResult,
       );
       (navigateToMainTabs as jest.Mock).mockReturnValue(
@@ -728,7 +728,7 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           organization,
           celebration_item_id,
         );
@@ -742,7 +742,7 @@ describe('askNotificationPermissions', () => {
         } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
       });
     });
 
@@ -757,7 +757,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           organization,
           celebration_item_id,
         );
@@ -773,7 +773,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalled();
-        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
       });
     });
 
