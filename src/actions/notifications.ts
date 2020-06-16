@@ -30,7 +30,7 @@ import { reloadGroupChallengeFeed } from './challenges';
 import {
   navigatePush,
   navigateToMainTabs,
-  navigateToCelebrateComments,
+  navigateToFeedItemComments,
 } from './navigation';
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
@@ -310,7 +310,7 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
           dispatch(refreshCommunity(organization_id));
           await getCelebrateFeed(organization_id);
           return dispatch(
-            navigateToCelebrateComments(celebration_item_id, organization_id),
+            navigateToFeedItemComments(celebration_item_id, organization_id),
           );
         } catch (error) {
           dispatch(navigateToMainTabs());

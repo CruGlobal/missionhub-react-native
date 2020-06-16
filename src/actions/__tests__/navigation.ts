@@ -12,12 +12,11 @@ import {
   navigateReplace,
   navigateNestedReset,
   navigateToMainTabs,
-  navigateToCelebrateComments,
+  navigateToFeedItemComments,
 } from '../navigation';
 import { MAIN_TABS, COMMUNITIES_TAB } from '../../constants';
 import { loadHome } from '../auth/userData';
 import { createThunkStore } from '../../../testUtils';
-import { GROUP_UNREAD_FEED_SCREEN } from '../../containers/Groups/GroupUnreadFeed';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 
@@ -191,17 +190,17 @@ describe('navigateToMainTabs', () => {
   });
 });
 
-describe('navigateToCelebrateComments', () => {
+describe('navigateToFeedItemComments', () => {
   const communityId = '123456';
   const feedItemId = '111';
 
   it('navigates to FEED_ITEM_DETAIL_SCREEN', () => {
-    store.dispatch<any>(navigateToCelebrateComments(feedItemId, communityId));
+    store.dispatch<any>(navigateToFeedItemComments(feedItemId, communityId));
 
     expect(store.getActions()).toEqual([
       {
         type: 'Navigation/RESET',
-        index: 3,
+        index: 2,
         key: null,
         actions: [
           {
@@ -215,11 +214,6 @@ describe('navigateToCelebrateComments', () => {
           {
             type: 'Navigation/NAVIGATE',
             routeName: COMMUNITY_TABS,
-            params: { communityId },
-          },
-          {
-            type: 'Navigation/NAVIGATE',
-            routeName: GROUP_UNREAD_FEED_SCREEN,
             params: { communityId },
           },
           {

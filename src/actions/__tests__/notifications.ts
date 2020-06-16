@@ -35,7 +35,7 @@ import {
   navigatePush,
   navigateReset,
   navigateToMainTabs,
-  navigateToCelebrateComments,
+  navigateToFeedItemComments,
 } from '../navigation';
 import { refreshCommunity } from '../organizations';
 import { reloadGroupChallengeFeed } from '../challenges';
@@ -495,7 +495,7 @@ describe('askNotificationPermissions', () => {
       (reloadGroupChallengeFeed as jest.Mock).mockReturnValue(
         reloadGroupChallengeFeedResult,
       );
-      (navigateToCelebrateComments as jest.Mock).mockReturnValue(
+      (navigateToFeedItemComments as jest.Mock).mockReturnValue(
         navToCelebrateResult,
       );
       (navigateToMainTabs as jest.Mock).mockReturnValue(
@@ -729,7 +729,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           organization.id,
         );
@@ -744,7 +744,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalledWith();
-        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
       });
       it('should navigate to COMMUNITY_TABS if no celebrate_item_id', async () => {
         await testNotification(({
@@ -756,7 +756,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalledWith();
-        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
         expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
           communityId: organization.id,
         });
@@ -774,7 +774,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           organization.id,
         );
@@ -790,7 +790,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalled();
-        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
       });
     });
 
