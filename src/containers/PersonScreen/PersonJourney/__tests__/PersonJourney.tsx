@@ -44,7 +44,7 @@ const mockPerson = {
 };
 
 const mockJourneyList = [
-  { _type: ACCEPTED_STEP, id: '84472', date: '2010-01-01 12:12:12' },
+  { _type: ACCEPTED_STEP, id: '84472', completed_at: '2010-01-01 12:12:12' },
 ];
 
 const initialState = {
@@ -125,6 +125,7 @@ describe('journey methods', () => {
                   id: '123',
                   note: '123',
                   _type: ACCEPTED_STEP,
+                  completed_at: '2010-01-01 12:12:12',
                 },
               ],
             },
@@ -150,6 +151,7 @@ describe('journey methods', () => {
                   id: '123',
                   comment: '123',
                   _type: 'interaction',
+                  created_at: '2010-01-01 12:12:12',
                 },
               ],
             },
@@ -175,6 +177,7 @@ describe('journey methods', () => {
                   id: '124',
                   _type: 'pathway_progression_audit',
                   person: { id: personId },
+                  created_at: '2010-01-01 12:12:12',
                 },
               ],
             },

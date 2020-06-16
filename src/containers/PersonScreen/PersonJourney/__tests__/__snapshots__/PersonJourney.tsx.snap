@@ -313,7 +313,7 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
       Array [
         Object {
           "_type": "accepted_challenge",
-          "date": "2010-01-01 12:12:12",
+          "completed_at": "2010-01-01 12:12:12",
           "id": "84472",
         },
       ]
@@ -577,7 +577,7 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
                   }
                   testID="Text"
                 >
-                  June 15, 2020
+                  January 1, 2010
                 </Text>
                 <Text
                   style={
@@ -648,6 +648,7 @@ exports[`journey methods renders a stage change row 1`] = `
       Array [
         Object {
           "_type": "pathway_progression_audit",
+          "created_at": "2010-01-01 12:12:12",
           "id": "124",
           "person": Object {
             "id": "123",
@@ -786,7 +787,7 @@ exports[`journey methods renders a stage change row 1`] = `
               }
               testID="Text"
             >
-              June 15, 2020
+              January 1, 2010
             </Text>
             <Text
               style={
@@ -854,6 +855,7 @@ exports[`journey methods renders a step 1`] = `
       Array [
         Object {
           "_type": "accepted_challenge",
+          "completed_at": "2010-01-01 12:12:12",
           "id": "123",
           "note": "123",
         },
@@ -1118,7 +1120,7 @@ exports[`journey methods renders a step 1`] = `
                   }
                   testID="Text"
                 >
-                  June 15, 2020
+                  January 1, 2010
                 </Text>
                 <Text
                   style={
@@ -1209,6 +1211,7 @@ exports[`journey methods renders an interaction row 1`] = `
         Object {
           "_type": "interaction",
           "comment": "123",
+          "created_at": "2010-01-01 12:12:12",
           "id": "123",
         },
       ]
@@ -1425,7 +1428,7 @@ exports[`journey methods renders an interaction row 1`] = `
                   }
                   testID="Text"
                 >
-                  June 15, 2020
+                  January 1, 2010
                 </Text>
                 <Text
                   style={
