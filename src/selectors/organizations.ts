@@ -15,15 +15,18 @@ export const organizationSelector = createSelector(
 );
 
 export const allOrganizationsSelector = createSelector(
-  ({ organizations }) => organizations.all,
-  ({ auth }) => auth.person,
+  ({ organizations }: { organizations: OrganizationsState; auth: AuthState }) =>
+    organizations.all,
+  ({ auth }: { organizations: OrganizationsState; auth: AuthState }) =>
+    auth.person,
   (orgs, authUser) => removeHiddenOrgs(orgs, authUser),
 );
 
 export const communitiesSelector = createSelector(
-  ({ organizations }: { organizations: OrganizationsState }) =>
+  ({ organizations }: { organizations: OrganizationsState; auth: AuthState }) =>
     organizations.all,
-  ({ auth }: { auth: AuthState }) => auth.person,
+  ({ auth }: { organizations: OrganizationsState; auth: AuthState }) =>
+    auth.person,
   (orgs, authUser) =>
     removeHiddenOrgs(orgs, authUser)
       .filter((org: Organization) => org.community)

@@ -15,7 +15,7 @@ import {
 } from '../../../../../actions/analytics';
 import { removeGroupInviteInfo } from '../../../../../actions/swipe';
 import { navigateBack, navigatePush } from '../../../../../actions/navigation';
-import CommunityMembers from '../CommunityMembers';
+import { CommunityMembers } from '../CommunityMembers';
 import { ACTIONS } from '../../../../../constants';
 import { organizationSelector } from '../../../../../selectors/organizations';
 

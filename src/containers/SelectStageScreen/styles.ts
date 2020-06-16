@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 import theme from '../../theme';
 
-export const screenMargin = 60;
+const screenMargin = 60;
 export const sliderWidth = theme.fullWidth;
 export const stageWidth = theme.fullWidth - screenMargin * 2;
 export const stageMargin = theme.fullWidth / 30;

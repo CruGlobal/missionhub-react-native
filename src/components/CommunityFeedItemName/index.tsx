@@ -9,7 +9,7 @@ import { COMMUNITY_MEMBER_TABS } from '../../containers/Communities/Community/Co
 
 import styles from './styles';
 
-export interface CommunityFeedItemNameProps {
+interface CommunityFeedItemNameProps {
   name: string | null;
   // personId and communityId are nullable to handle loading state
   personId?: string;

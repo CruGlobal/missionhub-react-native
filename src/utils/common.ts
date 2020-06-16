@@ -392,11 +392,6 @@ export function keyboardHide(handler, type) {
 }
 
 // @ts-ignore
-export function getSurveyUrl(surveyId) {
-  return `${Config.SURVEY_URL}${surveyId}`;
-}
-
-// @ts-ignore
 export function getCommunityUrl(link) {
   return link ? `${Config.COMMUNITY_URL}${link}` : '';
 }

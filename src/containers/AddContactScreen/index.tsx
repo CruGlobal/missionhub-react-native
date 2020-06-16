@@ -13,7 +13,7 @@ import { DrawerActions } from 'react-navigation-drawer';
 
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
-import AddContactFields from '../AddContactFields';
+import AddContactFields, { AddContactFieldsProps } from '../AddContactFields';
 import { trackActionWithoutData } from '../../actions/analytics';
 import {
   ACTIONS,
@@ -38,6 +38,7 @@ import BackButton from '../../components/BackButton';
 import CloseButton, { CloseButtonTypeEnum } from '../../components/CloseButton';
 import theme from '../../theme';
 import { getPersonDetails } from '../../actions/person';
+import { RootState } from '../../reducers';
 
 import { GET_PERSON } from './queries';
 import styles from './styles';
@@ -48,13 +49,17 @@ import {
 } from './__generated__/GetPerson';
 
 interface AddContactScreenProps {
-  next: (props: {
-    personId?: string;
-    relationshipType?: RelationshipTypeEnum | null;
-    orgId: string;
-    didSavePerson?: boolean;
-    isMe?: boolean;
-  }) => ThunkAction<unknown, {}, {}, AnyAction>;
+  // It's weird that in one flow, the child screen calls next and in another, this screen calls it with different props. We should improve this
+  next: (
+    props:
+      | Parameters<AddContactFieldsProps['next']>
+      | {
+          personId?: string;
+          relationshipType?: RelationshipTypeEnum | null;
+          didSavePerson?: boolean;
+          isMe?: boolean;
+        },
+  ) => ThunkAction<unknown, RootState, {}, AnyAction>;
 }
 
 export type PersonType = Omit<GetPerson_person, '__typename'>;
@@ -112,7 +117,6 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       next({
         personId: person?.id,
         relationshipType: person?.relationshipType,
-        orgId: organization?.id,
         didSavePerson,
         isMe: isMe,
       }),
@@ -142,12 +146,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
         });
         // Update person's data in redux
         updateData?.updatePerson?.person &&
-          dispatch(
-            getPersonDetails(
-              updateData?.updatePerson?.person?.id,
-              organization?.id,
-            ),
-          );
+          dispatch(getPersonDetails(updateData?.updatePerson?.person?.id));
         results = updateData?.updatePerson?.person;
       } else {
         const { data: createData } = await createPerson({
@@ -230,7 +229,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
           <AddContactFields
             testID="contactFields"
             person={person}
-            next={next}
+            next={next as AddContactFieldsProps['next']}
             organization={organization}
             onUpdateData={handleUpdateData}
           />

@@ -478,7 +478,6 @@ describe('askNotificationPermissions', () => {
     });
 
     const finish = jest.fn();
-    const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
     const navToPersonScreenResult = { type: 'navigated to person screen' };
     const refreshCommunityResult = organization;
     const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
@@ -487,7 +486,6 @@ describe('askNotificationPermissions', () => {
     beforeEach(() => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
       store.clearActions();
-      (getPersonDetails as jest.Mock).mockReturnValue(getPersonResult);
       (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
       (refreshCommunity as jest.Mock).mockReturnValue(
         () => refreshCommunityResult,
@@ -580,11 +578,9 @@ describe('askNotificationPermissions', () => {
         organization_id: '2',
       });
 
-      expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
-        getPersonResult,
         navToPersonScreenResult,
       ]);
     });
@@ -607,11 +603,9 @@ describe('askNotificationPermissions', () => {
         },
       });
 
-      expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
       expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
-        getPersonResult,
         navToPersonScreenResult,
       ]);
     });

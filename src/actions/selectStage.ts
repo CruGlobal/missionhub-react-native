@@ -45,7 +45,7 @@ export function updateUserStage(contactAssignmentId: string, stageId: string) {
     const orgId = organization && organization.id;
 
     dispatch(refreshImpact(orgId));
-    dispatch(getPersonDetails(personId, orgId));
+    dispatch(getPersonDetails(personId));
     return response;
   };
 }
@@ -95,7 +95,7 @@ export function selectPersonStage(
     );
 
     dispatch(refreshImpact(orgId));
-    dispatch(getPersonDetails(personId, orgId));
+    dispatch(getPersonDetails(personId));
     return response;
   };
 }
