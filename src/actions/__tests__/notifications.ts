@@ -729,7 +729,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
-          organization,
+          organization.id,
           celebration_item_id,
         );
       });
@@ -758,7 +758,7 @@ describe('askNotificationPermissions', () => {
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
-          organization,
+          organization.id,
           celebration_item_id,
         );
       });

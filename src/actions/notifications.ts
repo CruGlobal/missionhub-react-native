@@ -299,7 +299,7 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
             const community = await dispatch(refreshCommunity(organization_id));
             await getCelebrateFeed(organization_id);
             return dispatch(
-              navigateToFeedItemComments(community, celebration_item_id),
+              navigateToFeedItemComments(community.id, celebration_item_id),
             );
           } catch (error) {
             dispatch(navigateToMainTabs());

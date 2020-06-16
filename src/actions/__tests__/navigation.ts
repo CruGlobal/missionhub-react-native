@@ -216,7 +216,7 @@ describe('navigateToFeedItemComments', () => {
   describe('no celebrationItemId', () => {
     describe('Cru org | undefined', () => {
       beforeEach(() => {
-        store.dispatch<any>(navigateToFeedItemComments(cruOrg, undefined));
+        store.dispatch<any>(navigateToFeedItemComments(cruOrg.id, undefined));
       });
 
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
@@ -234,7 +234,7 @@ describe('navigateToFeedItemComments', () => {
 
     describe('Cru org | null', () => {
       beforeEach(() => {
-        store.dispatch<any>(navigateToFeedItemComments(cruOrg, null));
+        store.dispatch<any>(navigateToFeedItemComments(cruOrg.id, null));
       });
 
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
@@ -253,7 +253,7 @@ describe('navigateToFeedItemComments', () => {
     describe('user-created Org | undefined', () => {
       beforeEach(() => {
         store.dispatch<any>(
-          navigateToFeedItemComments(userCreatedOrg, undefined),
+          navigateToFeedItemComments(userCreatedOrg.id, undefined),
         );
       });
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
@@ -271,7 +271,9 @@ describe('navigateToFeedItemComments', () => {
 
     describe('user-created Org | null', () => {
       beforeEach(() => {
-        store.dispatch<any>(navigateToFeedItemComments(userCreatedOrg, null));
+        store.dispatch<any>(
+          navigateToFeedItemComments(userCreatedOrg.id, null),
+        );
       });
       it('navigates to community celebrate feed if celebrationItemId is not present', () => {
         expect(store.getActions()).toEqual([
@@ -290,7 +292,7 @@ describe('navigateToFeedItemComments', () => {
   describe('user-created org', () => {
     beforeEach(() => {
       store.dispatch<any>(
-        navigateToFeedItemComments(userCreatedOrg, feedItemId),
+        navigateToFeedItemComments(userCreatedOrg.id, feedItemId),
       );
     });
 
