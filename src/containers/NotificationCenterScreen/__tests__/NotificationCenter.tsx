@@ -29,7 +29,7 @@ beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
 });
 
-it('renders with no data', async () => {
+it('renders with no data', () => {
   const { snapshot } = renderWithContext(<NotificationCenterScreen />, {
     mocks: {
       NotificationConnection: () => ({
@@ -39,7 +39,6 @@ it('renders with no data', async () => {
     initialApolloState,
   });
 
-  await flushMicrotasksQueue();
   snapshot();
   expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
     onCompleted: expect.any(Function),
