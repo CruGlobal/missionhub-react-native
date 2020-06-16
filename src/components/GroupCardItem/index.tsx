@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Text, Flex, Card, Button, Icon } from '../common';
+import { Text, Flex, Card, Button } from '../common';
 import Dot from '../Dot';
 import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
 import { TouchablePress } from '../Touchable/index.ios';
@@ -25,7 +25,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
     name,
     userCreated,
     communityPhotoUrl,
-    unreadCommentsCount,
+    // unreadCommentsCount,
     owner: {
       nodes: [owner],
     },
