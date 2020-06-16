@@ -381,7 +381,7 @@ describe('ReportedNotificationItem', () => {
 
     fireEvent.press(getByTestId('reportedNotificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_REPORTED, {
-      event: mockReportedPost,
+      reportedItemId: mockReportedPost.id,
     });
   });
 
@@ -404,7 +404,7 @@ describe('ReportedNotificationItem', () => {
 
     fireEvent.press(getByTestId('reportedNotificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_REPORTED, {
-      event: mockReportedComment,
+      reportedItemId: mockReportedComment.id,
     });
   });
 });

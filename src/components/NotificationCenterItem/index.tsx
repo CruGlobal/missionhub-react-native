@@ -21,11 +21,7 @@ import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { COMMUNITY_REPORTED } from '../../containers/Communities/Community/CommunityReported/CommunityReported';
 import theme from '../../theme';
 
-import {
-  ContentComplaintGroupItem,
-  ContentComplaintGroupItem_subject_Post,
-  ContentComplaintGroupItem_subject_FeedItemComment,
-} from './__generated__/ContentComplaintGroupItem';
+import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroupItem';
 import ReportedIcon from './reportedIcon.svg';
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
@@ -171,13 +167,19 @@ export const ReportedNotificationCenterItem = ({
   const handleNotificationPress = () => {
     dispatch(
       navigatePush(COMMUNITY_REPORTED, {
-        event,
+        reportedItemId: event.id,
       }),
     );
   };
-  const eventSubject = event.subject as
-    | ContentComplaintGroupItem_subject_Post
-    | ContentComplaintGroupItem_subject_FeedItemComment;
+  const eventSubject = event.subject;
+  if (
+    eventSubject.__typename !== 'Post' &&
+    eventSubject.__typename !== 'FeedItemComment'
+  ) {
+    throw new Error(
+      'Subject type of ReportedItem passed to ReportedNotificationCenterItem must be either a Post or FeedItemComment',
+    );
+  }
   const communityPhoto = eventSubject.feedItem?.community?.communityPhotoUrl;
   const communityName = eventSubject.feedItem?.community?.name;
 

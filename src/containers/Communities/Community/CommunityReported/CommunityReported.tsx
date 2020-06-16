@@ -1,9 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
-import { useTranslation } from 'react-i18next';
-import { useNavigationParam } from 'react-navigation-hooks';
+// import { useTranslation } from 'react-i18next';
+// import { useNavigationParam } from 'react-navigation-hooks';
 
-import { ContentComplaintGroupItem } from '../../../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
 import Header from '../../../../components/Header';
 import CloseButton, {
   CloseButtonTypeEnum,
@@ -13,20 +12,15 @@ import theme from '../../../../theme';
 import styles from './styles';
 
 const CommunityReportedScreen = () => {
-  const { t } = useTranslation('communityReported');
-  const event: ContentComplaintGroupItem = useNavigationParam('event');
-
-  const reportedItemType =
-    event?.subject.__typename === 'Post'
-      ? t('reportedPost')
-      : t('reportedComment');
+  // const { t } = useTranslation('communityReported');
+  // const reportedItemId = useNavigationParam('reportedItemId');
 
   return (
     <View style={styles.container}>
       <Header
         style={styles.header}
         titleStyle={styles.title}
-        title={reportedItemType}
+        // title={reportedItemType}
         right={
           <CloseButton
             iconColor={theme.white}

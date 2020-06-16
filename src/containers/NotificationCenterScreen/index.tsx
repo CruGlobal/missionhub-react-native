@@ -29,36 +29,6 @@ import { GetNotifications } from './__generated__/GetNotifications';
 import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
 import styles from './styles';
 
-interface SectionsInterface {
-  id: number;
-  name: string;
-  data: NotificationItem[] & ContentComplaintGroupItem[];
-}
-const groupNotificationFeed = (
-  nodes: NotificationItem[],
-  contentComplaints: ContentComplaintGroupItem[],
-) => {
-  const sections: SectionsInterface[] = [
-    { id: 0, name: 'reportedActivity', data: [] },
-    { id: 1, name: 'dates.today', data: [] },
-    { id: 2, name: 'dates.earlier', data: [] },
-  ];
-
-  contentComplaints.forEach(complaint => sections[0].data.push(complaint));
-
-  return nodes
-    .reduce((acc, c) => {
-      if (isLastTwentyFourHours(getMomentDate(c.createdAt))) {
-        acc[1].data.push(c);
-      } else {
-        acc[2].data.push(c);
-      }
-
-      return [...acc];
-    }, sections)
-    .filter(section => section.data.length > 0);
-};
-
 const NotificationCenterScreen = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation('notificationsCenter');
@@ -94,6 +64,30 @@ const NotificationCenterScreen = () => {
   //     notificationState,
   //   } = {},
   // } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
+
+  const groupNotificationFeed = () => {
+    return [
+      {
+        id: 0,
+        name: 'reportedActivity',
+        data: contentComplaints,
+      },
+      {
+        id: 1,
+        name: 'dates.today',
+        data: nodes.filter(n =>
+          isLastTwentyFourHours(getMomentDate(n.createdAt)),
+        ),
+      },
+      {
+        id: 2,
+        name: 'dates.earlier',
+        data: nodes.filter(
+          n => !isLastTwentyFourHours(getMomentDate(n.createdAt)),
+        ),
+      },
+    ].filter(section => section.data.length > 0);
+  };
 
   const [setHasUnreadNotifications] = useMutation<
     UpdateLatestNotification,
@@ -167,7 +161,7 @@ const NotificationCenterScreen = () => {
     });
   };
 
-  const filteredSections = groupNotificationFeed(nodes, contentComplaints);
+  const filteredSections = groupNotificationFeed();
 
   return (
     <View style={styles.pageContainer}>
