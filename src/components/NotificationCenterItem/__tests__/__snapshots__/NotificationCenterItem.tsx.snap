@@ -1,5 +1,532 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="reportedNotificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "qui amet iure",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 24,
+          "height": 48,
+          "width": 48,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <SvgMock
+        height={24}
+        width={24}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          A comment from
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+           Customizable contextually-based archive 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          has been reported.
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+           Please Review.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        September 19, 2010 3:58 AM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="reportedNotificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "repellat ratione ut",
+        }
+      }
+      style={
+        Object {
+          "borderRadius": 24,
+          "height": 48,
+          "width": 48,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <SvgMock
+        height={24}
+        width={24}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          A post from
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+           Adaptive bandwidth-monitored encryption 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          has been reported.
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+           Please Review.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        January 26, 2016 7:10 PM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`ReportedNotificationItem renders correctly | without community photo 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="reportedNotificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
+          },
+          Object {
+            "backgroundColor": "#B4B6BA",
+          },
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <SvgMock
+        height={24}
+        width={24}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          A post from
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+           Adaptive bandwidth-monitored encryption 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          has been reported.
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+           Please Review.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        February 28, 2016 3:01 AM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`different notification types renders correctly | Care request 1`] = `
 <View
   accessible={true}

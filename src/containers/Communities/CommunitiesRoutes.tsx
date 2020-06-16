@@ -15,11 +15,15 @@ import {
   CommunityMemberTabs,
   COMMUNITY_MEMBER_TABS,
 } from './Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
+import CommunityReported, {
+  COMMUNITY_REPORTED,
+} from './Community/CommunityReported/CommunityReported';
 
 export const CommunitiesRoutes = {
   [COMMUNITY_TABS]: CommunityTabs,
   [COMMUNITY_PROFILE]: CommunityProfile,
   [COMMUNITY_MEMBERS]: CommunityMembers,
   [COMMUNITY_MEMBER_TABS]: CommunityMemberTabs,
+  [COMMUNITY_REPORTED]: CommunityReported,
   [FEED_ITEM_DETAIL_SCREEN]: FeedItemDetailScreen,
 };
