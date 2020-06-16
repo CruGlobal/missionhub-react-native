@@ -65,29 +65,27 @@ const NotificationCenterScreen = () => {
   //   } = {},
   // } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
 
-  const groupNotificationFeed = () => {
-    return [
-      {
-        id: 0,
-        name: 'reportedActivity',
-        data: contentComplaints,
-      },
-      {
-        id: 1,
-        name: 'dates.today',
-        data: nodes.filter(n =>
-          isLastTwentyFourHours(getMomentDate(n.createdAt)),
-        ),
-      },
-      {
-        id: 2,
-        name: 'dates.earlier',
-        data: nodes.filter(
-          n => !isLastTwentyFourHours(getMomentDate(n.createdAt)),
-        ),
-      },
-    ].filter(section => section.data.length > 0);
-  };
+  const filteredSections = [
+    {
+      id: 0,
+      name: 'reportedActivity',
+      data: contentComplaints,
+    },
+    {
+      id: 1,
+      name: 'dates.today',
+      data: nodes.filter(n =>
+        isLastTwentyFourHours(getMomentDate(n.createdAt)),
+      ),
+    },
+    {
+      id: 2,
+      name: 'dates.earlier',
+      data: nodes.filter(
+        n => !isLastTwentyFourHours(getMomentDate(n.createdAt)),
+      ),
+    },
+  ].filter(section => section.data.length > 0);
 
   const [setHasUnreadNotifications] = useMutation<
     UpdateLatestNotification,
@@ -160,8 +158,6 @@ const NotificationCenterScreen = () => {
           : prev,
     });
   };
-
-  const filteredSections = groupNotificationFeed();
 
   return (
     <View style={styles.pageContainer}>
