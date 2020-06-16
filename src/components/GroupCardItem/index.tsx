@@ -80,7 +80,8 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   );
 
   const isGlobal = orgIsGlobal(group);
-  const hasNotification = !isGlobal && unreadCommentsCount !== 0;
+  // const hasNotification = !isGlobal && unreadCommentsCount !== 0;
+
   //not passing a value for onPress to Card makes the card unclickable.
   //In some cases we want to prevent clicking on GroupCardItem.
 
@@ -119,7 +120,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
               />
             </Flex>
           ) : null}
-          {!onJoin && hasNotification ? (
+          {/* {!onJoin && hasNotification ? (
             <Flex align="center" justify="center">
               <Icon
                 type="MissionHub"
@@ -129,7 +130,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
               />
               <View style={styles.badge} />
             </Flex>
-          ) : null}
+          ) : null} */}
         </Flex>
       </Flex>
     </Card>
