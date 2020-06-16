@@ -18,6 +18,8 @@ import NotificationCenterItem from '..';
 
 jest.mock('../../../actions/navigation');
 
+const communityId = '4';
+
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
 });
@@ -173,6 +175,7 @@ describe('handleNotificationPress', () => {
             ],
             screenData: {
               feedItemId: '1234',
+              communityId,
             },
           }),
         },
@@ -185,6 +188,7 @@ describe('handleNotificationPress', () => {
     fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: mockNotification.screenData.feedItemId,
+      communityId,
     });
   });
 

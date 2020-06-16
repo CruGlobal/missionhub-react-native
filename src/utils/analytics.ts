@@ -103,7 +103,7 @@ export const getPostTypeAnalytics = (
       return 'care request';
     case PostTypeEnum.thought:
     case FeedItemSubjectTypeEnum.THOUGHT:
-      return 'whats on your mind';
+      return 'thoughts';
     case PostTypeEnum.announcement:
     case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
       return 'announcement';

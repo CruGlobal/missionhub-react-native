@@ -97,7 +97,7 @@ export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
 };
 
 export const navigateToCelebrateComments = (
-  feedItemId: string,
+  feedItemId: string | null,
   communityId: string,
 ) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
   dispatch(
