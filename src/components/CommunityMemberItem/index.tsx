@@ -19,7 +19,7 @@ import { CommunityMembers_community_people_edges_communityPermission } from '../
 import styles from './styles';
 import { CommunityMemberPerson } from './__generated__/CommunityMemberPerson';
 
-export interface CommunityMemberItemProps {
+interface CommunityMemberItemProps {
   person: CommunityMemberPerson;
   organization: Organization;
   personOrgPermission: CommunityMembers_community_people_edges_communityPermission;

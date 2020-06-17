@@ -11,7 +11,6 @@ import Input from './Input';
 import LoadingGuy from './LoadingGuy';
 import LoadingWheel from './LoadingWheel';
 import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
-import RadioButton from './RadioButton';
 import RefreshControl from './RefreshControl';
 import Separator from './Separator';
 import Text from './Text';
@@ -30,7 +29,6 @@ export {
   LoadingGuy,
   LoadingWheel,
   PlatformKeyboardAvoidingView,
-  RadioButton,
   RefreshControl,
   Separator,
   Text,

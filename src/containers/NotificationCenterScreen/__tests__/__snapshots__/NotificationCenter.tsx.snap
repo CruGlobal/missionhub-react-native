@@ -1829,7 +1829,8 @@ exports[`renders Earlier section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -2848,7 +2849,8 @@ exports[`renders Today section correctly  1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -4427,7 +4429,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -4604,7 +4607,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -4781,7 +4785,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -4958,7 +4963,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -5135,7 +5141,8 @@ exports[`renders correctly 1`] = `
                       "flexDirection": "row",
                       "height": 36,
                       "justifyContent": "space-between",
-                      "paddingHorizontal": 20,
+                      "paddingLeft": 20,
+                      "paddingRight": 16,
                       "paddingVertical": 0,
                     },
                     Object {
@@ -5425,65 +5432,7 @@ exports[`renders with no data 1`] = `
   </RCTSafeAreaView>
   <RCTScrollView
     ListEmptyComponent={[Function]}
-    data={
-      Array [
-        Object {
-          "data": Array [
-            Object {
-              "__typename": "ContentComplaintGroup",
-              "id": "1",
-              "subject": Object {
-                "__typename": "Post",
-                "author": Object {
-                  "__typename": "Person",
-                  "fullName": "Mina Watsica",
-                  "id": "3",
-                },
-                "content": "amet iure ut",
-                "createdAt": "2014-08-26T07:39:14.970Z",
-                "feedItem": Object {
-                  "__typename": "FeedItem",
-                  "community": Object {
-                    "__typename": "Community",
-                    "communityPhotoUrl": "ut sunt qui",
-                    "id": "4",
-                    "name": "Front-line zero tolerance capability",
-                  },
-                },
-                "id": "2",
-                "mediaExpiringUrl": "libero qui recusandae",
-              },
-            },
-            Object {
-              "__typename": "ContentComplaintGroup",
-              "id": "5",
-              "subject": Object {
-                "__typename": "FeedItemComment",
-                "content": "nulla quam ipsam",
-                "createdAt": "2013-03-09T22:46:17.951Z",
-                "feedItem": Object {
-                  "__typename": "FeedItem",
-                  "community": Object {
-                    "__typename": "Community",
-                    "communityPhotoUrl": "libero repudiandae esse",
-                    "id": "8",
-                    "name": "Enhanced 3rd generation internet solution",
-                  },
-                },
-                "id": "6",
-                "person": Object {
-                  "__typename": "Person",
-                  "fullName": "Judge Doyle",
-                  "id": "7",
-                },
-              },
-            },
-          ],
-          "id": 0,
-          "name": "reportedActivity",
-        },
-      ]
-    }
+    data={Array []}
     disableVirtualization={false}
     getItem={[Function]}
     getItemCount={[Function]}
@@ -5503,81 +5452,19 @@ exports[`renders with no data 1`] = `
     refreshControl={
       <RefreshControlMock
         onRefresh={[Function]}
-        refreshing={false}
+        refreshing={true}
       />
     }
-    refreshing={false}
+    refreshing={true}
     renderItem={[Function]}
     renderSectionHeader={[Function]}
     scrollEventThrottle={50}
-    sections={
-      Array [
-        Object {
-          "data": Array [
-            Object {
-              "__typename": "ContentComplaintGroup",
-              "id": "1",
-              "subject": Object {
-                "__typename": "Post",
-                "author": Object {
-                  "__typename": "Person",
-                  "fullName": "Mina Watsica",
-                  "id": "3",
-                },
-                "content": "amet iure ut",
-                "createdAt": "2014-08-26T07:39:14.970Z",
-                "feedItem": Object {
-                  "__typename": "FeedItem",
-                  "community": Object {
-                    "__typename": "Community",
-                    "communityPhotoUrl": "ut sunt qui",
-                    "id": "4",
-                    "name": "Front-line zero tolerance capability",
-                  },
-                },
-                "id": "2",
-                "mediaExpiringUrl": "libero qui recusandae",
-              },
-            },
-            Object {
-              "__typename": "ContentComplaintGroup",
-              "id": "5",
-              "subject": Object {
-                "__typename": "FeedItemComment",
-                "content": "nulla quam ipsam",
-                "createdAt": "2013-03-09T22:46:17.951Z",
-                "feedItem": Object {
-                  "__typename": "FeedItem",
-                  "community": Object {
-                    "__typename": "Community",
-                    "communityPhotoUrl": "libero repudiandae esse",
-                    "id": "8",
-                    "name": "Enhanced 3rd generation internet solution",
-                  },
-                },
-                "id": "6",
-                "person": Object {
-                  "__typename": "Person",
-                  "fullName": "Judge Doyle",
-                  "id": "7",
-                },
-              },
-            },
-          ],
-          "id": 0,
-          "name": "reportedActivity",
-        },
-      ]
-    }
-    stickyHeaderIndices={
-      Array [
-        0,
-      ]
-    }
+    sections={Array []}
+    stickyHeaderIndices={Array []}
     stickySectionHeadersEnabled={true}
     style={
       Object {
-        "backgroundColor": "#ECEEF2",
+        "backgroundColor": "#ffffff",
       }
     }
     testID="notificationCenter"
@@ -5587,400 +5474,59 @@ exports[`renders with no data 1`] = `
     <RCTRefreshControl />
     <View>
       <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "fontSize": 24,
-              "fontWeight": "300",
-            }
-          }
-        >
-          <Text
-            style={
-              Object {
-                "color": "#505256",
-                "fontSize": 24,
-                "fontWeight": "200",
-                "marginLeft": 10,
-                "padding": 10,
-              }
-            }
-          >
-            Reported Activity
-          </Text>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderBottomColor": "#ECEEF2",
-              "borderBottomWidth": 1,
-              "opacity": 1,
-              "paddingVertical": 15,
-            }
-          }
-          testID="reportedNotificationButton"
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "row",
-                "maxWidth": 350,
-                "paddingHorizontal": 20,
-              }
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "ut sunt qui",
-                }
-              }
-              style={
-                Object {
-                  "borderRadius": 24,
-                  "height": 48,
-                  "width": 48,
-                }
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 30,
-                }
-              }
-            >
-              <SvgMock
-                height={24}
-                width={24}
-              />
-            </View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  A post from
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "600",
-                      },
-                    ]
-                  }
-                >
-                   Front-line zero tolerance capability 
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  has been reported.
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "600",
-                      },
-                    ]
-                  }
-                >
-                   Please Review.
-                </Text>
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                August 26, 2014 7:39 AM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#ffffff",
-              "borderBottomColor": "#ECEEF2",
-              "borderBottomWidth": 1,
-              "opacity": 1,
-              "paddingVertical": 15,
-            }
-          }
-          testID="reportedNotificationButton"
-        >
-          <View
-            style={
-              Object {
-                "flex": 1,
-                "flexDirection": "row",
-                "maxWidth": 350,
-                "paddingHorizontal": 20,
-              }
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "libero repudiandae esse",
-                }
-              }
-              style={
-                Object {
-                  "borderRadius": 24,
-                  "height": 48,
-                  "width": 48,
-                }
-              }
-            />
-            <View
-              style={
-                Object {
-                  "left": 50,
-                  "position": "absolute",
-                  "top": 30,
-                }
-              }
-            >
-              <SvgMock
-                height={24}
-                width={24}
-              />
-            </View>
-            <View
-              style={
-                Object {
-                  "paddingHorizontal": 20,
-                }
-              }
-            >
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  A comment from
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "600",
-                      },
-                    ]
-                  }
-                >
-                   Enhanced 3rd generation internet solution 
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  has been reported.
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "600",
-                      },
-                    ]
-                  }
-                >
-                   Please Review.
-                </Text>
-              </Text>
-              <Text
-                style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
-                }
-                testID="Text"
-              >
-                March 9, 2013 10:46 PM
-              </Text>
-            </View>
-          </View>
-        </View>
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      />
-      <View
         style={
-          Object {
-            "height": 0,
-          }
+          Array [
+            Object {
+              "marginTop": "50%",
+            },
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
         }
-      />
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 100,
+              "height": 150,
+              "justifyContent": "center",
+              "width": 150,
+            }
+          }
+        >
+          <SvgMock
+            color="#505256"
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "fontSize": 24,
+              "fontWeight": "200",
+              "paddingVertical": 30,
+            }
+          }
+        >
+          No notifications yet
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "300",
+              "lineHeight": 24,
+              "maxWidth": 300,
+              "textAlign": "center",
+            }
+          }
+        >
+          Stay tuned! Notifications about your communities will show up here.
+        </Text>
+      </View>
     </View>
   </RCTScrollView>
 </View>

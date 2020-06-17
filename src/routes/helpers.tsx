@@ -13,7 +13,7 @@ interface AnyProps {
   [key: string]: any;
 }
 
-type NextAction = (props?: any) => ThunkAction<void, any, {}, AnyAction>;
+export type NextAction = (props?: any) => ThunkAction<void, any, {}, AnyAction>;
 
 export const wrapNextScreen = (
   WrappedComponent: NavigationScreenComponent<any, any>,

@@ -25,6 +25,8 @@ import { NotificationCenterItem, ReportedNotificationCenterItem } from '..';
 
 jest.mock('../../../actions/navigation');
 
+const communityId = '4';
+
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
 });
@@ -95,7 +97,7 @@ describe('different notification types', () => {
   it('renders correctly | Spiritual Question', () => {
     notificationType('spiritual question', PostTypeEnum.question);
   });
-  it('renders correctly | Care request', () => {
+  it('renders correctly | Community Need', () => {
     notificationType('care request', PostTypeEnum.help_request);
   });
   it('renders correctly | God Story', () => {
@@ -180,6 +182,7 @@ describe('handleNotificationPress', () => {
             ],
             screenData: {
               feedItemId: '1234',
+              communityId,
             },
           }),
         },
@@ -192,6 +195,7 @@ describe('handleNotificationPress', () => {
     fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: mockNotification.screenData.feedItemId,
+      communityId,
     });
   });
 

@@ -1,0 +1,1483 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PersonJourney renders loading screen correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListEmptyComponent={[Function]}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+              },
+              Object {
+                "marginTop": 20,
+              },
+            ],
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/ourJourney.png",
+            }
+          }
+          style={
+            Object {
+              "flexShrink": 1,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+              },
+            ]
+          }
+        >
+          OUR JOURNEY
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 80,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          This is where MissionHub saves all of your completed steps and any notes you added along the way.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <JourneyCommentBox
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": "222",
+              "permission_id": "3",
+            },
+          ],
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`PersonJourney renders null screen correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListEmptyComponent={[Function]}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+              },
+              Object {
+                "marginTop": 20,
+              },
+            ],
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/ourJourney.png",
+            }
+          }
+          style={
+            Object {
+              "flexShrink": 1,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+              },
+            ]
+          }
+        >
+          OUR JOURNEY
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 80,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          This is where MissionHub saves all of your completed steps and any notes you added along the way.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <JourneyCommentBox
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": "222",
+              "permission_id": "3",
+            },
+          ],
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`PersonJourney renders screen with steps correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListEmptyComponent={[Function]}
+    data={
+      Array [
+        Object {
+          "_type": "accepted_challenge",
+          "completed_at": "2010-01-01 12:12:12",
+          "id": "84472",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "marginTop": 1,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  Object {
+                    "width": 75,
+                  },
+                ],
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#A0A2A6",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 30,
+                        },
+                        Object {},
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 13,
+                      },
+                    ]
+                  }
+                >
+                  Edit
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onMoveShouldSetResponder={[Function]}
+            onMoveShouldSetResponderCapture={[Function]}
+            onResponderEnd={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderReject={[Function]}
+            onResponderRelease={[Function]}
+            onResponderStart={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onStartShouldSetResponderCapture={[Function]}
+            style={
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "paddingRight": 24,
+                    "paddingVertical": 19,
+                    "width": 750,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flex": 1,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 32,
+                        },
+                        Array [
+                          Object {
+                            "alignSelf": "center",
+                            "color": "#007398",
+                            "fontSize": 40,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderLeftColor": "#ECEEF2",
+                      "borderLeftWidth": 1,
+                      "paddingBottom": 5,
+                      "paddingLeft": 20,
+                    },
+                    Object {
+                      "flex": 3.5,
+                      "flexDirection": "column",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#A0A2A6",
+                        "fontSize": 10,
+                      },
+                    ]
+                  }
+                  testID="Text"
+                >
+                  January 1, 2010
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  Completed Step of Faith
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <JourneyCommentBox
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": "222",
+              "permission_id": "3",
+            },
+          ],
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`journey methods renders a stage change row 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListEmptyComponent={[Function]}
+    data={
+      Array [
+        Object {
+          "_type": "pathway_progression_audit",
+          "created_at": "2010-01-01 12:12:12",
+          "id": "124",
+          "person": Object {
+            "id": "123",
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+                "paddingRight": 24,
+                "paddingVertical": 19,
+                "width": 750,
+              },
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+              },
+            ]
+          }
+        >
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flex": 1,
+                },
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 32,
+                    },
+                    Array [
+                      Object {
+                        "alignSelf": "center",
+                        "color": "#007398",
+                        "fontSize": 40,
+                        "textAlign": "center",
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+          <View
+            style={
+              Array [
+                Object {
+                  "borderLeftColor": "#ECEEF2",
+                  "borderLeftWidth": 1,
+                  "paddingBottom": 5,
+                  "paddingLeft": 20,
+                },
+                Object {
+                  "flex": 3.5,
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#A0A2A6",
+                    "fontSize": 10,
+                  },
+                ]
+              }
+              testID="Text"
+            >
+              January 1, 2010
+            </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                  },
+                ]
+              }
+            >
+              You added yourself to MissionHub as 
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <JourneyCommentBox
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": "222",
+              "permission_id": "3",
+            },
+          ],
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`journey methods renders a step 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListEmptyComponent={[Function]}
+    data={
+      Array [
+        Object {
+          "_type": "accepted_challenge",
+          "completed_at": "2010-01-01 12:12:12",
+          "id": "123",
+          "note": "123",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "marginTop": 1,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  Object {
+                    "width": 75,
+                  },
+                ],
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#A0A2A6",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 30,
+                        },
+                        Object {},
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 13,
+                      },
+                    ]
+                  }
+                >
+                  Edit
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onMoveShouldSetResponder={[Function]}
+            onMoveShouldSetResponderCapture={[Function]}
+            onResponderEnd={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderReject={[Function]}
+            onResponderRelease={[Function]}
+            onResponderStart={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onStartShouldSetResponderCapture={[Function]}
+            style={
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "paddingRight": 24,
+                    "paddingVertical": 19,
+                    "width": 750,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "flex": 1,
+                    },
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 32,
+                        },
+                        Array [
+                          Object {
+                            "alignSelf": "center",
+                            "color": "#007398",
+                            "fontSize": 40,
+                            "textAlign": "center",
+                          },
+                          Object {},
+                        ],
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+              </View>
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderLeftColor": "#ECEEF2",
+                      "borderLeftWidth": 1,
+                      "paddingBottom": 5,
+                      "paddingLeft": 20,
+                    },
+                    Object {
+                      "flex": 3.5,
+                      "flexDirection": "column",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#A0A2A6",
+                        "fontSize": 10,
+                      },
+                    ]
+                  }
+                  testID="Text"
+                >
+                  January 1, 2010
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 16,
+                      },
+                    ]
+                  }
+                >
+                  Completed Step of Faith
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  undefined
+
+123
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <JourneyCommentBox
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": "222",
+              "permission_id": "3",
+            },
+          ],
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`journey methods renders an interaction row 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ItemSeparatorComponent={[Function]}
+    ListEmptyComponent={[Function]}
+    data={
+      Array [
+        Object {
+          "_type": "interaction",
+          "comment": "123",
+          "created_at": "2010-01-01 12:12:12",
+          "id": "123",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={0.0001}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderBottomColor": "#ECEEF2",
+        "borderBottomWidth": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Array [
+                  Object {
+                    "bottom": 0,
+                    "marginTop": 1,
+                    "position": "absolute",
+                    "right": 0,
+                    "top": 0,
+                  },
+                  Object {
+                    "width": 75,
+                  },
+                ],
+                Object {
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                },
+              ]
+            }
+          >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#A0A2A6",
+                  "flex": 1,
+                  "justifyContent": "center",
+                  "opacity": 1,
+                }
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "column",
+                      "justifyContent": "center",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  allowFontScaling={false}
+                  style={
+                    Array [
+                      Object {
+                        "color": undefined,
+                        "fontSize": 12,
+                      },
+                      Array [
+                        Object {
+                          "color": "#ffffff",
+                        },
+                        Object {
+                          "fontSize": 30,
+                        },
+                        Object {},
+                      ],
+                      Object {
+                        "fontFamily": "icomoon",
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#ffffff",
+                        "fontSize": 13,
+                      },
+                    ]
+                  }
+                >
+                  Edit
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+            onMoveShouldSetResponder={[Function]}
+            onMoveShouldSetResponderCapture={[Function]}
+            onResponderEnd={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderReject={[Function]}
+            onResponderRelease={[Function]}
+            onResponderStart={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            onStartShouldSetResponderCapture={[Function]}
+            style={
+              Object {
+                "transform": Array [
+                  Object {
+                    "translateX": 0,
+                  },
+                ],
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "#ffffff",
+                    "paddingRight": 24,
+                    "paddingVertical": 19,
+                    "width": 750,
+                  },
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                  },
+                ]
+              }
+            >
+              <View
+                style={
+                  Array [
+                    Object {
+                      "borderLeftColor": "#ECEEF2",
+                      "borderLeftWidth": 1,
+                      "paddingBottom": 5,
+                      "paddingLeft": 20,
+                    },
+                    Object {
+                      "flex": 3.5,
+                      "flexDirection": "column",
+                    },
+                  ]
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "color": "#A0A2A6",
+                        "fontSize": 10,
+                      },
+                    ]
+                  }
+                  testID="Text"
+                >
+                  January 1, 2010
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                      },
+                    ]
+                  }
+                >
+                  123
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Array [
+        Object {},
+        Object {
+          "justifyContent": "flex-end",
+        },
+      ]
+    }
+  >
+    <JourneyCommentBox
+      person={
+        Object {
+          "first_name": "ben",
+          "id": "123",
+          "organizational_permissions": Array [
+            Object {
+              "organization_id": "222",
+              "permission_id": "3",
+            },
+          ],
+        }
+      }
+    />
+  </View>
+</View>
+`;

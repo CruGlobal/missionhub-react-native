@@ -10,7 +10,6 @@ import {
   navigateBack,
   navigateToMainTabs,
 } from '../../actions/navigation';
-import { getOrganizationMembers } from '../../actions/organizations';
 import AddContactScreen, {
   ADD_CONTACT_SCREEN,
 } from '../../containers/AddContactScreen';
@@ -24,17 +23,13 @@ import SelectStepScreen, {
 import SuggestedStepDetailScreen, {
   SUGGESTED_STEP_DETAIL_SCREEN,
 } from '../../containers/SuggestedStepDetailScreen';
-import AddStepScreen, {
-  ADD_STEP_SCREEN,
-  AddStepScreenNextProps,
-} from '../../containers/AddStepScreen';
-import { wrapNextAction } from '../helpers';
+import AddStepScreen, { ADD_STEP_SCREEN } from '../../containers/AddStepScreen';
+import { wrapNextAction, NextAction } from '../helpers';
 import PersonCategoryScreen, {
   PERSON_CATEGORY_SCREEN,
 } from '../../containers/PersonCategoryScreen';
 
-// @ts-ignore
-export const AddPersonFlowScreens = onFlowComplete => ({
+export const AddPersonFlowScreens = (onFlowComplete: NextAction) => ({
   [ADD_CONTACT_SCREEN]: wrapNextAction(
     AddContactScreen,
     ({ personId, relationshipType, orgId, didSavePerson }) => dispatch => {
@@ -87,7 +82,7 @@ export const AddPersonFlowScreens = onFlowComplete => ({
       skip,
     }: SelectStepScreenNextProps) =>
       skip
-        ? onFlowComplete({ orgId })
+        ? onFlowComplete()
         : stepSuggestionId
         ? navigatePush(SUGGESTED_STEP_DETAIL_SCREEN, {
             stepSuggestionId,
@@ -103,14 +98,9 @@ export const AddPersonFlowScreens = onFlowComplete => ({
   ),
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
     SuggestedStepDetailScreen,
-    ({ orgId }) => onFlowComplete({ orgId }),
+    () => onFlowComplete(),
   ),
-  [ADD_STEP_SCREEN]: wrapNextAction(
-    AddStepScreen,
-    ({ orgId }: AddStepScreenNextProps) => dispatch => {
-      dispatch(onFlowComplete({ orgId }));
-    },
-  ),
+  [ADD_STEP_SCREEN]: wrapNextAction(AddStepScreen, () => onFlowComplete()),
 });
 
 export const AddPersonThenStepScreenFlowNavigator = createStackNavigator(
@@ -133,8 +123,7 @@ export const AddPersonThenPeopleScreenFlowNavigator = createStackNavigator(
 
 export const AddPersonThenCommunityMembersFlowNavigator = createStackNavigator(
   // @ts-ignore
-  AddPersonFlowScreens(({ orgId }) => dispatch => {
-    dispatch(getOrganizationMembers(orgId));
+  AddPersonFlowScreens(() => dispatch => {
     dispatch(StackActions.popToTop());
     // @ts-ignore
     dispatch(StackActions.pop());

@@ -44,39 +44,10 @@ import NotificationPrimerScreen, {
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from './containers/CelebrationScreen';
-import SearchPeopleScreen, {
-  SEARCH_SCREEN,
-} from './containers/SearchPeopleScreen';
-import SearchPeopleFilterScreen, {
-  SEARCH_FILTER_SCREEN,
-} from './containers/SearchPeopleFilterScreen';
-import SearchPeopleFilterRefineScreen, {
-  SEARCH_REFINE_SCREEN,
-} from './containers/SearchPeopleFilterRefineScreen';
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
-import {
-  ALL_PERSON_TAB_ROUTES,
-  ContactPersonScreen,
-  IsGroupsMeCommunityPersonScreen,
-  IsGroupsMemberPersonScreen,
-  IsUserCreatedMemberPersonScreen,
-  MeCommunityPersonScreen,
-  MemberPersonScreen,
-  MePersonalPersonScreen,
-} from './containers/Groups/AssignedPersonScreen';
-import {
-  CONTACT_PERSON_SCREEN,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
-  ME_COMMUNITY_PERSON_SCREEN,
-  ME_PERSONAL_PERSON_SCREEN,
-  MEMBER_PERSON_SCREEN,
-} from './containers/Groups/AssignedPersonScreen/constants';
 import SettingsMenu from './components/SettingsMenu';
-import { PersonSideMenu } from './components/PersonSideMenu';
 import theme from './theme';
 import {
   MAIN_TABS,
@@ -85,32 +56,11 @@ import {
   COMMUNITIES_TAB,
   NOTIFICATIONS_TAB,
 } from './constants';
-import { buildTrackingObj, isAndroid } from './utils/common';
+import { buildTrackingObj } from './utils/common';
 import GroupsListScreen from './containers/Groups/GroupsListScreen';
-import UnassignedPersonScreen, {
-  UNASSIGNED_PERSON_SCREEN,
-} from './containers/Groups/UnassignedPersonScreen';
-import SurveyContactsFilter, {
-  SEARCH_SURVEY_CONTACTS_FILTER_SCREEN,
-} from './containers/Groups/SurveyContactsFilter';
-import SurveyQuestionsFilter, {
-  SEARCH_QUESTIONS_FILTER_SCREEN,
-} from './containers/Groups/SurveyQuestionsFilter';
-import ContactsFilter, {
-  SEARCH_CONTACTS_FILTER_SCREEN,
-} from './containers/Groups/ContactsFilter';
 import CreateGroupScreen, {
   CREATE_GROUP_SCREEN,
 } from './containers/Groups/CreateGroupScreen';
-import StatusSelect, {
-  STATUS_SELECT_SCREEN,
-} from './containers/StatusSelectScreen';
-import StatusComplete, {
-  STATUS_COMPLETE_SCREEN,
-} from './containers/StatusCompleteScreen';
-import StatusReason, {
-  STATUS_REASON_SCREEN,
-} from './containers/StatusReasonScreen';
 import { buildTrackedScreen } from './routes/helpers';
 import {
   ADD_PERSON_THEN_STEP_SCREEN_FLOW,
@@ -142,46 +92,21 @@ import {
   AddPersonThenCommunityMembersFlowNavigator,
 } from './routes/addPerson/addPersonFlow';
 import { EditPersonFlowNavigator } from './routes/editPerson/editPersonFlow';
-import {
-  JoinByCodeFlowNavigator,
-  JoinByCodeFlowScreens,
-} from './routes/groups/joinByCodeFlow';
-import {
-  JoinByCodeOnboardingFlowNavigator,
-  JoinByCodeOnboardingFlowScreens,
-} from './routes/onboarding/joinByCodeOnboardingFlow';
-import {
-  GetStartedOnboardingFlowScreens,
-  GetStartedOnboardingFlowNavigator,
-} from './routes/onboarding/getStartedOnboardingFlow';
-import {
-  FullOnboardingFlowScreens,
-  FullOnboardingFlowNavigator,
-} from './routes/onboarding/fullOnboardingFlow';
-import {
-  AddSomeoneOnboardingFlowScreens,
-  AddSomeoneOnboardingFlowNavigator,
-} from './routes/onboarding/addSomeoneOnboardingFlow';
-import {
-  DeepLinkJoinCommunityAuthenticatedNavigator,
-  DeepLinkJoinCommunityAuthenticatedScreens,
-} from './routes/deepLink/deepLinkJoinCommunityAuthenticated';
-import {
-  DeepLinkJoinCommunityUnauthenticatedNavigator,
-  DeepLinkJoinCommunityUnauthenticatedScreens,
-} from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
+import { JoinByCodeFlowNavigator } from './routes/groups/joinByCodeFlow';
+import { JoinByCodeOnboardingFlowNavigator } from './routes/onboarding/joinByCodeOnboardingFlow';
+import { GetStartedOnboardingFlowNavigator } from './routes/onboarding/getStartedOnboardingFlow';
+import { FullOnboardingFlowNavigator } from './routes/onboarding/fullOnboardingFlow';
+import { AddSomeoneOnboardingFlowNavigator } from './routes/onboarding/addSomeoneOnboardingFlow';
+import { DeepLinkJoinCommunityAuthenticatedNavigator } from './routes/deepLink/deepLinkJoinCommunityAuthenticated';
+import { DeepLinkJoinCommunityUnauthenticatedNavigator } from './routes/deepLink/deepLinkJoinCommunityUnauthenticated';
 import {
   CompleteStepFlowNavigator,
   CompleteStepFlowAndNavigateBackNavigator,
-  CompleteStepFlowScreens,
 } from './routes/steps/completeStepFlow';
 import { JourneyEditFlowNavigator } from './routes/journey/journeyEditFlow';
-import { SignInFlowScreens, SignInFlowNavigator } from './routes/auth/signIn';
-import { SignUpFlowScreens, SignUpFlowNavigator } from './routes/auth/signUp';
-import {
-  CreateCommunityUnauthenticatedFlowNavigator,
-  CreateCommunityUnauthenticatedFlowScreens,
-} from './routes/groups/createCommunityUnauthenticatedFlow';
+import { SignInFlowNavigator } from './routes/auth/signIn';
+import { SignUpFlowNavigator } from './routes/auth/signUp';
+import { CreateCommunityUnauthenticatedFlowNavigator } from './routes/groups/createCommunityUnauthenticatedFlow';
 import { AddMyStepFlowNavigator } from './routes/steps/addMyStepFlow';
 import { AddPersonStepFlowNavigator } from './routes/steps/addPersonStepFlow';
 import { SelectMyStageFlowNavigator } from './routes/stage/selectMyStageFlow';
@@ -208,6 +133,7 @@ import CommunityFeedWithType, {
 import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
+import { PersonTabs } from './containers/PersonScreen/PersonTabs';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -222,11 +148,9 @@ import AddPostToStepsScreen, {
 //   },
 // });
 
-export const navItem = (name: string) => ({
-  tintColor,
-}: {
-  tintColor: string;
-}) => <TabIcon name={name} tintColor={tintColor} />;
+const navItem = (name: string) => ({ tintColor }: { tintColor: string }) => (
+  <TabIcon name={name} tintColor={tintColor} />
+);
 
 const tabs = {
   [PEOPLE_TAB]: {
@@ -259,7 +183,7 @@ const tabs = {
   },
 };
 
-export const MainTabBar = createBottomTabNavigator(tabs, {
+const MainTabBar = createBottomTabNavigator(tabs, {
   tabBarOptions: {
     showIcon: false,
     showLabel: true,
@@ -281,7 +205,7 @@ export const MainTabBar = createBottomTabNavigator(tabs, {
   lazy: true,
 });
 
-export const MAIN_TABS_SCREEN = createDrawerNavigator(
+const MAIN_TABS_SCREEN = createDrawerNavigator(
   {
     Main: MainTabBar,
   },
@@ -290,24 +214,6 @@ export const MAIN_TABS_SCREEN = createDrawerNavigator(
     backBehavior: 'none', // We're handling it on our own
   },
 );
-
-// @ts-ignore
-const buildPersonScreenRoute = screen =>
-  buildTrackedScreen(
-    createDrawerNavigator(
-      {
-        Main: { screen },
-      },
-      {
-        contentComponent: PersonSideMenu,
-        drawerPosition: 'right',
-        backBehavior: 'none', // We're handling it on our own
-      },
-    ),
-    // @ts-ignore
-    buildTrackingObj('person', 'person'),
-    { gesturesEnabled: !isAndroid },
-  );
 
 const screens = {
   [SUGGESTED_STEP_DETAIL_SCREEN]: buildTrackedScreen(
@@ -362,74 +268,13 @@ const screens = {
     // @ts-ignore
     buildTrackingObj('menu : notifications : off', 'menu', 'notifications'),
   ),
-  [SEARCH_SCREEN]: buildTrackedScreen(
-    SearchPeopleScreen,
-    // @ts-ignore
-    buildTrackingObj('search', 'search'),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_FILTER_SCREEN]: buildTrackedScreen(
-    SearchPeopleFilterScreen,
-    // @ts-ignore
-    buildTrackingObj('search : refine', 'search', 'refine'),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_SURVEY_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
-    SurveyContactsFilter,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : community : survey contacts filer',
-      'communities',
-      'community',
-    ),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_QUESTIONS_FILTER_SCREEN]: buildTrackedScreen(
-    SurveyQuestionsFilter,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : community : questions filter',
-      'communities',
-      'community',
-    ),
-    { gesturesEnabled: true },
-  ),
-  [SEARCH_CONTACTS_FILTER_SCREEN]: buildTrackedScreen(
-    ContactsFilter,
-    // @ts-ignore
-    buildTrackingObj(
-      'communities : community : contacts filter',
-      'communities',
-      'community',
-    ),
-    { gesturesEnabled: true },
-  ),
   [CREATE_GROUP_SCREEN]: buildTrackedScreen(
     CreateGroupScreen,
     // @ts-ignore
     buildTrackingObj('communities : create', 'communities', 'create'),
     { gesturesEnabled: true },
   ),
-  [UNASSIGNED_PERSON_SCREEN]: buildTrackedScreen(
-    UnassignedPersonScreen,
-    // @ts-ignore
-    buildTrackingObj('person : unassigned', 'person'),
-    { gesturesEnabled: true },
-  ),
   [ONBOARDING_ADD_PHOTO_SCREEN]: OnboardingAddPhotoScreen,
-  [CONTACT_PERSON_SCREEN]: buildPersonScreenRoute(ContactPersonScreen),
-  [IS_USER_CREATED_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
-    IsUserCreatedMemberPersonScreen,
-  ),
-  [IS_GROUPS_MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(
-    IsGroupsMemberPersonScreen,
-  ),
-  [MEMBER_PERSON_SCREEN]: buildPersonScreenRoute(MemberPersonScreen),
-  [ME_PERSONAL_PERSON_SCREEN]: buildPersonScreenRoute(MePersonalPersonScreen),
-  [IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(
-    IsGroupsMeCommunityPersonScreen,
-  ),
-  [ME_COMMUNITY_PERSON_SCREEN]: buildPersonScreenRoute(MeCommunityPersonScreen),
   [MAIN_TABS]: MAIN_TABS_SCREEN,
   [SIGN_IN_FLOW]: SignInFlowNavigator,
   [SIGN_UP_FLOW]: SignUpFlowNavigator,
@@ -468,55 +313,19 @@ const screens = {
   [ADD_POST_TO_STEPS_SCREEN]: AddPostToStepsScreen,
 };
 
-export const trackableScreens = {
-  ...screens,
-  ...tabs,
-  ...ALL_PERSON_TAB_ROUTES,
-  ...JoinByCodeFlowScreens,
-  ...JoinByCodeOnboardingFlowScreens,
-  ...AddSomeoneOnboardingFlowScreens,
-  ...FullOnboardingFlowScreens,
-  ...GetStartedOnboardingFlowScreens,
-  ...DeepLinkJoinCommunityAuthenticatedScreens,
-  ...DeepLinkJoinCommunityUnauthenticatedScreens,
-  ...CompleteStepFlowScreens,
-  ...CreateCommunityUnauthenticatedFlowScreens,
-  ...SignInFlowScreens,
-  ...SignUpFlowScreens,
-};
-
 const MODAL_SCREENS = [ADD_POST_TO_STEPS_SCREEN];
 
-export const MainStackRoutes = createStackNavigator(
+const MainStackRoutes = createStackNavigator(
   {
     ...screens,
     ...CommunitiesRoutes,
+    ...PersonTabs,
     [LANDING_SCREEN]: { screen: LandingScreen },
     [CELEBRATION_SCREEN]: { screen: CelebrationScreen },
     [ADD_CHALLENGE_SCREEN]: { screen: AddChallengeScreen },
     [CHALLENGE_DETAIL_SCREEN]: { screen: ChallengeDetailScreen },
     [SELECT_STAGE_SCREEN]: {
       screen: SelectStageScreen,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [SEARCH_REFINE_SCREEN]: {
-      screen: SearchPeopleFilterRefineScreen,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [STATUS_SELECT_SCREEN]: {
-      screen: StatusSelect,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [STATUS_COMPLETE_SCREEN]: {
-      screen: StatusComplete,
-      // @ts-ignore
-      defaultNavigationOptions: { gesturesEnabled: true },
-    },
-    [STATUS_REASON_SCREEN]: {
-      screen: StatusReason,
       // @ts-ignore
       defaultNavigationOptions: { gesturesEnabled: true },
     },

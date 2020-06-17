@@ -135,7 +135,7 @@ const ChallengeDetailScreen = () => {
   );
 };
 
-export const mapStateToProps = (
+const mapStateToProps = (
   {
     auth,
     organizations,

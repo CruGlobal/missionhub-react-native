@@ -127,7 +127,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should load steps and journey', () => {
-        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId);
       });
 
       it('should navigate to CelebrationScreen', () => {
@@ -177,11 +177,11 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should get person details', () => {
-        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(getPersonDetails).toHaveBeenCalledWith(otherId);
       });
 
       it('should load steps and journey', () => {
-        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId);
       });
 
       it('should navigate to CelebrationScreen', () => {
@@ -242,7 +242,7 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should load steps and journey', () => {
-        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId);
       });
 
       it('should navigate to PersonSelectStepScreen', () => {
@@ -292,11 +292,11 @@ describe('SelectStageScreen next', () => {
       });
 
       it('should get person details', () => {
-        expect(getPersonDetails).toHaveBeenCalledWith(otherId, orgId);
+        expect(getPersonDetails).toHaveBeenCalledWith(otherId);
       });
 
       it('should load steps and journey', () => {
-        expect(reloadJourney).toHaveBeenCalledWith(otherId, orgId);
+        expect(reloadJourney).toHaveBeenCalledWith(otherId);
       });
 
       it('should navigate to PersonSelectStepScreen', () => {

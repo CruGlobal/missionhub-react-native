@@ -15,7 +15,7 @@ import { editComment } from '../../actions/interactions';
 export const JourneyEditFlowScreens = {
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
-    ({ text, id, type, personId, orgId }: AddStepScreenNextProps) =>
+    ({ text, id, type, personId }: AddStepScreenNextProps) =>
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       async (dispatch: ThunkDispatch<any, null, any>) => {
         await dispatch(
@@ -24,7 +24,7 @@ export const JourneyEditFlowScreens = {
             : editComment(id, text),
         );
 
-        dispatch(getJourney(personId, orgId));
+        dispatch(getJourney(personId));
 
         dispatch(navigateBack());
       },

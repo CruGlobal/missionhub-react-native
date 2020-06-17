@@ -10,8 +10,8 @@ import CelebrationScreen, {
 export const GifCompleteFlowScreens = {
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
-    ({ personId, orgId }) => dispatch => {
-      dispatch(reloadJourney(personId, orgId));
+    ({ personId }) => dispatch => {
+      dispatch(reloadJourney(personId));
       dispatch(StackActions.popToTop());
 
       dispatch(StackActions.pop({ immediate: true }));

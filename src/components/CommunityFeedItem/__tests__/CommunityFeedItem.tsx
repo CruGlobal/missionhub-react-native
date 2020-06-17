@@ -304,6 +304,7 @@ describe('press card', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: stepItem.id,
+      communityId,
     });
   });
 });
