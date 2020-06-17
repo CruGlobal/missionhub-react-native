@@ -71,6 +71,12 @@ export const NotificationCenterItem = ({
               {getMessageVariable('community_name') || ''}
             </Text>
           );
+        case '<<original_poster>>':
+          return (
+            <Text key={word} style={styles.boldedItemText}>
+              {getMessageVariable('original_poster') || ''}
+            </Text>
+          );
         default:
           return <Text key={word}>{word}</Text>;
       }
