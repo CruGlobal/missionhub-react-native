@@ -132,6 +132,7 @@ export const NotificationCenterItem = ({
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {
             feedItemId: screenData.feedItemId,
             communityId: screenData.communityId,
+            personId: subjectPerson.id,
           }),
         );
     }

@@ -64,7 +64,7 @@ class GroupChallenges extends Component {
     const { dispatch, organization } = this.props;
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        organization,
+        communityId: organization.id,
         onComplete: (challenge: ChallengeItem) => {
           this.createChallenge(challenge);
           dispatch(navigateBack());

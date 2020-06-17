@@ -70,6 +70,7 @@ const StepDetailScreen = ({
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: post?.feedItem.id,
         communityId: post?.feedItem.community?.id,
+        personId: post?.author.id,
       }),
     );
   };

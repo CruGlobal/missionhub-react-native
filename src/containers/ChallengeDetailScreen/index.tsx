@@ -79,6 +79,7 @@ const ChallengeDetailScreen = () => {
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
         challenge: currentChallenge,
+        communityId: orgId,
         onComplete: (updatedChallenge: ChallengeItem) => {
           editChallenge(updatedChallenge);
           dispatch(navigateBack());

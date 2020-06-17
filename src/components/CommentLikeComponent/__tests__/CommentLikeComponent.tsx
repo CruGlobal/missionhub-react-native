@@ -235,6 +235,7 @@ describe('with subject person', () => {
             FeedItem: () => ({
               id: feedItemId,
               community: { id: communityId },
+              subjectPerson: { id: myId },
             }),
           },
         })}
@@ -247,6 +248,7 @@ describe('with subject person', () => {
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId,
       communityId,
+      personId: myId,
     });
   });
 });

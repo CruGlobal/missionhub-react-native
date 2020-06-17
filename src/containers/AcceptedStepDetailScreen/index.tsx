@@ -25,8 +25,12 @@ import {
 const AcceptedStepDetailScreen = () => {
   const { t } = useTranslation('acceptedStepDetail');
   const dispatch = useDispatch();
-
   const personId: string = useNavigationParam('personId');
+
+  useAnalytics(['step detail', 'active step'], {
+    assignmentType: { personId },
+  });
+
   const { data: { step } = { step: undefined }, error, refetch } = useQuery<
     AcceptedStepDetail,
     AcceptedStepDetailVariables
@@ -34,9 +38,6 @@ const AcceptedStepDetailScreen = () => {
     variables: { id: useNavigationParam('stepId') },
   });
 
-  useAnalytics(['step detail', 'active step'], {
-    assignmentType: { personId },
-  });
   const post = step?.post;
   const handleCompleteStep = () =>
     step &&
