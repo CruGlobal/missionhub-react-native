@@ -5,26 +5,17 @@ import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import {
-  GET_ORGANIZATION_MEMBERS,
-  GET_ORGANIZATION_PEOPLE,
-  DEFAULT_PAGE_LIMIT,
-  LOAD_ORGANIZATIONS,
   REMOVE_ORGANIZATION_MEMBER,
   ACTIONS,
   ORG_PERMISSIONS,
   ERROR_PERSON_PART_OF_ORG,
   GLOBAL_COMMUNITY_ID,
   LOAD_PERSON_DETAILS,
+  LOAD_ORGANIZATIONS,
 } from '../constants';
-import { timeFilter } from '../utils/filters';
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
-import {
-  Organization,
-  OrganizationsState,
-  PaginationObject,
-} from '../reducers/organizations';
-import { Person } from '../reducers/people';
+import { Organization, OrganizationsState } from '../reducers/organizations';
 import { apolloClient } from '../apolloClient';
 import { GET_COMMUNITIES_QUERY } from '../containers/Groups/queries';
 
@@ -122,190 +113,6 @@ export function refreshCommunity(orgId: string = GLOBAL_COMMUNITY_ID) {
     dispatch(getMe());
 
     return response;
-  };
-}
-
-export function getOrganizationContacts(
-  orgId: string,
-  name: string,
-  pagination: PaginationObject,
-  filters: { [key: string]: any } = {},
-) {
-  const query: {
-    filters: { [key: string]: any };
-    include: string;
-    page: { limit: number; offset: number };
-  } = {
-    filters: {
-      organization_ids: orgId,
-    },
-    include:
-      'reverse_contact_assignments,reverse_contact_assignments.organization,organizational_permissions',
-    page: {
-      limit: DEFAULT_PAGE_LIMIT,
-      offset: DEFAULT_PAGE_LIMIT * pagination.page,
-    },
-  };
-
-  if (name) {
-    query.filters.name = name;
-  }
-
-  const answerFilters = getAnswersFromFilters(filters);
-  if (answerFilters) {
-    query.filters.answer_sheets = { answers: answerFilters };
-  }
-  if (filters.survey) {
-    query.filters.answer_sheets = {
-      ...(query.filters.answer_sheets || {}),
-      survey_ids: filters.survey.id,
-    };
-
-    // If there is a survey AND we're filtering by time, apply the time filter to the answer_sheets
-    if (filters.time) {
-      const dates = timeFilter(filters.time.value);
-      query.filters.answer_sheets = {
-        ...(query.filters.answer_sheets || {}),
-        created_at: [dates.first, dates.last],
-      };
-    }
-  } else {
-    // TODO: Enable this when the API supports sorting contacts by `updated_at`
-    //   if (filters.time) {
-    //     const dates = timeFilter(filters.time.value);
-    //     query.filters.updated_at = [dates.first, dates.last];
-    //   }
-  }
-  if (filters.gender) {
-    query.filters.genders = filters.gender.id;
-  }
-  if (filters.archived) {
-    query.filters.include_archived = true;
-  }
-  if (filters.unassigned) {
-    query.filters.assigned_tos = 'unassigned';
-  }
-  if (filters.uncontacted) {
-    query.filters.statuses = 'uncontacted';
-  }
-  if (filters.labels) {
-    query.filters.label_ids = filters.labels.id;
-  }
-  if (filters.groups) {
-    query.filters.group_ids = filters.groups.id;
-  }
-  if (!filters.includeUsers) {
-    query.filters.permissions = 'no_permission';
-  }
-
-  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-    const result = await dispatch(callApi(REQUESTS.GET_PEOPLE_LIST, query));
-
-    dispatch({
-      type: GET_ORGANIZATION_PEOPLE,
-      orgId,
-      response: result.response,
-    });
-    return result;
-  };
-}
-
-//each question/answer filter must be in the URL in the form:
-//filters[answers][questionId][]=answerTexts
-function getAnswersFromFilters(filters: { [key: string]: any }) {
-  const arrFilters = Object.keys(filters).map(k => filters[k]);
-  const answers = arrFilters.filter(f => f && f.isAnswer);
-  if (answers.length === 0) {
-    return null;
-  }
-  const answerFilters: { [key: string]: any } = {};
-  answers.forEach(f => {
-    answerFilters[f.id] = [f.text];
-  });
-  return answerFilters;
-}
-
-export function getOrganizationMembers(orgId: string, query = {}) {
-  const newQuery = {
-    ...query,
-    filters: {
-      permissions: 'owner,admin,user',
-      organization_ids: orgId,
-    },
-    include: 'organizational_permissions,reverse_contact_assignments',
-  };
-  return async (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-    const {
-      response: members,
-      meta,
-    }: { response: Person[]; meta: { total: number } } = await dispatch(
-      callApi(REQUESTS.GET_PEOPLE_LIST, newQuery),
-    );
-
-    const memberIds = members.map(m => m.id);
-    const reportQuery = {
-      people_ids: memberIds.join(','),
-      period: 'P1Y',
-      organization_ids: orgId,
-    };
-    const reports: PersonInteractionReport[] = (
-      await dispatch(
-        callApi(REQUESTS.GET_PEOPLE_INTERACTIONS_REPORT, reportQuery),
-      )
-    ).response;
-
-    // Get an object with { [key = person_id]: [value = { counts }] }
-    const reportsCountObj: { [key: string]: any } = reports.reduce(
-      (p, n) => ({
-        ...p,
-        [`${n.person_id}`]: {
-          contact_count: n.contact_count,
-          uncontacted_count: n.uncontacted_count,
-          contacts_with_interaction_count: n.contacts_with_interaction_count,
-        },
-      }),
-      {},
-    );
-    // Merge the counts into the members array
-    const membersWithCounts = members.map(m => ({
-      ...m,
-      ...(reportsCountObj[m.id] || {}),
-    }));
-
-    dispatch({
-      type: GET_ORGANIZATION_MEMBERS,
-      orgId,
-      members: membersWithCounts,
-      query: newQuery,
-      meta,
-    });
-    dispatch({
-      type: GET_ORGANIZATION_PEOPLE,
-      orgId,
-      response: membersWithCounts,
-    });
-
-    return membersWithCounts;
-  };
-}
-
-export function getOrganizationMembersNextPage(orgId: string) {
-  return (
-    dispatch: ThunkDispatch<{}, null, AnyAction>,
-    getState: () => { organizations: OrganizationsState },
-  ) => {
-    const { page, hasNextPage } = getState().organizations.membersPagination;
-    if (!hasNextPage) {
-      // Does not have more data
-      return Promise.resolve();
-    }
-    const query = {
-      page: {
-        limit: DEFAULT_PAGE_LIMIT,
-        offset: DEFAULT_PAGE_LIMIT * page,
-      },
-    };
-    return dispatch(getOrganizationMembers(orgId, query));
   };
 }
 
@@ -448,7 +255,7 @@ export function transferOrgOwnership(orgId: string, person_id: string) {
     // After transfer, update auth person and other person with new org permissions
     // @ts-ignore
     dispatch(getMe());
-    dispatch(getPersonDetails(person_id, orgId));
+    dispatch(getPersonDetails(person_id));
 
     return response;
   };

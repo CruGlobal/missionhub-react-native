@@ -43,4 +43,5 @@ export default StyleSheet.create({
   boldedItemText: {
     fontWeight: '600',
   },
+  wrapStyle: { width: 48, height: 48, borderRadius: 24 },
 });

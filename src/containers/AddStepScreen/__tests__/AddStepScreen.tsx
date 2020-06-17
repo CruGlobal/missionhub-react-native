@@ -231,7 +231,6 @@ it('saves step', async () => {
     id,
     type: CREATE_STEP,
     personId,
-    orgId,
   });
   expect(trackStepAdded).toHaveBeenCalledWith({
     __typename: 'Step',
@@ -273,7 +272,6 @@ it('saves step with onSetComplete', async () => {
     id,
     type: STEP_NOTE,
     personId,
-    orgId,
   });
 });
 
@@ -301,7 +299,6 @@ it('skips save step', () => {
     id,
     type: STEP_NOTE,
     personId,
-    orgId,
   });
 });
 

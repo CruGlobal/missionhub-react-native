@@ -91,4 +91,11 @@ export const globalMocks: IMocks = {
       subjectPersonName: `${firstName} ${lastName}`,
     };
   },
+  ContentComplaintGroup: () => {
+    return {
+      subject: {
+        __typename: faker.random.arrayElement(['Post', 'FeedItemComment']),
+      },
+    };
+  },
 };

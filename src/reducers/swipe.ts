@@ -20,10 +20,7 @@ const initialState: SwipeState = {
   groupOnboarding: {
     [GROUP_ONBOARDING_TYPES.celebrate]: true,
     [GROUP_ONBOARDING_TYPES.challenges]: true,
-    [GROUP_ONBOARDING_TYPES.members]: true,
     [GROUP_ONBOARDING_TYPES.impact]: true,
-    [GROUP_ONBOARDING_TYPES.contacts]: true,
-    [GROUP_ONBOARDING_TYPES.surveys]: true,
     [GROUP_ONBOARDING_TYPES.steps]: true,
   },
   groupInviteInfo: true,
