@@ -42,7 +42,7 @@ describe('post types', () => {
   it('renders Spiritual Question Label', () => {
     postType(FeedItemSubjectTypeEnum.QUESTION);
   });
-  it('renders Care Request Label', () => {
+  it('renders Community Need Label', () => {
     postType(FeedItemSubjectTypeEnum.HELP_REQUEST);
   });
   it('renders On Your Mind Label', () => {
@@ -133,7 +133,7 @@ describe('post types cards', () => {
   it('renders Spiritual Question Label', () => {
     card(FeedItemSubjectTypeEnum.QUESTION);
   });
-  it('renders Care Request Label', () => {
+  it('renders Community Need Label', () => {
     card(FeedItemSubjectTypeEnum.HELP_REQUEST);
   });
   it('renders On Your Mind Label', () => {
@@ -209,7 +209,7 @@ describe('post types null states', () => {
   it('renders Spiritual Question Null State', () => {
     nullState(FeedItemSubjectTypeEnum.QUESTION);
   });
-  it('renders Care Request Null State', () => {
+  it('renders Community Need Null State', () => {
     nullState(FeedItemSubjectTypeEnum.HELP_REQUEST);
   });
   it('renders On Your Mind Null State', () => {

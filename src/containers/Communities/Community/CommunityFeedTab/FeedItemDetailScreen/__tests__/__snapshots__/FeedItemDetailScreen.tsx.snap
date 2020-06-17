@@ -66,7 +66,7 @@ exports[`refresh calls refreshComments 1`] = `
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
-@@ -352,22 +352,22 @@
+@@ -353,22 +353,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -91,7 +91,7 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -403,11 +403,11 @@
+@@ -404,11 +404,11 @@
                         },
                       ],
                     ]
@@ -104,7 +104,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -429,11 +429,11 @@
+@@ -430,11 +430,11 @@
                       ],
                     ]
                   }
@@ -117,7 +117,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -463,21 +463,21 @@
+@@ -464,21 +464,21 @@
                       \\"lineHeight\\": 18,
                     }
                   }
@@ -141,7 +141,7 @@ exports[`refresh calls refreshComments 1`] = `
             style={
               Object {
                 \\"aspectRatio\\": 1.3333333333333333,
-@@ -603,12 +603,11 @@
+@@ -604,12 +604,11 @@
                           null,
                         ]
                       }
@@ -155,7 +155,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -638,11 +637,11 @@
+@@ -639,11 +638,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -168,7 +168,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -707,20 +706,20 @@
+@@ -708,20 +707,20 @@
         >
           <CommentItem
             comment={
@@ -196,7 +196,7 @@ exports[`refresh calls refreshComments 1`] = `
             isEditing={false}
             menuActions={
               Array [
-@@ -739,20 +738,20 @@
+@@ -740,20 +739,20 @@
         >
           <CommentItem
             comment={
@@ -224,7 +224,7 @@ exports[`refresh calls refreshComments 1`] = `
             isEditing={false}
             menuActions={
               Array [
-@@ -780,22 +779,22 @@
+@@ -781,22 +780,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -544,7 +544,8 @@ exports[`renders correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {

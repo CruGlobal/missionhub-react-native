@@ -62,7 +62,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -265,11 +309,11 @@
+@@ -266,11 +310,11 @@
               },
             ]
           }
@@ -82,7 +82,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -285,63 +285,20 @@
+@@ -286,63 +286,20 @@
               \\"opacity\\": 1,
             }
           }
@@ -158,7 +158,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -331,11 +331,11 @@
+@@ -332,11 +332,11 @@
               },
             ]
           }
@@ -359,7 +359,8 @@ exports[`renders correctly for new post 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -778,7 +779,8 @@ exports[`renders correctly for update post 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -1154,7 +1156,8 @@ exports[`renders correctly on android 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -1464,7 +1467,8 @@ exports[`renders for post types renders for announcement 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -1757,7 +1761,7 @@ exports[`renders for post types renders for help request 1`] = `
             ]
           }
         >
-          Care Request
+          Community Need
         </Text>
       </View>
       <View
@@ -1817,7 +1821,8 @@ exports[`renders for post types renders for help request 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -1860,7 +1865,7 @@ exports[`renders for post types renders for help request 1`] = `
               ]
             }
           >
-            Care Request
+            Community Need
           </Text>
         </View>
       </View>
@@ -2170,7 +2175,8 @@ exports[`renders for post types renders for prayer request 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -2523,7 +2529,8 @@ exports[`renders for post types renders for spiritual question 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -2876,7 +2883,8 @@ exports[`renders for post types renders for story 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {
@@ -3229,7 +3237,8 @@ exports[`renders for post types renders for thought 1`] = `
                 "flexDirection": "row",
                 "height": 36,
                 "justifyContent": "space-between",
-                "paddingHorizontal": 20,
+                "paddingLeft": 20,
+                "paddingRight": 16,
                 "paddingVertical": 0,
               },
               Object {

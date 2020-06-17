@@ -97,7 +97,7 @@ describe('different notification types', () => {
   it('renders correctly | Spiritual Question', () => {
     notificationType('spiritual question', PostTypeEnum.question);
   });
-  it('renders correctly | Care request', () => {
+  it('renders correctly | Community Need', () => {
     notificationType('care request', PostTypeEnum.help_request);
   });
   it('renders correctly | God Story', () => {

@@ -69,7 +69,8 @@ exports[`Community renders challenge correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -598,7 +599,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {
@@ -1147,7 +1149,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {
@@ -1633,7 +1636,8 @@ exports[`Community renders post correctly without image 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {
@@ -2106,7 +2110,8 @@ exports[`Community renders post created by me correctly without add to steps but
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {
@@ -2602,7 +2607,8 @@ exports[`Community renders step correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -3066,7 +3072,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {
@@ -3598,7 +3605,8 @@ exports[`global community renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -4025,7 +4033,8 @@ exports[`global community renders post item correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -4472,7 +4481,8 @@ exports[`global community renders with clear notification button correctly 1`] =
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -4993,7 +5003,8 @@ exports[`renders with name pressable correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {
