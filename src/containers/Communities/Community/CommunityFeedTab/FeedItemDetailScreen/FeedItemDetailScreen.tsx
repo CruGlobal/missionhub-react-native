@@ -4,7 +4,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import debounce from 'lodash.debounce';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import CommentsList from '../../../../CommentsList';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
@@ -13,20 +13,14 @@ import {
   Text,
   Separator,
 } from '../../../../../components/common';
-import {
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../../../constants';
-// import {
-//   getAnalyticsAssignmentType,
-//   getAnalyticsPermissionType,
-// } from '../../../../../utils/analytics';
+import { ANALYTICS_PERMISSION_TYPE } from '../../../../../constants';
+import { getAnalyticsPermissionType } from '../../../../../utils/analytics';
 import { useKeyboardListeners } from '../../../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import BackButton from '../../../../../components/BackButton';
 import Header from '../../../../../components/Header';
 import { ErrorNotice } from '../../../../../components/ErrorNotice/ErrorNotice';
-// import { RootState } from '../../../../../reducers';
+import { RootState } from '../../../../../reducers';
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { useMyId } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
@@ -42,31 +36,27 @@ import {
 
 const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
-
-  // const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-  //   getAnalyticsAssignmentType(subjectPerson, auth, organization),
-  // );
-  // const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-  //   getAnalyticsPermissionType(auth, organization),
-  // );
-  useAnalytics(['celebrate item', 'comments'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: '', //analyticsAssignmentType,
-      [ANALYTICS_PERMISSION_TYPE]: '', // analyticsPermissionType,
-    },
-  });
-
   const feedItemId: string = useNavigationParam('feedItemId');
-
-  const [editingCommentId, setEditingCommentId] = useState<string>();
-
+  const communityId: string = useNavigationParam('communityId');
   const myId = useMyId();
+
   const { data, loading, error, refetch, fetchMore } = useQuery<
     FeedItemDetail,
     FeedItemDetailVariables
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
   });
+
+  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
+    getAnalyticsPermissionType(auth, { id: communityId }),
+  );
+  useAnalytics(['post', 'detail'], {
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+    },
+  });
+
+  const [editingCommentId, setEditingCommentId] = useState<string>();
 
   const handleNextPage = () => {
     if (loading || !data?.feedItem.comments.pageInfo.hasNextPage) {

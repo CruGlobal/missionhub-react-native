@@ -96,28 +96,23 @@ export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
 };
 
 export const navigateToFeedItemComments = (
+  feedItemId: string,
   communityId: string,
-  itemId?: string | null,
 ) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
-  if (itemId) {
-    dispatch(
-      navigateNestedReset([
-        {
-          routeName: MAIN_TABS,
-          tabName: COMMUNITIES_TAB,
-        },
-        {
-          routeName: COMMUNITY_TABS,
-          params: { communityId },
-        },
-        { routeName: FEED_ITEM_DETAIL_SCREEN, params: { feedItemId: itemId } },
-      ]),
-    );
-  } else {
-    dispatch(
-      navigatePush(COMMUNITY_TABS, {
-        communityId,
-      }),
-    );
-  }
+  dispatch(
+    navigateNestedReset([
+      {
+        routeName: MAIN_TABS,
+        tabName: COMMUNITIES_TAB,
+      },
+      {
+        routeName: COMMUNITY_TABS,
+        params: { communityId },
+      },
+      {
+        routeName: FEED_ITEM_DETAIL_SCREEN,
+        params: { feedItemId, communityId },
+      },
+    ]),
+  );
 };

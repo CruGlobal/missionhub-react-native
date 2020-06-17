@@ -282,20 +282,29 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       case 'celebrate':
       case 'celebrate_item': {
         const { organization_id, celebration_item_id } = notificationData;
-        if (organization_id) {
-          dispatch(navigatePush(LOADING_SCREEN));
-          try {
-            const community = await dispatch(refreshCommunity(organization_id));
-            await getCelebrateFeed(organization_id);
-            return dispatch(
-              navigateToFeedItemComments(community.id, celebration_item_id),
-            );
-          } catch (error) {
-            dispatch(navigateToMainTabs());
-            throw error;
-          }
+
+        if (!organization_id) {
+          return;
         }
-        return;
+        if (!celebration_item_id) {
+          return dispatch(
+            navigatePush(COMMUNITY_TABS, {
+              communityId: organization_id,
+            }),
+          );
+        }
+
+        dispatch(navigatePush(LOADING_SCREEN));
+        try {
+          dispatch(refreshCommunity(organization_id));
+          await getCelebrateFeed(organization_id);
+          return dispatch(
+            navigateToFeedItemComments(celebration_item_id, organization_id),
+          );
+        } catch (error) {
+          dispatch(navigateToMainTabs());
+          throw error;
+        }
       }
       case 'community_challenges': {
         const { organization_id } = notificationData;

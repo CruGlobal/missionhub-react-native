@@ -713,7 +713,7 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('celebrate_item', () => {
-      it('should navigate to CELEBRATION_DETAIL_SCREEN', async () => {
+      it('should navigate to FEED_ITEM_DETAIL_SCREEN', async () => {
         await testNotification({
           ...baseNotification,
           screen: 'celebrate_item',
@@ -722,9 +722,10 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
+        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
-          organization.id,
           celebration_item_id,
+          organization.id,
         );
       });
       it('should not navigate if no organization_id', async () => {
@@ -736,7 +737,23 @@ describe('askNotificationPermissions', () => {
         } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(getCelebrateFeed).not.toHaveBeenCalledWith();
         expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+      });
+      it('should navigate to COMMUNITY_TABS if no celebrate_item_id', async () => {
+        await testNotification(({
+          ...baseNotification,
+          screen: 'celebrate_item',
+          organization_id: organization.id,
+          screen_extra_data: {},
+        } as unknown) as PushNotificationPayloadData);
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(getCelebrateFeed).not.toHaveBeenCalledWith();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+          communityId: organization.id,
+        });
       });
     });
 
@@ -752,8 +769,8 @@ describe('askNotificationPermissions', () => {
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
-          organization.id,
           celebration_item_id,
+          organization.id,
         );
       });
 
