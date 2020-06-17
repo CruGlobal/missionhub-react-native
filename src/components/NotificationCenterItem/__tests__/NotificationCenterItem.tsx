@@ -135,13 +135,25 @@ describe('different notification types', () => {
           mocks: {
             Notification: () => ({
               messageTemplate: () =>
-                "There's a new comment in a step of faith <<subject_person>> took! Go see what God did.",
+                "<<subject_person>> commented on <<original_poster>>'s <<localized_post_type>> in <<community_name>>.",
               trigger: () =>
                 NotificationTriggerEnum.feed_items_comment_notification,
               messageVariables: () => [
                 {
                   key: 'subject_person',
                   value: 'Christian',
+                },
+                {
+                  key: 'original_poster',
+                  value: 'Scotty',
+                },
+                {
+                  key: 'localized_post_type',
+                  value: 'prayer request',
+                },
+                {
+                  key: 'community_name',
+                  value: 'Bleh',
                 },
               ],
             }),
