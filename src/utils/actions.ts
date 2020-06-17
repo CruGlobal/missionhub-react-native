@@ -14,7 +14,7 @@ import { OrganizationsState } from '../reducers/organizations';
 
 // Challenge and Celebrate action helpers
 
-export const GET_CELEBRATE_INCLUDE =
+const GET_CELEBRATE_INCLUDE =
   'subject_person.organizational_permissions,subject_person.contact_assignments';
 
 export const CHALLENGE = 'challenge';

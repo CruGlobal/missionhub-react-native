@@ -11,7 +11,7 @@ import Avatar from '../../components/Avatar';
 import styles from './styles';
 import { FeedItemCommentItem } from './__generated__/FeedItemCommentItem';
 
-export interface CommentItemProps {
+interface CommentItemProps {
   testID?: string;
   comment: FeedItemCommentItem;
   menuActions?: {

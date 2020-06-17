@@ -1,0 +1,1405 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly when me and no steps 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListEmptyComponent={
+      <NullStateComponent
+        content={null}
+        descriptionText="Your Steps of Faith will appear here."
+        headerText="STEPS OF FAITH"
+        imageSource={
+          Object {
+            "testUri": "../../../assets/images/footprints.png",
+          }
+        }
+        style={
+          Object {
+            "backgroundColor": undefined,
+          }
+        }
+      />
+    }
+    ListHeaderComponent={
+      <React.Fragment>
+        <ErrorNotice
+          message="Error loading steps for this person"
+          refetch={[Function]}
+        />
+        <ErrorNotice
+          message="errorLoadingCompletedStepsForThisPerson"
+        />
+      </React.Fragment>
+    }
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    renderItem={[Function]}
+    renderSectionFooter={[Function]}
+    scrollEventThrottle={0.0001}
+    sections={Array []}
+    stickyHeaderIndices={Array []}
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "flex": 1,
+        "paddingTop": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+              },
+              Object {
+                "backgroundColor": undefined,
+              },
+            ],
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/footprints.png",
+            }
+          }
+          style={
+            Object {
+              "flexShrink": 1,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+              },
+            ]
+          }
+        >
+          STEPS OF FAITH
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 80,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Your Steps of Faith will appear here.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          ADD A STEP OF FAITH
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders correctly when no steps 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListEmptyComponent={
+      <NullStateComponent
+        content={null}
+        descriptionText="Your Steps of Faith with ben appear here."
+        headerText="STEPS OF FAITH"
+        imageSource={
+          Object {
+            "testUri": "../../../assets/images/footprints.png",
+          }
+        }
+        style={
+          Object {
+            "backgroundColor": undefined,
+          }
+        }
+      />
+    }
+    ListHeaderComponent={
+      <React.Fragment>
+        <ErrorNotice
+          message="Error loading steps for this person"
+          refetch={[Function]}
+        />
+        <ErrorNotice
+          message="errorLoadingCompletedStepsForThisPerson"
+        />
+      </React.Fragment>
+    }
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={true}
+      />
+    }
+    renderItem={[Function]}
+    renderSectionFooter={[Function]}
+    scrollEventThrottle={0.0001}
+    sections={Array []}
+    stickyHeaderIndices={Array []}
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "flex": 1,
+        "paddingTop": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        style={
+          Array [
+            Array [
+              Object {
+                "backgroundColor": "#ffffff",
+              },
+              Object {
+                "backgroundColor": undefined,
+              },
+            ],
+            Object {
+              "alignItems": "center",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "testUri": "../../../assets/images/footprints.png",
+            }
+          }
+          style={
+            Object {
+              "flexShrink": 1,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "paddingTop": 10,
+              },
+            ]
+          }
+        >
+          STEPS OF FAITH
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "paddingHorizontal": 80,
+                "paddingVertical": 10,
+                "textAlign": "center",
+              },
+            ]
+          }
+        >
+          Your Steps of Faith with ben appear here.
+        </Text>
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          ADD A STEP OF FAITH
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders correctly with completed steps 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListEmptyComponent={
+      <NullStateComponent
+        content={
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              }
+            }
+          >
+            <Button
+              onPress={[Function]}
+              pill={true}
+              style={
+                Object {
+                  "backgroundColor": "transparent",
+                  "borderColor": "#A0A2A6",
+                  "borderWidth": 1,
+                  "height": 36,
+                  "marginHorizontal": 20,
+                  "marginVertical": 15,
+                  "minWidth": 250,
+                }
+              }
+              testID="completedStepsButton"
+            >
+              <MyText
+                numberOfLines={1}
+                style={
+                  Object {
+                    "backgroundColor": "rgba(0,0,0,0)",
+                    "color": "#A0A2A6",
+                    "fontSize": 14,
+                    "fontWeight": "500",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                  }
+                }
+              >
+                HIDE COMPLETED STEPS
+              </MyText>
+            </Button>
+          </View>
+        }
+        descriptionText="Your Steps of Faith with ben appear here."
+        headerText="STEPS OF FAITH"
+        imageSource={
+          Object {
+            "testUri": "../../../assets/images/footprints.png",
+          }
+        }
+        style={
+          Object {
+            "backgroundColor": undefined,
+          }
+        }
+      />
+    }
+    ListHeaderComponent={
+      <React.Fragment>
+        <ErrorNotice
+          message="Error loading steps for this person"
+          refetch={[Function]}
+        />
+        <ErrorNotice
+          message="errorLoadingCompletedStepsForThisPerson"
+          refetch={[Function]}
+        />
+      </React.Fragment>
+    }
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "4",
+              },
+              "completedAt": null,
+              "id": "2",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Chyna Howe",
+                "id": "3",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "5",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "reminderType": "once",
+              },
+              "stepType": "care",
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+            },
+          ],
+          "key": "active",
+        },
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "9",
+              },
+              "completedAt": null,
+              "id": "7",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Alek Lesch",
+                "id": "8",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "10",
+                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
+                "reminderType": "once",
+              },
+              "stepType": "bond",
+              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
+            },
+          ],
+          "key": "completed",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    renderItem={[Function]}
+    renderSectionFooter={[Function]}
+    scrollEventThrottle={0.0001}
+    sections={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "4",
+              },
+              "completedAt": null,
+              "id": "2",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Chyna Howe",
+                "id": "3",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "5",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "reminderType": "once",
+              },
+              "stepType": "care",
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+            },
+          ],
+          "key": "active",
+        },
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "9",
+              },
+              "completedAt": null,
+              "id": "7",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Alek Lesch",
+                "id": "8",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "10",
+                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
+                "reminderType": "once",
+              },
+              "stepType": "bond",
+              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
+            },
+          ],
+          "key": "completed",
+        },
+      ]
+    }
+    stickyHeaderIndices={
+      Array [
+        1,
+        4,
+      ]
+    }
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "flex": 1,
+        "paddingTop": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <StepItem
+          showName={false}
+          step={
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "4",
+              },
+              "completedAt": null,
+              "id": "2",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Chyna Howe",
+                "id": "3",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "5",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "reminderType": "once",
+              },
+              "stepType": "care",
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+            }
+          }
+          testID="stepItem"
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="completedStepsButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Object {
+                    "backgroundColor": "transparent",
+                    "borderColor": "#A0A2A6",
+                    "borderWidth": 1,
+                    "height": 36,
+                    "marginHorizontal": 20,
+                    "marginVertical": 15,
+                    "minWidth": 250,
+                  },
+                  Object {
+                    "borderRadius": 50,
+                  },
+                ]
+              }
+            >
+              <Text
+                numberOfLines={1}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#A0A2A6",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                    },
+                  ]
+                }
+              >
+                HIDE COMPLETED STEPS
+              </Text>
+            </View>
+          </View>
+        </View>
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <StepItem
+          showName={false}
+          step={
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "9",
+              },
+              "completedAt": null,
+              "id": "7",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Alek Lesch",
+                "id": "8",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "10",
+                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
+                "reminderType": "once",
+              },
+              "stepType": "bond",
+              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
+            }
+          }
+          testID="stepItem"
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          ADD A STEP OF FAITH
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders correctly with steps 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    ListEmptyComponent={
+      <NullStateComponent
+        content={null}
+        descriptionText="Your Steps of Faith with ben appear here."
+        headerText="STEPS OF FAITH"
+        imageSource={
+          Object {
+            "testUri": "../../../assets/images/footprints.png",
+          }
+        }
+        style={
+          Object {
+            "backgroundColor": undefined,
+          }
+        }
+      />
+    }
+    ListHeaderComponent={
+      <React.Fragment>
+        <ErrorNotice
+          message="Error loading steps for this person"
+          refetch={[Function]}
+        />
+        <ErrorNotice
+          message="errorLoadingCompletedStepsForThisPerson"
+        />
+      </React.Fragment>
+    }
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "4",
+              },
+              "completedAt": null,
+              "id": "2",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Chyna Howe",
+                "id": "3",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "5",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "reminderType": "once",
+              },
+              "stepType": "care",
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+            },
+          ],
+          "key": "active",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    renderItem={[Function]}
+    renderSectionFooter={[Function]}
+    scrollEventThrottle={0.0001}
+    sections={
+      Array [
+        Object {
+          "data": Array [
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "4",
+              },
+              "completedAt": null,
+              "id": "2",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Chyna Howe",
+                "id": "3",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "5",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "reminderType": "once",
+              },
+              "stepType": "care",
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+            },
+          ],
+          "key": "active",
+        },
+      ]
+    }
+    stickyHeaderIndices={
+      Array [
+        1,
+      ]
+    }
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "flex": 1,
+        "paddingTop": 16,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <StepItem
+          showName={false}
+          step={
+            Object {
+              "__typename": "Step",
+              "community": Object {
+                "__typename": "Community",
+                "id": "4",
+              },
+              "completedAt": null,
+              "id": "2",
+              "receiver": Object {
+                "__typename": "Person",
+                "fullName": "Chyna Howe",
+                "id": "3",
+              },
+              "reminder": Object {
+                "__typename": "StepReminder",
+                "id": "5",
+                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
+                "reminderType": "once",
+              },
+              "stepType": "care",
+              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
+            }
+          }
+          testID="stepItem"
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      />
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "bottom": 20,
+        "left": 50,
+        "position": "absolute",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="bottomButton"
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#52C5DC",
+              "height": 60,
+              "justifyContent": "center",
+            },
+            null,
+            Array [
+              Object {
+                "alignItems": "center",
+                "height": 48,
+                "width": 650,
+              },
+              undefined,
+            ],
+            Object {
+              "borderRadius": 50,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "backgroundColor": "rgba(0,0,0,0)",
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                  "letterSpacing": 1.5,
+                  "textAlign": "center",
+                },
+                Array [
+                  undefined,
+                ],
+              ],
+            ]
+          }
+        >
+          ADD A STEP OF FAITH
+        </Text>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`should paginate 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -64,10 +64,32 @@
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"stepType\\": \\"care\\",
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
+              },
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"9\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"7\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Alek Lesch\\",
++                 \\"id\\": \\"8\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"10\\",
++                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
++                 \\"reminderType\\": \\"once\\",
++               },
++               \\"stepType\\": \\"bond\\",
++               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
++             },
+            ],
+            \\"key\\": \\"active\\",
+          },
+        ]
+      }
+@@ -118,11 +140,33 @@
+                  \\"nextOccurrenceAt\\": \\"2010-09-08T06:46:37.996Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"stepType\\": \\"care\\",
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
++             },
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"9\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"7\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Alek Lesch\\",
++                 \\"id\\": \\"8\\",
+                },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"10\\",
++                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
++                 \\"reminderType\\": \\"once\\",
++               },
++               \\"stepType\\": \\"bond\\",
++               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
++             },
+            ],
+            \\"key\\": \\"active\\",
+          },
+        ]
+      }
+@@ -176,10 +220,43 @@
+                  \\"nextOccurrenceAt\\": \\"2010-09-08T06:46:37.996Z\\",
+                  \\"reminderType\\": \\"once\\",
+                },
+                \\"stepType\\": \\"care\\",
+                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
++             }
++           }
++           testID=\\"stepItem\\"
++         />
++       </View>
++       <View
++         onLayout={[Function onLayout]}
++         style={null}
++       >
++         <StepItem
++           showName={false}
++           step={
++             Object {
++               \\"__typename\\": \\"Step\\",
++               \\"community\\": Object {
++                 \\"__typename\\": \\"Community\\",
++                 \\"id\\": \\"9\\",
++               },
++               \\"completedAt\\": null,
++               \\"id\\": \\"7\\",
++               \\"receiver\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Alek Lesch\\",
++                 \\"id\\": \\"8\\",
++               },
++               \\"reminder\\": Object {
++                 \\"__typename\\": \\"StepReminder\\",
++                 \\"id\\": \\"10\\",
++                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
++                 \\"reminderType\\": \\"once\\",
++               },
++               \\"stepType\\": \\"bond\\",
++               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
+              }
+            }
+            testID=\\"stepItem\\"
+          />
+        </View>"
+`;

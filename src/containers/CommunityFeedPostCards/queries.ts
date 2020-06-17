@@ -13,7 +13,7 @@ export const FEED_ITEM_POST_CARD_FRAGMENT = gql`
     }
   }
 `;
-export const FEED_ITEM_STEP_CARD_FRAGMENT = gql`
+const FEED_ITEM_STEP_CARD_FRAGMENT = gql`
   fragment FeedItemStepCard on Step {
     id
     __typename

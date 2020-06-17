@@ -1,4 +1,5 @@
-import CommunityMembers, {
+import {
+  CommunityMembers,
   COMMUNITY_MEMBERS,
 } from './Community/CommunityMembers/CommunityMembers';
 import { CommunityTabs } from './Community/CommunityTabs';

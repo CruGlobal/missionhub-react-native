@@ -13,10 +13,7 @@ jest.mock('../../../actions/swipe');
 const groupOnboarding = {
   [GROUP_ONBOARDING_TYPES.celebrate]: true,
   [GROUP_ONBOARDING_TYPES.challenges]: true,
-  [GROUP_ONBOARDING_TYPES.members]: true,
   [GROUP_ONBOARDING_TYPES.impact]: true,
-  [GROUP_ONBOARDING_TYPES.contacts]: true,
-  [GROUP_ONBOARDING_TYPES.surveys]: true,
   [GROUP_ONBOARDING_TYPES.steps]: true,
 };
 
@@ -102,35 +99,6 @@ describe('OnboardingCard', () => {
     ).snapshot();
   });
 
-  it('render members card', () => {
-    renderWithContext(
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />,
-      {
-        initialState: {
-          swipe: {
-            groupOnboarding,
-          },
-        },
-      },
-    ).snapshot();
-  });
-
-  it('render members card hidden', () => {
-    renderWithContext(
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.members} />,
-      {
-        initialState: {
-          swipe: {
-            groupOnboarding: {
-              ...groupOnboarding,
-              [GROUP_ONBOARDING_TYPES.members]: false,
-            },
-          },
-        },
-      },
-    ).snapshot();
-  });
-
   it('render impact card', () => {
     renderWithContext(<OnboardingCard type={GROUP_ONBOARDING_TYPES.impact} />, {
       initialState: {
@@ -152,64 +120,6 @@ describe('OnboardingCard', () => {
         },
       },
     }).snapshot();
-  });
-
-  it('render contacts card', () => {
-    renderWithContext(
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />,
-      {
-        initialState: {
-          swipe: {
-            groupOnboarding,
-          },
-        },
-      },
-    ).snapshot();
-  });
-
-  it('render contacts card hidden', () => {
-    renderWithContext(
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.contacts} />,
-      {
-        initialState: {
-          swipe: {
-            groupOnboarding: {
-              ...groupOnboarding,
-              [GROUP_ONBOARDING_TYPES.contacts]: false,
-            },
-          },
-        },
-      },
-    ).snapshot();
-  });
-
-  it('render surveys card', () => {
-    renderWithContext(
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
-      {
-        initialState: {
-          swipe: {
-            groupOnboarding,
-          },
-        },
-      },
-    ).snapshot();
-  });
-
-  it('render surveys card hidden', () => {
-    renderWithContext(
-      <OnboardingCard type={GROUP_ONBOARDING_TYPES.surveys} />,
-      {
-        initialState: {
-          swipe: {
-            groupOnboarding: {
-              ...groupOnboarding,
-              [GROUP_ONBOARDING_TYPES.surveys]: false,
-            },
-          },
-        },
-      },
-    ).snapshot();
   });
 
   it('render steps card', () => {

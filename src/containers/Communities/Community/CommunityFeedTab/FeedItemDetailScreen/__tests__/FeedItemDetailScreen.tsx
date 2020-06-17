@@ -5,12 +5,11 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../../testUtils';
 import {
-  ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_PERMISSION_TYPE,
+  ORG_PERMISSIONS,
 } from '../../../../../../constants';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
-import { Organization } from '../../../../../../reducers/organizations';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
 import { navigateBack } from '../../../../../../actions/navigation';
 import FeedItemDetailScreen from '../FeedItemDetailScreen';
@@ -18,7 +17,6 @@ import FeedCommentBox from '../FeedCommentBox';
 
 jest.mock('../../../../../../utils/hooks/useKeyboardListeners');
 jest.mock('../../../../../../selectors/organizations');
-jest.mock('../../../../../../selectors/people');
 jest.mock('../../../../../../actions/navigation');
 jest.mock('../../../../../CommentItem', () => 'CommentItem');
 jest.mock('../../../../../../utils/hooks/useAnalytics');
@@ -27,16 +25,18 @@ jest.mock('lodash.debounce', () => jest.fn().mockImplementation(fn => fn));
 MockDate.set('2019-04-12 12:00:00', 300);
 
 const myId = 'myId';
-const orgId = '24234234';
-const organization: Organization = { id: orgId, name: 'Community' };
+const communityId = '24234234';
 const feedItemId = '1';
-const organizations = [organization];
-const auth = { person: { id: myId } };
-
-const initialState = {
-  organizations,
-  auth,
+const auth = {
+  person: {
+    id: myId,
+    organizational_permissions: [
+      { organization_id: communityId, permission_id: ORG_PERMISSIONS.USER },
+    ],
+  },
 };
+
+const initialState = { auth };
 
 let onShowKeyboard: () => void;
 
@@ -50,13 +50,12 @@ beforeEach(() => {
 it('renders loading', () => {
   renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId },
+    navParams: { feedItemId, communityId },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
     screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: '', //'community member',
-      [ANALYTICS_PERMISSION_TYPE]: '', //'member',
+      [ANALYTICS_PERMISSION_TYPE]: 'member',
     },
   });
   expect(navigateBack).not.toHaveBeenCalled();
@@ -65,17 +64,16 @@ it('renders loading', () => {
 it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId },
+    navParams: { feedItemId, communityId },
   });
 
   await flushMicrotasksQueue();
 
   snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['celebrate item', 'comments'], {
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
     screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: '', //'community member',
-      [ANALYTICS_PERMISSION_TYPE]: '', //'member',
+      [ANALYTICS_PERMISSION_TYPE]: 'member',
     },
   });
   expect(navigateBack).not.toHaveBeenCalled();
@@ -87,7 +85,7 @@ describe('refresh', () => {
       <FeedItemDetailScreen />,
       {
         initialState,
-        navParams: { feedItemId },
+        navParams: { feedItemId, communityId },
       },
     );
     await flushMicrotasksQueue();
@@ -106,7 +104,7 @@ describe('celebrate add complete', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId },
+      navParams: { feedItemId, communityId },
     });
 
     await flushMicrotasksQueue();
@@ -128,7 +126,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId },
+      navParams: { feedItemId, communityId },
     });
 
     await flushMicrotasksQueue();

@@ -15,6 +15,7 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { openMainMenu } from '../../utils/common';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
 
 // import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
@@ -32,6 +33,9 @@ import styles from './styles';
 const NotificationCenterScreen = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation('notificationsCenter');
+
+  useAnalytics('notification center');
+
   const {
     data: {
       notifications: {
