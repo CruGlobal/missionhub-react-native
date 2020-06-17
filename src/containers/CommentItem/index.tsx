@@ -31,7 +31,7 @@ const CommentItem = ({
 }: CommentItemProps) => {
   const { t } = useTranslation('commentItem');
 
-  const { content, person, createdAt } = comment;
+  const { content, person, createdAt, contentUpdatedAt } = comment;
   const name = person.fullName;
 
   const renderComment = () => {
@@ -54,7 +54,7 @@ const CommentItem = ({
             customContent={<Text style={styles.name}>{name}</Text>}
           />
           <CardTime date={createdAt} />
-          {comment.createdAt !== comment.updatedAt ? ( // TODO: replace updatedAt with contentUpdatedAt
+          {contentUpdatedAt ? (
             <>
               <Text style={[styles.edited, styles.editedBullet]}> • </Text>
               <Text style={styles.edited}>{t('edited')}</Text>

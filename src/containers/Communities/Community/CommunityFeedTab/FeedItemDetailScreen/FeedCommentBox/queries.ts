@@ -28,9 +28,11 @@ export const UPDATE_FEED_ITEM_COMMENT_MUTATION = gql`
   mutation UpdateFeedItemComment($commentId: ID!, $content: String!) {
     updateFeedItemComment(input: { id: $commentId, content: $content }) {
       feedItemComment {
-        id
-        content
+        ...FeedItemCommentItem
+        ...FeedItemEditingComment
       }
     }
   }
+  ${FEED_ITEM_COMMENT_ITEM_FRAGMENT}
+  ${FEED_ITEM_EDITING_COMMENT_FRAGMENT}
 `;

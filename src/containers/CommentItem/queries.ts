@@ -5,7 +5,7 @@ export const FEED_ITEM_COMMENT_ITEM_FRAGMENT = gql`
     id
     content
     createdAt
-    updatedAt
+    contentUpdatedAt
     person {
       id
       fullName
