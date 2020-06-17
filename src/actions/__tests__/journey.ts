@@ -4,8 +4,7 @@ import MockDate from 'mockdate';
 
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { getJourney, reloadJourney, getGroupJourney } from '../journey';
-import { isAdminOrOwner } from '../../utils/common';
+import { getJourney, reloadJourney } from '../journey';
 import { ACCEPTED_STEP } from '../../constants';
 
 jest.mock('../api');
@@ -180,75 +179,18 @@ describe('reload journey', () => {
 });
 
 describe('get journey', () => {
-  // @ts-ignore
-  async function test(orgId, expectedOrgId) {
+  it("should get a person's journey without an org (personal ministry)", async () => {
     // @ts-ignore
-    expect(await store.dispatch(getJourney(personId, orgId))).toMatchSnapshot();
+    expect(await store.dispatch(getJourney(personId))).toMatchSnapshot();
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
       include:
         'all.challenge_suggestion.pathway_stage.localized_pathway_stages,all.old_pathway_stage.localized_pathway_stages,all.new_pathway_stage.localized_pathway_stages,all.answers.question,all.survey,all.person,all.assigned_to,all.assigned_by',
       filters: {
         person_id: personId,
-        organization_ids: expectedOrgId,
+        organization_ids: 'null',
         starting_at: '2011-01-01T00:00:00Z',
         ending_at: '2018-04-17T00:00:00.000Z',
       },
     });
-  }
-
-  it("should get a person's journey without an org (personal ministry)", () => {
-    return test(undefined, 'null');
-  });
-
-  it("should get a person's journey with an org", () => {
-    return test(orgId, orgId);
-  });
-});
-
-describe('get group journey', () => {
-  // @ts-ignore
-  async function test(isAdmin) {
-    const orgPermissions = {
-      organization_id: orgId,
-      permission_id: isAdmin ? 1 : 4,
-    };
-    store = mockStore({
-      auth: {
-        person: {
-          organizational_permissions: [orgPermissions],
-        },
-      },
-    });
-
-    // @ts-ignore
-    isAdminOrOwner.mockReturnValue(isAdmin);
-
-    expect(
-      // @ts-ignore
-      await store.dispatch(getGroupJourney(personId, orgId)),
-    ).toMatchSnapshot();
-    expect(isAdminOrOwner).toHaveBeenCalledWith(orgPermissions);
-    expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_PERSON_FEED, {
-      include: isAdmin
-        ? 'all.challenge_suggestion.pathway_stage,all.old_pathway_stage,all.new_pathway_stage,all.answers.question,' +
-          'all.survey,all.person,all.contact_assignment,all.contact_unassignment,all.assigned_to,all.assigned_by,' +
-          'all.contact_assignment.assigned_to,all.contact_assignment.person,all.receiver,all.initiators'
-        : 'all.answers.question,all.survey',
-      filters: {
-        person_id: personId,
-        organization_ids: orgId,
-        starting_at: '2011-01-01T00:00:00Z',
-        ending_at: '2018-04-17T00:00:00.000Z',
-        scope_to_current_user: !isAdmin,
-      },
-    });
-  }
-
-  it('should get a persons group journey, admin permissions', async () => {
-    await test(true);
-  });
-
-  it('should get a persons group journey, user permissions', async () => {
-    await test(false);
   });
 });

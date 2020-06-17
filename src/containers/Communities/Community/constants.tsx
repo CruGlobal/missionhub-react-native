@@ -4,15 +4,12 @@ import i18next from 'i18next';
 import GroupChallenges, {
   COMMUNITY_CHALLENGES,
 } from '../../Groups/GroupChallenges';
+import { IMPACT_TAB, ImpactTab } from '../../ImpactTab/ImpactTab';
 
 import {
   CommunityFeedTab,
   COMMUNITY_FEED,
 } from './CommunityFeedTab/CommunityFeedTab';
-import {
-  COMMUNITY_IMPACT,
-  CommunityImpactTab,
-} from './CommunityImpactTab/CommunityImpactTab';
 import { CommunitiesCollapsibleHeaderContext } from './CommunityHeader/CommunityHeader';
 
 // Moved here to prevent circular dependency
@@ -35,9 +32,9 @@ export const communityTabs = [
   },
   {
     name: i18next.t('communityTabs:impact'),
-    navigationAction: COMMUNITY_IMPACT,
+    navigationAction: IMPACT_TAB,
     component: () => (
-      <CommunityImpactTab
+      <ImpactTab
         collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
       />
     ),

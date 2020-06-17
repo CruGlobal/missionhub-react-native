@@ -14,20 +14,19 @@ import { AddMyStepFlowScreens } from '../steps/addMyStepFlow';
 export const SelectMyStageFlowScreens = {
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
-    ({ stage, personId, orgId, isAlreadySelected }) => dispatch => {
+    ({ stage, personId, isAlreadySelected }) => dispatch => {
       dispatch(
         updatePersonAttributes(personId, {
           user: { pathway_stage_id: stage.id },
         }),
       );
-      dispatch(reloadJourney(personId, orgId));
+      dispatch(reloadJourney(personId));
 
       dispatch(
         isAlreadySelected
-          ? navigatePush(CELEBRATION_SCREEN, { personId, orgId })
+          ? navigatePush(CELEBRATION_SCREEN, { personId })
           : navigatePush(SELECT_STEP_SCREEN, {
               personId: personId,
-              organization: { id: orgId },
             }),
       );
     },

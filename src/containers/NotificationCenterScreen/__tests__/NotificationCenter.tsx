@@ -8,10 +8,12 @@ import MockDate from 'mockdate';
 import { renderWithContext } from '../../../../testUtils';
 import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from '../queries';
 import { openMainMenu } from '../../../utils/common';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import NotificationCenterScreen from '..';
 
 jest.mock('../../../utils/common');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const mockDate = '2020-05-20 12:00:00 PM GMT+0';
 
@@ -43,6 +45,8 @@ it('renders with no data', () => {
   expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
     onCompleted: expect.any(Function),
   });
+
+  expect(useAnalytics).toHaveBeenCalledWith('notification center');
 });
 
 it('renders correctly', async () => {
@@ -61,6 +65,8 @@ it('renders correctly', async () => {
   });
 
   snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith('notification center');
 });
 
 it('handles refresh', async () => {

@@ -35,16 +35,16 @@ import { FooterLoading } from '../../../../components/FooterLoading';
 import styles from './styles';
 import { COMMUNITY_MEMBERS_QUERY } from './queries';
 import {
-  CommunityMembers,
+  CommunityMembers as CommunityMembersQuery,
   CommunityMembersVariables,
 } from './__generated__/CommunityMembers';
 
-export const CommunityMembersScreen = () => {
+export const CommunityMembers = () => {
   const dispatch = useDispatch();
   const communityId: string = useNavigationParam('communityId');
 
   const { data, error, fetchMore, refetch, loading } = useQuery<
-    CommunityMembers,
+    CommunityMembersQuery,
     CommunityMembersVariables
   >(COMMUNITY_MEMBERS_QUERY, { variables: { id: communityId } });
 
@@ -177,5 +177,4 @@ export const CommunityMembersScreen = () => {
   );
 };
 
-export default CommunityMembersScreen;
 export const COMMUNITY_MEMBERS = 'nav/COMMUNITY_MEMBERS';

@@ -23,7 +23,7 @@ import {
   SetFeedItemLikeVariables,
 } from './__generated__/SetFeedItemLike';
 
-export interface CommentLikeComponentProps {
+interface CommentLikeComponentProps {
   feedItem: CommunityFeedItemCommentLike;
 }
 
@@ -55,7 +55,10 @@ export const CommentLikeComponent = ({
 
   const handleCommentPress = () =>
     dispatch(
-      navigatePush(FEED_ITEM_DETAIL_SCREEN, { feedItemId: feedItem.id }),
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        feedItemId: feedItem.id,
+        communityId: feedItem.community?.id,
+      }),
     );
 
   const onPressLikeIcon = async () => {

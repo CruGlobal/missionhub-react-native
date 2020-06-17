@@ -31,7 +31,7 @@ import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 
-export interface CommunityFeedItemProps {
+interface CommunityFeedItemProps {
   feedItem: FeedItemFragment;
   namePressable: boolean;
   postTypePressable?: boolean;
@@ -44,7 +44,7 @@ export const CommunityFeedItem = ({
   postTypePressable = true,
   onClearNotification,
 }: CommunityFeedItemProps) => {
-  const { subject, subjectPerson } = feedItem;
+  const { subject, subjectPerson, community } = feedItem;
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');
@@ -52,7 +52,7 @@ export const CommunityFeedItem = ({
     DELETE_POST,
     {
       update: cache => {
-        if (!feedItem.community) {
+        if (!community) {
           return;
         }
 
@@ -61,11 +61,11 @@ export const CommunityFeedItem = ({
           GetCommunityFeedVariables
         >({
           query: GET_COMMUNITY_FEED,
-          variables: { communityId: feedItem.community.id },
+          variables: { communityId: community.id },
         });
         cache.writeQuery({
           query: GET_COMMUNITY_FEED,
-          variables: { communityId: feedItem.community.id },
+          variables: { communityId: community.id },
           data: {
             ...originalData,
             community: {
@@ -86,15 +86,15 @@ export const CommunityFeedItem = ({
         >({
           query: GET_COMMUNITY_FEED,
           variables: {
-            communityId: feedItem.community.id,
-            subjectType: getFeedItemType(feedItem.subject),
+            communityId: community.id,
+            subjectType: getFeedItemType(subject),
           },
         });
         cache.writeQuery({
           query: GET_COMMUNITY_FEED,
           variables: {
-            communityId: feedItem.community.id,
-            subjectType: getFeedItemType(feedItem.subject),
+            communityId: community.id,
+            subjectType: getFeedItemType(subject),
           },
           data: {
             ...originalFilteredData,
@@ -124,7 +124,10 @@ export const CommunityFeedItem = ({
 
   const handlePress = () =>
     dispatch(
-      navigatePush(FEED_ITEM_DETAIL_SCREEN, { feedItemId: feedItem.id }),
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        feedItemId: feedItem.id,
+        communityId: community?.id,
+      }),
     );
 
   const clearNotification = () =>
