@@ -12,7 +12,7 @@ import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/Col
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CelebrateFeedPostCards } from '../CelebrateFeedPostCards';
+import { CommunityFeedPostCards } from '../CommunityFeedPostCards';
 import { PostTypeNullState } from '../../components/PostTypeLabel';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
@@ -27,7 +27,7 @@ import {
 } from './__generated__/GetGlobalCommunityFeed';
 import styles from './styles';
 
-export interface CommunityFeedProps {
+interface CommunityFeedProps {
   communityId: string;
   personId?: string;
   itemNamePressable: boolean;
@@ -41,7 +41,7 @@ export interface CommunityFeedProps {
   collapsibleScrollViewProps?: CollapsibleScrollViewProps;
 }
 
-export interface CommunityFeedSection {
+interface CommunityFeedSection {
   id: number;
   title: string;
   data: FeedItemFragment[];
@@ -258,7 +258,7 @@ export const CommunityFeed = ({
               type={filteredFeedType}
             />
             {filteredFeedType || isGlobal ? null : (
-              <CelebrateFeedPostCards
+              <CommunityFeedPostCards
                 communityId={communityId}
                 // Refetch the feed to update new section once read
                 feedRefetch={refetch}
@@ -275,6 +275,7 @@ export const CommunityFeed = ({
       globalRefetch,
       noHeader,
       communityId,
+      person,
       personId,
       filteredFeedType,
     ],

@@ -39,7 +39,6 @@ Object {
       "impact": true,
       "members": true,
       "steps": true,
-      "surveys": true,
     },
   },
 }

@@ -3,7 +3,6 @@
 import { Linking } from 'react-native';
 import gql from 'graphql-tag';
 
-import { contactAssignmentSelector } from '../selectors/people';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
@@ -16,8 +15,7 @@ import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
 
 import { trackActionWithoutData } from './analytics';
-import { createContactAssignment, getPersonScreenRoute } from './person';
-import { navigatePush, navigateReplace } from './navigation';
+import { navigatePush } from './navigation';
 import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
 
 export const GET_FEATURE_FLAGS = gql`
@@ -58,44 +56,6 @@ export function openCommunicationLink(url, action) {
           });
       })
       .catch(err => WARN('An unexpected error happened', err));
-}
-
-// @ts-ignore
-export function assignContactAndPickStage(person) {
-  // @ts-ignore
-  return async (dispatch, getState) => {
-    const auth = getState().auth;
-    const authPerson = auth.person;
-    const myId = auth.person.id;
-    const personId = person.id;
-
-    const { person: resultPerson } = await dispatch(
-      createContactAssignment(undefined, myId, personId),
-    );
-
-    const contactAssignment = contactAssignmentSelector(
-      { auth },
-      { person: resultPerson },
-    );
-
-    dispatch(
-      navigateReplace(
-        getPersonScreenRoute(authPerson, resultPerson, contactAssignment),
-        {
-          person: resultPerson,
-        },
-      ),
-    );
-
-    dispatch(
-      navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        personId: resultPerson.id,
-        undefined,
-        section: 'people',
-        subsection: 'person',
-      }),
-    );
-  };
 }
 
 export function navigateToStageScreen(

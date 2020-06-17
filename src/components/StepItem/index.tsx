@@ -21,7 +21,7 @@ import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { StepItem as Step } from './__generated__/StepItem';
 import styles from './styles';
 
-export interface StepItemProps {
+interface StepItemProps {
   step: Step;
   showName?: boolean;
   showCheckbox?: boolean;

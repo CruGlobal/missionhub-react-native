@@ -59,6 +59,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -562,6 +564,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -1064,6 +1068,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -1545,6 +1551,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -2026,6 +2034,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -2483,6 +2493,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -3004,6 +3016,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -3461,6 +3475,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -3898,6 +3914,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -4335,6 +4353,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -4772,6 +4792,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -5209,6 +5231,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -5646,6 +5670,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -6083,6 +6109,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -6520,6 +6548,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {
@@ -6936,6 +6966,8 @@ Array [
                   "flexDirection": "row",
                   "height": 36,
                   "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
                   "paddingVertical": 0,
                 },
                 Object {

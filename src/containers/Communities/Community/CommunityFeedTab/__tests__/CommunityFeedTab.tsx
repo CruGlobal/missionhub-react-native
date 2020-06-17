@@ -33,7 +33,7 @@ it('should render correctly', () => {
     { initialState, navParams: { communityId, personId } },
   ).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
+  expect(useAnalytics).toHaveBeenCalledWith('community feed', {
     screenContext: { [ANALYTICS_PERMISSION_TYPE]: permissionType },
   });
 });

@@ -7,8 +7,8 @@ import GroupChallenges from '../../../Groups/GroupChallenges';
 jest.mock('../CommunityFeedTab/CommunityFeedTab', () => ({
   CommunityFeedTab: 'CommunityFeedTab',
 }));
-jest.mock('../CommunityImpactTab/CommunityImpactTab', () => ({
-  CommunityImpactTab: 'CommunityImpactTab',
+jest.mock('../../../ImpactTab/ImpactTab', () => ({
+  ImpactTab: 'ImpactTab',
 }));
 
 it('should render feed tab', () => {

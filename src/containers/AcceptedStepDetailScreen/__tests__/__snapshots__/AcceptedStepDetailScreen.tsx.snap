@@ -36,14 +36,18 @@ Array [
         "id": "7",
         "picture": "ipsam nobis cupiditate",
       },
-      "content": "debitis incidunt accusantium",
-      "createdAt": "2014-09-11T09:20:29.756Z",
+      "content": "sed libero repudiandae",
+      "createdAt": "2015-11-12T20:05:56.328Z",
       "feedItem": Object {
         "__typename": "FeedItem",
+        "community": Object {
+          "__typename": "Community",
+          "id": "9",
+        },
         "id": "8",
       },
       "id": "6",
-      "mediaExpiringUrl": "libero repudiandae esse",
+      "mediaExpiringUrl": "blanditiis natus et",
     },
     "receiver": Object {
       "__typename": "Person",
@@ -515,7 +519,7 @@ exports[`should render correctly post details 1`] = `
                 }
                 testID="Text"
               >
-                Nov 26 @ 1:14 PM
+                Dec 28 @ 5:58 PM
               </Text>
               <Text
                 onPress={[Function]}
@@ -568,7 +572,7 @@ exports[`should render correctly post details 1`] = `
               ]
             }
           >
-            ut nulla quam
+            ipsam nobis cupiditate
           </Text>
         </View>
       </View>
@@ -584,7 +588,7 @@ exports[`should render correctly post details 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "nobis cupiditate sed",
+              "uri": "dignissimos debitis incidunt",
             }
           }
           style={

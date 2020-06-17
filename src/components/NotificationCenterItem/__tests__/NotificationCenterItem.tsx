@@ -1,20 +1,31 @@
+/* eslint max-lines: 0 */
+
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { navigatePush } from '../../../actions/navigation';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { renderWithContext } from '../../../../testUtils';
-import { NOTIFICATION_ITEM_FRAGMENT } from '../queries';
+import {
+  NOTIFICATION_ITEM_FRAGMENT,
+  CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT,
+} from '../queries';
 import { NotificationItem } from '../__generated__/NotificationItem';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import {
   NotificationTriggerEnum,
   PostTypeEnum,
 } from '../.../../../../../__generated__/globalTypes';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
+import { ContentComplaintGroupItem } from '../__generated__/ContentComplaintGroupItem';
+import { COMMUNITY_REPORTED } from '../../../containers/Communities/Community/CommunityReported/CommunityReported';
 
-import NotificationCenterItem from '..';
+import { NotificationCenterItem, ReportedNotificationCenterItem } from '..';
 
 jest.mock('../../../actions/navigation');
+
+const communityId = '4';
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
@@ -86,7 +97,7 @@ describe('different notification types', () => {
   it('renders correctly | Spiritual Question', () => {
     notificationType('spiritual question', PostTypeEnum.question);
   });
-  it('renders correctly | Care request', () => {
+  it('renders correctly | Community Need', () => {
     notificationType('care request', PostTypeEnum.help_request);
   });
   it('renders correctly | God Story', () => {
@@ -124,13 +135,25 @@ describe('different notification types', () => {
           mocks: {
             Notification: () => ({
               messageTemplate: () =>
-                "There's a new comment in a step of faith <<subject_person>> took! Go see what God did.",
+                "<<subject_person>> commented on <<original_poster>>'s <<localized_post_type>> in <<community_name>>.",
               trigger: () =>
                 NotificationTriggerEnum.feed_items_comment_notification,
               messageVariables: () => [
                 {
                   key: 'subject_person',
                   value: 'Christian',
+                },
+                {
+                  key: 'original_poster',
+                  value: 'Scotty',
+                },
+                {
+                  key: 'localized_post_type',
+                  value: 'prayer request',
+                },
+                {
+                  key: 'community_name',
+                  value: 'Bleh',
                 },
               ],
             }),
@@ -171,6 +194,7 @@ describe('handleNotificationPress', () => {
             ],
             screenData: {
               feedItemId: '1234',
+              communityId,
             },
           }),
         },
@@ -183,6 +207,85 @@ describe('handleNotificationPress', () => {
     fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: mockNotification.screenData.feedItemId,
+      communityId,
+    });
+  });
+
+  it('navigates to challenge detail screen', () => {
+    const mockChallengeNotification = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              'You have a new Challenge from <<community_name>>',
+            trigger: () =>
+              NotificationTriggerEnum.community_challenge_created_alert,
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'person_name',
+                value: 'Christian Huffman',
+              },
+            ],
+            screenData: {
+              communityId: '1234',
+              challengeId: '4321',
+            },
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <NotificationCenterItem event={mockChallengeNotification} />,
+    );
+
+    fireEvent.press(getByTestId('notificationButton'));
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      orgId: mockChallengeNotification.screenData.communityId,
+      challengeId: mockChallengeNotification.screenData.challengeId,
+    });
+  });
+
+  it('navigates to global community challenge detail screen if no communityId', () => {
+    const mockChallengeNotification = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              'You have a new Challenge from <<community_name>>',
+            trigger: () =>
+              NotificationTriggerEnum.community_challenge_created_alert,
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'person_name',
+                value: 'Christian Huffman',
+              },
+            ],
+            screenData: {
+              communityId: null,
+              challengeId: '4321',
+            },
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <NotificationCenterItem event={mockChallengeNotification} />,
+    );
+
+    fireEvent.press(getByTestId('notificationButton'));
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      orgId: GLOBAL_COMMUNITY_ID,
+      challengeId: mockChallengeNotification.screenData.challengeId,
     });
   });
 
@@ -210,30 +313,114 @@ describe('handleNotificationPress', () => {
     fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).not.toHaveBeenCalled();
   });
+});
 
-  it('does not navigate if notification is challenge', () => {
-    const { getByTestId } = renderWithContext(
-      <NotificationCenterItem
-        event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
-          mocks: {
-            Notification: () => ({
-              messageTemplate: () =>
-                'You have a new Challenge in <<community_name>>',
-              trigger: () =>
-                NotificationTriggerEnum.community_challenge_created_alert,
-              messageVariables: () => [
-                {
-                  key: 'community_name',
-                  value: 'Bleh 2.0',
-                },
-              ],
-            }),
+describe('ReportedNotificationItem', () => {
+  it('renders correctly | Reported Post', () => {
+    renderWithContext(
+      <ReportedNotificationCenterItem
+        event={mockFragment<ContentComplaintGroupItem>(
+          CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT,
+          {
+            mocks: {
+              ContentComplaintGroup: () => ({
+                subject: () => ({
+                  __typename: 'Post',
+                }),
+              }),
+            },
           },
-        })}
+        )}
       />,
+    ).snapshot();
+  });
+
+  it('renders correctly | Reported Comment', () => {
+    renderWithContext(
+      <ReportedNotificationCenterItem
+        event={mockFragment<ContentComplaintGroupItem>(
+          CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT,
+          {
+            mocks: {
+              ContentComplaintGroup: () => ({
+                subject: () => ({
+                  __typename: 'FeedItemComment',
+                }),
+              }),
+            },
+          },
+        )}
+      />,
+    ).snapshot();
+  });
+
+  it('renders correctly | without community photo', () => {
+    renderWithContext(
+      <ReportedNotificationCenterItem
+        event={mockFragment<ContentComplaintGroupItem>(
+          CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT,
+          {
+            mocks: {
+              ContentComplaintGroup: () => ({
+                subject: () => ({
+                  __typename: 'Post',
+                  feedItem: {
+                    community: {
+                      communityPhotoUrl: null,
+                    },
+                  },
+                }),
+              }),
+            },
+          },
+        )}
+      />,
+    ).snapshot();
+  });
+
+  it('navigates to CommunityReportedScreen | Post', () => {
+    const mockReportedPost = mockFragment<ContentComplaintGroupItem>(
+      CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT,
+      {
+        mocks: {
+          ContentComplaintGroup: () => ({
+            subject: () => ({
+              __typename: 'Post',
+            }),
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <ReportedNotificationCenterItem event={mockReportedPost} />,
     );
 
-    fireEvent.press(getByTestId('notificationButton'));
-    expect(navigatePush).not.toHaveBeenCalled();
+    fireEvent.press(getByTestId('reportedNotificationButton'));
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_REPORTED, {
+      reportedItemId: mockReportedPost.id,
+    });
+  });
+
+  it('navigates to CommunityReportedScreen | Comment', () => {
+    const mockReportedComment = mockFragment<ContentComplaintGroupItem>(
+      CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT,
+      {
+        mocks: {
+          ContentComplaintGroup: () => ({
+            subject: () => ({
+              __typename: 'FeedItemComment',
+            }),
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <ReportedNotificationCenterItem event={mockReportedComment} />,
+    );
+
+    fireEvent.press(getByTestId('reportedNotificationButton'));
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_REPORTED, {
+      reportedItemId: mockReportedComment.id,
+    });
   });
 });

@@ -18,16 +18,18 @@ exports[`refresh calls refreshComments 1`] = `
           <View
             style={
               Array [
-@@ -164,33 +164,33 @@
+@@ -164,32 +164,32 @@
       }
       data={
         Array [
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
 -           \\"content\\": \\"cupiditate sed dignissimos\\",
+-           \\"contentUpdatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
 -           \\"createdAt\\": \\"2011-04-05T20:54:44.943Z\\",
 -           \\"id\\": \\"5\\",
 +           \\"content\\": \\"repellendus fugiat velit\\",
++           \\"contentUpdatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
 +           \\"createdAt\\": \\"2019-11-08T05:56:47.001Z\\",
 +           \\"id\\": \\"15\\",
             \\"person\\": Object {
@@ -39,15 +41,15 @@ exports[`refresh calls refreshComments 1`] = `
 +             \\"id\\": \\"16\\",
 +             \\"picture\\": \\"doloribus distinctio placeat\\",
             },
--           \\"updatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
-+           \\"updatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
           },
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
 -           \\"content\\": \\"blanditiis natus et\\",
+-           \\"contentUpdatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
 -           \\"createdAt\\": \\"2018-08-19T14:06:14.703Z\\",
 -           \\"id\\": \\"7\\",
 +           \\"content\\": \\"ullam minima ducimus\\",
++           \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
 +           \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
 +           \\"id\\": \\"17\\",
             \\"person\\": Object {
@@ -59,14 +61,11 @@ exports[`refresh calls refreshComments 1`] = `
 +             \\"id\\": \\"18\\",
 +             \\"picture\\": \\"ducimus totam voluptates\\",
             },
--           \\"updatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
-+           \\"updatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
           },
         ]
       }
       disableVirtualization={false}
-      getItem={[Function anonymous]}
-@@ -351,22 +351,22 @@
+@@ -353,22 +353,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -91,7 +90,7 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -402,11 +402,11 @@
+@@ -404,11 +404,11 @@
                         },
                       ],
                     ]
@@ -104,7 +103,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -428,11 +428,11 @@
+@@ -430,11 +430,11 @@
                       ],
                     ]
                   }
@@ -117,7 +116,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -462,21 +462,21 @@
+@@ -464,21 +464,21 @@
                       \\"lineHeight\\": 18,
                     }
                   }
@@ -141,7 +140,7 @@ exports[`refresh calls refreshComments 1`] = `
             style={
               Object {
                 \\"aspectRatio\\": 1.3333333333333333,
-@@ -602,12 +602,11 @@
+@@ -604,12 +604,11 @@
                           null,
                         ]
                       }
@@ -155,7 +154,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -637,11 +636,11 @@
+@@ -639,11 +638,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -168,16 +167,18 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -706,20 +705,20 @@
+@@ -708,19 +707,19 @@
         >
           <CommentItem
             comment={
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
 -               \\"content\\": \\"cupiditate sed dignissimos\\",
+-               \\"contentUpdatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
 -               \\"createdAt\\": \\"2011-04-05T20:54:44.943Z\\",
 -               \\"id\\": \\"5\\",
 +               \\"content\\": \\"repellendus fugiat velit\\",
++               \\"contentUpdatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
 +               \\"createdAt\\": \\"2019-11-08T05:56:47.001Z\\",
 +               \\"id\\": \\"15\\",
                 \\"person\\": Object {
@@ -189,23 +190,22 @@ exports[`refresh calls refreshComments 1`] = `
 +                 \\"id\\": \\"16\\",
 +                 \\"picture\\": \\"doloribus distinctio placeat\\",
                 },
--               \\"updatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
-+               \\"updatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
               }
             }
             isEditing={false}
             menuActions={
-              Array [
-@@ -738,20 +737,20 @@
+@@ -740,19 +739,19 @@
         >
           <CommentItem
             comment={
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
 -               \\"content\\": \\"blanditiis natus et\\",
+-               \\"contentUpdatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
 -               \\"createdAt\\": \\"2018-08-19T14:06:14.703Z\\",
 -               \\"id\\": \\"7\\",
 +               \\"content\\": \\"ullam minima ducimus\\",
++               \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
 +               \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
 +               \\"id\\": \\"17\\",
                 \\"person\\": Object {
@@ -217,14 +217,11 @@ exports[`refresh calls refreshComments 1`] = `
 +                 \\"id\\": \\"18\\",
 +                 \\"picture\\": \\"ducimus totam voluptates\\",
                 },
--               \\"updatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
-+               \\"updatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
               }
             }
             isEditing={false}
             menuActions={
-              Array [
-@@ -779,22 +778,22 @@
+@@ -781,22 +780,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -421,6 +418,7 @@ exports[`renders correctly 1`] = `
         Object {
           "__typename": "FeedItemComment",
           "content": "cupiditate sed dignissimos",
+          "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
           "createdAt": "2011-04-05T20:54:44.943Z",
           "id": "5",
           "person": Object {
@@ -429,11 +427,11 @@ exports[`renders correctly 1`] = `
             "id": "6",
             "picture": "libero repudiandae esse",
           },
-          "updatedAt": "2017-09-28T01:02:07.116Z",
         },
         Object {
           "__typename": "FeedItemComment",
           "content": "blanditiis natus et",
+          "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
           "createdAt": "2018-08-19T14:06:14.703Z",
           "id": "7",
           "person": Object {
@@ -442,7 +440,6 @@ exports[`renders correctly 1`] = `
             "id": "8",
             "picture": "et porro ut",
           },
-          "updatedAt": "2010-08-26T04:24:18.529Z",
         },
       ]
     }
@@ -544,6 +541,8 @@ exports[`renders correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
                         "paddingVertical": 0,
                       },
                       Object {
@@ -963,6 +962,7 @@ exports[`renders correctly 1`] = `
             Object {
               "__typename": "FeedItemComment",
               "content": "cupiditate sed dignissimos",
+              "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
               "createdAt": "2011-04-05T20:54:44.943Z",
               "id": "5",
               "person": Object {
@@ -971,7 +971,6 @@ exports[`renders correctly 1`] = `
                 "id": "6",
                 "picture": "libero repudiandae esse",
               },
-              "updatedAt": "2017-09-28T01:02:07.116Z",
             }
           }
           isEditing={false}
@@ -995,6 +994,7 @@ exports[`renders correctly 1`] = `
             Object {
               "__typename": "FeedItemComment",
               "content": "blanditiis natus et",
+              "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
               "createdAt": "2018-08-19T14:06:14.703Z",
               "id": "7",
               "person": Object {
@@ -1003,7 +1003,6 @@ exports[`renders correctly 1`] = `
                 "id": "8",
                 "picture": "et porro ut",
               },
-              "updatedAt": "2010-08-26T04:24:18.529Z",
             }
           }
           isEditing={false}
