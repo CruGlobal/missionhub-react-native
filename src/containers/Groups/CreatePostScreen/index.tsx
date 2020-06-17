@@ -11,7 +11,10 @@ import {
   ANALYTICS_EDIT_MODE,
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
-import { getAnalyticsPermissionType } from '../../../utils/analytics';
+import {
+  getAnalyticsPermissionType,
+  getPostTypeAnalytics,
+} from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
@@ -29,12 +32,12 @@ import {
 import { navigateBack } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-import { GET_COMMUNITY_FEED } from '../../CelebrateFeed/queries';
+import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
 import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
-} from '../../CelebrateFeed/__generated__/GetCommunityFeed';
+} from '../../CommunityFeed/__generated__/GetCommunityFeed';
 
 import CameraIcon from './cameraIcon.svg';
 import SendIcon from './sendIcon.svg';
@@ -60,23 +63,6 @@ export type CreatePostScreenNavParams =
   | UpdatePostNavParams;
 
 const EMPTY_IMAGE_URI = '/media/original/missing.png';
-
-const getPostTypeAnalytics = (postType: PostTypeEnum) => {
-  switch (postType) {
-    case PostTypeEnum.story:
-      return 'god story';
-    case PostTypeEnum.prayer_request:
-      return 'prayer request';
-    case PostTypeEnum.question:
-      return 'spritual question';
-    case PostTypeEnum.help_request:
-      return 'care request';
-    case PostTypeEnum.thought:
-      return 'whats on your mind';
-    case PostTypeEnum.announcement:
-      return 'announcement';
-  }
-};
 
 export const CreatePostScreen = () => {
   const { t } = useTranslation('createPostScreen');

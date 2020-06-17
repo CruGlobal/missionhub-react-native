@@ -207,8 +207,9 @@ exports[`Reported Post call handleDelete 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FFA178",
@@ -973,8 +974,9 @@ exports[`Reported Post call handleIgnore 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#FFA178",

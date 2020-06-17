@@ -4,8 +4,11 @@ import { renderWithContext } from '../../../../../../../testUtils';
 import { communityMemberTabs } from '../CommunityMemberTabs';
 
 jest.mock('../../../../../Groups/GroupCelebrate', () => 'CommunityFeed');
-jest.mock('../../../CommunityImpactTab/CommunityImpactTab', () => ({
-  CommunityImpactTab: 'CommunityImpactTab',
+jest.mock('../../../../../ImpactTab/ImpactTab', () => ({
+  ImpactTab: 'ImpactTab',
+}));
+jest.mock('../../../CommunityFeedTab/CommunityFeedTab', () => ({
+  CommunityFeedTab: 'CommunityFeedTab',
 }));
 
 it('should render feed tab', () => {

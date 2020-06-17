@@ -8,14 +8,12 @@ import CommentBox from '../CommentBox';
 import { addNewInteraction } from '../../actions/interactions';
 import { INTERACTION_TYPES } from '../../constants';
 import { Person } from '../../reducers/people';
-import { Organization } from '../../reducers/organizations';
 
 import { JOURNEY_COMMENT_BOX_QUERY } from './queries';
 import { JourneyCommentBox as JourneyCommentBoxQuery } from './__generated__/JourneyCommentBox';
 
 interface JourneyCommentBoxProps {
   person: Person;
-  organization: Organization | null;
   onSubmit?: () => void;
 }
 

@@ -399,7 +399,7 @@ exports[`post renders with post 1`] = `
                 }
                 testID="Text"
               >
-                Apr 5 @ 8:54 PM
+                Sep 11 @ 9:20 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -452,7 +452,7 @@ exports[`post renders with post 1`] = `
               ]
             }
           >
-            cupiditate sed dignissimos
+            debitis incidunt accusantium
           </Text>
         </View>
       </View>
@@ -468,7 +468,7 @@ exports[`post renders with post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "incidunt accusantium sed",
+              "uri": "libero repudiandae esse",
             }
           }
           style={

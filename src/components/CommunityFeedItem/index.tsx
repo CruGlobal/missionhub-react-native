@@ -18,12 +18,12 @@ import {
   CommunityFeedItem_subject,
   CommunityFeedItem_subject_Post,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
-} from '../../containers/CelebrateFeed/__generated__/GetCommunityFeed';
-import { GET_COMMUNITY_FEED } from '../../containers/CelebrateFeed/queries';
+} from '../../containers/CommunityFeed/__generated__/GetCommunityFeed';
+import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
 import { getFeedItemType } from '../../utils/common';
 
 import styles from './styles';
@@ -31,18 +31,20 @@ import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 
-export interface CommunityFeedItemProps {
+interface CommunityFeedItemProps {
   feedItem: FeedItemFragment;
   namePressable: boolean;
+  postTypePressable?: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
 }
 
 export const CommunityFeedItem = ({
   feedItem,
   namePressable,
+  postTypePressable = true,
   onClearNotification,
 }: CommunityFeedItemProps) => {
-  const { subject, subjectPerson } = feedItem;
+  const { subject, subjectPerson, community } = feedItem;
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');
@@ -50,7 +52,7 @@ export const CommunityFeedItem = ({
     DELETE_POST,
     {
       update: cache => {
-        if (!feedItem.community) {
+        if (!community) {
           return;
         }
 
@@ -59,11 +61,11 @@ export const CommunityFeedItem = ({
           GetCommunityFeedVariables
         >({
           query: GET_COMMUNITY_FEED,
-          variables: { communityId: feedItem.community.id },
+          variables: { communityId: community.id },
         });
         cache.writeQuery({
           query: GET_COMMUNITY_FEED,
-          variables: { communityId: feedItem.community.id },
+          variables: { communityId: community.id },
           data: {
             ...originalData,
             community: {
@@ -84,15 +86,15 @@ export const CommunityFeedItem = ({
         >({
           query: GET_COMMUNITY_FEED,
           variables: {
-            communityId: feedItem.community.id,
-            subjectType: getFeedItemType(feedItem.subject),
+            communityId: community.id,
+            subjectType: getFeedItemType(subject),
           },
         });
         cache.writeQuery({
           query: GET_COMMUNITY_FEED,
           variables: {
-            communityId: feedItem.community.id,
-            subjectType: getFeedItemType(feedItem.subject),
+            communityId: community.id,
+            subjectType: getFeedItemType(subject),
           },
           data: {
             ...originalFilteredData,
@@ -122,7 +124,10 @@ export const CommunityFeedItem = ({
 
   const handlePress = () =>
     dispatch(
-      navigatePush(FEED_ITEM_DETAIL_SCREEN, { feedItemId: feedItem.id }),
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        feedItemId: feedItem.id,
+        communityId: community?.id,
+      }),
     );
 
   const clearNotification = () =>
@@ -199,6 +204,7 @@ export const CommunityFeedItem = ({
       <CommunityFeedItemContent
         feedItem={feedItem}
         namePressable={namePressable}
+        postLabelPressable={postTypePressable}
       />
       {onClearNotification ? renderClearNotificationButton() : null}
     </View>

@@ -316,7 +316,7 @@ exports[`Post is not null renders correctly with post 1`] = `
                 }
                 testID="Text"
               >
-                Mar 5 @ 3:36 AM
+                May 5 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -369,7 +369,7 @@ exports[`Post is not null renders correctly with post 1`] = `
               ]
             }
           >
-            ut sunt qui
+            amet iure ut
           </Text>
         </View>
       </View>
@@ -385,7 +385,7 @@ exports[`Post is not null renders correctly with post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "iure ut libero",
+              "uri": "qui recusandae ut",
             }
           }
           style={
@@ -716,7 +716,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 }
                 testID="Text"
               >
-                Mar 5 @ 3:36 AM
+                May 5 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -769,7 +769,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
               ]
             }
           >
-            ut sunt qui
+            amet iure ut
           </Text>
         </View>
       </View>
@@ -785,7 +785,7 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "iure ut libero",
+              "uri": "qui recusandae ut",
             }
           }
           style={
@@ -1116,7 +1116,7 @@ exports[`Post is not null renders post without image 1`] = `
                 }
                 testID="Text"
               >
-                Feb 10 @ 11:08 PM
+                Feb 28 @ 3:01 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1169,7 +1169,7 @@ exports[`Post is not null renders post without image 1`] = `
               ]
             }
           >
-            repellat ratione ut
+            sunt qui amet
           </Text>
         </View>
       </View>
@@ -1475,7 +1475,7 @@ exports[`Post is not null renders with an input 1`] = `
                 }
                 testID="Text"
               >
-                Mar 5 @ 3:36 AM
+                May 5 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1528,7 +1528,7 @@ exports[`Post is not null renders with an input 1`] = `
               ]
             }
           >
-            ut sunt qui
+            amet iure ut
           </Text>
         </View>
       </View>
@@ -1544,7 +1544,7 @@ exports[`Post is not null renders with an input 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "iure ut libero",
+              "uri": "qui recusandae ut",
             }
           }
           style={

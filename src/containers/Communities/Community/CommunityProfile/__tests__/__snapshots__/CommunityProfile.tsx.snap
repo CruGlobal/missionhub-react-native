@@ -678,7 +678,7 @@ exports[`CommunityProfile should render correctly 1`] = `
                 }
 -             />
 +             >
-+               Gracie Weber
++               Marcellus Hyatt
 +             </Text>
             </View>
             <View
@@ -723,7 +723,7 @@ exports[`CommunityProfile should render correctly 1`] = `
                 }
 -             />
 +             >
-+               41919
++               84631
 +             </Text>
             </View>
           </View>

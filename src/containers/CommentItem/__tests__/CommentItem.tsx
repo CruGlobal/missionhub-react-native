@@ -1,7 +1,5 @@
 import 'react-native';
 import React from 'react';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
@@ -9,8 +7,6 @@ import { FeedItemCommentItem } from '../__generated__/FeedItemCommentItem';
 import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../queries';
 
 import CommentItem from '..';
-
-Enzyme.configure({ adapter: new Adapter() });
 
 const item = mockFragment<FeedItemCommentItem>(FEED_ITEM_COMMENT_ITEM_FRAGMENT);
 

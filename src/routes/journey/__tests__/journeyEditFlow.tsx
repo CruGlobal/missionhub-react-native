@@ -67,7 +67,7 @@ describe('AddStepScreen next', () => {
     );
 
     expect(updateChallengeNote).toHaveBeenCalledWith(interationId, text);
-    expect(getJourney).toHaveBeenCalledWith(personId, orgId);
+    expect(getJourney).toHaveBeenCalledWith(personId);
     expect(navigateBack).toHaveBeenCalledWith();
   });
 
@@ -94,7 +94,7 @@ describe('AddStepScreen next', () => {
     );
 
     expect(editComment).toHaveBeenCalledWith(interationId, text);
-    expect(getJourney).toHaveBeenCalledWith(personId, orgId);
+    expect(getJourney).toHaveBeenCalledWith(personId);
     expect(navigateBack).toHaveBeenCalledWith();
   });
 });

@@ -5,7 +5,11 @@ import {
   ANALYTICS_EDIT_MODE,
 } from '../constants';
 import { TrackStateContext } from '../actions/analytics';
-import { PermissionEnum } from '../../__generated__/globalTypes';
+import {
+  PermissionEnum,
+  PostTypeEnum,
+  FeedItemSubjectTypeEnum,
+} from '../../__generated__/globalTypes';
 
 export const getAnalyticsAssignmentType = (
   isMe: boolean,
@@ -32,6 +36,35 @@ export const getAnalyticsPermissionType = (
       return 'admin';
     case PermissionEnum.user:
       return 'member';
+    default:
+      return '';
+  }
+};
+
+export const getPostTypeAnalytics = (
+  postType: PostTypeEnum | FeedItemSubjectTypeEnum,
+) => {
+  switch (postType) {
+    case PostTypeEnum.story:
+    case FeedItemSubjectTypeEnum.STORY:
+      return 'god story';
+    case PostTypeEnum.prayer_request:
+    case FeedItemSubjectTypeEnum.PRAYER_REQUEST:
+      return 'prayer request';
+    case PostTypeEnum.question:
+    case FeedItemSubjectTypeEnum.QUESTION:
+      return 'spiritual question';
+    case PostTypeEnum.help_request:
+    case FeedItemSubjectTypeEnum.HELP_REQUEST:
+      return 'care request';
+    case PostTypeEnum.thought:
+    case FeedItemSubjectTypeEnum.THOUGHT:
+      return 'thoughts';
+    case PostTypeEnum.announcement:
+    case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
+      return 'announcement';
+    case FeedItemSubjectTypeEnum.STEP:
+      return 'steps of faith';
     default:
       return '';
   }

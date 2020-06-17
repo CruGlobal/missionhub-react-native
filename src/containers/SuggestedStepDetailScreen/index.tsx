@@ -20,7 +20,7 @@ import {
 } from '../../constants';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
-import { PERSON_STEPS_QUERY } from '../ContactSteps/queries';
+import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
 import { insertName } from '../../utils/steps';
 

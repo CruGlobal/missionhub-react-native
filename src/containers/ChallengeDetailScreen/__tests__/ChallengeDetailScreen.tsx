@@ -12,6 +12,7 @@ import {
   joinChallenge,
   completeChallenge,
   updateChallenge,
+  reloadGroupChallengeFeed,
 } from '../../../actions/challenges';
 import { communityChallengeSelector } from '../../../selectors/challenges';
 import { ORG_PERMISSIONS } from '../../../constants';
@@ -85,6 +86,9 @@ beforeEach(() => {
   });
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigate back' });
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+  (reloadGroupChallengeFeed as jest.Mock).mockReturnValue({
+    type: 'reload challenge feed',
+  });
 
   ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue(
     challenge,

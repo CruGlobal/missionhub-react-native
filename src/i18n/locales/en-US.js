@@ -223,6 +223,7 @@ export default {
       coworker: 'Coworker',
       other: 'Other',
     },
+    stageNull: 'Choose a stage',
     categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
@@ -421,45 +422,6 @@ export default {
     promptMe:
       'Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.',
   },
-  search: {
-    inputPlaceholder: 'Search',
-    loading: 'Loading',
-    noResults: 'No Results.',
-    nullHeader: 'Search',
-    nullDescription: 'Search results will appear here.',
-  },
-  searchFilter: {
-    title: 'Filter',
-    titleSurvey: 'Filter Survey',
-    titleQuestions: 'Questions',
-    titleAnswers: 'Answers',
-    ministry: 'Ministry',
-    label: 'Label',
-    groups: 'Groups',
-    surveys: 'Survey',
-    gender: 'Gender',
-    male: 'Male',
-    female: 'Female',
-    other: 'Other',
-    time: 'Time Period',
-    time7: 'Last 7 days',
-    time30: 'Last 30 days',
-    time60: 'Last 60 days',
-    time90: 'Last 90 days',
-    time180: 'Last 6 Months',
-    time270: 'Last 9 Months',
-    time365: 'Last 12 Months',
-    surveyQuestions: 'Questions/Answers',
-    uncontacted: 'Uncontacted',
-    unassigned: 'Unassigned',
-    archived: 'Include Archived Contacts',
-    multiple: 'Multiple',
-    includeUsers: 'Include Users and Admins',
-  },
-  searchFilterRefine: {
-    title: 'Refine',
-    any: 'Any',
-  },
   notificationPrimer: {
     onboarding:
       'MissionHub will send you reminders to help you take your steps.',
@@ -539,13 +501,10 @@ export default {
   },
   personTabs: {
     feed: 'Feed',
-    steps: 'My Steps',
-    notes: 'My Notes',
-    ourJourney: 'Our Journey',
-    myJourney: 'My Journey',
+    steps: 'Steps',
+    notes: 'Notes',
+    journey: 'Journey',
     impact: 'Impact',
-    myImpact: 'My Impact',
-    assignedContacts: 'Contacts',
   },
   onboarding: {
     screen1: {
@@ -663,10 +622,6 @@ export default {
     impactHeader: 'See God at Work',
     impactDescription:
       'See what God is doing as you take Steps of Faith together. ',
-    contactsHeader: 'Journey Together',
-    contactsDescription: 'Stay engaged with contacts in your community.',
-    surveysHeader: 'Grow Together',
-    surveysDescription: 'Learn about one another through survey responses.',
     stepsHeader: 'Steps of Faith',
     stepsDescription: 'Choose a person in People view to add a new step',
   },
@@ -717,23 +672,6 @@ export default {
   groupsImpact: {
     title: '',
   },
-  groupsContacts: {
-    title: '',
-    searchPlaceholder: 'Search Contacts',
-    movingToWeb: 'We are moving Contacts to the web!',
-    findThemHere: 'Find them here',
-  },
-  memberContacts: {
-    nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
-  },
-  groupsSurveys: {
-    title: '',
-    movingToWeb: 'We are moving Surveys to the web!',
-    findThemHere: 'Find them here',
-  },
-  groupsSurveyContacts: {
-    searchPlaceholder: 'Search Contacts',
-  },
   datePicker: {
     date: 'Date',
   },
@@ -783,39 +721,8 @@ export default {
       "Sorry, we couldn't find your community.\nDouble check your link.",
     findingCommunity: 'Finding your new community...',
   },
-  shareSurveyMenu: {
-    shareMessage: '{{name}} {{url}}',
-    shareSurvey: 'Share Survey',
-    takeSurvey: 'Take Survey',
-  },
-  groupsContactList: {
-    nullHeader: 'Activity Feed',
-    nullDescription: 'No activity to display.',
-  },
   loadMore: {
     load: 'Load More',
-  },
-  statusSelect: {
-    header: 'Status',
-    cancel: 'Cancel',
-    done: 'Done',
-    uncontacted: 'Uncontacted',
-    attempted_contact: 'Attempted Contact',
-    contacted: 'Contacted',
-    completed: 'Completed',
-    do_not_contact: 'Do Not Contact',
-  },
-  statusComplete: {
-    done: 'Done',
-    continue:
-      'Great job {{userName}}!\nWould you like to continue journeying with {{statusName}}?',
-    totally: 'Totally',
-    nope: 'No Thanks',
-  },
-  statusReason: {
-    done: 'Done',
-    placeholder: 'Admin note',
-    important: 'Anything important the admins at {{organization}} should know?',
   },
   imagePicker: {
     selectImage: 'Select Image',
@@ -899,7 +806,7 @@ export default {
     STORY: 'God Story',
     PRAYER_REQUEST: 'Prayer Request',
     QUESTION: 'Spiritual Question',
-    HELP_REQUEST: 'Care Request',
+    HELP_REQUEST: 'Community Need',
     THOUGHT: "What's on Your Mind",
     COMMUNITY_CHALLENGE: 'Challenge',
     ANNOUNCEMENT: 'Announcement',
@@ -931,7 +838,7 @@ export default {
       PRAYER_REQUEST: 'Let your requests be known to God.',
       QUESTION: 'Teach and counsel each other with all the wisdom he gives.',
       HELP_REQUEST: "Share one another's burdens.",
-      ANNOUNCEMENT: 'He who abides by annoucements will be blessed.',
+      ANNOUNCEMENT: 'He who abides by announcements will be blessed.',
       THOUGHT:
         'Where two or three are gathered in my name, there am I among them.',
       STEP: 'Encourage one another and build each other up.',
@@ -957,8 +864,8 @@ export default {
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
     inputPlaceholder: 'Post to community...',
-    everyone: 'Everyone',
-    ownersAndAdmins: 'Owners and Admins',
+    postAsYou: 'Post as You',
+    ownersAndAdmins: 'Post as Owner/Admin',
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {
@@ -997,7 +904,11 @@ export default {
     errorLoadingCommunityDetails: 'Error loading community details',
     globalCommunity: 'MissionHub Community',
   },
-  communityMemberHeader: {
+  personHeader: {
+    editPerson: 'Edit Person',
+    deletePerson: 'Delete Person',
+    deletePersonQuestion: 'Delete {{name}}?',
+    deletePersonSentence: 'Are you sure you want to delete this person?',
     errorLoadingPersonDetails: 'Error loading person details',
   },
   createPost: {
@@ -1014,7 +925,7 @@ export default {
       placeholder: 'Ask a spiritual question...',
     },
     careRequest: {
-      label: 'Care Request',
+      label: 'Community Need',
       placeholder: 'Ask for help...',
     },
     onYourMind: {
@@ -1030,6 +941,20 @@ export default {
   },
   notificationsCenter: {
     title: 'Notifications',
+    nullTitle: 'No notifications yet',
+    nullDescription:
+      'Stay tuned! Notifications about your communities will show up here.',
+    errorLoadingNotifications: 'Error loading notifications',
+    reportedActivity: 'Reported Activity',
+    reportedComment: {
+      part1: 'A comment from',
+      part2: 'has been reported.',
+    },
+    reportedPost: {
+      part1: 'A post from',
+      part2: 'has been reported.',
+    },
+    review: 'Please Review.',
   },
   addPostToStepsScreen: {
     addToSteps: 'Add to my steps',
@@ -1040,5 +965,11 @@ export default {
   },
   feedItemDetail: {
     errorLoadingFeedItemDetails: 'Error loading feed item details',
+  },
+  communityReported: {
+    reportedPost: 'Reported Post',
+    reportedComment: 'Reported Comment',
+    reportedBy: 'Reported By',
+    openPost: 'Open Post',
   },
 };

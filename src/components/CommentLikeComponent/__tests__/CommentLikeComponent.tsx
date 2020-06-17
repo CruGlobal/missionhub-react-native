@@ -15,7 +15,7 @@ import {
 } from '../queries';
 import { CommunityFeedItemCommentLike } from '../__generated__/CommunityFeedItemCommentLike';
 import { navigatePush } from '../../../actions/navigation';
-import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeed/FeedItemDetailScreen/FeedItemDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import { CommentLikeComponent } from '..';
 
@@ -29,6 +29,7 @@ const trackActionResponse = { type: 'tracked action' };
 
 const myId = '1';
 const feedItemId = '12';
+const communityId = '3';
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
@@ -230,7 +231,12 @@ describe('with subject person', () => {
     const { getByTestId } = renderWithContext(
       <CommentLikeComponent
         feedItem={mockFragment(COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT, {
-          mocks: { FeedItem: () => ({ id: feedItemId }) },
+          mocks: {
+            FeedItem: () => ({
+              id: feedItemId,
+              community: { id: communityId },
+            }),
+          },
         })}
       />,
       { initialState },
@@ -240,6 +246,7 @@ describe('with subject person', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId,
+      communityId,
     });
   });
 });
