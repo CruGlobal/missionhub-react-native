@@ -12,7 +12,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
     Array [
       Object {
         "content": "esse repellat quisquam",
-        "contentUpdatedAt": "2020-01-13",
+        "contentUpdatedAt": "2020-01-13T13:58:47.783Z",
         "createdAt": "2010-09-19T03:58:30.504Z",
         "id": "1",
         "person": Object {
@@ -23,7 +23,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
       },
       Object {
         "content": "sunt qui amet",
-        "contentUpdatedAt": "2016-07-31",
+        "contentUpdatedAt": "2016-07-31T16:52:49.085Z",
         "createdAt": "2016-02-28T03:01:08.353Z",
         "id": "3",
         "person": Object {
@@ -512,7 +512,7 @@ exports[`with comments with next page renders correctly 1`] = `
     Array [
       Object {
         "content": "esse repellat quisquam",
-        "contentUpdatedAt": "2020-01-13",
+        "contentUpdatedAt": "2020-01-13T13:58:47.783Z",
         "createdAt": "2010-09-19T03:58:30.504Z",
         "id": "1",
         "person": Object {
@@ -523,7 +523,7 @@ exports[`with comments with next page renders correctly 1`] = `
       },
       Object {
         "content": "sunt qui amet",
-        "contentUpdatedAt": "2016-07-31",
+        "contentUpdatedAt": "2016-07-31T16:52:49.085Z",
         "createdAt": "2016-02-28T03:01:08.353Z",
         "id": "3",
         "person": Object {
@@ -1011,7 +1011,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
     Array [
       Object {
         "content": "esse repellat quisquam",
-        "contentUpdatedAt": "2020-01-13",
+        "contentUpdatedAt": "2020-01-13T13:58:47.783Z",
         "createdAt": "2010-09-19T03:58:30.504Z",
         "id": "1",
         "person": Object {
@@ -1022,7 +1022,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
       },
       Object {
         "content": "sunt qui amet",
-        "contentUpdatedAt": "2016-07-31",
+        "contentUpdatedAt": "2016-07-31T16:52:49.085Z",
         "createdAt": "2016-02-28T03:01:08.353Z",
         "id": "3",
         "person": Object {

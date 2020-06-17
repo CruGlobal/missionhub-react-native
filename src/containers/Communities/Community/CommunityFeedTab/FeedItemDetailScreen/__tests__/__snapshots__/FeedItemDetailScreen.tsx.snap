@@ -25,11 +25,11 @@ exports[`refresh calls refreshComments 1`] = `
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
 -           \\"content\\": \\"cupiditate sed dignissimos\\",
--           \\"contentUpdatedAt\\": \\"2017-09-28\\",
+-           \\"contentUpdatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
 -           \\"createdAt\\": \\"2011-04-05T20:54:44.943Z\\",
 -           \\"id\\": \\"5\\",
 +           \\"content\\": \\"repellendus fugiat velit\\",
-+           \\"contentUpdatedAt\\": \\"2019-09-11\\",
++           \\"contentUpdatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
 +           \\"createdAt\\": \\"2019-11-08T05:56:47.001Z\\",
 +           \\"id\\": \\"15\\",
             \\"person\\": Object {
@@ -45,11 +45,11 @@ exports[`refresh calls refreshComments 1`] = `
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
 -           \\"content\\": \\"blanditiis natus et\\",
--           \\"contentUpdatedAt\\": \\"2010-08-26\\",
+-           \\"contentUpdatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
 -           \\"createdAt\\": \\"2018-08-19T14:06:14.703Z\\",
 -           \\"id\\": \\"7\\",
 +           \\"content\\": \\"ullam minima ducimus\\",
-+           \\"contentUpdatedAt\\": \\"2017-10-25\\",
++           \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
 +           \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
 +           \\"id\\": \\"17\\",
             \\"person\\": Object {
@@ -174,11 +174,11 @@ exports[`refresh calls refreshComments 1`] = `
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
 -               \\"content\\": \\"cupiditate sed dignissimos\\",
--               \\"contentUpdatedAt\\": \\"2017-09-28\\",
+-               \\"contentUpdatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
 -               \\"createdAt\\": \\"2011-04-05T20:54:44.943Z\\",
 -               \\"id\\": \\"5\\",
 +               \\"content\\": \\"repellendus fugiat velit\\",
-+               \\"contentUpdatedAt\\": \\"2019-09-11\\",
++               \\"contentUpdatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
 +               \\"createdAt\\": \\"2019-11-08T05:56:47.001Z\\",
 +               \\"id\\": \\"15\\",
                 \\"person\\": Object {
@@ -201,11 +201,11 @@ exports[`refresh calls refreshComments 1`] = `
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
 -               \\"content\\": \\"blanditiis natus et\\",
--               \\"contentUpdatedAt\\": \\"2010-08-26\\",
+-               \\"contentUpdatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
 -               \\"createdAt\\": \\"2018-08-19T14:06:14.703Z\\",
 -               \\"id\\": \\"7\\",
 +               \\"content\\": \\"ullam minima ducimus\\",
-+               \\"contentUpdatedAt\\": \\"2017-10-25\\",
++               \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
 +               \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
 +               \\"id\\": \\"17\\",
                 \\"person\\": Object {
@@ -418,7 +418,7 @@ exports[`renders correctly 1`] = `
         Object {
           "__typename": "FeedItemComment",
           "content": "cupiditate sed dignissimos",
-          "contentUpdatedAt": "2017-09-28",
+          "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
           "createdAt": "2011-04-05T20:54:44.943Z",
           "id": "5",
           "person": Object {
@@ -431,7 +431,7 @@ exports[`renders correctly 1`] = `
         Object {
           "__typename": "FeedItemComment",
           "content": "blanditiis natus et",
-          "contentUpdatedAt": "2010-08-26",
+          "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
           "createdAt": "2018-08-19T14:06:14.703Z",
           "id": "7",
           "person": Object {
@@ -962,7 +962,7 @@ exports[`renders correctly 1`] = `
             Object {
               "__typename": "FeedItemComment",
               "content": "cupiditate sed dignissimos",
-              "contentUpdatedAt": "2017-09-28",
+              "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
               "createdAt": "2011-04-05T20:54:44.943Z",
               "id": "5",
               "person": Object {
@@ -994,7 +994,7 @@ exports[`renders correctly 1`] = `
             Object {
               "__typename": "FeedItemComment",
               "content": "blanditiis natus et",
-              "contentUpdatedAt": "2010-08-26",
+              "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
               "createdAt": "2018-08-19T14:06:14.703Z",
               "id": "7",
               "person": Object {
