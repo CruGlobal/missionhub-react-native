@@ -17,6 +17,7 @@ import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
+import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 // import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
 // import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
@@ -95,6 +96,8 @@ const NotificationCenterScreen = () => {
     UpdateLatestNotification,
     UpdateLatestNotificationVariables
   >(UPDATE_LATEST_NOTIFICATION);
+
+  const { notifications_panel } = useFeatureFlags();
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
   // const hasNewNotification =
@@ -186,7 +189,9 @@ const NotificationCenterScreen = () => {
         testID="notificationCenter"
         style={{
           backgroundColor:
-            filteredSections.length === 0 ? theme.white : theme.extraLightGrey,
+            filteredSections.length === 0 || !notifications_panel
+              ? theme.white
+              : theme.extraLightGrey,
         }}
         onRefresh={handleRefreshing}
         refreshing={loading}
@@ -194,7 +199,7 @@ const NotificationCenterScreen = () => {
         onEndReached={handleOnEndReached}
         renderSectionHeader={renderSectionHeader}
         ListEmptyComponent={renderNull}
-        sections={filteredSections}
+        sections={notifications_panel ? filteredSections : []}
         renderItem={renderItem}
       />
     </View>

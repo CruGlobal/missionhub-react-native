@@ -498,8 +498,8 @@ exports[`label variations renders small label with no text 1`] = `
         "borderRadius": 12,
         "height": 24,
         "justifyContent": "center",
-        "paddingHorizontal": 5,
-        "paddingVertical": 5,
+        "paddingLeft": 0,
+        "paddingRight": 0,
         "width": 24,
       },
     ]
