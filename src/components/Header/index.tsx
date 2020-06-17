@@ -7,14 +7,9 @@ import {
   SafeAreaView,
 } from 'react-native';
 
-import { Flex, Text, Button } from '../common';
+import { Flex, Text } from '../common';
 
 import styles from './styles';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const HeaderIcon = (props: any) => (
-  <Button type="transparent" style={styles.headerIcon} {...props} />
-);
 
 interface HeaderProps {
   right?: ReactNode | null;

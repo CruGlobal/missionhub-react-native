@@ -21,19 +21,19 @@ import DropdownIcon from '../../../assets/images/dropdownIcon.svg';
 import Avatar from '../../components/Avatar';
 import ImagePicker from '../../components/ImagePicker';
 import PencilIcon from '../../../assets/images/pencilIcon.svg';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
-interface AddContactFieldsProps {
+export interface AddContactFieldsProps {
   person: PersonType;
   organization?: Organization;
   onUpdateData: (data: PersonType) => void;
   next: (props: {
-    orgId: string;
     navigateToStageSelection: boolean;
     person: PersonType;
     updatePerson: (person: PersonType) => void;
-  }) => ThunkAction<unknown, {}, {}, AnyAction>;
+  }) => ThunkAction<unknown, RootState, {}, AnyAction>;
   testID?: string;
 }
 
@@ -85,7 +85,6 @@ const AddContactFields = ({
   const handleStageSelect = () => {
     dispatch(
       next({
-        orgId: organization?.id,
         navigateToStageSelection: true,
         person,
         updatePerson: onUpdateData,

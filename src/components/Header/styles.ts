@@ -26,16 +26,6 @@ export default StyleSheet.create({
     fontSize: 14,
     fontWeight: '500',
   },
-  // HeaderIcon styles
-  headerIcon: {
-    fontSize: 32,
-    backgroundColor: theme.transparent,
-    paddingVertical: 5,
-    paddingHorizontal: 15,
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
   // HeaderTwoLine styles
   headerTwoLine: {
     marginTop: 2,

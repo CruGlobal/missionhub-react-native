@@ -1894,63 +1894,6 @@ exports[`GroupCardItem renders with notification 1`] = `
           0 Unassigned
         </Text>
       </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "center",
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": undefined,
-                "fontSize": 12,
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 20,
-                },
-                Object {
-                  "color": "#ffffff",
-                },
-              ],
-              Object {
-                "fontFamily": "icomoon",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-        >
-          
-        </Text>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#FF5532",
-              "borderColor": "#260C06",
-              "borderRadius": 8,
-              "borderWidth": 2,
-              "height": 16,
-              "position": "absolute",
-              "right": -5,
-              "top": 0,
-              "width": 16,
-            }
-          }
-        />
-      </View>
     </View>
   </View>
 </View>

@@ -30,7 +30,7 @@ import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../../components/StepTypeBadge/StepTypeBadge';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
-import { PERSON_STEPS_QUERY } from '../ContactSteps/queries';
+import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
 import {
   getAnalyticsSectionType,
@@ -53,7 +53,6 @@ export interface AddStepScreenNextProps {
   id?: string;
   type: string;
   personId: string;
-  orgId?: string;
 }
 
 interface AddStepScreenProps {
@@ -70,7 +69,6 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   const type: string = useNavigationParam('type');
   const stepType: StepTypeEnum | undefined = useNavigationParam('stepType');
   const personId: string = useNavigationParam('personId');
-  const orgId: string | undefined = useNavigationParam('orgId');
   const id: string | undefined = useNavigationParam('id');
   const initialText: string | undefined = useNavigationParam('initialText');
   const onSetComplete: (() => void) | undefined = useNavigationParam(
@@ -107,6 +105,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   });
 
   const [savedText, setSavedText] = useState((isEdit && initialText) || '');
+  const [hasSkipped, changeHasSkipped] = useState(false);
 
   const [createCustomStep, { error: errorCreateCustomStep }] = useMutation<
     CreateCustomStep,
@@ -133,7 +132,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   const navigateNext = async (text?: string) => {
     onSetComplete && (await onSetComplete());
 
-    dispatch(next({ text, id, type, personId, orgId }));
+    dispatch(next({ text, id, type, personId }));
   };
 
   const handleSaveStep = async () => {
@@ -159,7 +158,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
 
   const handleSkip = () => {
     Keyboard.dismiss();
-
+    changeHasSkipped(true);
     navigateNext();
   };
 
@@ -183,7 +182,11 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
         left={<DeprecatedBackButton iconStyle={styles.backButtonStyle} />}
         right={
           isStepNote ? (
-            <Skip onSkip={handleSkip} textStyle={styles.skipBtnText} />
+            <Skip
+              onSkip={handleSkip}
+              disabled={hasSkipped}
+              textStyle={styles.skipBtnText}
+            />
           ) : null
         }
       />
@@ -221,6 +224,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
       <BottomButton
         onPress={handleSaveStep}
         text={buttonText}
+        disabled={hasSkipped}
         testID="saveStepButton"
       />
     </View>

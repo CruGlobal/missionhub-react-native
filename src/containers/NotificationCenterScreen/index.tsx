@@ -7,11 +7,18 @@ import { View, Text, SectionList } from 'react-native';
 import theme from '../../theme';
 import Header from '../../components/Header';
 import { IconButton, Flex } from '../../components/common';
-import NotificationCenterItem from '../../components/NotificationCenterItem';
+import {
+  NotificationCenterItem,
+  ReportedNotificationCenterItem,
+} from '../../components/NotificationCenterItem';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { openMainMenu } from '../../utils/common';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
+import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
+
 // import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
 // import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
 
@@ -24,40 +31,19 @@ import { GetNotifications } from './__generated__/GetNotifications';
 import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
 import styles from './styles';
 
-interface SectionsInterface {
-  id: number;
-  name: string;
-  data: NotificationItem[];
-}
-const groupNotificationFeed = (nodes: NotificationItem[]) => {
-  const sections: SectionsInterface[] = [
-    { id: 0, name: 'reportedActivity', data: [] },
-    { id: 1, name: 'dates.today', data: [] },
-    { id: 2, name: 'dates.earlier', data: [] },
-  ];
-
-  return nodes
-    .reduce((acc, c) => {
-      if (isLastTwentyFourHours(getMomentDate(c.createdAt))) {
-        acc[1].data.push(c);
-      } else {
-        acc[2].data.push(c);
-      }
-
-      return [...acc];
-    }, sections)
-    .filter(section => section.data.length > 0);
-};
-
 const NotificationCenterScreen = () => {
   const dispatch = useDispatch();
   const { t } = useTranslation('notificationsCenter');
+
+  useAnalytics('notification center');
+
   const {
     data: {
       notifications: {
         nodes = [],
         pageInfo: { endCursor = null, hasNextPage = false } = {},
       } = {},
+      contentComplaints = [],
     } = {},
     refetch,
     fetchMore,
@@ -84,10 +70,34 @@ const NotificationCenterScreen = () => {
   //   } = {},
   // } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
 
+  const filteredSections = [
+    {
+      id: 0,
+      name: 'reportedActivity',
+      data: contentComplaints,
+    },
+    {
+      id: 1,
+      name: 'dates.today',
+      data: nodes.filter(n =>
+        isLastTwentyFourHours(getMomentDate(n.createdAt)),
+      ),
+    },
+    {
+      id: 2,
+      name: 'dates.earlier',
+      data: nodes.filter(
+        n => !isLastTwentyFourHours(getMomentDate(n.createdAt)),
+      ),
+    },
+  ].filter(section => section.data.length > 0);
+
   const [setHasUnreadNotifications] = useMutation<
     UpdateLatestNotification,
     UpdateLatestNotificationVariables
   >(UPDATE_LATEST_NOTIFICATION);
+
+  const { notifications_panel } = useFeatureFlags();
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
   // const hasNewNotification =
@@ -111,8 +121,16 @@ const NotificationCenterScreen = () => {
     [],
   );
 
-  const renderItem = ({ item }: { item: NotificationItem }) => {
-    return <NotificationCenterItem event={item} />;
+  const renderItem = ({
+    item,
+  }: {
+    item: NotificationItem | ContentComplaintGroupItem;
+  }) => {
+    return item.__typename === 'Notification' ? (
+      <NotificationCenterItem event={item} />
+    ) : (
+      <ReportedNotificationCenterItem event={item} />
+    );
   };
   const handleRefreshing = () => {
     if (loading) {
@@ -148,8 +166,6 @@ const NotificationCenterScreen = () => {
     });
   };
 
-  const filteredSections = groupNotificationFeed(nodes);
-
   return (
     <View style={styles.pageContainer}>
       <Header
@@ -173,7 +189,9 @@ const NotificationCenterScreen = () => {
         testID="notificationCenter"
         style={{
           backgroundColor:
-            filteredSections.length === 0 ? theme.white : theme.extraLightGrey,
+            filteredSections.length === 0 || !notifications_panel
+              ? theme.white
+              : theme.extraLightGrey,
         }}
         onRefresh={handleRefreshing}
         refreshing={loading}
@@ -181,7 +199,7 @@ const NotificationCenterScreen = () => {
         onEndReached={handleOnEndReached}
         renderSectionHeader={renderSectionHeader}
         ListEmptyComponent={renderNull}
-        sections={filteredSections}
+        sections={notifications_panel ? filteredSections : []}
         renderItem={renderItem}
       />
     </View>

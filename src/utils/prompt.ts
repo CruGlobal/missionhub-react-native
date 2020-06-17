@@ -1,12 +1,6 @@
 import { Alert } from 'react-native';
 import i18next from 'i18next';
 
-export const promptToAssign = () =>
-  prompt({
-    title: i18next.t('assignAlert:question'),
-    description: i18next.t('assignAlert:sentence'),
-  });
-
 export function prompt({
   title,
   description,
@@ -19,7 +13,7 @@ export function prompt({
   cancelLabel?: string;
   actionLabel?: string;
   actionDestructive?: boolean;
-}) {
+}): Promise<boolean> {
   return new Promise(resolve =>
     Alert.alert(
       title,

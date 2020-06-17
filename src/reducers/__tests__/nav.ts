@@ -2,8 +2,8 @@
 import { NavigationActions } from 'react-navigation';
 
 import nav from '../nav';
-import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
+import { PERSON_TABS } from '../../containers/PersonScreen/PersonTabs';
 
 jest.mock('../../utils/hooks/useLogoutOnBack', () => ({
   useLogoutOnBack: jest.fn(),
@@ -12,7 +12,7 @@ jest.mock('../../utils/hooks/useLogoutOnBack', () => ({
 describe('navReducer', () => {
   it('should get state for nav action', () => {
     const newRoute = {
-      routeName: UNASSIGNED_PERSON_SCREEN,
+      routeName: PERSON_TABS,
       params: { person: { id: '123', type: 'person' } },
     };
 

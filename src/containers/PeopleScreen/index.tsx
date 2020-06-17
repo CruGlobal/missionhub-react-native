@@ -102,7 +102,7 @@ export const PeopleScreen = ({
   );
 };
 
-export const mapStateToProps = ({ auth, people, organizations }: RootState) => {
+const mapStateToProps = ({ auth, people, organizations }: RootState) => {
   const { person } = auth;
   const items = allAssignedPeopleSelector({
     people,

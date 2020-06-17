@@ -12,6 +12,7 @@ import { trackActionWithoutData } from '../../actions/analytics';
 import { requestNativePermissions } from '../../actions/notifications';
 import { navigateBack } from '../../actions/navigation';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
 
@@ -45,6 +46,8 @@ const NotificationOffScreen = ({
   );
   const [settingsOpened, setSettingsOpened] = useState(false);
   const appState = useAppState();
+
+  useAnalytics('notifications off');
 
   const close = async (returnFromSettings: boolean) => {
     const { nativePermissionsEnabled } = await dispatch(

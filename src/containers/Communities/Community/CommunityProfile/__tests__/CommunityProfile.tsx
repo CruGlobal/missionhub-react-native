@@ -22,8 +22,13 @@ import {
   trackActionWithoutData,
   trackScreenChange,
 } from '../../../../../actions/analytics';
-import { ACTIONS, COMMUNITIES_TAB } from '../../../../../constants';
+import {
+  ACTIONS,
+  COMMUNITIES_TAB,
+  ANALYTICS_PERMISSION_TYPE,
+} from '../../../../../constants';
 import * as common from '../../../../../utils/common';
+import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import { CommunityProfile } from '../CommunityProfile';
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import PopupMenu from '../../../../../components/PopupMenu';
@@ -78,11 +83,32 @@ describe('CommunityProfile', () => {
       {
         initialState,
         navParams: { communityId },
+        mocks: {
+          Query: () => ({
+            community: () => ({
+              people: () => ({
+                edges: () => [
+                  {
+                    communityPermission: () => ({
+                      permission: PermissionEnum.user,
+                    }),
+                  },
+                ],
+              }),
+            }),
+          }),
+        },
       },
     );
     recordSnapshot();
     await flushMicrotasksQueue();
     diffSnapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'detail'], {
+      screenContext: {
+        [ANALYTICS_PERMISSION_TYPE]: 'member',
+      },
+    });
   });
 
   it('renders without edit button', async () => {

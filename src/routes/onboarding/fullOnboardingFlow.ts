@@ -2,7 +2,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 import { onboardingFlowGenerator } from './onboardingFlowGenerator';
 
-export const FullOnboardingFlowScreens = onboardingFlowGenerator({});
+const FullOnboardingFlowScreens = onboardingFlowGenerator({});
 
 export const FullOnboardingFlowNavigator = createStackNavigator(
   FullOnboardingFlowScreens,

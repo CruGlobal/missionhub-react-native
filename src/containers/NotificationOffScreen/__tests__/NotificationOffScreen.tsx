@@ -9,6 +9,7 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
 import { requestNativePermissions } from '../../../actions/notifications';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import NotificationOffScreen from '..';
 
@@ -16,6 +17,7 @@ jest.mock('react-native-hooks');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/notifications');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const {
   ONBOARDING,
@@ -58,6 +60,8 @@ describe('notification types', () => {
         onComplete,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('notifications off');
   });
 
   it('renders for LOGIN', () => {
@@ -67,6 +71,8 @@ describe('notification types', () => {
         onComplete,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('notifications off');
   });
 
   it('renders for SET_REMINDER', () => {
@@ -76,6 +82,8 @@ describe('notification types', () => {
         onComplete,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('notifications off');
   });
 
   it('renders for JOIN_COMMUNITY', () => {
@@ -85,6 +93,8 @@ describe('notification types', () => {
         onComplete,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('notifications off');
   });
 
   it('renders for JOIN_CHALLENGE', () => {
@@ -94,6 +104,8 @@ describe('notification types', () => {
         onComplete,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('notifications off');
   });
 });
 
