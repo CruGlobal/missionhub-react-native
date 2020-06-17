@@ -1844,8 +1844,8 @@ exports[`renders Earlier section correctly  1`] = `
                       "borderRadius": 12,
                       "height": 24,
                       "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
                       "width": 24,
                     },
                   ]
@@ -2864,8 +2864,8 @@ exports[`renders Today section correctly  1`] = `
                       "borderRadius": 12,
                       "height": 24,
                       "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
                       "width": 24,
                     },
                   ]
@@ -4444,8 +4444,8 @@ exports[`renders correctly 1`] = `
                       "borderRadius": 12,
                       "height": 24,
                       "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
                       "width": 24,
                     },
                   ]
@@ -4622,8 +4622,8 @@ exports[`renders correctly 1`] = `
                       "borderRadius": 12,
                       "height": 24,
                       "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
                       "width": 24,
                     },
                   ]
@@ -4800,8 +4800,8 @@ exports[`renders correctly 1`] = `
                       "borderRadius": 12,
                       "height": 24,
                       "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
                       "width": 24,
                     },
                   ]
@@ -4978,8 +4978,8 @@ exports[`renders correctly 1`] = `
                       "borderRadius": 12,
                       "height": 24,
                       "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
                       "width": 24,
                     },
                   ]
@@ -5156,8 +5156,8 @@ exports[`renders correctly 1`] = `
                       "borderRadius": 12,
                       "height": 24,
                       "justifyContent": "center",
-                      "paddingHorizontal": 5,
-                      "paddingVertical": 5,
+                      "paddingLeft": 0,
+                      "paddingRight": 0,
                       "width": 24,
                     },
                   ]
@@ -5251,6 +5251,282 @@ exports[`renders correctly 1`] = `
           }
         }
       />
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders null for non-english users 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="IconButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              allowFontScaling={false}
+              style={
+                Array [
+                  Object {
+                    "color": undefined,
+                    "fontSize": 12,
+                  },
+                  Array [
+                    Object {
+                      "color": "#ffffff",
+                    },
+                    Object {
+                      "fontSize": 18,
+                    },
+                    Array [
+                      Object {
+                        "margin": 10,
+                      },
+                      Object {},
+                    ],
+                  ],
+                  Object {
+                    "fontFamily": "icomoon",
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                  },
+                  Object {},
+                ]
+              }
+            >
+              
+            </Text>
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
+              ],
+            ]
+          }
+        >
+          Notifications
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      />
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    ListEmptyComponent={[Function]}
+    data={Array []}
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onRefresh={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControlMock
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    refreshing={false}
+    renderItem={[Function]}
+    renderSectionHeader={[Function]}
+    scrollEventThrottle={50}
+    sections={Array []}
+    stickyHeaderIndices={Array []}
+    stickySectionHeadersEnabled={true}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+      }
+    }
+    testID="notificationCenter"
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        style={
+          Array [
+            Object {
+              "marginTop": "50%",
+            },
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#ffffff",
+              "borderRadius": 100,
+              "height": 150,
+              "justifyContent": "center",
+              "width": 150,
+            }
+          }
+        >
+          <SvgMock
+            color="#505256"
+          />
+        </View>
+        <Text
+          style={
+            Object {
+              "fontSize": 24,
+              "fontWeight": "200",
+              "paddingVertical": 30,
+            }
+          }
+        >
+          No notifications yet
+        </Text>
+        <Text
+          style={
+            Object {
+              "fontSize": 16,
+              "fontWeight": "300",
+              "lineHeight": 24,
+              "maxWidth": 300,
+              "textAlign": "center",
+            }
+          }
+        >
+          Stay tuned! Notifications about your communities will show up here.
+        </Text>
+      </View>
     </View>
   </RCTScrollView>
 </View>
