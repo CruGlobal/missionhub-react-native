@@ -6,11 +6,11 @@ export interface DrawerState {
   isOpen: boolean;
 }
 
-export interface OpenDrawerAction {
+interface OpenDrawerAction {
   type: typeof DrawerActions.OPEN_DRAWER;
 }
 
-export interface CloseDrawerAction {
+interface CloseDrawerAction {
   type: typeof DrawerActions.CLOSE_DRAWER;
 }
 
@@ -21,7 +21,7 @@ type DrawerActionTypes =
   | LogoutAction;
 
 // Keep track of all the swipeable rows and whether or not to show a reminder
-export const initialDrawerState: DrawerState = {
+const initialDrawerState: DrawerState = {
   isOpen: false,
 };
 

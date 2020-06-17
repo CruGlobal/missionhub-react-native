@@ -9,8 +9,10 @@ import { Touchable, Text } from '../common';
 
 import styles from './styles';
 
+export type HeaderTabs = { name: string; navigationAction: string }[];
+
 interface HeaderTabBarProps {
-  tabs: { name: string; navigationAction: string }[];
+  tabs: HeaderTabs;
 }
 
 export const HeaderTabBar = ({ tabs }: HeaderTabBarProps) => {

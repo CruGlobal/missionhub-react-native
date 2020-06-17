@@ -76,7 +76,7 @@ export function addNewInteraction(
         [interaction.tracking]: null,
       }),
     );
-    dispatch(reloadJourney(personId, organizationId));
+    dispatch(reloadJourney(personId));
     dispatch(refreshImpact(organizationId));
     getCelebrateFeed(organizationId);
 

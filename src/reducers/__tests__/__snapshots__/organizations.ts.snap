@@ -37,14 +37,6 @@ Object {
       "id": "234",
     },
   ],
-  "membersPagination": Object {
-    "hasNextPage": true,
-    "page": 1,
-  },
-  "surveysPagination": Object {
-    "hasNextPage": true,
-    "page": 1,
-  },
 }
 `;
 

@@ -15,11 +15,11 @@ import { REQUESTS } from '../api/routes';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { StepsList } from '../containers/StepsScreen/__generated__/StepsList';
-import { PERSON_STEPS_QUERY } from '../containers/ContactSteps/queries';
+import { PERSON_STEPS_QUERY } from '../containers/PersonScreen/PersonSteps/queries';
 import {
   PersonStepsList,
   PersonStepsListVariables,
-} from '../containers/ContactSteps/__generated__/PersonStepsList';
+} from '../containers/PersonScreen/PersonSteps/__generated__/PersonStepsList';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';

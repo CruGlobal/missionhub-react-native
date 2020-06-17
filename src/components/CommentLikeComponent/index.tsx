@@ -23,7 +23,7 @@ import {
   SetFeedItemLikeVariables,
 } from './__generated__/SetFeedItemLike';
 
-export interface CommentLikeComponentProps {
+interface CommentLikeComponentProps {
   feedItem: CommunityFeedItemCommentLike;
 }
 

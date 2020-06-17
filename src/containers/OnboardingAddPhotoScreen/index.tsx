@@ -23,7 +23,7 @@ import ProfilePlusIcon from './ProfilePlusIcon.svg';
 import styles from './styles';
 import { GetMe } from './__generated__/GetMe';
 
-export const GET_ME = gql`
+const GET_ME = gql`
   query GetMe {
     currentUser {
       person {

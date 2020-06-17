@@ -31,7 +31,7 @@ import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
 
-export interface CommunityFeedItemProps {
+interface CommunityFeedItemProps {
   feedItem: FeedItemFragment;
   namePressable: boolean;
   postTypePressable?: boolean;

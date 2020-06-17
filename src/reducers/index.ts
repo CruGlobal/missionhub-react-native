@@ -8,9 +8,8 @@ import { onboardingReducer as onboarding, OnboardingState } from './onboarding';
 import organizations, { OrganizationsState } from './organizations';
 import people, { PeopleState } from './people';
 import notifications, { NotificationsState } from './notifications';
-import impact from './impact';
+import impact, { ImpactState } from './impact';
 import groups from './groups';
-import surveys from './surveys';
 import labels from './labels';
 import analytics, { AnalyticsState } from './analytics';
 import swipe, { SwipeState } from './swipe';
@@ -23,7 +22,7 @@ export type RootState = {
   auth: AuthState;
   drawer: DrawerState;
   groups: any; // TODO: Fill out these reducer type states
-  impact: any;
+  impact: ImpactState;
   journey: any;
   labels: any;
   nav: any;
@@ -33,7 +32,6 @@ export type RootState = {
   people: PeopleState;
   stages: StagesState;
   stepReminders: StepReminderState;
-  surveys: any;
   swipe: SwipeState;
 };
 
@@ -52,6 +50,5 @@ export default combineReducers({
   people,
   stages,
   stepReminders,
-  surveys,
   swipe,
 });

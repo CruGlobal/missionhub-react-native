@@ -70,7 +70,7 @@ describe('CelebrationScreen next', () => {
   });
 
   it('should reload journey', () => {
-    expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
+    expect(reloadJourney).toHaveBeenCalledWith(myId);
   });
 
   it('should return to top of stack', () => {

@@ -42,7 +42,7 @@ function getType(image: Image) {
   return 'image/jpeg';
 }
 
-export const ImagePicker = ({
+const ImagePicker = ({
   onSelectImage,
   children,
   circleOverlay = false,

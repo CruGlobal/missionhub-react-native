@@ -20,17 +20,17 @@ import { LOADING_SCREEN } from '../containers/LoadingScreen';
 import { REQUESTS } from '../api/routes';
 import { AuthState } from '../reducers/auth';
 import { NotificationsState } from '../reducers/notifications';
-import { OrganizationsState } from '../reducers/organizations';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
+import { RootState } from '../reducers';
 
 import { refreshCommunity } from './organizations';
-import { getPersonDetails, navToPersonScreen } from './person';
+import { navToPersonScreen } from './person';
 import { reloadGroupChallengeFeed } from './challenges';
 import {
   navigatePush,
   navigateToMainTabs,
-  navigateToCelebrateComments,
+  navigateToFeedItemComments,
 } from './navigation';
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
@@ -42,7 +42,7 @@ export interface SetNotificationAnalyticsAction {
   notificationName: string;
 }
 
-export const setNotificationAnalytics = (
+const setNotificationAnalytics = (
   notificationName: string,
 ): SetNotificationAnalyticsAction => ({
   type: SET_NOTIFICATION_ANALYTICS,
@@ -119,7 +119,7 @@ type ParsedNotificationData =
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
 
-export interface HasShownPromptAction {
+interface HasShownPromptAction {
   type: typeof HAS_SHOWN_NOTIFICATION_PROMPT;
 }
 
@@ -237,11 +237,7 @@ export function configureNotificationHandler() {
 
 function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
   return async (
-    dispatch: ThunkDispatch<
-      { organizations: OrganizationsState },
-      {},
-      AnyAction
-    >,
+    dispatch: ThunkDispatch<RootState, {}, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
     if (isAndroid && !notification.userInteraction) {
@@ -259,15 +255,8 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       case 'steps':
         return dispatch(navigateToMainTabs());
       case 'person_steps': {
-        const { person_id, organization_id } = notificationData;
-        if (person_id) {
-          // @ts-ignore
-          const { person } = await dispatch(
-            getPersonDetails(person_id, organization_id),
-          );
-          return dispatch(navToPersonScreen(person.id));
-        }
-        return;
+        const { person_id: personId } = notificationData;
+        return dispatch(navToPersonScreen(personId));
       }
       case 'my_steps':
         return dispatch(navToPersonScreen(me.id));
@@ -299,7 +288,7 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
             const community = await dispatch(refreshCommunity(organization_id));
             await getCelebrateFeed(organization_id);
             return dispatch(
-              navigateToCelebrateComments(community, celebration_item_id),
+              navigateToFeedItemComments(community.id, celebration_item_id),
             );
           } catch (error) {
             dispatch(navigateToMainTabs());
