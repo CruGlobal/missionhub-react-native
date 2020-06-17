@@ -806,7 +806,7 @@ export default {
     STORY: 'God Story',
     PRAYER_REQUEST: 'Prayer Request',
     QUESTION: 'Spiritual Question',
-    HELP_REQUEST: 'Care Request',
+    HELP_REQUEST: 'Community Need',
     THOUGHT: "What's on Your Mind",
     COMMUNITY_CHALLENGE: 'Challenge',
     ANNOUNCEMENT: 'Announcement',
@@ -925,7 +925,7 @@ export default {
       placeholder: 'Ask a spiritual question...',
     },
     careRequest: {
-      label: 'Care Request',
+      label: 'Community Need',
       placeholder: 'Ask for help...',
     },
     onYourMind: {

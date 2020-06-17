@@ -5,7 +5,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 - First value
 + Second value
 
-@@ -390,10 +390,416 @@
+@@ -390,11 +390,417 @@
                 \\"lastName\\": \\"Paucek\\",
                 \\"picture\\": \\"qui accusantium odit\\",
               },
@@ -89,7 +89,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                   \\"completedAt\\": \\"2018-06-20T17:04:24.964Z\\",
 +                   \\"id\\": \\"61\\",
 +                 },
-+               ],
+                ],
 +               \\"id\\": \\"59\\",
 +               \\"title\\": \\"quos sed dolorum\\",
 +             },
@@ -417,12 +417,13 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +             },
 +             \\"subjectPersonName\\": \\"Salma Rolfson\\",
 +           },
-          ],
++         ],
           \\"id\\": 2,
           \\"title\\": \\"dates.earlier\\",
         },
       ]
-@@ -809,10 +1215,416 @@
+    }
+@@ -809,12 +1215,418 @@
                 \\"id\\": \\"47\\",
                 \\"lastName\\": \\"Paucek\\",
                 \\"picture\\": \\"qui accusantium odit\\",
@@ -676,7 +677,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"pageInfo\\": Object {
 +                 \\"__typename\\": \\"BasePageInfo\\",
 +                 \\"totalCount\\": 13099,
-+               },
+                },
 +             },
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
@@ -701,7 +702,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                   \\"completedAt\\": \\"2010-06-06T04:36:29.712Z\\",
 +                   \\"id\\": \\"84\\",
 +                 },
-+               ],
+                ],
 +               \\"id\\": \\"82\\",
 +               \\"title\\": \\"eligendi quas perferendis\\",
 +             },
@@ -834,11 +835,30 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"picture\\": \\"in sint in\\",
 +             },
 +             \\"subjectPersonName\\": \\"Salma Rolfson\\",
-            },
-          ],
++           },
++         ],
           \\"id\\": 2,
           \\"title\\": \\"dates.earlier\\",
-        },"
+        },
+      ]
+    }
+@@ -841,13 +1653,13 @@
+        <CreatePostButton
+          communityId=\\"456\\"
+          person={
+            Object {
+              \\"__typename\\": \\"Person\\",
+-             \\"fullName\\": \\"Kali Fay\\",
+-             \\"id\\": \\"50\\",
+-             \\"picture\\": \\"omnis delectus voluptas\\",
++             \\"fullName\\": \\"Wayne Bode\\",
++             \\"id\\": \\"104\\",
++             \\"picture\\": \\"id nesciunt eum\\",
+            }
+          }
+        />
+        <CommunityFeedPostCards
+          communityId=\\"456\\""
 `;
 
 exports[`handle pagination community feed pagination should not load more when no next page 1`] = `
@@ -3870,6 +3890,14 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
+          }
+        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -5199,6 +5227,14 @@ exports[`renders for member renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
+          }
+        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -5862,6 +5898,14 @@ exports[`renders for member renders with type 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Alek Lesch",
+            "id": "9",
+            "picture": "libero repudiandae esse",
+          }
+        }
         type="STEP"
       />
     </View>
@@ -8129,6 +8173,14 @@ exports[`renders with clear notification renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
+          }
+        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -9467,6 +9519,14 @@ exports[`renders with items correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
+          }
+        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -10130,6 +10190,14 @@ exports[`sections renders Earlier section 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Connor Kihn",
+            "id": "9",
+            "picture": "debitis incidunt accusantium",
+          }
+        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -10413,6 +10481,14 @@ exports[`sections renders New section 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Connor Kihn",
+            "id": "9",
+            "picture": "debitis incidunt accusantium",
+          }
+        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -10696,6 +10772,14 @@ exports[`sections renders Today section 1`] = `
     >
       <CreatePostButton
         communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Connor Kihn",
+            "id": "9",
+            "picture": "debitis incidunt accusantium",
+          }
+        }
       />
       <CommunityFeedPostCards
         communityId="456"

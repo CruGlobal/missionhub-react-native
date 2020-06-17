@@ -10,7 +10,8 @@ export default StyleSheet.create({
     height: 36,
     paddingVertical: 0,
     borderRadius: 18,
-    paddingHorizontal: 20,
+    paddingLeft: 20,
+    paddingRight: 16,
   },
   headerCard: {
     position: 'relative',
@@ -132,10 +133,10 @@ export default StyleSheet.create({
     backgroundColor: theme.communityQuestionOrange,
   },
   colorHELP_REQUEST: {
-    color: theme.communityCareRequestRed,
+    color: theme.communityHelpRequestRed,
   },
   HELP_REQUEST: {
-    backgroundColor: theme.communityCareRequestRed,
+    backgroundColor: theme.communityHelpRequestRed,
   },
   colorTHOUGHT: {
     color: theme.communityThoughtGrey,

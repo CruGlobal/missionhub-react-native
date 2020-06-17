@@ -164,7 +164,8 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -264,7 +265,8 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -364,7 +366,8 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -464,7 +467,8 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -512,7 +516,7 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              Care Request
+              Community Need
             </Text>
           </View>
         </View>
@@ -564,7 +568,8 @@ exports[`renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -818,7 +823,8 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -918,7 +924,8 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1018,7 +1025,8 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1118,7 +1126,8 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1166,7 +1175,7 @@ exports[`renders correctly for admin 1`] = `
                 ]
               }
             >
-              Care Request
+              Community Need
             </Text>
           </View>
         </View>
@@ -1218,7 +1227,8 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1354,7 +1364,8 @@ exports[`renders correctly for admin 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1608,7 +1619,8 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1708,7 +1720,8 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1808,7 +1821,8 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1908,7 +1922,8 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -1956,7 +1971,7 @@ exports[`renders correctly for owner 1`] = `
                 ]
               }
             >
-              Care Request
+              Community Need
             </Text>
           </View>
         </View>
@@ -2008,7 +2023,8 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {
@@ -2144,7 +2160,8 @@ exports[`renders correctly for owner 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
                     "paddingVertical": 0,
                   },
                   Object {

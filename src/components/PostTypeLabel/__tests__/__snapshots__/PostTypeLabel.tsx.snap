@@ -303,7 +303,8 @@ exports[`label variations renders label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -375,7 +376,8 @@ exports[`label variations renders label with on press with no text 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
-            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
             "paddingVertical": 0,
           },
           Object {
@@ -420,7 +422,8 @@ exports[`label variations renders large label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -480,7 +483,8 @@ exports[`label variations renders small label with no text 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -628,7 +632,7 @@ exports[`post types cards renders Announcement Label 1`] = `
 </View>
 `;
 
-exports[`post types cards renders Care Request Label 1`] = `
+exports[`post types cards renders Community Need Label 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1741,7 +1745,7 @@ exports[`post types null states renders Announcement Null State 1`] = `
 </View>
 `;
 
-exports[`post types null states renders Care Request Null State 1`] = `
+exports[`post types null states renders Community Need Null State 1`] = `
 <View
   style={
     Object {
@@ -2099,7 +2103,8 @@ exports[`post types renders Announcement Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2147,7 +2152,7 @@ exports[`post types renders Announcement Label 1`] = `
 </View>
 `;
 
-exports[`post types renders Care Request Label 1`] = `
+exports[`post types renders Community Need Label 1`] = `
 <View
   style={
     Array [
@@ -2157,7 +2162,8 @@ exports[`post types renders Care Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2200,7 +2206,7 @@ exports[`post types renders Care Request Label 1`] = `
       ]
     }
   >
-    Care Request
+    Community Need
   </Text>
 </View>
 `;
@@ -2215,7 +2221,8 @@ exports[`post types renders God Story Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2273,7 +2280,8 @@ exports[`post types renders On Your Mind Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2331,7 +2339,8 @@ exports[`post types renders Prayer Request Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2389,7 +2398,8 @@ exports[`post types renders Spiritual Question Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2447,7 +2457,8 @@ exports[`post types renders Step Of Faith Label 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2505,7 +2516,8 @@ exports[`renders correctly 1`] = `
         "flexDirection": "row",
         "height": 36,
         "justifyContent": "space-between",
-        "paddingHorizontal": 20,
+        "paddingLeft": 20,
+        "paddingRight": 16,
         "paddingVertical": 0,
       },
       Object {
@@ -2594,7 +2606,8 @@ exports[`renders pressable correctly 1`] = `
             "flexDirection": "row",
             "height": 36,
             "justifyContent": "space-between",
-            "paddingHorizontal": 20,
+            "paddingLeft": 20,
+            "paddingRight": 16,
             "paddingVertical": 0,
           },
           Object {

@@ -275,6 +275,7 @@ export const CommunityFeed = ({
       globalRefetch,
       noHeader,
       communityId,
+      person,
       personId,
       filteredFeedType,
     ],

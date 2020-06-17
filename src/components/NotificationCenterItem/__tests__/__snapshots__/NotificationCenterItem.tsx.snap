@@ -527,7 +527,169 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
 </View>
 `;
 
-exports[`different notification types renders correctly | Care request 1`] = `
+exports[`different notification types renders correctly | Comment 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="notificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
+          },
+          Object {
+            "backgroundColor": "rgb(115, 115, 152)",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          There's a new comment in a step of faith 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+          Christian
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           took! Go see what God did.
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`different notification types renders correctly | Community Challenge 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -599,11 +761,12 @@ exports[`different notification types renders correctly | Care request 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
               "paddingVertical": 0,
             },
             Object {
-              "backgroundColor": "#FD726D",
+              "backgroundColor": "#00CA99",
             },
             Object {
               "width": 20,
@@ -619,7 +782,7 @@ exports[`different notification types renders correctly | Care request 1`] = `
             },
           ]
         }
-        testID="HELP_REQUESTLabel"
+        testID="COMMUNITY_CHALLENGELabel"
       >
         <SvgMock
           color="#ffffff"
@@ -636,200 +799,6 @@ exports[`different notification types renders correctly | Care request 1`] = `
           width={15}
         />
       </View>
-    </View>
-    <View
-      style={
-        Object {
-          "paddingHorizontal": 20,
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "600",
-              },
-            ]
-          }
-        >
-          Christian Huffman
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
-           posted a new 
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
-          care request
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
-           in 
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "600",
-              },
-            ]
-          }
-        >
-          Bleh 2.0
-        </Text>
-      </Text>
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
-        }
-        testID="Text"
-      >
-        November 13, 2015 8:52 PM
-      </Text>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`different notification types renders correctly | Comment 1`] = `
-<View
-  accessible={true}
-  focusable={true}
-  isTVSelectable={true}
-  onClick={[Function]}
-  onResponderGrant={[Function]}
-  onResponderMove={[Function]}
-  onResponderRelease={[Function]}
-  onResponderTerminate={[Function]}
-  onResponderTerminationRequest={[Function]}
-  onStartShouldSetResponder={[Function]}
-  style={
-    Object {
-      "backgroundColor": "#ffffff",
-      "borderBottomColor": "#ECEEF2",
-      "borderBottomWidth": 1,
-      "opacity": 1,
-      "paddingVertical": 15,
-    }
-  }
-  testID="notificationButton"
->
-  <View
-    style={
-      Object {
-        "flex": 1,
-        "flexDirection": "row",
-        "maxWidth": 350,
-        "paddingHorizontal": 20,
-      }
-    }
-  >
-    <Image
-      resizeMode="cover"
-      source={
-        Object {
-          "uri": "recusandae alias consequuntur",
-        }
-      }
-      style={
-        Array [
-          Object {
-            "borderRadius": 24,
-            "height": 48,
-            "width": 48,
-          },
-          Object {
-            "backgroundColor": "rgb(115, 115, 152)",
-          },
-          undefined,
-        ]
-      }
-    />
-    <View
-      style={
-        Object {
-          "left": 50,
-          "position": "absolute",
-          "top": 30,
-        }
-      }
-    >
-      <SvgMock />
     </View>
     <View
       style={
@@ -1007,7 +976,7 @@ exports[`different notification types renders correctly | Comment 1`] = `
 </View>
 `;
 
-exports[`different notification types renders correctly | Community Challenge 1`] = `
+exports[`different notification types renders correctly | Community Need 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1079,11 +1048,12 @@ exports[`different notification types renders correctly | Community Challenge 1`
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
               "paddingVertical": 0,
             },
             Object {
-              "backgroundColor": "#00CA99",
+              "backgroundColor": "#FD726D",
             },
             Object {
               "width": 20,
@@ -1099,7 +1069,7 @@ exports[`different notification types renders correctly | Community Challenge 1`
             },
           ]
         }
-        testID="COMMUNITY_CHALLENGELabel"
+        testID="HELP_REQUESTLabel"
       >
         <SvgMock
           color="#ffffff"
@@ -1150,11 +1120,58 @@ exports[`different notification types renders correctly | Community Challenge 1`
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
               Object {},
             ]
           }
         >
-          You have a new Challenge in 
+           posted a new 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          care request
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
         </Text>
         <Text
           style={
@@ -1271,7 +1288,8 @@ exports[`different notification types renders correctly | God Story 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
               "paddingVertical": 0,
             },
             Object {
@@ -1510,7 +1528,8 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
               "paddingVertical": 0,
             },
             Object {
@@ -1749,7 +1768,8 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
               "paddingVertical": 0,
             },
             Object {
@@ -1988,7 +2008,8 @@ exports[`different notification types renders correctly | Thought 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
               "paddingVertical": 0,
             },
             Object {
@@ -2227,7 +2248,8 @@ exports[`renders correctly 1`] = `
               "flexDirection": "row",
               "height": 36,
               "justifyContent": "space-between",
-              "paddingHorizontal": 20,
+              "paddingLeft": 20,
+              "paddingRight": 16,
               "paddingVertical": 0,
             },
             Object {
