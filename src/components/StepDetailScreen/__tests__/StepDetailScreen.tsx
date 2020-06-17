@@ -84,6 +84,7 @@ describe('Post is not null', () => {
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: newPost.feedItem.id,
       communityId: newPost.feedItem.community?.id,
+      personId: newPost.author.id,
     });
   });
 });

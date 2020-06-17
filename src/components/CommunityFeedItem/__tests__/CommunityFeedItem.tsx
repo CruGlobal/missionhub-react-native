@@ -37,6 +37,7 @@ jest.mock('../../Card', () => 'Card');
 const communityId = '3';
 const communityName = 'Community Name';
 const myId = '1';
+const personId = '2';
 
 const prayerPostItem = mockFragment<CommunityFeedItemFragment>(
   COMMUNITY_FEED_ITEM_FRAGMENT,
@@ -48,6 +49,7 @@ const prayerPostItem = mockFragment<CommunityFeedItemFragment>(
           __typename: 'Post',
           postType: PostTypeEnum.prayer_request,
         }),
+        subjectPerson: () => ({ id: personId }),
       }),
     },
   },
@@ -78,6 +80,7 @@ const storyPostItem = mockFragment<CommunityFeedItemFragment>(
           __typename: 'Post',
           postType: PostTypeEnum.story,
         }),
+        subjectPerson: () => ({ id: personId }),
       }),
     },
   },
@@ -91,6 +94,7 @@ const stepItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'Step',
         }),
+        subjectPerson: () => ({ id: personId }),
       }),
     },
   },
@@ -104,6 +108,7 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'CommunityChallenge',
         }),
+        subjectPerson: () => ({ id: personId }),
       }),
     },
   },
@@ -305,6 +310,7 @@ describe('press card', () => {
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: stepItem.id,
       communityId,
+      personId,
     });
   });
 });

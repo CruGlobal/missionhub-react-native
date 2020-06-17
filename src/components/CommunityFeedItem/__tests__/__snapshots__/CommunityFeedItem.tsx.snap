@@ -135,7 +135,7 @@ exports[`Community renders challenge correctly 1`] = `
             Object {
               "firstName": "Janelle",
               "fullName": "Janelle Upton",
-              "id": "17",
+              "id": "2",
               "lastName": "Upton",
               "picture": "explicabo exercitationem ut",
             }
@@ -1215,7 +1215,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 Object {
                   "firstName": "Arvel",
                   "fullName": "Arvel Simonis",
-                  "id": "8",
+                  "id": "2",
                   "lastName": "Simonis",
                   "picture": "eaque enim ipsum",
                 }
@@ -1702,7 +1702,7 @@ exports[`Community renders post correctly without image 1`] = `
                 Object {
                   "firstName": "Arvel",
                   "fullName": "Arvel Simonis",
-                  "id": "8",
+                  "id": "2",
                   "lastName": "Simonis",
                   "picture": "eaque enim ipsum",
                 }
@@ -2673,7 +2673,7 @@ exports[`Community renders step correctly 1`] = `
             Object {
               "firstName": "Mathew",
               "fullName": "Mathew Green",
-              "id": "12",
+              "id": "2",
               "lastName": "Green",
               "picture": "ipsam qui nobis",
             }
@@ -3138,7 +3138,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 Object {
                   "firstName": "Arvel",
                   "fullName": "Arvel Simonis",
-                  "id": "8",
+                  "id": "2",
                   "lastName": "Simonis",
                   "picture": "eaque enim ipsum",
                 }
@@ -5069,7 +5069,7 @@ exports[`renders with name pressable correctly 1`] = `
                 Object {
                   "firstName": "Arvel",
                   "fullName": "Arvel Simonis",
-                  "id": "8",
+                  "id": "2",
                   "lastName": "Simonis",
                   "picture": "eaque enim ipsum",
                 }

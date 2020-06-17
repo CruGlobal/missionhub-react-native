@@ -4,10 +4,7 @@ import MockDate from 'mockdate';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../../testUtils';
-import {
-  ANALYTICS_PERMISSION_TYPE,
-  ORG_PERMISSIONS,
-} from '../../../../../../constants';
+import { ORG_PERMISSIONS } from '../../../../../../constants';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
@@ -27,6 +24,7 @@ MockDate.set('2019-04-12 12:00:00', 300);
 const myId = 'myId';
 const communityId = '24234234';
 const feedItemId = '1';
+const personId = '2';
 const auth = {
   person: {
     id: myId,
@@ -50,13 +48,12 @@ beforeEach(() => {
 it('renders loading', () => {
   renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId },
+    navParams: { feedItemId, communityId, personId },
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
-    },
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
   });
   expect(navigateBack).not.toHaveBeenCalled();
 });
@@ -64,7 +61,7 @@ it('renders loading', () => {
 it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId },
+    navParams: { feedItemId, communityId, personId },
   });
 
   await flushMicrotasksQueue();
@@ -72,9 +69,8 @@ it('renders correctly', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
-    },
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
   });
   expect(navigateBack).not.toHaveBeenCalled();
 });
@@ -85,7 +81,7 @@ describe('refresh', () => {
       <FeedItemDetailScreen />,
       {
         initialState,
-        navParams: { feedItemId, communityId },
+        navParams: { feedItemId, communityId, personId },
       },
     );
     await flushMicrotasksQueue();
@@ -104,7 +100,7 @@ describe('celebrate add complete', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId },
+      navParams: { feedItemId, communityId, personId },
     });
 
     await flushMicrotasksQueue();
@@ -126,7 +122,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId },
+      navParams: { feedItemId, communityId, personId },
     });
 
     await flushMicrotasksQueue();
@@ -145,7 +141,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId },
+      navParams: { feedItemId, communityId, personId },
     });
 
     await flushMicrotasksQueue();

@@ -4,7 +4,6 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import debounce from 'lodash.debounce';
-import { useSelector } from 'react-redux';
 
 import CommentsList from '../../../../CommentsList';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
@@ -13,14 +12,11 @@ import {
   Text,
   Separator,
 } from '../../../../../components/common';
-import { ANALYTICS_PERMISSION_TYPE } from '../../../../../constants';
-import { getAnalyticsPermissionType } from '../../../../../utils/analytics';
 import { useKeyboardListeners } from '../../../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import BackButton from '../../../../../components/BackButton';
 import Header from '../../../../../components/Header';
 import { ErrorNotice } from '../../../../../components/ErrorNotice/ErrorNotice';
-import { RootState } from '../../../../../reducers';
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { useMyId } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
@@ -36,24 +32,22 @@ import {
 
 const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
+  const myId = useMyId();
+
   const feedItemId: string = useNavigationParam('feedItemId');
   const communityId: string = useNavigationParam('communityId');
-  const myId = useMyId();
+  const personId: string = useNavigationParam('personId');
+
+  useAnalytics(['post', 'detail'], {
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+  });
 
   const { data, loading, error, refetch, fetchMore } = useQuery<
     FeedItemDetail,
     FeedItemDetailVariables
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
-  });
-
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, { id: communityId }),
-  );
-  useAnalytics(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-    },
   });
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
