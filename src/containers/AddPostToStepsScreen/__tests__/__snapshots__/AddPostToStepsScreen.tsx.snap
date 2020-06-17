@@ -329,7 +329,7 @@ exports[`should render correctly | Care Step 1`] = `
                 }
                 testID="Text"
               >
-                Jul 31 @ 4:52 PM
+                Sep 8 @ 6:46 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -382,7 +382,7 @@ exports[`should render correctly | Care Step 1`] = `
               ]
             }
           >
-            qui amet iure
+            ut libero qui
           </Text>
         </View>
       </View>
@@ -398,7 +398,7 @@ exports[`should render correctly | Care Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "libero qui recusandae",
+              "uri": "ut nulla quam",
             }
           }
           style={
@@ -803,7 +803,7 @@ exports[`should render correctly | Pray Step 1`] = `
                 }
                 testID="Text"
               >
-                Jul 31 @ 4:52 PM
+                Sep 8 @ 6:46 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -856,7 +856,7 @@ exports[`should render correctly | Pray Step 1`] = `
               ]
             }
           >
-            qui amet iure
+            ut libero qui
           </Text>
         </View>
       </View>
@@ -872,7 +872,7 @@ exports[`should render correctly | Pray Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "libero qui recusandae",
+              "uri": "ut nulla quam",
             }
           }
           style={
@@ -1278,7 +1278,7 @@ exports[`should render correctly | Share Step 1`] = `
                 }
                 testID="Text"
               >
-                Jul 31 @ 4:52 PM
+                Sep 8 @ 6:46 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1331,7 +1331,7 @@ exports[`should render correctly | Share Step 1`] = `
               ]
             }
           >
-            qui amet iure
+            ut libero qui
           </Text>
         </View>
       </View>
@@ -1347,7 +1347,7 @@ exports[`should render correctly | Share Step 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "libero qui recusandae",
+              "uri": "ut nulla quam",
             }
           }
           style={

@@ -10,6 +10,9 @@ export const STEP_DETAIL_POST_FRAGMENT = gql`
     }
     feedItem {
       id
+      community {
+        id
+      }
     }
     content
     createdAt

@@ -20,6 +20,9 @@ export const COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT = gql`
     subjectPerson {
       id
     }
+    community {
+      id
+    }
   }
 `;
 
