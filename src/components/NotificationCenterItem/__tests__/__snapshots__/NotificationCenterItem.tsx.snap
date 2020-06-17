@@ -625,21 +625,6 @@ exports[`different notification types renders correctly | Comment 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
-            ]
-          }
-        >
-          There's a new comment in a step of faith 
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
               Object {
                 "fontWeight": "600",
               },
@@ -661,7 +646,101 @@ exports[`different notification types renders correctly | Comment 1`] = `
             ]
           }
         >
-           took! Go see what God did.
+           commented on 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+          Scotty
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          's 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          prayer request
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "600",
+              },
+            ]
+          }
+        >
+          Bleh
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          .
         </Text>
       </Text>
       <Text
@@ -833,28 +912,11 @@ exports[`different notification types renders correctly | Community Challenge 1`
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {
-                "fontWeight": "600",
-              },
-            ]
-          }
-        >
-          Christian
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
               Object {},
             ]
           }
         >
-           commented on 
+          You have a new Challenge in 
         </Text>
         <Text
           style={
@@ -871,84 +933,7 @@ exports[`different notification types renders correctly | Community Challenge 1`
             ]
           }
         >
-          Scotty
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
-          's 
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
-          prayer request
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
-           in 
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "600",
-              },
-            ]
-          }
-        >
-          Bleh
-        </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
-          .
+          Bleh 2.0
         </Text>
       </Text>
       <Text
