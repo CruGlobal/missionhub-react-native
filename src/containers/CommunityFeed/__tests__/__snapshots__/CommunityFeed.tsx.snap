@@ -842,23 +842,23 @@ exports[`handle pagination community feed pagination paginates when close to bot
         },
       ]
     }
-@@ -844,13 +1656,13 @@
-          <CreatePostButton
-            communityId=\\"456\\"
-            person={
-              Object {
-                \\"__typename\\": \\"Person\\",
--               \\"fullName\\": \\"Kali Fay\\",
--               \\"id\\": \\"50\\",
--               \\"picture\\": \\"omnis delectus voluptas\\",
-+               \\"fullName\\": \\"Wayne Bode\\",
-+               \\"id\\": \\"104\\",
-+               \\"picture\\": \\"id nesciunt eum\\",
-              }
+@@ -841,13 +1653,13 @@
+        <CreatePostButton
+          communityId=\\"456\\"
+          person={
+            Object {
+              \\"__typename\\": \\"Person\\",
+-             \\"fullName\\": \\"Kali Fay\\",
+-             \\"id\\": \\"50\\",
+-             \\"picture\\": \\"omnis delectus voluptas\\",
++             \\"fullName\\": \\"Wayne Bode\\",
++             \\"id\\": \\"104\\",
++             \\"picture\\": \\"id nesciunt eum\\",
             }
-          />
-          <CommunityFeedPostCards
-            communityId=\\"456\\""
+          }
+        />
+        <CommunityFeedPostCards
+          communityId=\\"456\\""
 `;
 
 exports[`handle pagination community feed pagination should not load more when no next page 1`] = `
@@ -1737,17 +1737,13 @@ exports[`renders empty correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+      <CreatePostButton
+        communityId="456"
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
   </View>
 </RCTScrollView>
@@ -2576,13 +2572,9 @@ exports[`renders for Global Community renders correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="_global_community_id"
-        />
-      </RCTSafeAreaView>
+      <CreatePostButton
+        communityId="_global_community_id"
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -3901,25 +3893,21 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Kali Fay",
-              "id": "50",
-              "picture": "omnis delectus voluptas",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
           }
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+        }
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -5247,25 +5235,21 @@ exports[`renders for member renders correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Kali Fay",
-              "id": "50",
-              "picture": "omnis delectus voluptas",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
           }
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+        }
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -5927,22 +5911,18 @@ exports[`renders for member renders with type 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Alek Lesch",
-              "id": "9",
-              "picture": "libero repudiandae esse",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Alek Lesch",
+            "id": "9",
+            "picture": "libero repudiandae esse",
           }
-          type="STEP"
-        />
-      </RCTSafeAreaView>
+        }
+        type="STEP"
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -6887,11 +6867,7 @@ exports[`renders for member renders without header 1`] = `
   <View>
     <View
       onLayout={[Function]}
-    >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      />
-    </View>
+    />
     <View
       onLayout={[Function]}
       style={null}
@@ -8218,25 +8194,21 @@ exports[`renders with clear notification renders correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Kali Fay",
-              "id": "50",
-              "picture": "omnis delectus voluptas",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
           }
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+        }
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -9573,25 +9545,21 @@ exports[`renders with items correctly 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Kali Fay",
-              "id": "50",
-              "picture": "omnis delectus voluptas",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Kali Fay",
+            "id": "50",
+            "picture": "omnis delectus voluptas",
           }
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+        }
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -10253,25 +10221,21 @@ exports[`sections renders Earlier section 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Connor Kihn",
-              "id": "9",
-              "picture": "debitis incidunt accusantium",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Connor Kihn",
+            "id": "9",
+            "picture": "debitis incidunt accusantium",
           }
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+        }
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -10553,25 +10517,21 @@ exports[`sections renders New section 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Connor Kihn",
-              "id": "9",
-              "picture": "debitis incidunt accusantium",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Connor Kihn",
+            "id": "9",
+            "picture": "debitis incidunt accusantium",
           }
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+        }
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
     <View
       onLayout={[Function]}
@@ -10853,25 +10813,21 @@ exports[`sections renders Today section 1`] = `
     <View
       onLayout={[Function]}
     >
-      <RCTSafeAreaView
-        emulateUnlessSupported={true}
-      >
-        <CreatePostButton
-          communityId="456"
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Connor Kihn",
-              "id": "9",
-              "picture": "debitis incidunt accusantium",
-            }
+      <CreatePostButton
+        communityId="456"
+        person={
+          Object {
+            "__typename": "Person",
+            "fullName": "Connor Kihn",
+            "id": "9",
+            "picture": "debitis incidunt accusantium",
           }
-        />
-        <CommunityFeedPostCards
-          communityId="456"
-          feedRefetch={[Function]}
-        />
-      </RCTSafeAreaView>
+        }
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
     </View>
     <View
       onLayout={[Function]}

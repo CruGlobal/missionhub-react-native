@@ -1,12 +1,6 @@
 /* eslint-disable max-lines */
 import React, { useCallback } from 'react';
-import {
-  Animated,
-  View,
-  SectionListData,
-  Text,
-  SafeAreaView,
-} from 'react-native';
+import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
@@ -256,34 +250,32 @@ export const CommunityFeed = ({
   const renderHeader = useCallback(
     () => (
       <>
-        <SafeAreaView>
-          <ErrorNotice
-            message={t('errorLoadingCommunityFeed')}
-            error={error}
-            refetch={refetch}
-          />
-          <ErrorNotice
-            message={t('errorLoadingCommunityFeed')}
-            error={globalError}
-            refetch={globalRefetch}
-          />
-          {noHeader ? null : (
-            <>
-              <CreatePostButton
-                person={person || globalPerson}
+        <ErrorNotice
+          message={t('errorLoadingCommunityFeed')}
+          error={error}
+          refetch={refetch}
+        />
+        <ErrorNotice
+          message={t('errorLoadingCommunityFeed')}
+          error={globalError}
+          refetch={globalRefetch}
+        />
+        {noHeader ? null : (
+          <>
+            <CreatePostButton
+              person={person || globalPerson}
+              communityId={communityId}
+              type={filteredFeedType}
+            />
+            {filteredFeedType || isGlobal ? null : (
+              <CommunityFeedPostCards
                 communityId={communityId}
-                type={filteredFeedType}
+                // Refetch the feed to update new section once read
+                feedRefetch={refetch}
               />
-              {filteredFeedType || isGlobal ? null : (
-                <CommunityFeedPostCards
-                  communityId={communityId}
-                  // Refetch the feed to update new section once read
-                  feedRefetch={refetch}
-                />
-              )}
-            </>
-          )}
-        </SafeAreaView>
+            )}
+          </>
+        )}
       </>
     ),
     [
