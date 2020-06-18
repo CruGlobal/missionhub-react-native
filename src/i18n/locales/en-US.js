@@ -94,6 +94,7 @@ export default {
     logout: 'Logout',
     me: 'Me',
     loading: 'Loading',
+    refresh: 'Refresh',
     save: 'Save',
     delete: 'Delete',
     ignore: 'Ignore',
