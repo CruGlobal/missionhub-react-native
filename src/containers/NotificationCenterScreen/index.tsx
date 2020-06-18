@@ -108,7 +108,7 @@ const NotificationCenterScreen = () => {
   const onOpenMainMenu = () => dispatch(openMainMenu());
   const hasNewNotification =
     latestNotification[0]?.createdAt !== notificationState?.lastReadDateTime;
-  debugger;
+
   const renderNull = () => (
     <Flex justify="center" align="center" style={{ marginTop: '50%' }}>
       <View style={styles.nullContainer}>
