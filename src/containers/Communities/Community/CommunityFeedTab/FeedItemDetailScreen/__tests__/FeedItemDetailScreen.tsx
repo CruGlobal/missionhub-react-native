@@ -48,13 +48,7 @@ beforeEach(() => {
 it('renders loading', () => {
   renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId, personId },
-    mocks: {
-      feedItem: () => ({
-        subjectPerson: () => ({ id: personId }),
-        community: () => ({ id: communityId }),
-      }),
-    },
+    navParams: { feedItemId },
   }).snapshot();
 
   expect(navigateBack).not.toHaveBeenCalled();
@@ -63,7 +57,7 @@ it('renders loading', () => {
 it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId, personId },
+    navParams: { feedItemId },
     mocks: {
       FeedItem: () => ({
         subjectPerson: () => ({ id: personId }),
@@ -96,7 +90,7 @@ describe('refresh', () => {
       <FeedItemDetailScreen />,
       {
         initialState,
-        navParams: { feedItemId, communityId, personId },
+        navParams: { feedItemId },
       },
     );
     await flushMicrotasksQueue();
@@ -115,7 +109,7 @@ describe('celebrate add complete', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId, personId },
+      navParams: { feedItemId },
     });
 
     await flushMicrotasksQueue();
@@ -137,7 +131,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId, personId },
+      navParams: { feedItemId },
     });
 
     await flushMicrotasksQueue();
@@ -156,7 +150,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId, personId },
+      navParams: { feedItemId },
     });
 
     await flushMicrotasksQueue();
