@@ -1,11 +1,17 @@
 /* eslint-disable max-lines */
 import React, { useCallback } from 'react';
-import { Animated, View, SectionListData, Text } from 'react-native';
+import {
+  Animated,
+  View,
+  SectionListData,
+  Text,
+  SafeAreaView,
+} from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
-import { keyExtractorId, orgIsGlobal } from '../../utils/common';
+import { keyExtractorId, orgIsGlobal, isAndroid } from '../../utils/common';
 import { CreatePostButton } from '../Groups/CreatePostButton';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { CollapsibleScrollViewProps } from '../../components/CollapsibleView/CollapsibleView';
@@ -14,6 +20,7 @@ import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CommunityFeedPostCards } from '../CommunityFeedPostCards';
 import { PostTypeNullState } from '../../components/PostTypeLabel';
+import { getStatusBarHeight } from '../../utils/statusbar';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import {
@@ -221,7 +228,16 @@ export const CommunityFeed = ({
     }: {
       section: SectionListData<CommunityFeedSection>;
     }) => (
-      <View style={styles.header}>
+      <View
+        style={[
+          styles.header,
+          // We need to add extra padding because we can't use a SafeAreaView in the section header.
+          // And we can't wrap the whole SectionList in the SafeAreaView because it messes with the collapsible header
+          !filteredFeedType && !isAndroid
+            ? { paddingTop: getStatusBarHeight() }
+            : null,
+        ]}
+      >
         <Text style={styles.title}>{t(`${title}`)}</Text>
       </View>
     ),
@@ -233,39 +249,41 @@ export const CommunityFeed = ({
       onClearNotification={onClearNotification}
       feedItem={item}
       namePressable={itemNamePressable}
-      postTypePressable={!personId}
+      postTypePressable={!personId && !filteredFeedType}
     />
   );
 
   const renderHeader = useCallback(
     () => (
       <>
-        <ErrorNotice
-          message={t('errorLoadingCommunityFeed')}
-          error={error}
-          refetch={refetch}
-        />
-        <ErrorNotice
-          message={t('errorLoadingCommunityFeed')}
-          error={globalError}
-          refetch={globalRefetch}
-        />
-        {noHeader ? null : (
-          <>
-            <CreatePostButton
-              person={person || globalPerson}
-              communityId={communityId}
-              type={filteredFeedType}
-            />
-            {filteredFeedType || isGlobal ? null : (
-              <CommunityFeedPostCards
+        <SafeAreaView>
+          <ErrorNotice
+            message={t('errorLoadingCommunityFeed')}
+            error={error}
+            refetch={refetch}
+          />
+          <ErrorNotice
+            message={t('errorLoadingCommunityFeed')}
+            error={globalError}
+            refetch={globalRefetch}
+          />
+          {noHeader ? null : (
+            <>
+              <CreatePostButton
+                person={person || globalPerson}
                 communityId={communityId}
-                // Refetch the feed to update new section once read
-                feedRefetch={refetch}
+                type={filteredFeedType}
               />
-            )}
-          </>
-        )}
+              {filteredFeedType || isGlobal ? null : (
+                <CommunityFeedPostCards
+                  communityId={communityId}
+                  // Refetch the feed to update new section once read
+                  feedRefetch={refetch}
+                />
+              )}
+            </>
+          )}
+        </SafeAreaView>
       </>
     ),
     [
@@ -293,6 +311,7 @@ export const CommunityFeed = ({
       ListEmptyComponent={renderEmpty}
       ListHeaderComponent={renderHeader}
       renderSectionHeader={renderSectionHeader}
+      stickySectionHeadersEnabled={true}
       renderItem={renderItem}
       keyExtractor={keyExtractorId}
       onEndReachedThreshold={0.2}
