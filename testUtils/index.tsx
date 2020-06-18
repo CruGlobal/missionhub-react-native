@@ -99,10 +99,12 @@ export function renderWithContext(
 export const renderHookWithContext = <P, R>(
   callback: (props: P) => R,
   contextParams: ContextParams,
+  initialProps?: P,
 ) => {
   const { wrapper, store } = createTestContext(contextParams);
   return {
     ...renderHook(callback, {
+      initialProps,
       wrapper,
     }),
     store,

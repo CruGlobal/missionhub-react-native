@@ -49,12 +49,14 @@ it('renders loading', () => {
   renderWithContext(<FeedItemDetailScreen />, {
     initialState,
     navParams: { feedItemId, communityId, personId },
+    mocks: {
+      feedItem: () => ({
+        subjectPerson: () => ({ id: personId }),
+        community: () => ({ id: communityId }),
+      }),
+    },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    assignmentType: { personId, communityId },
-    permissionType: { communityId },
-  });
   expect(navigateBack).not.toHaveBeenCalled();
 });
 
@@ -62,6 +64,18 @@ it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
     initialState,
     navParams: { feedItemId, communityId, personId },
+    mocks: {
+      FeedItem: () => ({
+        subjectPerson: () => ({ id: personId }),
+        community: () => ({ id: communityId }),
+      }),
+    },
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId: '', communityId: undefined },
+    permissionType: { communityId: '' },
+    triggerTracking: false,
   });
 
   await flushMicrotasksQueue();
@@ -71,6 +85,7 @@ it('renders correctly', async () => {
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
     assignmentType: { personId, communityId },
     permissionType: { communityId },
+    triggerTracking: true,
   });
   expect(navigateBack).not.toHaveBeenCalled();
 });

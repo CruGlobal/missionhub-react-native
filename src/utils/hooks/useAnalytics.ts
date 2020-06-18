@@ -3,7 +3,7 @@ import { useIsFocused } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
 
-import { trackScreenChange } from '../../actions/analytics';
+import { trackScreenChange, ScreenContext } from '../../actions/analytics';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../containers/Groups/CreatePostButton/queries';
 import { getMyCommunityPermission } from '../../containers/Groups/CreatePostButton/__generated__/getMyCommunityPermission';
 import {
@@ -40,15 +40,15 @@ export interface UseAnalyticsOptions {
 
 export const useAnalytics = (
   screenName: string | string[],
-  options: UseAnalyticsOptions = {},
-) => {
-  const {
+  {
     triggerTracking = true,
     screenType = ANALYTICS_SCREEN_TYPES.screen,
     assignmentType,
+    sectionType,
+    editMode,
     permissionType,
-  } = options;
-
+  }: UseAnalyticsOptions = {},
+) => {
   const myId = useMyId();
   const isMe = useIsMe(assignmentType?.personId || '');
   const isOnboarding = useIsOnboarding();
@@ -69,39 +69,39 @@ export const useAnalytics = (
     skip: !permissionType,
   });
 
-  const buildScreenContext = (input: UseAnalyticsOptions) => ({
-    ...(input.assignmentType
+  const screenContext = {
+    ...(assignmentType
       ? {
           [ANALYTICS_ASSIGNMENT_TYPE]: getAnalyticsAssignmentType(
             isMe,
-            !!input.assignmentType?.communityId,
+            !!assignmentType?.communityId,
           ),
         }
       : {}),
-    ...(input.sectionType
+    ...(sectionType
       ? {
           [ANALYTICS_SECTION_TYPE]: getAnalyticsSectionType(isOnboarding),
         }
       : {}),
-    ...(input.editMode
+    ...(editMode
       ? {
-          [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(input.editMode.isEdit),
+          [ANALYTICS_EDIT_MODE]: getAnalyticsEditMode(editMode.isEdit),
         }
       : {}),
-    ...(input.permissionType
+    ...(permissionType
       ? {
           [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
             edges[0].communityPermission.permission,
           ),
         }
       : {}),
-  });
+  };
 
   const handleScreenChange = (
     name: string | string[],
-    context: UseAnalyticsOptions = {},
+    context?: Partial<ScreenContext>,
   ) => {
-    dispatch(trackScreenChange(name, buildScreenContext(context)));
+    dispatch(trackScreenChange(name, context));
   };
 
   //normally screens should only respond to focus events
@@ -113,7 +113,7 @@ export const useAnalytics = (
       screenType === ANALYTICS_SCREEN_TYPES.screen &&
       triggerTracking
     ) {
-      handleScreenChange(screenName, options);
+      handleScreenChange(screenName, screenContext);
     }
   }, [isFocused, loading, error, triggerTracking]);
 
@@ -121,12 +121,12 @@ export const useAnalytics = (
   useEffect(() => {
     if (isFocused && !loading && !error && triggerTracking) {
       if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
-        handleScreenChange(screenName, options);
+        handleScreenChange(screenName, screenContext);
       } else if (
         screenType === ANALYTICS_SCREEN_TYPES.screenWithDrawer &&
         !isDrawerOpen
       ) {
-        handleScreenChange(screenName, options);
+        handleScreenChange(screenName, screenContext);
       }
     }
   }, [isFocused, loading, error, isDrawerOpen, triggerTracking]);
