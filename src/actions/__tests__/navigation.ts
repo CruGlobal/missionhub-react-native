@@ -193,12 +193,9 @@ describe('navigateToMainTabs', () => {
 describe('navigateToFeedItemComments', () => {
   const communityId = '123456';
   const feedItemId = '111';
-  const personId = '321';
 
   it('navigates to FEED_ITEM_DETAIL_SCREEN', () => {
-    store.dispatch<any>(
-      navigateToFeedItemComments(feedItemId, communityId, personId),
-    );
+    store.dispatch<any>(navigateToFeedItemComments(feedItemId, communityId));
 
     expect(store.getActions()).toEqual([
       {
@@ -225,7 +222,6 @@ describe('navigateToFeedItemComments', () => {
             params: {
               feedItemId,
               communityId,
-              personId,
             },
           },
         ],

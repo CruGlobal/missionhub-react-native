@@ -26,7 +26,6 @@ import { StepDetailPost } from './__generated__/StepDetailPost';
 interface StepDetailScreenProps {
   text?: string;
   stepType?: StepTypeEnum | null;
-
   firstName?: string;
   markdown?: string;
   CenterHeader?: React.ReactNode;
@@ -70,8 +69,6 @@ const StepDetailScreen = ({
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: post?.feedItem.id,
-        communityId: post?.feedItem.community?.id,
-        personId: post?.author.id,
       }),
     );
   };

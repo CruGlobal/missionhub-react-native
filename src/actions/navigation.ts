@@ -98,7 +98,6 @@ export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
 export const navigateToFeedItemComments = (
   feedItemId: string,
   communityId: string,
-  personId: string,
 ) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
   dispatch(
     navigateNestedReset([
@@ -112,7 +111,7 @@ export const navigateToFeedItemComments = (
       },
       {
         routeName: FEED_ITEM_DETAIL_SCREEN,
-        params: { feedItemId, communityId, personId },
+        params: { feedItemId, communityId },
       },
     ]),
   );

@@ -26,7 +26,6 @@ import { NotificationCenterItem, ReportedNotificationCenterItem } from '..';
 jest.mock('../../../actions/navigation');
 
 const communityId = '4';
-const personId = '3';
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
@@ -193,7 +192,6 @@ describe('handleNotificationPress', () => {
                 value: 'Christian Huffman',
               },
             ],
-            subjectPerson: { id: personId },
             screenData: {
               feedItemId: '1234',
               communityId,
@@ -209,8 +207,6 @@ describe('handleNotificationPress', () => {
     fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: mockNotification.screenData.feedItemId,
-      communityId,
-      personId,
     });
   });
 

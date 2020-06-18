@@ -35,19 +35,21 @@ const FeedItemDetailScreen = () => {
   const myId = useMyId();
 
   const feedItemId: string = useNavigationParam('feedItemId');
-  const communityId: string = useNavigationParam('communityId');
-  const personId: string = useNavigationParam('personId');
-
-  useAnalytics(['post', 'detail'], {
-    assignmentType: { personId, communityId },
-    permissionType: { communityId },
-  });
 
   const { data, loading, error, refetch, fetchMore } = useQuery<
     FeedItemDetail,
     FeedItemDetailVariables
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
+  });
+
+  const personId = data?.feedItem.subjectPerson?.id;
+  const communityId = data?.feedItem.community?.id;
+  const readyToTrack = !!(personId && communityId);
+  useAnalytics(['post', 'detail'], {
+    assignmentType: { personId: personId || '', communityId },
+    permissionType: { communityId: communityId || '' },
+    triggerTracking: readyToTrack,
   });
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
