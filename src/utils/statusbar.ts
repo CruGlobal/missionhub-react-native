@@ -1,4 +1,4 @@
-// Taken from https://github.com/ovr/react-native-status-bar-height/blob/master/index.js
+// Taken from https://github.com/ovr/react-native-status-bar-height/blob/master/index.js v2.5.0
 
 import { Dimensions, Platform, StatusBar } from 'react-native';
 
