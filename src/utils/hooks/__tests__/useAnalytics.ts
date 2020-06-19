@@ -146,8 +146,8 @@ describe('useAnalytics', () => {
           useAnalytics(screenFragments, { triggerTracking }),
         {
           initialState,
+          initialProps: { triggerTracking: false },
         },
-        { triggerTracking: false },
       );
 
       expect(trackScreenChange).not.toHaveBeenCalled();
@@ -278,8 +278,8 @@ describe('useAnalytics', () => {
           }),
         {
           initialState,
+          initialProps: { triggerTracking: false },
         },
-        { triggerTracking: false },
       );
 
       expect(trackScreenChange).not.toHaveBeenCalled();
@@ -410,8 +410,8 @@ describe('useAnalytics', () => {
           }),
         {
           initialState,
+          initialProps: { triggerTracking: false },
         },
-        { triggerTracking: false },
       );
 
       expect(trackScreenChange).not.toHaveBeenCalled();
