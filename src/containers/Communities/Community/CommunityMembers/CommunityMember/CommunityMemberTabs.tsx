@@ -8,10 +8,8 @@ import {
   CollapsibleViewProvider,
   createCollapsibleViewContext,
 } from '../../../../../components/CollapsibleView/CollapsibleView';
-import {
-  CommunityFeedTab,
-  COMMUNITY_FEED,
-} from '../../CommunityFeedTab/CommunityFeedTab';
+import { CommunityFeedTab } from '../../CommunityFeedTab/CommunityFeedTab';
+import { COMMUNITY_FEED } from '../../CommunityFeedTab/constants';
 import { ImpactTab, IMPACT_TAB } from '../../../../ImpactTab/ImpactTab';
 import { PersonHeader } from '../../../../../components/PersonHeader/PersonHeader';
 
