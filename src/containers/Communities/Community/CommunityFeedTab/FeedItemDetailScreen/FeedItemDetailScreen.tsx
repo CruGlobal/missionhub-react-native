@@ -34,16 +34,6 @@ const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
 
   const feedItemId: string = useNavigationParam('feedItemId');
-  const personId: string = useNavigationParam('personId');
-  const communityId: string = useNavigationParam('communityId');
-
-  useAnalytics(['celebrate item', 'comments'], {
-    assignmentType: { personId, communityId },
-    permissionType: { communityId },
-  });
-
-  const [editingCommentId, setEditingCommentId] = useState<string>();
-
   const myId = useMyId();
 
   const { data, loading, error, refetch, fetchMore } = useQuery<
@@ -52,6 +42,17 @@ const FeedItemDetailScreen = () => {
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
   });
+
+  const personId = data?.feedItem.subjectPerson?.id;
+  const communityId = data?.feedItem.community?.id;
+  const readyToTrack = !!(personId && communityId);
+  useAnalytics(['post', 'detail'], {
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: readyToTrack,
+  });
+
+  const [editingCommentId, setEditingCommentId] = useState<string>();
 
   const handleNextPage = () => {
     if (loading || !data?.feedItem.comments.pageInfo.hasNextPage) {
