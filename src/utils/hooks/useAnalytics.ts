@@ -32,7 +32,7 @@ export enum ANALYTICS_SCREEN_TYPES {
 export interface UseAnalyticsOptions {
   triggerTracking?: boolean;
   screenType?: ANALYTICS_SCREEN_TYPES;
-  assignmentType?: { personId: string; communityId?: string };
+  assignmentType?: { personId?: string; communityId?: string };
   sectionType?: boolean;
   editMode?: { isEdit: boolean };
   permissionType?: { communityId: string };
@@ -62,7 +62,7 @@ export const useAnalytics = (
     error,
   } = useQuery<getMyCommunityPermission>(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
-      id: permissionType?.communityId,
+      id: permissionType?.communityId || '',
       myId,
     },
     fetchPolicy: 'cache-first',

@@ -67,8 +67,8 @@ it('renders correctly', async () => {
   });
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    assignmentType: { personId: '', communityId: undefined },
-    permissionType: { communityId: '' },
+    assignmentType: { personId: undefined, communityId: undefined },
+    permissionType: { communityId: undefined },
     triggerTracking: false,
   });
 

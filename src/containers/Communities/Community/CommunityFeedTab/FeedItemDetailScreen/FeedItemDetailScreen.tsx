@@ -46,8 +46,8 @@ const FeedItemDetailScreen = () => {
   const communityId = data?.feedItem.community?.id;
   const readyToTrack = !!(personId && communityId);
   useAnalytics(['post', 'detail'], {
-    assignmentType: { personId: personId || '', communityId },
-    permissionType: { communityId: communityId || '' },
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
     triggerTracking: readyToTrack,
   });
 
