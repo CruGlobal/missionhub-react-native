@@ -15,7 +15,7 @@ export default StyleSheet.create({
     flex: 1,
     alignContent: 'center',
     paddingVertical: 10,
-    marginLeft: 15,
+    paddingLeft: 15,
     backgroundColor: theme.extraLightGrey,
   },
   title: {

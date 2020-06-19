@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { View, Text, SectionList } from 'react-native';
+import { useNavigationEvents } from 'react-navigation-hooks';
 
 import theme from '../../theme';
 import Header from '../../components/Header';
@@ -18,9 +19,9 @@ import { NotificationItem } from '../../components/NotificationCenterItem/__gene
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
-
-// import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
-// import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
+import RefreshButton from '../../components/RefreshButton';
+import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
+import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
 
 import {
   UpdateLatestNotification,
@@ -61,14 +62,19 @@ const NotificationCenterScreen = () => {
       }
     },
   });
+  // When user clicks on notifications tab, refetch notifications
+  useNavigationEvents(evts => {
+    if (evts.action.type === 'Navigation/JUMP_TO') {
+      refetch();
+    }
+  });
 
-  // TODO Connect a refresh button
-  // const {
-  //   data: {
-  //     notifications: { nodes: latestNotification = [] } = {},
-  //     notificationState,
-  //   } = {},
-  // } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
+  const {
+    data: {
+      notifications: { nodes: latestNotification = [] } = {},
+      notificationState,
+    } = {},
+  } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
 
   const filteredSections = [
     {
@@ -100,8 +106,8 @@ const NotificationCenterScreen = () => {
   const { notifications_panel } = useFeatureFlags();
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
-  // const hasNewNotification =
-  //   latestNotification[0].createdAt !== notificationState?.lastReadDateTime;
+  const hasNewNotification =
+    latestNotification[0]?.createdAt !== notificationState?.lastReadDateTime;
 
   const renderNull = () => (
     <Flex justify="center" align="center" style={{ marginTop: '50%' }}>
@@ -185,6 +191,9 @@ const NotificationCenterScreen = () => {
         message={t('errorLoadingNotifications')}
         refetch={refetch}
       />
+      {hasNewNotification ? (
+        <RefreshButton loading={loading} refresh={refetch} />
+      ) : null}
       <SectionList
         testID="notificationCenter"
         style={{

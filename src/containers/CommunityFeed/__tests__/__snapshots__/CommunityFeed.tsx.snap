@@ -2582,13 +2582,18 @@ exports[`renders for Global Community renders correctly 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -3910,13 +3915,18 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -5247,13 +5257,18 @@ exports[`renders for member renders correctly 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -5915,13 +5930,16 @@ exports[`renders for member renders with type 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            null,
+          ]
         }
       >
         <Text
@@ -6856,13 +6874,18 @@ exports[`renders for member renders without header 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -8193,13 +8216,18 @@ exports[`renders with clear notification renders correctly 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -9539,13 +9567,18 @@ exports[`renders with items correctly 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -10210,13 +10243,18 @@ exports[`sections renders Earlier section 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -10501,13 +10539,18 @@ exports[`sections renders New section 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
@@ -10792,13 +10835,18 @@ exports[`sections renders Today section 1`] = `
     >
       <View
         style={
-          Object {
-            "alignContent": "center",
-            "backgroundColor": "#ECEEF2",
-            "flex": 1,
-            "marginLeft": 15,
-            "paddingVertical": 10,
-          }
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
         }
       >
         <Text
