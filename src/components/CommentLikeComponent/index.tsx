@@ -35,7 +35,6 @@ export const CommentLikeComponent = ({
     comments: {
       pageInfo: { totalCount: commentsCount },
     },
-    community,
     liked,
     likesCount,
     subject,

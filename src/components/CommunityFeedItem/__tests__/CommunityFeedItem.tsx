@@ -48,7 +48,6 @@ const prayerPostItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'Post',
           postType: PostTypeEnum.prayer_request,
-          subjectPerson: () => ({ id: personId }),
         }),
       }),
     },
@@ -79,7 +78,6 @@ const storyPostItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'Post',
           postType: PostTypeEnum.story,
-          subjectPerson: () => ({ id: personId }),
         }),
       }),
     },
@@ -94,7 +92,6 @@ const stepItem = mockFragment<CommunityFeedItemFragment>(
         subject: () => ({
           __typename: 'Step',
         }),
-        subjectPerson: () => ({ id: personId }),
       }),
     },
   },
@@ -109,7 +106,6 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
           __typename: 'CommunityChallenge',
         }),
       }),
-      subjectPerson: () => ({ id: personId }),
     },
   },
 );

@@ -97,11 +97,8 @@ export const useAnalytics = (
       : {}),
   };
 
-  const handleScreenChange = (
-    name: string | string[],
-    context?: Partial<ScreenContext>,
-  ) => {
-    dispatch(trackScreenChange(name, context));
+  const handleScreenChange = (name: string | string[]) => {
+    dispatch(trackScreenChange(name, screenContext));
   };
 
   //normally screens should only respond to focus events
@@ -113,7 +110,7 @@ export const useAnalytics = (
       screenType === ANALYTICS_SCREEN_TYPES.screen &&
       triggerTracking
     ) {
-      handleScreenChange(screenName, screenContext);
+      handleScreenChange(screenName);
     }
   }, [isFocused, loading, error, triggerTracking]);
 
@@ -121,12 +118,12 @@ export const useAnalytics = (
   useEffect(() => {
     if (isFocused && !loading && !error && triggerTracking) {
       if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
-        handleScreenChange(screenName, screenContext);
+        handleScreenChange(screenName);
       } else if (
         screenType === ANALYTICS_SCREEN_TYPES.screenWithDrawer &&
         !isDrawerOpen
       ) {
-        handleScreenChange(screenName, screenContext);
+        handleScreenChange(screenName);
       }
     }
   }, [isFocused, loading, error, isDrawerOpen, triggerTracking]);

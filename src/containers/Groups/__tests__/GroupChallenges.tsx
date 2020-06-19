@@ -179,7 +179,7 @@ it('should call create', () => {
 
   expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     onComplete: expect.any(Function),
-    organization: org,
+    communityId: orgId,
   });
   (navigation.navigatePush as jest.Mock).mock.calls[0][1].onComplete(challenge);
   // @ts-ignore
