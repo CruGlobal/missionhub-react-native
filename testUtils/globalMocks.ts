@@ -42,7 +42,7 @@ export const globalMocks: IMocks = {
     faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
   NotificationTriggerEnum: () =>
     faker.random.arrayElement(
-      // TODO: remove filtering out test values when production supports them or stage removes them
+      // TODO: remove filtering out test values when stage removes them
       Object.values(NotificationTriggerEnum).filter(
         value => !['test', 'test_missing'].includes(value),
       ),
