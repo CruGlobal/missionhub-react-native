@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigationEvents } from 'react-navigation-hooks';
 import { SectionList } from 'react-native';
 import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useQuery, useMutation } from '@apollo/react-hooks';
@@ -16,6 +17,7 @@ import NotificationCenterScreen from '..';
 jest.mock('../../../utils/common');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/hooks/useFeatureFlags');
+jest.mock('react-navigation-hooks');
 
 const mockDate = '2020-05-20 12:00:00 PM GMT+0';
 
@@ -32,6 +34,9 @@ const initialApolloState = {
 beforeEach(() => {
   (openMainMenu as jest.Mock).mockReturnValue(openMainMenuResponse);
   (useFeatureFlags as jest.Mock).mockReturnValue({ notifications_panel: true });
+  (useNavigationEvents as jest.Mock).mockReturnValue({
+    action: { type: 'Navigation/JUMP_TO' },
+  });
 });
 
 it('renders with no data', () => {
@@ -79,6 +84,29 @@ it('renders null for non-english users', async () => {
     mocks: {
       NotificationConnection: () => ({
         nodes: () => new MockList(10),
+      }),
+    },
+    initialApolloState,
+  });
+
+  await flushMicrotasksQueue();
+  expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
+    onCompleted: expect.any(Function),
+  });
+
+  snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith('notification center');
+});
+
+it('renders with refresh button', async () => {
+  const { snapshot } = renderWithContext(<NotificationCenterScreen />, {
+    mocks: {
+      NotificationConnection: () => ({
+        nodes: () => [],
+      }),
+      NotificationState: () => ({
+        lastReadDateTime: () => '2020-05-20 10:00:00 AM GMT+0',
       }),
     },
     initialApolloState,
