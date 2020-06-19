@@ -30,8 +30,9 @@ export enum ANALYTICS_SCREEN_TYPES {
 }
 
 export interface UseAnalyticsOptions {
+  triggerTracking?: boolean;
   screenType?: ANALYTICS_SCREEN_TYPES;
-  assignmentType?: { personId: string; communityId: string };
+  assignmentType?: { personId?: string; communityId?: string };
   sectionType?: boolean;
   editMode?: { isEdit: boolean };
   permissionType?: { communityId: string };
@@ -40,6 +41,7 @@ export interface UseAnalyticsOptions {
 export const useAnalytics = (
   screenName: string | string[],
   {
+    triggerTracking = true,
     screenType = ANALYTICS_SCREEN_TYPES.screen,
     assignmentType,
     sectionType,
@@ -60,7 +62,7 @@ export const useAnalytics = (
     error,
   } = useQuery<getMyCommunityPermission>(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
-      id: permissionType?.communityId,
+      id: permissionType?.communityId || '',
       myId,
     },
     fetchPolicy: 'cache-first',
@@ -72,7 +74,7 @@ export const useAnalytics = (
       ? {
           [ANALYTICS_ASSIGNMENT_TYPE]: getAnalyticsAssignmentType(
             isMe,
-            !!assignmentType.communityId,
+            !!assignmentType?.communityId,
           ),
         }
       : {}),
@@ -108,15 +110,16 @@ export const useAnalytics = (
       isFocused &&
       !loading &&
       !error &&
-      screenType === ANALYTICS_SCREEN_TYPES.screen
+      screenType === ANALYTICS_SCREEN_TYPES.screen &&
+      triggerTracking
     ) {
       handleScreenChange(screenName, screenContext);
     }
-  }, [isFocused, loading, error]);
+  }, [isFocused, loading, error, triggerTracking]);
 
   //if it is a drawer, or screen with a drawer, it should respond to drawer events in addition to focus events
   useEffect(() => {
-    if (isFocused && !loading && !error) {
+    if (isFocused && !loading && !error && triggerTracking) {
       if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
         handleScreenChange(screenName, screenContext);
       } else if (
@@ -126,7 +129,7 @@ export const useAnalytics = (
         handleScreenChange(screenName, screenContext);
       }
     }
-  }, [isFocused, loading, error, isDrawerOpen]);
+  }, [isFocused, loading, error, isDrawerOpen, triggerTracking]);
 
   return handleScreenChange;
 };

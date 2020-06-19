@@ -207,7 +207,6 @@ describe('handleNotificationPress', () => {
     fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: mockNotification.screenData.feedItemId,
-      communityId,
     });
   });
 

@@ -373,7 +373,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            Upgradable interactive solution
+            Programmable foreground task-force
           </Text>
         </View>
         <View
@@ -417,28 +417,28 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "__typename": "FeedItemComment",
-          "content": "cupiditate sed dignissimos",
-          "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
-          "createdAt": "2011-04-05T20:54:44.943Z",
-          "id": "5",
+          "content": "sed dignissimos debitis",
+          "contentUpdatedAt": "2019-10-06T00:50:46.763Z",
+          "createdAt": "2017-09-28T01:02:07.116Z",
+          "id": "3",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Alek Lesch",
-            "id": "6",
-            "picture": "libero repudiandae esse",
+            "fullName": "Kaden Ortiz",
+            "id": "4",
+            "picture": "repudiandae esse blanditiis",
           },
         },
         Object {
           "__typename": "FeedItemComment",
-          "content": "blanditiis natus et",
-          "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
-          "createdAt": "2018-08-19T14:06:14.703Z",
-          "id": "7",
+          "content": "natus et eos",
+          "contentUpdatedAt": "2018-01-20T22:18:35.430Z",
+          "createdAt": "2010-08-26T04:24:18.529Z",
+          "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Clotilde Sanford",
-            "id": "8",
-            "picture": "et porro ut",
+            "fullName": "Orlando Schmidt",
+            "id": "6",
+            "picture": "porro ut et",
           },
         },
       ]
@@ -517,7 +517,7 @@ exports[`renders correctly 1`] = `
                   "opacity": 1,
                 }
               }
-              testID="ANNOUNCEMENTButton"
+              testID="STORYButton"
             >
               <View
                 style={
@@ -546,7 +546,7 @@ exports[`renders correctly 1`] = `
                         "paddingVertical": 0,
                       },
                       Object {
-                        "backgroundColor": "#505256",
+                        "backgroundColor": "#7076B5",
                       },
                       null,
                       null,
@@ -588,7 +588,7 @@ exports[`renders correctly 1`] = `
                     ]
                   }
                 >
-                  Announcement
+                  God Story
                 </Text>
               </View>
             </View>
@@ -606,7 +606,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "ut libero qui",
+                  "uri": "amet iure ut",
                 }
               }
               style={
@@ -617,7 +617,7 @@ exports[`renders correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(155, 161, 152)",
+                    "backgroundColor": "rgb(167, 135, 125)",
                   },
                   undefined,
                 ]
@@ -657,7 +657,7 @@ exports[`renders correctly 1`] = `
                   ]
                 }
               >
-                Hayden Zieme
+                quam ipsam nobis
               </Text>
               <Text
                 style={
@@ -683,7 +683,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                November 1, 2012 @ 7:34 PM
+                November 13, 2015 @ 8:52 PM
               </Text>
             </View>
           </View>
@@ -717,7 +717,7 @@ exports[`renders correctly 1`] = `
                 }
               >
                 <Text>
-                  corporis repellat ratione
+                  alias consequuntur corporis
                 </Text>
               </Text>
             </View>
@@ -727,7 +727,7 @@ exports[`renders correctly 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "ut sunt qui",
+              "uri": "repellat ratione ut",
             }
           }
           style={
@@ -857,8 +857,7 @@ exports[`renders correctly 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -892,7 +891,7 @@ exports[`renders correctly 1`] = `
                     ]
                   }
                 >
-                  68521
+                  52454
                 </Text>
                 <View
                   accessible={true}
@@ -961,15 +960,15 @@ exports[`renders correctly 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "cupiditate sed dignissimos",
-              "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
-              "createdAt": "2011-04-05T20:54:44.943Z",
-              "id": "5",
+              "content": "sed dignissimos debitis",
+              "contentUpdatedAt": "2019-10-06T00:50:46.763Z",
+              "createdAt": "2017-09-28T01:02:07.116Z",
+              "id": "3",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Alek Lesch",
-                "id": "6",
-                "picture": "libero repudiandae esse",
+                "fullName": "Kaden Ortiz",
+                "id": "4",
+                "picture": "repudiandae esse blanditiis",
               },
             }
           }
@@ -977,8 +976,9 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -993,15 +993,15 @@ exports[`renders correctly 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "blanditiis natus et",
-              "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
-              "createdAt": "2018-08-19T14:06:14.703Z",
-              "id": "7",
+              "content": "natus et eos",
+              "contentUpdatedAt": "2018-01-20T22:18:35.430Z",
+              "createdAt": "2010-08-26T04:24:18.529Z",
+              "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Clotilde Sanford",
-                "id": "8",
-                "picture": "et porro ut",
+                "fullName": "Orlando Schmidt",
+                "id": "6",
+                "picture": "porro ut et",
               },
             }
           }
@@ -1009,8 +1009,9 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
+                "destructive": true,
                 "onPress": [Function],
-                "text": "Report to Owner",
+                "text": "Delete Comment",
               },
             ]
           }
@@ -1034,7 +1035,7 @@ exports[`renders correctly 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "occaecati debitis et",
+          "uri": "debitis et saepe",
         }
       }
       style={
@@ -1045,7 +1046,7 @@ exports[`renders correctly 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(199, 167, 125)",
+            "backgroundColor": "rgb(110, 154, 115)",
           },
           undefined,
         ]

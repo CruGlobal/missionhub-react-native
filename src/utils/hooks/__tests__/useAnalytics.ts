@@ -133,6 +133,33 @@ describe('useAnalytics', () => {
         undefined,
       );
     });
+
+    it('delays track screen change', () => {
+      (useIsFocused as jest.Mock).mockReturnValue(false);
+      (useIsDrawerOpen as jest.Mock).mockReturnValue(true);
+
+      const { rerender } = renderHookWithContext<
+        { triggerTracking: boolean },
+        void
+      >(
+        ({ triggerTracking }) =>
+          useAnalytics(screenFragments, { triggerTracking }),
+        {
+          initialState,
+          initialProps: { triggerTracking: false },
+        },
+      );
+
+      expect(trackScreenChange).not.toHaveBeenCalled();
+
+      fireFocus(true, rerender);
+
+      expect(trackScreenChange).not.toHaveBeenCalled();
+
+      rerender({ triggerTracking: true });
+
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+    });
   });
 
   describe('screenType is "screenWithDrawer"', () => {
@@ -235,6 +262,36 @@ describe('useAnalytics', () => {
         undefined,
       );
     });
+
+    it('delays track screen change', () => {
+      (useIsFocused as jest.Mock).mockReturnValue(false);
+      (useIsDrawerOpen as jest.Mock).mockReturnValue(false);
+
+      const { rerender } = renderHookWithContext<
+        { triggerTracking: boolean },
+        void
+      >(
+        ({ triggerTracking }) =>
+          useAnalytics(screenFragments, {
+            triggerTracking,
+            screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
+          }),
+        {
+          initialState,
+          initialProps: { triggerTracking: false },
+        },
+      );
+
+      expect(trackScreenChange).not.toHaveBeenCalled();
+
+      fireFocus(true, rerender);
+
+      expect(trackScreenChange).not.toHaveBeenCalled();
+
+      rerender({ triggerTracking: true });
+
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
+    });
   });
 
   describe('default: screenType is "drawer"', () => {
@@ -336,6 +393,40 @@ describe('useAnalytics', () => {
         screenFragments,
         undefined,
       );
+    });
+
+    it('delays track screen change', () => {
+      (useIsFocused as jest.Mock).mockReturnValue(false);
+      (useIsDrawerOpen as jest.Mock).mockReturnValue(false);
+
+      const { rerender } = renderHookWithContext<
+        { triggerTracking: boolean },
+        void
+      >(
+        ({ triggerTracking }) =>
+          useAnalytics(screenFragments, {
+            triggerTracking,
+            screenType: ANALYTICS_SCREEN_TYPES.drawer,
+          }),
+        {
+          initialState,
+          initialProps: { triggerTracking: false },
+        },
+      );
+
+      expect(trackScreenChange).not.toHaveBeenCalled();
+
+      fireFocus(true, rerender);
+
+      jest.clearAllMocks();
+
+      fireDrawer(true, rerender);
+
+      expect(trackScreenChange).not.toHaveBeenCalled();
+
+      rerender({ triggerTracking: true });
+
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
     });
   });
 
