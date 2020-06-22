@@ -226,6 +226,22 @@ describe('CommunityFeedItemContent', () => {
         }),
       );
     });
+    it('renders post without likeAndComment section', () => {
+      testEvent(
+        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+          mocks: {
+            FeedItem: () => ({
+              subject: () => ({
+                __typename: 'Post',
+                postType: PostTypeEnum.prayer_request,
+                stepStatus: PostStepStatusEnum.INCOMPLETE,
+              }),
+            }),
+          },
+        }),
+        { showLikeAndComment: false },
+      );
+    });
   });
 });
 

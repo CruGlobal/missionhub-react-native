@@ -42,12 +42,14 @@ export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;
   namePressable?: boolean;
   postLabelPressable?: boolean;
+  showLikeAndComment?: boolean;
 }
 
 export const CommunityFeedItemContent = ({
   feedItem,
   namePressable = false,
   postLabelPressable = true,
+  showLikeAndComment = true,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -278,8 +280,12 @@ export const CommunityFeedItemContent = ({
           : null}
       </View>
       {renderImage()}
-      <Separator />
-      {renderFooter()}
+      {showLikeAndComment ? (
+        <>
+          <Separator />
+          {renderFooter()}
+        </>
+      ) : null}
     </>
   );
 };
