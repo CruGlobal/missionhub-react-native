@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import { useQuery } from '@apollo/react-hooks';
 import * as Redux from 'react-redux';
 import { useIsFocused } from 'react-navigation-hooks';
@@ -128,10 +130,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(
-        screenFragments,
-        undefined,
-      );
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
     });
 
     it('delays track screen change', () => {
@@ -257,10 +256,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(
-        screenFragments,
-        undefined,
-      );
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
     });
 
     it('delays track screen change', () => {
@@ -389,10 +385,7 @@ describe('useAnalytics', () => {
 
       result.current(screenFragments);
 
-      expect(trackScreenChange).toHaveBeenCalledWith(
-        screenFragments,
-        undefined,
-      );
+      expect(trackScreenChange).toHaveBeenCalledWith(screenFragments, {});
     });
 
     it('delays track screen change', () => {

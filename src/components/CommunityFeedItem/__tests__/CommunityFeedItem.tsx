@@ -37,7 +37,6 @@ jest.mock('../../Card', () => 'Card');
 const communityId = '3';
 const communityName = 'Community Name';
 const myId = '1';
-const personId = '2';
 
 const prayerPostItem = mockFragment<CommunityFeedItemFragment>(
   COMMUNITY_FEED_ITEM_FRAGMENT,

@@ -17,6 +17,7 @@ import * as navigation from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { ORG_PERMISSIONS } from '../../../constants';
 import ChallengeFeed from '../../ChallengeFeed';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/challenges');
@@ -87,6 +88,10 @@ it('should render correctly', () => {
       initialState,
     },
   ).snapshot;
+
+  expect(useAnalytics).toHaveBeenCalledWith(['community', 'challenges'], {
+    permissionType: { communityId: orgId },
+  });
 });
 
 it('should render correctly for basic member', () => {

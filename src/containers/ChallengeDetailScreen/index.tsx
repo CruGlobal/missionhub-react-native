@@ -25,7 +25,6 @@ import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { isAdminOrOwner } from '../../utils/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
 import theme from '../../theme';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
@@ -174,7 +173,6 @@ const mapStateToProps = (
     challenge,
     acceptedChallenge,
     canEditChallenges,
-    analyticsPermissionType: getAnalyticsPermissionType(auth, { id: orgId }),
   };
 };
 

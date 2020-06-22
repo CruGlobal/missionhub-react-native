@@ -3,10 +3,6 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
-import {
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-} from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { CREATE_STEP_FROM_SUGGESTION_MUTATION } from '../queries';
 import { trackStepAdded } from '../../../actions/analytics';
@@ -57,10 +53,8 @@ it('renders correctly', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 });
 
@@ -78,10 +72,8 @@ it('renders correctly for me', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-    },
+    sectionType: true,
+    assignmentType: { personId: myId },
   });
 });
 
@@ -102,10 +94,8 @@ it('renders correctly in onboarding', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['step detail', 'add step'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: 'onboarding',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 });
 

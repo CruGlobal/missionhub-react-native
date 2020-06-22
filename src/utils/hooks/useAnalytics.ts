@@ -3,7 +3,7 @@ import { useIsFocused } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
 
-import { trackScreenChange, ScreenContext } from '../../actions/analytics';
+import { trackScreenChange } from '../../actions/analytics';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../containers/Groups/CreatePostButton/queries';
 import { getMyCommunityPermission } from '../../containers/Groups/CreatePostButton/__generated__/getMyCommunityPermission';
 import {
