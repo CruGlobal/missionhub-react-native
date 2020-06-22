@@ -14,7 +14,7 @@ import {
 import { CommunityFeedItemContent } from '../../components/CommunityFeedItemContent';
 import { navigatePush } from '../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
-import ResponseSuccessIcon from './responseSuccessIcon.svg';
+import { GET_NOTIFICATIONS } from '../NotificationCenterScreen/queries';
 
 import { RESPOND_TO_CONTENT_COMPLAINT_GROUP } from './queries';
 import {
@@ -22,6 +22,7 @@ import {
   RespondToContentComplaintGroup,
 } from './__generated__/RespondToContentComplaintGroup';
 import { ReportedItem as ReportedItemFragment } from './__generated__/ReportedItem';
+import ResponseSuccessIcon from './responseSuccessIcon.svg';
 import styles from './styles';
 
 const ReportedItem = ({
@@ -40,7 +41,8 @@ const ReportedItem = ({
     RespondToContentComplaintGroup,
     RespondToContentComplaintGroupVariables
   >(RESPOND_TO_CONTENT_COMPLAINT_GROUP, {
-    onCompleted: () => {},
+    // Refresh notifications list after responding to content compalint
+    refetchQueries: [{ query: GET_NOTIFICATIONS }],
   });
 
   if (

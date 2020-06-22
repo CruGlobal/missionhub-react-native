@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';

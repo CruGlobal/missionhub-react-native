@@ -14,6 +14,13 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
         "content": "esse repellat quisquam",
         "contentUpdatedAt": "2020-01-13T13:58:47.783Z",
         "createdAt": "2010-09-19T03:58:30.504Z",
+        "feedItem": Object {
+          "community": Object {
+            "id": "4",
+            "name": "Digitized fault-tolerant focus group",
+          },
+          "id": "3",
+        },
         "id": "1",
         "person": Object {
           "fullName": "Branson Gutkowski",
@@ -22,14 +29,21 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
         },
       },
       Object {
-        "content": "sunt qui amet",
-        "contentUpdatedAt": "2016-07-31T16:52:49.085Z",
-        "createdAt": "2016-02-28T03:01:08.353Z",
-        "id": "3",
+        "content": "libero qui recusandae",
+        "contentUpdatedAt": "2011-07-30T23:09:48.676Z",
+        "createdAt": "2014-08-26T07:39:14.970Z",
+        "feedItem": Object {
+          "community": Object {
+            "id": "8",
+            "name": "Enhanced 3rd generation internet solution",
+          },
+          "id": "7",
+        },
+        "id": "5",
         "person": Object {
-          "fullName": "Marcellus Hyatt",
-          "id": "4",
-          "picture": "recusandae ut nulla",
+          "fullName": "Heather Hahn",
+          "id": "6",
+          "picture": "nobis cupiditate sed",
         },
       },
     ]
@@ -71,7 +85,6 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "flexDirection": "row",
             "paddingHorizontal": 30,
             "paddingVertical": 8,
@@ -287,7 +300,6 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "flexDirection": "row",
             "paddingHorizontal": 30,
             "paddingVertical": 8,
@@ -298,7 +310,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "recusandae ut nulla",
+              "uri": "nobis cupiditate sed",
             }
           }
           style={
@@ -309,7 +321,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                 "width": 36,
               },
               Object {
-                "backgroundColor": "rgb(161, 105, 130)",
+                "backgroundColor": "rgb(251, 161, 115)",
               },
               undefined,
             ]
@@ -375,7 +387,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                     ]
                   }
                 >
-                  Marcellus Hyatt
+                  Heather Hahn
                 </Text>
               </View>
             </View>
@@ -399,7 +411,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
               }
               testID="Text"
             >
-              February 28, 2016 @ 3:01 AM
+              August 26, 2014 @ 7:39 AM
             </Text>
             <Text
               style={
@@ -489,7 +501,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
                   ]
                 }
               >
-                sunt qui amet
+                libero qui recusandae
               </Text>
             </View>
           </View>
@@ -514,6 +526,13 @@ exports[`with comments with next page renders correctly 1`] = `
         "content": "esse repellat quisquam",
         "contentUpdatedAt": "2020-01-13T13:58:47.783Z",
         "createdAt": "2010-09-19T03:58:30.504Z",
+        "feedItem": Object {
+          "community": Object {
+            "id": "4",
+            "name": "Digitized fault-tolerant focus group",
+          },
+          "id": "3",
+        },
         "id": "1",
         "person": Object {
           "fullName": "Branson Gutkowski",
@@ -522,14 +541,21 @@ exports[`with comments with next page renders correctly 1`] = `
         },
       },
       Object {
-        "content": "sunt qui amet",
-        "contentUpdatedAt": "2016-07-31T16:52:49.085Z",
-        "createdAt": "2016-02-28T03:01:08.353Z",
-        "id": "3",
+        "content": "libero qui recusandae",
+        "contentUpdatedAt": "2011-07-30T23:09:48.676Z",
+        "createdAt": "2014-08-26T07:39:14.970Z",
+        "feedItem": Object {
+          "community": Object {
+            "id": "8",
+            "name": "Enhanced 3rd generation internet solution",
+          },
+          "id": "7",
+        },
+        "id": "5",
         "person": Object {
-          "fullName": "Marcellus Hyatt",
-          "id": "4",
-          "picture": "recusandae ut nulla",
+          "fullName": "Heather Hahn",
+          "id": "6",
+          "picture": "nobis cupiditate sed",
         },
       },
     ]
@@ -570,7 +596,6 @@ exports[`with comments with next page renders correctly 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "flexDirection": "row",
             "paddingHorizontal": 30,
             "paddingVertical": 8,
@@ -786,7 +811,6 @@ exports[`with comments with next page renders correctly 1`] = `
       <View
         style={
           Object {
-            "flex": 1,
             "flexDirection": "row",
             "paddingHorizontal": 30,
             "paddingVertical": 8,
@@ -797,7 +821,7 @@ exports[`with comments with next page renders correctly 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "recusandae ut nulla",
+              "uri": "nobis cupiditate sed",
             }
           }
           style={
@@ -808,7 +832,7 @@ exports[`with comments with next page renders correctly 1`] = `
                 "width": 36,
               },
               Object {
-                "backgroundColor": "rgb(161, 105, 130)",
+                "backgroundColor": "rgb(251, 161, 115)",
               },
               undefined,
             ]
@@ -874,7 +898,7 @@ exports[`with comments with next page renders correctly 1`] = `
                     ]
                   }
                 >
-                  Marcellus Hyatt
+                  Heather Hahn
                 </Text>
               </View>
             </View>
@@ -898,7 +922,7 @@ exports[`with comments with next page renders correctly 1`] = `
               }
               testID="Text"
             >
-              February 28, 2016 @ 3:01 AM
+              August 26, 2014 @ 7:39 AM
             </Text>
             <Text
               style={
@@ -988,7 +1012,7 @@ exports[`with comments with next page renders correctly 1`] = `
                   ]
                 }
               >
-                sunt qui amet
+                libero qui recusandae
               </Text>
             </View>
           </View>
@@ -1013,6 +1037,13 @@ exports[`with comments with next page without next page renders correctly 1`] = 
         "content": "esse repellat quisquam",
         "contentUpdatedAt": "2020-01-13T13:58:47.783Z",
         "createdAt": "2010-09-19T03:58:30.504Z",
+        "feedItem": Object {
+          "community": Object {
+            "id": "4",
+            "name": "Digitized fault-tolerant focus group",
+          },
+          "id": "3",
+        },
         "id": "1",
         "person": Object {
           "fullName": "Branson Gutkowski",
@@ -1021,14 +1052,21 @@ exports[`with comments with next page without next page renders correctly 1`] = 
         },
       },
       Object {
-        "content": "sunt qui amet",
-        "contentUpdatedAt": "2016-07-31T16:52:49.085Z",
-        "createdAt": "2016-02-28T03:01:08.353Z",
-        "id": "3",
+        "content": "libero qui recusandae",
+        "contentUpdatedAt": "2011-07-30T23:09:48.676Z",
+        "createdAt": "2014-08-26T07:39:14.970Z",
+        "feedItem": Object {
+          "community": Object {
+            "id": "8",
+            "name": "Enhanced 3rd generation internet solution",
+          },
+          "id": "7",
+        },
+        "id": "5",
         "person": Object {
-          "fullName": "Marcellus Hyatt",
-          "id": "4",
-          "picture": "recusandae ut nulla",
+          "fullName": "Heather Hahn",
+          "id": "6",
+          "picture": "nobis cupiditate sed",
         },
       },
     ]
@@ -1069,7 +1107,6 @@ exports[`with comments with next page without next page renders correctly 1`] = 
       <View
         style={
           Object {
-            "flex": 1,
             "flexDirection": "row",
             "paddingHorizontal": 30,
             "paddingVertical": 8,
@@ -1285,7 +1322,6 @@ exports[`with comments with next page without next page renders correctly 1`] = 
       <View
         style={
           Object {
-            "flex": 1,
             "flexDirection": "row",
             "paddingHorizontal": 30,
             "paddingVertical": 8,
@@ -1296,7 +1332,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
           resizeMode="cover"
           source={
             Object {
-              "uri": "recusandae ut nulla",
+              "uri": "nobis cupiditate sed",
             }
           }
           style={
@@ -1307,7 +1343,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                 "width": 36,
               },
               Object {
-                "backgroundColor": "rgb(161, 105, 130)",
+                "backgroundColor": "rgb(251, 161, 115)",
               },
               undefined,
             ]
@@ -1373,7 +1409,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                     ]
                   }
                 >
-                  Marcellus Hyatt
+                  Heather Hahn
                 </Text>
               </View>
             </View>
@@ -1397,7 +1433,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
               }
               testID="Text"
             >
-              February 28, 2016 @ 3:01 AM
+              August 26, 2014 @ 7:39 AM
             </Text>
             <Text
               style={
@@ -1487,7 +1523,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
                   ]
                 }
               >
-                sunt qui amet
+                libero qui recusandae
               </Text>
             </View>
           </View>

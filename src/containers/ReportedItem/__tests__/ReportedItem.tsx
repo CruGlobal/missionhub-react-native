@@ -6,24 +6,28 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import {
-  RESPOND_TO_CONTENT_COMPLAINT,
+  RESPOND_TO_CONTENT_COMPLAINT_GROUP,
   REPORTED_ITEM_FRAGMENT,
 } from '../queries';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { ReportedItem as ReportedItemFragment } from '../__generated__/ReportedItem';
+import {
+  ContentComplaintResponseEnum,
+  ContentComplaintSubjectTypeEnum,
+} from '../../../../__generated__/globalTypes';
 
 import ReportedItem from '..';
 
-const refetch = jest.fn();
-
 const initialState = { auth: { person: { id: '1' } } };
+
+const mockReportedId = '1234';
 
 const reportedComment = mockFragment<ReportedItemFragment>(
   REPORTED_ITEM_FRAGMENT,
   {
     mocks: {
-      ContentComplaint: () => ({
-        subject: () => ({ __typename: 'FeedItemComment' }),
+      ContentComplaintGroup: () => ({
+        subject: () => ({ __typename: 'FeedItemComment', id: mockReportedId }),
       }),
     },
   },
@@ -33,8 +37,8 @@ const reportedPost = mockFragment<ReportedItemFragment>(
   REPORTED_ITEM_FRAGMENT,
   {
     mocks: {
-      ContentComplaint: () => ({
-        subject: () => ({ __typename: 'Post' }),
+      ContentComplaintGroup: () => ({
+        subject: () => ({ __typename: 'Post', id: mockReportedId }),
       }),
     },
   },
@@ -42,7 +46,7 @@ const reportedPost = mockFragment<ReportedItemFragment>(
 
 it('renders correctly', () => {
   const { snapshot } = renderWithContext(
-    <ReportedItem reportedItem={reportedComment} refetch={refetch} />,
+    <ReportedItem reportedItem={reportedComment} />,
     { initialState },
   );
   snapshot();
@@ -52,83 +56,120 @@ describe('Reported comment', () => {
   it('call handleDelete', async () => {
     Alert.alert = jest.fn();
     const { getByTestId, snapshot } = renderWithContext(
-      <ReportedItem reportedItem={reportedComment} refetch={refetch} />,
+      <ReportedItem reportedItem={reportedComment} />,
       { initialState },
     );
 
     await fireEvent.press(getByTestId('deleteButton'));
     await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
     expect(Alert.alert).toHaveBeenCalledWith(
-      i18n.t('reportComment:deleteTitle'),
-      '',
+      i18n.t('communityReported:deleteFeedItemComment.title'),
+      i18n.t('communityReported:deleteFeedItemComment.message'),
       [
         { text: i18n.t('cancel'), style: 'cancel' },
-        { text: i18n.t('ok'), onPress: expect.any(Function) },
+        {
+          text: i18n.t('communityReported:deleteFeedItemComment.buttonText'),
+          onPress: expect.any(Function),
+        },
       ],
     );
-    expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
-      variables: {
-        input: { contentComplaintId: reportedComment.id, response: 'delete' },
+    expect(useMutation).toHaveBeenMutatedWith(
+      RESPOND_TO_CONTENT_COMPLAINT_GROUP,
+      {
+        variables: {
+          input: {
+            response: ContentComplaintResponseEnum.delete,
+            subjectId: mockReportedId,
+            subjectType: ContentComplaintSubjectTypeEnum.FeedItemComment,
+          },
+        },
       },
-    });
-    expect(refetch).toHaveBeenCalled();
+    );
+
     snapshot();
   });
 
   it('call handleIgnore', async () => {
     const { snapshot, getByTestId } = renderWithContext(
-      <ReportedItem reportedItem={reportedComment} refetch={refetch} />,
+      <ReportedItem reportedItem={reportedComment} />,
       { initialState },
     );
     await fireEvent.press(getByTestId('ignoreButton'));
-    expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
-      variables: {
-        input: { contentComplaintId: reportedComment.id, response: 'ignore' },
+    expect(useMutation).toHaveBeenMutatedWith(
+      RESPOND_TO_CONTENT_COMPLAINT_GROUP,
+      {
+        variables: {
+          input: {
+            response: ContentComplaintResponseEnum.ignore,
+            subjectId: mockReportedId,
+            subjectType: ContentComplaintSubjectTypeEnum.FeedItemComment,
+          },
+        },
       },
-    });
-    expect(refetch).toHaveBeenCalled();
+    );
+
     snapshot();
   });
 });
 describe('Reported Post', () => {
   it('call handleDelete', async () => {
     Alert.alert = jest.fn();
-    const { getByTestId, snapshot } = renderWithContext(
-      <ReportedItem reportedItem={reportedPost} refetch={refetch} />,
-      { initialState },
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <ReportedItem reportedItem={reportedPost} />,
+      {
+        initialState,
+      },
     );
-
+    recordSnapshot();
     await fireEvent.press(getByTestId('deleteButton'));
     await (Alert.alert as jest.Mock).mock.calls[0][2][1].onPress();
     expect(Alert.alert).toHaveBeenCalledWith(
-      i18n.t('reportComment:deleteTitle'),
-      '',
+      i18n.t('communityReported:deletePost.title'),
+      i18n.t('communityReported:deletePost.message'),
       [
         { text: i18n.t('cancel'), style: 'cancel' },
-        { text: i18n.t('ok'), onPress: expect.any(Function) },
+        {
+          text: i18n.t('communityReported:deletePost.buttonText'),
+          onPress: expect.any(Function),
+        },
       ],
     );
-    expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
-      variables: {
-        input: { contentComplaintId: reportedPost.id, response: 'delete' },
+    diffSnapshot();
+    expect(useMutation).toHaveBeenMutatedWith(
+      RESPOND_TO_CONTENT_COMPLAINT_GROUP,
+      {
+        variables: {
+          input: {
+            response: ContentComplaintResponseEnum.delete,
+            subjectId: mockReportedId,
+            subjectType: ContentComplaintSubjectTypeEnum.Post,
+          },
+        },
       },
-    });
-    expect(refetch).toHaveBeenCalled();
-    snapshot();
+    );
   });
 
   it('call handleIgnore', async () => {
-    const { snapshot, getByTestId } = renderWithContext(
-      <ReportedItem reportedItem={reportedPost} refetch={refetch} />,
-      { initialState },
-    );
-    await fireEvent.press(getByTestId('ignoreButton'));
-    expect(useMutation).toHaveBeenMutatedWith(RESPOND_TO_CONTENT_COMPLAINT, {
-      variables: {
-        input: { contentComplaintId: reportedPost.id, response: 'ignore' },
+    const { diffSnapshot, recordSnapshot, getByTestId } = renderWithContext(
+      <ReportedItem reportedItem={reportedPost} />,
+      {
+        initialState,
       },
-    });
-    expect(refetch).toHaveBeenCalled();
-    snapshot();
+    );
+    recordSnapshot();
+    await fireEvent.press(getByTestId('ignoreButton'));
+    expect(useMutation).toHaveBeenMutatedWith(
+      RESPOND_TO_CONTENT_COMPLAINT_GROUP,
+      {
+        variables: {
+          input: {
+            response: ContentComplaintResponseEnum.ignore,
+            subjectId: mockReportedId,
+            subjectType: ContentComplaintSubjectTypeEnum.Post,
+          },
+        },
+      },
+    );
+    diffSnapshot();
   });
 });

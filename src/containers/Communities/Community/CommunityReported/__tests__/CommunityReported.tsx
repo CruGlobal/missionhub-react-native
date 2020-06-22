@@ -1,9 +1,8 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../../../testUtils';
-
 import CommunityReportedScreen from '../CommunityReported';
-import { useQuery } from '@apollo/react-hooks';
 import { GET_CONTENT_COMPLAINT } from '../queries';
 
 const mockReportedItemId = '1234';

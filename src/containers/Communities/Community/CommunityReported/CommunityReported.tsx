@@ -9,7 +9,6 @@ import CloseButton, {
   CloseButtonTypeEnum,
 } from '../../../../components/CloseButton';
 import ReportedItem from '../../../../containers/ReportedItem';
-
 import theme from '../../../../theme';
 
 import styles from './styles';
