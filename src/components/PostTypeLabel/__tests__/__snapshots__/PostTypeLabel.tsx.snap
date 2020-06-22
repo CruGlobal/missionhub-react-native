@@ -286,7 +286,7 @@ exports[`label variations render extra large label 1`] = `
           ]
         }
       >
-        When God does something amazing, share the joy here.
+        Share and celebrate when God does something amazing.
       </Text>
     </View>
   </View>
@@ -735,7 +735,7 @@ exports[`post types cards renders Community Need Label 1`] = `
         ]
       }
     >
-      Provide Help
+      Community Needs
     </Text>
   </View>
 </View>
@@ -1280,7 +1280,7 @@ exports[`post types cards renders Step Of Faith Label 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>
@@ -1518,7 +1518,7 @@ exports[`post types cards renders people 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>
@@ -1681,7 +1681,7 @@ exports[`post types cards renders people with count only 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>

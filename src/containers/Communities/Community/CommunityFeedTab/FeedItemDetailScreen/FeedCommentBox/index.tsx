@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { forwardRef, Ref } from 'react';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import CommentBox from '../../../../../../components/CommentBox';
+import CommentBox, {
+  CommentBoxHandles,
+} from '../../../../../../components/CommentBox';
 import { AvatarPerson } from '../../../../../../components/Avatar';
 import {
   FeedItemDetail,
@@ -34,87 +36,93 @@ interface FeedCommentBoxProps {
   onFocus?: () => void;
 }
 
-const FeedCommentBox = ({
-  avatarPerson,
-  feedItemId,
-  editingComment,
-  onAddComplete,
-  onCancel,
-  onFocus,
-}: FeedCommentBoxProps) => {
-  const { t } = useTranslation('feedCommentBox');
-  const myId = useMyId();
+const FeedCommentBox = forwardRef(
+  (
+    {
+      avatarPerson,
+      feedItemId,
+      editingComment,
+      onAddComplete,
+      onCancel,
+      onFocus,
+    }: FeedCommentBoxProps,
+    ref: Ref<CommentBoxHandles>,
+  ) => {
+    const { t } = useTranslation('feedCommentBox');
+    const myId = useMyId();
 
-  const [createComment] = useMutation<
-    CreateFeedItemComment,
-    CreateFeedItemCommentVariables
-  >(CREATE_FEED_ITEM_COMMENT_MUTATION, {
-    update: (cache, { data }) => {
-      const originalData = cache.readQuery<
-        FeedItemDetail,
-        FeedItemDetailVariables
-      >({
-        query: FEED_ITEM_DETAIL_QUERY,
-        variables: { feedItemId, myId },
-      });
-      cache.writeQuery({
-        query: FEED_ITEM_DETAIL_QUERY,
-        data: {
-          ...originalData,
-          feedItem: {
-            ...originalData?.feedItem,
-            comments: {
-              ...originalData?.feedItem.comments,
-              nodes: [
-                ...(originalData?.feedItem.comments.nodes || []),
-                data?.createFeedItemComment?.feedItemComment,
-              ],
-              pageInfo: {
-                ...originalData?.feedItem.comments.pageInfo,
-                totalCount:
-                  originalData?.feedItem?.comments?.pageInfo?.totalCount ===
-                  undefined
-                    ? undefined
-                    : originalData?.feedItem?.comments?.pageInfo?.totalCount +
-                      1,
+    const [createComment] = useMutation<
+      CreateFeedItemComment,
+      CreateFeedItemCommentVariables
+    >(CREATE_FEED_ITEM_COMMENT_MUTATION, {
+      update: (cache, { data }) => {
+        const originalData = cache.readQuery<
+          FeedItemDetail,
+          FeedItemDetailVariables
+        >({
+          query: FEED_ITEM_DETAIL_QUERY,
+          variables: { feedItemId, myId },
+        });
+        cache.writeQuery({
+          query: FEED_ITEM_DETAIL_QUERY,
+          data: {
+            ...originalData,
+            feedItem: {
+              ...originalData?.feedItem,
+              comments: {
+                ...originalData?.feedItem.comments,
+                nodes: [
+                  ...(originalData?.feedItem.comments.nodes || []),
+                  data?.createFeedItemComment?.feedItemComment,
+                ],
+                pageInfo: {
+                  ...originalData?.feedItem.comments.pageInfo,
+                  totalCount:
+                    originalData?.feedItem?.comments?.pageInfo?.totalCount ===
+                    undefined
+                      ? undefined
+                      : originalData?.feedItem?.comments?.pageInfo?.totalCount +
+                        1,
+                },
               },
             },
           },
-        },
-      });
-    },
-  });
+        });
+      },
+    });
 
-  const [updateComment] = useMutation<
-    UpdateFeedItemComment,
-    UpdateFeedItemCommentVariables
-  >(UPDATE_FEED_ITEM_COMMENT_MUTATION);
+    const [updateComment] = useMutation<
+      UpdateFeedItemComment,
+      UpdateFeedItemCommentVariables
+    >(UPDATE_FEED_ITEM_COMMENT_MUTATION);
 
-  const submitComment = async (text: string) => {
-    if (editingComment) {
-      onCancel();
-      await updateComment({
-        variables: { commentId: editingComment.id, content: text },
-      });
-    } else {
-      await createComment({
-        variables: { feedItemId, content: text },
-      });
-      onAddComplete && onAddComplete();
-    }
-  };
+    const submitComment = async (text: string) => {
+      if (editingComment) {
+        onCancel();
+        await updateComment({
+          variables: { commentId: editingComment.id, content: text },
+        });
+      } else {
+        await createComment({
+          variables: { feedItemId, content: text },
+        });
+        onAddComplete && onAddComplete();
+      }
+    };
 
-  return (
-    <CommentBox
-      testID="FeedItemCommentBox"
-      avatarPerson={avatarPerson}
-      placeholderText={t('placeholder')}
-      onSubmit={submitComment}
-      editingComment={editingComment}
-      onCancel={onCancel}
-      onFocus={onFocus}
-    />
-  );
-};
+    return (
+      <CommentBox
+        ref={ref}
+        testID="FeedItemCommentBox"
+        avatarPerson={avatarPerson}
+        placeholderText={t('placeholder')}
+        onSubmit={submitComment}
+        editingComment={editingComment}
+        onCancel={onCancel}
+        onFocus={onFocus}
+      />
+    );
+  },
+);
 
 export default FeedCommentBox;
