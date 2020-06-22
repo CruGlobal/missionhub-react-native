@@ -15,6 +15,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
 import 'moment/locale/es';
 import 'moment/locale/tr';
+import 'moment/locale/pt';
+import 'moment/locale/nb';
 import appsFlyer from 'react-native-appsflyer';
 import ApolloClient from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';

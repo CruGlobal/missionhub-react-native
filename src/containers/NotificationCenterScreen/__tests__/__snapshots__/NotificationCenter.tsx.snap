@@ -89,12 +89,14 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -634,12 +635,322 @@
+@@ -630,14 +631,324 @@
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
                   \\"fullName\\": \\"Andy Cremin\\",
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"quia itaque quae\\",
-                },
-                \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
++               },
++               \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -125,7 +127,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"42\\",
 +                 \\"picture\\": \\"et architecto non\\",
 +               },
-+               \\"trigger\\": \\"onboarding_verse_two\\",
++               \\"trigger\\": \\"onboarding_verse_three\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -156,7 +158,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"44\\",
 +                 \\"picture\\": \\"est perferendis molestiae\\",
 +               },
-+               \\"trigger\\": \\"test\\",
++               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -186,8 +188,8 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"fullName\\": \\"Godfrey Mohr\\",
 +                 \\"id\\": \\"46\\",
 +                 \\"picture\\": \\"sapiente aperiam quia\\",
-+               },
-+               \\"trigger\\": \\"feed_items_daily_summary_gospel_presentation\\",
+                },
+                \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -218,7 +220,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"48\\",
 +                 \\"picture\\": \\"eveniet debitis et\\",
 +               },
-+               \\"trigger\\": \\"test_missing\\",
++               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -249,7 +251,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"50\\",
 +                 \\"picture\\": \\"in perspiciatis sit\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -280,7 +282,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"52\\",
 +                 \\"picture\\": \\"ut quis cumque\\",
 +               },
-+               \\"trigger\\": \\"onboarding_add_step\\",
++               \\"trigger\\": \\"onboarding_add_person\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -342,7 +344,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"56\\",
 +                 \\"picture\\": \\"vitae minus quae\\",
 +               },
-+               \\"trigger\\": \\"step_reminder\\",
++               \\"trigger\\": \\"onboarding_verse_two\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -373,7 +375,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"58\\",
 +                 \\"picture\\": \\"neque cupiditate totam\\",
 +               },
-+               \\"trigger\\": \\"onboarding_verse_one\\",
++               \\"trigger\\": \\"onboarding_verse_four\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -404,7 +406,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"60\\",
 +                 \\"picture\\": \\"illo esse nesciunt\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
 +             },
 +           ],
             \\"id\\": 2,
@@ -532,8 +534,8 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"42\\",
 +                 \\"picture\\": \\"et architecto non\\",
 +               },
-+               \\"trigger\\": \\"onboarding_verse_two\\",
-+             },
++               \\"trigger\\": \\"onboarding_verse_three\\",
+              },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
 +               \\"createdAt\\": \\"2012-09-09T00:13:16.798Z\\",
@@ -563,7 +565,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"44\\",
 +                 \\"picture\\": \\"est perferendis molestiae\\",
 +               },
-+               \\"trigger\\": \\"test\\",
++               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -594,7 +596,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"46\\",
 +                 \\"picture\\": \\"sapiente aperiam quia\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_gospel_presentation\\",
++               \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -625,7 +627,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"48\\",
 +                 \\"picture\\": \\"eveniet debitis et\\",
 +               },
-+               \\"trigger\\": \\"test_missing\\",
++               \\"trigger\\": \\"story_notification\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -656,7 +658,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"50\\",
 +                 \\"picture\\": \\"in perspiciatis sit\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -687,7 +689,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"52\\",
 +                 \\"picture\\": \\"ut quis cumque\\",
 +               },
-+               \\"trigger\\": \\"onboarding_add_step\\",
++               \\"trigger\\": \\"onboarding_add_person\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -749,7 +751,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"56\\",
 +                 \\"picture\\": \\"vitae minus quae\\",
 +               },
-+               \\"trigger\\": \\"step_reminder\\",
++               \\"trigger\\": \\"onboarding_verse_two\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -780,7 +782,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"58\\",
 +                 \\"picture\\": \\"neque cupiditate totam\\",
 +               },
-+               \\"trigger\\": \\"onboarding_verse_one\\",
++               \\"trigger\\": \\"onboarding_verse_four\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
@@ -811,7 +813,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +                 \\"id\\": \\"60\\",
 +                 \\"picture\\": \\"illo esse nesciunt\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
 +             },
 +           ],
             \\"id\\": 2,
@@ -1182,7 +1184,7 @@ exports[`renders Earlier section correctly  1`] = `
                 "id": "2",
                 "picture": "corporis repellat ratione",
               },
-              "trigger": "test_missing",
+              "trigger": "story_notification",
             },
           ],
           "id": 2,
@@ -1305,7 +1307,7 @@ exports[`renders Earlier section correctly  1`] = `
                 "id": "2",
                 "picture": "corporis repellat ratione",
               },
-              "trigger": "test_missing",
+              "trigger": "story_notification",
             },
           ],
           "id": 2,
@@ -2206,7 +2208,7 @@ exports[`renders Today section correctly  1`] = `
                 "id": "2",
                 "picture": "corporis repellat ratione",
               },
-              "trigger": "test_missing",
+              "trigger": "story_notification",
             },
           ],
           "id": 1,
@@ -2329,7 +2331,7 @@ exports[`renders Today section correctly  1`] = `
                 "id": "2",
                 "picture": "corporis repellat ratione",
               },
-              "trigger": "test_missing",
+              "trigger": "story_notification",
             },
           ],
           "id": 1,
@@ -3355,7 +3357,7 @@ exports[`renders correctly 1`] = `
                 "id": "4",
                 "picture": "velit omnis et",
               },
-              "trigger": "feed_items_daily_summary_multiple",
+              "trigger": "feed_items_daily_summary_gospel_presentation",
             },
             Object {
               "__typename": "Notification",
@@ -3386,7 +3388,7 @@ exports[`renders correctly 1`] = `
                 "id": "6",
                 "picture": "nostrum ipsam qui",
               },
-              "trigger": "onboarding_add_person",
+              "trigger": "feed_items_daily_summary_personal_decision",
             },
             Object {
               "__typename": "Notification",
@@ -3448,7 +3450,7 @@ exports[`renders correctly 1`] = `
                 "id": "10",
                 "picture": "quae nam eos",
               },
-              "trigger": "community_challenge_ends_in_1_day",
+              "trigger": "community_challenge_created_alert",
             },
             Object {
               "__typename": "Notification",
@@ -3510,7 +3512,7 @@ exports[`renders correctly 1`] = `
                 "id": "14",
                 "picture": "est sunt corporis",
               },
-              "trigger": "feed_items_assigned_to_alert_step",
+              "trigger": "feed_items_assigned_to_alert_interaction",
             },
             Object {
               "__typename": "Notification",
@@ -3541,7 +3543,7 @@ exports[`renders correctly 1`] = `
                 "id": "16",
                 "picture": "recusandae consectetur optio",
               },
-              "trigger": "feed_items_daily_summary_personal_decision",
+              "trigger": "feed_items_daily_summary_multiple",
             },
             Object {
               "__typename": "Notification",
@@ -3572,7 +3574,7 @@ exports[`renders correctly 1`] = `
                 "id": "18",
                 "picture": "minima quia ut",
               },
-              "trigger": "onboarding_add_step",
+              "trigger": "onboarding_add_person",
             },
             Object {
               "__typename": "Notification",
@@ -3758,7 +3760,7 @@ exports[`renders correctly 1`] = `
                 "id": "4",
                 "picture": "velit omnis et",
               },
-              "trigger": "feed_items_daily_summary_multiple",
+              "trigger": "feed_items_daily_summary_gospel_presentation",
             },
             Object {
               "__typename": "Notification",
@@ -3789,7 +3791,7 @@ exports[`renders correctly 1`] = `
                 "id": "6",
                 "picture": "nostrum ipsam qui",
               },
-              "trigger": "onboarding_add_person",
+              "trigger": "feed_items_daily_summary_personal_decision",
             },
             Object {
               "__typename": "Notification",
@@ -3851,7 +3853,7 @@ exports[`renders correctly 1`] = `
                 "id": "10",
                 "picture": "quae nam eos",
               },
-              "trigger": "community_challenge_ends_in_1_day",
+              "trigger": "community_challenge_created_alert",
             },
             Object {
               "__typename": "Notification",
@@ -3913,7 +3915,7 @@ exports[`renders correctly 1`] = `
                 "id": "14",
                 "picture": "est sunt corporis",
               },
-              "trigger": "feed_items_assigned_to_alert_step",
+              "trigger": "feed_items_assigned_to_alert_interaction",
             },
             Object {
               "__typename": "Notification",
@@ -3944,7 +3946,7 @@ exports[`renders correctly 1`] = `
                 "id": "16",
                 "picture": "recusandae consectetur optio",
               },
-              "trigger": "feed_items_daily_summary_personal_decision",
+              "trigger": "feed_items_daily_summary_multiple",
             },
             Object {
               "__typename": "Notification",
@@ -3975,7 +3977,7 @@ exports[`renders correctly 1`] = `
                 "id": "18",
                 "picture": "minima quia ut",
               },
-              "trigger": "onboarding_add_step",
+              "trigger": "onboarding_add_person",
             },
             Object {
               "__typename": "Notification",
@@ -5240,7 +5242,7 @@ exports[`renders correctly 1`] = `
                       "paddingVertical": 0,
                     },
                     Object {
-                      "backgroundColor": "#7076B5",
+                      "backgroundColor": "#00CA99",
                     },
                     Object {
                       "width": 20,
@@ -5256,7 +5258,7 @@ exports[`renders correctly 1`] = `
                     },
                   ]
                 }
-                testID="STORYLabel"
+                testID="COMMUNITY_CHALLENGELabel"
               >
                 <SvgMock
                   color="#ffffff"
