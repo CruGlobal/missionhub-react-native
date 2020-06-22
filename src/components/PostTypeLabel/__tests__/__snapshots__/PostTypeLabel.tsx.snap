@@ -735,7 +735,7 @@ exports[`post types cards renders Community Need Label 1`] = `
         ]
       }
     >
-      Provide Help
+      Community Needs
     </Text>
   </View>
 </View>
@@ -844,7 +844,7 @@ exports[`post types cards renders God Story Label 1`] = `
         ]
       }
     >
-      Read a God Story
+      God Stories
     </Text>
   </View>
 </View>
@@ -1171,7 +1171,7 @@ exports[`post types cards renders Spiritual Question Label 1`] = `
         ]
       }
     >
-      Answer a Question
+      Spiritual Questions
     </Text>
   </View>
 </View>
@@ -1280,7 +1280,7 @@ exports[`post types cards renders Step Of Faith Label 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>
@@ -1518,7 +1518,7 @@ exports[`post types cards renders people 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>
@@ -1681,7 +1681,7 @@ exports[`post types cards renders people with count only 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>
