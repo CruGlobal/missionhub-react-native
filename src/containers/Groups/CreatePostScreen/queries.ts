@@ -11,6 +11,7 @@ export const CREATE_POST = gql`
       post {
         id
         feedItem {
+          id
           read
           ...CommunityFeedItem
         }

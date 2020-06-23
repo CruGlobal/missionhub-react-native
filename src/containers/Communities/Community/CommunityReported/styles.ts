@@ -17,5 +17,6 @@ export default StyleSheet.create({
   },
   contentContainer: {
     backgroundColor: theme.extraLightGrey,
+    height: '100%',
   },
 });

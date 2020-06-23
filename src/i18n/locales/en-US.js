@@ -971,5 +971,24 @@ export default {
     reportedComment: 'Reported Comment',
     reportedBy: 'Reported By',
     openPost: 'Open Post',
+    deletePost: {
+      title: 'Delete Post?',
+      message: 'Are you sure you want to delete this post?',
+      buttonText: 'Delete Post',
+    },
+    deleteFeedItemComment: {
+      title: 'Delete Comment?',
+      message: 'Are you sure you want to delete this comment?',
+      buttonText: 'Delete Comment',
+    },
+    hurray: 'Hurray',
+    respondedFeedItemCommentMessage: {
+      delete: 'You have successfully deleted the comment.',
+      ignore: 'You have successfully ignored the comment.',
+    },
+    respondedPostMessage: {
+      delete: 'You have successfully deleted the post.',
+      ignore: 'You have successfully ignored the post.',
+    },
   },
 };
