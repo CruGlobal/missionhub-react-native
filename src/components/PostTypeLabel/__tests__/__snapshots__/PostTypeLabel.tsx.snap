@@ -844,7 +844,7 @@ exports[`post types cards renders God Story Label 1`] = `
         ]
       }
     >
-      Read a God Story
+      God Stories
     </Text>
   </View>
 </View>
@@ -1171,7 +1171,7 @@ exports[`post types cards renders Spiritual Question Label 1`] = `
         ]
       }
     >
-      Answer a Question
+      Spiritual Questions
     </Text>
   </View>
 </View>
