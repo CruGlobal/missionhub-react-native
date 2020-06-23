@@ -15,8 +15,12 @@ import {
   ContentComplaintResponseEnum,
   ContentComplaintSubjectTypeEnum,
 } from '../../../../__generated__/globalTypes';
+import { navigatePush } from '../../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import ReportedItem from '..';
+
+jest.mock('../../../actions/navigation');
 
 const initialState = { auth: { person: { id: '1' } } };
 
@@ -43,6 +47,10 @@ const reportedPost = mockFragment<ReportedItemFragment>(
     },
   },
 );
+
+beforeEach(() => {
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+});
 
 it('renders correctly', () => {
   const { snapshot } = renderWithContext(
@@ -171,5 +179,37 @@ describe('Reported Post', () => {
       },
     );
     diffSnapshot();
+  });
+});
+
+it('opens post', () => {
+  const reportedPost = mockFragment<ReportedItemFragment>(
+    REPORTED_ITEM_FRAGMENT,
+    {
+      mocks: {
+        ContentComplaintGroup: () => ({
+          subject: () => ({
+            __typename: 'Post',
+            id: mockReportedId,
+            feedItem: {
+              community: {
+                id: '4321',
+              },
+              id: '789',
+            },
+          }),
+        }),
+      },
+    },
+  );
+  const { getByTestId } = renderWithContext(
+    <ReportedItem reportedItem={reportedPost} />,
+    { initialState },
+  );
+  fireEvent.press(getByTestId('openPostButton'));
+
+  expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
+    communityId: '4321',
+    feedItemId: '789',
   });
 });

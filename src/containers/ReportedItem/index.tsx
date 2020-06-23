@@ -149,7 +149,7 @@ const ReportedItem = ({
           user={reportedBy}
           communityName={communityName}
         />
-        <Text onPress={handleOpenPost} style={openPost}>
+        <Text onPress={handleOpenPost} style={openPost} testID="openPostButton">
           {t('openPost')}
         </Text>
       </View>
