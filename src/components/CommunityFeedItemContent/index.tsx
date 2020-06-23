@@ -26,6 +26,7 @@ import Separator from '../Separator';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../containers/CommunityFeedWithType';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
+import { TouchablePress } from '../Touchable/index.ios';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -42,12 +43,14 @@ export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;
   namePressable?: boolean;
   postLabelPressable?: boolean;
+  onCommentPress?: TouchablePress;
 }
 
 export const CommunityFeedItemContent = ({
   feedItem,
   namePressable = false,
   postLabelPressable = true,
+  onCommentPress,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
@@ -251,7 +254,11 @@ export const CommunityFeedItemContent = ({
     >
       {addToSteps ? renderAddToStepsButton() : null}
       <View style={styles.commentLikeWrap}>
-        <CommentLikeComponent feedItem={feedItem} />
+        <CommentLikeComponent
+          testID="CommentLikeComponent"
+          feedItem={feedItem}
+          onCommentPress={onCommentPress}
+        />
       </View>
     </Touchable>
   );
