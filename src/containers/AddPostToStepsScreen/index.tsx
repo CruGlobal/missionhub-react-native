@@ -8,6 +8,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { navigateBack } from '../../actions/navigation';
 import { trackStepAdded } from '../../actions/analytics';
+import { getPersonDetails } from '../../actions/person';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { PostTypeEnum, StepTypeEnum } from '../../../__generated__/globalTypes';
@@ -100,6 +101,7 @@ const AddPostToStepsScreen = () => {
     });
 
     dispatch(trackStepAdded(data?.addPostToMySteps?.step));
+    dispatch(getPersonDetails(person?.id));
     dispatch(navigateBack());
   };
 
