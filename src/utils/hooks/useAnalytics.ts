@@ -3,7 +3,7 @@ import { useIsFocused } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
 
-import { trackScreenChange, ScreenContext } from '../../actions/analytics';
+import { trackScreenChange } from '../../actions/analytics';
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../../containers/Groups/CreatePostButton/queries';
 import { getMyCommunityPermission } from '../../containers/Groups/CreatePostButton/__generated__/getMyCommunityPermission';
 import {
@@ -35,7 +35,7 @@ export interface UseAnalyticsOptions {
   assignmentType?: { personId?: string; communityId?: string };
   sectionType?: boolean;
   editMode?: { isEdit: boolean };
-  permissionType?: { communityId: string };
+  permissionType?: { communityId?: string };
 }
 
 export const useAnalytics = (
@@ -97,11 +97,8 @@ export const useAnalytics = (
       : {}),
   };
 
-  const handleScreenChange = (
-    name: string | string[],
-    context?: Partial<ScreenContext>,
-  ) => {
-    dispatch(trackScreenChange(name, context));
+  const handleScreenChange = (name: string | string[]) => {
+    dispatch(trackScreenChange(name, screenContext));
   };
 
   //normally screens should only respond to focus events
@@ -113,7 +110,7 @@ export const useAnalytics = (
       screenType === ANALYTICS_SCREEN_TYPES.screen &&
       triggerTracking
     ) {
-      handleScreenChange(screenName, screenContext);
+      handleScreenChange(screenName);
     }
   }, [isFocused, loading, error, triggerTracking]);
 
@@ -121,12 +118,12 @@ export const useAnalytics = (
   useEffect(() => {
     if (isFocused && !loading && !error && triggerTracking) {
       if (screenType === ANALYTICS_SCREEN_TYPES.drawer && isDrawerOpen) {
-        handleScreenChange(screenName, screenContext);
+        handleScreenChange(screenName);
       } else if (
         screenType === ANALYTICS_SCREEN_TYPES.screenWithDrawer &&
         !isDrawerOpen
       ) {
-        handleScreenChange(screenName, screenContext);
+        handleScreenChange(screenName);
       }
     }
   }, [isFocused, loading, error, isDrawerOpen, triggerTracking]);

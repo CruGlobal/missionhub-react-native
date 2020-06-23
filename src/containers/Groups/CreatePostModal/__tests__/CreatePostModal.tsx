@@ -2,7 +2,6 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
-import { ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
 import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
@@ -41,7 +40,7 @@ it('renders correctly', async () => {
   await flushMicrotasksQueue();
   snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+    permissionType: { communityId: mockCommunityId },
   });
 });
 
@@ -54,7 +53,7 @@ it('renders correctly for admin', async () => {
   await flushMicrotasksQueue();
   snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
+    permissionType: { communityId: mockCommunityId },
   });
 });
 
@@ -67,7 +66,7 @@ it('renders correctly for owner', async () => {
   await flushMicrotasksQueue();
   snapshot();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    permissionType: { communityId: mockCommunityId },
   });
 });
 
@@ -84,7 +83,7 @@ it('fires onPress and navigates | member', async () => {
     postType: PostTypeEnum.story,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+    permissionType: { communityId: mockCommunityId },
   });
 });
 
@@ -103,7 +102,7 @@ it('fires onPress and navigates | owner', async () => {
     postType: PostTypeEnum.announcement,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    permissionType: { communityId: mockCommunityId },
   });
 });
 
@@ -116,6 +115,6 @@ it('closes modal when close button is pressed', async () => {
   fireEvent.press(getByTestId('CloseButton'));
   expect(closeModal).toHaveBeenCalledWith();
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+    permissionType: { communityId: mockCommunityId },
   });
 });

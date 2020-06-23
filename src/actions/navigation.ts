@@ -111,7 +111,7 @@ export const navigateToFeedItemComments = (
       },
       {
         routeName: FEED_ITEM_DETAIL_SCREEN,
-        params: { feedItemId, communityId },
+        params: { feedItemId },
       },
     ]),
   );

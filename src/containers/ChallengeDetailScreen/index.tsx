@@ -25,7 +25,6 @@ import { communityChallengeSelector } from '../../selectors/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { isAdminOrOwner } from '../../utils/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
 import theme from '../../theme';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
@@ -79,6 +78,7 @@ const ChallengeDetailScreen = () => {
       navigatePush(ADD_CHALLENGE_SCREEN, {
         isEdit: true,
         challenge: currentChallenge,
+        communityId: orgId,
         onComplete: (updatedChallenge: ChallengeItem) => {
           editChallenge(updatedChallenge);
           dispatch(navigateBack());
@@ -173,7 +173,6 @@ const mapStateToProps = (
     challenge,
     acceptedChallenge,
     canEditChallenges,
-    analyticsPermissionType: getAnalyticsPermissionType(auth, { id: orgId }),
   };
 };
 

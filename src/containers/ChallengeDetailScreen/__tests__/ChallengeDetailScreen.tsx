@@ -242,6 +242,7 @@ it('should navigate to edit screen from press', async () => {
   expect(navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     isEdit: true,
     challenge,
+    communityId: orgId,
     onComplete: expect.any(Function),
   });
 });

@@ -3,10 +3,7 @@ import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 import { useIsFocused } from 'react-navigation-hooks';
 
 import { renderWithContext } from '../../../../../testUtils';
-import {
-  ORG_PERMISSIONS,
-  ANALYTICS_ASSIGNMENT_TYPE,
-} from '../../../../constants';
+import { ORG_PERMISSIONS } from '../../../../constants';
 import { getPersonNote, savePersonNote } from '../../../../actions/person';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import * as common from '../../../../utils/common';
@@ -63,7 +60,7 @@ describe('contact notes', () => {
     ).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+      assignmentType: { personId },
     });
   });
 
@@ -77,7 +74,7 @@ describe('contact notes', () => {
     ).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
+      assignmentType: { personId: myPersonId },
     });
   });
 
@@ -95,7 +92,7 @@ describe('contact notes', () => {
     snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['person', 'my notes'], {
-      screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+      assignmentType: { personId },
     });
     expect(getPersonNote).toHaveBeenCalledWith(person.id, myUserId);
   });

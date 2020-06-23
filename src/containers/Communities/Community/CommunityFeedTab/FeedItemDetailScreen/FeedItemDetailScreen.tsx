@@ -32,6 +32,7 @@ import {
 
 const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
+
   const feedItemId: string = useNavigationParam('feedItemId');
   const myId = useMyId();
 
