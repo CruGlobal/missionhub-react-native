@@ -353,6 +353,10 @@ export const ACTIONS = {
     name: 'Share Story',
     key: 'cru.sharestory',
   },
+  POST_TYPE_SELECTED: {
+    name: 'Post Type Selected',
+    key: 'cru.posttype',
+  },
 };
 
 export const CONTACT_STEPS = 'Contact Steps';
