@@ -124,7 +124,7 @@ const NotificationCenterScreen = () => {
         <Text style={styles.sectionHeaderText}>{t(`${section.name}`)}</Text>
       </View>
     ),
-    [],
+    [filteredSections],
   );
 
   const renderItem = ({
