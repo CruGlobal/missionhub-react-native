@@ -151,10 +151,12 @@ export function trackStepAdded(step?: StepAddedAnalytics | null) {
       step.receiver.id === myId ? 'Y' : 'N' // Is self step?
     } | ${i18next.language}`;
 
-    if (!step.stepSuggestion) {
-      dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
-    } else {
+    if (step.stepSuggestion) {
       trackedStep = `${trackedStep} | ${step.stepSuggestion.id} | ${step.stepSuggestion.stage.id}`;
+    } else if (step.post) {
+      trackedStep = `${trackedStep} | ${step.post.postType}`;
+    } else {
+      dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
     }
 
     dispatch(
