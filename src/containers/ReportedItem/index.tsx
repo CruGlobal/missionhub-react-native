@@ -1,110 +1,179 @@
-import React from 'react';
-import { Alert } from 'react-native';
+import React, { useState } from 'react';
+import { Alert, View } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 
-import { Flex, Card, Button } from '../../components/common';
+import { Flex, Card, Button, Text } from '../../components/common';
 import CommentItem from '../CommentItem';
 import ReportItemLabel from '../../components/ReportItemLabel';
-import { ContentComplaintResponseEnum } from '../../../__generated__/globalTypes';
-import { CommunityFeedItemContent } from '../../components/CommunityFeedItemContent';
-
-import { RESPOND_TO_CONTENT_COMPLAINT } from './queries';
 import {
-  RespondToContentComplaintVariables,
-  RespondToContentComplaint,
-} from './__generated__/RespondToContentComplaint';
+  ContentComplaintResponseEnum,
+  ContentComplaintSubjectTypeEnum,
+} from '../../../__generated__/globalTypes';
+import { CommunityFeedItemContent } from '../../components/CommunityFeedItemContent';
+import { navigatePush } from '../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import { GET_NOTIFICATIONS } from '../NotificationCenterScreen/queries';
+
+import { RESPOND_TO_CONTENT_COMPLAINT_GROUP } from './queries';
+import {
+  RespondToContentComplaintGroupVariables,
+  RespondToContentComplaintGroup,
+} from './__generated__/RespondToContentComplaintGroup';
 import { ReportedItem as ReportedItemFragment } from './__generated__/ReportedItem';
+import ResponseSuccessIcon from './responseSuccessIcon.svg';
 import styles from './styles';
 
 const ReportedItem = ({
   reportedItem,
-  refetch,
 }: {
   reportedItem: ReportedItemFragment;
-  refetch: () => void;
 }) => {
-  const { t } = useTranslation('reportComment');
+  const { t } = useTranslation('communityReported');
+  const dispatch = useDispatch();
 
-  const [respondToContentComplaint] = useMutation<
-    RespondToContentComplaint,
-    RespondToContentComplaintVariables
-  >(RESPOND_TO_CONTENT_COMPLAINT);
+  const [responseType, setResponseType] = useState<
+    ContentComplaintResponseEnum
+  >();
+
+  const [respondToContentComplaintGroup] = useMutation<
+    RespondToContentComplaintGroup,
+    RespondToContentComplaintGroupVariables
+  >(RESPOND_TO_CONTENT_COMPLAINT_GROUP, {
+    // Refresh notifications list after responding to content compalint
+    refetchQueries: [{ query: GET_NOTIFICATIONS }],
+  });
+
+  if (
+    reportedItem.subject.__typename !== 'Post' &&
+    reportedItem.subject.__typename !== 'FeedItemComment'
+  ) {
+    throw new Error(
+      'Subject type of ReportedItem passed to ReportedNotificationCenterItem must be either a Post or FeedItemComment',
+    );
+  }
+
+  const reportedItemType = reportedItem.subject.__typename;
+  const subjectId = reportedItem.subject.id;
+
   const handleIgnore = async () => {
-    await respondToContentComplaint({
+    await respondToContentComplaintGroup({
       variables: {
         input: {
-          contentComplaintId: reportedItem.id,
-
+          subjectId,
+          subjectType: ContentComplaintSubjectTypeEnum[reportedItemType],
           response: ContentComplaintResponseEnum.ignore,
         },
       },
     });
-    refetch();
-  };
 
-  const getContentType = (type: string) => {
-    switch (type) {
-      case 'Story':
-        return 'storyBy';
-      case 'FeedItemComment':
-      case 'CommunityCelebrationItemComment':
-        return 'commentBy';
-      default:
-        return 'commentBy';
-    }
+    setResponseType(ContentComplaintResponseEnum.ignore);
   };
 
   const handleDelete = () => {
-    Alert.alert(t('deleteTitle'), '', [
-      {
-        text: t('cancel'),
-        style: 'cancel',
-      },
-      {
-        text: t('ok'),
-        onPress: async () => {
-          await respondToContentComplaint({
-            variables: {
-              input: {
-                contentComplaintId: reportedItem.id,
-
-                response: ContentComplaintResponseEnum.delete,
-              },
-            },
-          });
-          refetch();
+    Alert.alert(
+      t(`delete${reportedItemType}.title`),
+      t(`delete${reportedItemType}.message`),
+      [
+        {
+          text: t('cancel'),
+          style: 'cancel',
         },
-      },
-    ]);
+        {
+          text: t(`delete${reportedItemType}.buttonText`),
+          onPress: async () => {
+            await respondToContentComplaintGroup({
+              variables: {
+                input: {
+                  subjectId,
+                  subjectType:
+                    ContentComplaintSubjectTypeEnum[reportedItemType],
+                  response: ContentComplaintResponseEnum.delete,
+                },
+              },
+            });
+
+            setResponseType(ContentComplaintResponseEnum.delete);
+          },
+        },
+      ],
+    );
   };
 
-  const reportedBy = reportedItem.person.fullName;
-  const commentBy =
-    (reportedItem.subject.__typename === 'Post' &&
-      reportedItem.subject.feedItem.subjectPersonName) ||
-    (reportedItem.subject.__typename === 'FeedItemComment' &&
-      reportedItem.subject.person.fullName) ||
-    '';
-  const { card, users, comment, buttonLeft, buttonRight } = styles;
+  const reportedBy = reportedItem.people.nodes[0].fullName;
+  const communityName = reportedItem.subject.feedItem.community?.name || '';
+  const communityId = reportedItem.subject.feedItem.community?.id;
+  const feedItemId = reportedItem.subject.feedItem.id;
+
+  const handleOpenPost = () => {
+    dispatch(
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        communityId,
+        feedItemId,
+      }),
+    );
+  };
+
+  const {
+    card,
+    reportedInfoContainer,
+    respondedContentContainer,
+    respondedTitle,
+    respondedMessage,
+    comment,
+    openPost,
+    buttonLeft,
+    buttonRight,
+  } = styles;
+
+  const renderResponsedContent = () => (
+    <View style={respondedContentContainer}>
+      <ResponseSuccessIcon />
+      <Text style={respondedTitle}>{t('hurray')}</Text>
+      <Text style={respondedMessage}>
+        {reportedItemType === 'Post'
+          ? responseType === ContentComplaintResponseEnum.delete
+            ? t('respondedPostMessage.delete')
+            : t('respondedPostMessage.ignore')
+          : responseType === ContentComplaintResponseEnum.delete
+          ? t('respondedFeedItemCommentMessage.delete')
+          : t('respondedFeedItemCommentMessage.ignore')}
+      </Text>
+    </View>
+  );
+
+  if (responseType) {
+    return renderResponsedContent();
+  }
+
   return (
     <Card style={card}>
-      <Flex direction="row" style={users}>
-        <ReportItemLabel label={t('reportedBy')} user={reportedBy} />
+      <View style={reportedInfoContainer}>
         <ReportItemLabel
-          label={t(`${getContentType(reportedItem.subject.__typename)}`)}
-          user={commentBy}
+          label={t('reportedBy')}
+          user={reportedBy}
+          communityName={communityName}
         />
-      </Flex>
-      <Flex style={comment}>
-        {reportedItem.subject.__typename === 'FeedItemComment' ? (
+        <Text onPress={handleOpenPost} style={openPost} testID="openPostButton">
+          {t('openPost')}
+        </Text>
+      </View>
+
+      {reportedItem.subject.__typename === 'FeedItemComment' ? (
+        <View style={comment}>
           <CommentItem comment={reportedItem.subject} isReported={true} />
-        ) : null}
-        {reportedItem.subject.__typename === 'Post' ? (
-          <CommunityFeedItemContent feedItem={reportedItem.subject.feedItem} />
-        ) : null}
-      </Flex>
-      <Flex direction="row">
+        </View>
+      ) : null}
+      {reportedItem.subject.__typename === 'Post' ? (
+        <CommunityFeedItemContent
+          postLabelPressable={false}
+          feedItem={reportedItem.subject.feedItem}
+          showLikeAndComment={false}
+        />
+      ) : null}
+
+      <Flex direction="row" style={{ paddingTop: 20 }}>
         <Flex value={1}>
           <Button
             testID="ignoreButton"

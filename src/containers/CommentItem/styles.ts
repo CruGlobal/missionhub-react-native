@@ -4,7 +4,6 @@ import theme, { COLORS } from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
     paddingVertical: 8,
     paddingHorizontal: 30,

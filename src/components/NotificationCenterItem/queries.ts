@@ -37,6 +37,7 @@ export const CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT = gql`
           id
         }
         feedItem {
+          id
           community {
             id
             name
@@ -58,6 +59,7 @@ export const CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT = gql`
           id
         }
         feedItem {
+          id
           community {
             id
             name

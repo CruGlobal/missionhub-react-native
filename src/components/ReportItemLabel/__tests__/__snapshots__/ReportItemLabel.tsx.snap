@@ -40,12 +40,30 @@ exports[`render label 1`] = `
           "fontFamily": "SourceSansPro-Regular",
         },
         Object {
-          "color": "#ffffff",
+          "color": "#505256",
         },
       ]
     }
   >
     Test User
+  </Text>
+  <Text
+    numberOfLines={1}
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Object {
+          "color": "#505256",
+        },
+      ]
+    }
+  >
+    Test Community
   </Text>
 </View>
 `;
