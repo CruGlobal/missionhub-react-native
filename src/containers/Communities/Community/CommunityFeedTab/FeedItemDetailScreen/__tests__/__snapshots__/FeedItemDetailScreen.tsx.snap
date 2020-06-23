@@ -12,13 +12,13 @@ exports[`refresh calls refreshComments 1`] = `
               }
             >
 -             Upgradable interactive solution
-+             Assimilated optimizing middleware
++             Distributed needs-based encoding
             </Text>
           </View>
           <View
             style={
               Array [
-@@ -164,50 +164,50 @@
+@@ -164,32 +164,32 @@
       }
       data={
         Array [
@@ -27,115 +27,52 @@ exports[`refresh calls refreshComments 1`] = `
 -           \\"content\\": \\"cupiditate sed dignissimos\\",
 -           \\"contentUpdatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
 -           \\"createdAt\\": \\"2011-04-05T20:54:44.943Z\\",
-+           \\"content\\": \\"ullam minima ducimus\\",
-+           \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
-+           \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
-            \\"feedItem\\": Object {
-              \\"__typename\\": \\"FeedItem\\",
-              \\"community\\": Object {
-                \\"__typename\\": \\"Community\\",
--               \\"id\\": \\"8\\",
--               \\"name\\": \\"Mandatory bifurcated task-force\\",
-+               \\"id\\": \\"22\\",
-+               \\"name\\": \\"Triple-buffered discrete attitude\\",
-              },
--             \\"id\\": \\"7\\",
-+             \\"id\\": \\"21\\",
-            },
 -           \\"id\\": \\"5\\",
-+           \\"id\\": \\"19\\",
++           \\"content\\": \\"repellendus fugiat velit\\",
++           \\"contentUpdatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
++           \\"createdAt\\": \\"2019-11-08T05:56:47.001Z\\",
++           \\"id\\": \\"15\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
 -             \\"fullName\\": \\"Alek Lesch\\",
 -             \\"id\\": \\"6\\",
 -             \\"picture\\": \\"libero repudiandae esse\\",
-+             \\"fullName\\": \\"Beatrice Bins\\",
-+             \\"id\\": \\"20\\",
-+             \\"picture\\": \\"ducimus totam voluptates\\",
++             \\"fullName\\": \\"Nelson Mueller\\",
++             \\"id\\": \\"16\\",
++             \\"picture\\": \\"doloribus distinctio placeat\\",
             },
           },
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
--           \\"content\\": \\"velit omnis et\\",
--           \\"contentUpdatedAt\\": \\"2010-05-11T20:17:10.674Z\\",
--           \\"createdAt\\": \\"2012-11-17T16:58:59.414Z\\",
-+           \\"content\\": \\"magni cupiditate sit\\",
-+           \\"contentUpdatedAt\\": \\"2013-04-02T06:00:26.770Z\\",
-+           \\"createdAt\\": \\"2019-03-14T18:37:28.129Z\\",
-            \\"feedItem\\": Object {
-              \\"__typename\\": \\"FeedItem\\",
-              \\"community\\": Object {
-                \\"__typename\\": \\"Community\\",
--               \\"id\\": \\"12\\",
--               \\"name\\": \\"Total solution-oriented architecture\\",
-+               \\"id\\": \\"26\\",
-+               \\"name\\": \\"Balanced local local area network\\",
-              },
--             \\"id\\": \\"11\\",
-+             \\"id\\": \\"25\\",
-            },
--           \\"id\\": \\"9\\",
-+           \\"id\\": \\"23\\",
+-           \\"content\\": \\"blanditiis natus et\\",
+-           \\"contentUpdatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
+-           \\"createdAt\\": \\"2018-08-19T14:06:14.703Z\\",
+-           \\"id\\": \\"7\\",
++           \\"content\\": \\"ullam minima ducimus\\",
++           \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
++           \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
++           \\"id\\": \\"17\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Priscilla Hahn\\",
--             \\"id\\": \\"10\\",
--             \\"picture\\": \\"explicabo eligendi occaecati\\",
-+             \\"fullName\\": \\"Teresa Effertz\\",
-+             \\"id\\": \\"24\\",
-+             \\"picture\\": \\"voluptates ut ullam\\",
+-             \\"fullName\\": \\"Clotilde Sanford\\",
+-             \\"id\\": \\"8\\",
+-             \\"picture\\": \\"et porro ut\\",
++             \\"fullName\\": \\"Beatrice Bins\\",
++             \\"id\\": \\"18\\",
++             \\"picture\\": \\"ducimus totam voluptates\\",
             },
           },
         ]
       }
       disableVirtualization={false}
-@@ -282,11 +282,11 @@
-                style={
-                  Object {
-                    \\"opacity\\": 1,
-                  }
-                }
--               testID=\\"ANNOUNCEMENTButton\\"
-+               testID=\\"THOUGHTButton\\"
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-@@ -311,11 +311,11 @@
-                          \\"paddingLeft\\": 20,
-                          \\"paddingRight\\": 16,
-                          \\"paddingVertical\\": 0,
-                        },
-                        Object {
--                         \\"backgroundColor\\": \\"#505256\\",
-+                         \\"backgroundColor\\": \\"#B4B6BA\\",
-                        },
-                        null,
-                        null,
-                      ],
-                      Object {
-@@ -353,11 +353,11 @@
-                          \\"lineHeight\\": 20,
-                        },
-                      ]
-                    }
-                  >
--                   Announcement
-+                   What's on Your Mind
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View
-@@ -371,22 +371,22 @@
+@@ -353,22 +353,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
                 source={
                   Object {
 -                   \\"uri\\": \\"ut libero qui\\",
-+                   \\"uri\\": \\"fugiat velit sit\\",
++                   \\"uri\\": \\"a velit provident\\",
                   }
                 }
                 style={
@@ -147,46 +84,46 @@ exports[`refresh calls refreshComments 1`] = `
                     },
                     Object {
 -                     \\"backgroundColor\\": \\"rgb(155, 161, 152)\\",
-+                     \\"backgroundColor\\": \\"rgb(135, 161, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(155, 162, 115)\\",
                     },
                     undefined,
                   ]
                 }
               />
-@@ -422,11 +422,11 @@
+@@ -404,11 +404,11 @@
                         },
                       ],
                     ]
                   }
                 >
 -                 Hayden Zieme
-+                 Ayden Medhurst
++                 Soledad Simonis
                 </Text>
                 <Text
                   style={
                     Array [
                       Object {
-@@ -448,11 +448,11 @@
+@@ -430,11 +430,11 @@
                       ],
                     ]
                   }
                   testID=\\"Text\\"
                 >
 -                 November 1, 2012 @ 7:34 PM
-+                 October 29, 2015 @ 10:58 PM
++                 March 9 @ 2:07 PM
                 </Text>
               </View>
             </View>
           </View>
           <View
-@@ -482,21 +482,21 @@
+@@ -464,21 +464,21 @@
                       \\"lineHeight\\": 18,
                     }
                   }
                 >
                   <Text>
 -                   corporis repellat ratione
-+                   provident velit eligendi
++                   ipsum inventore debitis
                   </Text>
                 </Text>
               </View>
@@ -197,26 +134,40 @@ exports[`refresh calls refreshComments 1`] = `
             source={
               Object {
 -               \\"uri\\": \\"ut sunt qui\\",
-+               \\"uri\\": \\"nostrum ipsam qui\\",
++               \\"uri\\": \\"libero aspernatur deserunt\\",
               }
             }
             style={
               Object {
                 \\"aspectRatio\\": 1.3333333333333333,
-@@ -657,11 +657,11 @@
+@@ -604,12 +604,11 @@
+                          null,
+                        ]
+                      }
+                    >
+                      <SvgMock
+-                       color=\\"#FF5532\\"
+-                       fill=\\"#FF5532\\"
++                       color=\\"#505256\\"
+                      />
+                    </View>
+                  </View>
+                </View>
+                <View
+@@ -639,11 +638,11 @@
                           \\"width\\": 30,
                         },
                       ]
                     }
                   >
 -                   68521
-+                   74816
++                   68650
                   </Text>
                   <View
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -726,28 +726,28 @@
+@@ -708,19 +707,19 @@
         >
           <CommentItem
             comment={
@@ -225,83 +176,59 @@ exports[`refresh calls refreshComments 1`] = `
 -               \\"content\\": \\"cupiditate sed dignissimos\\",
 -               \\"contentUpdatedAt\\": \\"2017-09-28T01:02:07.116Z\\",
 -               \\"createdAt\\": \\"2011-04-05T20:54:44.943Z\\",
-+               \\"content\\": \\"ullam minima ducimus\\",
-+               \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
-+               \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
-                \\"feedItem\\": Object {
-                  \\"__typename\\": \\"FeedItem\\",
-                  \\"community\\": Object {
-                    \\"__typename\\": \\"Community\\",
--                   \\"id\\": \\"8\\",
--                   \\"name\\": \\"Mandatory bifurcated task-force\\",
-+                   \\"id\\": \\"22\\",
-+                   \\"name\\": \\"Triple-buffered discrete attitude\\",
-                  },
--                 \\"id\\": \\"7\\",
-+                 \\"id\\": \\"21\\",
-                },
 -               \\"id\\": \\"5\\",
-+               \\"id\\": \\"19\\",
++               \\"content\\": \\"repellendus fugiat velit\\",
++               \\"contentUpdatedAt\\": \\"2019-09-11T06:35:34.707Z\\",
++               \\"createdAt\\": \\"2019-11-08T05:56:47.001Z\\",
++               \\"id\\": \\"15\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
 -                 \\"fullName\\": \\"Alek Lesch\\",
 -                 \\"id\\": \\"6\\",
 -                 \\"picture\\": \\"libero repudiandae esse\\",
++                 \\"fullName\\": \\"Nelson Mueller\\",
++                 \\"id\\": \\"16\\",
++                 \\"picture\\": \\"doloribus distinctio placeat\\",
+                },
+              }
+            }
+            isEditing={false}
+            menuActions={
+@@ -740,19 +739,19 @@
+        >
+          <CommentItem
+            comment={
+              Object {
+                \\"__typename\\": \\"FeedItemComment\\",
+-               \\"content\\": \\"blanditiis natus et\\",
+-               \\"contentUpdatedAt\\": \\"2010-08-26T04:24:18.529Z\\",
+-               \\"createdAt\\": \\"2018-08-19T14:06:14.703Z\\",
+-               \\"id\\": \\"7\\",
++               \\"content\\": \\"ullam minima ducimus\\",
++               \\"contentUpdatedAt\\": \\"2017-10-25T05:53:21.640Z\\",
++               \\"createdAt\\": \\"2012-02-24T03:07:49.602Z\\",
++               \\"id\\": \\"17\\",
+                \\"person\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Clotilde Sanford\\",
+-                 \\"id\\": \\"8\\",
+-                 \\"picture\\": \\"et porro ut\\",
 +                 \\"fullName\\": \\"Beatrice Bins\\",
-+                 \\"id\\": \\"20\\",
++                 \\"id\\": \\"18\\",
 +                 \\"picture\\": \\"ducimus totam voluptates\\",
                 },
               }
             }
             isEditing={false}
             menuActions={
-@@ -767,28 +767,28 @@
-        >
-          <CommentItem
-            comment={
-              Object {
-                \\"__typename\\": \\"FeedItemComment\\",
--               \\"content\\": \\"velit omnis et\\",
--               \\"contentUpdatedAt\\": \\"2010-05-11T20:17:10.674Z\\",
--               \\"createdAt\\": \\"2012-11-17T16:58:59.414Z\\",
-+               \\"content\\": \\"magni cupiditate sit\\",
-+               \\"contentUpdatedAt\\": \\"2013-04-02T06:00:26.770Z\\",
-+               \\"createdAt\\": \\"2019-03-14T18:37:28.129Z\\",
-                \\"feedItem\\": Object {
-                  \\"__typename\\": \\"FeedItem\\",
-                  \\"community\\": Object {
-                    \\"__typename\\": \\"Community\\",
--                   \\"id\\": \\"12\\",
--                   \\"name\\": \\"Total solution-oriented architecture\\",
-+                   \\"id\\": \\"26\\",
-+                   \\"name\\": \\"Balanced local local area network\\",
-                  },
--                 \\"id\\": \\"11\\",
-+                 \\"id\\": \\"25\\",
-                },
--               \\"id\\": \\"9\\",
-+               \\"id\\": \\"23\\",
-                \\"person\\": Object {
-                  \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Priscilla Hahn\\",
--                 \\"id\\": \\"10\\",
--                 \\"picture\\": \\"explicabo eligendi occaecati\\",
-+                 \\"fullName\\": \\"Teresa Effertz\\",
-+                 \\"id\\": \\"24\\",
-+                 \\"picture\\": \\"voluptates ut ullam\\",
-                },
-              }
-            }
-            isEditing={false}
-            menuActions={
-@@ -817,22 +817,22 @@
+@@ -781,22 +780,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
         source={
           Object {
--           \\"uri\\": \\"inventore debitis libero\\",
-+           \\"uri\\": \\"quaerat cumque incidunt\\",
+-           \\"uri\\": \\"occaecati debitis et\\",
++           \\"uri\\": \\"sed magni cupiditate\\",
           }
         }
         style={
@@ -312,8 +239,8 @@ exports[`refresh calls refreshComments 1`] = `
               \\"width\\": 36,
             },
             Object {
--             \\"backgroundColor\\": \\"rgb(57, 55, 125)\\",
-+             \\"backgroundColor\\": \\"rgb(161, 178, 67)\\",
+-             \\"backgroundColor\\": \\"rgb(199, 167, 125)\\",
++             \\"backgroundColor\\": \\"rgb(197, 199, 67)\\",
             },
             undefined,
           ]
@@ -493,15 +420,6 @@ exports[`renders correctly 1`] = `
           "content": "cupiditate sed dignissimos",
           "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
           "createdAt": "2011-04-05T20:54:44.943Z",
-          "feedItem": Object {
-            "__typename": "FeedItem",
-            "community": Object {
-              "__typename": "Community",
-              "id": "8",
-              "name": "Mandatory bifurcated task-force",
-            },
-            "id": "7",
-          },
           "id": "5",
           "person": Object {
             "__typename": "Person",
@@ -512,24 +430,15 @@ exports[`renders correctly 1`] = `
         },
         Object {
           "__typename": "FeedItemComment",
-          "content": "velit omnis et",
-          "contentUpdatedAt": "2010-05-11T20:17:10.674Z",
-          "createdAt": "2012-11-17T16:58:59.414Z",
-          "feedItem": Object {
-            "__typename": "FeedItem",
-            "community": Object {
-              "__typename": "Community",
-              "id": "12",
-              "name": "Total solution-oriented architecture",
-            },
-            "id": "11",
-          },
-          "id": "9",
+          "content": "blanditiis natus et",
+          "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
+          "createdAt": "2018-08-19T14:06:14.703Z",
+          "id": "7",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Priscilla Hahn",
-            "id": "10",
-            "picture": "explicabo eligendi occaecati",
+            "fullName": "Clotilde Sanford",
+            "id": "8",
+            "picture": "et porro ut",
           },
         },
       ]
@@ -1055,15 +964,6 @@ exports[`renders correctly 1`] = `
               "content": "cupiditate sed dignissimos",
               "contentUpdatedAt": "2017-09-28T01:02:07.116Z",
               "createdAt": "2011-04-05T20:54:44.943Z",
-              "feedItem": Object {
-                "__typename": "FeedItem",
-                "community": Object {
-                  "__typename": "Community",
-                  "id": "8",
-                  "name": "Mandatory bifurcated task-force",
-                },
-                "id": "7",
-              },
               "id": "5",
               "person": Object {
                 "__typename": "Person",
@@ -1093,24 +993,15 @@ exports[`renders correctly 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "velit omnis et",
-              "contentUpdatedAt": "2010-05-11T20:17:10.674Z",
-              "createdAt": "2012-11-17T16:58:59.414Z",
-              "feedItem": Object {
-                "__typename": "FeedItem",
-                "community": Object {
-                  "__typename": "Community",
-                  "id": "12",
-                  "name": "Total solution-oriented architecture",
-                },
-                "id": "11",
-              },
-              "id": "9",
+              "content": "blanditiis natus et",
+              "contentUpdatedAt": "2010-08-26T04:24:18.529Z",
+              "createdAt": "2018-08-19T14:06:14.703Z",
+              "id": "7",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Priscilla Hahn",
-                "id": "10",
-                "picture": "explicabo eligendi occaecati",
+                "fullName": "Clotilde Sanford",
+                "id": "8",
+                "picture": "et porro ut",
               },
             }
           }
@@ -1143,7 +1034,7 @@ exports[`renders correctly 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "inventore debitis libero",
+          "uri": "occaecati debitis et",
         }
       }
       style={
@@ -1154,7 +1045,7 @@ exports[`renders correctly 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(57, 55, 125)",
+            "backgroundColor": "rgb(199, 167, 125)",
           },
           undefined,
         ]

@@ -982,8 +982,13 @@ export default {
       buttonText: 'Delete Comment',
     },
     hurray: 'Hurray',
-    respondedFeedItemCommentMessage:
-      'You have successfully {{responseType}}d the comment.',
-    respondedPostMessage: 'You have successfully {{responseType}}d the post.',
+    respondedFeedItemCommentMessage: {
+      delete: 'You have successfully deleted the comment.',
+      ignore: 'You have successfully ignored the comment.',
+    },
+    respondedPostMessage: {
+      delete: 'You have successfully deleted the post.',
+      ignore: 'You have successfully ignored the post.',
+    },
   },
 };

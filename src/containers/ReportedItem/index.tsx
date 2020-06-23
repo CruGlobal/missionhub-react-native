@@ -132,7 +132,13 @@ const ReportedItem = ({
       <ResponseSuccessIcon />
       <Text style={respondedTitle}>{t('hurray')}</Text>
       <Text style={respondedMessage}>
-        {t(`responded${reportedItemType}Message`, { responseType })}
+        {reportedItemType === 'Post'
+          ? responseType === ContentComplaintResponseEnum.delete
+            ? t('respondedPostMessage.delete')
+            : t('respondedPostMessage.ignore')
+          : responseType === ContentComplaintResponseEnum.delete
+          ? t('respondedFeedItemCommentMessage.delete')
+          : t('respondedFeedItemCommentMessage.ignore')}
       </Text>
     </View>
   );

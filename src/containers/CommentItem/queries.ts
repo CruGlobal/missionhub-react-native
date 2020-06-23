@@ -11,12 +11,5 @@ export const FEED_ITEM_COMMENT_ITEM_FRAGMENT = gql`
       fullName
       picture
     }
-    feedItem {
-      id
-      community {
-        id
-        name
-      }
-    }
   }
 `;

@@ -17,6 +17,13 @@ export const REPORTED_ITEM_FRAGMENT = gql`
       __typename
       ... on FeedItemComment {
         ...FeedItemCommentItem
+        feedItem {
+          id
+          community {
+            id
+            name
+          }
+        }
       }
       ... on Post {
         id
