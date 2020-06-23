@@ -4,13 +4,14 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    position: 'absolute',
-    top: 15,
-    right: 10,
+    zIndex: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   button: {
     backgroundColor: theme.parakeetBlue,
     height: 24,
+    marginBottom: 10,
   },
   buttonText: {
     color: theme.white,

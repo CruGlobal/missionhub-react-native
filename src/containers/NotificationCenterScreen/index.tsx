@@ -121,9 +121,6 @@ const NotificationCenterScreen = () => {
   const renderSectionHeader = useCallback(
     ({ section }) => (
       <View style={styles.sectionHeader}>
-        {filteredSections.indexOf(section) === 0 && hasNewNotification ? (
-          <RefreshButton loading={loading} refresh={refetch} />
-        ) : null}
         <Text style={styles.sectionHeaderText}>{t(`${section.name}`)}</Text>
       </View>
     ),
@@ -194,6 +191,9 @@ const NotificationCenterScreen = () => {
         message={t('errorLoadingNotifications')}
         refetch={refetch}
       />
+      {hasNewNotification ? (
+        <RefreshButton loading={loading} refresh={refetch} />
+      ) : null}
       <SectionList
         testID="notificationCenter"
         style={{

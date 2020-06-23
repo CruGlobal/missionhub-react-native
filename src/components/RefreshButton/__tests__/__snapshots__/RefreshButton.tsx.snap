@@ -5,9 +5,9 @@ exports[`renders correctly 1`] = `
   emulateUnlessSupported={true}
   style={
     Object {
-      "position": "absolute",
-      "right": 10,
-      "top": 15,
+      "alignItems": "center",
+      "justifyContent": "center",
+      "zIndex": 10,
     }
   }
 >
@@ -47,6 +47,7 @@ exports[`renders correctly 1`] = `
           Object {
             "backgroundColor": "#3CC8E6",
             "height": 24,
+            "marginBottom": 10,
           },
           Object {
             "borderRadius": 50,
@@ -95,9 +96,9 @@ exports[`renders loading correctly 1`] = `
   emulateUnlessSupported={true}
   style={
     Object {
-      "position": "absolute",
-      "right": 10,
-      "top": 15,
+      "alignItems": "center",
+      "justifyContent": "center",
+      "zIndex": 10,
     }
   }
 >
@@ -137,6 +138,7 @@ exports[`renders loading correctly 1`] = `
           Object {
             "backgroundColor": "#3CC8E6",
             "height": 24,
+            "marginBottom": 10,
           },
           Object {
             "borderRadius": 50,
