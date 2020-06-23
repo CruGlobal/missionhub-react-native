@@ -35,7 +35,7 @@ const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
 };
 
 export interface AvatarProps {
-  person?: AvatarPerson;
+  person?: AvatarPerson | null;
   size: AvatarSize;
   style?: StyleProp<ImageStyle>;
   customText?: string;
@@ -49,10 +49,11 @@ const Avatar = ({
   style,
   customText,
 }: AvatarProps) => {
-  const initial = customText || person.fullName[0] || '-';
-  const color = useMemo(() => colorThis(`${person.fullName}${person.id}`, 1), [
-    person,
-  ]);
+  const initial = customText || person?.fullName[0] || '-';
+  const color = useMemo(
+    () => colorThis(`${person?.fullName}${person?.id}`, 1),
+    [person],
+  );
 
   const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
 
