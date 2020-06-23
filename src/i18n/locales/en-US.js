@@ -854,12 +854,12 @@ export default {
       STEP: '1 Thessalonians 5:11',
     },
     card: {
-      STORY: 'Read a God Story',
+      STORY: 'God Stories',
       PRAYER_REQUEST: 'Prayer Requests',
-      QUESTION: 'Answer a Question',
-      HELP_REQUEST: 'Provide Help',
+      QUESTION: 'Spiritual Questions',
+      HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
-      STEP: 'Celebrate Others',
+      STEP: 'Steps of Faith',
     },
   },
   createPostScreen: {
