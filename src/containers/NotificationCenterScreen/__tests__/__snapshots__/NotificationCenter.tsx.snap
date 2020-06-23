@@ -5,7 +5,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -270,55 +270,56 @@
+@@ -264,55 +264,56 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -85,7 +85,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -630,14 +631,324 @@
+@@ -624,14 +625,324 @@
                 \\"subjectPerson\\": Object {
                   \\"__typename\\": \\"Person\\",
                   \\"fullName\\": \\"Andy Cremin\\",
@@ -410,7 +410,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
           },
         ]
       }
-@@ -671,55 +982,56 @@
+@@ -665,55 +976,56 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -490,7 +490,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -1033,12 +1345,322 @@
+@@ -1027,12 +1339,322 @@
                   \\"fullName\\": \\"Andy Cremin\\",
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"quia itaque quae\\",
@@ -813,7 +813,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
           },
         ]
       }
-@@ -1126,11 +1748,11 @@
+@@ -1120,11 +1742,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -826,7 +826,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -1188,11 +1810,11 @@
+@@ -1182,11 +1804,11 @@
                         },
                         Object {},
                       ]
@@ -839,7 +839,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Array [
                         Object {
-@@ -1205,11 +1827,11 @@
+@@ -1199,11 +1821,11 @@
                           \\"fontWeight\\": \\"600\\",
                         },
                       ]
@@ -852,7 +852,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Array [
                         Object {
-@@ -1258,11 +1880,11 @@
+@@ -1252,11 +1874,11 @@
                       },
                     ]
                   }
@@ -865,7 +865,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             </View>
           </View>
         </View>
-@@ -1304,11 +1926,11 @@
+@@ -1298,11 +1920,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -878,7 +878,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -1383,11 +2005,11 @@
+@@ -1377,11 +1999,11 @@
                           \\"fontWeight\\": \\"600\\",
                         },
                       ]
@@ -891,7 +891,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Array [
                         Object {
-@@ -1436,11 +2058,11 @@
+@@ -1430,11 +2052,11 @@
                       },
                     ]
                   }
@@ -3129,10 +3129,8 @@ exports[`renders correctly 1`] = `
     emulateUnlessSupported={true}
     style={
       Object {
-        "alignItems": "flex-end",
-        "flex": 1,
+        "alignItems": "center",
         "justifyContent": "center",
-        "zIndex": 10,
       }
     }
   >
@@ -3170,12 +3168,9 @@ exports[`renders correctly 1`] = `
             },
             null,
             Object {
-              "alignItems": "center",
               "backgroundColor": "#3CC8E6",
               "height": 24,
-              "justifyContent": "center",
-              "marginRight": 10,
-              "marginTop": 13,
+              "marginBottom": 10,
             },
             Object {
               "borderRadius": 50,
@@ -3205,9 +3200,8 @@ exports[`renders correctly 1`] = `
                   "color": "#ffffff",
                   "fontSize": 12,
                   "fontWeight": "400",
+                  "height": 16,
                   "letterSpacing": 0,
-                  "lineHeight": 15,
-                  "paddingBottom": 15,
                 },
               ],
             ]
@@ -5510,10 +5504,8 @@ exports[`renders null for non-english users 1`] = `
     emulateUnlessSupported={true}
     style={
       Object {
-        "alignItems": "flex-end",
-        "flex": 1,
+        "alignItems": "center",
         "justifyContent": "center",
-        "zIndex": 10,
       }
     }
   >
@@ -5551,12 +5543,9 @@ exports[`renders null for non-english users 1`] = `
             },
             null,
             Object {
-              "alignItems": "center",
               "backgroundColor": "#3CC8E6",
               "height": 24,
-              "justifyContent": "center",
-              "marginRight": 10,
-              "marginTop": 13,
+              "marginBottom": 10,
             },
             Object {
               "borderRadius": 50,
@@ -5586,9 +5575,8 @@ exports[`renders null for non-english users 1`] = `
                   "color": "#ffffff",
                   "fontSize": 12,
                   "fontWeight": "400",
+                  "height": 16,
                   "letterSpacing": 0,
-                  "lineHeight": 15,
-                  "paddingBottom": 15,
                 },
               ],
             ]
@@ -6155,10 +6143,8 @@ exports[`renders with refresh button 1`] = `
     emulateUnlessSupported={true}
     style={
       Object {
-        "alignItems": "flex-end",
-        "flex": 1,
+        "alignItems": "center",
         "justifyContent": "center",
-        "zIndex": 10,
       }
     }
   >
@@ -6196,12 +6182,9 @@ exports[`renders with refresh button 1`] = `
             },
             null,
             Object {
-              "alignItems": "center",
               "backgroundColor": "#3CC8E6",
               "height": 24,
-              "justifyContent": "center",
-              "marginRight": 10,
-              "marginTop": 13,
+              "marginBottom": 10,
             },
             Object {
               "borderRadius": 50,
@@ -6231,9 +6214,8 @@ exports[`renders with refresh button 1`] = `
                   "color": "#ffffff",
                   "fontSize": 12,
                   "fontWeight": "400",
+                  "height": 16,
                   "letterSpacing": 0,
-                  "lineHeight": 15,
-                  "paddingBottom": 15,
                 },
               ],
             ]
