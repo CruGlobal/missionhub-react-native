@@ -5,7 +5,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -264,55 +264,56 @@
+@@ -264,57 +264,58 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -89,7 +89,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -624,14 +625,324 @@
+@@ -626,14 +627,324 @@
                 \\"subjectPerson\\": Object {
                   \\"__typename\\": \\"Person\\",
                   \\"fullName\\": \\"Andy Cremin\\",
@@ -414,7 +414,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
           },
         ]
       }
-@@ -665,55 +976,56 @@
+@@ -667,57 +978,58 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -498,7 +498,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -1027,12 +1339,322 @@
+@@ -1031,12 +1343,322 @@
                   \\"fullName\\": \\"Andy Cremin\\",
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"quia itaque quae\\",
@@ -821,7 +821,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
           },
         ]
       }
-@@ -1120,11 +1742,11 @@
+@@ -1124,11 +1746,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -834,7 +834,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -1182,11 +1804,11 @@
+@@ -1186,11 +1808,11 @@
                         },
                         Object {},
                       ]
@@ -847,7 +847,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Array [
                         Object {
-@@ -1199,11 +1821,11 @@
+@@ -1203,11 +1825,11 @@
                           \\"fontWeight\\": \\"600\\",
                         },
                       ]
@@ -860,7 +860,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Array [
                         Object {
-@@ -1252,11 +1874,11 @@
+@@ -1256,11 +1878,11 @@
                       },
                     ]
                   }
@@ -873,7 +873,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             </View>
           </View>
         </View>
-@@ -1298,11 +1920,11 @@
+@@ -1302,11 +1924,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -886,7 +886,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -1377,11 +1999,11 @@
+@@ -1381,11 +2003,11 @@
                           \\"fontWeight\\": \\"600\\",
                         },
                       ]
@@ -899,7 +899,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Array [
                         Object {
-@@ -1430,11 +2052,11 @@
+@@ -1434,11 +2056,11 @@
                       },
                     ]
                   }
