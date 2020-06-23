@@ -4,7 +4,6 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    zIndex: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
