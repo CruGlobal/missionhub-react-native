@@ -249,4 +249,26 @@ describe('with subject person', () => {
       communityId,
     });
   });
+
+  it('onPress comment button with onCommentPress', () => {
+    const onCommentPress = jest.fn();
+    const { getByTestId } = renderWithContext(
+      <CommentLikeComponent
+        onCommentPress={onCommentPress}
+        feedItem={mockFragment(COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT, {
+          mocks: {
+            FeedItem: () => ({
+              id: feedItemId,
+              community: { id: communityId },
+            }),
+          },
+        })}
+      />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('CommentIconButton'));
+
+    expect(onCommentPress).toHaveBeenCalledWith();
+  });
 });

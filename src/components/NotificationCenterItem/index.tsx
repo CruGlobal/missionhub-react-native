@@ -144,7 +144,7 @@ export const NotificationCenterItem = ({
       style={styles.itemContainer}
     >
       <View style={styles.contentContainer}>
-        <Avatar person={subjectPerson} size="medium" />
+        <Avatar person={subjectPerson ?? undefined} size="medium" />
         <View style={{ position: 'absolute', top: 30, left: 50 }}>
           {renderIcon()}
         </View>

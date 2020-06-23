@@ -235,7 +235,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          Celebrate Together
+          Encourage One Another
         </Text>
         <Text
           style={
@@ -257,7 +257,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          See what God is doing through your Community’s completed steps.
+          Recognize your Community’s steps of faith.
         </Text>
       </View>
     </View>

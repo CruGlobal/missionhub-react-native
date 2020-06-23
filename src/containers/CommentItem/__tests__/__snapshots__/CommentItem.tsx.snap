@@ -4,7 +4,6 @@ exports[`renders correctly 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
       "flexDirection": "row",
       "paddingHorizontal": 30,
       "paddingVertical": 8,
@@ -218,7 +217,6 @@ exports[`renders correctly as mine 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
       "flexDirection": "row",
       "paddingHorizontal": 30,
       "paddingVertical": 8,
@@ -432,7 +430,6 @@ exports[`renders editing correctly 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
       "flexDirection": "row",
       "paddingHorizontal": 30,
       "paddingVertical": 8,
@@ -646,7 +643,6 @@ exports[`renders my reported comment 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
       "flexDirection": "row",
       "paddingHorizontal": 30,
       "paddingVertical": 8,
@@ -828,7 +824,6 @@ exports[`renders reported comment 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
       "flexDirection": "row",
       "paddingHorizontal": 30,
       "paddingVertical": 8,
@@ -1010,7 +1005,6 @@ exports[`renders reported story 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
       "flexDirection": "row",
       "paddingHorizontal": 30,
       "paddingVertical": 8,
@@ -1192,7 +1186,6 @@ exports[`renders without menu actions 1`] = `
 <View
   style={
     Object {
-      "flex": 1,
       "flexDirection": "row",
       "paddingHorizontal": 30,
       "paddingVertical": 8,

@@ -25,6 +25,7 @@ import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { useMyId } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
+import { CommentBoxHandles } from '../../../../../components/CommentBox';
 
 import FeedCommentBox from './FeedCommentBox';
 import styles from './styles';
@@ -35,6 +36,7 @@ import {
 } from './__generated__/FeedItemDetail';
 
 const FeedItemDetailScreen = () => {
+  const feedCommentBox = useRef<CommentBoxHandles>(null);
   const { t } = useTranslation('feedItemDetail');
   const feedItemId: string = useNavigationParam('feedItemId');
   const communityId: string = useNavigationParam('communityId');
@@ -155,7 +157,10 @@ const FeedItemDetailScreen = () => {
           ),
           ListHeaderComponent: () => (
             <>
-              <CommunityFeedItemContent feedItem={data?.feedItem} />
+              <CommunityFeedItemContent
+                feedItem={data?.feedItem}
+                onCommentPress={() => feedCommentBox.current?.focus()}
+              />
               <Separator style={styles.belowItem} />
             </>
           ),
@@ -177,6 +182,7 @@ const FeedItemDetailScreen = () => {
   const renderCommentBox = () =>
     data ? (
       <FeedCommentBox
+        ref={feedCommentBox}
         feedItemId={data.feedItem.id}
         avatarPerson={data.currentUser.person}
         editingComment={
