@@ -3,12 +3,13 @@ import { IMocks } from 'graphql-tools';
 import moment from 'moment';
 
 import {
-  CommunityCelebrationCelebrateableEnum,
   PermissionEnum,
   ReminderTypeEnum,
   StepTypeEnum,
   PostTypeEnum,
   RelationshipTypeEnum,
+  NotificationTriggerEnum,
+  PostStepStatusEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -39,6 +40,13 @@ export const globalMocks: IMocks = {
   StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
   RelationshipTypeEnum: () =>
     faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
+  NotificationTriggerEnum: () =>
+    faker.random.arrayElement(
+      // TODO: remove filtering out test values when stage removes them
+      Object.values(NotificationTriggerEnum).filter(
+        value => !['test', 'test_missing'].includes(value),
+      ),
+    ),
   Step: () => ({
     title: faker.lorem.sentence(),
   }),
@@ -54,19 +62,6 @@ export const globalMocks: IMocks = {
   Community: () => ({
     name: faker.company.catchPhrase(),
   }),
-  CommunityCelebrationItem: () => {
-    const firstName = faker.name.firstName();
-    const lastName = faker.name.lastName();
-    return {
-      celebrateableType: faker.random.arrayElement(
-        Object.values(CommunityCelebrationCelebrateableEnum),
-      ),
-      changedAttributeValue: moment(
-        faker.date.past(10, '2020-01-14'),
-      ).toISOString(),
-      subjectPersonName: `${firstName} ${lastName}`,
-    };
-  },
   CommunityPermission: () => {
     return {
       permission: faker.random.arrayElement(Object.values(PermissionEnum)),
@@ -81,6 +76,7 @@ export const globalMocks: IMocks = {
   Post: () => {
     return {
       postType: faker.random.arrayElement(Object.values(PostTypeEnum)),
+      stepStatus: faker.random.arrayElement(Object.values(PostStepStatusEnum)),
     };
   },
   FeedItemSubject: () => {
@@ -98,6 +94,13 @@ export const globalMocks: IMocks = {
     return {
       subjectPerson: { firstName, lastName },
       subjectPersonName: `${firstName} ${lastName}`,
+    };
+  },
+  ContentComplaintGroup: () => {
+    return {
+      subject: {
+        __typename: faker.random.arrayElement(['Post', 'FeedItemComment']),
+      },
     };
   },
 };

@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { TextInput } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { navigateBack } from '../../actions/navigation';
+import { trackStepAdded } from '../../actions/analytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { PostTypeEnum, StepTypeEnum } from '../../../__generated__/globalTypes';
@@ -18,7 +19,15 @@ import {
   AddPostToMySteps,
   AddPostToMyStepsVariables,
 } from './__generated__/AddPostToMySteps';
-import { ADD_POST_TO_MY_STEPS } from './queries';
+import {
+  ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY,
+  ADD_POST_TO_MY_STEPS,
+} from './queries';
+import {
+  AddPostToMyStepsScreenDetails,
+  AddPostToMyStepsScreenDetailsVariables,
+  AddPostToMyStepsScreenDetails_feedItem_subject_Post,
+} from './__generated__/AddPostToMyStepsScreenDetails';
 import styles from './styles';
 
 const AddPostToStepsScreen = () => {
@@ -26,27 +35,46 @@ const AddPostToStepsScreen = () => {
   useAnalytics(['add steps', 'step detail']);
   const dispatch = useDispatch();
 
-  const item = useNavigationParam('item');
-  const person = item.subjectPerson;
+  const feedItemId: string = useNavigationParam('feedItemId');
+
+  const { data, error, refetch } = useQuery<
+    AddPostToMyStepsScreenDetails,
+    AddPostToMyStepsScreenDetailsVariables
+  >(ADD_POST_TO_MY_STEPS_SCREEN_DETAILS_QUERY, {
+    variables: { feedItemId },
+    onCompleted: data =>
+      data.feedItem.subject.__typename === 'Post' &&
+      changeStepTitle(getTitleText(data.feedItem.subject)),
+  });
+
+  const subject = data?.feedItem.subject;
+  const person = data?.feedItem.subjectPerson;
+  if (subject && subject.__typename !== 'Post') {
+    throw new Error(
+      'Subject type of FeedItem passed to AddPostToStepsScreen must be Post',
+    );
+  }
 
   const [addPostToMySteps, { error: createStepError }] = useMutation<
     AddPostToMySteps,
     AddPostToMyStepsVariables
   >(ADD_POST_TO_MY_STEPS);
 
-  const getTitleText = () => {
-    switch (item.subject.postType) {
+  const getTitleText = (
+    subject?: AddPostToMyStepsScreenDetails_feedItem_subject_Post,
+  ) => {
+    switch (subject?.postType) {
       case PostTypeEnum.prayer_request:
-        return t('prayerStepMessage', { personName: person.firstName });
+        return t('prayerStepMessage', { personName: person?.firstName });
       case PostTypeEnum.question:
-        return t('shareStepMessage', { personName: person.firstName });
+        return t('shareStepMessage', { personName: person?.firstName });
       case PostTypeEnum.help_request:
-        return t('careStepMessage', { personName: person.firstName });
+        return t('careStepMessage', { personName: person?.firstName });
     }
   };
 
   const getType = () => {
-    switch (item.subject.postType) {
+    switch (subject?.postType) {
       case PostTypeEnum.prayer_request:
         return StepTypeEnum.pray;
       case PostTypeEnum.question:
@@ -56,25 +84,25 @@ const AddPostToStepsScreen = () => {
     }
   };
 
-  const [stepTitle, changeStepTitle] = useState(getTitleText());
+  const [stepTitle, changeStepTitle] = useState(getTitleText(subject));
 
   const onAddToSteps = async () => {
-    await addPostToMySteps({
+    if (!subject?.id) {
+      return;
+    }
+    const { data } = await addPostToMySteps({
       variables: {
         input: {
-          postId: item.subject.id,
+          postId: subject?.id,
           title: stepTitle,
         },
       },
     });
+
+    dispatch(trackStepAdded(data?.addPostToMySteps?.step));
     dispatch(navigateBack());
   };
 
-  const post = {
-    ...item.subject,
-    author: { ...person },
-    createdAt: item.createdAt,
-  };
   return (
     <StepDetailScreen
       CenterHeader={null}
@@ -87,6 +115,11 @@ const AddPostToStepsScreen = () => {
       hideBackButton={true}
       Banner={
         <>
+          <ErrorNotice
+            message={t('errorLoadingPostDetails')}
+            error={error}
+            refetch={refetch}
+          />
           <ErrorNotice
             message={t('errorSavingStep')}
             error={createStepError}
@@ -107,14 +140,14 @@ const AddPostToStepsScreen = () => {
         />
       }
       CenterContent={<Separator />}
-      text={getTitleText()}
+      text={getTitleText(subject)}
       stepType={getType()}
       bottomButtonProps={{
         onPress: onAddToSteps,
         text: t('addToSteps'),
         testID: 'AddToMyStepsButton',
       }}
-      post={post}
+      post={subject}
     />
   );
 };

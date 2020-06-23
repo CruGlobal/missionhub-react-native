@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import MockDate from 'mockdate';
 import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
@@ -11,26 +11,19 @@ import { trackActionWithoutData } from '../../../actions/analytics';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { GLOBAL_COMMUNITY_ID } from '../../../constants';
-import { CELEBRATE_DETAIL_SCREEN } from '../../../containers/CelebrateDetailScreen';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
+import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../../containers/CommunityFeedWithType';
+import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../queries';
 import {
-  COMMUNITY_FEED_ITEM_FRAGMENT,
-  COMMUNITY_FEED_POST_FRAGMENT,
-  COMMUNITY_FEED_STEP_FRAGMENT,
-  COMMUNITY_FEED_CHALLENGE_FRAGMENT,
-  COMMUNITY_PERSON_FRAGMENT,
-} from '../queries';
-import { CommunityFeedItem as CommunityFeedItemFragment } from '../../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
-import { CommunityFeedStep } from '../__generated__/CommunityFeedStep';
-import { CommunityFeedChallenge } from '../__generated__/CommunityFeedChallenge';
-import { CommunityFeedPost } from '../__generated__/CommunityFeedPost';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../../containers/CelebrateFeedWithType';
+  CommunityFeedItem as CommunityFeedItemFragment,
+  CommunityFeedItem_subject_Post,
+} from '../__generated__/CommunityFeedItem';
 import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
+  PostStepStatusEnum,
 } from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
@@ -42,53 +35,82 @@ jest.mock('../../Avatar', () => 'Avatar');
 jest.mock('../../Card', () => 'Card');
 
 const communityId = '3';
+const communityName = 'Community Name';
+const myId = '1';
 
-const mePerson = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
-const myId = mePerson.id;
-
-const prayerPostSubject = mockFragment<CommunityFeedPost>(
-  COMMUNITY_FEED_POST_FRAGMENT,
-  {
-    mocks: {
-      Post: () => ({
-        postType: () => PostTypeEnum.prayer_request,
-      }),
-    },
-  },
-);
-const storyPostSubject = mockFragment<CommunityFeedPost>(
-  COMMUNITY_FEED_POST_FRAGMENT,
-  {
-    mocks: {
-      Post: () => ({
-        postType: () => PostTypeEnum.story,
-      }),
-    },
-  },
-);
-const stepSubject = mockFragment<CommunityFeedStep>(
-  COMMUNITY_FEED_STEP_FRAGMENT,
-);
-const challengeSubject = mockFragment<CommunityFeedChallenge>(
-  COMMUNITY_FEED_CHALLENGE_FRAGMENT,
-);
-
-const item = mockFragment<CommunityFeedItemFragment>(
+const prayerPostItem = mockFragment<CommunityFeedItemFragment>(
   COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+        }),
+      }),
+    },
+  },
 );
-const prayerPostItem = { ...item, subject: prayerPostSubject };
-const storyPostItem = { ...item, subject: storyPostSubject };
-const stepItem = { ...item, subject: stepSubject };
-const challengeItem = { ...item, subject: challengeSubject };
-const myPrayerPostItem = {
-  ...item,
-  subject: prayerPostSubject,
-  subjectPerson: mePerson,
-};
+const myPrayerPostItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+          stepStatus: PostStepStatusEnum.NOT_SUPPORTED,
+        }),
+        subjectPerson: () => ({ id: myId }),
+      }),
+    },
+  },
+);
+const storyPostItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId, name: communityName }),
+        subject: () => ({
+          __typename: 'Post',
+          postType: PostTypeEnum.story,
+        }),
+      }),
+    },
+  },
+);
+const stepItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'Step',
+        }),
+      }),
+    },
+  },
+);
+const challengeItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'CommunityChallenge',
+        }),
+      }),
+    },
+  },
+);
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
-let onRefresh = jest.fn();
 let onClearNotification = jest.fn();
 
 const trackActionResult = { type: 'tracked plain action' };
@@ -97,7 +119,6 @@ const navigatePushResult = { type: 'navigate push' };
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
-  onRefresh = jest.fn();
   onClearNotification = jest.fn();
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
@@ -107,9 +128,7 @@ describe('global community', () => {
   it('renders correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
-        onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
+        feedItem={{ ...stepItem, community: null }}
         namePressable={false}
       />,
       {
@@ -121,9 +140,7 @@ describe('global community', () => {
   it('renders with clear notification button correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
-        onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
+        feedItem={{ ...stepItem, community: null }}
         namePressable={false}
         onClearNotification={onClearNotification}
       />,
@@ -136,9 +153,7 @@ describe('global community', () => {
   it('renders post item correctly', () => {
     renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
-        onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
+        feedItem={{ ...storyPostItem, community: null }}
         namePressable={false}
       />,
       {
@@ -149,128 +164,128 @@ describe('global community', () => {
 });
 
 describe('Community', () => {
-  it('renders post correctly without add to steps button ', () => {
-    renderWithContext(
+  it('renders post correctly without add to steps button ', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+
+  it('renders post created by me correctly without add to steps button', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={myPrayerPostItem} namePressable={true} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+
+  it('renders post correctly with add to steps button', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.NONE,
+                }),
+              }),
+            },
+          },
+        )}
         namePressable={false}
       />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders post created by me correctly without add to steps button', () => {
-    renderWithContext(
+  it('renders post correctly without image', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
-        item={myPrayerPostItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
-        namePressable={true}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-  });
-
-  it('renders post correctly with add to steps button', () => {
-    renderWithContext(
-      <CommunityFeedItem
-        item={prayerPostItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
-        namePressable={false}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
-  });
-
-  it('renders post correctly without image', () => {
-    renderWithContext(
-      <CommunityFeedItem
-        item={{
+        feedItem={{
           ...storyPostItem,
-          subject: { ...storyPostSubject, mediaExpiringUrl: null },
+          subject: {
+            ...(storyPostItem.subject as CommunityFeedItem_subject_Post),
+            mediaExpiringUrl: null,
+          },
         }}
-        onRefresh={onRefresh}
-        communityId={communityId}
         namePressable={false}
       />,
       { initialState },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders step correctly', () => {
-    renderWithContext(
-      <CommunityFeedItem
-        item={stepItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
-        namePressable={false}
-      />,
+  it('renders step correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders challenge correctly', () => {
-    renderWithContext(
-      <CommunityFeedItem
-        item={challengeItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
-        namePressable={false}
-      />,
+  it('renders challenge correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 
-  it('renders with clear notification button correctly', () => {
-    renderWithContext(
+  it('renders with clear notification button correctly', async () => {
+    const { snapshot } = renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
+        feedItem={storyPostItem}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
       {
         initialState,
       },
-    ).snapshot();
+    );
+    await flushMicrotasksQueue();
+    snapshot();
   });
 });
 
-it('renders with name pressable correctly', () => {
-  renderWithContext(
-    <CommunityFeedItem
-      item={storyPostItem}
-      onRefresh={onRefresh}
-      communityId={communityId}
-      namePressable={true}
-    />,
+it('renders with name pressable correctly', async () => {
+  const { snapshot } = renderWithContext(
+    <CommunityFeedItem feedItem={storyPostItem} namePressable={true} />,
     {
       initialState,
     },
-  ).snapshot();
+  );
+  await flushMicrotasksQueue();
+  snapshot();
 });
 
 describe('press card', () => {
   it('not pressable in global community', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={stepItem}
-        onRefresh={onRefresh}
-        communityId={GLOBAL_COMMUNITY_ID}
+        feedItem={{ ...stepItem, community: null }}
         namePressable={false}
       />,
       { initialState },
@@ -281,21 +296,15 @@ describe('press card', () => {
 
   it('navigates to celebrate detail screen', () => {
     const { getByTestId } = renderWithContext(
-      <CommunityFeedItem
-        item={stepItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
       { initialState },
     );
 
     fireEvent.press(getByTestId('CommunityFeedItem'));
 
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_DETAIL_SCREEN, {
-      item: stepItem,
-      orgId: communityId,
-      onRefreshCelebrateItem: onRefresh,
+    expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
+      feedItemId: stepItem.id,
+      communityId,
     });
   });
 });
@@ -304,7 +313,9 @@ describe('long-press card', () => {
   describe('post written by me', () => {
     const myPost: CommunityFeedItemFragment = {
       ...storyPostItem,
-      subjectPerson: mePerson,
+      subjectPerson: storyPostItem.subjectPerson
+        ? { ...storyPostItem.subjectPerson, id: myId }
+        : null,
     };
 
     it('navigates to edit post screen', () => {
@@ -312,12 +323,7 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem
-          item={myPost}
-          onRefresh={onRefresh}
-          communityId={communityId}
-          namePressable={false}
-        />,
+        <CommunityFeedItem feedItem={myPost} namePressable={false} />,
         { initialState },
       );
 
@@ -327,8 +333,7 @@ describe('long-press card', () => {
       );
 
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
-        post: storyPostSubject,
-        onComplete: onRefresh,
+        post: storyPostItem.subject,
         communityId,
       });
       expect(Alert.alert).not.toHaveBeenCalled();
@@ -339,12 +344,7 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem
-          item={myPost}
-          onRefresh={onRefresh}
-          communityId={communityId}
-          namePressable={false}
-        />,
+        <CommunityFeedItem feedItem={myPost} namePressable={false} />,
         { initialState },
       );
 
@@ -367,9 +367,8 @@ describe('long-press card', () => {
         ],
       );
       expect(useMutation).toHaveBeenMutatedWith(DELETE_POST, {
-        variables: { id: storyPostSubject.id },
+        variables: { id: storyPostItem.subject.id },
       });
-      expect(onRefresh).toHaveBeenCalled();
     });
   });
 
@@ -379,12 +378,7 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem
-          item={storyPostItem}
-          onRefresh={onRefresh}
-          communityId={communityId}
-          namePressable={false}
-        />,
+        <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
         { initialState },
       );
 
@@ -407,7 +401,7 @@ describe('long-press card', () => {
         ],
       );
       expect(useMutation).toHaveBeenMutatedWith(REPORT_POST, {
-        variables: { id: storyPostSubject.id },
+        variables: { id: storyPostItem.subject.id },
       });
     });
   });
@@ -417,9 +411,7 @@ describe('clear notification button', () => {
   it('calls onClearNotification', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={storyPostItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
+        feedItem={storyPostItem}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -436,9 +428,21 @@ describe('add to steps button', () => {
   it('calls handleAddToMySteps', () => {
     const { getByTestId } = renderWithContext(
       <CommunityFeedItem
-        item={prayerPostItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.NONE,
+                }),
+              }),
+            },
+          },
+        )}
         onClearNotification={onClearNotification}
         namePressable={false}
       />,
@@ -447,7 +451,39 @@ describe('add to steps button', () => {
     fireEvent.press(getByTestId('AddToMyStepsButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
-      item: prayerPostItem,
+      feedItemId: prayerPostItem.id,
+      communityId,
+    });
+  });
+
+  it('does not show addToMySteps button', () => {
+    const { queryByTestId } = renderWithContext(
+      <CommunityFeedItem
+        feedItem={mockFragment<CommunityFeedItemFragment>(
+          COMMUNITY_FEED_ITEM_FRAGMENT,
+          {
+            mocks: {
+              FeedItem: () => ({
+                community: () => ({ id: communityId }),
+                subject: () => ({
+                  __typename: 'Post',
+                  postType: PostTypeEnum.prayer_request,
+                  stepStatus: PostStepStatusEnum.INCOMPLETE,
+                }),
+              }),
+            },
+          },
+        )}
+        onClearNotification={onClearNotification}
+        namePressable={false}
+      />,
+      { initialState },
+    );
+
+    expect(queryByTestId('AddToMyStepsButton')).toBeFalsy();
+
+    expect(navigatePush).not.toHaveBeenCalledWith(ADD_POST_TO_STEPS_SCREEN, {
+      feedItemId: prayerPostItem.id,
       communityId,
     });
   });
@@ -456,19 +492,15 @@ describe('add to steps button', () => {
 describe('navigates to post type screen', () => {
   it('navigates', () => {
     const { getByTestId } = renderWithContext(
-      <CommunityFeedItem
-        item={storyPostItem}
-        onRefresh={onRefresh}
-        communityId={communityId}
-        namePressable={false}
-      />,
+      <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
       { initialState },
     );
     fireEvent.press(getByTestId('STORYButton'));
 
-    expect(navigatePush).toHaveBeenCalledWith(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
       type: FeedItemSubjectTypeEnum.STORY,
       communityId,
+      communityName,
     });
   });
 });

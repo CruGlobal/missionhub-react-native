@@ -69,8 +69,9 @@ exports[`Community renders challenge correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#00CA99",
@@ -130,30 +131,13 @@ exports[`Community renders challenge correctly 1`] = `
         }
       >
         <Avatar
-          orgId="3"
           person={
             Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
+              "firstName": "Janelle",
+              "fullName": "Janelle Upton",
+              "id": "17",
+              "lastName": "Upton",
+              "picture": "explicabo exercitationem ut",
             }
           }
           size="medium"
@@ -192,7 +176,7 @@ exports[`Community renders challenge correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            cupiditate sit vitae
           </Text>
           <Text
             style={
@@ -218,7 +202,7 @@ exports[`Community renders challenge correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            July 23, 2012 @ 4:41 AM
           </Text>
         </View>
       </View>
@@ -248,7 +232,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Samantha T. completed a Challenge:
+        Janelle U. completed a Challenge:
       </Text>
       <View
         style={
@@ -310,7 +294,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              ut et ipsam
+              minima ducimus temporibus
             </Text>
           </View>
         </View>
@@ -328,13 +312,25 @@ exports[`Community renders challenge correctly 1`] = `
       }
     />
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "flexDirection": "row",
+          "opacity": 1,
           "paddingHorizontal": 20,
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -359,7 +355,7 @@ exports[`Community renders challenge correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 80,
               }
             }
           >
@@ -401,6 +397,14 @@ exports[`Community renders challenge correctly 1`] = `
               testID="LikeIconButton"
             >
               <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
                 style={
                   Array [
                     Object {
@@ -409,6 +413,7 @@ exports[`Community renders challenge correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
+                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -428,7 +433,7 @@ exports[`Community renders challenge correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 40,
               }
             }
           >
@@ -451,9 +456,49 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              82914
+              67883
             </Text>
-            <SvgMock />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="CommentIconButton"
+            >
+              <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -554,8 +599,9 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#A97398",
@@ -615,30 +661,13 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Caesar",
+                  "fullName": "Caesar Feest",
+                  "id": "3",
+                  "lastName": "Feest",
+                  "picture": "sunt qui amet",
                 }
               }
               size="medium"
@@ -677,7 +706,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                qui recusandae ut
               </Text>
               <Text
                 style={
@@ -703,7 +732,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 13, 2015 @ 8:52 PM
               </Text>
             </View>
           </View>
@@ -737,22 +766,22 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 }
               >
                 <Text>
-                  iure ut libero
+                  quisquam recusandae alias
                 </Text>
               </Text>
             </View>
           </View>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "nulla quam ipsam",
+              "uri": "consequuntur corporis repellat",
             }
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -768,13 +797,25 @@ exports[`Community renders post correctly with add to steps button 1`] = `
           }
         />
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
               "flexDirection": "row",
+              "opacity": 1,
               "paddingHorizontal": 20,
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             accessible={true}
@@ -863,7 +904,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 80,
                   }
                 }
               >
@@ -905,6 +946,14 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   testID="LikeIconButton"
                 >
                   <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
@@ -913,6 +962,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         null,
                         Object {
                           "height": 24,
+                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -920,7 +970,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#A97398"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -931,7 +981,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 40,
                   }
                 }
               >
@@ -954,9 +1004,49 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     ]
                   }
                 >
-                  82914
+                  84631
                 </Text>
-                <SvgMock />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {},
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock />
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -1059,8 +1149,9 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",
@@ -1120,30 +1211,13 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -1182,7 +1256,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                aspernatur deserunt quam
               </Text>
               <Text
                 style={
@@ -1208,7 +1282,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -1242,22 +1316,22 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
               >
                 <Text>
-                  nobis cupiditate sed
+                  eligendi occaecati debitis
                 </Text>
               </Text>
             </View>
           </View>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "accusantium sed libero",
+              "uri": "et saepe eum",
             }
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -1273,13 +1347,25 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           }
         />
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
               "flexDirection": "row",
+              "opacity": 1,
               "paddingHorizontal": 20,
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -1304,7 +1390,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 80,
                   }
                 }
               >
@@ -1346,6 +1432,14 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   testID="LikeIconButton"
                 >
                   <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
@@ -1354,6 +1448,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         null,
                         Object {
                           "height": 24,
+                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -1373,7 +1468,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 40,
                   }
                 }
               >
@@ -1396,9 +1491,49 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
-                <SvgMock />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {},
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock />
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -1501,8 +1636,9 @@ exports[`Community renders post correctly without image 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",
@@ -1562,30 +1698,13 @@ exports[`Community renders post correctly without image 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -1624,7 +1743,7 @@ exports[`Community renders post correctly without image 1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                aspernatur deserunt quam
               </Text>
               <Text
                 style={
@@ -1650,7 +1769,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -1684,7 +1803,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
               >
                 <Text>
-                  nobis cupiditate sed
+                  eligendi occaecati debitis
                 </Text>
               </Text>
             </View>
@@ -1702,13 +1821,25 @@ exports[`Community renders post correctly without image 1`] = `
           }
         />
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
               "flexDirection": "row",
+              "opacity": 1,
               "paddingHorizontal": 20,
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -1733,7 +1864,7 @@ exports[`Community renders post correctly without image 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 80,
                   }
                 }
               >
@@ -1775,6 +1906,14 @@ exports[`Community renders post correctly without image 1`] = `
                   testID="LikeIconButton"
                 >
                   <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
@@ -1783,6 +1922,7 @@ exports[`Community renders post correctly without image 1`] = `
                         null,
                         Object {
                           "height": 24,
+                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -1802,7 +1942,7 @@ exports[`Community renders post correctly without image 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 40,
                   }
                 }
               >
@@ -1825,9 +1965,49 @@ exports[`Community renders post correctly without image 1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
-                <SvgMock />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {},
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock />
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -1930,8 +2110,9 @@ exports[`Community renders post created by me correctly without add to steps but
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#A97398",
@@ -1991,30 +2172,13 @@ exports[`Community renders post created by me correctly without add to steps but
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "2",
-                        },
-                        "permission": "admin",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "3",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Hayden",
-                  "fullName": "Hayden Zieme",
+                  "firstName": "Marco",
+                  "fullName": "Marco Volkman",
                   "id": "1",
-                  "lastName": "Zieme",
-                  "picture": "quisquam recusandae alias",
+                  "lastName": "Volkman",
+                  "picture": "esse blanditiis natus",
                 }
               }
               size="medium"
@@ -2083,7 +2247,7 @@ exports[`Community renders post created by me correctly without add to steps but
                       ]
                     }
                   >
-                    Samantha Tremblay
+                    velit omnis et
                   </Text>
                 </View>
               </View>
@@ -2111,7 +2275,7 @@ exports[`Community renders post created by me correctly without add to steps but
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                March 9, 2013 @ 10:46 PM
               </Text>
             </View>
           </View>
@@ -2145,22 +2309,22 @@ exports[`Community renders post created by me correctly without add to steps but
                 }
               >
                 <Text>
-                  iure ut libero
+                  sed dignissimos debitis
                 </Text>
               </Text>
             </View>
           </View>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "nulla quam ipsam",
+              "uri": "incidunt accusantium sed",
             }
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -2176,13 +2340,25 @@ exports[`Community renders post created by me correctly without add to steps but
           }
         />
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
               "flexDirection": "row",
+              "opacity": 1,
               "paddingHorizontal": 20,
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -2207,7 +2383,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 80,
                   }
                 }
               >
@@ -2230,7 +2406,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  3905
+                  80275
                 </Text>
                 <View
                   accessible={true}
@@ -2251,6 +2427,14 @@ exports[`Community renders post created by me correctly without add to steps but
                   testID="LikeIconButton"
                 >
                   <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
@@ -2259,6 +2443,7 @@ exports[`Community renders post created by me correctly without add to steps but
                         null,
                         Object {
                           "height": 24,
+                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -2277,7 +2462,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 40,
                   }
                 }
               >
@@ -2300,9 +2485,49 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  82914
+                  71597
                 </Text>
-                <SvgMock />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {},
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock />
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -2382,8 +2607,9 @@ exports[`Community renders step correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#3CC8E6",
@@ -2443,30 +2669,13 @@ exports[`Community renders step correctly 1`] = `
         }
       >
         <Avatar
-          orgId="3"
           person={
             Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
+              "firstName": "Mathew",
+              "fullName": "Mathew Green",
+              "id": "12",
+              "lastName": "Green",
+              "picture": "ipsam qui nobis",
             }
           }
           size="medium"
@@ -2505,7 +2714,7 @@ exports[`Community renders step correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            sit aperiam placeat
           </Text>
           <Text
             style={
@@ -2531,7 +2740,7 @@ exports[`Community renders step correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            September 15, 2014 @ 10:43 PM
           </Text>
         </View>
       </View>
@@ -2561,7 +2770,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Samantha T. completed a Step of Faith with a  person.
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -2576,13 +2785,25 @@ exports[`Community renders step correctly 1`] = `
       }
     />
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "flexDirection": "row",
+          "opacity": 1,
           "paddingHorizontal": 20,
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -2607,7 +2828,7 @@ exports[`Community renders step correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 80,
               }
             }
           >
@@ -2649,6 +2870,14 @@ exports[`Community renders step correctly 1`] = `
               testID="LikeIconButton"
             >
               <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
                 style={
                   Array [
                     Object {
@@ -2657,6 +2886,7 @@ exports[`Community renders step correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
+                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -2676,7 +2906,7 @@ exports[`Community renders step correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 40,
               }
             }
           >
@@ -2699,9 +2929,49 @@ exports[`Community renders step correctly 1`] = `
                 ]
               }
             >
-              82914
+              62402
             </Text>
-            <SvgMock />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="CommentIconButton"
+            >
+              <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -2802,8 +3072,9 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",
@@ -2863,30 +3134,13 @@ exports[`Community renders with clear notification button correctly 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -2925,7 +3179,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   ]
                 }
               >
-                Samantha Tremblay
+                aspernatur deserunt quam
               </Text>
               <Text
                 style={
@@ -2951,7 +3205,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -2985,22 +3239,22 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
               >
                 <Text>
-                  nobis cupiditate sed
+                  eligendi occaecati debitis
                 </Text>
               </Text>
             </View>
           </View>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "accusantium sed libero",
+              "uri": "et saepe eum",
             }
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -3016,13 +3270,25 @@ exports[`Community renders with clear notification button correctly 1`] = `
           }
         />
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
               "flexDirection": "row",
+              "opacity": 1,
               "paddingHorizontal": 20,
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -3047,7 +3313,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 80,
                   }
                 }
               >
@@ -3089,6 +3355,14 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   testID="LikeIconButton"
                 >
                   <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
@@ -3097,6 +3371,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         null,
                         Object {
                           "height": 24,
+                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -3116,7 +3391,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 40,
                   }
                 }
               >
@@ -3139,9 +3414,49 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
-                <SvgMock />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {},
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock />
+                  </View>
+                </View>
               </View>
             </View>
           </View>
@@ -3290,8 +3605,9 @@ exports[`global community renders correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#3CC8E6",
@@ -3350,42 +3666,12 @@ exports[`global community renders correctly 1`] = `
           }
         }
       >
-        <Avatar
-          orgId="_global_community_id"
-          person={
-            Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
@@ -3413,7 +3699,7 @@ exports[`global community renders correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            sit aperiam placeat
           </Text>
           <Text
             style={
@@ -3439,7 +3725,7 @@ exports[`global community renders correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            September 15, 2014 @ 10:43 PM
           </Text>
         </View>
       </View>
@@ -3469,7 +3755,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Samantha T. completed a Step of Faith with a  person.
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3484,13 +3770,25 @@ exports[`global community renders correctly 1`] = `
       }
     />
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "flexDirection": "row",
+          "opacity": 1,
           "paddingHorizontal": 20,
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -3515,7 +3813,7 @@ exports[`global community renders correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 80,
               }
             }
           >
@@ -3557,6 +3855,14 @@ exports[`global community renders correctly 1`] = `
               testID="LikeIconButton"
             >
               <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
                 style={
                   Array [
                     Object {
@@ -3565,6 +3871,7 @@ exports[`global community renders correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
+                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -3584,7 +3891,7 @@ exports[`global community renders correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 40,
               }
             }
           >
@@ -3607,9 +3914,49 @@ exports[`global community renders correctly 1`] = `
                 ]
               }
             >
-              82914
+              62402
             </Text>
-            <SvgMock />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="CommentIconButton"
+            >
+              <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -3686,8 +4033,9 @@ exports[`global community renders post item correctly 1`] = `
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#7076B5",
@@ -3746,42 +4094,12 @@ exports[`global community renders post item correctly 1`] = `
           }
         }
       >
-        <Avatar
-          orgId="_global_community_id"
-          person={
-            Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
@@ -3809,7 +4127,7 @@ exports[`global community renders post item correctly 1`] = `
               ]
             }
           >
-            Samantha Tremblay
+            aspernatur deserunt quam
           </Text>
           <Text
             style={
@@ -3835,7 +4153,7 @@ exports[`global community renders post item correctly 1`] = `
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            November 26, 2016 @ 12:02 AM
           </Text>
         </View>
       </View>
@@ -3869,17 +4187,17 @@ exports[`global community renders post item correctly 1`] = `
             }
           >
             <Text>
-              nobis cupiditate sed
+              eligendi occaecati debitis
             </Text>
           </Text>
         </View>
       </View>
     </View>
     <Image
-      resizeMode="contain"
+      resizeMode="cover"
       source={
         Object {
-          "uri": "accusantium sed libero",
+          "uri": "et saepe eum",
         }
       }
       style={
@@ -3900,13 +4218,25 @@ exports[`global community renders post item correctly 1`] = `
       }
     />
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "flexDirection": "row",
+          "opacity": 1,
           "paddingHorizontal": 20,
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -3931,7 +4261,7 @@ exports[`global community renders post item correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 80,
               }
             }
           >
@@ -3973,6 +4303,14 @@ exports[`global community renders post item correctly 1`] = `
               testID="LikeIconButton"
             >
               <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
                 style={
                   Array [
                     Object {
@@ -3981,6 +4319,7 @@ exports[`global community renders post item correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
+                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -4000,7 +4339,7 @@ exports[`global community renders post item correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 40,
               }
             }
           >
@@ -4023,9 +4362,49 @@ exports[`global community renders post item correctly 1`] = `
                 ]
               }
             >
-              82914
+              67165
             </Text>
-            <SvgMock />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="CommentIconButton"
+            >
+              <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -4102,8 +4481,9 @@ exports[`global community renders with clear notification button correctly 1`] =
                     "flexDirection": "row",
                     "height": 36,
                     "justifyContent": "space-between",
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
                   },
                   Object {
                     "backgroundColor": "#3CC8E6",
@@ -4162,42 +4542,12 @@ exports[`global community renders with clear notification button correctly 1`] =
           }
         }
       >
-        <Avatar
-          orgId="_global_community_id"
-          person={
-            Object {
-              "communityPermissions": Object {
-                "nodes": Array [
-                  Object {
-                    "community": Object {
-                      "id": "16",
-                    },
-                    "permission": "no_permissions",
-                  },
-                  Object {
-                    "community": Object {
-                      "id": "17",
-                    },
-                    "permission": "no_permissions",
-                  },
-                ],
-              },
-              "firstName": "Samantha",
-              "fullName": "Vernie Jenkins",
-              "id": "15",
-              "lastName": "Tremblay",
-              "picture": "provident velit eligendi",
-            }
-          }
-          size="medium"
-        />
         <View
           style={
             Object {
               "alignItems": "flex-start",
               "flexDirection": "column",
               "justifyContent": "center",
-              "paddingHorizontal": 8,
             }
           }
         >
@@ -4225,7 +4575,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               ]
             }
           >
-            Samantha Tremblay
+            sit aperiam placeat
           </Text>
           <Text
             style={
@@ -4251,7 +4601,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             }
             testID="Text"
           >
-            March 9 @ 2:07 PM
+            September 15, 2014 @ 10:43 PM
           </Text>
         </View>
       </View>
@@ -4281,7 +4631,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Samantha T. completed a Step of Faith with a  person.
+        Mathew G. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -4296,13 +4646,25 @@ exports[`global community renders with clear notification button correctly 1`] =
       }
     />
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "flexDirection": "row",
+          "opacity": 1,
           "paddingHorizontal": 20,
           "paddingVertical": 16,
         }
       }
+      testID="FooterTouchable"
     >
       <View
         style={
@@ -4327,7 +4689,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 80,
               }
             }
           >
@@ -4369,6 +4731,14 @@ exports[`global community renders with clear notification button correctly 1`] =
               testID="LikeIconButton"
             >
               <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
                 style={
                   Array [
                     Object {
@@ -4377,6 +4747,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                     null,
                     Object {
                       "height": 24,
+                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -4396,7 +4767,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
-                "width": 60,
+                "width": 40,
               }
             }
           >
@@ -4419,9 +4790,49 @@ exports[`global community renders with clear notification button correctly 1`] =
                 ]
               }
             >
-              82914
+              62402
             </Text>
-            <SvgMock />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="CommentIconButton"
+            >
+              <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -4592,8 +5003,9 @@ exports[`renders with name pressable correctly 1`] = `
                         "flexDirection": "row",
                         "height": 36,
                         "justifyContent": "space-between",
-                        "paddingHorizontal": 20,
-                        "paddingVertical": 10,
+                        "paddingLeft": 20,
+                        "paddingRight": 16,
+                        "paddingVertical": 0,
                       },
                       Object {
                         "backgroundColor": "#7076B5",
@@ -4653,30 +5065,13 @@ exports[`renders with name pressable correctly 1`] = `
             }
           >
             <Avatar
-              orgId="3"
               person={
                 Object {
-                  "communityPermissions": Object {
-                    "nodes": Array [
-                      Object {
-                        "community": Object {
-                          "id": "16",
-                        },
-                        "permission": "no_permissions",
-                      },
-                      Object {
-                        "community": Object {
-                          "id": "17",
-                        },
-                        "permission": "no_permissions",
-                      },
-                    ],
-                  },
-                  "firstName": "Samantha",
-                  "fullName": "Vernie Jenkins",
-                  "id": "15",
-                  "lastName": "Tremblay",
-                  "picture": "provident velit eligendi",
+                  "firstName": "Arvel",
+                  "fullName": "Arvel Simonis",
+                  "id": "8",
+                  "lastName": "Simonis",
+                  "picture": "eaque enim ipsum",
                 }
               }
               size="medium"
@@ -4745,7 +5140,7 @@ exports[`renders with name pressable correctly 1`] = `
                       ]
                     }
                   >
-                    Samantha Tremblay
+                    aspernatur deserunt quam
                   </Text>
                 </View>
               </View>
@@ -4773,7 +5168,7 @@ exports[`renders with name pressable correctly 1`] = `
                 }
                 testID="Text"
               >
-                March 9 @ 2:07 PM
+                November 26, 2016 @ 12:02 AM
               </Text>
             </View>
           </View>
@@ -4807,22 +5202,22 @@ exports[`renders with name pressable correctly 1`] = `
                 }
               >
                 <Text>
-                  nobis cupiditate sed
+                  eligendi occaecati debitis
                 </Text>
               </Text>
             </View>
           </View>
         </View>
         <Image
-          resizeMode="contain"
+          resizeMode="cover"
           source={
             Object {
-              "uri": "accusantium sed libero",
+              "uri": "et saepe eum",
             }
           }
           style={
             Object {
-              "aspectRatio": 2,
+              "aspectRatio": 1.3333333333333333,
             }
           }
         />
@@ -4838,13 +5233,25 @@ exports[`renders with name pressable correctly 1`] = `
           }
         />
         <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
               "flexDirection": "row",
+              "opacity": 1,
               "paddingHorizontal": 20,
               "paddingVertical": 16,
             }
           }
+          testID="FooterTouchable"
         >
           <View
             style={
@@ -4869,7 +5276,7 @@ exports[`renders with name pressable correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 80,
                   }
                 }
               >
@@ -4911,6 +5318,14 @@ exports[`renders with name pressable correctly 1`] = `
                   testID="LikeIconButton"
                 >
                   <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
                     style={
                       Array [
                         Object {
@@ -4919,6 +5334,7 @@ exports[`renders with name pressable correctly 1`] = `
                         null,
                         Object {
                           "height": 24,
+                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -4938,7 +5354,7 @@ exports[`renders with name pressable correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
-                    "width": 60,
+                    "width": 40,
                   }
                 }
               >
@@ -4961,9 +5377,49 @@ exports[`renders with name pressable correctly 1`] = `
                     ]
                   }
                 >
-                  82914
+                  67165
                 </Text>
-                <SvgMock />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {},
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock />
+                  </View>
+                </View>
               </View>
             </View>
           </View>

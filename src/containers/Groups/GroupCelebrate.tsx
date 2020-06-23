@@ -2,20 +2,24 @@ import React, { useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { CelebrateFeed } from '../CelebrateFeed';
+import { CommunityFeed } from '../CommunityFeed';
 import { refreshCommunity } from '../../actions/organizations';
 import { organizationSelector } from '../../selectors/organizations';
-import { orgIsGlobal, shouldQueryReportedComments } from '../../utils/common';
+import { orgIsGlobal } from '../../utils/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { getReportedComments } from '../../actions/reportComments';
-import { orgPermissionSelector } from '../../selectors/people';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
+import { CollapsibleViewContext } from '../../components/CollapsibleView/CollapsibleView';
 
-const GroupCelebrate = () => {
+interface CommunityFeedProps {
+  collapsibleHeaderContext: CollapsibleViewContext;
+}
+
+const GroupCommunityFeed = ({
+  collapsibleHeaderContext,
+}: CommunityFeedProps) => {
   const dispatch = useDispatch();
 
   const communityId: string = useNavigationParam('communityId');
@@ -24,14 +28,7 @@ const GroupCelebrate = () => {
     ({ organizations }: { organizations: OrganizationsState }) =>
       organizationSelector({ organizations }, { orgId: communityId }),
   );
-  const myOrgPermission = useSelector(({ auth }: { auth: AuthState }) =>
-    orgPermissionSelector({}, { person: auth.person, organization }),
-  );
 
-  const shouldQueryReport = shouldQueryReportedComments(
-    organization,
-    myOrgPermission,
-  );
   const analyticsPermissionType = useSelector(({ auth }: { auth: AuthState }) =>
     getAnalyticsPermissionType(auth, organization),
   );
@@ -41,18 +38,16 @@ const GroupCelebrate = () => {
   });
 
   const handleRefetch = () => {
+    // TODO: this still needed?
     dispatch(refreshCommunity(organization.id));
-    shouldQueryReport && dispatch(getReportedComments(organization.id));
   };
 
-  const { collapsibleScrollViewProps } = useContext(
-    CommunitiesCollapsibleHeaderContext,
-  );
+  const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
 
   return (
-    <CelebrateFeed
+    <CommunityFeed
       testID="CelebrateFeed"
-      organization={organization}
+      communityId={communityId}
       onRefetch={handleRefetch}
       itemNamePressable={!orgIsGlobal(organization)}
       collapsibleScrollViewProps={collapsibleScrollViewProps}
@@ -60,6 +55,6 @@ const GroupCelebrate = () => {
   );
 };
 
-export default GroupCelebrate;
+export default GroupCommunityFeed;
 
 export const COMMUNITY_FEED = 'nav/COMMUNITY_FEED';

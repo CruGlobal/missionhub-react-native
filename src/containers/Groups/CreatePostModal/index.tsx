@@ -3,6 +3,7 @@ import { View, Modal, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { ACTIONS } from '../../../constants';
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
   PostLabelSizeEnum,
@@ -14,6 +15,7 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { getAnalyticsPermissionType } from '../../../utils/analytics';
 import { navigatePush } from '../../../actions/navigation';
+import { trackAction } from '../../../actions/analytics';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import CloseButton from '../../../components/CloseButton';
 import {
@@ -27,14 +29,12 @@ import styles from './styles';
 interface CreatePostModalProps {
   closeModal: () => void;
   communityId: string;
-  refreshItems: () => void;
   adminOrOwner: boolean;
 }
 
 const CreatePostModal = ({
   closeModal,
   communityId,
-  refreshItems,
   adminOrOwner,
 }: CreatePostModalProps) => {
   const {
@@ -58,9 +58,14 @@ const CreatePostModal = ({
 
   const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
     closeModal();
+
+    dispatch(
+      trackAction(ACTIONS.POST_TYPE_SELECTED.name, {
+        [ACTIONS.POST_TYPE_SELECTED.key]: postType,
+      }),
+    );
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
-        onComplete: refreshItems,
         communityId,
         postType,
       }),
@@ -86,7 +91,7 @@ const CreatePostModal = ({
           {adminOrOwner ? (
             <Flex direction="row" justify="center" align="center">
               <LineIcon color={theme.extraLightGrey} />
-              <Text style={sectionTitle}>{t('everyone')}</Text>
+              <Text style={sectionTitle}>{t('postAsYou')}</Text>
               <LineIcon color={theme.extraLightGrey} />
             </Flex>
           ) : null}

@@ -1,8 +1,11 @@
-import { Alert } from 'react-native';
+/*eslint max-lines: 0*/
+
+import { Alert, Keyboard } from 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
+import { StepTypeEnum } from '../../../../__generated__/globalTypes';
 import { renderWithContext } from '../../../../testUtils';
 import {
   EDIT_JOURNEY_STEP,
@@ -212,11 +215,34 @@ it('updates text', () => {
 });
 
 it('saves step', async () => {
+  const stepId = '123';
+  const stepType = StepTypeEnum.care;
+  const stepTitle = 'Step';
+  const stepSuggestionId = '456';
+  const stageId = '567';
+
   const { getByTestId, store } = renderWithContext(
     <AddStepScreen next={next} />,
     {
       initialState: { auth, onboarding },
       navParams: createStepParams,
+      mocks: {
+        Person: () => ({
+          id: personId,
+        }),
+        Post: () => null,
+        Step: () => ({
+          id: stepId,
+          stepType,
+          title: stepTitle,
+        }),
+        StepSuggestion: () => ({
+          id: stepSuggestionId,
+          stage: {
+            id: stageId,
+          },
+        }),
+      },
     },
   );
 
@@ -231,23 +257,25 @@ it('saves step', async () => {
     id,
     type: CREATE_STEP,
     personId,
-    orgId,
   });
   expect(trackStepAdded).toHaveBeenCalledWith({
     __typename: 'Step',
+    id: stepId,
+    stepType,
+    title: stepTitle,
+    post: null,
     receiver: {
       __typename: 'Person',
-      id: '1',
+      id: personId,
     },
     stepSuggestion: {
       __typename: 'StepSuggestion',
-      id: '2',
+      id: stepSuggestionId,
       stage: {
         __typename: 'Stage',
-        id: '3',
+        id: stageId,
       },
     },
-    stepType: 'bond',
   });
 });
 
@@ -273,30 +301,33 @@ it('saves step with onSetComplete', async () => {
     id,
     type: STEP_NOTE,
     personId,
-    orgId,
   });
 });
 
 it('skips save step', () => {
-  const { getByTestId, store } = renderWithContext(
-    <AddStepScreen next={next} />,
-    {
-      initialState: { auth, onboarding },
-      navParams: stepNoteParams,
-    },
-  );
+  Keyboard.dismiss = jest.fn();
+  jest.useFakeTimers();
+  const {
+    getByTestId,
+    store,
+    diffSnapshot,
+    recordSnapshot,
+  } = renderWithContext(<AddStepScreen next={next} />, {
+    initialState: { auth, onboarding },
+    navParams: stepNoteParams,
+  });
 
   fireEvent.changeText(getByTestId('stepInput'), text);
-
+  recordSnapshot();
   fireEvent.press(getByTestId('skipButton'));
-
+  diffSnapshot();
+  expect(Keyboard.dismiss).toHaveBeenCalled();
   expect(store.getActions()).toEqual([nextResult]);
   expect(next).toHaveBeenCalledWith({
     text: undefined,
     id,
     type: STEP_NOTE,
     personId,
-    orgId,
   });
 });
 

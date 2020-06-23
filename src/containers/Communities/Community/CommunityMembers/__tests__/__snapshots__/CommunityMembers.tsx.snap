@@ -24,17 +24,18 @@ exports[`CommunityMembers renders with content 1`] = `
           "__typename": "CommunityPersonEdge",
           "communityPermission": Object {
             "__typename": "CommunityPermission",
+            "createdAt": "2018-10-03T08:17:53.279Z",
             "id": "2",
             "permission": "user",
           },
           "node": Object {
             "__typename": "Person",
-            "createdAt": "2019-02-10T23:08:19.603Z",
-            "firstName": "Branson",
-            "fullName": "Branson Gutkowski",
+            "createdAt": "2016-01-27T11:31:41.601Z",
+            "firstName": "Elizabeth",
+            "fullName": "Elizabeth Zulauf",
             "id": "3",
-            "lastName": "Gutkowski",
-            "picture": "repellat ratione ut",
+            "lastName": "Zulauf",
+            "picture": "ratione ut sunt",
           },
         },
       ]
@@ -155,7 +156,7 @@ exports[`CommunityMembers renders with content 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "repellat ratione ut",
+                  "uri": "ratione ut sunt",
                 }
               }
               style={
@@ -166,7 +167,7 @@ exports[`CommunityMembers renders with content 1`] = `
                     "width": 36,
                   },
                   Object {
-                    "backgroundColor": "rgb(216, 122, 125)",
+                    "backgroundColor": "rgb(123, 122, 125)",
                   },
                   Object {
                     "marginRight": 8,
@@ -201,7 +202,7 @@ exports[`CommunityMembers renders with content 1`] = `
                   ]
                 }
               >
-                Branson
+                Elizabeth Zulauf
               </Text>
               <View
                 style={
@@ -249,7 +250,7 @@ exports[`CommunityMembers renders with content 1`] = `
                     }
                     testID="Text"
                   >
-                    February 2019
+                    October 2018
                   </Text>
                 </Text>
               </View>
@@ -460,44 +461,46 @@ exports[`CommunityMembers should load next page 1`] = `
 - First value
 + Second value
 
-@@ -49,10 +49,44 @@
+@@ -51,10 +51,46 @@
               \\"id\\": \\"5\\",
-              \\"lastName\\": \\"Heathcote\\",
-              \\"picture\\": \\"libero qui recusandae\\",
+              \\"lastName\\": \\"Hyatt\\",
+              \\"picture\\": \\"recusandae ut nulla\\",
             },
           },
 +         Object {
 +           \\"__typename\\": \\"CommunityPersonEdge\\",
 +           \\"communityPermission\\": Object {
 +             \\"__typename\\": \\"CommunityPermission\\",
++             \\"createdAt\\": \\"2017-09-28T01:02:07.116Z\\",
 +             \\"id\\": \\"7\\",
-+             \\"permission\\": \\"admin\\",
++             \\"permission\\": \\"user\\",
 +           },
 +           \\"node\\": Object {
 +             \\"__typename\\": \\"Person\\",
-+             \\"createdAt\\": \\"2013-05-02T19:02:46.486Z\\",
-+             \\"firstName\\": \\"Immanuel\\",
-+             \\"fullName\\": \\"Immanuel Thiel\\",
++             \\"createdAt\\": \\"2015-06-20T04:51:30.834Z\\",
++             \\"firstName\\": \\"Alek\\",
++             \\"fullName\\": \\"Alek Lesch\\",
 +             \\"id\\": \\"8\\",
-+             \\"lastName\\": \\"Thiel\\",
-+             \\"picture\\": \\"incidunt accusantium sed\\",
++             \\"lastName\\": \\"Lesch\\",
++             \\"picture\\": \\"libero repudiandae esse\\",
 +           },
 +         },
 +         Object {
 +           \\"__typename\\": \\"CommunityPersonEdge\\",
 +           \\"communityPermission\\": Object {
 +             \\"__typename\\": \\"CommunityPermission\\",
++             \\"createdAt\\": \\"2015-09-24T22:48:18.365Z\\",
 +             \\"id\\": \\"9\\",
-+             \\"permission\\": \\"user\\",
++             \\"permission\\": \\"owner\\",
 +           },
 +           \\"node\\": Object {
 +             \\"__typename\\": \\"Person\\",
-+             \\"createdAt\\": \\"2010-08-26T04:24:18.529Z\\",
-+             \\"firstName\\": \\"Haylee\\",
-+             \\"fullName\\": \\"Haylee Klocko\\",
++             \\"createdAt\\": \\"2012-11-17T16:58:59.414Z\\",
++             \\"firstName\\": \\"Brooklyn\\",
++             \\"fullName\\": \\"Brooklyn Weimann\\",
 +             \\"id\\": \\"10\\",
-+             \\"lastName\\": \\"Klocko\\",
-+             \\"picture\\": \\"natus et eos\\",
++             \\"lastName\\": \\"Weimann\\",
++             \\"picture\\": \\"velit omnis et\\",
 +           },
 +         },
         ]
@@ -505,25 +508,25 @@ exports[`CommunityMembers should load next page 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -110,11 +144,11 @@
+@@ -112,11 +148,11 @@
                     \\"marginTop\\": 15,
                   },
                 ]
               }
             >
 -             11 Members
-+             52454 Members
++             44345 Members
             </Text>
           </RCTSafeAreaView>
         </View>
         <View
           onLayout={[Function onLayout]}
-@@ -417,10 +451,320 @@
+@@ -419,10 +455,320 @@
                         ]
                       }
                       testID=\\"Text\\"
                     >
-                      August 2014
+                      July 2016
 +                   </Text>
 +                 </Text>
 +               </View>
@@ -584,7 +587,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +               resizeMode=\\"cover\\"
 +               source={
 +                 Object {
-+                   \\"uri\\": \\"incidunt accusantium sed\\",
++                   \\"uri\\": \\"libero repudiandae esse\\",
 +                 }
 +               }
 +               style={
@@ -595,7 +598,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"width\\": 36,
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(192, 102, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(216, 115, 125)\\",
 +                   },
 +                   Object {
 +                     \\"marginRight\\": 8,
@@ -630,7 +633,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                   ]
 +                 }
 +               >
-+                 Immanuel
++                 Alek Lesch
 +               </Text>
 +               <View
 +                 style={
@@ -678,7 +681,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     }
 +                     testID=\\"Text\\"
 +                   >
-+                     May 2013
++                     September 2017
 +                   </Text>
 +                 </Text>
 +               </View>
@@ -739,7 +742,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +               resizeMode=\\"cover\\"
 +               source={
 +                 Object {
-+                   \\"uri\\": \\"natus et eos\\",
++                   \\"uri\\": \\"velit omnis et\\",
 +                 }
 +               }
 +               style={
@@ -750,7 +753,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     \\"width\\": 36,
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(167, 162, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(175, 55, 155)\\",
 +                   },
 +                   Object {
 +                     \\"marginRight\\": 8,
@@ -785,7 +788,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                   ]
 +                 }
 +               >
-+                 Haylee
++                 Brooklyn Weimann
 +               </Text>
 +               <View
 +                 style={
@@ -833,7 +836,7 @@ exports[`CommunityMembers should load next page 1`] = `
 +                     }
 +                     testID=\\"Text\\"
 +                   >
-+                     August 2010
++                     September 2015
                     </Text>
                   </Text>
                 </View>

@@ -1,32 +1,38 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
+import { useMutation } from '@apollo/react-hooks';
 
 import { Text, Button } from '../common';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { toggleLike } from '../../actions/celebration';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { CombinedFeedItem } from '../CommunityFeedItem';
-import { CommunityFeedPost } from '../CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
+import { navigatePush } from '../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import { TouchablePress } from '../Touchable/index.ios';
 
 import CommentIcon from './commentIcon.svg';
 import HeartIcon from './heartIcon.svg';
 import PrayerIcon from './prayerIcon.svg';
 import styles from './styles';
+import { CommunityFeedItemCommentLike } from './__generated__/CommunityFeedItemCommentLike';
+import { SET_FEED_ITEM_LIKE_MUTATION } from './queries';
+import {
+  SetFeedItemLike,
+  SetFeedItemLikeVariables,
+} from './__generated__/SetFeedItemLike';
 
-export interface CommentLikeComponentProps {
-  communityId: string;
-  item: CombinedFeedItem;
-  onRefresh: () => void;
+interface CommentLikeComponentProps {
+  feedItem: CommunityFeedItemCommentLike;
+  onCommentPress?: TouchablePress;
+  testID?: string;
 }
 
 export const CommentLikeComponent = ({
-  communityId,
-  item,
-  onRefresh,
+  feedItem,
+  onCommentPress,
 }: CommentLikeComponentProps) => {
   const {
     id,
@@ -37,23 +43,35 @@ export const CommentLikeComponent = ({
     likesCount,
     subject,
     subjectPerson,
-  } = item;
+  } = feedItem;
   const isPrayer =
     subject.__typename === 'Post' &&
-    (subject as CommunityFeedPost).postType === PostTypeEnum.prayer_request;
+    subject.postType === PostTypeEnum.prayer_request;
 
   const dispatch = useDispatch();
   const [isLikeDisabled, setIsLikeDisabled] = useState(false);
   const isMe = useIsMe(subjectPerson?.id || '');
 
+  const [setLike] = useMutation<SetFeedItemLike, SetFeedItemLikeVariables>(
+    SET_FEED_ITEM_LIKE_MUTATION,
+    { variables: { id, liked: !liked } },
+  );
+
+  const handleCommentPress = () =>
+    dispatch(
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        feedItemId: feedItem.id,
+        communityId: feedItem.community?.id,
+      }),
+    );
+
   const onPressLikeIcon = async () => {
     try {
       setIsLikeDisabled(true);
-      await dispatch(toggleLike(id, liked, communityId));
+      await setLike();
       !liked && dispatch(trackActionWithoutData(ACTIONS.ITEM_LIKED));
     } finally {
       setIsLikeDisabled(false);
-      onRefresh();
     }
   };
 
@@ -61,11 +79,18 @@ export const CommentLikeComponent = ({
     const displayCommentCount = commentsCount > 0;
 
     return (
-      <View style={styles.iconAndCountWrap}>
+      <View style={styles.commentWrap}>
         <Text style={styles.likeCount}>
           {displayCommentCount ? commentsCount : null}
         </Text>
-        <CommentIcon />
+        <Button
+          testID="CommentIconButton"
+          type="transparent"
+          onPress={onCommentPress || handleCommentPress}
+          viewProps={{ hitSlop: theme.hitSlop(25) }}
+        >
+          <CommentIcon />
+        </Button>
       </View>
     );
   };
@@ -74,7 +99,7 @@ export const CommentLikeComponent = ({
     const displayLikeCount = isMe && likesCount > 0;
 
     return (
-      <View style={styles.iconAndCountWrap}>
+      <View style={styles.likeWrap}>
         <Text style={styles.likeCount}>
           {displayLikeCount ? likesCount : null}
         </Text>
@@ -84,6 +109,7 @@ export const CommentLikeComponent = ({
           disabled={isLikeDisabled}
           onPress={onPressLikeIcon}
           style={styles.icon}
+          viewProps={{ hitSlop: theme.hitSlop(25) }}
         >
           {isPrayer ? (
             <PrayerIcon

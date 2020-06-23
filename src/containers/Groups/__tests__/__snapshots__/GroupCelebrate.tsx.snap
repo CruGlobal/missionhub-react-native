@@ -1,15 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`should render correctly 1`] = `
-<CelebrateFeed
+<CommunityFeed
+  communityId="1"
   itemNamePressable={true}
   onRefetch={[Function]}
-  organization={
-    Object {
-      "id": "1",
-      "user_created": false,
-    }
-  }
   testID="CelebrateFeed"
 />
 `;

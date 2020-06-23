@@ -1,147 +1,36 @@
 import gql from 'graphql-tag';
 
-export const COMMUNITY_PERMISSION_FRAGMENT = gql`
-  fragment CommunityPermission on CommunityPermission {
-    community {
-      id
-    }
-    permission
-  }
-`;
-
-export const COMMUNITY_PERSON_FRAGMENT = gql`
-  fragment CommunityPerson on Person {
-    id
-    firstName
-    lastName
-    picture
-    fullName
-    communityPermissions {
-      nodes {
-        ...CommunityPermission
-      }
-    }
-  }
-  ${COMMUNITY_PERMISSION_FRAGMENT}
-`;
-
-export const CELEBRATE_ITEM_FRAGMENT = gql`
-  fragment CelebrateItem on CommunityCelebrationItem {
-    id
-    adjectiveAttributeName
-    adjectiveAttributeValue
-    celebrateableId
-    celebrateableType
-    changedAttributeName
-    changedAttributeValue
-    commentsCount
-    liked
-    likesCount
-    objectDescription
-    subjectPerson {
-      ...CommunityPerson
-    }
-    subjectPersonName
-  }
-  ${COMMUNITY_PERSON_FRAGMENT}
-`;
-
-export const COMMUNITY_FEED_CHALLENGE_FRAGMENT = gql`
-  fragment CommunityFeedChallenge on CommunityChallenge {
-    __typename
-    id
-    title
-    acceptedCommunityChallengesList {
-      id
-      acceptedAt
-      completedAt
-    }
-  }
-`;
-
-export const COMMUNITY_FEED_STEP_FRAGMENT = gql`
-  fragment CommunityFeedStep on Step {
-    __typename
-    id
-    receiverStageAtCompletion {
-      id
-    }
-  }
-`;
-
-export const COMMUNITY_FEED_POST_FRAGMENT = gql`
-  fragment CommunityFeedPost on Post {
-    __typename
-    id
-    content
-    mediaContentType
-    mediaExpiringUrl
-    postType
-  }
-`;
-
-export const GLOBAL_COMMUNITY_FEED_ITEM_FRAGMENT = gql`
-  fragment GlobalCommunityFeedItem on FeedItem {
-    id
-    comments {
-      pageInfo {
-        totalCount
-      }
-    }
-    createdAt
-    liked
-    likesCount
-    read
-    subject {
-      ... on CommunityChallenge {
-        ...CommunityFeedChallenge
-      }
-      ... on Step {
-        ...CommunityFeedStep
-      }
-      ... on Post {
-        ...CommunityFeedPost
-      }
-    }
-    subjectPersonName
-  }
-  ${COMMUNITY_FEED_CHALLENGE_FRAGMENT}
-  ${COMMUNITY_FEED_STEP_FRAGMENT}
-  ${COMMUNITY_FEED_POST_FRAGMENT}
-`;
+import { COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT } from '../CommunityFeedItemContent/queries';
 
 export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
   fragment CommunityFeedItem on FeedItem {
     id
-    comments {
-      pageInfo {
-        totalCount
-      }
-    }
     createdAt
-    liked
-    likesCount
-    read
     subject {
+      __typename
       ... on CommunityChallenge {
-        ...CommunityFeedChallenge
+        id
       }
       ... on Step {
-        ...CommunityFeedStep
+        id
+        receiverStageAtCompletion {
+          id
+        }
       }
       ... on Post {
-        ...CommunityFeedPost
+        id
       }
     }
     subjectPerson {
-      ...CommunityPerson
+      id
     }
-    subjectPersonName
+    community {
+      id
+      name
+    }
+    ...CommunityFeedItemContent
   }
-  ${COMMUNITY_FEED_CHALLENGE_FRAGMENT}
-  ${COMMUNITY_FEED_STEP_FRAGMENT}
-  ${COMMUNITY_FEED_POST_FRAGMENT}
-  ${COMMUNITY_PERSON_FRAGMENT}
+  ${COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT}
 `;
 
 export const DELETE_POST = gql`

@@ -1,5 +1,6 @@
 import React from 'react';
 import { StatusBar, View, Image } from 'react-native';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-renderer';
 import { ScrollView } from 'react-native';
@@ -15,10 +16,12 @@ import { StepTypeEnum } from '../../../__generated__/globalTypes';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { insertName } from '../../utils/steps';
 import BackButton from '../BackButton';
-import { Post } from '../../containers/AcceptedStepDetailScreen/__generated__/Post';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
+import { navigatePush } from '../../actions/navigation';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 
 import styles from './styles';
+import { StepDetailPost } from './__generated__/StepDetailPost';
 
 interface StepDetailScreenProps {
   text?: string;
@@ -32,7 +35,7 @@ interface StepDetailScreenProps {
   Banner?: React.ReactNode;
   Input?: React.ReactNode;
   bottomButtonProps?: BottomButtonProps;
-  post?: Post | null;
+  post?: StepDetailPost;
 }
 
 const StepDetailScreen = ({
@@ -60,6 +63,16 @@ const StepDetailScreen = ({
   } = styles;
   const { t } = useTranslation('stepDetail');
   const aspectRatio = useAspectRatio(post?.mediaExpiringUrl);
+  const dispatch = useDispatch();
+
+  const handleOpenPost = () => {
+    dispatch(
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        feedItemId: post?.feedItem.id,
+        communityId: post?.feedItem.community?.id,
+      }),
+    );
+  };
 
   const renderPostSection = () => {
     if (post) {
@@ -77,7 +90,8 @@ const StepDetailScreen = ({
                     format={'MMM D @ LT'}
                   />
                   <Text
-                    // TODO Add openPost action
+                    testID={'openPostButton'}
+                    onPress={handleOpenPost}
                     style={{
                       paddingLeft: 10,
                       color: theme.parakeetBlue,

@@ -11,8 +11,8 @@ import CommunitiesIcon from '../../../assets/images/mainNav/communitiesIcon.svg'
 import NotificationsIcon from '../../../assets/images/mainNav/notificationsIcon.svg';
 
 import styles from './styles';
-import { GET_UNREAD_COMMENTS_COUNT } from './queries';
-import { getUnreadCommentsCount } from './__generated__/getUnreadCommentsCount';
+import { GET_UNREAD_NOTIFICATION_STATUS } from './queries';
+import { GetUnreadNotificationStatus } from './__generated__/GetUnreadNotificationStatus';
 
 interface TabIconProps {
   name: string;
@@ -20,14 +20,23 @@ interface TabIconProps {
 }
 
 const TabIcon = ({ name, tintColor }: TabIconProps) => {
-  const { data: { unreadCommentsCount = 0 } = {} } = useQuery<
-    getUnreadCommentsCount
-  >(GET_UNREAD_COMMENTS_COUNT, {
-    skip: name != 'notifications' && name != 'communities',
+  const {
+    data: { notifications: { nodes = [] } = {}, notificationState } = {},
+  } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS, {
+    skip: name != 'notifications',
     pollInterval: 30000,
   });
+  const latestNotification = nodes[0]?.createdAt;
   const iconSize = isAndroid ? 22 : 24;
-  const showNotification = unreadCommentsCount > 0;
+
+  const showNotification = () => {
+    switch (name) {
+      case 'notifications':
+        return notificationState?.lastReadDateTime !== latestNotification;
+      default:
+        return false;
+    }
+  };
 
   const icon = () => {
     const props = {
@@ -49,7 +58,7 @@ const TabIcon = ({ name, tintColor }: TabIconProps) => {
 
   return (
     <Flex value={1} align="center" justify="center">
-      {showNotification ? (
+      {showNotification() ? (
         <Flex style={{ position: 'relative' }}>
           {icon()}
           <Flex style={styles.badge} />

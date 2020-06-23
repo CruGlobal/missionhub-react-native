@@ -29,7 +29,7 @@ const mePerson = {
 
 const store = configureStore([thunk])({
   auth: { person: mePerson },
-  people: { allByOrg: { personal: { people: { [myId]: mePerson } } } },
+  people: { people: { [myId]: mePerson } },
   stages: { stages: [stage] },
   onboarding: { currentlyOnboarding: false },
 });
@@ -95,13 +95,12 @@ describe('SelectStageScreen next', () => {
     });
 
     it('should reload journey', () => {
-      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
+      expect(reloadJourney).toHaveBeenCalledWith(myId);
     });
 
     it('should navigate to CelebrationScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
         personId: myId,
-        orgId,
       });
     });
 
@@ -138,13 +137,12 @@ describe('SelectStageScreen next', () => {
     });
 
     it('should reload journey', () => {
-      expect(reloadJourney).toHaveBeenCalledWith(myId, orgId);
+      expect(reloadJourney).toHaveBeenCalledWith(myId);
     });
 
     it('should navigate to SelectStepScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(SELECT_STEP_SCREEN, {
         personId: myId,
-        organization: { id: orgId },
       });
     });
 

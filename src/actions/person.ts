@@ -3,33 +3,23 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import {
-  CONTACT_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  MEMBER_PERSON_SCREEN,
-  ME_PERSONAL_PERSON_SCREEN,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  ME_COMMUNITY_PERSON_SCREEN,
-} from '../containers/Groups/AssignedPersonScreen/constants';
-import { UNASSIGNED_PERSON_SCREEN } from '../containers/Groups/UnassignedPersonScreen';
-import {
   UPDATE_PERSON_ATTRIBUTES,
   DELETE_PERSON,
   ACTIONS,
   LOAD_PERSON_DETAILS,
   ORG_PERMISSIONS,
 } from '../constants';
-import { hasOrgPermissions, exists } from '../utils/common';
-import {
-  personSelector,
-  orgPermissionSelector,
-  contactAssignmentSelector,
-} from '../selectors/people';
-import { organizationSelector } from '../selectors/organizations';
+import { exists } from '../utils/common';
 import { REQUESTS } from '../api/routes';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
 import { AuthState } from '../reducers/auth';
+import { RootState } from '../reducers';
+import {
+  ME_PERSON_TABS,
+  PERSON_TABS,
+} from '../containers/PersonScreen/PersonTabs';
+import { personSelector, contactAssignmentSelector } from '../selectors/people';
 
 import callApi from './api';
 import { trackActionWithoutData, setAnalyticsMinistryMode } from './analytics';
@@ -56,7 +46,7 @@ export const getMe = (extraInclude?: string) => async (
 };
 
 // @ts-ignore
-export function getPersonDetails(id, orgId) {
+export function getPersonDetails(id) {
   const personInclude =
     'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
@@ -75,17 +65,10 @@ export function getPersonDetails(id, orgId) {
     const { response: person } = await dispatch(
       callApi(REQUESTS.GET_PERSON, query),
     );
-    const orgPermission =
-      orgId &&
-      (person.organizational_permissions || []).find(
-        // @ts-ignore
-        o => o.organization_id === orgId,
-      );
+
     return dispatch({
       type: LOAD_PERSON_DETAILS,
       person,
-      orgId,
-      org: orgPermission && orgPermission.organization,
     });
   };
 }
@@ -421,131 +404,48 @@ export function createContactAssignment(
       callApi(REQUESTS.UPDATE_PERSON, { personId: personReceiverId }, data),
     );
     dispatch(trackActionWithoutData(ACTIONS.ASSIGNED_TO_ME));
-    return dispatch(getPersonDetails(personReceiverId, organizationId));
+    return dispatch(getPersonDetails(personReceiverId));
   };
 }
 
-// @ts-ignore
-export function deleteContactAssignment(id, personId, personOrgId, note = '') {
-  // @ts-ignore
-  return async dispatch => {
-    const data = {
-      data: {
-        type: 'contact_assignment',
-        attributes: {
-          unassignment_reason: note,
-        },
-      },
-    };
+export function deleteContactAssignment(personId: string) {
+  return async (
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
+    getState: () => RootState,
+  ) => {
+    const { auth, people } = getState();
+
+    const person = personSelector({ people }, { personId });
+    const { id: contactAssignmentId } =
+      contactAssignmentSelector({ auth }, { person }) || {};
 
     await dispatch(
-      callApi(
-        REQUESTS.DELETE_CONTACT_ASSIGNMENT,
-        { contactAssignmentId: id },
-        data,
-      ),
+      callApi(REQUESTS.DELETE_CONTACT_ASSIGNMENT, {
+        contactAssignmentId,
+      }),
     );
 
     apolloClient.query({ query: STEPS_QUERY });
     return dispatch({
       type: DELETE_PERSON,
       personId,
-      personOrgId,
     });
   };
 }
 
-// @ts-ignore
-export function navToPersonScreen(person, org, props = {}) {
-  // @ts-ignore
-  return (dispatch, getState) => {
-    const organization = org ? org : {};
-    const { auth, people, organizations } = getState();
-    const orgId = organization.id;
-    const personId = person.id;
+export function navToPersonScreen(personId: string) {
+  return (
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
+    getState: () => RootState,
+  ) => {
+    const { auth } = getState();
 
-    const selectorOrg =
-      organizationSelector({ organizations }, { orgId }) || organization;
-    //TODO Creating a new object every time will cause shallow comparisons to fail and lead to unnecessary re-rendering
-
-    const selectorPerson =
-      personSelector({ people }, { orgId, personId }) || person;
-
-    const contactAssignment = contactAssignmentSelector(
-      { auth },
-      { person: selectorPerson, orgId },
-    );
-    const authPerson = auth.person;
+    const isMe = auth.person.id === personId;
 
     dispatch(
-      navigatePush(
-        getPersonScreenRoute(
-          authPerson,
-          selectorPerson,
-          selectorOrg,
-          contactAssignment,
-        ),
-        {
-          ...props,
-          person: selectorPerson,
-          organization: selectorOrg,
-        },
-      ),
+      navigatePush(isMe ? ME_PERSON_TABS : PERSON_TABS, {
+        personId,
+      }),
     );
   };
-}
-
-export function getPersonScreenRoute(
-  // @ts-ignore
-  mePerson,
-  // @ts-ignore
-  person,
-  // @ts-ignore
-  organization,
-  // @ts-ignore
-  contactAssignment,
-) {
-  const isMe = person.id === mePerson.id;
-
-  const isMember = hasOrgPermissions(
-    orgPermissionSelector(
-      {},
-      {
-        person: person,
-        organization,
-      },
-    ),
-  );
-
-  const isUserCreatedOrg = organization.user_created;
-  const isGroups = mePerson.user.groups_feature;
-
-  if (isMe) {
-    if (isMember) {
-      if (isGroups) {
-        return IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN;
-      }
-
-      return ME_COMMUNITY_PERSON_SCREEN;
-    }
-
-    return ME_PERSONAL_PERSON_SCREEN;
-  }
-
-  if (isMember) {
-    if (isUserCreatedOrg) {
-      return IS_USER_CREATED_MEMBER_PERSON_SCREEN;
-    }
-    if (isGroups) {
-      return IS_GROUPS_MEMBER_PERSON_SCREEN;
-    }
-
-    return MEMBER_PERSON_SCREEN;
-  }
-
-  if (contactAssignment) {
-    return CONTACT_PERSON_SCREEN;
-  }
-
-  return UNASSIGNED_PERSON_SCREEN;
 }

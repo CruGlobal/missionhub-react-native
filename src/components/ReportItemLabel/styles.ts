@@ -7,6 +7,6 @@ export default StyleSheet.create({
     color: theme.inactiveColor,
   },
   user: {
-    color: theme.white,
+    color: theme.grey,
   },
 });

@@ -35,7 +35,7 @@ import {
   navigatePush,
   navigateReset,
   navigateToMainTabs,
-  navigateToCelebrateComments,
+  navigateToFeedItemComments,
 } from '../navigation';
 import { refreshCommunity } from '../organizations';
 import { reloadGroupChallengeFeed } from '../challenges';
@@ -478,7 +478,6 @@ describe('askNotificationPermissions', () => {
     });
 
     const finish = jest.fn();
-    const getPersonResult = { type: LOAD_PERSON_DETAILS, person };
     const navToPersonScreenResult = { type: 'navigated to person screen' };
     const refreshCommunityResult = organization;
     const reloadGroupChallengeFeedResult = { type: 'reload challenge feed' };
@@ -487,7 +486,6 @@ describe('askNotificationPermissions', () => {
     beforeEach(() => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
       store.clearActions();
-      (getPersonDetails as jest.Mock).mockReturnValue(getPersonResult);
       (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
       (refreshCommunity as jest.Mock).mockReturnValue(
         () => refreshCommunityResult,
@@ -495,7 +493,7 @@ describe('askNotificationPermissions', () => {
       (reloadGroupChallengeFeed as jest.Mock).mockReturnValue(
         reloadGroupChallengeFeedResult,
       );
-      (navigateToCelebrateComments as jest.Mock).mockReturnValue(
+      (navigateToFeedItemComments as jest.Mock).mockReturnValue(
         navToCelebrateResult,
       );
       (navigateToMainTabs as jest.Mock).mockReturnValue(
@@ -580,11 +578,9 @@ describe('askNotificationPermissions', () => {
         organization_id: '2',
       });
 
-      expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
-        getPersonResult,
         navToPersonScreenResult,
       ]);
     });
@@ -607,11 +603,9 @@ describe('askNotificationPermissions', () => {
         },
       });
 
-      expect(getPersonDetails).toHaveBeenCalledWith('1', '2');
-      expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: '2' });
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'person_steps' },
-        getPersonResult,
         navToPersonScreenResult,
       ]);
     });
@@ -619,7 +613,7 @@ describe('askNotificationPermissions', () => {
     it("should deep link to ME user's contact screen", async () => {
       await testNotification({ ...baseNotification, screen: 'my_steps' });
 
-      expect(navToPersonScreen).toHaveBeenCalledWith(person);
+      expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
         { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'my_steps' },
         navToPersonScreenResult,
@@ -719,7 +713,7 @@ describe('askNotificationPermissions', () => {
     });
 
     describe('celebrate_item', () => {
-      it('should navigate to CELEBRATION_DETAIL_SCREEN', async () => {
+      it('should navigate to FEED_ITEM_DETAIL_SCREEN', async () => {
         await testNotification({
           ...baseNotification,
           screen: 'celebrate_item',
@@ -728,9 +722,10 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
-          organization,
+        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
+          organization.id,
         );
       });
       it('should not navigate if no organization_id', async () => {
@@ -742,7 +737,23 @@ describe('askNotificationPermissions', () => {
         } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+        expect(getCelebrateFeed).not.toHaveBeenCalledWith();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+      });
+      it('should navigate to COMMUNITY_TABS if no celebrate_item_id', async () => {
+        await testNotification(({
+          ...baseNotification,
+          screen: 'celebrate_item',
+          organization_id: organization.id,
+          screen_extra_data: {},
+        } as unknown) as PushNotificationPayloadData);
+
+        expect(refreshCommunity).not.toHaveBeenCalled();
+        expect(getCelebrateFeed).not.toHaveBeenCalledWith();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+          communityId: organization.id,
+        });
       });
     });
 
@@ -757,9 +768,9 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigateToCelebrateComments).toHaveBeenCalledWith(
-          organization,
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
+          organization.id,
         );
       });
 
@@ -773,7 +784,7 @@ describe('askNotificationPermissions', () => {
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalled();
-        expect(navigateToCelebrateComments).not.toHaveBeenCalled();
+        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
       });
     });
 

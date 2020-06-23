@@ -15,6 +15,8 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import moment from 'moment';
 import 'moment/locale/es';
 import 'moment/locale/tr';
+import 'moment/locale/pt';
+import 'moment/locale/nb';
 import appsFlyer from 'react-native-appsflyer';
 import ApolloClient from 'apollo-client';
 import { NormalizedCacheObject } from 'apollo-cache-inmemory';
@@ -41,6 +43,7 @@ import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
 import { navigateToPostAuthScreen } from './actions/auth/auth';
+import { getFeatureFlags } from './actions/misc';
 import { createApolloClient } from './apolloClient';
 
 appsFlyer.initSdk({
@@ -81,6 +84,7 @@ export default class App extends Component {
     store.dispatch(configureNotificationHandler());
     // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
+    getFeatureFlags();
     moment.locale(i18n.language.split('-')[0]);
     this.collectLifecycleData();
     AppState.addEventListener('change', this.handleAppStateChange);

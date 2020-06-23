@@ -2,21 +2,18 @@ import ReactNative from 'react-native';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
 
+import { apolloClient } from '../../apolloClient';
 import { trackActionWithoutData } from '../analytics';
 import {
   openCommunicationLink,
   navigateToStageScreen,
-  assignContactAndPickStage,
   navigateToAddStepFlow,
+  GET_FEATURE_FLAGS,
+  getFeatureFlags,
 } from '../misc';
-import {
-  createContactAssignment,
-  updatePersonAttributes,
-  getPersonScreenRoute,
-} from '../person';
+import { createContactAssignment, updatePersonAttributes } from '../person';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
-import { CONTACT_PERSON_SCREEN } from '../../containers/Groups/AssignedPersonScreen/constants';
 import {
   contactAssignmentSelector,
   orgPermissionSelector,
@@ -41,6 +38,8 @@ jest.mock('../../utils/common');
 const mockStore = state => configureStore([thunk])(state);
 // @ts-ignore
 let store;
+
+apolloClient.query = jest.fn();
 
 const trackActionResult = { type: 'tracked' };
 const reloadJourneyResult = { type: 'reloaded journey' };
@@ -88,8 +87,6 @@ beforeEach(() => {
   // @ts-ignore
   createContactAssignment.mockReturnValue(createContactAssignmentResult);
   // @ts-ignore
-  getPersonScreenRoute.mockReturnValue(CONTACT_PERSON_SCREEN);
-  // @ts-ignore
   orgPermissionSelector.mockReturnValue(orgPermission);
   // @ts-ignore
   hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
@@ -103,6 +100,14 @@ beforeEach(() => {
   });
   // @ts-ignore
   navigateReplace.mockReturnValue(navigateReplaceResult);
+});
+
+describe('getFeatureFlags', () => {
+  getFeatureFlags();
+
+  expect(apolloClient.query).toHaveBeenCalledWith({
+    query: GET_FEATURE_FLAGS,
+  });
 });
 
 describe('openCommunicationLink', () => {
@@ -134,40 +139,6 @@ describe('openCommunicationLink', () => {
     expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
     expect(ReactNative.Linking.openURL).not.toHaveBeenCalled();
     expect(trackActionWithoutData).not.toHaveBeenCalled();
-  });
-});
-
-describe('assignContactAndPickStage', () => {
-  it('creates a new contact assignment and navigates to the stage screen', async () => {
-    // @ts-ignore
-    await store.dispatch(assignContactAndPickStage(person, organization));
-
-    expect(createContactAssignment).toHaveBeenCalledWith(orgId, myId, personId);
-    expect(contactAssignmentSelector).toHaveBeenCalledWith(state, {
-      person,
-      orgId,
-    });
-    expect(getPersonScreenRoute).toHaveBeenCalledWith(
-      mePerson,
-      person,
-      organization,
-      contactAssignment,
-    );
-    expect(navigateReplace).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
-      person,
-      organization,
-    });
-    expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
-      personId,
-      orgId: orgId,
-      section: 'people',
-      subsection: 'person',
-    });
-    // @ts-ignore
-    expect(store.getActions()).toEqual([
-      navigateReplaceResult,
-      navigatePushResult,
-    ]);
   });
 });
 

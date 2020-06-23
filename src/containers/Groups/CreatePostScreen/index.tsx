@@ -11,7 +11,10 @@ import {
   ANALYTICS_EDIT_MODE,
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
-import { getAnalyticsPermissionType } from '../../../utils/analytics';
+import {
+  getAnalyticsPermissionType,
+  getPostTypeAnalytics,
+} from '../../../utils/analytics';
 import { Input, Text, Button, Touchable } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
@@ -29,11 +32,18 @@ import {
   TrackStateContext,
 } from '../../../actions/analytics';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
-import { CommunityFeedPost } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
+import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
+import {
+  GetCommunityFeed,
+  GetCommunityFeedVariables,
+} from '../../CommunityFeed/__generated__/GetCommunityFeed';
 
 import PhotoIcon from './photoIcon.svg';
 import VideoIcon from './videoIcon.svg';
+import SendIcon from './sendIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
@@ -50,34 +60,20 @@ interface CreatePostNavParams extends CreatePostScreenParams {
   postType: PostTypeEnum;
 }
 interface UpdatePostNavParams extends CreatePostScreenParams {
-  post: CommunityFeedPost;
+  post: CommunityFeedItem_subject_Post;
 }
-type CreatePostScreenNavParams = CreatePostNavParams | UpdatePostNavParams;
-
-const getPostTypeAnalytics = (postType: PostTypeEnum) => {
-  switch (postType) {
-    case PostTypeEnum.story:
-      return 'god story';
-    case PostTypeEnum.prayer_request:
-      return 'prayer request';
-    case PostTypeEnum.question:
-      return 'spritual question';
-    case PostTypeEnum.help_request:
-      return 'care request';
-    case PostTypeEnum.thought:
-      return 'whats on your mind';
-    case PostTypeEnum.announcement:
-      return 'announcement';
-  }
-};
+export type CreatePostScreenNavParams =
+  | CreatePostNavParams
+  | UpdatePostNavParams;
 
 export const CreatePostScreen = () => {
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
 
-  const onComplete: () => void = useNavigationParam('onComplete');
   const communityId: string = useNavigationParam('communityId');
-  const post: CommunityFeedPost | undefined = useNavigationParam('post');
+  const post: CommunityFeedItem_subject_Post | undefined = useNavigationParam(
+    'post',
+  );
   const navPostType: PostTypeEnum | undefined = useNavigationParam('postType');
 
   const [postType] = useState<PostTypeEnum>(
@@ -103,12 +99,73 @@ export const CreatePostScreen = () => {
     },
   });
 
-  const [createPost] = useMutation<CreatePost, CreatePostVariables>(
-    CREATE_POST,
-  );
-  const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
-    UPDATE_POST,
-  );
+  const [createPost, { error: errorCreatePost }] = useMutation<
+    CreatePost,
+    CreatePostVariables
+  >(CREATE_POST, {
+    update: (cache, { data }) => {
+      const originalData = cache.readQuery<
+        GetCommunityFeed,
+        GetCommunityFeedVariables
+      >({
+        query: GET_COMMUNITY_FEED,
+        variables: { communityId },
+      });
+      cache.writeQuery({
+        query: GET_COMMUNITY_FEED,
+        variables: { communityId },
+        data: {
+          ...originalData,
+          community: {
+            ...originalData?.community,
+            feedItems: {
+              ...originalData?.community.feedItems,
+              nodes: [
+                data?.createPost?.post?.feedItem,
+                ...(originalData?.community.feedItems.nodes || []),
+              ],
+            },
+          },
+        },
+      });
+      try {
+        const originalFilteredData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId,
+            subjectType: mapPostTypeToFeedType(postType),
+          },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId,
+            subjectType: mapPostTypeToFeedType(postType),
+          },
+          data: {
+            ...originalFilteredData,
+            community: {
+              ...originalFilteredData?.community,
+              feedItems: {
+                ...originalFilteredData?.community.feedItems,
+                nodes: [
+                  data?.createPost?.post?.feedItem,
+                  ...(originalFilteredData?.community.feedItems.nodes || []),
+                ],
+              },
+            },
+          },
+        });
+      } catch {}
+    },
+  });
+  const [updatePost, { error: errorUpdatePost }] = useMutation<
+    UpdatePost,
+    UpdatePostVariables
+  >(UPDATE_POST);
 
   const hasImage = mediaType?.includes('image');
   const hasVideo = mediaType?.includes('video');
@@ -135,7 +192,7 @@ export const CreatePostScreen = () => {
     getMediaHeight();
   }, [mediaData]);
 
-  const savePost = () => {
+  const savePost = async () => {
     if (!text) {
       return;
     }
@@ -143,7 +200,7 @@ export const CreatePostScreen = () => {
     Keyboard.dismiss();
 
     if (post) {
-      updatePost({
+      await updatePost({
         variables: {
           input: {
             id: post.id,
@@ -156,7 +213,7 @@ export const CreatePostScreen = () => {
         },
       });
     } else {
-      createPost({
+      await createPost({
         variables: {
           input: {
             content: text,
@@ -169,7 +226,6 @@ export const CreatePostScreen = () => {
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
-    onComplete();
     dispatch(navigateBack());
   };
 
@@ -189,6 +245,29 @@ export const CreatePostScreen = () => {
     );
   };
 
+  const renderSendButton = () =>
+    text ? (
+      post ? (
+        <Button
+          type="transparent"
+          onPress={savePost}
+          testID="CreatePostButton"
+          text={t('done')}
+          style={styles.headerButton}
+          buttonTextStyle={styles.createPostButtonText}
+        />
+      ) : (
+        <Button
+          type="transparent"
+          onPress={savePost}
+          testID="CreatePostButton"
+          style={styles.headerButton}
+        >
+          <SendIcon style={styles.icon} />
+        </Button>
+      )
+    ) : null;
+
   const renderHeader = () => (
     <Header
       left={
@@ -199,18 +278,7 @@ export const CreatePostScreen = () => {
           {t(`postTypes:${mapPostTypeToFeedType(postType)}`)}
         </Text>
       }
-      right={
-        text ? (
-          <Button
-            type="transparent"
-            onPress={savePost}
-            testID="CreatePostButton"
-            text={t('done')}
-            style={styles.headerButton}
-            buttonTextStyle={styles.createPostButtonText}
-          />
-        ) : null
-      }
+      right={renderSendButton()}
     />
   );
 
@@ -268,6 +336,16 @@ export const CreatePostScreen = () => {
     <View style={styles.container}>
       {renderHeader()}
       <View style={styles.lineBreak} />
+      <ErrorNotice
+        message={t('errorCreatingPost')}
+        error={errorCreatePost}
+        refetch={savePost}
+      />
+      <ErrorNotice
+        message={t('errorUpdatingPost')}
+        error={errorUpdatePost}
+        refetch={savePost}
+      />
       <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
         <View style={styles.postLabelRow}>
           <PostTypeLabel type={mapPostTypeToFeedType(postType)} />

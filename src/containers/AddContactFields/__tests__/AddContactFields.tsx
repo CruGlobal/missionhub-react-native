@@ -20,12 +20,14 @@ const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 const getPersonDetailsResults = { type: 'get person details' };
 const navigatePushResults = { type: 'navigate push' };
 const myMockId = '2';
+const personId = '3';
 const initialState = { auth: { person: { id: myMockId } } };
 const onUpdateData = jest.fn();
 const emptyPerson = {
   id: '',
   firstName: '',
   lastName: '',
+  fullName: '',
   relationshipType: null,
   stage: null,
   picture: null,
@@ -68,6 +70,7 @@ it('render correctly | With Person | With Picture', () => {
         relationshipType: null,
         firstName: 'Christian',
         lastName: 'Huffman',
+        fullName: 'Christian Huffman',
         stage: {
           name: 'Forgiven',
           id: '2',
@@ -94,11 +97,81 @@ it('render correctly | With Person | No Picture', () => {
         relationshipType: null,
         firstName: 'Christian',
         lastName: 'Huffman',
+        fullName: 'Christian Huffman',
         stage: {
           id: '2',
           name: 'Forgiven',
           __typename: 'Stage',
         },
+        picture: null,
+      }}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
+});
+
+it('render correctly | With Person | No Stage', () => {
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      next={next}
+      organization={null}
+      onUpdateData={onUpdateData}
+      person={{
+        id: myMockId,
+        relationshipType: null,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        fullName: 'Christian Huffman',
+        stage: null,
+        picture: null,
+      }}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
+});
+
+it('render correctly | With Person | Not Me | No Person Category', () => {
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      next={next}
+      organization={null}
+      onUpdateData={onUpdateData}
+      person={{
+        id: personId,
+        relationshipType: null,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        fullName: 'Christian Huffman',
+        stage: null,
+        picture: null,
+      }}
+    />,
+    {
+      initialState,
+    },
+  );
+  snapshot();
+});
+
+it('render correctly | With Person | Not Me | With Person Category', () => {
+  const { snapshot } = renderWithContext(
+    <AddContactFields
+      next={next}
+      organization={null}
+      onUpdateData={onUpdateData}
+      person={{
+        id: personId,
+        relationshipType: RelationshipTypeEnum.family,
+        firstName: 'Christian',
+        lastName: 'Huffman',
+        fullName: 'Christian Huffman',
+        stage: null,
         picture: null,
       }}
     />,
@@ -130,6 +203,7 @@ describe('calls methods', () => {
       firstName: 'Christian',
       id: '',
       lastName: '',
+      fullName: '',
       relationshipType: null,
       stage: null,
       picture: null,
@@ -155,6 +229,7 @@ describe('calls methods', () => {
     expect(onUpdateData).toHaveBeenLastCalledWith({
       firstName: '',
       lastName: 'Huffman',
+      fullName: '',
       id: '',
       relationshipType: null,
       stage: null,
@@ -174,6 +249,7 @@ describe('calls methods', () => {
           relationshipType: RelationshipTypeEnum.family,
           firstName: 'Christian',
           lastName: 'Huffman',
+          fullName: 'Christian Huffman',
           stage: {
             id: '2',
             name: 'Forgiven',
@@ -195,6 +271,7 @@ describe('calls methods', () => {
     expect(onUpdateData).toHaveBeenLastCalledWith({
       firstName: 'Christian',
       lastName: 'Huffman',
+      fullName: 'Christian Huffman',
       id: '1',
       relationshipType: RelationshipTypeEnum.friend,
       stage: {
@@ -217,6 +294,7 @@ describe('calls methods', () => {
           relationshipType: RelationshipTypeEnum.family,
           firstName: 'Christian',
           lastName: 'Huffman',
+          fullName: 'Christian Huffman',
           stage: {
             name: 'Forgiven',
             id: '2',
@@ -237,6 +315,7 @@ describe('calls methods', () => {
     expect(onUpdateData).toHaveBeenLastCalledWith({
       firstName: 'Christian',
       lastName: 'Huffman',
+      fullName: 'Christian Huffman',
       id: myMockId,
       relationshipType: RelationshipTypeEnum.family,
       stage: {
@@ -259,6 +338,7 @@ describe('calls methods', () => {
           relationshipType: RelationshipTypeEnum.family,
           firstName: 'Christian',
           lastName: 'Huffman',
+          fullName: 'Christian Huffman',
           stage: {
             __typename: 'Stage',
             id: '2',
@@ -279,6 +359,7 @@ describe('calls methods', () => {
         relationshipType: RelationshipTypeEnum.family,
         firstName: 'Christian',
         lastName: 'Huffman',
+        fullName: 'Christian Huffman',
         stage: {
           __typename: 'Stage',
           id: '2',

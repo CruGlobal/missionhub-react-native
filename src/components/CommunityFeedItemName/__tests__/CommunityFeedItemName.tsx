@@ -3,31 +3,27 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { CommunityFeedItemName } from '../index';
 import { renderWithContext } from '../../../../testUtils';
-import { mockFragment } from '../../../../testUtils/apolloMockClient';
-import { navToPersonScreen } from '../../../actions/person';
-import { COMMUNITY_PERSON_FRAGMENT } from '../../CommunityFeedItem/queries';
-import { CommunityPerson } from '../../CommunityFeedItem/__generated__/CommunityPerson';
+import { COMMUNITY_MEMBER_TABS } from '../../../containers/Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
+import { navigatePush } from '../../../actions/navigation';
 
-jest.mock('../../../actions/person');
+jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/people');
 
-const person = mockFragment<CommunityPerson>(COMMUNITY_PERSON_FRAGMENT);
+const name = 'Test Person';
+const personId = '1';
+const communityId = '2';
 
-const name = `${person.firstName} ${person.lastName}`;
-
-const communityId = '235234';
-
-const navToPersonScreenResult = { type: 'navigated to person screen' };
+const navigatePushResult = { type: 'navigatePush' };
 
 beforeEach(() => {
-  (navToPersonScreen as jest.Mock).mockReturnValue(navToPersonScreenResult);
+  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
 });
 
 it('renders correctly without name', () => {
   renderWithContext(
     <CommunityFeedItemName
       name={null}
-      person={person}
+      personId={personId}
       communityId={communityId}
       pressable={true}
     />,
@@ -38,7 +34,7 @@ it('renders correctly with name', () => {
   renderWithContext(
     <CommunityFeedItemName
       name={name}
-      person={person}
+      personId={personId}
       communityId={communityId}
       pressable={true}
     />,
@@ -49,7 +45,7 @@ it('renders correctly not pressable', () => {
   renderWithContext(
     <CommunityFeedItemName
       name={name}
-      person={person}
+      personId={personId}
       communityId={communityId}
       pressable={false}
     />,
@@ -60,7 +56,7 @@ it('navigates to person screen', () => {
   const { store, getByTestId } = renderWithContext(
     <CommunityFeedItemName
       name={name}
-      person={person}
+      personId={personId}
       communityId={communityId}
       pressable={true}
     />,
@@ -68,22 +64,20 @@ it('navigates to person screen', () => {
 
   fireEvent.press(getByTestId('NameButton'));
 
-  expect(navToPersonScreen).toHaveBeenCalledWith(person, { id: communityId });
-  expect(store.getActions()).toEqual([navToPersonScreenResult]);
+  expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_MEMBER_TABS, {
+    personId,
+    communityId,
+  });
+  expect(store.getActions()).toEqual([navigatePushResult]);
 });
 
 it('does not navigate if not apart of community', () => {
   const { store, getByTestId } = renderWithContext(
-    <CommunityFeedItemName
-      name={name}
-      person={null}
-      communityId={communityId}
-      pressable={true}
-    />,
+    <CommunityFeedItemName name={name} personId={undefined} pressable={true} />,
   );
 
   fireEvent.press(getByTestId('NameButton'));
 
-  expect(navToPersonScreen).not.toHaveBeenCalled();
+  expect(navigatePush).not.toHaveBeenCalled();
   expect(store.getActions()).toEqual([]);
 });

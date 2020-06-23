@@ -32,51 +32,53 @@ import { REQUESTS } from '../../api/routes';
 import { trackActionWithoutData, setAnalyticsMinistryMode } from '../analytics';
 import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
+import { PeopleState } from '../../reducers/people';
+import { OrganizationsState } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
 import {
-  CONTACT_PERSON_SCREEN,
-  IS_USER_CREATED_MEMBER_PERSON_SCREEN,
-  IS_GROUPS_MEMBER_PERSON_SCREEN,
-  MEMBER_PERSON_SCREEN,
-  ME_PERSONAL_PERSON_SCREEN,
-  IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-  ME_COMMUNITY_PERSON_SCREEN,
-} from '../../containers/Groups/AssignedPersonScreen/constants';
-import { UNASSIGNED_PERSON_SCREEN } from '../../containers/Groups/UnassignedPersonScreen';
-import {
-  personSelector,
-  orgPermissionSelector,
-  contactAssignmentSelector,
-} from '../../selectors/people';
-import { organizationSelector } from '../../selectors/organizations';
+  ME_PERSON_TABS,
+  PERSON_TABS,
+} from '../../containers/PersonScreen/PersonTabs';
 
 jest.mock('../api');
 jest.mock('../navigation');
 jest.mock('../organizations');
-jest.mock('../../selectors/people');
 jest.mock('../../selectors/organizations');
 jest.mock('../analytics');
 
 const myId = '1';
+const personId = '2';
+const contactAssignmentId = '3';
 
 const mockStore = configureStore([thunk]);
 // @ts-ignore
 let store;
-// @ts-ignore
-let auth;
-// @ts-ignore
-let organizations;
-// @ts-ignore
-let people;
+let auth: AuthState;
+let organizations: OrganizationsState;
+let people: PeopleState;
 const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 const expectedIncludeWithContactAssignmentPerson =
   'contact_assignments.person,email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 
+const mePerson = { id: myId, user: { groups_feature: true } };
+const person = {
+  id: personId,
+  reverse_contact_assignments: [
+    { id: contactAssignmentId, assigned_to: { id: myId } },
+  ],
+};
+
 beforeEach(() => {
-  auth = { person: { id: myId, user: { groups_feature: true } } };
-  organizations = { all: {} };
-  people = { allByOrg: {} };
+  auth = { person: mePerson } as AuthState;
+  organizations = ({ all: [] } as unknown) as OrganizationsState;
+  people = {
+    people: {
+      [myId]: mePerson,
+      [personId]: person,
+    },
+  };
   store = mockStore({
     auth,
     organizations,
@@ -157,8 +159,6 @@ describe('getPersonDetails', () => {
       {
         type: LOAD_PERSON_DETAILS,
         person,
-        orgId,
-        org,
       },
     ]);
   });
@@ -597,32 +597,19 @@ describe('createContactAssignment', () => {
 });
 
 describe('deleteContactAssignment', () => {
-  const personId = '123';
-  const personOrgId = '456';
-  const contactAssignmentId = 1;
-
   const query = { contactAssignmentId };
-
-  const data = {
-    data: {
-      type: 'contact_assignment',
-      attributes: { unassignment_reason: '' },
-    },
-  };
 
   const callAPIResult = { type: 'call api' };
 
   const deleteAction = {
     type: DELETE_PERSON,
     personId,
-    personOrgId,
   };
 
   const testDelete = () => {
     expect(callApi).toHaveBeenCalledWith(
       REQUESTS.DELETE_CONTACT_ASSIGNMENT,
       query,
-      data,
     );
     // @ts-ignore
     expect(store.getActions()).toEqual([callAPIResult, deleteAction]);
@@ -634,19 +621,7 @@ describe('deleteContactAssignment', () => {
 
   it('should send the correct API request', async () => {
     // @ts-ignore
-    await store.dispatch(deleteContactAssignment(1, personId, personOrgId));
-
-    testDelete();
-  });
-
-  it('should send the correct API request with note', async () => {
-    const note = 'testNote';
-    data.data.attributes.unassignment_reason = note;
-
-    // @ts-ignore
-    await store.dispatch(
-      deleteContactAssignment(1, personId, personOrgId, note),
-    );
+    await store.dispatch(deleteContactAssignment(personId));
 
     testDelete();
   });
@@ -794,387 +769,33 @@ describe('GetPersonNote', () => {
 describe('navToPersonScreen', () => {
   const person = { id: '2' };
   const me = { id: myId };
-  const organization = { id: '111' };
   const navigatePushResult = { type: 'test' };
-  const contactAssignment = {};
 
   beforeEach(() => {
-    // @ts-ignore
-    navigatePush.mockReturnValue(navigatePushResult);
-    // @ts-ignore
-    callApi.mockReturnValue({});
+    (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
   });
 
   // @ts-ignore
   afterEach(() => expect(store.getActions()).toEqual([navigatePushResult]));
 
   describe('isMe', () => {
-    describe('isMember', () => {
-      beforeEach(() => {
-        // @ts-ignore
-        orgPermissionSelector.mockReturnValue({
-          permission_id: ORG_PERMISSIONS.ADMIN,
-        });
-        // @ts-ignore
-        organizationSelector.mockReturnValue(organization);
-        // @ts-ignore
-        personSelector.mockReturnValue(me);
-      });
+    it('navigates to me screen', () => {
+      // @ts-ignore
+      store.dispatch(navToPersonScreen(me.id));
 
-      afterEach(() => {
-        expect(organizationSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { organizations },
-          { orgId: organization.id },
-        );
-        expect(personSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { people },
-          { orgId: organization.id, personId: me.id },
-        );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(
-          {},
-          {
-            person: me,
-            organization,
-          },
-        );
-        expect(contactAssignmentSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { auth },
-          { person: me, orgId: organization.id },
-        );
-      });
-
-      describe('isGroups', () => {
-        it('navigates to groups community me screen', () => {
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(me, organization));
-
-          expect(navigatePush).toHaveBeenCalledWith(
-            IS_GROUPS_ME_COMMUNITY_PERSON_SCREEN,
-            {
-              person: me,
-              organization,
-            },
-          );
-        });
-      });
-
-      describe('is not Groups', () => {
-        it('navigates to non-groups community me screen', () => {
-          auth = { person: { id: myId, user: { groups_feature: false } } };
-          store = mockStore({
-            auth,
-            // @ts-ignore
-            organizations,
-            // @ts-ignore
-            people,
-          });
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(me, organization));
-
-          expect(navigatePush).toHaveBeenCalledWith(
-            ME_COMMUNITY_PERSON_SCREEN,
-            {
-              person: me,
-              organization,
-            },
-          );
-        });
-      });
-    });
-
-    describe('is not in org', () => {
-      it('navigates to me screen', () => {
-        // @ts-ignore
-        orgPermissionSelector.mockReturnValue(undefined);
-        // @ts-ignore
-        organizationSelector.mockReturnValue(undefined);
-        // @ts-ignore
-        personSelector.mockReturnValue(me);
-
-        // @ts-ignore
-        store.dispatch(navToPersonScreen(me, undefined));
-
-        expect(organizationSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { organizations },
-          { orgId: undefined },
-        );
-        expect(personSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { people },
-          { orgId: undefined, personId: me.id },
-        );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(
-          {},
-          {
-            person: me,
-            organization: {},
-          },
-        );
-        expect(contactAssignmentSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { auth },
-          { person: me, orgId: undefined },
-        );
-        expect(navigatePush).toHaveBeenCalledWith(ME_PERSONAL_PERSON_SCREEN, {
-          person: me,
-          organization: {},
-        });
+      expect(navigatePush).toHaveBeenCalledWith(ME_PERSON_TABS, {
+        personId: me.id,
       });
     });
   });
 
   describe('is not me', () => {
-    describe('isMember', () => {
-      beforeEach(() => {
-        // @ts-ignore
-        orgPermissionSelector.mockReturnValue({
-          permission_id: ORG_PERMISSIONS.USER,
-        });
-        // @ts-ignore
-        contactAssignmentSelector.mockReturnValue(undefined);
-        // @ts-ignore
-        organizationSelector.mockReturnValue(organization);
-        // @ts-ignore
-        personSelector.mockReturnValue(person);
-      });
-
+    it('navigates to contact person screen', () => {
       // @ts-ignore
-      const testResult = (route, testPerson, testOrg) => {
-        expect(organizationSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { organizations },
-          { orgId: testOrg.id },
-        );
-        expect(personSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { people },
-          { orgId: testOrg.id, personId: testPerson.id },
-        );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(
-          {},
-          {
-            person: testPerson,
-            organization: testOrg,
-          },
-        );
-        expect(contactAssignmentSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { auth },
-          { person: testPerson, orgId: testOrg.id },
-        );
-        expect(navigatePush).toHaveBeenCalledWith(route, {
-          person: testPerson,
-          organization: testOrg,
-        });
-      };
+      store.dispatch(navToPersonScreen(person.id));
 
-      describe('isUserCreatedOrg', () => {
-        it('navigates to user created member person screen', () => {
-          const userCreatedOrg = { ...organization, user_created: true };
-          // @ts-ignore
-          organizationSelector.mockReturnValue(userCreatedOrg);
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person, userCreatedOrg));
-
-          testResult(
-            IS_USER_CREATED_MEMBER_PERSON_SCREEN,
-            person,
-            userCreatedOrg,
-          );
-        });
-      });
-
-      describe('isGroups', () => {
-        it('navigates to groups member person screen', () => {
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person, organization));
-
-          testResult(IS_GROUPS_MEMBER_PERSON_SCREEN, person, organization);
-        });
-      });
-
-      describe('is not Groups', () => {
-        it('navigates to non-groups member person screen', () => {
-          auth = { person: { id: myId, user: { groups_feature: false } } };
-          store = mockStore({
-            auth,
-            // @ts-ignore
-            organizations,
-            // @ts-ignore
-            people,
-          });
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person, organization));
-
-          testResult(MEMBER_PERSON_SCREEN, person, organization);
-        });
-      });
-    });
-
-    describe('is not in org', () => {
-      beforeEach(() => {
-        // @ts-ignore
-        orgPermissionSelector.mockReturnValue(undefined);
-        // @ts-ignore
-        organizationSelector.mockReturnValue(undefined);
-        // @ts-ignore
-        personSelector.mockReturnValue(person);
-      });
-
-      afterEach(() => {
-        expect(organizationSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { organizations },
-          { orgId: undefined },
-        );
-        expect(personSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { people },
-          { orgId: undefined, personId: person.id },
-        );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(
-          {},
-          {
-            person,
-            organization: {},
-          },
-        );
-        expect(contactAssignmentSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { auth },
-          { person, orgId: undefined },
-        );
-      });
-
-      describe('has ContactAssignment', () => {
-        it('navigates to contact person screen', () => {
-          // @ts-ignore
-          contactAssignmentSelector.mockReturnValue(contactAssignment);
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person, undefined));
-
-          expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
-            person,
-            organization: {},
-          });
-        });
-      });
-
-      describe('does not have ContactAssignment', () => {
-        it('navigates to unassigned person screen', () => {
-          // @ts-ignore
-          contactAssignmentSelector.mockReturnValue(undefined);
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person, undefined));
-
-          expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
-            person,
-            organization: {},
-          });
-        });
-      });
-    });
-
-    describe('is in org but not a Member', () => {
-      beforeEach(() => {
-        // @ts-ignore
-        orgPermissionSelector.mockReturnValue({
-          permission_id: ORG_PERMISSIONS.CONTACT,
-        });
-        // @ts-ignore
-        organizationSelector.mockReturnValue(organization);
-        // @ts-ignore
-        personSelector.mockReturnValue(person);
-      });
-
-      afterEach(() => {
-        expect(organizationSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { organizations },
-          { orgId: organization.id },
-        );
-        expect(personSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { people },
-          { orgId: organization.id, personId: person.id },
-        );
-        expect(orgPermissionSelector).toHaveBeenCalledWith(
-          {},
-          {
-            person,
-            organization,
-          },
-        );
-        expect(contactAssignmentSelector).toHaveBeenCalledWith(
-          // @ts-ignore
-          { auth },
-          { person, orgId: organization.id },
-        );
-      });
-
-      describe('has ContactAssignment', () => {
-        it('navigates to contact person screen', () => {
-          // @ts-ignore
-          contactAssignmentSelector.mockReturnValue(contactAssignment);
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person, organization));
-
-          expect(navigatePush).toHaveBeenCalledWith(CONTACT_PERSON_SCREEN, {
-            person,
-            organization: { id: organization.id },
-          });
-        });
-      });
-
-      describe('does not have ContactAssignment', () => {
-        it('navigates to unassigned person screen', () => {
-          // @ts-ignore
-          contactAssignmentSelector.mockReturnValue(undefined);
-
-          // @ts-ignore
-          store.dispatch(navToPersonScreen(person, organization));
-
-          expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
-            person,
-            organization,
-          });
-        });
-      });
-    });
-  });
-
-  describe('with extra props', () => {
-    // @ts-ignore
-    orgPermissionSelector.mockReturnValue({
-      permission_id: ORG_PERMISSIONS.CONTACT,
-    });
-    // @ts-ignore
-    contactAssignmentSelector.mockReturnValue(undefined);
-    // @ts-ignore
-    organizationSelector.mockReturnValue(organization);
-    // @ts-ignore
-    personSelector.mockReturnValue(person);
-
-    const onAssign = jest.fn();
-
-    it('includes props in navigation', () => {
-      // @ts-ignore
-      store.dispatch(navToPersonScreen(person, organization, { onAssign }));
-
-      expect(navigatePush).toHaveBeenCalledWith(UNASSIGNED_PERSON_SCREEN, {
-        person,
-        organization,
-        onAssign,
+      expect(navigatePush).toHaveBeenCalledWith(PERSON_TABS, {
+        personId: person.id,
       });
     });
   });

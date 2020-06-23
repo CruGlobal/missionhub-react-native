@@ -1,8 +1,8 @@
 /* eslint max-params: 0, max-lines-per-function: 0 */
 
 import { Linking } from 'react-native';
+import gql from 'graphql-tag';
 
-import { contactAssignmentSelector } from '../selectors/people';
 import {
   SELECT_MY_STAGE_FLOW,
   SELECT_PERSON_STAGE_FLOW,
@@ -12,10 +12,23 @@ import {
 import { WARN } from '../utils/logging';
 import { buildTrackingObj } from '../utils/common';
 import { Person } from '../reducers/people';
+import { apolloClient } from '../apolloClient';
 
 import { trackActionWithoutData } from './analytics';
-import { createContactAssignment, getPersonScreenRoute } from './person';
-import { navigatePush, navigateReplace } from './navigation';
+import { navigatePush } from './navigation';
+import { GetFeatureFlags } from './__generated__/GetFeatureFlags';
+
+export const GET_FEATURE_FLAGS = gql`
+  query GetFeatureFlags {
+    features
+  }
+`;
+
+export function getFeatureFlags() {
+  apolloClient.query<GetFeatureFlags>({
+    query: GET_FEATURE_FLAGS,
+  });
+}
 
 // @ts-ignore
 export function openCommunicationLink(url, action) {
@@ -43,51 +56,6 @@ export function openCommunicationLink(url, action) {
           });
       })
       .catch(err => WARN('An unexpected error happened', err));
-}
-
-// @ts-ignore
-export function assignContactAndPickStage(person, organization) {
-  // @ts-ignore
-  return async (dispatch, getState) => {
-    const auth = getState().auth;
-    const authPerson = auth.person;
-    const myId = auth.person.id;
-    const orgId = organization.id;
-    const personId = person.id;
-
-    const { person: resultPerson } = await dispatch(
-      createContactAssignment(orgId, myId, personId),
-    );
-
-    const contactAssignment = contactAssignmentSelector(
-      { auth },
-      { person: resultPerson, orgId },
-    );
-
-    dispatch(
-      navigateReplace(
-        getPersonScreenRoute(
-          authPerson,
-          resultPerson,
-          organization,
-          contactAssignment,
-        ),
-        {
-          person: resultPerson,
-          organization,
-        },
-      ),
-    );
-
-    dispatch(
-      navigatePush(SELECT_PERSON_STAGE_FLOW, {
-        personId: resultPerson.id,
-        orgId,
-        section: 'people',
-        subsection: 'person',
-      }),
-    );
-  };
 }
 
 export function navigateToStageScreen(

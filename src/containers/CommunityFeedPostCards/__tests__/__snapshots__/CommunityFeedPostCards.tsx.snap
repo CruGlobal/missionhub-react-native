@@ -1,0 +1,184 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders empty correctly 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_PRAYER_REQUEST"
+      type="PRAYER_REQUEST"
+    />
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_STEP"
+      type="STEP"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_QUESTION"
+      type="QUESTION"
+    />
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_STORY"
+      type="STORY"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_HELP_REQUEST"
+      type="HELP_REQUEST"
+    />
+    <PostTypeCardWithPeople
+      countOnly={true}
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_ANNOUNCEMENT"
+      type="ANNOUNCEMENT"
+    />
+  </View>
+</View>
+`;
+
+exports[`renders with feed items correctly 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_PRAYER_REQUEST"
+      type="PRAYER_REQUEST"
+    />
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_STEP"
+      type="STEP"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Magnolia",
+            "fullName": "Magnolia Rogahn",
+            "id": "11",
+            "picture": "ullam minima ducimus",
+          },
+        ]
+      }
+      testID="PostCard_QUESTION"
+      type="QUESTION"
+    />
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_STORY"
+      type="STORY"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Mathias",
+            "fullName": "Mathias Larson",
+            "id": "3",
+            "picture": "debitis et saepe",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Bryce",
+            "fullName": "Bryce Pfannerstill",
+            "id": "9",
+            "picture": "repellendus fugiat velit",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Antwon",
+            "fullName": "Antwon King",
+            "id": "13",
+            "picture": "totam voluptates explicabo",
+          },
+        ]
+      }
+      testID="PostCard_HELP_REQUEST"
+      type="HELP_REQUEST"
+    />
+    <PostTypeCardWithPeople
+      countOnly={true}
+      onPress={[Function]}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Alison",
+            "fullName": "Alison Goldner",
+            "id": "5",
+            "picture": "ipsum inventore debitis",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Helena",
+            "fullName": "Helena Osinski",
+            "id": "7",
+            "picture": "a velit provident",
+          },
+        ]
+      }
+      testID="PostCard_ANNOUNCEMENT"
+      type="ANNOUNCEMENT"
+    />
+  </View>
+</View>
+`;

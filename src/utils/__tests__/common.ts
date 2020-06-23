@@ -50,10 +50,13 @@ import {
   PermissionEnum,
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
+  PostStepStatusEnum,
 } from '../../../__generated__/globalTypes';
-import { CommunityFeedStep } from '../../components/CommunityFeedItem/__generated__/CommunityFeedStep';
-import { CommunityFeedChallenge } from '../../components/CommunityFeedItem/__generated__/CommunityFeedChallenge';
-import { CommunityFeedPost } from '../../components/CommunityFeedItem/__generated__/CommunityFeedPost';
+import {
+  CommunityFeedItem_subject_Post,
+  CommunityFeedItem_subject_Step,
+  CommunityFeedItem_subject_CommunityChallenge,
+} from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
 jest.mock('react-navigation-drawer', () => ({
   DrawerActions: {
@@ -818,17 +821,17 @@ describe('mapFeedTypeToPostType', () => {
 });
 
 describe('getFeedItemType', () => {
-  const post: CommunityFeedPost = {
+  const post: CommunityFeedItem_subject_Post = {
     __typename: 'Post',
     id: '1',
     content: 'asdf',
-    mediaContentType: '',
     mediaExpiringUrl: '',
     postType: PostTypeEnum.story,
+    stepStatus: PostStepStatusEnum.INCOMPLETE,
   };
 
   it('returns STEP', () => {
-    const step: CommunityFeedStep = {
+    const step: CommunityFeedItem_subject_Step = {
       __typename: 'Step',
       id: '1',
       receiverStageAtCompletion: null,
@@ -838,7 +841,7 @@ describe('getFeedItemType', () => {
   });
 
   it('returns COMMUNITY_CHALLENGE', () => {
-    const challenge: CommunityFeedChallenge = {
+    const challenge: CommunityFeedItem_subject_CommunityChallenge = {
       __typename: 'CommunityChallenge',
       id: '1',
       title: 'asdf',

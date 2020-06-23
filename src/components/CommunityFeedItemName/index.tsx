@@ -4,22 +4,23 @@ import { useDispatch } from 'react-redux';
 
 import { Button } from '../common';
 import ItemHeaderText from '../ItemHeaderText/index';
-import { navToPersonScreen } from '../../actions/person';
-import { CommunityPerson } from '../CommunityFeedItem/__generated__/CommunityPerson';
+import { navigatePush } from '../../actions/navigation';
+import { COMMUNITY_MEMBER_TABS } from '../../containers/Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
 
 import styles from './styles';
 
-export interface CommunityFeedItemNameProps {
+interface CommunityFeedItemNameProps {
   name: string | null;
-  person?: CommunityPerson | null;
-  communityId: string;
+  // personId and communityId are nullable to handle loading state
+  personId?: string;
+  communityId?: string;
   pressable: boolean;
   customContent?: JSX.Element;
 }
 
 export const CommunityFeedItemName = ({
   name,
-  person,
+  personId,
   communityId,
   pressable,
   customContent,
@@ -28,7 +29,14 @@ export const CommunityFeedItemName = ({
   const dispatch = useDispatch();
 
   const onPressNameLink = () =>
-    person && dispatch(navToPersonScreen(person, { id: communityId }));
+    personId &&
+    communityId &&
+    dispatch(
+      navigatePush(COMMUNITY_MEMBER_TABS, {
+        personId,
+        communityId,
+      }),
+    );
 
   const content = customContent || (
     <ItemHeaderText

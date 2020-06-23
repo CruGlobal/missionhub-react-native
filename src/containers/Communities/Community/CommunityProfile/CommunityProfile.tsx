@@ -48,8 +48,8 @@ import {
 } from '../../../../constants';
 import PopupMenu from '../../../../components/PopupMenu';
 import Header from '../../../../components/Header';
-import Analytics from '../../../Analytics';
 import { useMyId } from '../../../../utils/hooks/useIsMe';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { useCommunityPhoto } from '../../hooks/useCommunityPhoto';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
 
@@ -76,6 +76,17 @@ export const CommunityProfile = () => {
     CommunityProfileVariables
   >(COMMUNITY_PROFILE_QUERY, {
     variables: { communityId, myId },
+  });
+
+  const permission =
+    data?.community.people.edges[0].communityPermission.permission;
+
+  useAnalytics(['community', 'detail'], {
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionTypeGraphQL(
+        permission,
+      ),
+    },
   });
 
   const save = async () => {
@@ -202,9 +213,6 @@ export const CommunityProfile = () => {
     return content;
   };
 
-  const permission =
-    data?.community.people.edges[0].communityPermission.permission;
-
   const canEdit =
     data?.community.userCreated &&
     canEditCommunity(permission, data?.community.userCreated);
@@ -213,14 +221,6 @@ export const CommunityProfile = () => {
 
   return (
     <>
-      <Analytics
-        screenName={['community', 'detail']}
-        screenContext={{
-          [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionTypeGraphQL(
-            permission,
-          ),
-        }}
-      />
       <View style={styles.container}>
         <Header
           left={
@@ -267,6 +267,7 @@ export const CommunityProfile = () => {
                 style={styles.input}
                 blurOnSubmit={true}
                 underlineColorAndroid={theme.transparent}
+                maxLength={44}
               />
               <PopupMenu
                 actions={[

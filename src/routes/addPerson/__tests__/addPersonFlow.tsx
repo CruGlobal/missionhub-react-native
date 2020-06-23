@@ -53,15 +53,10 @@ const initialState = {
   },
   personId,
   people: {
-    allByOrg: {
-      [orgId]: {
-        id: orgId,
-        people: {
-          [personId]: {
-            id: personId,
-            first_name: contactName,
-          },
-        },
+    people: {
+      [personId]: {
+        id: personId,
+        first_name: contactName,
       },
     },
   },
@@ -238,7 +233,7 @@ describe('SelectStepScreen next', () => {
         { skip: true, orgId },
       );
 
-      expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
+      expect(onFlowComplete).toHaveBeenCalledWith();
       expect(store.getActions()).toEqual([flowCompleteResponse]);
     });
   });
@@ -252,7 +247,7 @@ describe('SuggestedStepDetailScreen next', () => {
       { orgId },
     );
 
-    expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
+    expect(onFlowComplete).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([flowCompleteResponse]);
   });
 });
@@ -269,7 +264,7 @@ describe('AddStepScreen next', () => {
       { text: stepText, personId, orgId },
     );
 
-    expect(onFlowComplete).toHaveBeenCalledWith({ orgId });
+    expect(onFlowComplete).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([flowCompleteResponse]);
   });
 });

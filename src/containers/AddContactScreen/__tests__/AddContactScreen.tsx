@@ -187,7 +187,6 @@ describe('completeWithoutSave', () => {
     expect(next).toHaveBeenCalledWith({
       personId: undefined,
       relationshipType: undefined,
-      orgId: organization.id,
       didSavePerson: false,
       isMe: false,
     });
@@ -309,7 +308,6 @@ describe('savePerson', () => {
         expect(next).toHaveBeenCalledWith({
           personId: person.id,
           relationshipType: null,
-          orgId: organization.id,
           didSavePerson: true,
           isMe: false,
         });
@@ -511,7 +509,6 @@ describe('savePerson', () => {
         expect(next).toHaveBeenCalledWith({
           personId: person.id,
           relationshipType: null,
-          orgId: organization.id,
           didSavePerson: true,
           isMe: false,
         });
@@ -555,12 +552,12 @@ describe('savePerson', () => {
         fireEvent.press(getByTestId('stageSelectButton'));
 
         expect(next).toHaveBeenCalledWith({
-          orgId: organization?.id,
           navigateToStageSelection: true,
           person: {
             firstName: newName,
             __typename: 'Person',
             lastName: '',
+            fullName: 'esse repellat quisquam',
             id: person.id,
             relationshipType: null,
             stage: {

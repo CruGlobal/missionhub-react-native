@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
+import { StepTypeEnum } from '../../../../__generated__/globalTypes';
 import { renderWithContext } from '../../../../testUtils';
 import {
   ANALYTICS_SECTION_TYPE,
@@ -111,9 +112,11 @@ it('renders correctly in onboarding', async () => {
 
 describe('bottomButtonProps', () => {
   it('adds step', async () => {
-    const personId = '1';
-    const stepId = '2';
-    const stageId = '3';
+    const personId = '111';
+    const stepId = '222';
+    const stageId = '333';
+    const stepTitle = 'Step';
+    const stepType = StepTypeEnum.care;
 
     const { getByTestId, store } = renderWithContext(
       <SuggestedStepDetailScreen next={next} />,
@@ -124,8 +127,14 @@ describe('bottomButtonProps', () => {
           Person: () => ({
             id: personId,
           }),
-          StepSuggestion: () => ({
+          Step: () => ({
             id: stepId,
+            title: stepTitle,
+            stepType,
+            post: () => null,
+          }),
+          StepSuggestion: () => ({
+            id: stepSuggestionId,
             stage: {
               id: stageId,
             },
@@ -150,13 +159,16 @@ describe('bottomButtonProps', () => {
     expect(store.getActions()).toEqual([trackStepAddedResponse, nextResponse]);
     expect(trackStepAdded).toHaveBeenCalledWith({
       __typename: 'Step',
+      id: stepId,
+      title: stepTitle,
       receiver: { __typename: 'Person', id: personId },
+      post: null,
       stepSuggestion: {
         __typename: 'StepSuggestion',
-        id: stepId,
+        id: stepSuggestionId,
         stage: { __typename: 'Stage', id: stageId },
       },
-      stepType: 'care',
+      stepType,
     });
   });
 });

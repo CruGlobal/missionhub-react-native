@@ -1,104 +1,144 @@
 import React from 'react';
-import { View, Alert, Image } from 'react-native';
+import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
-import { Card, Separator, Touchable, Icon, Text } from '../common';
-import CardTime from '../CardTime';
+import { Card, Touchable, Icon } from '../common';
 import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
-import Avatar from '../Avatar';
-import { CommentLikeComponent } from '../CommentLikeComponent';
-import { CommunityFeedItemName } from '../CommunityFeedItemName';
-import PostTypeLabel from '../PostTypeLabel';
-import { CELEBRATE_DETAIL_SCREEN } from '../../containers/CelebrateDetailScreen';
-import { CREATE_POST_SCREEN } from '../../containers/Groups/CreatePostScreen';
-import { orgIsGlobal, getFeedItemType } from '../../utils/common';
+import {
+  CREATE_POST_SCREEN,
+  CreatePostScreenNavParams,
+} from '../../containers/Groups/CreatePostScreen';
 import { useIsMe } from '../../utils/hooks/useIsMe';
-import { GlobalCommunityFeedItem } from '../CommunityFeedItem/__generated__/GlobalCommunityFeedItem';
 import {
   CommunityFeedItem as FeedItemFragment,
   CommunityFeedItem_subject,
+  CommunityFeedItem_subject_Post,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
-import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import { CELEBRATE_FEED_WITH_TYPE_SCREEN } from '../../containers/CelebrateFeedWithType';
-import { ADD_POST_TO_STEPS_SCREEN } from '../../containers/AddPostToStepsScreen';
-import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
+import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import {
+  GetCommunityFeed,
+  GetCommunityFeedVariables,
+} from '../../containers/CommunityFeed/__generated__/GetCommunityFeed';
+import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
+import { getFeedItemType } from '../../utils/common';
 
-import PlusIcon from './plusIcon.svg';
-import StepIcon from './stepIcon.svg';
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
 import { DELETE_POST, REPORT_POST } from './queries';
 import { ReportPost, ReportPostVariables } from './__generated__/ReportPost';
-import { CommunityFeedPost } from './__generated__/CommunityFeedPost';
 
-export type CombinedFeedItem = FeedItemFragment & GlobalCommunityFeedItem;
-
-export interface CommunityFeedItemProps {
-  item: CombinedFeedItem;
-  communityId: string;
+interface CommunityFeedItemProps {
+  feedItem: FeedItemFragment;
   namePressable: boolean;
-  onClearNotification?: (item: CombinedFeedItem) => void;
-  onRefresh: () => void;
+  postTypePressable?: boolean;
+  onClearNotification?: (item: FeedItemFragment) => void;
 }
 
 export const CommunityFeedItem = ({
-  item,
-  communityId,
+  feedItem,
   namePressable,
+  postTypePressable = true,
   onClearNotification,
-  onRefresh,
 }: CommunityFeedItemProps) => {
-  const { createdAt, subject, subjectPerson, subjectPersonName } = item;
+  const { subject, subjectPerson, community } = feedItem;
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
     DELETE_POST,
+    {
+      update: cache => {
+        if (!community) {
+          return;
+        }
+
+        const originalData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId: community.id },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId: community.id },
+          data: {
+            ...originalData,
+            community: {
+              ...originalData?.community,
+              feedItems: {
+                ...originalData?.community.feedItems,
+                nodes: (originalData?.community.feedItems.nodes || []).filter(
+                  ({ id }) => id !== feedItem.id,
+                ),
+              },
+            },
+          },
+        });
+
+        const originalFilteredData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId: community.id,
+            subjectType: getFeedItemType(subject),
+          },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: {
+            communityId: community.id,
+            subjectType: getFeedItemType(subject),
+          },
+          data: {
+            ...originalFilteredData,
+            community: {
+              ...originalFilteredData?.community,
+              feedItems: {
+                ...originalFilteredData?.community.feedItems,
+                nodes: (
+                  originalFilteredData?.community.feedItems.nodes || []
+                ).filter(({ id }) => id !== feedItem.id),
+              },
+            },
+          },
+        });
+      },
+    },
   );
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
 
-  const FeedItemType = getFeedItemType(subject);
-
-  const addToSteps =
-    [
-      FeedItemSubjectTypeEnum.HELP_REQUEST,
-      FeedItemSubjectTypeEnum.PRAYER_REQUEST,
-      FeedItemSubjectTypeEnum.QUESTION,
-    ].includes(FeedItemType) && !isMe;
-  const isGlobal = orgIsGlobal({ id: communityId });
+  const isGlobal = !feedItem.community;
 
   const isPost = (
     subject: CommunityFeedItem_subject,
-  ): subject is CommunityFeedPost => subject.__typename === 'Post';
+  ): subject is CommunityFeedItem_subject_Post => subject.__typename === 'Post';
 
-  const imageData = (isPost(subject) && subject.mediaExpiringUrl) || null;
-
-  const imageAspectRatio = useAspectRatio(imageData);
   const handlePress = () =>
     dispatch(
-      navigatePush(CELEBRATE_DETAIL_SCREEN, {
-        item,
-        orgId: communityId,
-        onRefreshCelebrateItem: onRefresh,
+      navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+        feedItemId: feedItem.id,
+        communityId: community?.id,
       }),
     );
 
   const clearNotification = () =>
-    onClearNotification && onClearNotification(item);
+    onClearNotification && onClearNotification(feedItem);
 
   const handleEdit = () =>
     dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         post: subject,
-        onComplete: onRefresh,
-        communityId,
-      }),
+        communityId: feedItem.community?.id,
+      } as CreatePostScreenNavParams),
     );
 
   const handleDelete = () =>
@@ -108,7 +148,6 @@ export const CommunityFeedItem = ({
         text: t('delete.buttonText'),
         onPress: async () => {
           await deletePost({ variables: { id: subject.id } });
-          onRefresh();
         },
       },
     ]);
@@ -121,23 +160,6 @@ export const CommunityFeedItem = ({
         onPress: () => reportPost({ variables: { id: subject.id } }),
       },
     ]);
-
-  const handleAddToMySteps = () =>
-    dispatch(
-      navigatePush(ADD_POST_TO_STEPS_SCREEN, {
-        item,
-        communityId,
-      }),
-    );
-
-  const navToFilteredFeed = () => {
-    dispatch(
-      navigatePush(CELEBRATE_FEED_WITH_TYPE_SCREEN, {
-        type: FeedItemType,
-        communityId,
-      }),
-    );
-  };
 
   const menuActions =
     !isGlobal && isPost(subject)
@@ -160,18 +182,6 @@ export const CommunityFeedItem = ({
           ]
       : [];
 
-  const renderAddToStepsButton = () => (
-    <Touchable
-      style={styles.addStepWrap}
-      onPress={handleAddToMySteps}
-      testID="AddToMyStepsButton"
-    >
-      <StepIcon style={styles.stepIcon} />
-      <PlusIcon style={styles.plusIcon} />
-      <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
-    </Touchable>
-  );
-
   const renderClearNotificationButton = () => (
     <View style={styles.clearNotificationWrap}>
       <Touchable
@@ -189,56 +199,13 @@ export const CommunityFeedItem = ({
     </View>
   );
 
-  const renderHeader = () => (
-    <View style={styles.headerWrap}>
-      <View style={styles.headerRow}>
-        <PostTypeLabel type={FeedItemType} onPress={navToFilteredFeed} />
-      </View>
-      <View style={styles.headerRow}>
-        <Avatar size="medium" person={subjectPerson} orgId={communityId} />
-        <View style={styles.headerNameWrapper}>
-          <CommunityFeedItemName
-            name={subjectPersonName}
-            person={subjectPerson}
-            communityId={communityId}
-            pressable={namePressable}
-          />
-          <CardTime date={createdAt} style={styles.headerTime} />
-        </View>
-      </View>
-    </View>
-  );
-
-  const renderFooter = () => (
-    <View style={styles.footerWrap}>
-      {addToSteps ? renderAddToStepsButton() : null}
-      <View style={styles.commentLikeWrap}>
-        <CommentLikeComponent
-          item={item}
-          communityId={communityId}
-          onRefresh={onRefresh}
-        />
-      </View>
-    </View>
-  );
-
   const renderContent = () => (
     <View style={styles.cardContent}>
-      {renderHeader()}
       <CommunityFeedItemContent
-        item={item}
-        communityId={communityId}
-        style={styles.postTextWrap}
+        feedItem={feedItem}
+        namePressable={namePressable}
+        postLabelPressable={postTypePressable}
       />
-      {imageData ? (
-        <Image
-          source={{ uri: imageData }}
-          style={{ aspectRatio: imageAspectRatio }}
-          resizeMode="contain"
-        />
-      ) : null}
-      <Separator />
-      {renderFooter()}
       {onClearNotification ? renderClearNotificationButton() : null}
     </View>
   );

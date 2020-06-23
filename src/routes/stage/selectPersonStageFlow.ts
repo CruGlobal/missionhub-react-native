@@ -20,7 +20,7 @@ export const SelectPersonStageFlowScreens = {
       getState,
     ) => {
       const { people } = getState();
-      const person = personSelector({ people }, { personId, orgId });
+      const person = personSelector({ people }, { personId });
 
       dispatch(
         // @ts-ignore
@@ -34,9 +34,9 @@ export const SelectPersonStageFlowScreens = {
                     : assignment,
               ),
             })
-          : getPersonDetails(personId, orgId),
+          : getPersonDetails(personId),
       );
-      dispatch(reloadJourney(personId, orgId));
+      dispatch(reloadJourney(personId));
 
       dispatch(
         isAlreadySelected

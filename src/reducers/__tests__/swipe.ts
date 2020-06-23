@@ -36,15 +36,6 @@ it('updates group onboarding challenges value', () => {
   expect(state.groupOnboarding[GROUP_ONBOARDING_TYPES.challenges]).toBe(false);
 });
 
-it('updates group onboarding members value', () => {
-  const state = swipe(undefined, {
-    type: GROUP_ONBOARDING_CARD,
-    target: GROUP_ONBOARDING_TYPES.members,
-    value: false,
-  });
-  expect(state.groupOnboarding[GROUP_ONBOARDING_TYPES.members]).toBe(false);
-});
-
 it('updates group onboarding impact value', () => {
   const state = swipe(undefined, {
     type: GROUP_ONBOARDING_CARD,
@@ -52,24 +43,6 @@ it('updates group onboarding impact value', () => {
     value: false,
   });
   expect(state.groupOnboarding[GROUP_ONBOARDING_TYPES.impact]).toBe(false);
-});
-
-it('updates group onboarding contacts value', () => {
-  const state = swipe(undefined, {
-    type: GROUP_ONBOARDING_CARD,
-    target: GROUP_ONBOARDING_TYPES.contacts,
-    value: false,
-  });
-  expect(state.groupOnboarding[GROUP_ONBOARDING_TYPES.contacts]).toBe(false);
-});
-
-it('updates group onboarding surveys value', () => {
-  const state = swipe(undefined, {
-    type: GROUP_ONBOARDING_CARD,
-    target: GROUP_ONBOARDING_TYPES.surveys,
-    value: false,
-  });
-  expect(state.groupOnboarding[GROUP_ONBOARDING_TYPES.surveys]).toBe(false);
 });
 
 it('doesnt update group onboarding', () => {

@@ -2,9 +2,8 @@ import React from 'react';
 import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
-import GroupCelebrate from '../GroupCelebrate';
+import CommunityFeed from '../GroupCelebrate';
 import { renderWithContext } from '../../../../testUtils';
-import { getReportedComments } from '../../../actions/reportComments';
 import { refreshCommunity } from '../../../actions/organizations';
 import { organizationSelector } from '../../../selectors/organizations';
 import { orgPermissionSelector } from '../../../selectors/people';
@@ -15,15 +14,15 @@ import {
 } from '../../../constants';
 import { Organization } from '../../../reducers/organizations';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { CommunitiesCollapsibleHeaderContext } from '../../Communities/Community/CommunityHeader/CommunityHeader';
 
 jest.mock('../../../actions/organizations');
 jest.mock('../../../actions/celebration');
-jest.mock('../../../actions/reportComments');
 jest.mock('../../../selectors/organizations');
 jest.mock('../../../selectors/people');
 jest.mock('../../../utils/hooks/useAnalytics');
-jest.mock('../../CelebrateFeed', () => ({
-  CelebrateFeed: 'CelebrateFeed',
+jest.mock('../../CommunityFeed', () => ({
+  CommunityFeed: 'CommunityFeed',
 }));
 
 MockDate.set('2017-06-18');
@@ -41,9 +40,6 @@ const initialState = {
 };
 
 beforeEach(() => {
-  (getReportedComments as jest.Mock).mockReturnValue(() => ({
-    type: 'got repoerted comments',
-  }));
   (refreshCommunity as jest.Mock).mockReturnValue({
     type: 'refreshed community',
   });
@@ -54,12 +50,17 @@ beforeEach(() => {
 });
 
 it('should render correctly', () => {
-  renderWithContext(<GroupCelebrate />, {
-    initialState,
-    navParams: {
-      communityId: orgId,
+  renderWithContext(
+    <CommunityFeed
+      collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+    />,
+    {
+      initialState,
+      navParams: {
+        communityId: orgId,
+      },
     },
-  }).snapshot();
+  ).snapshot();
 });
 
 describe('refresh', () => {
@@ -77,12 +78,17 @@ describe('refresh', () => {
           user_created: true,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -90,7 +96,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
     });
 
@@ -101,12 +106,17 @@ describe('refresh', () => {
           user_created: false,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -114,7 +124,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
     });
 
@@ -125,12 +134,17 @@ describe('refresh', () => {
           id: GLOBAL_COMMUNITY_ID,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: GLOBAL_COMMUNITY_ID,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: GLOBAL_COMMUNITY_ID,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -138,7 +152,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
   });
@@ -157,12 +170,17 @@ describe('refresh', () => {
           user_created: true,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -170,7 +188,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
 
@@ -181,12 +198,17 @@ describe('refresh', () => {
           user_created: false,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -194,7 +216,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).toHaveBeenCalledWith(org.id);
       });
     });
 
@@ -205,12 +226,17 @@ describe('refresh', () => {
           id: GLOBAL_COMMUNITY_ID,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: GLOBAL_COMMUNITY_ID,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: GLOBAL_COMMUNITY_ID,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -218,7 +244,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
   });
@@ -237,12 +262,17 @@ describe('refresh', () => {
           user_created: true,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -250,7 +280,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
 
@@ -261,12 +290,17 @@ describe('refresh', () => {
           user_created: false,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: orgId,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: orgId,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -274,7 +308,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
     describe('global community', () => {
@@ -284,12 +317,17 @@ describe('refresh', () => {
           id: GLOBAL_COMMUNITY_ID,
         });
 
-        const { getByTestId } = renderWithContext(<GroupCelebrate />, {
-          initialState,
-          navParams: {
-            communityId: GLOBAL_COMMUNITY_ID,
+        const { getByTestId } = renderWithContext(
+          <CommunityFeed
+            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
+          />,
+          {
+            initialState,
+            navParams: {
+              communityId: GLOBAL_COMMUNITY_ID,
+            },
           },
-        });
+        );
 
         fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
 
@@ -297,7 +335,6 @@ describe('refresh', () => {
           screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
-        expect(getReportedComments).not.toHaveBeenCalled();
       });
     });
   });

@@ -1570,45 +1570,10 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                   Object {},
                   Object {
                     "alignItems": "center",
-                    "flex": 2,
-                    "justifyContent": "flex-end",
                   },
                 ]
               }
-            >
-              <View
-                style={
-                  Object {
-                    "alignItems": "center",
-                    "marginBottom": 30,
-                  }
-                }
-              >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontFamily": "SourceSansPro-Light",
-                        "fontSize": 24,
-                        "fontWeight": "300",
-                        "lineHeight": 30,
-                        "maxWidth": 230,
-                        "textAlign": "center",
-                      },
-                    ]
-                  }
-                >
-                  Who would you like to take steps of faith with this week?
-                </Text>
-              </View>
-            </View>
+            />
             <Text
               style={
                 Array [
@@ -1619,14 +1584,14 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                   },
                   Object {
-                    "color": "#52C5DC",
+                    "color": "#B4B6BA",
                     "fontSize": 13,
                     "marginTop": 15,
                   },
                 ]
               }
             >
-              First Name or Nickname
+              First Name
             </Text>
             <TextInput
               allowFontScaling={true}
@@ -1640,7 +1605,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
               onFocus={[Function]}
               onSubmitEditing={[Function]}
               placeholder="First Name (Required)"
-              placeholderTextColor="#ffffff"
+              placeholderTextColor="#3CC8E6"
               rejectResponderTermination={true}
               returnKeyType="next"
               selectionColor="#3CC8E6"
@@ -1657,8 +1622,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                     "paddingVertical": 5,
                   },
                   Object {
-                    "borderBottomColor": "#3CC8E6",
-                    "color": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "color": "#3CC8E6",
                   },
                 ]
               }
@@ -1687,7 +1652,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                     "fontFamily": "SourceSansPro-Regular",
                   },
                   Object {
-                    "color": "#52C5DC",
+                    "color": "#B4B6BA",
                     "fontSize": 13,
                     "marginTop": 15,
                   },
@@ -1705,7 +1670,7 @@ exports[`savePerson add new person with org should add a new person 1`] = `
               onChangeText={[Function]}
               onFocus={[Function]}
               placeholder="Last Name (optional)"
-              placeholderTextColor="#ffffff"
+              placeholderTextColor="#3CC8E6"
               rejectResponderTermination={true}
               returnKeyType="done"
               selectionColor="#3CC8E6"
@@ -1722,8 +1687,8 @@ exports[`savePerson add new person with org should add a new person 1`] = `
                     "paddingVertical": 5,
                   },
                   Object {
-                    "borderBottomColor": "#3CC8E6",
-                    "color": "#ffffff",
+                    "borderBottomColor": "#ECEEF2",
+                    "color": "#3CC8E6",
                   },
                 ]
               }
@@ -1731,6 +1696,158 @@ exports[`savePerson add new person with org should add a new person 1`] = `
               underlineColorAndroid="rgba(0,0,0,0)"
               value=""
             />
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            >
+              Stage
+            </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "borderBottomWidth": 1,
+                  "borderColor": "#ECEEF2",
+                  "flex": 1,
+                  "flexDirection": "row",
+                  "justifyContent": "space-between",
+                }
+              }
+            >
+              <Text
+                onPress={[Function]}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "alignItems": "flex-start",
+                      "color": "#3CC8E6",
+                      "fontSize": 16,
+                      "marginVertical": 10,
+                      "width": "100%",
+                    },
+                  ]
+                }
+                testID="stageSelectButton"
+              >
+                Choose a stage
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Array [
+                Object {},
+                Object {
+                  "flexDirection": "column",
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 13,
+                    "marginTop": 15,
+                  },
+                ]
+              }
+            >
+              How do you know each other?
+            </Text>
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="popupMenuButton"
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "borderBottomWidth": 1,
+                    "borderColor": "#ECEEF2",
+                    "flex": 1,
+                    "flexDirection": "row",
+                    "justifyContent": "space-between",
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "alignItems": "flex-start",
+                        "color": "#3CC8E6",
+                        "fontSize": 16,
+                        "marginVertical": 10,
+                        "width": "100%",
+                      },
+                    ]
+                  }
+                >
+                  Choose a category
+                </Text>
+                <SvgMock
+                  color="#B4B6BA"
+                />
+              </View>
+            </View>
           </View>
         </View>
       </View>
@@ -1826,22 +1943,101 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -201,11 +201,13 @@
-                      \\"fontSize\\": 13,
-                      \\"marginTop\\": 15,
+@@ -146,66 +146,33 @@
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      \\"alignItems\\": \\"center\\",
+-                     \\"flex\\": 2,
+-                     \\"justifyContent\\": \\"flex-end\\",
                     },
                   ]
                 }
+-             >
+-               <View
+-                 style={
+-                   Object {
+-                     \\"alignItems\\": \\"center\\",
+-                     \\"marginBottom\\": 30,
+-                   }
+-                 }
+-               >
++             />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      \\"color\\": \\"#505256\\",
+                    },
+                    Object {
+                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                    },
+                    Object {
+-                         \\"color\\": \\"#ffffff\\",
+-                         \\"fontFamily\\": \\"SourceSansPro-Light\\",
+-                         \\"fontSize\\": 24,
+-                         \\"fontWeight\\": \\"300\\",
+-                         \\"lineHeight\\": 30,
+-                         \\"maxWidth\\": 230,
+-                         \\"textAlign\\": \\"center\\",
++                     \\"color\\": \\"#B4B6BA\\",
++                     \\"fontSize\\": 13,
++                     \\"marginTop\\": 15,
+                    },
+                  ]
+                }
+              >
+-                   Who would you like to take steps of faith with this week?
++               First Name
+              </Text>
+-               </View>
+-             </View>
+-             <Text
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"color\\": \\"#505256\\",
+-                   },
+-                   Object {
+-                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   },
+-                   Object {
+-                     \\"color\\": \\"#52C5DC\\",
+-                     \\"fontSize\\": 13,
+-                     \\"marginTop\\": 15,
+-                   },
+-                 ]
+-               }
 -             />
-+             >
-+               First Name or Nickname
-+             </Text>
               <TextInput
                 allowFontScaling={true}
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -238,11 +240,11 @@
+@@ -214,11 +181,11 @@
+                onBlur={[Function onBlur]}
+                onChangeText={[Function onChangeText]}
+                onFocus={[Function onFocus]}
+                onSubmitEditing={[Function lastNameFocus]}
+                placeholder=\\"First Name (Required)\\"
+-               placeholderTextColor=\\"#ffffff\\"
++               placeholderTextColor=\\"#3CC8E6\\"
+                rejectResponderTermination={true}
+                returnKeyType=\\"next\\"
+                selectionColor=\\"#3CC8E6\\"
+                style={
+                  Array [
+@@ -231,18 +198,18 @@
+                      \\"fontSize\\": 16,
+                      \\"letterSpacing\\": 0.25,
+                      \\"paddingVertical\\": 5,
+                    },
+                    Object {
+-                     \\"borderBottomColor\\": \\"#3CC8E6\\",
+-                     \\"color\\": \\"#ffffff\\",
++                     \\"borderBottomColor\\": \\"#ECEEF2\\",
++                     \\"color\\": \\"#3CC8E6\\",
                     },
                   ]
                 }
@@ -1854,7 +2050,211 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -347,24 +349,18 @@
+@@ -261,11 +228,11 @@
+                    },
+                    Object {
+                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                    },
+                    Object {
+-                     \\"color\\": \\"#52C5DC\\",
++                     \\"color\\": \\"#B4B6BA\\",
+                      \\"fontSize\\": 13,
+                      \\"marginTop\\": 15,
+                    },
+                  ]
+                }
+@@ -279,11 +246,11 @@
+                multiline={false}
+                onBlur={[Function onBlur]}
+                onChangeText={[Function onChangeText]}
+                onFocus={[Function onFocus]}
+                placeholder=\\"Last Name (optional)\\"
+-               placeholderTextColor=\\"#ffffff\\"
++               placeholderTextColor=\\"#3CC8E6\\"
+                rejectResponderTermination={true}
+                returnKeyType=\\"done\\"
+                selectionColor=\\"#3CC8E6\\"
+                style={
+                  Array [
+@@ -296,23 +263,175 @@
+                      \\"fontSize\\": 16,
+                      \\"letterSpacing\\": 0.25,
+                      \\"paddingVertical\\": 5,
+                    },
+                    Object {
+-                     \\"borderBottomColor\\": \\"#3CC8E6\\",
+-                     \\"color\\": \\"#ffffff\\",
++                     \\"borderBottomColor\\": \\"#ECEEF2\\",
++                     \\"color\\": \\"#3CC8E6\\",
+                    },
+                  ]
+                }
+                testID=\\"lastNameInput\\"
+                underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+                value=\\"\\"
+              />
+            </View>
++           <View
++             style={
++               Array [
++                 Object {},
++                 Object {
++                   \\"flexDirection\\": \\"column\\",
++                 },
++               ]
++             }
++           >
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#B4B6BA\\",
++                     \\"fontSize\\": 13,
++                     \\"marginTop\\": 15,
++                   },
++                 ]
++               }
++             >
++               Stage
++             </Text>
++             <View
++               style={
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"borderBottomWidth\\": 1,
++                   \\"borderColor\\": \\"#ECEEF2\\",
++                   \\"flex\\": 1,
++                   \\"flexDirection\\": \\"row\\",
++                   \\"justifyContent\\": \\"space-between\\",
++                 }
++               }
++             >
++               <Text
++                 onPress={[Function onPress]}
++                 style={
++                   Array [
++                     Object {
++                       \\"color\\": \\"#505256\\",
++                     },
++                     Object {
++                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     },
++                     Object {
++                       \\"alignItems\\": \\"flex-start\\",
++                       \\"color\\": \\"#3CC8E6\\",
++                       \\"fontSize\\": 16,
++                       \\"marginVertical\\": 10,
++                       \\"width\\": \\"100%\\",
++                     },
++                   ]
++                 }
++                 testID=\\"stageSelectButton\\"
++               >
++                 Choose a stage
++               </Text>
+              </View>
+            </View>
++           <View
++             style={
++               Array [
++                 Object {},
++                 Object {
++                   \\"flexDirection\\": \\"column\\",
++                 },
++               ]
++             }
++           >
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"color\\": \\"#B4B6BA\\",
++                     \\"fontSize\\": 13,
++                     \\"marginTop\\": 15,
++                   },
++                 ]
++               }
++             >
++               How do you know each other?
++             </Text>
++             <View
++               accessible={true}
++               focusable={true}
++               isTVSelectable={true}
++               onClick={[Function bound touchableHandlePress]}
++               onResponderGrant={[Function bound touchableHandleResponderGrant]}
++               onResponderMove={[Function bound touchableHandleResponderMove]}
++               onResponderRelease={[Function bound touchableHandleResponderRelease]}
++               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++               style={
++                 Object {
++                   \\"opacity\\": 1,
++                 }
++               }
++               testID=\\"popupMenuButton\\"
++             >
++               <View
++                 style={
++                   Object {
++                     \\"alignItems\\": \\"center\\",
++                     \\"borderBottomWidth\\": 1,
++                     \\"borderColor\\": \\"#ECEEF2\\",
++                     \\"flex\\": 1,
++                     \\"flexDirection\\": \\"row\\",
++                     \\"justifyContent\\": \\"space-between\\",
++                   }
++                 }
++               >
++                 <Text
++                   style={
++                     Array [
++                       Object {
++                         \\"color\\": \\"#505256\\",
++                       },
++                       Object {
++                         \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"alignItems\\": \\"flex-start\\",
++                         \\"color\\": \\"#3CC8E6\\",
++                         \\"fontSize\\": 16,
++                         \\"marginVertical\\": 10,
++                         \\"width\\": \\"100%\\",
++                       },
++                     ]
++                   }
++                 >
++                   Choose a category
++                 </Text>
++                 <SvgMock
++                   color=\\"#B4B6BA\\"
++                 />
+                </View>
++             </View>
++           </View>
++         </View>
++       </View>
++     </View>
+    </RCTScrollView>
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+@@ -347,24 +466,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -1881,7 +2281,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -387,15 +383,11 @@
+@@ -387,15 +500,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -3791,7 +4191,7 @@ exports[`savePerson update existing person without org updates users profile pic
                           "width": 96,
                         },
                         Object {
-                          "backgroundColor": "rgb(192, 115, 216)",
+                          "backgroundColor": "rgb(155, 101, 11)",
                         },
                         undefined,
                       ],
@@ -3819,7 +4219,7 @@ exports[`savePerson update existing person without org updates users profile pic
                       ]
                     }
                   >
-                    n
+                    e
                   </Text>
                 </View>
                 <View

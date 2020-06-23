@@ -94,6 +94,7 @@ export default {
     logout: 'Logout',
     me: 'Me',
     loading: 'Loading',
+    refresh: 'Refresh',
     save: 'Save',
     delete: 'Delete',
     ignore: 'Ignore',
@@ -193,7 +194,8 @@ export default {
   onboardingAddPhoto: {
     nullHeader: 'Add Profile Photo',
     imageHeader: 'Profile Photo Added',
-    description: "Add a profile photo so your members know it's you",
+    description:
+      'This will help others to recognize you once you are in a community',
     changePhoto: 'Change Photo',
     nullButtonText: 'Add a Profile Photo',
     imageButtonText: 'Continue',
@@ -222,6 +224,7 @@ export default {
       coworker: 'Coworker',
       other: 'Other',
     },
+    stageNull: 'Choose a stage',
     categoryNull: 'Choose a category',
     message:
       'Growing closer to God involves helping others experience Him.\n\nTake a moment and pray. Who do you want to take steps of faith with?',
@@ -408,8 +411,8 @@ export default {
     interactionNote: 'Comment',
     commentBoxPlaceholder: 'Share something to be remembered...',
   },
-  celebrateCommentBox: {
-    placeholder: 'Write a comment...',
+  feedCommentBox: {
+    placeholder: 'Add a comment...',
   },
   notes: {
     header: 'MY NOTES',
@@ -419,45 +422,6 @@ export default {
       'Remember important details about {{personFirstName}}, like favorite food, hobbies they love or something interesting they said.',
     promptMe:
       'Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.',
-  },
-  search: {
-    inputPlaceholder: 'Search',
-    loading: 'Loading',
-    noResults: 'No Results.',
-    nullHeader: 'Search',
-    nullDescription: 'Search results will appear here.',
-  },
-  searchFilter: {
-    title: 'Filter',
-    titleSurvey: 'Filter Survey',
-    titleQuestions: 'Questions',
-    titleAnswers: 'Answers',
-    ministry: 'Ministry',
-    label: 'Label',
-    groups: 'Groups',
-    surveys: 'Survey',
-    gender: 'Gender',
-    male: 'Male',
-    female: 'Female',
-    other: 'Other',
-    time: 'Time Period',
-    time7: 'Last 7 days',
-    time30: 'Last 30 days',
-    time60: 'Last 60 days',
-    time90: 'Last 90 days',
-    time180: 'Last 6 Months',
-    time270: 'Last 9 Months',
-    time365: 'Last 12 Months',
-    surveyQuestions: 'Questions/Answers',
-    uncontacted: 'Uncontacted',
-    unassigned: 'Unassigned',
-    archived: 'Include Archived Contacts',
-    multiple: 'Multiple',
-    includeUsers: 'Include Users and Admins',
-  },
-  searchFilterRefine: {
-    title: 'Refine',
-    any: 'Any',
   },
   notificationPrimer: {
     onboarding:
@@ -537,14 +501,11 @@ export default {
     impact: 'Impact',
   },
   personTabs: {
-    celebrate: 'Celebrate',
-    steps: 'My Steps',
-    notes: 'My Notes',
-    ourJourney: 'Our Journey',
-    myJourney: 'My Journey',
+    feed: 'Feed',
+    steps: 'Steps',
+    notes: 'Notes',
+    journey: 'Journey',
     impact: 'Impact',
-    myImpact: 'My Impact',
-    assignedContacts: 'Contacts',
   },
   onboarding: {
     screen1: {
@@ -578,8 +539,8 @@ export default {
     saveStory: 'Save Changes',
     inputPlaceholder: 'Share a Story...',
   },
-  celebrateFeed: {
-    errorLoadingCelebrateFeed: 'Error loading celebrate feed',
+  communityFeed: {
+    errorLoadingCommunityFeed: 'Error loading community feed',
   },
   communityFeedItems: {
     edit: {
@@ -662,10 +623,6 @@ export default {
     impactHeader: 'See God at Work',
     impactDescription:
       'See what God is doing as you take Steps of Faith together. ',
-    contactsHeader: 'Journey Together',
-    contactsDescription: 'Stay engaged with contacts in your community.',
-    surveysHeader: 'Grow Together',
-    surveysDescription: 'Learn about one another through survey responses.',
     stepsHeader: 'Steps of Faith',
     stepsDescription: 'Choose a person in People view to add a new step',
   },
@@ -716,23 +673,6 @@ export default {
   groupsImpact: {
     title: '',
   },
-  groupsContacts: {
-    title: '',
-    searchPlaceholder: 'Search Contacts',
-    movingToWeb: 'We are moving Contacts to the web!',
-    findThemHere: 'Find them here',
-  },
-  memberContacts: {
-    nullDescription: 'Anyone assigned to {{memberName}} will appear here.',
-  },
-  groupsSurveys: {
-    title: '',
-    movingToWeb: 'We are moving Surveys to the web!',
-    findThemHere: 'Find them here',
-  },
-  groupsSurveyContacts: {
-    searchPlaceholder: 'Search Contacts',
-  },
   datePicker: {
     date: 'Date',
   },
@@ -782,39 +722,8 @@ export default {
       "Sorry, we couldn't find your community.\nDouble check your link.",
     findingCommunity: 'Finding your new community...',
   },
-  shareSurveyMenu: {
-    shareMessage: '{{name}} {{url}}',
-    shareSurvey: 'Share Survey',
-    takeSurvey: 'Take Survey',
-  },
-  groupsContactList: {
-    nullHeader: 'Activity Feed',
-    nullDescription: 'No activity to display.',
-  },
   loadMore: {
     load: 'Load More',
-  },
-  statusSelect: {
-    header: 'Status',
-    cancel: 'Cancel',
-    done: 'Done',
-    uncontacted: 'Uncontacted',
-    attempted_contact: 'Attempted Contact',
-    contacted: 'Contacted',
-    completed: 'Completed',
-    do_not_contact: 'Do Not Contact',
-  },
-  statusComplete: {
-    done: 'Done',
-    continue:
-      'Great job {{userName}}!\nWould you like to continue journeying with {{statusName}}?',
-    totally: 'Totally',
-    nope: 'No Thanks',
-  },
-  statusReason: {
-    done: 'Done',
-    placeholder: 'Admin note',
-    important: 'Anything important the admins at {{organization}} should know?',
   },
   imagePicker: {
     selectImage: 'Select Image',
@@ -852,16 +761,19 @@ export default {
     member: 'Already a Member?',
   },
   commentsList: {
-    editPost: 'Edit Comment',
-    deletePost: 'Delete Comment',
-    reportPost: 'Report Comment',
+    editComment: 'Edit Comment',
+    deleteComment: 'Delete Comment',
+    reportComment: 'Report Comment',
     reportToOwner: 'Report to Owner',
     reportToOwnerHeader: 'Report to Owner?',
     reportAreYouSure:
       'Are you sure you want to report this comment to the community owner?',
-    deletePostHeader: 'Delete Post?',
+    deleteCommentHeader: 'Delete Comment?',
     deleteAreYouSure:
-      'This post will be deleted and you won’t be able to find it anymore.',
+      'This comment will be deleted and you won’t be able to find it anymore.',
+  },
+  commentItem: {
+    edited: 'Edited',
   },
   celebrateFeedHeader: {
     reports: '{{count}} New Reported Item',
@@ -895,26 +807,58 @@ export default {
     STORY: 'God Story',
     PRAYER_REQUEST: 'Prayer Request',
     QUESTION: 'Spiritual Question',
-    HELP_REQUEST: 'Care Request',
+    HELP_REQUEST: 'Community Need',
     THOUGHT: "What's on Your Mind",
     COMMUNITY_CHALLENGE: 'Challenge',
     ANNOUNCEMENT: 'Announcement',
     STEP: 'Step of Faith',
     header: {
-      STORY: 'Read a God Story',
-      PRAYER_REQUEST: 'Answer a Prayer Request',
-      QUESTION: 'Answer a Question',
-      HELP_REQUEST: 'Provide Help',
+      STORY: 'God Stories',
+      PRAYER_REQUEST: 'Prayer Requests',
+      QUESTION: 'Spiritual Questions',
+      HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
-      STEP: 'Celebrate Others',
+      THOUGHT: 'Random Thoughts',
+      STEP: 'Encourage One Another',
+    },
+    subheader: {
+      STORY: 'Share and celebrate when God does something amazing.',
+      PRAYER_REQUEST:
+        'Invite others to join you in prayer and find ways to pray for them.',
+      QUESTION:
+        'Ask a question or join a conversation about life, God and the Bible.',
+      HELP_REQUEST: 'Share and respond to needs in the community.',
+      ANNOUNCEMENT: 'Get the latest news, like directions to the next potluck.',
+      THOUGHT:
+        'Share a random thought, or pass on the meme that made you laugh until you cried.',
+      STEP: 'Recognize your Community’s steps of faith.',
+    },
+    nullState: {
+      STORY: 'Spur one another on toward love and good deeds.',
+      PRAYER_REQUEST: 'Let your requests be known to God.',
+      QUESTION: 'Teach and counsel each other with all the wisdom he gives.',
+      HELP_REQUEST: "Share one another's burdens.",
+      ANNOUNCEMENT: 'He who abides by announcements will be blessed.',
+      THOUGHT:
+        'Where two or three are gathered in my name, there am I among them.',
+      STEP: 'Encourage one another and build each other up.',
+    },
+    nullStateReference: {
+      STORY: 'Hebrews 10:24',
+      PRAYER_REQUEST: 'Philippians 4:6',
+      QUESTION: 'Colossians 3:16',
+      HELP_REQUEST: 'Galatians 6:2',
+      ANNOUNCEMENT: 'anonymous',
+      THOUGHT: 'Matthew 18:20',
+      STEP: '1 Thessalonians 5:11',
     },
     card: {
-      STORY: 'Read a God Story',
+      STORY: 'God Stories',
       PRAYER_REQUEST: 'Prayer Requests',
-      QUESTION: 'Answer a Question',
-      HELP_REQUEST: 'Provide Help',
+      QUESTION: 'Spiritual Questions',
+      HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
-      STEP: 'Celebrate Others',
+      STEP: 'Steps of Faith',
     },
   },
   createPostScreen: {
@@ -923,23 +867,28 @@ export default {
     everyone: 'Everyone',
     ownersAndAdmins: 'Owners and Admins',
     recordVideo: 'Record a 15-Second Video',
+    postAsYou: 'Post as You',
+    ownersAndAdmins: 'Post as Owner/Admin',
     addAPhoto: 'Add a Photo',
     createButtonPlaceholder: 'Post to community...',
     createPostButton: {
       STORY: 'Share a God Story',
       PRAYER_REQUEST: 'Ask for Prayer',
       QUESTION: 'Ask a Spiritual Question',
-      HELP_REQUEST: 'Ask for Help',
+      HELP_REQUEST: 'Share a Need',
       ANNOUNCEMENT: 'Make an Announcement',
+      THOUGHT: "What's on Your Mind",
     },
     placeholder: {
       story: 'Share an inspiring God story...',
       prayer_request: 'Share a prayer need...',
       question: 'Ask a spiritual question...',
-      help_request: 'Ask for help...',
+      help_request: 'Share a need...',
       thought: "What's on your mind?",
       announcement: 'Make an announcement...',
     },
+    errorCreatingPost: 'Error creating post',
+    errorUpdatingPost: 'Error updating post',
   },
   stepTypes: {
     relate: 'Relate',
@@ -958,6 +907,13 @@ export default {
     errorLoadingCommunityDetails: 'Error loading community details',
     globalCommunity: 'MissionHub Community',
   },
+  personHeader: {
+    editPerson: 'Edit Person',
+    deletePerson: 'Delete Person',
+    deletePersonQuestion: 'Delete {{name}}?',
+    deletePersonSentence: 'Are you sure you want to delete this person?',
+    errorLoadingPersonDetails: 'Error loading person details',
+  },
   createPost: {
     godStory: {
       label: 'God Story',
@@ -972,7 +928,7 @@ export default {
       placeholder: 'Ask a spiritual question...',
     },
     careRequest: {
-      label: 'Care Request',
+      label: 'Community Need',
       placeholder: 'Ask for help...',
     },
     onYourMind: {
@@ -988,6 +944,20 @@ export default {
   },
   notificationsCenter: {
     title: 'Notifications',
+    nullTitle: 'No notifications yet',
+    nullDescription:
+      'Stay tuned! Notifications about your communities will show up here.',
+    errorLoadingNotifications: 'Error loading notifications',
+    reportedActivity: 'Reported Activity',
+    reportedComment: {
+      part1: 'A comment from',
+      part2: 'has been reported.',
+    },
+    reportedPost: {
+      part1: 'A post from',
+      part2: 'has been reported.',
+    },
+    review: 'Please Review.',
   },
   addPostToStepsScreen: {
     addToSteps: 'Add to my steps',
@@ -995,5 +965,33 @@ export default {
     shareStepMessage: "Answer {{personName}}'s question.",
     careStepMessage: "Help with {{personName}}'s request.",
     errorSavingStep: 'Error saving step',
+  },
+  feedItemDetail: {
+    errorLoadingFeedItemDetails: 'Error loading feed item details',
+  },
+  communityReported: {
+    reportedPost: 'Reported Post',
+    reportedComment: 'Reported Comment',
+    reportedBy: 'Reported By',
+    openPost: 'Open Post',
+    deletePost: {
+      title: 'Delete Post?',
+      message: 'Are you sure you want to delete this post?',
+      buttonText: 'Delete Post',
+    },
+    deleteFeedItemComment: {
+      title: 'Delete Comment?',
+      message: 'Are you sure you want to delete this comment?',
+      buttonText: 'Delete Comment',
+    },
+    hurray: 'Hurray',
+    respondedFeedItemCommentMessage: {
+      delete: 'You have successfully deleted the comment.',
+      ignore: 'You have successfully ignored the comment.',
+    },
+    respondedPostMessage: {
+      delete: 'You have successfully deleted the post.',
+      ignore: 'You have successfully ignored the post.',
+    },
   },
 };
