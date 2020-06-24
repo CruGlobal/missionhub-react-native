@@ -2571,11 +2571,7 @@ exports[`renders for Global Community renders correctly 1`] = `
   <View>
     <View
       onLayout={[Function]}
-    >
-      <CreatePostButton
-        communityId="_global_community_id"
-      />
-    </View>
+    />
     <View
       onLayout={[Function]}
       style={null}

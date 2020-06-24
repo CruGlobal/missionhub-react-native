@@ -260,14 +260,14 @@ export const CommunityFeed = ({
           error={globalError}
           refetch={globalRefetch}
         />
-        {noHeader ? null : (
+        {noHeader || isGlobal ? null : (
           <>
             <CreatePostButton
               person={person || globalPerson}
               communityId={communityId}
               type={filteredFeedType}
             />
-            {filteredFeedType || isGlobal ? null : (
+            {filteredFeedType ? null : (
               <CommunityFeedPostCards
                 communityId={communityId}
                 // Refetch the feed to update new section once read
