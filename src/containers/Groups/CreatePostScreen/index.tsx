@@ -50,7 +50,7 @@ import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-type MediaType = 'NONE' | 'IMAGE' | 'VIDEO';
+type MediaType = 'image' | 'video' | null;
 
 interface CreatePostScreenParams {
   onComplete: () => void;
@@ -80,8 +80,8 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [mediaType, changeMediaType] = useState<string | null>(
-    post?.mediaContentType || null,
+  const [mediaType, changeMediaType] = useState<MediaType>(
+    (post?.mediaContentType || null) as MediaType,
   );
   const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
@@ -184,7 +184,7 @@ export const CreatePostScreen = () => {
       );
     }
     if (hasVideo) {
-      return changeMediaHeight(theme.fullWidth * (16.0 / 9.0)); //video aspect ratio is 16:9
+      return changeMediaHeight(theme.fullHeight); //dimensions of video are full height and width of phone
     }
   };
 
@@ -245,6 +245,11 @@ export const CreatePostScreen = () => {
     );
   };
 
+  const handleDeleteVideo = () => {
+    changeMediaType(null);
+    changeMediaData(null);
+  };
+
   const renderSendButton = () =>
     text ? (
       post ? (
@@ -284,7 +289,11 @@ export const CreatePostScreen = () => {
 
   const renderVideo = () =>
     mediaData ? (
-      <VideoPlayer uri={mediaData} style={{ height: mediaHeight }} />
+      <VideoPlayer
+        uri={mediaData}
+        style={{ width: theme.fullWidth, height: mediaHeight }}
+        onDelete={handleDeleteVideo}
+      />
     ) : null;
 
   const renderImage = () =>
