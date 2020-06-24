@@ -1453,7 +1453,7 @@ exports[`post types cards renders people 1`] = `
                 "width": 24,
               },
               Object {
-                "backgroundColor": "rgb(199, 163, 67)",
+                "backgroundColor": "#B4B6BA",
               },
               Array [
                 Object {
@@ -1616,7 +1616,7 @@ exports[`post types cards renders people with count only 1`] = `
                 "width": 24,
               },
               Object {
-                "backgroundColor": "rgb(199, 163, 67)",
+                "backgroundColor": "#B4B6BA",
               },
               Array [
                 Object {
