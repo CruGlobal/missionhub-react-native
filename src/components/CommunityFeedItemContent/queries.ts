@@ -40,6 +40,7 @@ export const COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT = gql`
     community {
       id
       name
+      communityPhotoUrl
     }
     subjectPersonName
     ...CommunityFeedItemCommentLike

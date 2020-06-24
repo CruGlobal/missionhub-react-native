@@ -124,7 +124,7 @@ exports[`should load person data correctly 1`] = `
                 \\"width\\": 96,
               },
               Object {
--                 \\"backgroundColor\\": \\"rgb(199, 163, 67)\\",
+-                 \\"backgroundColor\\": \\"#B4B6BA\\",
 +               \\"backgroundColor\\": \\"rgb(135, 123, 115)\\",
               },
               Object {
@@ -158,7 +158,7 @@ exports[`should load person data correctly 1`] = `
             ]
           }
         >
--           -
+-           
 +         Hayden Zieme
         </Text>
 -       </View>
@@ -383,7 +383,7 @@ exports[`should render loading 1`] = `
                 "width": 96,
               },
               Object {
-                "backgroundColor": "rgb(199, 163, 67)",
+                "backgroundColor": "#B4B6BA",
               },
               Object {
                 "marginTop": -30,
@@ -413,7 +413,7 @@ exports[`should render loading 1`] = `
             ]
           }
         >
-          -
+          
         </Text>
       </View>
       <Text
@@ -793,7 +793,7 @@ exports[`should render me loading 1`] = `
                 "width": 96,
               },
               Object {
-                "backgroundColor": "rgb(199, 163, 67)",
+                "backgroundColor": "#B4B6BA",
               },
               Object {
                 "marginTop": -30,
@@ -823,7 +823,7 @@ exports[`should render me loading 1`] = `
             ]
           }
         >
-          -
+          
         </Text>
       </View>
       <Text
