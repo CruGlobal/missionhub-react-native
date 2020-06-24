@@ -1719,6 +1719,7 @@ exports[`Reported comment call handleDelete 1`] = `
         style={
           Object {
             "paddingLeft": 10,
+            "paddingRight": 25,
           }
         }
       >
@@ -2192,6 +2193,7 @@ exports[`Reported comment call handleIgnore 1`] = `
         style={
           Object {
             "paddingLeft": 10,
+            "paddingRight": 25,
           }
         }
       >
@@ -2665,6 +2667,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "paddingLeft": 10,
+            "paddingRight": 25,
           }
         }
       >

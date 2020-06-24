@@ -36,6 +36,7 @@ exports[`renders correctly 1`] = `
     style={
       Object {
         "paddingLeft": 10,
+        "paddingRight": 25,
       }
     }
   >
@@ -250,6 +251,7 @@ exports[`renders correctly as mine 1`] = `
     style={
       Object {
         "paddingLeft": 10,
+        "paddingRight": 25,
       }
     }
   >
@@ -464,6 +466,7 @@ exports[`renders editing correctly 1`] = `
     style={
       Object {
         "paddingLeft": 10,
+        "paddingRight": 25,
       }
     }
   >
@@ -678,6 +681,7 @@ exports[`renders my reported comment 1`] = `
     style={
       Object {
         "paddingLeft": 10,
+        "paddingRight": 25,
       }
     }
   >
@@ -860,6 +864,7 @@ exports[`renders reported comment 1`] = `
     style={
       Object {
         "paddingLeft": 10,
+        "paddingRight": 25,
       }
     }
   >
@@ -1042,6 +1047,7 @@ exports[`renders reported story 1`] = `
     style={
       Object {
         "paddingLeft": 10,
+        "paddingRight": 25,
       }
     }
   >
@@ -1224,6 +1230,7 @@ exports[`renders without menu actions 1`] = `
     style={
       Object {
         "paddingLeft": 10,
+        "paddingRight": 25,
       }
     }
   >

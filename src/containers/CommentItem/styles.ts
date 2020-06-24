@@ -11,6 +11,7 @@ export default StyleSheet.create({
   },
   contentContainer: {
     paddingLeft: 10,
+    paddingRight: 25,
   },
   commentHeader: { flexDirection: 'row', alignItems: 'flex-end' },
   name: {

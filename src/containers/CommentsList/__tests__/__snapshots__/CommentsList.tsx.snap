@@ -103,6 +103,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
           style={
             Object {
               "paddingLeft": 10,
+              "paddingRight": 25,
             }
           }
         >
@@ -319,6 +320,7 @@ exports[`mounts with custom props passes in custom flatlist props 1`] = `
           style={
             Object {
               "paddingLeft": 10,
+              "paddingRight": 25,
             }
           }
         >
@@ -602,6 +604,7 @@ exports[`with comments with next page renders correctly 1`] = `
           style={
             Object {
               "paddingLeft": 10,
+              "paddingRight": 25,
             }
           }
         >
@@ -818,6 +821,7 @@ exports[`with comments with next page renders correctly 1`] = `
           style={
             Object {
               "paddingLeft": 10,
+              "paddingRight": 25,
             }
           }
         >
@@ -1101,6 +1105,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
           style={
             Object {
               "paddingLeft": 10,
+              "paddingRight": 25,
             }
           }
         >
@@ -1317,6 +1322,7 @@ exports[`with comments with next page without next page renders correctly 1`] = 
           style={
             Object {
               "paddingLeft": 10,
+              "paddingRight": 25,
             }
           }
         >
