@@ -73,7 +73,7 @@ it('renders correctly for new post', () => {
   });
 });
 
-it('renders correctly for update post without image', () => {
+it('renders correctly for update post without media', () => {
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
@@ -105,6 +105,28 @@ it('renders correctly for update post with image', () => {
         postType: PostTypeEnum.prayer_request,
         mediaContentType: 'image/jpeg',
         mediaExpiringUrl: MOCK_IMAGE,
+      },
+    },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]: 'owner',
+      [ANALYTICS_EDIT_MODE]: 'update',
+    },
+  });
+});
+
+it('renders correctly for update post with video', () => {
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: {
+      communityId,
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: 'video',
+        mediaExpiringUrl: MOCK_VIDEO,
       },
     },
   }).snapshot();
@@ -195,6 +217,8 @@ describe('Select image', () => {
 });
 
 describe('Select video', () => {
+  const onComplete = jest.fn();
+
   it('should select a video', async () => {
     (navigatePush as jest.Mock).mockImplementation(
       (_, { onEndRecord }: { onEndRecord: (uri: string) => void }) => {

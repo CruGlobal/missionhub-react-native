@@ -19,6 +19,7 @@ const VideoPlayer = ({ uri, style, onDelete }: VideoPlayerProps) => {
     onDelete ? (
       <View style={styles.deleteWrap}>
         <Touchable
+          testID="DeleteButton"
           onPress={onDelete}
           type="transparent"
           style={styles.deleteButton}
@@ -42,4 +43,5 @@ const VideoPlayer = ({ uri, style, onDelete }: VideoPlayerProps) => {
     </View>
   );
 };
+
 export default VideoPlayer;

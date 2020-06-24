@@ -5,7 +5,7 @@ import { renderWithContext } from '../../../../testUtils';
 
 import { RecordVideoScreen } from '..';
 
-jest.mock('react-native-camera');
+jest.mock('react-native-camera', () => 'Camera');
 
 const onEndRecord = jest.fn();
 

@@ -62,7 +62,6 @@ export const RecordVideoScreen = () => {
     startCountdown();
 
     const { uri } = await camera.current.recordAsync();
-    console.log(uri);
     onEndRecord(uri);
   };
 
