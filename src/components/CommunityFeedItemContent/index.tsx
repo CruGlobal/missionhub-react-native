@@ -27,6 +27,7 @@ import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../containers/CommunityFeedW
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { TouchablePress } from '../Touchable/index.ios';
+import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -181,6 +182,25 @@ export const CommunityFeedItemContent = ({
     }
   };
 
+  const renderAvatar = () => {
+    switch (itemType) {
+      case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
+        return feedItem.community?.communityPhotoUrl ? (
+          <Image
+            source={{ uri: feedItem.community?.communityPhotoUrl }}
+            style={styles.communityPhotoWrapStyles}
+            resizeMode="cover"
+          />
+        ) : (
+          <DefaultCommunityAvatar />
+        );
+      default:
+        return feedItem.subjectPerson ? (
+          <Avatar size={'medium'} person={feedItem.subjectPerson} />
+        ) : null;
+    }
+  };
+
   const renderText = (text: string) => (
     <Text style={styles.messageText}>{text}</Text>
   );
@@ -215,20 +235,22 @@ export const CommunityFeedItemContent = ({
         />
       </View>
       <View style={styles.headerRow}>
-        {!isGlobal && feedItem.subjectPerson ? (
-          <Avatar size={'medium'} person={feedItem.subjectPerson} />
-        ) : null}
+        {!isGlobal ? renderAvatar() : null}
         <View
           style={
             isGlobal ? styles.globalHeaderNameWrapper : styles.headerNameWrapper
           }
         >
-          <CommunityFeedItemName
-            name={subjectPersonName}
-            personId={feedItem.subjectPerson?.id}
-            communityId={feedItem.community?.id}
-            pressable={namePressable}
-          />
+          {itemType === FeedItemSubjectTypeEnum.ANNOUNCEMENT ? (
+            <Text style={styles.communityName}>{feedItem.community?.name}</Text>
+          ) : (
+            <CommunityFeedItemName
+              name={subjectPersonName}
+              personId={feedItem.subjectPerson?.id}
+              communityId={feedItem.community?.id}
+              pressable={namePressable}
+            />
+          )}
           <CardTime date={feedItem.createdAt} style={styles.headerTime} />
         </View>
       </View>
