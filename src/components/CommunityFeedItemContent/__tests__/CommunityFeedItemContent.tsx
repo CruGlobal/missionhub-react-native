@@ -223,6 +223,39 @@ describe('CommunityFeedItemContent', () => {
       );
     });
   });
+  it('renders community name and community photo when postType is announcement', () => {
+    testEvent(
+      mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+        mocks: {
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.announcement,
+              stepStatus: PostStepStatusEnum.INCOMPLETE,
+            }),
+          }),
+        },
+      }),
+    );
+  });
+  it('renders default community avatar when communityPhotoUrl is null', () => {
+    testEvent(
+      mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+        mocks: {
+          FeedItem: () => ({
+            community: () => ({
+              communityPhotoUrl: null,
+            }),
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.announcement,
+              stepStatus: PostStepStatusEnum.INCOMPLETE,
+            }),
+          }),
+        },
+      }),
+    );
+  });
 });
 
 describe('onPressChallengeLink', () => {
