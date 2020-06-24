@@ -85,7 +85,7 @@ exports[`handles start edit 1`] = `
 +               \\"backgroundColor\\": \\"transparent\\",
               },
 -           Object {
--             \\"backgroundColor\\": \\"rgb(199, 163, 67)\\",
+-             \\"backgroundColor\\": \\"#B4B6BA\\",
 -           },
 -           undefined,
 -         ],
@@ -133,7 +133,7 @@ exports[`handles start edit 1`] = `
               ]
             }
           >
--       -
+-       
 +           
           </Text>
 +       </View>
@@ -257,7 +257,7 @@ exports[`renders without actions 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(199, 163, 67)",
+            "backgroundColor": "#B4B6BA",
           },
           undefined,
         ],
@@ -285,7 +285,7 @@ exports[`renders without actions 1`] = `
         ]
       }
     >
-      -
+      
     </Text>
   </View>
   <View
