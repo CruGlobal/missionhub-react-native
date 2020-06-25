@@ -55,7 +55,7 @@ import {
 import {
   CommunityFeedItem_subject_Post,
   CommunityFeedItem_subject_Step,
-  CommunityFeedItem_subject_CommunityChallenge,
+  CommunityFeedItem_subject_AcceptedCommunityChallenge,
 } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 
 jest.mock('react-navigation-drawer', () => ({
@@ -840,12 +840,16 @@ describe('getFeedItemType', () => {
     expect(getFeedItemType(step)).toEqual(FeedItemSubjectTypeEnum.STEP);
   });
 
-  it('returns COMMUNITY_CHALLENGE', () => {
-    const challenge: CommunityFeedItem_subject_CommunityChallenge = {
-      __typename: 'CommunityChallenge',
+  it('returns ACCEPTED_COMMUNITY_CHALLENGE', () => {
+    const challenge: CommunityFeedItem_subject_AcceptedCommunityChallenge = {
+      __typename: 'AcceptedCommunityChallenge',
       id: '1',
-      title: 'asdf',
-      acceptedCommunityChallengesList: [],
+      completedAt: 'some time',
+      communityChallenge: {
+        __typename: 'CommunityChallenge',
+        id: '1',
+        title: 'asdf',
+      },
     };
 
     expect(getFeedItemType(challenge)).toEqual(
