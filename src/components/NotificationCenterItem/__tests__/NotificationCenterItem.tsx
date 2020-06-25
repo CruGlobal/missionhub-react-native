@@ -137,7 +137,7 @@ describe('different notification types', () => {
               messageTemplate: () =>
                 "<<subject_person>> commented on <<original_poster>>'s <<localized_post_type>> in <<community_name>>.",
               trigger: () =>
-                NotificationTriggerEnum.feed_items_comment_notification,
+                NotificationTriggerEnum.feed_items_comment_on_my_item_notification,
               messageVariables: () => [
                 {
                   key: 'subject_person',
