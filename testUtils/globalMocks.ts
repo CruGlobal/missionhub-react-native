@@ -40,13 +40,7 @@ export const globalMocks: IMocks = {
   StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
   RelationshipTypeEnum: () =>
     faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
-  NotificationTriggerEnum: () =>
-    faker.random.arrayElement(
-      // TODO: remove filtering out test values when stage removes them
-      Object.values(NotificationTriggerEnum).filter(
-        value => !['test', 'test_missing'].includes(value),
-      ),
-    ),
+  NotificationTriggerEnum: () => NotificationTriggerEnum.step_reminder,
   Step: () => ({
     title: faker.lorem.sentence(),
   }),
@@ -82,7 +76,7 @@ export const globalMocks: IMocks = {
   FeedItemSubject: () => {
     return {
       __typename: faker.random.arrayElement([
-        'CommunityChallenge',
+        'AcceptedCommunityChallenge',
         'Step',
         'Post',
       ]),

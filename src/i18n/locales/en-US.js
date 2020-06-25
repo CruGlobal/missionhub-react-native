@@ -819,7 +819,7 @@ export default {
       HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
       THOUGHT: 'Random Thoughts',
-      STEP: 'Encourage One Another',
+      STEP: 'Steps of Faith',
     },
     subheader: {
       STORY: 'Share and celebrate when God does something amazing.',

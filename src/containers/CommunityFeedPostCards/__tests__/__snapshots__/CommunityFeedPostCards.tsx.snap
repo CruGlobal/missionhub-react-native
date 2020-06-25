@@ -83,7 +83,31 @@ exports[`renders with feed items correctly 1`] = `
     />
     <PostTypeCardWithPeople
       onPress={[Function]}
-      people={Array []}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Janelle",
+            "fullName": "Janelle Upton",
+            "id": "11",
+            "picture": "explicabo exercitationem ut",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Coty",
+            "fullName": "Coty Vandervort",
+            "id": "13",
+            "picture": "ut ullam quos",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Caesar",
+            "fullName": "Caesar Will",
+            "id": "15",
+            "picture": "officia quaerat cumque",
+          },
+        ]
+      }
       testID="PostCard_STEP"
       type="STEP"
     />
@@ -97,17 +121,7 @@ exports[`renders with feed items correctly 1`] = `
   >
     <PostTypeCardWithPeople
       onPress={[Function]}
-      people={
-        Array [
-          Object {
-            "__typename": "Person",
-            "firstName": "Magnolia",
-            "fullName": "Magnolia Rogahn",
-            "id": "11",
-            "picture": "ullam minima ducimus",
-          },
-        ]
-      }
+      people={Array []}
       testID="PostCard_QUESTION"
       type="QUESTION"
     />
@@ -135,20 +149,6 @@ exports[`renders with feed items correctly 1`] = `
             "fullName": "Mathias Larson",
             "id": "3",
             "picture": "debitis et saepe",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Bryce",
-            "fullName": "Bryce Pfannerstill",
-            "id": "9",
-            "picture": "repellendus fugiat velit",
-          },
-          Object {
-            "__typename": "Person",
-            "firstName": "Antwon",
-            "fullName": "Antwon King",
-            "id": "13",
-            "picture": "totam voluptates explicabo",
           },
         ]
       }
