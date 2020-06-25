@@ -1323,6 +1323,7 @@ exports[`renders correctly 1`] = `
         style={
           Object {
             "paddingLeft": 10,
+            "paddingRight": 25,
           }
         }
       >
