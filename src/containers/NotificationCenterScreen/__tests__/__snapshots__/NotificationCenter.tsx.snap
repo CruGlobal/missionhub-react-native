@@ -5,20 +5,26 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -264,57 +264,56 @@
+@@ -264,57 +264,57 @@
         Array [
           Object {
             \\"data\\": Array [
               Object {
                 \\"__typename\\": \\"ContentComplaintGroup\\",
 -               \\"id\\": \\"21\\",
-+               \\"id\\": \\"66\\",
++               \\"id\\": \\"63\\",
                 \\"subject\\": Object {
-                  \\"__typename\\": \\"FeedItemComment\\",
+-                 \\"__typename\\": \\"FeedItemComment\\",
 -                 \\"content\\": \\"adipisci itaque culpa\\",
 -                 \\"createdAt\\": \\"2016-04-29T08:40:14.131Z\\",
-+                 \\"content\\": \\"voluptate et nihil\\",
-+                 \\"createdAt\\": \\"2019-09-09T19:33:38.529Z\\",
++                 \\"__typename\\": \\"Post\\",
++                 \\"author\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Felix Lind\\",
++                   \\"id\\": \\"65\\",
++                 },
++                 \\"content\\": \\"quia aspernatur quae\\",
++                 \\"createdAt\\": \\"2012-06-12T17:31:28.776Z\\",
                   \\"feedItem\\": Object {
                     \\"__typename\\": \\"FeedItem\\",
                     \\"community\\": Object {
@@ -26,28 +32,27 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 -                     \\"communityPhotoUrl\\": \\"sed dolorum voluptatibus\\",
 -                     \\"id\\": \\"25\\",
 -                     \\"name\\": \\"Enterprise-wide disintermediate initiative\\",
-+                     \\"communityPhotoUrl\\": \\"quaerat tempora harum\\",
-+                     \\"id\\": \\"70\\",
-+                     \\"name\\": \\"Front-line demand-driven extranet\\",
-                    },
+-                   },
 -                   \\"id\\": \\"24\\",
-+                   \\"id\\": \\"69\\",
-                  },
++                     \\"communityPhotoUrl\\": \\"dolorem fuga at\\",
++                     \\"id\\": \\"67\\",
++                     \\"name\\": \\"Pre-emptive value-added complexity\\",
+                    },
 -                 \\"id\\": \\"22\\",
-+                 \\"id\\": \\"67\\",
-                  \\"person\\": Object {
-                    \\"__typename\\": \\"Person\\",
+-                 \\"person\\": Object {
+-                   \\"__typename\\": \\"Person\\",
 -                   \\"fullName\\": \\"Waino Beatty\\",
 -                   \\"id\\": \\"23\\",
-+                   \\"fullName\\": \\"Kyla Russel\\",
-+                   \\"id\\": \\"68\\",
++                   \\"id\\": \\"66\\",
                   },
++                 \\"id\\": \\"64\\",
++                 \\"mediaExpiringUrl\\": \\"et est nihil\\",
                 },
               },
               Object {
                 \\"__typename\\": \\"ContentComplaintGroup\\",
 -               \\"id\\": \\"26\\",
-+               \\"id\\": \\"71\\",
++               \\"id\\": \\"68\\",
                 \\"subject\\": Object {
 -                 \\"__typename\\": \\"Post\\",
 -                 \\"author\\": Object {
@@ -58,8 +63,8 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 -                 \\"content\\": \\"id omnis similique\\",
 -                 \\"createdAt\\": \\"2010-02-26T13:13:29.055Z\\",
 +                 \\"__typename\\": \\"FeedItemComment\\",
-+                 \\"content\\": \\"tempore nisi omnis\\",
-+                 \\"createdAt\\": \\"2012-01-28T10:49:54.550Z\\",
++                 \\"content\\": \\"est voluptate et\\",
++                 \\"createdAt\\": \\"2012-12-30T04:15:05.325Z\\",
                   \\"feedItem\\": Object {
                     \\"__typename\\": \\"FeedItem\\",
                     \\"community\\": Object {
@@ -67,18 +72,18 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 -                     \\"communityPhotoUrl\\": \\"eaque corrupti vel\\",
 -                     \\"id\\": \\"30\\",
 -                     \\"name\\": \\"Advanced multimedia approach\\",
-+                     \\"communityPhotoUrl\\": \\"ullam ut qui\\",
-+                     \\"id\\": \\"75\\",
-+                     \\"name\\": \\"Automated zero tolerance hierarchy\\",
-+                   },
-+                   \\"id\\": \\"74\\",
-                  },
++                     \\"communityPhotoUrl\\": \\"ipsam quaerat tempora\\",
++                     \\"id\\": \\"72\\",
++                     \\"name\\": \\"Re-engineered disintermediate data-warehouse\\",
+                    },
 -                   \\"id\\": \\"29\\",
-+                 \\"id\\": \\"72\\",
++                   \\"id\\": \\"71\\",
++                 },
++                 \\"id\\": \\"69\\",
 +                 \\"person\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Jon Kilback\\",
-+                   \\"id\\": \\"73\\",
++                   \\"fullName\\": \\"Alexzander McDermott\\",
++                   \\"id\\": \\"70\\",
                   },
 -                 \\"id\\": \\"27\\",
 -                 \\"mediaExpiringUrl\\": \\"blanditiis voluptatem provident\\",
@@ -87,7 +92,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -628,11 +627,321 @@
+@@ -628,12 +628,322 @@
                   \\"fullName\\": \\"Andy Cremin\\",
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"quia itaque quae\\",
@@ -96,715 +101,311 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-10-04T18:10:48.857Z\\",
-+               \\"id\\": \\"46\\",
-+               \\"messageTemplate\\": \\"id cupiditate est\\",
++               \\"createdAt\\": \\"2018-05-31T22:47:49.138Z\\",
++               \\"id\\": \\"43\\",
++               \\"messageTemplate\\": \\"et ex quaerat\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"iste sed repudiandae\\",
-+                   \\"value\\": \\"consequatur rerum molestiae\\",
++                   \\"key\\": \\"id cupiditate est\\",
++                   \\"value\\": \\"id voluptates dolorem\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"reprehenderit exercitationem corrupti\\",
-+                   \\"value\\": \\"dolorem id accusantium\\",
++                   \\"key\\": \\"recusandae est perferendis\\",
++                   \\"value\\": \\"molestiae ut qui\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"in hic molestiae\\",
-+                 \\"communityId\\": \\"et possimus hic\\",
-+                 \\"feedItemId\\": \\"molestiae ut qui\\",
++                 \\"challengeId\\": \\"quia et qui\\",
++                 \\"communityId\\": \\"molestiae fuga voluptatem\\",
++                 \\"feedItemId\\": \\"in cupiditate voluptas\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Sydney Cummerata\\",
-+                 \\"id\\": \\"47\\",
-+                 \\"picture\\": \\"recusandae est perferendis\\",
++                 \\"fullName\\": \\"Quincy Conroy\\",
++                 \\"id\\": \\"44\\",
++                 \\"picture\\": \\"adipisci non rerum\\",
 +               },
-+               \\"trigger\\": \\"onboarding_verse_one\\",
++               \\"trigger\\": \\"community_challenge_ends_in_1_day\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2014-07-18T03:36:07.717Z\\",
-+               \\"id\\": \\"48\\",
-+               \\"messageTemplate\\": \\"qui molestiae consequatur\\",
++               \\"createdAt\\": \\"2013-11-14T18:12:57.702Z\\",
++               \\"id\\": \\"45\\",
++               \\"messageTemplate\\": \\"possimus hic in\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"praesentium hic sapiente\\",
-+                   \\"value\\": \\"dolorem suscipit perferendis\\",
++                   \\"key\\": \\"qui molestiae consequatur\\",
++                   \\"value\\": \\"sint consequatur qui\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"rem quia odit\\",
-+                   \\"value\\": \\"sit quas magni\\",
++                   \\"key\\": \\"est sapiente aperiam\\",
++                   \\"value\\": \\"quia ex consequuntur\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"quas perferendis voluptatem\\",
-+                 \\"communityId\\": \\"beatae dolores eligendi\\",
-+                 \\"feedItemId\\": \\"quia ex consequuntur\\",
++                 \\"challengeId\\": \\"id accusantium unde\\",
++                 \\"communityId\\": \\"exercitationem corrupti dolorem\\",
++                 \\"feedItemId\\": \\"rerum molestiae reprehenderit\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Freeman Huels\\",
-+                 \\"id\\": \\"49\\",
-+                 \\"picture\\": \\"est sapiente aperiam\\",
++                 \\"fullName\\": \\"Tiana Luettgen\\",
++                 \\"id\\": \\"46\\",
++                 \\"picture\\": \\"sed repudiandae consequatur\\",
 +               },
-+               \\"trigger\\": \\"story_notification\\",
++               \\"trigger\\": \\"welcome\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2011-03-09T05:34:05.349Z\\",
-+               \\"id\\": \\"50\\",
-+               \\"messageTemplate\\": \\"consequatur sed nisi\\",
++               \\"createdAt\\": \\"2019-04-02T09:39:01.504Z\\",
++               \\"id\\": \\"47\\",
++               \\"messageTemplate\\": \\"dolores eligendi quas\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"quibusdam in quis\\",
-+                   \\"value\\": \\"consequuntur quos hic\\",
++                   \\"key\\": \\"consequatur sed nisi\\",
++                   \\"value\\": \\"veniam earum ex\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"animi ipsam perferendis\\",
-+                   \\"value\\": \\"tenetur deserunt eius\\",
++                   \\"key\\": \\"culpa eveniet debitis\\",
++                   \\"value\\": \\"et nulla voluptatem\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"et unde ut\\",
-+                 \\"communityId\\": \\"et delectus praesentium\\",
-+                 \\"feedItemId\\": \\"et nulla voluptatem\\",
++                 \\"challengeId\\": \\"quas magni rerum\\",
++                 \\"communityId\\": \\"quia odit sit\\",
++                 \\"feedItemId\\": \\"suscipit perferendis rem\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Trisha Hermann\\",
-+                 \\"id\\": \\"51\\",
-+                 \\"picture\\": \\"culpa eveniet debitis\\",
++                 \\"fullName\\": \\"Alan Koch\\",
++                 \\"id\\": \\"48\\",
++                 \\"picture\\": \\"hic sapiente dolorem\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
++               \\"trigger\\": \\"community_challenge_created_alert\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2015-09-14T01:57:04.545Z\\",
-+               \\"id\\": \\"52\\",
-+               \\"messageTemplate\\": \\"dolore consequatur et\\",
++               \\"createdAt\\": \\"2010-12-27T07:38:00.399Z\\",
++               \\"id\\": \\"49\\",
++               \\"messageTemplate\\": \\"delectus praesentium et\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"ab soluta in\\",
-+                   \\"value\\": \\"sint in alias\\",
++                   \\"key\\": \\"dolore consequatur et\\",
++                   \\"value\\": \\"ipsam ut saepe\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"accusamus reiciendis repellendus\\",
-+                   \\"value\\": \\"autem aliquam aut\\",
++                   \\"key\\": \\"vel in perspiciatis\\",
++                   \\"value\\": \\"sit consectetur temporibus\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"illo perferendis quam\\",
-+                 \\"communityId\\": \\"officia laborum quae\\",
-+                 \\"feedItemId\\": \\"sit consectetur temporibus\\",
++                 \\"challengeId\\": \\"deserunt eius et\\",
++                 \\"communityId\\": \\"ipsam perferendis tenetur\\",
++                 \\"feedItemId\\": \\"quos hic animi\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Darron Trantow\\",
-+                 \\"id\\": \\"53\\",
-+                 \\"picture\\": \\"vel in perspiciatis\\",
-+               },
-+               \\"trigger\\": \\"feed_items_comment_notification\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2019-03-19T18:28:11.207Z\\",
-+               \\"id\\": \\"54\\",
-+               \\"messageTemplate\\": \\"id nesciunt eum\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"optio ut et\\",
-+                   \\"value\\": \\"consequatur quia voluptatem\\",
-                  },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"tempore totam qui\\",
-+                   \\"value\\": \\"ea eum labore\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"eaque possimus temporibus\\",
-+                 \\"communityId\\": \\"placeat architecto vero\\",
-+                 \\"feedItemId\\": \\"cumque officia optio\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Kim Johns\\",
-+                 \\"id\\": \\"55\\",
-+                 \\"picture\\": \\"et ut quis\\",
-+               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2015-12-06T12:55:31.126Z\\",
-+               \\"id\\": \\"56\\",
-+               \\"messageTemplate\\": \\"voluptatem in provident\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eius quibusdam doloremque\\",
-+                   \\"value\\": \\"aut recusandae et\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"dolor nam sint\\",
-+                   \\"value\\": \\"enim sit magnam\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"molestiae aut nisi\\",
-+                 \\"communityId\\": \\"nobis velit ad\\",
-+                 \\"feedItemId\\": \\"aut quam cum\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Breanna Mraz\\",
-+                 \\"id\\": \\"57\\",
-+                 \\"picture\\": \\"natus et dolorem\\",
-+               },
-+               \\"trigger\\": \\"feed_items_comment_notification\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2017-01-18T09:06:00.667Z\\",
-+               \\"id\\": \\"58\\",
-+               \\"messageTemplate\\": \\"at ut non\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"nisi quidem et\\",
-+                   \\"value\\": \\"est vel nihil\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"beatae labore voluptatibus\\",
-+                   \\"value\\": \\"quae sit veniam\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"et laudantium vel\\",
-+                 \\"communityId\\": \\"assumenda sit similique\\",
-+                 \\"feedItemId\\": \\"quae occaecati dignissimos\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Princess Denesik\\",
-+                 \\"id\\": \\"59\\",
-+                 \\"picture\\": \\"sunt vitae minus\\",
-+               },
-+               \\"trigger\\": \\"step_reminder\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2011-12-03T17:10:42.344Z\\",
-+               \\"id\\": \\"60\\",
-+               \\"messageTemplate\\": \\"et officiis architecto\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eos sint ut\\",
-+                   \\"value\\": \\"voluptates totam quaerat\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eius aut odio\\",
-+                   \\"value\\": \\"adipisci deleniti et\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"deserunt quo enim\\",
-+                 \\"communityId\\": \\"voluptatum tempora nulla\\",
-+                 \\"feedItemId\\": \\"totam et nisi\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Maggie Mante\\",
-+                 \\"id\\": \\"61\\",
-+                 \\"picture\\": \\"amet neque cupiditate\\",
-+               },
-+               \\"trigger\\": \\"onboarding_verse_four\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2016-09-14T12:17:40.780Z\\",
-+               \\"id\\": \\"62\\",
-+               \\"messageTemplate\\": \\"qui aut quia\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"voluptatum eius sequi\\",
-+                   \\"value\\": \\"velit dolorum soluta\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"perspiciatis sequi et\\",
-+                   \\"value\\": \\"excepturi qui doloribus\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"necessitatibus sint temporibus\\",
-+                 \\"communityId\\": \\"ut voluptatem aut\\",
-+                 \\"feedItemId\\": \\"nesciunt et id\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Della Pacocha\\",
-+                 \\"id\\": \\"63\\",
-+                 \\"picture\\": \\"at illo esse\\",
++                 \\"fullName\\": \\"Fabian Schmeler\\",
++                 \\"id\\": \\"50\\",
++                 \\"picture\\": \\"in quis consequuntur\\",
 +               },
 +               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-07-10T22:09:46.505Z\\",
-+               \\"id\\": \\"64\\",
-+               \\"messageTemplate\\": \\"ratione modi ab\\",
++               \\"createdAt\\": \\"2014-02-24T17:37:17.350Z\\",
++               \\"id\\": \\"51\\",
++               \\"messageTemplate\\": \\"laborum quae illo\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"fuga hic velit\\",
-+                   \\"value\\": \\"dolorem fuga at\\",
++                   \\"key\\": \\"id nesciunt eum\\",
++                   \\"value\\": \\"non in esse\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"quia aspernatur quae\\",
-+                   \\"value\\": \\"et est nihil\\",
++                   \\"key\\": \\"et ut quis\\",
++                   \\"value\\": \\"cumque officia optio\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"ut alias et\\",
-+                 \\"communityId\\": \\"vitae nulla aliquid\\",
-+                 \\"feedItemId\\": \\"quia reprehenderit officiis\\",
++                 \\"challengeId\\": \\"aliquam aut vitae\\",
++                 \\"communityId\\": \\"reiciendis repellendus autem\\",
++                 \\"feedItemId\\": \\"in alias accusamus\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Stanton Schaden\\",
-+                 \\"id\\": \\"65\\",
-+                 \\"picture\\": \\"porro voluptatem enim\\",
++                 \\"fullName\\": \\"Hector Beatty\\",
++                 \\"id\\": \\"52\\",
++                 \\"picture\\": \\"soluta in sint\\",
 +               },
-+               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
-+             },
-            ],
-            \\"id\\": 2,
-            \\"name\\": \\"dates.earlier\\",
-          },
-        ]
-@@ -667,57 +976,56 @@
-        Array [
-          Object {
-            \\"data\\": Array [
-              Object {
-                \\"__typename\\": \\"ContentComplaintGroup\\",
--               \\"id\\": \\"21\\",
-+               \\"id\\": \\"66\\",
-                \\"subject\\": Object {
-                  \\"__typename\\": \\"FeedItemComment\\",
--                 \\"content\\": \\"adipisci itaque culpa\\",
--                 \\"createdAt\\": \\"2016-04-29T08:40:14.131Z\\",
-+                 \\"content\\": \\"voluptate et nihil\\",
-+                 \\"createdAt\\": \\"2019-09-09T19:33:38.529Z\\",
-                  \\"feedItem\\": Object {
-                    \\"__typename\\": \\"FeedItem\\",
-                    \\"community\\": Object {
-                      \\"__typename\\": \\"Community\\",
--                     \\"communityPhotoUrl\\": \\"sed dolorum voluptatibus\\",
--                     \\"id\\": \\"25\\",
--                     \\"name\\": \\"Enterprise-wide disintermediate initiative\\",
-+                     \\"communityPhotoUrl\\": \\"quaerat tempora harum\\",
-+                     \\"id\\": \\"70\\",
-+                     \\"name\\": \\"Front-line demand-driven extranet\\",
-                    },
--                   \\"id\\": \\"24\\",
-+                   \\"id\\": \\"69\\",
-                  },
--                 \\"id\\": \\"22\\",
-+                 \\"id\\": \\"67\\",
-                  \\"person\\": Object {
-                    \\"__typename\\": \\"Person\\",
--                   \\"fullName\\": \\"Waino Beatty\\",
--                   \\"id\\": \\"23\\",
-+                   \\"fullName\\": \\"Kyla Russel\\",
-+                   \\"id\\": \\"68\\",
-                  },
-                },
++               \\"trigger\\": \\"community_challenge_created_alert\\",
               },
-              Object {
-                \\"__typename\\": \\"ContentComplaintGroup\\",
--               \\"id\\": \\"26\\",
-+               \\"id\\": \\"71\\",
-                \\"subject\\": Object {
--                 \\"__typename\\": \\"Post\\",
--                 \\"author\\": Object {
--                   \\"__typename\\": \\"Person\\",
--                   \\"fullName\\": \\"Rhoda Trantow\\",
--                   \\"id\\": \\"28\\",
--                 },
--                 \\"content\\": \\"id omnis similique\\",
--                 \\"createdAt\\": \\"2010-02-26T13:13:29.055Z\\",
-+                 \\"__typename\\": \\"FeedItemComment\\",
-+                 \\"content\\": \\"tempore nisi omnis\\",
-+                 \\"createdAt\\": \\"2012-01-28T10:49:54.550Z\\",
-                  \\"feedItem\\": Object {
-                    \\"__typename\\": \\"FeedItem\\",
-                    \\"community\\": Object {
-                      \\"__typename\\": \\"Community\\",
--                     \\"communityPhotoUrl\\": \\"eaque corrupti vel\\",
--                     \\"id\\": \\"30\\",
--                     \\"name\\": \\"Advanced multimedia approach\\",
-+                     \\"communityPhotoUrl\\": \\"ullam ut qui\\",
-+                     \\"id\\": \\"75\\",
-+                     \\"name\\": \\"Automated zero tolerance hierarchy\\",
-                    },
--                   \\"id\\": \\"29\\",
-+                   \\"id\\": \\"74\\",
-                  },
--                 \\"id\\": \\"27\\",
--                 \\"mediaExpiringUrl\\": \\"blanditiis voluptatem provident\\",
-+                 \\"id\\": \\"72\\",
-+                 \\"person\\": Object {
-+                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Jon Kilback\\",
-+                   \\"id\\": \\"73\\",
-+                 },
-                },
-              },
-            ],
-            \\"id\\": 0,
-            \\"name\\": \\"reportedActivity\\",
-@@ -1031,12 +1339,322 @@
-                  \\"fullName\\": \\"Andy Cremin\\",
-                  \\"id\\": \\"20\\",
-                  \\"picture\\": \\"quia itaque quae\\",
-                },
-                \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
-+             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-10-04T18:10:48.857Z\\",
-+               \\"id\\": \\"46\\",
-+               \\"messageTemplate\\": \\"id cupiditate est\\",
++               \\"createdAt\\": \\"2012-07-16T10:05:36.230Z\\",
++               \\"id\\": \\"53\\",
++               \\"messageTemplate\\": \\"architecto vero eaque\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"iste sed repudiandae\\",
-+                   \\"value\\": \\"consequatur rerum molestiae\\",
++                   \\"key\\": \\"voluptatem in provident\\",
++                   \\"value\\": \\"voluptatem magni dolorum\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"reprehenderit exercitationem corrupti\\",
-+                   \\"value\\": \\"dolorem id accusantium\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"in hic molestiae\\",
-+                 \\"communityId\\": \\"et possimus hic\\",
-+                 \\"feedItemId\\": \\"molestiae ut qui\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Sydney Cummerata\\",
-+                 \\"id\\": \\"47\\",
-+                 \\"picture\\": \\"recusandae est perferendis\\",
-+               },
-+               \\"trigger\\": \\"onboarding_verse_one\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2014-07-18T03:36:07.717Z\\",
-+               \\"id\\": \\"48\\",
-+               \\"messageTemplate\\": \\"qui molestiae consequatur\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"praesentium hic sapiente\\",
-+                   \\"value\\": \\"dolorem suscipit perferendis\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"rem quia odit\\",
-+                   \\"value\\": \\"sit quas magni\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"quas perferendis voluptatem\\",
-+                 \\"communityId\\": \\"beatae dolores eligendi\\",
-+                 \\"feedItemId\\": \\"quia ex consequuntur\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Freeman Huels\\",
-+                 \\"id\\": \\"49\\",
-+                 \\"picture\\": \\"est sapiente aperiam\\",
-+               },
-+               \\"trigger\\": \\"story_notification\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2011-03-09T05:34:05.349Z\\",
-+               \\"id\\": \\"50\\",
-+               \\"messageTemplate\\": \\"consequatur sed nisi\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"quibusdam in quis\\",
-+                   \\"value\\": \\"consequuntur quos hic\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"animi ipsam perferendis\\",
-+                   \\"value\\": \\"tenetur deserunt eius\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"et unde ut\\",
-+                 \\"communityId\\": \\"et delectus praesentium\\",
-+                 \\"feedItemId\\": \\"et nulla voluptatem\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Trisha Hermann\\",
-+                 \\"id\\": \\"51\\",
-+                 \\"picture\\": \\"culpa eveniet debitis\\",
-+               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_step\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2015-09-14T01:57:04.545Z\\",
-+               \\"id\\": \\"52\\",
-+               \\"messageTemplate\\": \\"dolore consequatur et\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"ab soluta in\\",
-+                   \\"value\\": \\"sint in alias\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"accusamus reiciendis repellendus\\",
-+                   \\"value\\": \\"autem aliquam aut\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"illo perferendis quam\\",
-+                 \\"communityId\\": \\"officia laborum quae\\",
-+                 \\"feedItemId\\": \\"sit consectetur temporibus\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Darron Trantow\\",
-+                 \\"id\\": \\"53\\",
-+                 \\"picture\\": \\"vel in perspiciatis\\",
-                },
-+               \\"trigger\\": \\"feed_items_comment_notification\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2019-03-19T18:28:11.207Z\\",
-+               \\"id\\": \\"54\\",
-+               \\"messageTemplate\\": \\"id nesciunt eum\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"optio ut et\\",
-+                   \\"value\\": \\"consequatur quia voluptatem\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"tempore totam qui\\",
-+                   \\"value\\": \\"ea eum labore\\",
++                   \\"key\\": \\"natus et dolorem\\",
++                   \\"value\\": \\"aut quam cum\\",
 +                 },
                 ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"eaque possimus temporibus\\",
-+                 \\"communityId\\": \\"placeat architecto vero\\",
-+                 \\"feedItemId\\": \\"cumque officia optio\\",
++                 \\"challengeId\\": \\"eum labore velit\\",
++                 \\"communityId\\": \\"totam qui ea\\",
++                 \\"feedItemId\\": \\"quia voluptatem tempore\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Kim Johns\\",
-+                 \\"id\\": \\"55\\",
-+                 \\"picture\\": \\"et ut quis\\",
++                 \\"fullName\\": \\"Patience Predovic\\",
++                 \\"id\\": \\"54\\",
++                 \\"picture\\": \\"ut et consequatur\\",
 +               },
-+               \\"trigger\\": \\"feed_items_assigned_to_alert_interaction\\",
++               \\"trigger\\": \\"onboarding_verse_three\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2015-12-06T12:55:31.126Z\\",
-+               \\"id\\": \\"56\\",
-+               \\"messageTemplate\\": \\"voluptatem in provident\\",
++               \\"createdAt\\": \\"2013-03-11T21:20:21.005Z\\",
++               \\"id\\": \\"55\\",
++               \\"messageTemplate\\": \\"velit ad molestiae\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eius quibusdam doloremque\\",
-+                   \\"value\\": \\"aut recusandae et\\",
++                   \\"key\\": \\"at ut non\\",
++                   \\"value\\": \\"eos et amet\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"dolor nam sint\\",
-+                   \\"value\\": \\"enim sit magnam\\",
++                   \\"key\\": \\"sunt vitae minus\\",
++                   \\"value\\": \\"quae occaecati dignissimos\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"molestiae aut nisi\\",
-+                 \\"communityId\\": \\"nobis velit ad\\",
-+                 \\"feedItemId\\": \\"aut quam cum\\",
++                 \\"challengeId\\": \\"sit magnam ullam\\",
++                 \\"communityId\\": \\"nam sint enim\\",
++                 \\"feedItemId\\": \\"recusandae et dolor\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Breanna Mraz\\",
-+                 \\"id\\": \\"57\\",
-+                 \\"picture\\": \\"natus et dolorem\\",
++                 \\"fullName\\": \\"Everett Erdman\\",
++                 \\"id\\": \\"56\\",
++                 \\"picture\\": \\"quibusdam doloremque aut\\",
 +               },
-+               \\"trigger\\": \\"feed_items_comment_notification\\",
++               \\"trigger\\": \\"community_challenge_created_alert\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2017-01-18T09:06:00.667Z\\",
-+               \\"id\\": \\"58\\",
-+               \\"messageTemplate\\": \\"at ut non\\",
++               \\"createdAt\\": \\"2012-05-01T06:34:08.478Z\\",
++               \\"id\\": \\"57\\",
++               \\"messageTemplate\\": \\"sit similique et\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"nisi quidem et\\",
-+                   \\"value\\": \\"est vel nihil\\",
++                   \\"key\\": \\"et officiis architecto\\",
++                   \\"value\\": \\"est distinctio similique\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"beatae labore voluptatibus\\",
-+                   \\"value\\": \\"quae sit veniam\\",
++                   \\"key\\": \\"amet neque cupiditate\\",
++                   \\"value\\": \\"totam et nisi\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"et laudantium vel\\",
-+                 \\"communityId\\": \\"assumenda sit similique\\",
-+                 \\"feedItemId\\": \\"quae occaecati dignissimos\\",
++                 \\"challengeId\\": \\"sit veniam vel\\",
++                 \\"communityId\\": \\"labore voluptatibus quae\\",
++                 \\"feedItemId\\": \\"vel nihil beatae\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Princess Denesik\\",
-+                 \\"id\\": \\"59\\",
-+                 \\"picture\\": \\"sunt vitae minus\\",
++                 \\"fullName\\": \\"Randall Heaney\\",
++                 \\"id\\": \\"58\\",
++                 \\"picture\\": \\"quidem et est\\",
 +               },
-+               \\"trigger\\": \\"step_reminder\\",
++               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2011-12-03T17:10:42.344Z\\",
-+               \\"id\\": \\"60\\",
-+               \\"messageTemplate\\": \\"et officiis architecto\\",
++               \\"createdAt\\": \\"2015-04-15T16:37:12.189Z\\",
++               \\"id\\": \\"59\\",
++               \\"messageTemplate\\": \\"tempora nulla deserunt\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eos sint ut\\",
-+                   \\"value\\": \\"voluptates totam quaerat\\",
++                   \\"key\\": \\"qui aut quia\\",
++                   \\"value\\": \\"quas dolore tempore\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"eius aut odio\\",
-+                   \\"value\\": \\"adipisci deleniti et\\",
++                   \\"key\\": \\"at illo esse\\",
++                   \\"value\\": \\"nesciunt et id\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"deserunt quo enim\\",
-+                 \\"communityId\\": \\"voluptatum tempora nulla\\",
-+                 \\"feedItemId\\": \\"totam et nisi\\",
++                 \\"challengeId\\": \\"deleniti et sit\\",
++                 \\"communityId\\": \\"aut odio adipisci\\",
++                 \\"feedItemId\\": \\"totam quaerat eius\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Maggie Mante\\",
-+                 \\"id\\": \\"61\\",
-+                 \\"picture\\": \\"amet neque cupiditate\\",
++                 \\"fullName\\": \\"Elwin Connelly\\",
++                 \\"id\\": \\"60\\",
++                 \\"picture\\": \\"sint ut voluptates\\",
 +               },
-+               \\"trigger\\": \\"onboarding_verse_four\\",
++               \\"trigger\\": \\"onboarding_verse_two\\",
 +             },
 +             Object {
 +               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2016-09-14T12:17:40.780Z\\",
-+               \\"id\\": \\"62\\",
-+               \\"messageTemplate\\": \\"qui aut quia\\",
++               \\"createdAt\\": \\"2017-09-13T02:50:46.020Z\\",
++               \\"id\\": \\"61\\",
++               \\"messageTemplate\\": \\"voluptatem aut necessitatibus\\",
 +               \\"messageVariables\\": Array [
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"voluptatum eius sequi\\",
-+                   \\"value\\": \\"velit dolorum soluta\\",
++                   \\"key\\": \\"ratione modi ab\\",
++                   \\"value\\": \\"occaecati eveniet repellendus\\",
 +                 },
 +                 Object {
 +                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"perspiciatis sequi et\\",
-+                   \\"value\\": \\"excepturi qui doloribus\\",
++                   \\"key\\": \\"porro voluptatem enim\\",
++                   \\"value\\": \\"quia reprehenderit officiis\\",
 +                 },
 +               ],
 +               \\"screenData\\": Object {
 +                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"necessitatibus sint temporibus\\",
-+                 \\"communityId\\": \\"ut voluptatem aut\\",
-+                 \\"feedItemId\\": \\"nesciunt et id\\",
++                 \\"challengeId\\": \\"qui doloribus facere\\",
++                 \\"communityId\\": \\"sequi et excepturi\\",
++                 \\"feedItemId\\": \\"dolorum soluta perspiciatis\\",
 +               },
 +               \\"subjectPerson\\": Object {
 +                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Della Pacocha\\",
-+                 \\"id\\": \\"63\\",
-+                 \\"picture\\": \\"at illo esse\\",
-+               },
-+               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Notification\\",
-+               \\"createdAt\\": \\"2012-07-10T22:09:46.505Z\\",
-+               \\"id\\": \\"64\\",
-+               \\"messageTemplate\\": \\"ratione modi ab\\",
-+               \\"messageVariables\\": Array [
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"fuga hic velit\\",
-+                   \\"value\\": \\"dolorem fuga at\\",
-+                 },
-+                 Object {
-+                   \\"__typename\\": \\"NotificationMessageVariable\\",
-+                   \\"key\\": \\"quia aspernatur quae\\",
-+                   \\"value\\": \\"et est nihil\\",
-+                 },
-+               ],
-+               \\"screenData\\": Object {
-+                 \\"__typename\\": \\"NotificationScreenData\\",
-+                 \\"challengeId\\": \\"ut alias et\\",
-+                 \\"communityId\\": \\"vitae nulla aliquid\\",
-+                 \\"feedItemId\\": \\"quia reprehenderit officiis\\",
-+               },
-+               \\"subjectPerson\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Stanton Schaden\\",
-+                 \\"id\\": \\"65\\",
-+                 \\"picture\\": \\"porro voluptatem enim\\",
++                 \\"fullName\\": \\"Patsy Kreiger\\",
++                 \\"id\\": \\"62\\",
++                 \\"picture\\": \\"eius sequi velit\\",
 +               },
 +               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
 +             },
@@ -814,59 +415,481 @@ exports[`handle pagination paginates when close to bottom 1`] = `
           },
         ]
       }
-@@ -1124,11 +1742,11 @@
+@@ -667,57 +977,57 @@
+        Array [
+          Object {
+            \\"data\\": Array [
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"21\\",
++               \\"id\\": \\"63\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"FeedItemComment\\",
+-                 \\"content\\": \\"adipisci itaque culpa\\",
+-                 \\"createdAt\\": \\"2016-04-29T08:40:14.131Z\\",
++                 \\"__typename\\": \\"Post\\",
++                 \\"author\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Felix Lind\\",
++                   \\"id\\": \\"65\\",
++                 },
++                 \\"content\\": \\"quia aspernatur quae\\",
++                 \\"createdAt\\": \\"2012-06-12T17:31:28.776Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"sed dolorum voluptatibus\\",
+-                     \\"id\\": \\"25\\",
+-                     \\"name\\": \\"Enterprise-wide disintermediate initiative\\",
++                     \\"communityPhotoUrl\\": \\"dolorem fuga at\\",
++                     \\"id\\": \\"67\\",
++                     \\"name\\": \\"Pre-emptive value-added complexity\\",
+                    },
+-                   \\"id\\": \\"24\\",
+-                 },
+-                 \\"id\\": \\"22\\",
+-                 \\"person\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Waino Beatty\\",
+-                   \\"id\\": \\"23\\",
++                   \\"id\\": \\"66\\",
+                  },
++                 \\"id\\": \\"64\\",
++                 \\"mediaExpiringUrl\\": \\"et est nihil\\",
+                },
+              },
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"26\\",
++               \\"id\\": \\"68\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"Post\\",
+-                 \\"author\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Rhoda Trantow\\",
+-                   \\"id\\": \\"28\\",
+-                 },
+-                 \\"content\\": \\"id omnis similique\\",
+-                 \\"createdAt\\": \\"2010-02-26T13:13:29.055Z\\",
++                 \\"__typename\\": \\"FeedItemComment\\",
++                 \\"content\\": \\"est voluptate et\\",
++                 \\"createdAt\\": \\"2012-12-30T04:15:05.325Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"eaque corrupti vel\\",
+-                     \\"id\\": \\"30\\",
+-                     \\"name\\": \\"Advanced multimedia approach\\",
++                     \\"communityPhotoUrl\\": \\"ipsam quaerat tempora\\",
++                     \\"id\\": \\"72\\",
++                     \\"name\\": \\"Re-engineered disintermediate data-warehouse\\",
+                    },
+-                   \\"id\\": \\"29\\",
++                   \\"id\\": \\"71\\",
+                  },
+-                 \\"id\\": \\"27\\",
+-                 \\"mediaExpiringUrl\\": \\"blanditiis voluptatem provident\\",
++                 \\"id\\": \\"69\\",
++                 \\"person\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Alexzander McDermott\\",
++                   \\"id\\": \\"70\\",
++                 },
+                },
+              },
+            ],
+            \\"id\\": 0,
+            \\"name\\": \\"reportedActivity\\",
+@@ -1032,11 +1342,321 @@
+                  \\"id\\": \\"20\\",
+                  \\"picture\\": \\"quia itaque quae\\",
+                },
+                \\"trigger\\": \\"feed_items_daily_summary_completed_challenge\\",
+              },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2018-05-31T22:47:49.138Z\\",
++               \\"id\\": \\"43\\",
++               \\"messageTemplate\\": \\"et ex quaerat\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"id cupiditate est\\",
++                   \\"value\\": \\"id voluptates dolorem\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"recusandae est perferendis\\",
++                   \\"value\\": \\"molestiae ut qui\\",
++                 },
+                ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"quia et qui\\",
++                 \\"communityId\\": \\"molestiae fuga voluptatem\\",
++                 \\"feedItemId\\": \\"in cupiditate voluptas\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Quincy Conroy\\",
++                 \\"id\\": \\"44\\",
++                 \\"picture\\": \\"adipisci non rerum\\",
++               },
++               \\"trigger\\": \\"community_challenge_ends_in_1_day\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2013-11-14T18:12:57.702Z\\",
++               \\"id\\": \\"45\\",
++               \\"messageTemplate\\": \\"possimus hic in\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"qui molestiae consequatur\\",
++                   \\"value\\": \\"sint consequatur qui\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"est sapiente aperiam\\",
++                   \\"value\\": \\"quia ex consequuntur\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"id accusantium unde\\",
++                 \\"communityId\\": \\"exercitationem corrupti dolorem\\",
++                 \\"feedItemId\\": \\"rerum molestiae reprehenderit\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Tiana Luettgen\\",
++                 \\"id\\": \\"46\\",
++                 \\"picture\\": \\"sed repudiandae consequatur\\",
++               },
++               \\"trigger\\": \\"welcome\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2019-04-02T09:39:01.504Z\\",
++               \\"id\\": \\"47\\",
++               \\"messageTemplate\\": \\"dolores eligendi quas\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"consequatur sed nisi\\",
++                   \\"value\\": \\"veniam earum ex\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"culpa eveniet debitis\\",
++                   \\"value\\": \\"et nulla voluptatem\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"quas magni rerum\\",
++                 \\"communityId\\": \\"quia odit sit\\",
++                 \\"feedItemId\\": \\"suscipit perferendis rem\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Alan Koch\\",
++                 \\"id\\": \\"48\\",
++                 \\"picture\\": \\"hic sapiente dolorem\\",
++               },
++               \\"trigger\\": \\"community_challenge_created_alert\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2010-12-27T07:38:00.399Z\\",
++               \\"id\\": \\"49\\",
++               \\"messageTemplate\\": \\"delectus praesentium et\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"dolore consequatur et\\",
++                   \\"value\\": \\"ipsam ut saepe\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"vel in perspiciatis\\",
++                   \\"value\\": \\"sit consectetur temporibus\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"deserunt eius et\\",
++                 \\"communityId\\": \\"ipsam perferendis tenetur\\",
++                 \\"feedItemId\\": \\"quos hic animi\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Fabian Schmeler\\",
++                 \\"id\\": \\"50\\",
++                 \\"picture\\": \\"in quis consequuntur\\",
++               },
++               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2014-02-24T17:37:17.350Z\\",
++               \\"id\\": \\"51\\",
++               \\"messageTemplate\\": \\"laborum quae illo\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"id nesciunt eum\\",
++                   \\"value\\": \\"non in esse\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"et ut quis\\",
++                   \\"value\\": \\"cumque officia optio\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"aliquam aut vitae\\",
++                 \\"communityId\\": \\"reiciendis repellendus autem\\",
++                 \\"feedItemId\\": \\"in alias accusamus\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Hector Beatty\\",
++                 \\"id\\": \\"52\\",
++                 \\"picture\\": \\"soluta in sint\\",
++               },
++               \\"trigger\\": \\"community_challenge_created_alert\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2012-07-16T10:05:36.230Z\\",
++               \\"id\\": \\"53\\",
++               \\"messageTemplate\\": \\"architecto vero eaque\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"voluptatem in provident\\",
++                   \\"value\\": \\"voluptatem magni dolorum\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"natus et dolorem\\",
++                   \\"value\\": \\"aut quam cum\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"eum labore velit\\",
++                 \\"communityId\\": \\"totam qui ea\\",
++                 \\"feedItemId\\": \\"quia voluptatem tempore\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Patience Predovic\\",
++                 \\"id\\": \\"54\\",
++                 \\"picture\\": \\"ut et consequatur\\",
++               },
++               \\"trigger\\": \\"onboarding_verse_three\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2013-03-11T21:20:21.005Z\\",
++               \\"id\\": \\"55\\",
++               \\"messageTemplate\\": \\"velit ad molestiae\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"at ut non\\",
++                   \\"value\\": \\"eos et amet\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"sunt vitae minus\\",
++                   \\"value\\": \\"quae occaecati dignissimos\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"sit magnam ullam\\",
++                 \\"communityId\\": \\"nam sint enim\\",
++                 \\"feedItemId\\": \\"recusandae et dolor\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Everett Erdman\\",
++                 \\"id\\": \\"56\\",
++                 \\"picture\\": \\"quibusdam doloremque aut\\",
++               },
++               \\"trigger\\": \\"community_challenge_created_alert\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2012-05-01T06:34:08.478Z\\",
++               \\"id\\": \\"57\\",
++               \\"messageTemplate\\": \\"sit similique et\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"et officiis architecto\\",
++                   \\"value\\": \\"est distinctio similique\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"amet neque cupiditate\\",
++                   \\"value\\": \\"totam et nisi\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"sit veniam vel\\",
++                 \\"communityId\\": \\"labore voluptatibus quae\\",
++                 \\"feedItemId\\": \\"vel nihil beatae\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Randall Heaney\\",
++                 \\"id\\": \\"58\\",
++                 \\"picture\\": \\"quidem et est\\",
++               },
++               \\"trigger\\": \\"feed_items_daily_summary_multiple\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2015-04-15T16:37:12.189Z\\",
++               \\"id\\": \\"59\\",
++               \\"messageTemplate\\": \\"tempora nulla deserunt\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"qui aut quia\\",
++                   \\"value\\": \\"quas dolore tempore\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"at illo esse\\",
++                   \\"value\\": \\"nesciunt et id\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"deleniti et sit\\",
++                 \\"communityId\\": \\"aut odio adipisci\\",
++                 \\"feedItemId\\": \\"totam quaerat eius\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Elwin Connelly\\",
++                 \\"id\\": \\"60\\",
++                 \\"picture\\": \\"sint ut voluptates\\",
++               },
++               \\"trigger\\": \\"onboarding_verse_two\\",
++             },
++             Object {
++               \\"__typename\\": \\"Notification\\",
++               \\"createdAt\\": \\"2017-09-13T02:50:46.020Z\\",
++               \\"id\\": \\"61\\",
++               \\"messageTemplate\\": \\"voluptatem aut necessitatibus\\",
++               \\"messageVariables\\": Array [
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"ratione modi ab\\",
++                   \\"value\\": \\"occaecati eveniet repellendus\\",
++                 },
++                 Object {
++                   \\"__typename\\": \\"NotificationMessageVariable\\",
++                   \\"key\\": \\"porro voluptatem enim\\",
++                   \\"value\\": \\"quia reprehenderit officiis\\",
++                 },
++               ],
++               \\"screenData\\": Object {
++                 \\"__typename\\": \\"NotificationScreenData\\",
++                 \\"challengeId\\": \\"qui doloribus facere\\",
++                 \\"communityId\\": \\"sequi et excepturi\\",
++                 \\"feedItemId\\": \\"dolorum soluta perspiciatis\\",
++               },
++               \\"subjectPerson\\": Object {
++                 \\"__typename\\": \\"Person\\",
++                 \\"fullName\\": \\"Patsy Kreiger\\",
++                 \\"id\\": \\"62\\",
++                 \\"picture\\": \\"eius sequi velit\\",
++               },
++               \\"trigger\\": \\"feed_items_daily_summary_personal_decision\\",
++             },
++           ],
+            \\"id\\": 2,
+            \\"name\\": \\"dates.earlier\\",
+          },
+        ]
+      }
+@@ -1124,11 +1744,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
                 source={
                   Object {
 -                   \\"uri\\": \\"sed dolorum voluptatibus\\",
-+                   \\"uri\\": \\"quaerat tempora harum\\",
++                   \\"uri\\": \\"dolorem fuga at\\",
                   }
                 }
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -1203,11 +1821,11 @@
+@@ -1186,11 +1806,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   A comment from
++                   A post from
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1203,11 +1823,11 @@
                           \\"fontWeight\\": \\"600\\",
                         },
                       ]
                     }
                   >
 -                    Enterprise-wide disintermediate initiative 
-+                    Front-line demand-driven extranet 
++                    Pre-emptive value-added complexity 
                   </Text>
                   <Text
                     style={
                       Array [
                         Object {
-@@ -1256,11 +1874,11 @@
+@@ -1256,11 +1876,11 @@
                       },
                     ]
                   }
                   testID=\\"Text\\"
                 >
 -                 April 29, 2016 8:40 AM
-+                 September 9, 2019 7:33 PM
++                 June 12, 2012 5:31 PM
                 </Text>
               </View>
             </View>
           </View>
         </View>
-@@ -1302,11 +1920,11 @@
+@@ -1302,11 +1922,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
                 source={
                   Object {
 -                   \\"uri\\": \\"eaque corrupti vel\\",
-+                   \\"uri\\": \\"ullam ut qui\\",
++                   \\"uri\\": \\"ipsam quaerat tempora\\",
                   }
                 }
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -1364,11 +1982,11 @@
+@@ -1364,11 +1984,11 @@
                         },
                         Object {},
                       ]
@@ -879,27 +902,27 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                     style={
                       Array [
                         Object {
-@@ -1381,11 +1999,11 @@
+@@ -1381,11 +2001,11 @@
                           \\"fontWeight\\": \\"600\\",
                         },
                       ]
                     }
                   >
 -                    Advanced multimedia approach 
-+                    Automated zero tolerance hierarchy 
++                    Re-engineered disintermediate data-warehouse 
                   </Text>
                   <Text
                     style={
                       Array [
                         Object {
-@@ -1434,11 +2052,11 @@
+@@ -1434,11 +2054,11 @@
                       },
                     ]
                   }
                   testID=\\"Text\\"
                 >
 -                 February 26, 2010 1:13 PM
-+                 January 28, 2012 10:49 AM
++                 December 30, 2012 4:15 AM
                 </Text>
               </View>
             </View>
@@ -5183,7 +5206,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "voluptatem quia et",
+                  "uri": "non explicabo facere",
                 }
               }
               style={

@@ -94,6 +94,13 @@ export const NotificationCenterItem = ({
       getMessageVariable('post_type_enum') as PostTypeEnum,
     ) || FeedItemSubjectTypeEnum.STORY;
 
+  // Only query for community photo if notification is a challenge created or an announcment post
+  const shouldSkip = !(
+    trigger === NotificationTriggerEnum.community_challenge_created_alert ||
+    (trigger === NotificationTriggerEnum.story_notification &&
+      iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT)
+  );
+
   const {
     data: { community: { communityPhotoUrl = null } = {} } = {},
   } = useQuery<GetCommunityPhoto, GetCommunityPhotoVariables>(
@@ -103,11 +110,8 @@ export const NotificationCenterItem = ({
       variables: {
         communityId: screenData.communityId || '',
       },
-      // Only query for community photo if notification is a challenge created or an announcment post
-      skip:
-        trigger !== NotificationTriggerEnum.community_challenge_created_alert &&
-        trigger === NotificationTriggerEnum.story_notification &&
-        iconType !== FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+
+      skip: shouldSkip,
     },
   );
 
