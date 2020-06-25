@@ -24,6 +24,15 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
+  communityName: {
+    fontWeight: 'bold',
+    fontSize: 16,
+  },
+  communityPhotoWrapStyles: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
+  },
   headerTime: {
     fontSize: 12,
     lineHeight: 16,
