@@ -450,7 +450,7 @@ export const mapFeedTypeToPostType = (feedType: FeedItemSubjectTypeEnum) => {
 
 export const getFeedItemType = (subject: CommunityFeedItem_subject) => {
   switch (subject.__typename) {
-    case 'CommunityChallenge':
+    case 'AcceptedCommunityChallenge':
       return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
     case 'Step':
       return FeedItemSubjectTypeEnum.STEP;

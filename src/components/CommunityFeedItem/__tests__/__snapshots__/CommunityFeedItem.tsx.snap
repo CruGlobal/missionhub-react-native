@@ -133,11 +133,11 @@ exports[`Community renders challenge correctly 1`] = `
         <Avatar
           person={
             Object {
-              "firstName": "Teresa",
-              "fullName": "Teresa Effertz",
-              "id": "17",
-              "lastName": "Effertz",
-              "picture": "voluptates ut ullam",
+              "firstName": "Aimee",
+              "fullName": "Aimee Boehm",
+              "id": "16",
+              "lastName": "Boehm",
+              "picture": "soluta sint non",
             }
           }
           size="medium"
@@ -176,7 +176,7 @@ exports[`Community renders challenge correctly 1`] = `
               ]
             }
           >
-            ratione a officia
+            error sunt laborum
           </Text>
           <Text
             style={
@@ -232,7 +232,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Teresa E. completed a Challenge:
+        Aimee B. completed a Challenge:
       </Text>
       <View
         style={
@@ -456,7 +456,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              26097
+              14672
             </Text>
             <View
               accessible={true}

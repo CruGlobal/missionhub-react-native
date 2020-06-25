@@ -153,14 +153,21 @@ exports[`reported comment screen render correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 120,
+      }
+    }
     style={
       Object {
         "backgroundColor": "#ECEEF2",
         "height": "100%",
       }
     }
-  />
+  >
+    <View />
+  </RCTScrollView>
 </View>
 `;
 
@@ -317,13 +324,20 @@ exports[`reported post screen render correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 120,
+      }
+    }
     style={
       Object {
         "backgroundColor": "#ECEEF2",
         "height": "100%",
       }
     }
-  />
+  >
+    <View />
+  </RCTScrollView>
 </View>
 `;

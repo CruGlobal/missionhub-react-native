@@ -8,7 +8,7 @@ export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
     createdAt
     subject {
       __typename
-      ... on CommunityChallenge {
+      ... on AcceptedCommunityChallenge {
         id
       }
       ... on Step {
