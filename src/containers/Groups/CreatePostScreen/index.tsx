@@ -200,12 +200,11 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
+    const image =
+      hasImage && mediaData !== post?.mediaExpiringUrl ? mediaData : null;
     const media =
       mediaData && mediaData !== post?.mediaExpiringUrl
-        ? new ReactNativeFile({
-            uri: mediaData,
-            type: mediaType,
-          })
+        ? new ReactNativeFile({ uri: mediaData })
         : undefined;
 
     if (post) {
@@ -214,7 +213,7 @@ export const CreatePostScreen = () => {
           input: {
             id: post.id,
             content: text,
-            media,
+            media: image,
           },
         },
       });
