@@ -12,7 +12,7 @@ exports[`refresh calls refreshComments 1`] = `
               }
             >
 -             Upgradable interactive solution
-+             Face to face dynamic budgetary management
++             Distributed needs-based encoding
             </Text>
           </View>
           <View
@@ -28,18 +28,18 @@ exports[`refresh calls refreshComments 1`] = `
 -           \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
 -           \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
 -           \\"id\\": \\"5\\",
-+           \\"content\\": \\"placeat fuga doloribus\\",
-+           \\"contentUpdatedAt\\": \\"2012-07-23T04:41:19.390Z\\",
-+           \\"createdAt\\": \\"2013-06-07T16:18:37.531Z\\",
-+           \\"id\\": \\"17\\",
++           \\"content\\": \\"sit aperiam placeat\\",
++           \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
++           \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
++           \\"id\\": \\"16\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
 -             \\"fullName\\": \\"Tatyana Johns\\",
 -             \\"id\\": \\"6\\",
 -             \\"picture\\": \\"blanditiis natus et\\",
-+             \\"fullName\\": \\"Elias Gottlieb\\",
-+             \\"id\\": \\"18\\",
-+             \\"picture\\": \\"ducimus temporibus modi\\",
++             \\"fullName\\": \\"Magnolia Rogahn\\",
++             \\"id\\": \\"17\\",
++             \\"picture\\": \\"ullam minima ducimus\\",
             },
           },
           Object {
@@ -48,18 +48,18 @@ exports[`refresh calls refreshComments 1`] = `
 -           \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
 -           \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
 -           \\"id\\": \\"7\\",
-+           \\"content\\": \\"aut architecto ducimus\\",
-+           \\"contentUpdatedAt\\": \\"2010-12-15T15:02:01.618Z\\",
-+           \\"createdAt\\": \\"2015-05-07T06:42:18.291Z\\",
-+           \\"id\\": \\"19\\",
++           \\"content\\": \\"temporibus modi aut\\",
++           \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
++           \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
++           \\"id\\": \\"18\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
 -             \\"fullName\\": \\"Michel Wisoky\\",
 -             \\"id\\": \\"8\\",
 -             \\"picture\\": \\"et ipsam explicabo\\",
-+             \\"fullName\\": \\"Autumn Greenholt\\",
-+             \\"id\\": \\"20\\",
-+             \\"picture\\": \\"ut quis sed\\",
++             \\"fullName\\": \\"Janelle Upton\\",
++             \\"id\\": \\"19\\",
++             \\"picture\\": \\"explicabo exercitationem ut\\",
             },
           },
         ]
@@ -111,7 +111,7 @@ exports[`refresh calls refreshComments 1`] = `
                 source={
                   Object {
 -                   \\"uri\\": \\"quam ipsam nobis\\",
-+                   \\"uri\\": \\"provident velit eligendi\\",
++                   \\"uri\\": \\"a velit provident\\",
                   }
                 }
                 style={
@@ -123,7 +123,7 @@ exports[`refresh calls refreshComments 1`] = `
 -                 }
 +                   },
 +                   Object {
-+                     \\"backgroundColor\\": \\"rgb(152, 150, 11)\\",
++                     \\"backgroundColor\\": \\"rgb(159, 161, 130)\\",
 +                   },
 +                   undefined,
 +                 ]
@@ -265,7 +265,7 @@ exports[`refresh calls refreshComments 1`] = `
 -                 <Text>
 -                   corporis repellat ratione
 -                 </Text>
-+                   inventore debitis libero
++                   libero aspernatur deserunt
                   </Text>
                 </View>
               </View>
@@ -310,7 +310,7 @@ exports[`refresh calls refreshComments 1`] = `
                     }
                   >
 -                   44345
-+                   3417
++                   41253
                   </Text>
                   <View
                     accessible={true}
@@ -326,18 +326,18 @@ exports[`refresh calls refreshComments 1`] = `
 -               \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
 -               \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
 -               \\"id\\": \\"5\\",
-+               \\"content\\": \\"placeat fuga doloribus\\",
-+               \\"contentUpdatedAt\\": \\"2012-07-23T04:41:19.390Z\\",
-+               \\"createdAt\\": \\"2013-06-07T16:18:37.531Z\\",
-+               \\"id\\": \\"17\\",
++               \\"content\\": \\"sit aperiam placeat\\",
++               \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
++               \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
++               \\"id\\": \\"16\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
 -                 \\"fullName\\": \\"Tatyana Johns\\",
 -                 \\"id\\": \\"6\\",
 -                 \\"picture\\": \\"blanditiis natus et\\",
-+                 \\"fullName\\": \\"Elias Gottlieb\\",
-+                 \\"id\\": \\"18\\",
-+                 \\"picture\\": \\"ducimus temporibus modi\\",
++                 \\"fullName\\": \\"Magnolia Rogahn\\",
++                 \\"id\\": \\"17\\",
++                 \\"picture\\": \\"ullam minima ducimus\\",
                 },
               }
             }
@@ -364,18 +364,18 @@ exports[`refresh calls refreshComments 1`] = `
 -               \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
 -               \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
 -               \\"id\\": \\"7\\",
-+               \\"content\\": \\"aut architecto ducimus\\",
-+               \\"contentUpdatedAt\\": \\"2010-12-15T15:02:01.618Z\\",
-+               \\"createdAt\\": \\"2015-05-07T06:42:18.291Z\\",
-+               \\"id\\": \\"19\\",
++               \\"content\\": \\"temporibus modi aut\\",
++               \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
++               \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
++               \\"id\\": \\"18\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
 -                 \\"fullName\\": \\"Michel Wisoky\\",
 -                 \\"id\\": \\"8\\",
 -                 \\"picture\\": \\"et ipsam explicabo\\",
-+                 \\"fullName\\": \\"Autumn Greenholt\\",
-+                 \\"id\\": \\"20\\",
-+                 \\"picture\\": \\"ut quis sed\\",
++                 \\"fullName\\": \\"Janelle Upton\\",
++                 \\"id\\": \\"19\\",
++                 \\"picture\\": \\"explicabo exercitationem ut\\",
                 },
               }
             }
@@ -399,7 +399,7 @@ exports[`refresh calls refreshComments 1`] = `
         source={
           Object {
 -           \\"uri\\": \\"saepe eum dicta\\",
-+           \\"uri\\": \\"soluta sint non\\",
++           \\"uri\\": \\"sit vitae soluta\\",
           }
         }
         style={
@@ -411,7 +411,7 @@ exports[`refresh calls refreshComments 1`] = `
             },
             Object {
 -             \\"backgroundColor\\": \\"rgb(144, 99, 67)\\",
-+             \\"backgroundColor\\": \\"rgb(155, 152, 152)\\",
++             \\"backgroundColor\\": \\"rgb(167, 192, 125)\\",
             },
             undefined,
           ]

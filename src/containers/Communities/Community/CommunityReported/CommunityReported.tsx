@@ -1,5 +1,5 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
@@ -58,11 +58,14 @@ const CommunityReportedScreen = () => {
           />
         }
       />
-      <View style={styles.contentContainer}>
+      <ScrollView
+        style={styles.contentContainer}
+        contentInset={{ bottom: 120 }}
+      >
         {contentComplaint ? (
           <ReportedItem reportedItem={contentComplaint} />
         ) : null}
-      </View>
+      </ScrollView>
     </View>
   );
 };
