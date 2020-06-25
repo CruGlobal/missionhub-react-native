@@ -200,13 +200,13 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
-    if (hasVideo) {
-      const videoFile = new ReactNativeFile({
-        uri: mediaData,
-        name: '',
-        type: mediaType,
-      });
-    }
+    const media =
+      mediaData && mediaData !== post?.mediaExpiringUrl
+        ? new ReactNativeFile({
+            uri: mediaData,
+            type: mediaType,
+          })
+        : undefined;
 
     if (post) {
       await updatePost({
@@ -214,10 +214,7 @@ export const CreatePostScreen = () => {
           input: {
             id: post.id,
             content: text,
-            media:
-              hasImage && mediaData !== post.mediaExpiringUrl
-                ? mediaData
-                : undefined,
+            media,
           },
         },
       });
@@ -228,7 +225,7 @@ export const CreatePostScreen = () => {
             content: text,
             communityId,
             postType,
-            media: hasImage ? mediaData : null,
+            media,
           },
         },
       });
@@ -244,7 +241,6 @@ export const CreatePostScreen = () => {
   };
 
   const handleSaveVideo = (data: RecordResponse) => {
-    console.log(data);
     changeMediaType('video');
     changeMediaData(data.uri);
   };
