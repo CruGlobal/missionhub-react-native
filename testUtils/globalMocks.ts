@@ -82,7 +82,7 @@ export const globalMocks: IMocks = {
   FeedItemSubject: () => {
     return {
       __typename: faker.random.arrayElement([
-        'CommunityChallenge',
+        'AcceptedCommunityChallenge',
         'Step',
         'Post',
       ]),
