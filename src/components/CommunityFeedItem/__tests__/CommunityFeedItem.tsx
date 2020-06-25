@@ -102,7 +102,7 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
       FeedItem: () => ({
         community: () => ({ id: communityId }),
         subject: () => ({
-          __typename: 'CommunityChallenge',
+          __typename: 'AcceptedCommunityChallenge',
         }),
       }),
     },

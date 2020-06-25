@@ -122,6 +122,7 @@ export const CommunityMembers = () => {
 
       <FlatList
         testID="CommunityMemberList"
+        initialNumToRender={12}
         data={data?.community.people.edges || []}
         keyExtractor={k => k.node.id}
         ListHeaderComponent={() => (

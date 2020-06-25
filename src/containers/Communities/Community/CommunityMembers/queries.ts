@@ -12,7 +12,7 @@ export const COMMUNITY_MEMBERS_QUERY = gql`
       }
       people(
         after: $after
-        first: 25
+        first: 12
         permissions: [owner, admin, user]
         sortBy: firstName_ASC
       ) {

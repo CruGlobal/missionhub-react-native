@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import { MockList, IMocks } from 'graphql-tools';
+import { IMocks } from 'graphql-tools';
 
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
@@ -63,9 +63,8 @@ describe('CommunityFeedItemContent', () => {
         mockFrag({
           FeedItem: () => ({
             subject: () => ({
-              __typename: 'CommunityChallenge',
-              acceptedCommunityChallengesList: () =>
-                new MockList(1, () => ({ completedAt: null })),
+              __typename: 'AcceptedCommunityChallenge',
+              completedAt: () => null,
             }),
           }),
         }),
@@ -76,8 +75,7 @@ describe('CommunityFeedItemContent', () => {
         mockFrag({
           FeedItem: () => ({
             subject: () => ({
-              __typename: 'CommunityChallenge',
-              acceptedCommunityChallengesList: () => new MockList(1),
+              __typename: 'AcceptedCommunityChallenge',
             }),
           }),
         }),
@@ -88,8 +86,7 @@ describe('CommunityFeedItemContent', () => {
         mockFrag({
           FeedItem: () => ({
             subject: () => ({
-              __typename: 'CommunityChallenge',
-              acceptedCommunityChallengesList: () => new MockList(1),
+              __typename: 'AcceptedCommunityChallenge',
             }),
             subjectPerson: () => null,
           }),
@@ -101,8 +98,7 @@ describe('CommunityFeedItemContent', () => {
         mockFrag({
           FeedItem: () => ({
             subject: () => ({
-              __typename: 'CommunityChallenge',
-              acceptedCommunityChallengesList: () => new MockList(1),
+              __typename: 'AcceptedCommunityChallenge',
             }),
             subjectPerson: () => null,
             subjectPersonName: () => null,
@@ -223,13 +219,46 @@ describe('CommunityFeedItemContent', () => {
       );
     });
   });
+  it('renders community name and community photo when postType is announcement', () => {
+    testEvent(
+      mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+        mocks: {
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.announcement,
+              stepStatus: PostStepStatusEnum.INCOMPLETE,
+            }),
+          }),
+        },
+      }),
+    );
+  });
+  it('renders default community avatar when communityPhotoUrl is null', () => {
+    testEvent(
+      mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+        mocks: {
+          FeedItem: () => ({
+            community: () => ({
+              communityPhotoUrl: null,
+            }),
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.announcement,
+              stepStatus: PostStepStatusEnum.INCOMPLETE,
+            }),
+          }),
+        },
+      }),
+    );
+  });
 });
 
 describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen', async () => {
     const challengeFeedItem = mockFrag({
       FeedItem: () => ({
-        subject: () => ({ __typename: 'CommunityChallenge' }),
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
       }),
     });
 
@@ -256,7 +285,7 @@ describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen | Global Community Challenge', async () => {
     const challengeFeedItem = mockFrag({
       FeedItem: () => ({
-        subject: () => ({ __typename: 'CommunityChallenge' }),
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
         community: () => null,
       }),
     });
@@ -283,7 +312,7 @@ describe('press footer', () => {
   it('nothing should happen', () => {
     const challengeFeedItem = mockFrag({
       FeedItem: () => ({
-        subject: () => ({ __typename: 'CommunityChallenge' }),
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
       }),
     });
     const { getByTestId } = renderWithContext(

@@ -124,7 +124,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "ut sunt qui",
+            "uri": "repellat ratione ut",
           }
         }
         style={
@@ -135,7 +135,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(115, 19, 155)",
+              "backgroundColor": "rgb(122, 127, 130)",
             },
             undefined,
           ]
@@ -175,7 +175,7 @@ Array [
             ]
           }
         >
-          libero qui recusandae
+          qui recusandae ut
         </Text>
         <Text
           style={
@@ -231,7 +231,7 @@ Array [
         ]
       }
     >
-      Zola C. accepted a Challenge:
+      Branson G. accepted a Challenge:
     </Text>
     <View
       style={
@@ -420,8 +420,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -455,7 +454,7 @@ Array [
               ]
             }
           >
-            53881
+            84631
           </Text>
           <View
             accessible={true}
@@ -629,7 +628,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "qui amet iure",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -640,7 +639,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(161, 123, 130)",
+              "backgroundColor": "rgb(161, 122, 125)",
             },
             undefined,
           ]
@@ -736,7 +735,7 @@ Array [
         ]
       }
     >
-      Darwin B. completed a Challenge:
+      Elizabeth Z. completed a Challenge:
     </Text>
     <View
       style={
@@ -2150,7 +2149,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          nulla quam ipsam
         </Text>
         <Text
           style={
@@ -2350,7 +2349,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -2384,7 +2384,7 @@ Array [
               ]
             }
           >
-            84631
+            68521
           </Text>
           <View
             accessible={true}
@@ -2609,7 +2609,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          nulla quam ipsam
         </Text>
         <Text
           style={
@@ -2873,7 +2873,7 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#A97398"
               />
             </View>
           </View>
@@ -2907,7 +2907,7 @@ Array [
               ]
             }
           >
-            84631
+            68521
           </Text>
           <View
             accessible={true}
@@ -3132,7 +3132,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          nulla quam ipsam
         </Text>
         <Text
           style={
@@ -3332,7 +3332,7 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#A97398"
               />
             </View>
           </View>
@@ -3366,7 +3366,7 @@ Array [
               ]
             }
           >
-            84631
+            68521
           </Text>
           <View
             accessible={true}
@@ -3591,7 +3591,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          nulla quam ipsam
         </Text>
         <Text
           style={
@@ -3848,7 +3848,7 @@ Array [
             ]
           }
         >
-          sunt qui amet
+          iure ut libero
         </Text>
         <Text
           style={
@@ -4028,7 +4028,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -4062,7 +4063,7 @@ Array [
               ]
             }
           >
-            38791
+            39676
           </Text>
           <View
             accessible={true}
@@ -4287,7 +4288,7 @@ Array [
             ]
           }
         >
-          sunt qui amet
+          iure ut libero
         </Text>
         <Text
           style={
@@ -4467,7 +4468,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -4501,7 +4503,7 @@ Array [
               ]
             }
           >
-            38791
+            39676
           </Text>
           <View
             accessible={true}
@@ -4726,7 +4728,7 @@ Array [
             ]
           }
         >
-          sunt qui amet
+          iure ut libero
         </Text>
         <Text
           style={
@@ -4906,7 +4908,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -4940,7 +4943,7 @@ Array [
               ]
             }
           >
-            38791
+            39676
           </Text>
           <View
             accessible={true}
@@ -5165,7 +5168,7 @@ Array [
             ]
           }
         >
-          sunt qui amet
+          iure ut libero
         </Text>
         <Text
           style={
@@ -5345,7 +5348,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -5379,7 +5383,7 @@ Array [
               ]
             }
           >
-            38791
+            39676
           </Text>
           <View
             accessible={true}
@@ -5604,7 +5608,7 @@ Array [
             ]
           }
         >
-          sunt qui amet
+          iure ut libero
         </Text>
         <Text
           style={
@@ -5784,7 +5788,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -5818,7 +5823,7 @@ Array [
               ]
             }
           >
-            38791
+            39676
           </Text>
           <View
             accessible={true}
@@ -6043,7 +6048,7 @@ Array [
             ]
           }
         >
-          sunt qui amet
+          iure ut libero
         </Text>
         <Text
           style={
@@ -6223,7 +6228,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -6257,7 +6263,7 @@ Array [
               ]
             }
           >
-            38791
+            39676
           </Text>
           <View
             accessible={true}
@@ -6482,7 +6488,7 @@ Array [
             ]
           }
         >
-          sunt qui amet
+          iure ut libero
         </Text>
         <Text
           style={
@@ -6662,7 +6668,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -6696,7 +6703,7 @@ Array [
               ]
             }
           >
-            38791
+            39676
           </Text>
           <View
             accessible={true}
@@ -7114,7 +7121,7 @@ Array [
               ]
             }
           >
-            12812
+            14675
           </Text>
           <View
             accessible={true}
@@ -7318,7 +7325,7 @@ Array [
             ]
           }
         >
-          consequuntur corporis repellat
+          ratione ut sunt
         </Text>
         <Text
           style={
@@ -7374,7 +7381,7 @@ Array [
         ]
       }
     >
-      consequuntur corporis repellat completed a Step of Faith with a Forgiven person.
+      ratione ut sunt completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -7532,7 +7539,884 @@ Array [
               ]
             }
           >
-            14675
+            39658
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent renders community name and community photo when postType is announcement 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ANNOUNCEMENTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
+                  "paddingVertical": 0,
+                },
+                Object {
+                  "backgroundColor": "#505256",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Announcement
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "qui recusandae ut",
+          }
+        }
+        style={
+          Object {
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
+          }
+        }
+      />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Innovative encompassing moratorium
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "marginVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "lineHeight": 18,
+            }
+          }
+        >
+          <Text>
+            quisquam recusandae alias
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "consequuntur corporis repellat",
+      }
+    }
+    style={
+      Object {
+        "aspectRatio": 2,
+      }
+    }
+  />,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "marginRight": 20,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#FF5532"
+                fill="#FF5532"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            68521
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent renders default community avatar when communityPhotoUrl is null 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="ANNOUNCEMENTButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
+                  "paddingVertical": 0,
+                },
+                Object {
+                  "backgroundColor": "#505256",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Announcement
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <SvgMock />
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "paddingHorizontal": 8,
+          }
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Innovative encompassing moratorium
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "marginVertical": 10,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "lineHeight": 18,
+            }
+          }
+        >
+          <Text>
+            quisquam recusandae alias
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "consequuntur corporis repellat",
+      }
+    }
+    style={
+      Object {
+        "aspectRatio": 2,
+      }
+    }
+  />,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "marginRight": 20,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            84631
           </Text>
           <View
             accessible={true}

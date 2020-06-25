@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 
@@ -19,12 +20,17 @@ import { mapPostTypeToFeedType } from '../../utils/common';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { COMMUNITY_REPORTED } from '../../containers/Communities/Community/CommunityReported/CommunityReported';
-import theme from '../../theme';
+import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 
 import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroupItem';
 import ReportedIcon from './reportedIcon.svg';
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
+import { GET_COMMUNITY_PHOTO } from './queries';
+import {
+  GetCommunityPhoto,
+  GetCommunityPhotoVariables,
+} from './__generated__/GetCommunityPhoto';
 
 export const NotificationCenterItem = ({
   event,
@@ -88,6 +94,27 @@ export const NotificationCenterItem = ({
       getMessageVariable('post_type_enum') as PostTypeEnum,
     ) || FeedItemSubjectTypeEnum.STORY;
 
+  // Only query for community photo if notification is a challenge created or an announcment post
+  const shouldSkip = !(
+    trigger === NotificationTriggerEnum.community_challenge_created_alert ||
+    (trigger === NotificationTriggerEnum.story_notification &&
+      iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT)
+  );
+
+  const {
+    data: { community: { communityPhotoUrl = null } = {} } = {},
+  } = useQuery<GetCommunityPhoto, GetCommunityPhotoVariables>(
+    GET_COMMUNITY_PHOTO,
+    {
+      fetchPolicy: 'cache-first',
+      variables: {
+        communityId: screenData.communityId || '',
+      },
+
+      skip: shouldSkip,
+    },
+  );
+
   const renderIcon = () => {
     // Comments and Challenges don't return a FeedItemSubjectType, so we have to check
     // for them seperately
@@ -137,6 +164,37 @@ export const NotificationCenterItem = ({
     }
   };
 
+  const renderAvatar = () => {
+    switch (trigger) {
+      case NotificationTriggerEnum.community_challenge_created_alert:
+        return communityPhotoUrl ? (
+          <Image
+            source={{ uri: communityPhotoUrl }}
+            style={styles.wrapStyle}
+            resizeMode="cover"
+          />
+        ) : (
+          <DefaultCommunityAvatar />
+        );
+      case NotificationTriggerEnum.story_notification:
+        return iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT ? (
+          communityPhotoUrl ? (
+            <Image
+              source={{ uri: communityPhotoUrl }}
+              style={styles.wrapStyle}
+              resizeMode="cover"
+            />
+          ) : (
+            <DefaultCommunityAvatar />
+          )
+        ) : (
+          <Avatar person={subjectPerson ?? undefined} size="medium" />
+        );
+      default:
+        return <Avatar person={subjectPerson ?? undefined} size="medium" />;
+    }
+  };
+
   return (
     <Touchable
       onPress={handleNotificationPress}
@@ -144,7 +202,7 @@ export const NotificationCenterItem = ({
       style={styles.itemContainer}
     >
       <View style={styles.contentContainer}>
-        <Avatar person={subjectPerson ?? undefined} size="medium" />
+        {renderAvatar()}
         <View style={{ position: 'absolute', top: 30, left: 50 }}>
           {renderIcon()}
         </View>
@@ -227,9 +285,7 @@ export const ReportedNotificationCenterItem = ({
             resizeMode="cover"
           />
         ) : (
-          <View
-            style={[styles.wrapStyle, { backgroundColor: theme.lightGrey }]}
-          />
+          <DefaultCommunityAvatar />
         )}
         <View style={{ position: 'absolute', top: 30, left: 50 }}>
           <ReportedIcon width={24} height={24} />

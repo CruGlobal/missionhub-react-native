@@ -98,6 +98,19 @@ describe('refresh', () => {
   });
 });
 
+describe('back on community name', () => {
+  it('calls navigate back', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigateBack).toHaveBeenCalled();
+  });
+});
+
 describe('celebrate add complete', () => {
   it('scrolls to end on add complete', async () => {
     const scrollToEnd = jest.fn();
