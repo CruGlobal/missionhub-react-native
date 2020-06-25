@@ -18,7 +18,7 @@ export default StyleSheet.create({
     borderBottomColor: theme.extraLightGrey,
   },
   respondedContentContainer: {
-    flex: 0.6,
+    marginTop: '50%',
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'column',

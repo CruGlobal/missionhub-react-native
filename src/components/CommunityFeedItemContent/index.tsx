@@ -34,7 +34,7 @@ import {
   CommunityFeedItemContent_subject_Post,
   CommunityFeedItemContent_subject_Step,
   CommunityFeedItemContent_subject_Step_receiverStageAtCompletion,
-  CommunityFeedItemContent_subject_CommunityChallenge,
+  CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
 } from './__generated__/CommunityFeedItemContent';
 import StepIcon from './stepIcon.svg';
 import PlusIcon from './plusIcon.svg';
@@ -123,13 +123,9 @@ export const CommunityFeedItemContent = ({
     );
 
   const renderChallengeMessage = (
-    subject: CommunityFeedItemContent_subject_CommunityChallenge,
+    subject: CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
   ) => {
-    const isCompleted = subject.acceptedCommunityChallengesList.some(
-      acceptedChallege => !!acceptedChallege.completedAt,
-    );
-
-    return t(isCompleted ? 'challengeCompleted' : 'challengeAccepted', {
+    return t(subject.completedAt ? 'challengeCompleted' : 'challengeAccepted', {
       initiator: personName,
     });
   };
@@ -175,7 +171,7 @@ export const CommunityFeedItemContent = ({
     switch (subject.__typename) {
       case 'Step':
         return renderText(renderStepOfFaithMessage(subject));
-      case 'CommunityChallenge':
+      case 'AcceptedCommunityChallenge':
         return renderText(renderChallengeMessage(subject));
       case 'Post':
         return renderPostMessage(subject);
@@ -210,7 +206,7 @@ export const CommunityFeedItemContent = ({
   ) => <Markdown style={markdown}>{subject.content}</Markdown>;
 
   const renderChallengeLink = (
-    subject: CommunityFeedItemContent_subject_CommunityChallenge,
+    subject: CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
   ) => (
     <View style={styles.row}>
       <Button
@@ -220,7 +216,7 @@ export const CommunityFeedItemContent = ({
         style={styles.challengeLinkButton}
       >
         <Text numberOfLines={2} style={styles.challengeLinkText}>
-          {subject.title}
+          {subject.communityChallenge.title}
         </Text>
       </Button>
     </View>
@@ -304,7 +300,7 @@ export const CommunityFeedItemContent = ({
       {renderHeader()}
       <View style={styles.postTextWrap}>
         {renderMessage()}
-        {subject.__typename === 'CommunityChallenge'
+        {subject.__typename === 'AcceptedCommunityChallenge'
           ? renderChallengeLink(subject)
           : null}
       </View>
