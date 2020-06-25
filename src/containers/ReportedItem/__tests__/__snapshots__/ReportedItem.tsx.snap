@@ -27,7 +27,6 @@ exports[`Reported Post call handleDelete 1`] = `
 -       Object {
 -         \\"alignItems\\": \\"flex-start\\",
 -         \\"backgroundColor\\": \\"#ffffff\\",
-+       \\"flex\\": 0.6,
         \\"flexDirection\\": \\"column\\",
 -         \\"marginBottom\\": 8,
 -         \\"marginHorizontal\\": 20,
@@ -45,6 +44,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -         \\"padding\\": 15,
 -       }
 +       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
       }
 -   >
 -     <View
@@ -550,7 +550,6 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       Object {
 -         \\"alignItems\\": \\"flex-start\\",
 -         \\"backgroundColor\\": \\"#ffffff\\",
-+       \\"flex\\": 0.6,
         \\"flexDirection\\": \\"column\\",
 -         \\"marginBottom\\": 8,
 -         \\"marginHorizontal\\": 20,
@@ -568,6 +567,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         \\"padding\\": 15,
 -       }
 +       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
       }
 -   >
 -     <View
@@ -1051,9 +1051,9 @@ exports[`Reported comment call handleDelete 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "flex": 0.6,
       "flexDirection": "column",
       "justifyContent": "center",
+      "marginTop": "50%",
     }
   }
 >
@@ -1106,9 +1106,9 @@ exports[`Reported comment call handleIgnore 1`] = `
   style={
     Object {
       "alignItems": "center",
-      "flex": 0.6,
       "flexDirection": "column",
       "justifyContent": "center",
+      "marginTop": "50%",
     }
   }
 >

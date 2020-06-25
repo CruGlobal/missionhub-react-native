@@ -5,85 +5,412 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -169,10 +169,78 @@
+@@ -138,11 +138,11 @@
+                      \\"lineHeight\\": 20,
+                    },
+                  ]
+                }
+              >
+-               Upgradable interactive solution
++               Distributed needs-based encoding
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+@@ -183,32 +183,32 @@
+      }
+      data={
+        Array [
+          Object {
+            \\"__typename\\": \\"FeedItemComment\\",
+-           \\"content\\": \\"debitis incidunt accusantium\\",
+-           \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
+-           \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
+-           \\"id\\": \\"5\\",
++           \\"content\\": \\"sit aperiam placeat\\",
++           \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
++           \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
++           \\"id\\": \\"16\\",
+            \\"person\\": Object {
+              \\"__typename\\": \\"Person\\",
+-             \\"fullName\\": \\"Tatyana Johns\\",
+-             \\"id\\": \\"6\\",
+-             \\"picture\\": \\"blanditiis natus et\\",
++             \\"fullName\\": \\"Magnolia Rogahn\\",
++             \\"id\\": \\"17\\",
++             \\"picture\\": \\"ullam minima ducimus\\",
+            },
+          },
+          Object {
+            \\"__typename\\": \\"FeedItemComment\\",
+-           \\"content\\": \\"eos itaque velit\\",
+-           \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
+-           \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
+-           \\"id\\": \\"7\\",
++           \\"content\\": \\"temporibus modi aut\\",
++           \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
++           \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
++           \\"id\\": \\"18\\",
+            \\"person\\": Object {
+              \\"__typename\\": \\"Person\\",
+-             \\"fullName\\": \\"Michel Wisoky\\",
+-             \\"id\\": \\"8\\",
+-             \\"picture\\": \\"et ipsam explicabo\\",
++             \\"fullName\\": \\"Janelle Upton\\",
++             \\"id\\": \\"19\\",
++             \\"picture\\": \\"explicabo exercitationem ut\\",
+            },
+          },
+        ]
+      }
+      disableVirtualization={false}
+@@ -281,17 +281,17 @@
+                      \\"paddingLeft\\": 20,
+                      \\"paddingRight\\": 16,
+                      \\"paddingVertical\\": 0,
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"#505256\\",
++                     \\"backgroundColor\\": \\"#00CA99\\",
+                    },
+                    null,
+                    null,
+                  ]
+                }
+-               testID=\\"ANNOUNCEMENTLabel\\"
++               testID=\\"COMMUNITY_CHALLENGELabel\\"
+              >
+                <SvgMock
+                  color=\\"#ffffff\\"
+                  height={20}
+                  style={
+@@ -320,11 +320,11 @@
+                        \\"lineHeight\\": 20,
+                      },
+                    ]
+                  }
+                >
+-                 Announcement
++                 Challenge
+                </Text>
+              </View>
+            </View>
+            <View
+              style={
+@@ -337,19 +337,25 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"quam ipsam nobis\\",
++                   \\"uri\\": \\"a velit provident\\",
+                  }
+                }
+                style={
++                 Array [
+                    Object {
+                      \\"borderRadius\\": 24,
+                      \\"height\\": 48,
+                      \\"width\\": 48,
+-                 }
++                   },
++                   Object {
++                     \\"backgroundColor\\": \\"rgb(159, 161, 130)\\",
++                   },
++                   undefined,
++                 ]
+                }
+              />
+              <View
+                style={
+                  Object {
+@@ -366,19 +372,27 @@
+                      Object {
+                        \\"color\\": \\"#505256\\",
+                      },
+                      Object {
+                        \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     },
++                     Array [
++                       Object {
++                         \\"color\\": \\"#007398\\",
++                         \\"fontSize\\": 16,
+                        },
+                        Object {
++                         \\"color\\": \\"#505256\\",
+                          \\"fontSize\\": 16,
+                          \\"fontWeight\\": \\"bold\\",
++                         \\"lineHeight\\": 20,
+                        },
++                     ],
+                    ]
+                  }
+                >
+-                 Upgradable interactive solution
++                 Richard Batz
+                </Text>
+                <Text
+                  style={
+                    Array [
+                      Object {
+@@ -400,11 +414,11 @@
+                      ],
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 November 1, 2012 @ 7:34 PM
++                 April 22, 2017 @ 8:49 AM
+                </Text>
+              </View>
+            </View>
+          </View>
+          <View
+@@ -413,50 +427,95 @@
+                \\"paddingHorizontal\\": 20,
+                \\"paddingVertical\\": 8,
+              }
+            }
+          >
++           <Text
++             style={
++               Array [
++                 Object {
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 14,
++                   \\"justifyContent\\": \\"flex-start\\",
++                   \\"lineHeight\\": 18,
++                 },
++               ]
++             }
++           >
++             Richard B. completed a Challenge:
++           </Text>
+            <View
+-             style={Object {}}
++             style={
++               Object {
++                 \\"flexDirection\\": \\"row\\",
++               }
++             }
+            >
+              <View
++               accessible={true}
++               focusable={true}
++               isTVSelectable={true}
++               onClick={[Function bound touchableHandlePress]}
++               onResponderGrant={[Function bound touchableHandleResponderGrant]}
++               onResponderMove={[Function bound touchableHandleResponderMove]}
++               onResponderRelease={[Function bound touchableHandleResponderRelease]}
++               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+                style={
+                  Object {
+-                   \\"marginVertical\\": 10,
++                   \\"opacity\\": 1,
+                  }
++               }
++               testID=\\"ChallengeLinkButton\\"
++             >
++               <View
++                 style={
++                   Array [
++                     Object {
++                       \\"backgroundColor\\": \\"transparent\\",
++                     },
++                     null,
++                     Object {
++                       \\"marginTop\\": 4,
++                     },
++                     null,
++                   ]
+                  }
+                >
+                  <Text
++                   numberOfLines={2}
+                    style={
++                     Array [
+                        Object {
+                          \\"color\\": \\"#505256\\",
++                       },
++                       Object {
+                          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                       },
++                       Object {
++                         \\"color\\": \\"#007398\\",
+                          \\"fontSize\\": 14,
++                         \\"fontWeight\\": \\"400\\",
++                         \\"letterSpacing\\": 0,
+                          \\"lineHeight\\": 18,
++                         \\"textAlign\\": \\"left\\",
++                       },
++                     ]
+                    }
+-                 }
+                  >
+-                 <Text>
+-                   corporis repellat ratione
+-                 </Text>
++                   libero aspernatur deserunt
+                  </Text>
+                </View>
+              </View>
+            </View>
+-         <Image
+-           resizeMode=\\"cover\\"
+-           source={
+-             Object {
+-               \\"uri\\": \\"ut sunt qui\\",
+-             }
+-           }
+-           style={
+-             Object {
+-               \\"aspectRatio\\": 1.3333333333333333,
+-             }
+-           }
+-         />
++         </View>
+          <View
+            style={
+              Array [
+                Object {
+                  \\"backgroundColor\\": \\"#ECEEF2\\",
+@@ -574,12 +633,11 @@
+                          null,
+                        ]
+                      }
+                    >
+                      <SvgMock
+-                       color=\\"#FF5532\\"
+-                       fill=\\"#FF5532\\"
++                       color=\\"#505256\\"
+                      />
+                    </View>
+                  </View>
+                </View>
+                <View
+@@ -609,11 +667,11 @@
+                          \\"width\\": 30,
+                        },
+                      ]
+                    }
+                  >
+-                   44345
++                   41253
+                  </Text>
+                  <View
+                    accessible={true}
+                    focusable={true}
+                    isTVSelectable={true}
+@@ -678,29 +736,28 @@
+        >
+          <CommentItem
+            comment={
+              Object {
+                \\"__typename\\": \\"FeedItemComment\\",
+-               \\"content\\": \\"debitis incidunt accusantium\\",
+-               \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
+-               \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
+-               \\"id\\": \\"5\\",
++               \\"content\\": \\"sit aperiam placeat\\",
++               \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
++               \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
++               \\"id\\": \\"16\\",
+                \\"person\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Tatyana Johns\\",
+-                 \\"id\\": \\"6\\",
+-                 \\"picture\\": \\"blanditiis natus et\\",
++                 \\"fullName\\": \\"Magnolia Rogahn\\",
++                 \\"id\\": \\"17\\",
++                 \\"picture\\": \\"ullam minima ducimus\\",
+                },
+              }
+            }
+            isEditing={false}
+            menuActions={
+              Array [
+                Object {
+-                 \\"destructive\\": true,
+                  \\"onPress\\": [Function onPress],
+-                 \\"text\\": \\"Delete Comment\\",
++                 \\"text\\": \\"Report to Owner\\",
+                },
+              ]
+            }
+            testID=\\"CommentItem\\"
+          />
+@@ -711,29 +768,28 @@
+        >
+          <CommentItem
+            comment={
+              Object {
+                \\"__typename\\": \\"FeedItemComment\\",
+-               \\"content\\": \\"eos itaque velit\\",
+-               \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
+-               \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
+-               \\"id\\": \\"7\\",
++               \\"content\\": \\"temporibus modi aut\\",
++               \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
++               \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
++               \\"id\\": \\"18\\",
+                \\"person\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Michel Wisoky\\",
+-                 \\"id\\": \\"8\\",
+-                 \\"picture\\": \\"et ipsam explicabo\\",
++                 \\"fullName\\": \\"Janelle Upton\\",
++                 \\"id\\": \\"19\\",
++                 \\"picture\\": \\"explicabo exercitationem ut\\",
+                },
+              }
+            }
+            isEditing={false}
+            menuActions={
+              Array [
+                Object {
+-                 \\"destructive\\": true,
+                  \\"onPress\\": [Function onPress],
+-                 \\"text\\": \\"Delete Comment\\",
++                 \\"text\\": \\"Report to Owner\\",
+                },
+              ]
+            }
+            testID=\\"CommentItem\\"
+          />
+@@ -753,22 +809,22 @@
+    >
+      <Image
+        resizeMode=\\"cover\\"
+        source={
+          Object {
+-           \\"uri\\": \\"saepe eum dicta\\",
++           \\"uri\\": \\"sit vitae soluta\\",
+          }
+        }
+        style={
+          Array [
+            Object {
+              \\"borderRadius\\": 18,
+              \\"height\\": 36,
+              \\"width\\": 36,
+            },
+            Object {
+-             \\"backgroundColor\\": \\"rgb(144, 99, 67)\\",
++             \\"backgroundColor\\": \\"rgb(167, 192, 125)\\",
             },
             undefined,
           ]
         }
-      />
-+     <View
-+       accessible={true}
-+       focusable={true}
-+       isTVSelectable={true}
-+       onClick={[Function bound touchableHandlePress]}
-+       onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+       onResponderMove={[Function bound touchableHandleResponderMove]}
-+       onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+       style={
-+         Object {
-+           \\"alignItems\\": \\"center\\",
-+           \\"backgroundColor\\": \\"#505256\\",
-+           \\"flexDirection\\": \\"row\\",
-+           \\"justifyContent\\": \\"center\\",
-+           \\"opacity\\": 1,
-+           \\"padding\\": 5,
-+         }
-+       }
-+     >
-+       <Text
-+         style={
-+           Array [
-+             Object {
-+               \\"color\\": \\"#505256\\",
-+             },
-+             Object {
-+               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+             },
-+             Object {
-+               \\"color\\": \\"#ffffff\\",
-+             },
-+           ]
-+         }
-+       >
-+         Error loading feed item details
-+       </Text>
-+       <Text
-+         allowFontScaling={false}
-+         style={
-+           Array [
-+             Object {
-+               \\"color\\": undefined,
-+               \\"fontSize\\": 12,
-+             },
-+             Array [
-+               Object {
-+                 \\"color\\": \\"#ffffff\\",
-+               },
-+               Object {
-+                 \\"fontSize\\": 18,
-+               },
-+               Object {},
-+             ],
-+             Object {
-+               \\"fontFamily\\": \\"Material Icons\\",
-+               \\"fontStyle\\": \\"normal\\",
-+               \\"fontWeight\\": \\"normal\\",
-+             },
-+             Object {},
-+           ]
-+         }
-+       >
-+         
-+       </Text>
-+     </View>
-    </RCTSafeAreaView>
-    <RCTScrollView
-      ListFooterComponent={null}
-      ListHeaderComponent={[Function ListHeaderComponent]}
-      bounces={false}"
+      />"
 `;
 
 exports[`renders correctly 1`] = `
