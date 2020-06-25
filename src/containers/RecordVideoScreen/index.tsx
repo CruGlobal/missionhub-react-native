@@ -61,8 +61,8 @@ export const RecordVideoScreen = () => {
     setVideoState('RECORDING');
     startCountdown();
 
-    const { uri } = await camera.current.recordAsync();
-    onEndRecord(uri);
+    const data = await camera.current.recordAsync();
+    onEndRecord(data);
   };
 
   const endRecording = () => {

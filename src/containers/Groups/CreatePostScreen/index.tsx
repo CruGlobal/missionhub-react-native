@@ -4,6 +4,8 @@ import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
+import { RecordResponse } from 'react-native-camera';
+import { ReactNativeFile } from 'apollo-upload-client';
 
 import {
   ACTIONS,
@@ -50,7 +52,6 @@ import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-type MediaType = 'image' | 'video' | null;
 
 interface CreatePostScreenParams {
   onComplete: () => void;
@@ -80,8 +81,8 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [mediaType, changeMediaType] = useState<MediaType>(
-    (post?.mediaContentType || null) as MediaType,
+  const [mediaType, changeMediaType] = useState<string | null>(
+    post?.mediaContentType || null,
   );
   const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
@@ -199,6 +200,14 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
+    if (hasVideo) {
+      const videoFile = new ReactNativeFile({
+        uri: mediaData,
+        name: '',
+        type: mediaType,
+      });
+    }
+
     if (post) {
       await updatePost({
         variables: {
@@ -230,13 +239,14 @@ export const CreatePostScreen = () => {
   };
 
   const handleSavePhoto = (image: SelectImageParams) => {
-    changeMediaType('image');
+    changeMediaType(image.fileType);
     changeMediaData(image.data);
   };
 
-  const handleSaveVideo = (uri: string) => {
+  const handleSaveVideo = (data: RecordResponse) => {
+    console.log(data);
     changeMediaType('video');
-    changeMediaData(uri);
+    changeMediaData(data.uri);
   };
 
   const navigateToRecordVideo = () => {
