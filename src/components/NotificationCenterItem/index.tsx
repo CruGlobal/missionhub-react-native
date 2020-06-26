@@ -157,6 +157,7 @@ export const NotificationCenterItem = ({
       default:
         return dispatch(
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {
+            fromNotificationCenterItem: true,
             feedItemId: screenData.feedItemId,
             communityId: screenData.communityId,
           }),

@@ -27,7 +27,8 @@ import { useMyId } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
-import { navigateBack } from '../../../../../actions/navigation';
+import { navigateBack, navigatePush } from '../../../../../actions/navigation';
+import { COMMUNITY_TABS } from '../../constants';
 
 import FeedCommentBox from './FeedCommentBox';
 import styles from './styles';
@@ -42,6 +43,9 @@ const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
   const feedItemId: string = useNavigationParam('feedItemId');
   const communityId: string = useNavigationParam('communityId');
+  const fromNotificationCenterItem: boolean = useNavigationParam(
+    'fromNotificationCenterItem',
+  );
   const myId = useMyId();
   const dispatch = useDispatch();
 
@@ -126,7 +130,11 @@ const FeedItemDetailScreen = () => {
         center={
           <Touchable
             testID="CommunityNameHeader"
-            onPress={() => dispatch(navigateBack())}
+            onPress={() =>
+              fromNotificationCenterItem
+                ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
+                : dispatch(navigateBack())
+            }
           >
             <Text style={styles.headerText}>
               {data?.feedItem.community?.name}
