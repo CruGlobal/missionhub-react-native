@@ -92,7 +92,7 @@ export const CommunityFeed = ({
     communityId,
     personIds: (personId && [personId]) || undefined,
     hasUnreadComments: showUnreadOnly,
-    subjectType: filteredFeedType,
+    subjectType: filteredFeedType ? [filteredFeedType] : undefined,
   };
 
   const {

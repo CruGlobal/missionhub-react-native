@@ -58,18 +58,26 @@ export const CommunityFeedItemContent = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
+  const { subject, subjectPerson, subjectPersonName } = feedItem;
+
+  if (
+    subject.__typename !== 'Post' &&
+    subject.__typename !== 'AcceptedCommunityChallenge' &&
+    subject.__typename !== 'Step'
+  ) {
+    throw new Error(
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+    );
+  }
+
   const imageData =
-    (feedItem.subject.__typename === 'Post' &&
-      feedItem.subject.mediaExpiringUrl) ||
-    null;
+    (subject.__typename === 'Post' && subject.mediaExpiringUrl) || null;
 
   const stepStatus =
-    (feedItem.subject.__typename === 'Post' && feedItem.subject.stepStatus) ||
+    (subject.__typename === 'Post' && subject.stepStatus) ||
     PostStepStatusEnum.NOT_SUPPORTED;
 
   const imageAspectRatio = useAspectRatio(imageData);
-
-  const { subject, subjectPerson, subjectPersonName } = feedItem;
 
   const itemType = getFeedItemType(subject);
   const addToSteps =
