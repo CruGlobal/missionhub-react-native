@@ -348,6 +348,11 @@ describe('long-press card', () => {
         { initialState },
       );
 
+      // Used to fix unsupported subject type error
+      if (storyPostItem.subject.__typename !== 'Post') {
+        throw new Error('Subject type was not a Post');
+      }
+
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
         1,
@@ -381,6 +386,11 @@ describe('long-press card', () => {
         <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
         { initialState },
       );
+
+      // Used to fix unsupported subject type error
+      if (storyPostItem.subject.__typename !== 'Post') {
+        throw new Error('Subject type was not a Post');
+      }
 
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
