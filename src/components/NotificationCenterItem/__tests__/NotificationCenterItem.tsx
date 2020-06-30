@@ -22,15 +22,20 @@ import {
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { ContentComplaintGroupItem } from '../__generated__/ContentComplaintGroupItem';
 import { COMMUNITY_REPORTED } from '../../../containers/Communities/Community/CommunityReported/CommunityReported';
+import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 
 import { NotificationCenterItem, ReportedNotificationCenterItem } from '..';
 
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/challenges');
 
 const communityId = '4';
 
 beforeEach(() => {
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+  (reloadGroupChallengeFeed as jest.Mock).mockReturnValue({
+    type: 'reload group challenge feed',
+  });
 });
 
 it('renders correctly', () => {
@@ -311,12 +316,13 @@ describe('handleNotificationPress', () => {
 
     fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
+      fromNotificationCenterItem: true,
       feedItemId: mockNotification.screenData.feedItemId,
       communityId,
     });
   });
 
-  it('navigates to challenge detail screen', () => {
+  it('navigates to challenge detail screen', async () => {
     const mockChallengeNotification = mockFragment<NotificationItem>(
       NOTIFICATION_ITEM_FRAGMENT,
       {
@@ -348,14 +354,17 @@ describe('handleNotificationPress', () => {
       <NotificationCenterItem event={mockChallengeNotification} />,
     );
 
-    fireEvent.press(getByTestId('notificationButton'));
+    await fireEvent.press(getByTestId('notificationButton'));
+    expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
+      mockChallengeNotification.screenData.communityId,
+    );
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
       orgId: mockChallengeNotification.screenData.communityId,
       challengeId: mockChallengeNotification.screenData.challengeId,
     });
   });
 
-  it('navigates to global community challenge detail screen if no communityId', () => {
+  it('navigates to global community challenge detail screen if no communityId', async () => {
     const mockChallengeNotification = mockFragment<NotificationItem>(
       NOTIFICATION_ITEM_FRAGMENT,
       {
@@ -387,7 +396,7 @@ describe('handleNotificationPress', () => {
       <NotificationCenterItem event={mockChallengeNotification} />,
     );
 
-    fireEvent.press(getByTestId('notificationButton'));
+    await fireEvent.press(getByTestId('notificationButton'));
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
       orgId: GLOBAL_COMMUNITY_ID,
       challengeId: mockChallengeNotification.screenData.challengeId,

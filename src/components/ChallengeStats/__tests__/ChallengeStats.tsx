@@ -85,7 +85,9 @@ it('render upcoming challenge stats', () => {
 });
 
 it('navigates to ChallengeMemberScreen when Pressed | Joined', async () => {
-  const { getByTestId } = renderWithContext(<ChallengeStats {...props} />);
+  const { getByTestId } = renderWithContext(
+    <ChallengeStats {...props} isDetailScreen={true} />,
+  );
   await fireEvent.press(getByTestId('joinedCount'));
   expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_MEMBERS_SCREEN, {
     challenge,
@@ -95,13 +97,30 @@ it('navigates to ChallengeMemberScreen when Pressed | Joined', async () => {
 });
 
 it('navigates to ChallengeMemberScreen when Pressed | Completed', async () => {
-  const { getByTestId } = renderWithContext(<ChallengeStats {...props} />);
+  const { getByTestId } = renderWithContext(
+    <ChallengeStats {...props} isDetailScreen={true} />,
+  );
   await fireEvent.press(getByTestId('completedCount'));
   expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_MEMBERS_SCREEN, {
     challenge,
     orgId: organization.id,
     completed: true,
   });
+});
+
+it('does not navigate if isDetailScreen is false', async () => {
+  const { getByTestId, snapshot } = renderWithContext(
+    <ChallengeStats
+      {...props}
+      challenge={{
+        ...challenge,
+      }}
+      isDetailScreen={false}
+    />,
+  );
+  snapshot();
+  await fireEvent.press(getByTestId('joinedCount'));
+  expect(navigatePush).not.toHaveBeenCalled();
 });
 
 it('does not navigate if accepted_count is 0 | Joined', async () => {
