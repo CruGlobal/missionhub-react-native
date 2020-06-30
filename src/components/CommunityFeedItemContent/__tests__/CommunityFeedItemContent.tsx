@@ -252,6 +252,22 @@ describe('CommunityFeedItemContent', () => {
       }),
     );
   });
+  it('renders with menu options', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({ subject: () => ({ __typename: 'Step' }) }),
+      }),
+      { menuActions: [{ text: 'Hi!', onPress: () => {} }] },
+    );
+  });
+  it('renders without menu options', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({ subject: () => ({ __typename: 'Step' }) }),
+      }),
+      { menuActions: [] },
+    );
+  });
 });
 
 describe('onPressChallengeLink', () => {

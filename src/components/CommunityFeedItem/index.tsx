@@ -38,6 +38,80 @@ interface CommunityFeedItemProps {
   onClearNotification?: (item: FeedItemFragment) => void;
 }
 
+export function useDeletePost(feedItem?: FeedItemFragment) {
+  const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
+    DELETE_POST,
+    {
+      update: cache => {
+        if (!feedItem) {
+          return;
+        }
+        const { subject, community } = feedItem;
+        if (!community) {
+          return;
+        }
+
+        try {
+          const originalData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId: community.id },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId: community.id },
+            data: {
+              ...originalData,
+              community: {
+                ...originalData?.community,
+                feedItems: {
+                  ...originalData?.community.feedItems,
+                  nodes: (originalData?.community.feedItems.nodes || []).filter(
+                    ({ id }) => id !== feedItem.id,
+                  ),
+                },
+              },
+            },
+          });
+
+          const originalFilteredData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId: community.id,
+              subjectType: getFeedItemType(subject),
+            },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId: community.id,
+              subjectType: getFeedItemType(subject),
+            },
+            data: {
+              ...originalFilteredData,
+              community: {
+                ...originalFilteredData?.community,
+                feedItems: {
+                  ...originalFilteredData?.community.feedItems,
+                  nodes: (
+                    originalFilteredData?.community.feedItems.nodes || []
+                  ).filter(({ id }) => id !== feedItem.id),
+                },
+              },
+            },
+          });
+        } catch {}
+      },
+    },
+  );
+  return deletePost;
+}
+
 export const CommunityFeedItem = ({
   feedItem,
   namePressable,
@@ -48,70 +122,8 @@ export const CommunityFeedItem = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');
-  const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
-    DELETE_POST,
-    {
-      update: cache => {
-        if (!community) {
-          return;
-        }
+  const deletePost = useDeletePost(feedItem);
 
-        const originalData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId: community.id },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId: community.id },
-          data: {
-            ...originalData,
-            community: {
-              ...originalData?.community,
-              feedItems: {
-                ...originalData?.community.feedItems,
-                nodes: (originalData?.community.feedItems.nodes || []).filter(
-                  ({ id }) => id !== feedItem.id,
-                ),
-              },
-            },
-          },
-        });
-
-        const originalFilteredData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId: community.id,
-            subjectType: getFeedItemType(subject),
-          },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId: community.id,
-            subjectType: getFeedItemType(subject),
-          },
-          data: {
-            ...originalFilteredData,
-            community: {
-              ...originalFilteredData?.community,
-              feedItems: {
-                ...originalFilteredData?.community.feedItems,
-                nodes: (
-                  originalFilteredData?.community.feedItems.nodes || []
-                ).filter(({ id }) => id !== feedItem.id),
-              },
-            },
-          },
-        });
-      },
-    },
-  );
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
@@ -143,8 +155,9 @@ export const CommunityFeedItem = ({
 
   const handleDelete = () =>
     Alert.alert(t('delete.title'), t('delete.message'), [
-      { text: t('cancel') },
+      { text: t('cancel'), style: 'cancel' },
       {
+        style: 'destructive',
         text: t('delete.buttonText'),
         onPress: async () => {
           await deletePost({ variables: { id: subject.id } });
@@ -154,7 +167,7 @@ export const CommunityFeedItem = ({
 
   const handleReport = () =>
     Alert.alert(t('report.title'), t('report.message'), [
-      { text: t('cancel') },
+      { text: t('cancel'), style: 'cancel' },
       {
         text: t('report.confirmButtonText'),
         onPress: () => reportPost({ variables: { id: subject.id } }),
@@ -172,6 +185,7 @@ export const CommunityFeedItem = ({
             {
               text: t('delete.buttonText'),
               onPress: () => handleDelete(),
+              destructive: true,
             },
           ]
         : [

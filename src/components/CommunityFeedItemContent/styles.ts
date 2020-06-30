@@ -96,6 +96,16 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'flex-end',
   },
+  popupMenuWrap: {
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  popupButton: {
+    paddingRight: 12,
+    paddingLeft: 30,
+    paddingVertical: 5,
+  },
 });
 
 export const markdown = StyleSheet.create({

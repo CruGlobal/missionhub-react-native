@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, SafeAreaView, FlatList } from 'react-native';
+import { View, SafeAreaView, FlatList, Alert, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -22,13 +22,19 @@ import BackButton from '../../../../../components/BackButton';
 import Header from '../../../../../components/Header';
 import { ErrorNotice } from '../../../../../components/ErrorNotice/ErrorNotice';
 import { RootState } from '../../../../../reducers';
-import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
-import { useMyId } from '../../../../../utils/hooks/useIsMe';
+import { useMyId, useIsMe } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
 import { navigateBack, navigatePush } from '../../../../../actions/navigation';
 import { COMMUNITY_TABS } from '../../constants';
+import { useDeletePost } from '../../../../../components/CommunityFeedItem';
+import { isOwner, isAdminOrOwner } from '../../../../../utils/common';
+import {
+  CREATE_POST_SCREEN,
+  CreatePostScreenNavParams,
+} from '../../../../../containers/Groups/CreatePostScreen';
+import theme from '../../../../../theme';
 
 import FeedCommentBox from './FeedCommentBox';
 import styles from './styles';
@@ -55,6 +61,7 @@ const FeedItemDetailScreen = () => {
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
   });
+  const deletePost = useDeletePost(data?.feedItem);
 
   const analyticsPermissionType = useSelector(({ auth }: RootState) =>
     getAnalyticsPermissionType(auth, { id: communityId }),
@@ -122,20 +129,21 @@ const FeedItemDetailScreen = () => {
   };
 
   useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
+  const orgPerm = data?.feedItem.community?.people.edges[0].communityPermission;
+  const isMe = useIsMe(data?.feedItem.subjectPerson?.id || '');
+
+  function handleBack() {
+    fromNotificationCenterItem
+      ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
+      : dispatch(navigateBack());
+  }
 
   const renderHeader = () => (
     <SafeAreaView>
       <Header
         left={<BackButton />}
         center={
-          <Touchable
-            testID="CommunityNameHeader"
-            onPress={() =>
-              fromNotificationCenterItem
-                ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
-                : dispatch(navigateBack())
-            }
-          >
+          <Touchable testID="CommunityNameHeader" onPress={handleBack}>
             <Text style={styles.headerText}>
               {data?.feedItem.community?.name}
             </Text>
@@ -158,10 +166,7 @@ const FeedItemDetailScreen = () => {
         comments={data.feedItem.comments.nodes}
         editingCommentId={editingCommentId}
         setEditingCommentId={setEditingCommentId}
-        isOwner={
-          data.feedItem.community?.people.edges[0].communityPermission
-            .permission === PermissionEnum.owner
-        }
+        isOwner={isOwner(orgPerm)}
         listProps={{
           ref: listRef,
           refreshControl: (
@@ -177,6 +182,53 @@ const FeedItemDetailScreen = () => {
                 feedItem={data?.feedItem}
                 onCommentPress={() => feedCommentBox.current?.focus()}
                 postLabelPressable={false}
+                menuActions={[
+                  ...(isMe
+                    ? [
+                        {
+                          text: t('communityFeedItems:edit.buttonText'),
+                          onPress: () =>
+                            dispatch(
+                              navigatePush(CREATE_POST_SCREEN, {
+                                post: data?.feedItem.subject,
+                                communityId: data?.feedItem.community?.id,
+                              } as CreatePostScreenNavParams),
+                            ),
+                        },
+                      ]
+                    : []),
+                  ...(isMe || isAdminOrOwner(orgPerm)
+                    ? [
+                        {
+                          text: t('communityFeedItems:delete.buttonText'),
+                          onPress: () => {
+                            Alert.alert(
+                              t('communityFeedItems:delete.title'),
+                              t('communityFeedItems:delete.message'),
+                              [
+                                { text: t('cancel'), style: 'cancel' },
+                                {
+                                  style: 'destructive',
+                                  text: t(
+                                    'communityFeedItems:delete.buttonText',
+                                  ),
+                                  onPress: async () => {
+                                    await deletePost({
+                                      variables: {
+                                        id: data?.feedItem.subject.id,
+                                      },
+                                    });
+                                    handleBack();
+                                  },
+                                },
+                              ],
+                            );
+                          },
+                          destructive: true,
+                        },
+                      ]
+                    : []),
+                ]}
               />
               <Separator style={styles.belowItem} />
             </>
@@ -219,6 +271,7 @@ const FeedItemDetailScreen = () => {
 
   return (
     <View style={styles.pageContainer}>
+      <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       {renderCommentsList()}
       {renderCommentBox()}
