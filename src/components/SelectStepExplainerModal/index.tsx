@@ -5,7 +5,7 @@ import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import { Text, IconButton } from '../../components/common';
+import { Text, IconButton, Button } from '../../components/common';
 import theme from '../../theme';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
@@ -107,6 +107,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
     <View style={styles.container}>
       <View style={styles.card}>
         <Carousel
+          testID="SelectStepExplainerCarousel"
           data={AddStepExplainer}
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}
@@ -140,8 +141,24 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                   </View>
                 )}
                 <View style={[{ flex: 0.9 }, styles.textWrap]}>
-                  {text && !stepType && (
+                  {text && !stepType && activeIndex !== 5 && (
                     <Text style={[styles.text, styles.textOnly]}>{text}</Text>
+                  )}
+                  {text && !stepType && activeIndex === 5 && (
+                    <View style={styles.finalCardContainer}>
+                      <Text style={[styles.text, styles.textOnly]}>{text}</Text>
+                      <Button
+                        testID="SelectStepExplainerGotItButton"
+                        type="secondary"
+                        style={styles.gotItButton}
+                        buttonTextStyle={styles.gotItText}
+                        text={i18next
+                          .t('selectStepExplainer:gotIt')
+                          .toUpperCase()}
+                        onPress={() => onClose()}
+                        pill={true}
+                      />
+                    </View>
                   )}
                   {stepType && text && (
                     <>
@@ -169,16 +186,18 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           removeClippedSubviews={false}
           bounces={false}
         />
-        <Pagination
-          activeDotIndex={activeIndex}
-          dotsLength={6}
-          inactiveDotScale={0.9}
-          dotColor={theme.impactBlue}
-          inactiveDotColor={theme.grey3}
-          containerStyle={{ marginBottom: 10 }}
-          dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
-          dotContainerStyle={{ marginHorizontal: 4 }}
-        />
+        {activeIndex !== 5 ? (
+          <Pagination
+            activeDotIndex={activeIndex}
+            dotsLength={6}
+            inactiveDotScale={0.9}
+            dotColor={theme.impactBlue}
+            inactiveDotColor={theme.grey3}
+            containerStyle={{ marginBottom: 10 }}
+            dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
+            dotContainerStyle={{ marginHorizontal: 4 }}
+          />
+        ) : null}
         <View style={styles.closeButtonWrap}>
           <IconButton
             name="close"

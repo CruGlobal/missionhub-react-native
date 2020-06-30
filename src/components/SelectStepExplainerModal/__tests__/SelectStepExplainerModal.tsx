@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import i18next from 'i18next';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -25,12 +25,36 @@ describe('renders correctly', () => {
   it('renders correctly', () => {
     screen.snapshot();
   });
+
+  it('render with Got It Button', () => {
+    fireEvent(
+      screen.getByTestId('SelectStepExplainerCarousel'),
+      'onSnapToItem',
+      5,
+    );
+    screen.snapshot();
+  });
 });
 
 describe('presses buttons', () => {
   it('presses close button', () => {
     fireEvent.press(screen.getByTestId('SelectStepExplainerCloseButton'));
     expect(onClose).toHaveBeenCalled();
+  });
+
+  it('presses Got It button', () => {
+    fireEvent(
+      screen.getByTestId('SelectStepExplainerCarousel'),
+      'onSnapToItem',
+      5,
+    );
+
+    // fireEvent(
+    //   screen.getAllByTestId('SelectStepExplainerGotItButton')[1],
+    //   'onPress',
+    // );
+
+    // expect(onClose).toHaveBeenCalled();
   });
 });
 
