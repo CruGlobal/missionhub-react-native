@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';

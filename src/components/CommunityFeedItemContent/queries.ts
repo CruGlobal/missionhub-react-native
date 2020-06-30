@@ -28,6 +28,12 @@ export const COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT = gql`
         mediaExpiringUrl
         stepStatus
       }
+      ... on Community {
+        id
+      }
+      ... on CommunityPermission {
+        id
+      }
     }
     subjectPerson {
       id
