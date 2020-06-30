@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, SafeAreaView, FlatList, Alert, StatusBar } from 'react-native';
+import { View, SafeAreaView, FlatList, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -28,12 +28,11 @@ import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedI
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
 import { navigateBack, navigatePush } from '../../../../../actions/navigation';
 import { COMMUNITY_TABS } from '../../constants';
-import { useDeletePost } from '../../../../../components/CommunityFeedItem';
-import { isOwner, isAdminOrOwner } from '../../../../../utils/common';
 import {
-  CREATE_POST_SCREEN,
-  CreatePostScreenNavParams,
-} from '../../../../../containers/Groups/CreatePostScreen';
+  useDeleteFeedItem,
+  useEditFeedItem,
+} from '../../../../../components/CommunityFeedItem';
+import { isOwner, isAdminOrOwner } from '../../../../../utils/common';
 import theme from '../../../../../theme';
 
 import FeedCommentBox from './FeedCommentBox';
@@ -61,7 +60,11 @@ const FeedItemDetailScreen = () => {
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
   });
-  const deletePost = useDeletePost(data?.feedItem);
+  const deleteFeedItem = useDeleteFeedItem(data?.feedItem);
+  const editFeedItem = useEditFeedItem(
+    data?.feedItem.subject,
+    data?.feedItem.community?.id,
+  );
 
   const analyticsPermissionType = useSelector(({ auth }: RootState) =>
     getAnalyticsPermissionType(auth, { id: communityId }),
@@ -187,13 +190,7 @@ const FeedItemDetailScreen = () => {
                     ? [
                         {
                           text: t('communityFeedItems:edit.buttonText'),
-                          onPress: () =>
-                            dispatch(
-                              navigatePush(CREATE_POST_SCREEN, {
-                                post: data?.feedItem.subject,
-                                communityId: data?.feedItem.community?.id,
-                              } as CreatePostScreenNavParams),
-                            ),
+                          onPress: editFeedItem,
                         },
                       ]
                     : []),
@@ -201,29 +198,7 @@ const FeedItemDetailScreen = () => {
                     ? [
                         {
                           text: t('communityFeedItems:delete.buttonText'),
-                          onPress: () => {
-                            Alert.alert(
-                              t('communityFeedItems:delete.title'),
-                              t('communityFeedItems:delete.message'),
-                              [
-                                { text: t('cancel'), style: 'cancel' },
-                                {
-                                  style: 'destructive',
-                                  text: t(
-                                    'communityFeedItems:delete.buttonText',
-                                  ),
-                                  onPress: async () => {
-                                    await deletePost({
-                                      variables: {
-                                        id: data?.feedItem.subject.id,
-                                      },
-                                    });
-                                    handleBack();
-                                  },
-                                },
-                              ],
-                            );
-                          },
+                          onPress: () => deleteFeedItem(handleBack),
                           destructive: true,
                         },
                       ]
