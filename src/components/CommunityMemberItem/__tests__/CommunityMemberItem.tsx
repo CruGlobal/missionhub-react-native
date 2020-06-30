@@ -1,7 +1,6 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { orgPermissionSelector } from '../../../selectors/people';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { CommunityMemberPerson } from '../__generated__/CommunityMemberPerson';
@@ -53,17 +52,9 @@ const props = {
   myCommunityPermission: memberPermissions,
 };
 
-beforeEach(() => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    adminPermissions,
-  );
-});
-
 describe('render contacts count', () => {
   describe('user created org', () => {
     it('should not crash without my org permission', () => {
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
-
       renderWithContext(
         <CommunityMemberItem {...props} organization={userOrg} />,
         { initialState },
@@ -136,9 +127,6 @@ describe('render MemberOptionsMenu', () => {
   });
 
   it('should not render menu if I am member', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-      memberPermissions,
-    );
     renderWithContext(
       <CommunityMemberItem
         {...props}
