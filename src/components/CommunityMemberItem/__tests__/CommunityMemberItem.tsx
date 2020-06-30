@@ -50,6 +50,7 @@ const props = {
   personOrgPermission: memberPermissions,
   organization,
   onRefreshMembers: jest.fn(),
+  myCommunityPermission: memberPermissions,
 };
 
 beforeEach(() => {
@@ -82,6 +83,7 @@ describe('render contacts count', () => {
           {...props}
           organization={userOrg}
           personOrgPermission={adminPermissions}
+          myCommunityPermission={adminPermissions}
         />,
         { initialState },
       ).snapshot();
@@ -93,6 +95,7 @@ describe('render contacts count', () => {
           {...props}
           organization={userOrg}
           personOrgPermission={ownerPermissions}
+          myCommunityPermission={ownerPermissions}
         />,
         { initialState },
       ).snapshot();
@@ -113,6 +116,7 @@ describe('render MemberOptionsMenu', () => {
       <CommunityMemberItem
         {...props}
         personOrgPermission={memberPermissions}
+        myCommunityPermission={adminPermissions}
       />,
       {
         initialState,
@@ -122,7 +126,11 @@ describe('render MemberOptionsMenu', () => {
 
   it('should not render menu if person is owner', () => {
     renderWithContext(
-      <CommunityMemberItem {...props} personOrgPermission={ownerPermissions} />,
+      <CommunityMemberItem
+        {...props}
+        personOrgPermission={ownerPermissions}
+        myCommunityPermission={adminPermissions}
+      />,
       { initialState },
     ).snapshot();
   });

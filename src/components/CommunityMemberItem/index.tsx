@@ -2,15 +2,13 @@
 
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import { Flex, Text, DateComponent, Dot, Touchable } from '../common';
 import MemberOptionsMenu from '../MemberOptionsMenu';
-import { orgPermissionSelector } from '../../selectors/people';
 import { isAdminOrOwner, isOwner } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';
 import Avatar from '../Avatar';
-import { RootState } from '../../reducers';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
 import { navigatePush } from '../../actions/navigation';
 import { COMMUNITY_MEMBER_TABS } from '../../containers/Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
@@ -22,6 +20,7 @@ import { CommunityMemberPerson } from './__generated__/CommunityMemberPerson';
 interface CommunityMemberItemProps {
   person: CommunityMemberPerson;
   organization: Organization;
+  myCommunityPermission?: CommunityMembers_community_people_edges_communityPermission;
   personOrgPermission: CommunityMembers_community_people_edges_communityPermission;
   onRefreshMembers: Function;
 }
@@ -31,16 +30,14 @@ const CommunityMemberItem = ({
   organization,
   personOrgPermission,
   onRefreshMembers,
+  myCommunityPermission,
 }: CommunityMemberItemProps) => {
   const { t } = useTranslation('groupItem');
   const dispatch = useDispatch();
   const myId = useMyId();
   const isMe = useIsMe(person.id);
-  const myOrgPermission = useSelector(({ auth }: RootState) =>
-    orgPermissionSelector({}, { person: auth.person, organization }),
-  );
-  const iAmAdmin = isAdminOrOwner(myOrgPermission);
-  const iAmOwner = isOwner(myOrgPermission);
+  const iAmAdmin = isAdminOrOwner(myCommunityPermission);
+  const iAmOwner = isOwner(myCommunityPermission);
   const personIsAdmin = isAdminOrOwner(personOrgPermission);
   const personIsOwner = isOwner(personOrgPermission);
 
