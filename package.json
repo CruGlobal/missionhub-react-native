@@ -178,7 +178,8 @@
       "<rootDir>/__mock__/react-native-omniture.js",
       "<rootDir>/__mock__/react-native-reanimated.ts",
       "<rootDir>/__mock__/init-i18next.js",
-      "<rootDir>/__mock__/apolloClient.ts"
+      "<rootDir>/__mock__/apolloClient.ts",
+      "<rootDir>/__mock__/react-native-camera.ts"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/__mock__/hideWarnings.ts",
