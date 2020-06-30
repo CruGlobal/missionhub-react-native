@@ -96,31 +96,19 @@ export const personIsCurrentUser = (personId: string, authState: AuthState) =>
 export const isOnboarding = (onboardingState: OnboardingState) =>
   onboardingState.currentlyOnboarding;
 
-//If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
 export const userIsJean = (
-  orgPermissions: { organization: { user_created: boolean } }[],
-) => orgPermissions.some(p => !p.organization.user_created);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  orgPermissions: { organization: {} }[],
+) => false;
 
 export const orgIsPersonalMinistry = (org?: { id?: string }) =>
   !!org && (!org.id || org.id === 'personal');
 
-export const orgIsUserCreated = (org?: {
-  user_created?: boolean;
-  userCreated?: boolean;
-}) => !!(org && (org.user_created || org.userCreated));
-
 export const orgIsGlobal = (org?: { id?: string }) =>
   !!org && org.id === GLOBAL_COMMUNITY_ID;
 
-export const orgIsCru = (org?: {
-  id?: string;
-  user_created?: boolean;
-  userCreated?: boolean;
-}) =>
-  !!org &&
-  !orgIsPersonalMinistry(org) &&
-  !orgIsUserCreated(org) &&
-  !orgIsGlobal(org);
+export const orgIsCru = (org?: { id?: string }) =>
+  !!org && !orgIsPersonalMinistry(org) && false && !orgIsGlobal(org);
 
 const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.OWNER,
@@ -192,17 +180,8 @@ export const isAdmin = (
     !!orgPermission.permission &&
     orgPermission.permission === PermissionEnum.admin);
 
-export const canEditCommunity = (
-  permission?: PermissionEnum,
-  userCreated?: boolean,
-) =>
-  permission === PermissionEnum.owner ||
-  (!userCreated && permission === PermissionEnum.admin);
-
-// @ts-ignore
-export const shouldQueryReportedComments = (org, orgPermission) =>
-  (orgIsCru(org) && isAdminOrOwner(orgPermission)) ||
-  (orgIsUserCreated(org) && isOwner(orgPermission));
+export const canEditCommunity = (permission?: PermissionEnum) =>
+  permission === PermissionEnum.owner;
 
 // @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>

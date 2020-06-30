@@ -118,7 +118,6 @@ describe('CommunityProfile', () => {
       mocks: {
         Query: () => ({
           community: () => ({
-            userCreated: () => true,
             people: () => ({
               edges: () => [
                 {
@@ -145,7 +144,6 @@ describe('CommunityProfile', () => {
       mocks: {
         Query: () => ({
           community: () => ({
-            userCreated: () => true,
             people: () => ({
               edges: () => [
                 {
@@ -226,7 +224,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -261,7 +258,6 @@ describe('CommunityProfile', () => {
         navParams: { communityId },
         mocks: {
           Community: () => ({
-            userCreated: true,
             people: () => ({
               edges: () => [
                 {
@@ -290,7 +286,6 @@ describe('CommunityProfile', () => {
         navParams: { communityId },
         mocks: {
           Community: () => ({
-            userCreated: true,
             people: () => ({
               edges: () => [
                 {
@@ -322,7 +317,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -371,7 +365,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -401,7 +394,6 @@ describe('CommunityProfile', () => {
         navParams: { communityId },
         mocks: {
           Community: () => ({
-            userCreated: true,
             people: () => ({
               edges: () => [
                 {
@@ -431,7 +423,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -463,7 +454,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {

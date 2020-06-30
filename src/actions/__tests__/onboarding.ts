@@ -278,37 +278,11 @@ describe('join stashed community', () => {
 });
 
 describe('land on stashed community screen', () => {
-  it('landOnStashedCommunityScreen navigates to GroupScreen', async () => {
+  it('landOnStashedCommunityScreen navigates to Community Tabs', async () => {
     const community = {
       id: '1',
       community_code: '123456',
       community_url: 'abcdef',
-      user_created: false,
-    };
-
-    store = configureStore([thunk])({
-      onboarding: {
-        community,
-      },
-      organizations: { all: [community] },
-    });
-
-    await store.dispatch<any>(landOnStashedCommunityScreen());
-
-    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
-      communityId: community.id,
-    });
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.SELECT_JOINED_COMMUNITY,
-    );
-  });
-
-  it('landOnStashedCommunityScreen navigates to UserCreatedGroupScreen', async () => {
-    const community = {
-      id: '1',
-      community_code: '123456',
-      community_url: 'abcdef',
-      user_created: true,
     };
 
     store = configureStore([thunk])({

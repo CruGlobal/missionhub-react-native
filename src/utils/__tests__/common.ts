@@ -7,7 +7,6 @@ import {
   buildTrackingObj,
   userIsJean,
   orgIsPersonalMinistry,
-  orgIsUserCreated,
   orgIsCru,
   hasOrgPermissions,
   isAdminOrOwner,
@@ -28,7 +27,6 @@ import {
   keyExtractorId,
   isAdmin,
   orgIsGlobal,
-  shouldQueryReportedComments,
   isAuthenticated,
   personIsCurrentUser,
   isOnboarding,
@@ -125,18 +123,16 @@ describe('isOnboarding', () => {
 });
 
 describe('userIsJean', () => {
-  const caseyPermissions = [
-    { id: '1', organization: { id: '1', user_created: true } },
-  ];
+  const caseyPermissions = [{ id: '1', organization: { id: '1' } }];
   const jeanPermissions = [
     ...caseyPermissions,
-    { id: '2', organization: { id: '2', user_created: false } },
+    { id: '2', organization: { id: '2' } },
   ];
   it('should return false for Casey', () => {
     expect(userIsJean(caseyPermissions)).toEqual(false);
   });
-  it('should return true for Jean', () => {
-    expect(userIsJean(jeanPermissions)).toEqual(true);
+  it('should return false for Jean', () => {
+    expect(userIsJean(jeanPermissions)).toEqual(false);
   });
 });
 
@@ -146,21 +142,6 @@ describe('orgIsPersonalMinistry', () => {
   });
   it('returns true for personal ministry', () => {
     expect(orgIsPersonalMinistry({ id: 'personal' })).toEqual(true);
-  });
-});
-
-describe('orgIsUserCreated', () => {
-  it('returns false for empty org', () => {
-    expect(orgIsUserCreated({})).toEqual(false);
-  });
-  it('returns true for user_created community', () => {
-    expect(orgIsUserCreated({ user_created: true })).toEqual(true);
-  });
-  it('returns true for userCreated community', () => {
-    expect(orgIsUserCreated({ userCreated: true })).toEqual(true);
-  });
-  it('returns false for cru community', () => {
-    expect(orgIsUserCreated({ user_created: false })).toEqual(false);
   });
 });
 
@@ -175,10 +156,10 @@ describe('orgIsCru', () => {
     expect(orgIsCru({ id: GLOBAL_COMMUNITY_ID })).toEqual(false);
   });
   it('returns false for user-created community', () => {
-    expect(orgIsCru({ id: '1', user_created: true })).toEqual(false);
+    expect(orgIsCru({ id: '1' })).toEqual(false);
   });
   it('returns true for cru community', () => {
-    expect(orgIsCru({ id: '1', user_created: false })).toEqual(true);
+    expect(orgIsCru({ id: '1' })).toEqual(false);
   });
 });
 
@@ -339,61 +320,6 @@ describe('isAdmin', () => {
   });
   it('should return false for no_permissions | permission', () => {
     expect(isAdmin({ permission: PermissionEnum.no_permissions })).toEqual(
-      false,
-    );
-  });
-});
-
-describe('shouldQueryReportedComments', () => {
-  const userCreatedCommunity = { id: '1', user_created: true };
-  const cruCommunity = { id: '1', user_created: false };
-  const globalCommunity = { id: GLOBAL_COMMUNITY_ID };
-  const ownerOrgPerm = { permission_id: 3 };
-  const adminOrgPerm = { permission_id: 1 };
-  const memberOrgPerm = { permission_id: 4 };
-
-  it('returns true for owner in user created community', () => {
-    expect(
-      shouldQueryReportedComments(userCreatedCommunity, ownerOrgPerm),
-    ).toEqual(true);
-  });
-  it('returns true for owner in cru community', () => {
-    expect(shouldQueryReportedComments(cruCommunity, ownerOrgPerm)).toEqual(
-      true,
-    );
-  });
-  it('returns false for owner in global community', () => {
-    expect(shouldQueryReportedComments(globalCommunity, ownerOrgPerm)).toEqual(
-      false,
-    );
-  });
-  it('returns false for admin in user created community', () => {
-    expect(
-      shouldQueryReportedComments(userCreatedCommunity, adminOrgPerm),
-    ).toEqual(false);
-  });
-  it('returns true for admin in cru community', () => {
-    expect(shouldQueryReportedComments(cruCommunity, adminOrgPerm)).toEqual(
-      true,
-    );
-  });
-  it('returns false for admin in global community', () => {
-    expect(shouldQueryReportedComments(globalCommunity, adminOrgPerm)).toEqual(
-      false,
-    );
-  });
-  it('returns false for member in user created community', () => {
-    expect(
-      shouldQueryReportedComments(userCreatedCommunity, memberOrgPerm),
-    ).toEqual(false);
-  });
-  it('returns false for member in crucommunity', () => {
-    expect(shouldQueryReportedComments(cruCommunity, memberOrgPerm)).toEqual(
-      false,
-    );
-  });
-  it('returns false for global in crucommunity', () => {
-    expect(shouldQueryReportedComments(globalCommunity, memberOrgPerm)).toEqual(
       false,
     );
   });

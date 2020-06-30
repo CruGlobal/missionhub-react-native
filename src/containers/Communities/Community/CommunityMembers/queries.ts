@@ -6,7 +6,6 @@ export const COMMUNITY_MEMBERS_QUERY = gql`
   query CommunityMembers($id: ID!, $after: String) {
     community(id: $id) {
       id
-      userCreated
       report(period: "P99Y") {
         memberCount
       }

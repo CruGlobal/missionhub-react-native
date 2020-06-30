@@ -53,7 +53,6 @@ const ImpactView = ({
 
   const isPersonalMinistryMe = isMe && orgIsPersonalMinistry(organization);
   const isOrgImpact = !personId;
-  const isUserCreatedOrg = organization.user_created;
   // Impact summary isn't scoped by org unless showing org summary. See above comment
   const impact = useSelector((state: RootState) =>
     impactSummarySelector(state, {
@@ -123,8 +122,7 @@ const ImpactView = ({
     const isSpecificContact =
       !paramGlobal && !isMe && !isGlobalCommunity && personId;
 
-    const hideStageSentence =
-      !paramGlobal && isUserCreatedOrg && pathway_moved_count === 0;
+    const hideStageSentence = !paramGlobal && pathway_moved_count === 0;
 
     const year = new Date().getFullYear();
 

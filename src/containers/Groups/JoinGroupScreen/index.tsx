@@ -134,8 +134,6 @@ class JoinGroupScreen extends Component {
       // @ts-ignore
       contactReport = {},
       // @ts-ignore
-      user_created,
-      // @ts-ignore
       community_photo_url,
       // @ts-ignore
       unread_comments_count,
@@ -159,7 +157,6 @@ class JoinGroupScreen extends Component {
         unassignedCount: contactReport.unassignedCount || 0,
         memberCount: contactReport.memberCount || 0,
       },
-      userCreated: user_created,
       communityPhotoUrl: community_photo_url,
       unreadCommentsCount: unread_comments_count,
     };
