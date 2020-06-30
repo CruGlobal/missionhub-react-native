@@ -31,6 +31,7 @@ import { Organization } from '../../../../reducers/organizations';
 import theme from '../../../../theme';
 import { RootState } from '../../../../reducers';
 import { FooterLoading } from '../../../../components/FooterLoading';
+import { useMyId } from '../../../../utils/hooks/useIsMe';
 
 import styles from './styles';
 import { COMMUNITY_MEMBERS_QUERY } from './queries';
@@ -42,6 +43,7 @@ import {
 export const CommunityMembers = () => {
   const dispatch = useDispatch();
   const communityId: string = useNavigationParam('communityId');
+  const myId = useMyId();
 
   const { data, error, fetchMore, refetch, loading } = useQuery<
     CommunityMembersQuery,
@@ -56,6 +58,10 @@ export const CommunityMembers = () => {
   const groupInviteInfo = useSelector(
     ({ swipe }: RootState) => swipe.groupInviteInfo,
   );
+
+  const myCommunityPermission = data?.community.people.edges.find(
+    p => p.node.id === myId,
+  )?.communityPermission;
 
   const analyticsPermissionType = useSelector(({ auth }: RootState) =>
     getAnalyticsPermissionType(auth, organization),
@@ -142,6 +148,7 @@ export const CommunityMembers = () => {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <CommunityMemberItem
+            myCommunityPermission={myCommunityPermission}
             organization={organization}
             personOrgPermission={item.communityPermission}
             person={item.node}
