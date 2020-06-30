@@ -22,7 +22,7 @@ import {
 import { personSelector, contactAssignmentSelector } from '../selectors/people';
 
 import callApi from './api';
-import { trackActionWithoutData, setAnalyticsMinistryMode } from './analytics';
+import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 
@@ -39,8 +39,6 @@ export const getMe = (extraInclude?: string) => async (
   const { response: person } = await dispatch(
     callApi(REQUESTS.GET_ME, { include }),
   );
-
-  dispatch(setAnalyticsMinistryMode());
 
   return person;
 };

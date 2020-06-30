@@ -9,7 +9,6 @@ import {
   ANALYTICS_GR_MASTER_PERSON_ID,
   ANALYTICS_FACEBOOK_ID,
   ANALYTICS_CONTENT_LANGUAGE,
-  ANALYTICS_MINISTRY_MODE,
   NOT_LOGGED_IN,
   LOGOUT,
   RELOAD_APP,
@@ -33,7 +32,6 @@ export interface AnalyticsState {
   [ANALYTICS_GR_MASTER_PERSON_ID]: TrackStateContext[typeof ANALYTICS_GR_MASTER_PERSON_ID];
   [ANALYTICS_FACEBOOK_ID]: TrackStateContext[typeof ANALYTICS_FACEBOOK_ID];
   [ANALYTICS_CONTENT_LANGUAGE]: TrackStateContext[typeof ANALYTICS_CONTENT_LANGUAGE];
-  [ANALYTICS_MINISTRY_MODE]: TrackStateContext[typeof ANALYTICS_MINISTRY_MODE];
 }
 
 export const initialAnalyticsState = {
@@ -45,7 +43,6 @@ export const initialAnalyticsState = {
   [ANALYTICS_GR_MASTER_PERSON_ID]: '',
   [ANALYTICS_FACEBOOK_ID]: '',
   [ANALYTICS_CONTENT_LANGUAGE]: i18next.language,
-  [ANALYTICS_MINISTRY_MODE]: false,
 };
 
 export interface AnalyticsContextChangedAction {
@@ -97,7 +94,6 @@ function analyticsReducer(
         [ANALYTICS_SSO_GUID]: '',
         [ANALYTICS_GR_MASTER_PERSON_ID]: '',
         [ANALYTICS_FACEBOOK_ID]: '',
-        [ANALYTICS_MINISTRY_MODE]: false,
       };
     default:
       return state;
