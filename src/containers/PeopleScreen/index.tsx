@@ -29,7 +29,6 @@ interface PeopleScreenProps {
   dispatch: ThunkDispatch<any, null, never>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items: any;
-  isJean: boolean;
   hasNoContacts: boolean;
   person: Person;
 }

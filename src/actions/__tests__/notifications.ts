@@ -471,7 +471,6 @@ describe('askNotificationPermissions', () => {
 
     const store = createThunkStore({
       auth: {
-        isJean: true,
         person,
       },
       organizations,
