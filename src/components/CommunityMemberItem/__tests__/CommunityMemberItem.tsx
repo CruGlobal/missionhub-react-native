@@ -1,7 +1,6 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { orgPermissionSelector } from '../../../selectors/people';
 import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { CommunityMemberPerson } from '../__generated__/CommunityMemberPerson';
@@ -50,19 +49,12 @@ const props = {
   personOrgPermission: memberPermissions,
   organization,
   onRefreshMembers: jest.fn(),
+  myCommunityPermission: memberPermissions,
 };
-
-beforeEach(() => {
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    adminPermissions,
-  );
-});
 
 describe('render contacts count', () => {
   describe('user created org', () => {
     it('should not crash without my org permission', () => {
-      ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(null);
-
       renderWithContext(
         <CommunityMemberItem {...props} organization={userOrg} />,
         { initialState },
@@ -82,6 +74,7 @@ describe('render contacts count', () => {
           {...props}
           organization={userOrg}
           personOrgPermission={adminPermissions}
+          myCommunityPermission={adminPermissions}
         />,
         { initialState },
       ).snapshot();
@@ -93,6 +86,7 @@ describe('render contacts count', () => {
           {...props}
           organization={userOrg}
           personOrgPermission={ownerPermissions}
+          myCommunityPermission={ownerPermissions}
         />,
         { initialState },
       ).snapshot();
@@ -113,6 +107,7 @@ describe('render MemberOptionsMenu', () => {
       <CommunityMemberItem
         {...props}
         personOrgPermission={memberPermissions}
+        myCommunityPermission={adminPermissions}
       />,
       {
         initialState,
@@ -122,15 +117,16 @@ describe('render MemberOptionsMenu', () => {
 
   it('should not render menu if person is owner', () => {
     renderWithContext(
-      <CommunityMemberItem {...props} personOrgPermission={ownerPermissions} />,
+      <CommunityMemberItem
+        {...props}
+        personOrgPermission={ownerPermissions}
+        myCommunityPermission={adminPermissions}
+      />,
       { initialState },
     ).snapshot();
   });
 
   it('should not render menu if I am member', () => {
-    ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-      memberPermissions,
-    );
     renderWithContext(
       <CommunityMemberItem
         {...props}
