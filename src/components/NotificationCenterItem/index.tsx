@@ -21,6 +21,7 @@ import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen'
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { COMMUNITY_REPORTED } from '../../containers/Communities/Community/CommunityReported/CommunityReported';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
+import { reloadGroupChallengeFeed } from '../../actions/challenges';
 
 import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroupItem';
 import ReportedIcon from './reportedIcon.svg';
@@ -140,15 +141,18 @@ export const NotificationCenterItem = ({
     }
   };
 
-  const handleNotificationPress = () => {
+  const handleNotificationPress = async () => {
     switch (trigger) {
       case NotificationTriggerEnum.community_challenge_created_alert:
+        const communityId = screenData.communityId
+          ? screenData.communityId
+          : GLOBAL_COMMUNITY_ID;
+
+        await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
           navigatePush(CHALLENGE_DETAIL_SCREEN, {
             // If no communityId, than it is a global challenge
-            orgId: screenData.communityId
-              ? screenData.communityId
-              : GLOBAL_COMMUNITY_ID,
+            orgId: communityId,
             challengeId: screenData.challengeId,
           }),
         );

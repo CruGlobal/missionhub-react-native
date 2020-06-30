@@ -83,7 +83,7 @@ export function useDeletePost(feedItem?: FeedItemFragment) {
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId: community.id,
-              subjectType: getFeedItemType(subject),
+              subjectType: [getFeedItemType(subject)],
             },
           });
           cache.writeQuery({
@@ -129,6 +129,16 @@ export const CommunityFeedItem = ({
   );
 
   const isGlobal = !feedItem.community;
+
+  if (
+    subject.__typename !== 'Post' &&
+    subject.__typename !== 'AcceptedCommunityChallenge' &&
+    subject.__typename !== 'Step'
+  ) {
+    throw new Error(
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+    );
+  }
 
   const isPost = (
     subject: CommunityFeedItem_subject,

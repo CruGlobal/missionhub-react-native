@@ -64,6 +64,16 @@ export const CommunityFeedItemContent = ({
   const dispatch = useDispatch();
 
   const { subject, subjectPerson, subjectPersonName, community } = feedItem;
+  if (
+    subject.__typename !== 'Post' &&
+    subject.__typename !== 'AcceptedCommunityChallenge' &&
+    subject.__typename !== 'Step'
+  ) {
+    throw new Error(
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+    );
+  }
+
   const imageData =
     (subject.__typename === 'Post' && subject.mediaExpiringUrl) || null;
   const stepStatus =

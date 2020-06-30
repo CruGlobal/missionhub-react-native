@@ -282,6 +282,10 @@ describe('onPressChallengeLink', () => {
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
       { initialState },
     );
+    // Used to fix unsupported subject type error
+    if (challengeFeedItem.subject.__typename !== 'AcceptedCommunityChallenge') {
+      throw new Error('Type was not AcceptedCommunityChallenge');
+    }
 
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
@@ -310,6 +314,11 @@ describe('onPressChallengeLink', () => {
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
       { initialState },
     );
+    // Used to fix unsupported subject type error
+    if (challengeFeedItem.subject.__typename !== 'AcceptedCommunityChallenge') {
+      throw new Error('Type was not AcceptedCommunityChallenge');
+    }
+
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
