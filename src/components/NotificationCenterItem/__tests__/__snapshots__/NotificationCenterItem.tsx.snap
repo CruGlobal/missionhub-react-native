@@ -1206,7 +1206,7 @@ exports[`different notification types Comunity Challenge renders with default co
 </View>
 `;
 
-exports[`different notification types renders correctly | Comment 1`] = `
+exports[`different notification types renders correctly | Comment 1 1`] = `
 <View
   accessible={true}
   focusable={true}
