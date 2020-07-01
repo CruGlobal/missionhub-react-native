@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image, ImageSourcePropType } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
@@ -101,7 +102,8 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
   useEffect(() => {
     setViewed();
   }, []);
-
+  const { t } = useTranslation('selectStepExplainer');
+  const lastPageIndex = AddStepExplainer.length - 1;
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <View style={styles.container}>
@@ -141,10 +143,10 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                   </View>
                 )}
                 <View style={[{ flex: 0.9 }, styles.textWrap]}>
-                  {text && !stepType && activeIndex !== 5 && (
+                  {text && !stepType && activeIndex !== lastPageIndex && (
                     <Text style={[styles.text, styles.textOnly]}>{text}</Text>
                   )}
-                  {text && !stepType && activeIndex === 5 && (
+                  {text && !stepType && activeIndex === lastPageIndex && (
                     <View style={styles.finalCardContainer}>
                       <Text style={[styles.text, styles.textOnly]}>{text}</Text>
                       <Button
@@ -152,9 +154,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                         type="secondary"
                         style={styles.gotItButton}
                         buttonTextStyle={styles.gotItText}
-                        text={i18next
-                          .t('selectStepExplainer:gotIt')
-                          .toUpperCase()}
+                        text={t('gotIt').toUpperCase()}
                         onPress={() => onClose()}
                         pill={true}
                       />
@@ -186,7 +186,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           removeClippedSubviews={false}
           bounces={false}
         />
-        {activeIndex !== 5 ? (
+        {activeIndex !== lastPageIndex ? (
           <Pagination
             activeDotIndex={activeIndex}
             dotsLength={6}

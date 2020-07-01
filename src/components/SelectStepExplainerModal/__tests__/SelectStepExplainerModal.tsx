@@ -1,5 +1,5 @@
 import React from 'react';
-import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { fireEvent } from 'react-native-testing-library';
 import i18next from 'i18next';
 
 import { renderWithContext } from '../../../../testUtils';
