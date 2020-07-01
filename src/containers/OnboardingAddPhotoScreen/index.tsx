@@ -91,6 +91,7 @@ export const OnboardingAddPhotoScreen = ({
           //@ts-ignore
           testID="ImagePicker"
           onSelectImage={handleSelectImage}
+          circleOverlay={true}
         >
           <View style={styles.nullBottomButtonWrapper}>
             <Text style={styles.bottomButtonText}>
