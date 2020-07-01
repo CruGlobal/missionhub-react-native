@@ -30,7 +30,7 @@ export enum PostLabelSizeEnum {
 }
 
 const PostTypeBgStyle: {
-  [key in FeedItemSubjectTypeEnum]: StyleProp<{ backgroundColor: string }>;
+  [key in FeedItemSubjectTypeEnum]?: StyleProp<{ backgroundColor: string }>;
 } = {
   ANNOUNCEMENT: styles.ANNOUNCEMENT,
   COMMUNITY_CHALLENGE: styles.COMMUNITY_CHALLENGE,
@@ -42,7 +42,7 @@ const PostTypeBgStyle: {
   THOUGHT: styles.THOUGHT,
 };
 const PostTypeColorStyle: {
-  [key in FeedItemSubjectTypeEnum]: StyleProp<{ color: string }>;
+  [key in FeedItemSubjectTypeEnum]?: StyleProp<{ color: string }>;
 } = {
   ANNOUNCEMENT: styles.colorANNOUNCEMENT,
   COMMUNITY_CHALLENGE: styles.colorCOMMUNITY_CHALLENGE,
@@ -95,6 +95,8 @@ function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
       return <AnnouncementIcon {...iconProps} />;
     case FeedItemSubjectTypeEnum.STEP:
       return <StepsOfFaithIcon {...iconProps} />;
+    default:
+      return null;
   }
 }
 
