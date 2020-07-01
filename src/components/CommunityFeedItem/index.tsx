@@ -44,13 +44,10 @@ export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
     DELETE_POST,
     {
       update: cache => {
-        if (!feedItem) {
+        if (!feedItem || !feedItem.community) {
           return;
         }
         const { subject, community } = feedItem;
-        if (!community) {
-          return;
-        }
 
         try {
           const originalData = cache.readQuery<

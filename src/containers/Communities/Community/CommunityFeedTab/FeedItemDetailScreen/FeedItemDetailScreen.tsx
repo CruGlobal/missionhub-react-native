@@ -132,7 +132,8 @@ const FeedItemDetailScreen = () => {
   };
 
   useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
-  const orgPerm = data?.feedItem.community?.people.edges[0].communityPermission;
+  const communityPermission =
+    data?.feedItem.community?.people.edges[0].communityPermission;
   const isMe = useIsMe(data?.feedItem.subjectPerson?.id || '');
 
   function handleBack() {
@@ -162,6 +163,26 @@ const FeedItemDetailScreen = () => {
     </SafeAreaView>
   );
 
+  const menuActions = [
+    ...(isMe
+      ? [
+          {
+            text: t('communityFeedItems:edit.buttonText'),
+            onPress: editFeedItem,
+          },
+        ]
+      : []),
+    ...(isMe || isAdminOrOwner(communityPermission)
+      ? [
+          {
+            text: t('communityFeedItems:delete.buttonText'),
+            onPress: () => deleteFeedItem(handleBack),
+            destructive: true,
+          },
+        ]
+      : []),
+  ];
+
   const renderCommentsList = () =>
     data ? (
       <CommentsList
@@ -169,7 +190,7 @@ const FeedItemDetailScreen = () => {
         comments={data.feedItem.comments.nodes}
         editingCommentId={editingCommentId}
         setEditingCommentId={setEditingCommentId}
-        isOwner={isOwner(orgPerm)}
+        isOwner={isOwner(communityPermission)}
         listProps={{
           ref: listRef,
           refreshControl: (
@@ -185,25 +206,7 @@ const FeedItemDetailScreen = () => {
                 feedItem={data?.feedItem}
                 onCommentPress={() => feedCommentBox.current?.focus()}
                 postLabelPressable={false}
-                menuActions={[
-                  ...(isMe
-                    ? [
-                        {
-                          text: t('communityFeedItems:edit.buttonText'),
-                          onPress: editFeedItem,
-                        },
-                      ]
-                    : []),
-                  ...(isMe || isAdminOrOwner(orgPerm)
-                    ? [
-                        {
-                          text: t('communityFeedItems:delete.buttonText'),
-                          onPress: () => deleteFeedItem(handleBack),
-                          destructive: true,
-                        },
-                      ]
-                    : []),
-                ]}
+                menuActions={menuActions}
               />
               <Separator style={styles.belowItem} />
             </>
