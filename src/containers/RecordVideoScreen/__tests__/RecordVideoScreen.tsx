@@ -2,6 +2,7 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { navigateBack } from '../../../actions/navigation';
 
 import { RecordVideoScreen } from '..';
 
@@ -37,8 +38,26 @@ it('times out after 15 seconds, ends recording and navigates back', async () => 
   expect(onEndRecord).toHaveBeenCalledWith();
 });
 
-it('ends recording and navigates back on pressing record button', () => {});
+it('ends recording and navigates back on pressing record button', () => {
+  const { getByTestId } = renderWithContext(<RecordVideoScreen />, {
+    navParams: { onEndRecord },
+  });
 
-it('navigates back on pressing close button', () => {});
+  fireEvent.press(getByTestId('RecordButton'));
+
+  fireEvent.press(getByTestId('RecordButton'));
+
+  expect(onEndRecord).toHaveBeenCalledWith();
+});
+
+it('navigates back on pressing close button', () => {
+  const { getByTestId } = renderWithContext(<RecordVideoScreen />, {
+    navParams: { onEndRecord },
+  });
+
+  fireEvent.press(getByTestId('CloseButton'));
+
+  expect(navigateBack).toHaveBeenCalledWith();
+});
 
 it('flips camera on pressing flip camera button', () => {});

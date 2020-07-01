@@ -70,6 +70,7 @@ export const RecordVideoScreen = () => {
     <SafeAreaView style={styles.closeWrap}>
       {videoState === 'NOT_RECORDING' ? (
         <Touchable
+          testID="CloseButton"
           onPress={handleClose}
           type="transparent"
           style={styles.closeButton}
