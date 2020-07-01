@@ -5,20 +5,20 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -120,11 +120,11 @@
-                    \\"lineHeight\\": 20,
-                  },
-                ]
-              }
-            >
--             Inverse dynamic open architecture
-+             Advanced 4th generation pricing structure
-            </Text>
+@@ -138,11 +138,11 @@
+                      \\"lineHeight\\": 20,
+                    },
+                  ]
+                }
+              >
+-               Inverse dynamic open architecture
++               Advanced 4th generation pricing structure
+              </Text>
+            </View>
           </View>
           <View
             style={
-              Array [
-@@ -164,32 +164,32 @@
+@@ -183,32 +183,32 @@
       }
       data={
         Array [
@@ -65,7 +65,7 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -353,11 +353,11 @@
+@@ -337,11 +337,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -78,7 +78,7 @@ exports[`refresh calls refreshComments 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -390,11 +390,11 @@
+@@ -374,11 +374,11 @@
                         \\"fontWeight\\": \\"bold\\",
                       },
                     ]
@@ -91,7 +91,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -416,11 +416,11 @@
+@@ -400,11 +400,11 @@
                       ],
                     ]
                   }
@@ -104,7 +104,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -450,21 +450,21 @@
+@@ -434,21 +434,21 @@
                       \\"lineHeight\\": 18,
                     }
                   }
@@ -128,7 +128,7 @@ exports[`refresh calls refreshComments 1`] = `
             style={
               Object {
                 \\"aspectRatio\\": 1.3333333333333333,
-@@ -625,11 +625,11 @@
+@@ -609,11 +609,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -141,7 +141,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -694,28 +694,29 @@
+@@ -678,28 +678,29 @@
         >
           <CommentItem
             comment={
@@ -179,7 +179,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -726,28 +727,29 @@
+@@ -710,28 +711,29 @@
         >
           <CommentItem
             comment={
@@ -217,7 +217,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -767,22 +769,22 @@
+@@ -751,22 +753,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -353,24 +353,43 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          <Text
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "opacity": 1,
+              }
             }
+            testID="CommunityNameHeader"
           >
-            Inverse dynamic open architecture
-          </Text>
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Inverse dynamic open architecture
+            </Text>
+          </View>
         </View>
         <View
           style={
@@ -498,95 +517,60 @@ exports[`renders correctly 1`] = `
             }
           >
             <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
               style={
-                Object {
-                  "opacity": 1,
-                }
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
+                  },
+                  Object {
+                    "backgroundColor": "#505256",
+                  },
+                  null,
+                  null,
+                ]
               }
-              testID="ANNOUNCEMENTButton"
+              testID="ANNOUNCEMENTLabel"
             >
-              <View
+              <SvgMock
+                color="#ffffff"
+                height={20}
                 style={
                   Array [
                     Object {
-                      "alignItems": "center",
-                      "backgroundColor": "transparent",
-                      "borderRadius": 0,
-                      "borderWidth": 0,
-                      "height": 60,
-                      "justifyContent": "center",
-                      "margin": 0,
-                      "paddingHorizontal": 20,
-                      "paddingVertical": 10,
+                      "marginLeft": -10,
+                      "marginRight": 10,
                     },
-                    null,
-                    Array [
-                      Object {
-                        "alignItems": "center",
-                        "borderRadius": 18,
-                        "flexDirection": "row",
-                        "height": 36,
-                        "justifyContent": "space-between",
-                        "paddingLeft": 20,
-                        "paddingRight": 16,
-                        "paddingVertical": 0,
-                      },
-                      Object {
-                        "backgroundColor": "#505256",
-                      },
-                      null,
-                      null,
-                    ],
+                    undefined,
+                  ]
+                }
+                width={20}
+              />
+              <Text
+                style={
+                  Array [
                     Object {
-                      "borderRadius": 50,
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "lineHeight": 20,
                     },
                   ]
                 }
               >
-                <SvgMock
-                  color="#ffffff"
-                  height={20}
-                  style={
-                    Array [
-                      Object {
-                        "marginLeft": -10,
-                        "marginRight": 10,
-                      },
-                      undefined,
-                    ]
-                  }
-                  width={20}
-                />
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                      },
-                    ]
-                  }
-                >
-                  Announcement
-                </Text>
-              </View>
+                Announcement
+              </Text>
             </View>
           </View>
           <View
@@ -1218,22 +1202,41 @@ exports[`renders loading 1`] = `
             ]
           }
         >
-          <Text
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "opacity": 1,
+              }
             }
-          />
+            testID="CommunityNameHeader"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            />
+          </View>
         </View>
         <View
           style={

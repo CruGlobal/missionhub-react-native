@@ -166,10 +166,13 @@ export const isAdminOrOwner = (
     ));
 
 export const isOwner = (
-  orgPermission: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  } | null,
+  orgPermission:
+    | {
+        permission_id?: string;
+        permission?: PermissionEnum;
+      }
+    | null
+    | undefined,
 ) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER) ||

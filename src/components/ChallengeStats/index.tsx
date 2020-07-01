@@ -68,6 +68,8 @@ const ChallengeStats = ({
   const numberStyle = !isDetailScreen ? styles.numberSmall : styles.number;
   const navToMemberScreen = (completed: boolean) => {
     if (
+      // Currently disable navigating if not on isDetailScreen
+      isDetailScreen &&
       challenge.organization &&
       ((accepted_count > 0 && !completed) || (completed_count > 0 && completed))
     ) {

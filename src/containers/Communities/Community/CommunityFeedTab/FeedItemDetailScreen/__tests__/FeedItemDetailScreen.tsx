@@ -11,9 +11,13 @@ import {
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
-import { navigateBack } from '../../../../../../actions/navigation';
+import {
+  navigateBack,
+  navigatePush,
+} from '../../../../../../actions/navigation';
 import FeedItemDetailScreen from '../FeedItemDetailScreen';
 import FeedCommentBox from '../FeedCommentBox';
+import { COMMUNITY_TABS } from '../../../constants';
 
 jest.mock('../../../../../../utils/hooks/useKeyboardListeners');
 jest.mock('../../../../../../selectors/organizations');
@@ -45,6 +49,7 @@ beforeEach(() => {
     ({ onShow }: { onShow: () => void }) => (onShowKeyboard = onShow),
   );
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 });
 
 it('renders loading', () => {
@@ -95,6 +100,29 @@ describe('refresh', () => {
 
     await flushMicrotasksQueue();
     diffSnapshot();
+  });
+});
+
+describe('nav on community name', () => {
+  it('calls navigate back', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigateBack).toHaveBeenCalled();
+  });
+  it('goes to community tabs', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId, fromNotificationCenterItem: true },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, { communityId });
   });
 });
 

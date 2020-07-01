@@ -4,7 +4,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import debounce from 'lodash.debounce';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 
 import CommentsList from '../../../../CommentsList';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
@@ -12,6 +12,7 @@ import {
   RefreshControl,
   Text,
   Separator,
+  Touchable,
 } from '../../../../../components/common';
 import { ANALYTICS_PERMISSION_TYPE } from '../../../../../constants';
 import { getAnalyticsPermissionType } from '../../../../../utils/analytics';
@@ -26,6 +27,8 @@ import { useMyId } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
+import { navigateBack, navigatePush } from '../../../../../actions/navigation';
+import { COMMUNITY_TABS } from '../../constants';
 
 import FeedCommentBox from './FeedCommentBox';
 import styles from './styles';
@@ -40,7 +43,11 @@ const FeedItemDetailScreen = () => {
   const { t } = useTranslation('feedItemDetail');
   const feedItemId: string = useNavigationParam('feedItemId');
   const communityId: string = useNavigationParam('communityId');
+  const fromNotificationCenterItem: boolean = useNavigationParam(
+    'fromNotificationCenterItem',
+  );
   const myId = useMyId();
+  const dispatch = useDispatch();
 
   const { data, loading, error, refetch, fetchMore } = useQuery<
     FeedItemDetail,
@@ -121,9 +128,18 @@ const FeedItemDetailScreen = () => {
       <Header
         left={<BackButton />}
         center={
-          <Text style={styles.headerText}>
-            {data?.feedItem.community?.name}
-          </Text>
+          <Touchable
+            testID="CommunityNameHeader"
+            onPress={() =>
+              fromNotificationCenterItem
+                ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
+                : dispatch(navigateBack())
+            }
+          >
+            <Text style={styles.headerText}>
+              {data?.feedItem.community?.name}
+            </Text>
+          </Touchable>
         }
       />
       <Separator />
@@ -160,6 +176,7 @@ const FeedItemDetailScreen = () => {
               <CommunityFeedItemContent
                 feedItem={data?.feedItem}
                 onCommentPress={() => feedCommentBox.current?.focus()}
+                postLabelPressable={false}
               />
               <Separator style={styles.belowItem} />
             </>

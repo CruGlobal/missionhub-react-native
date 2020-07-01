@@ -136,7 +136,7 @@ export const CreatePostScreen = () => {
           query: GET_COMMUNITY_FEED,
           variables: {
             communityId,
-            subjectType: mapPostTypeToFeedType(postType),
+            subjectType: [mapPostTypeToFeedType(postType)],
           },
         });
         cache.writeQuery({
