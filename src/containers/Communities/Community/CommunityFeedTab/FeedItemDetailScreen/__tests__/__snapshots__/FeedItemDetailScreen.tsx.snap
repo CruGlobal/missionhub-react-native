@@ -11,8 +11,8 @@ exports[`refresh calls refreshComments 1`] = `
                 ]
               }
             >
--             Upgradable interactive solution
-+             Distributed needs-based encoding
+-             Inverse dynamic open architecture
++             Advanced 4th generation pricing structure
             </Text>
           </View>
           <View
@@ -24,320 +24,145 @@ exports[`refresh calls refreshComments 1`] = `
         Array [
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
--           \\"content\\": \\"debitis incidunt accusantium\\",
--           \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
--           \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
+-           \\"content\\": \\"sed libero repudiandae\\",
+-           \\"contentUpdatedAt\\": \\"2015-06-20T04:51:30.834Z\\",
+-           \\"createdAt\\": \\"2015-11-12T20:05:56.328Z\\",
 -           \\"id\\": \\"5\\",
-+           \\"content\\": \\"sit aperiam placeat\\",
-+           \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
-+           \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
-+           \\"id\\": \\"16\\",
++           \\"content\\": \\"ducimus temporibus modi\\",
++           \\"contentUpdatedAt\\": \\"2019-04-21T05:17:53.090Z\\",
++           \\"createdAt\\": \\"2019-01-02T05:24:03.933Z\\",
++           \\"id\\": \\"15\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Tatyana Johns\\",
+-             \\"fullName\\": \\"Keaton Keeling\\",
 -             \\"id\\": \\"6\\",
--             \\"picture\\": \\"blanditiis natus et\\",
-+             \\"fullName\\": \\"Magnolia Rogahn\\",
-+             \\"id\\": \\"17\\",
-+             \\"picture\\": \\"ullam minima ducimus\\",
+-             \\"picture\\": \\"eos itaque velit\\",
++             \\"fullName\\": \\"Isai Koss\\",
++             \\"id\\": \\"16\\",
++             \\"picture\\": \\"voluptates explicabo exercitationem\\",
             },
           },
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
--           \\"content\\": \\"eos itaque velit\\",
--           \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
--           \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
+-           \\"content\\": \\"omnis et porro\\",
+-           \\"contentUpdatedAt\\": \\"2012-01-05T22:26:33.583Z\\",
+-           \\"createdAt\\": \\"2010-05-11T20:17:10.674Z\\",
 -           \\"id\\": \\"7\\",
-+           \\"content\\": \\"temporibus modi aut\\",
-+           \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
-+           \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
-+           \\"id\\": \\"18\\",
++           \\"content\\": \\"ut quis sed\\",
++           \\"contentUpdatedAt\\": \\"2014-10-16T11:34:26.098Z\\",
++           \\"createdAt\\": \\"2018-09-26T09:29:49.567Z\\",
++           \\"id\\": \\"17\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Michel Wisoky\\",
+-             \\"fullName\\": \\"Elza Bosco\\",
 -             \\"id\\": \\"8\\",
--             \\"picture\\": \\"et ipsam explicabo\\",
-+             \\"fullName\\": \\"Janelle Upton\\",
-+             \\"id\\": \\"19\\",
-+             \\"picture\\": \\"explicabo exercitationem ut\\",
+-             \\"picture\\": \\"eligendi occaecati debitis\\",
++             \\"fullName\\": \\"Aimee Boehm\\",
++             \\"id\\": \\"18\\",
++             \\"picture\\": \\"soluta sint non\\",
             },
           },
         ]
       }
       disableVirtualization={false}
-@@ -264,11 +264,11 @@
-                style={
-                  Object {
-                    \\"opacity\\": 1,
-                  }
-                }
--               testID=\\"ANNOUNCEMENTButton\\"
-+               testID=\\"COMMUNITY_CHALLENGEButton\\"
-              >
-                <View
-                  style={
-                    Array [
-                      Object {
-@@ -293,11 +293,11 @@
-                          \\"paddingLeft\\": 20,
-                          \\"paddingRight\\": 16,
-                          \\"paddingVertical\\": 0,
-                        },
-                        Object {
--                         \\"backgroundColor\\": \\"#505256\\",
-+                         \\"backgroundColor\\": \\"#00CA99\\",
-                        },
-                        null,
-                        null,
-                      ],
-                      Object {
-@@ -335,11 +335,11 @@
-                          \\"lineHeight\\": 20,
-                        },
-                      ]
-                    }
-                  >
--                   Announcement
-+                   Challenge
-                  </Text>
-                </View>
-              </View>
-            </View>
-            <View
-@@ -353,19 +353,25 @@
+@@ -353,11 +353,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
                 source={
                   Object {
--                   \\"uri\\": \\"quam ipsam nobis\\",
-+                   \\"uri\\": \\"a velit provident\\",
+-                   \\"uri\\": \\"cupiditate sed dignissimos\\",
++                   \\"uri\\": \\"fuga doloribus distinctio\\",
                   }
                 }
                 style={
-+                 Array [
-                    Object {
-                      \\"borderRadius\\": 24,
-                      \\"height\\": 48,
-                      \\"width\\": 48,
--                 }
-+                   },
-+                   Object {
-+                     \\"backgroundColor\\": \\"rgb(159, 161, 130)\\",
-+                   },
-+                   undefined,
-+                 ]
-                }
-              />
-              <View
-                style={
                   Object {
-@@ -382,19 +388,27 @@
-                      Object {
-                        \\"color\\": \\"#505256\\",
+                    \\"borderRadius\\": 24,
+@@ -390,11 +390,11 @@
+                        \\"fontWeight\\": \\"bold\\",
                       },
-                      Object {
-                        \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-+                         \\"fontSize\\": 16,
-                        },
-                        Object {
-+                         \\"color\\": \\"#505256\\",
-                          \\"fontSize\\": 16,
-                          \\"fontWeight\\": \\"bold\\",
-+                         \\"lineHeight\\": 20,
-                        },
-+                     ],
                     ]
                   }
                 >
--                 Upgradable interactive solution
-+                 Richard Batz
+-                 Inverse dynamic open architecture
++                 Advanced 4th generation pricing structure
                 </Text>
                 <Text
                   style={
                     Array [
                       Object {
-@@ -416,11 +430,11 @@
+@@ -416,11 +416,11 @@
                       ],
                     ]
                   }
                   testID=\\"Text\\"
                 >
 -                 November 1, 2012 @ 7:34 PM
-+                 April 22, 2017 @ 8:49 AM
++                 April 5, 2011 @ 6:42 PM
                 </Text>
               </View>
             </View>
           </View>
           <View
-@@ -429,50 +443,95 @@
-                \\"paddingHorizontal\\": 20,
-                \\"paddingVertical\\": 8,
-              }
-            }
-          >
-+           <Text
-+             style={
-+               Array [
-+                 Object {
-+                   \\"color\\": \\"#505256\\",
-+                 },
-+                 Object {
-+                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                 },
-+                 Object {
-+                   \\"fontSize\\": 14,
-+                   \\"justifyContent\\": \\"flex-start\\",
-+                   \\"lineHeight\\": 18,
-+                 },
-+               ]
-+             }
-+           >
-+             Richard B. completed a Challenge:
-+           </Text>
-            <View
--             style={Object {}}
-+             style={
-+               Object {
-+                 \\"flexDirection\\": \\"row\\",
-+               }
-+             }
-            >
-              <View
-+               accessible={true}
-+               focusable={true}
-+               isTVSelectable={true}
-+               onClick={[Function bound touchableHandlePress]}
-+               onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+               onResponderMove={[Function bound touchableHandleResponderMove]}
-+               onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-                style={
-                  Object {
--                   \\"marginVertical\\": 10,
-+                   \\"opacity\\": 1,
-                  }
-+               }
-+               testID=\\"ChallengeLinkButton\\"
-+             >
-+               <View
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"backgroundColor\\": \\"transparent\\",
-+                     },
-+                     null,
-+                     Object {
-+                       \\"marginTop\\": 4,
-+                     },
-+                     null,
-+                   ]
+@@ -450,21 +450,21 @@
+                      \\"lineHeight\\": 18,
+                    }
                   }
                 >
-                  <Text
-+                   numberOfLines={2}
-                    style={
-+                     Array [
-                        Object {
-                          \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-                          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-                          \\"fontSize\\": 14,
-+                         \\"fontWeight\\": \\"400\\",
-+                         \\"letterSpacing\\": 0,
-                          \\"lineHeight\\": 18,
-+                         \\"textAlign\\": \\"left\\",
-+                       },
-+                     ]
-                    }
--                 }
-                  >
--                 <Text>
+                  <Text>
 -                   corporis repellat ratione
--                 </Text>
-+                   libero aspernatur deserunt
++                   quam tempore a
                   </Text>
-                </View>
+                </Text>
               </View>
             </View>
--         <Image
--           resizeMode=\\"cover\\"
--           source={
--             Object {
--               \\"uri\\": \\"ut sunt qui\\",
--             }
--           }
--           style={
--             Object {
--               \\"aspectRatio\\": 1.3333333333333333,
--             }
--           }
--         />
-+         </View>
-          <View
+          </View>
+          <Image
+            resizeMode=\\"cover\\"
+            source={
+              Object {
+-               \\"uri\\": \\"amet iure ut\\",
++               \\"uri\\": \\"eligendi nostrum ipsam\\",
+              }
+            }
             style={
-              Array [
-                Object {
-                  \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -590,12 +649,11 @@
-                          null,
-                        ]
-                      }
-                    >
-                      <SvgMock
--                       color=\\"#FF5532\\"
--                       fill=\\"#FF5532\\"
-+                       color=\\"#505256\\"
-                      />
-                    </View>
-                  </View>
-                </View>
-                <View
-@@ -625,11 +683,11 @@
+              Object {
+                \\"aspectRatio\\": 1.3333333333333333,
+@@ -625,11 +625,11 @@
                           \\"width\\": 30,
                         },
                       ]
                     }
                   >
--                   44345
-+                   41253
+-                   2738
++                   28044
                   </Text>
                   <View
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -694,29 +752,28 @@
+@@ -694,28 +694,29 @@
         >
           <CommentItem
             comment={
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
--               \\"content\\": \\"debitis incidunt accusantium\\",
--               \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
--               \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
+-               \\"content\\": \\"sed libero repudiandae\\",
+-               \\"contentUpdatedAt\\": \\"2015-06-20T04:51:30.834Z\\",
+-               \\"createdAt\\": \\"2015-11-12T20:05:56.328Z\\",
 -               \\"id\\": \\"5\\",
-+               \\"content\\": \\"sit aperiam placeat\\",
-+               \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
-+               \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
-+               \\"id\\": \\"16\\",
++               \\"content\\": \\"ducimus temporibus modi\\",
++               \\"contentUpdatedAt\\": \\"2019-04-21T05:17:53.090Z\\",
++               \\"createdAt\\": \\"2019-01-02T05:24:03.933Z\\",
++               \\"id\\": \\"15\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Tatyana Johns\\",
+-                 \\"fullName\\": \\"Keaton Keeling\\",
 -                 \\"id\\": \\"6\\",
--                 \\"picture\\": \\"blanditiis natus et\\",
-+                 \\"fullName\\": \\"Magnolia Rogahn\\",
-+                 \\"id\\": \\"17\\",
-+                 \\"picture\\": \\"ullam minima ducimus\\",
+-                 \\"picture\\": \\"eos itaque velit\\",
++                 \\"fullName\\": \\"Isai Koss\\",
++                 \\"id\\": \\"16\\",
++                 \\"picture\\": \\"voluptates explicabo exercitationem\\",
                 },
               }
             }
@@ -345,37 +170,37 @@ exports[`refresh calls refreshComments 1`] = `
             menuActions={
               Array [
                 Object {
--                 \\"destructive\\": true,
++                 \\"destructive\\": true,
                   \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Delete Comment\\",
-+                 \\"text\\": \\"Report to Owner\\",
+-                 \\"text\\": \\"Report to Owner\\",
++                 \\"text\\": \\"Delete Comment\\",
                 },
               ]
             }
             testID=\\"CommentItem\\"
           />
-@@ -727,29 +784,28 @@
+@@ -726,28 +727,29 @@
         >
           <CommentItem
             comment={
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
--               \\"content\\": \\"eos itaque velit\\",
--               \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
--               \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
+-               \\"content\\": \\"omnis et porro\\",
+-               \\"contentUpdatedAt\\": \\"2012-01-05T22:26:33.583Z\\",
+-               \\"createdAt\\": \\"2010-05-11T20:17:10.674Z\\",
 -               \\"id\\": \\"7\\",
-+               \\"content\\": \\"temporibus modi aut\\",
-+               \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
-+               \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
-+               \\"id\\": \\"18\\",
++               \\"content\\": \\"ut quis sed\\",
++               \\"contentUpdatedAt\\": \\"2014-10-16T11:34:26.098Z\\",
++               \\"createdAt\\": \\"2018-09-26T09:29:49.567Z\\",
++               \\"id\\": \\"17\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Michel Wisoky\\",
+-                 \\"fullName\\": \\"Elza Bosco\\",
 -                 \\"id\\": \\"8\\",
--                 \\"picture\\": \\"et ipsam explicabo\\",
-+                 \\"fullName\\": \\"Janelle Upton\\",
-+                 \\"id\\": \\"19\\",
-+                 \\"picture\\": \\"explicabo exercitationem ut\\",
+-                 \\"picture\\": \\"eligendi occaecati debitis\\",
++                 \\"fullName\\": \\"Aimee Boehm\\",
++                 \\"id\\": \\"18\\",
++                 \\"picture\\": \\"soluta sint non\\",
                 },
               }
             }
@@ -383,23 +208,23 @@ exports[`refresh calls refreshComments 1`] = `
             menuActions={
               Array [
                 Object {
--                 \\"destructive\\": true,
++                 \\"destructive\\": true,
                   \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Delete Comment\\",
-+                 \\"text\\": \\"Report to Owner\\",
+-                 \\"text\\": \\"Report to Owner\\",
++                 \\"text\\": \\"Delete Comment\\",
                 },
               ]
             }
             testID=\\"CommentItem\\"
           />
-@@ -769,22 +825,22 @@
+@@ -767,22 +769,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
         source={
           Object {
--           \\"uri\\": \\"saepe eum dicta\\",
-+           \\"uri\\": \\"sit vitae soluta\\",
+-           \\"uri\\": \\"eum eaque enim\\",
++           \\"uri\\": \\"qui illo error\\",
           }
         }
         style={
@@ -410,8 +235,8 @@ exports[`refresh calls refreshComments 1`] = `
               \\"width\\": 36,
             },
             Object {
--             \\"backgroundColor\\": \\"rgb(144, 99, 67)\\",
-+             \\"backgroundColor\\": \\"rgb(167, 192, 125)\\",
+-             \\"backgroundColor\\": \\"rgb(144, 160, 67)\\",
++             \\"backgroundColor\\": \\"rgb(199, 178, 125)\\",
             },
             undefined,
           ]
@@ -544,7 +369,7 @@ exports[`renders correctly 1`] = `
               ]
             }
           >
-            Upgradable interactive solution
+            Inverse dynamic open architecture
           </Text>
         </View>
         <View
@@ -588,28 +413,28 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "__typename": "FeedItemComment",
-          "content": "debitis incidunt accusantium",
-          "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-          "createdAt": "2014-09-11T09:20:29.756Z",
+          "content": "sed libero repudiandae",
+          "contentUpdatedAt": "2015-06-20T04:51:30.834Z",
+          "createdAt": "2015-11-12T20:05:56.328Z",
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tatyana Johns",
+            "fullName": "Keaton Keeling",
             "id": "6",
-            "picture": "blanditiis natus et",
+            "picture": "eos itaque velit",
           },
         },
         Object {
           "__typename": "FeedItemComment",
-          "content": "eos itaque velit",
-          "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-          "createdAt": "2012-04-03T21:06:10.473Z",
+          "content": "omnis et porro",
+          "contentUpdatedAt": "2012-01-05T22:26:33.583Z",
+          "createdAt": "2010-05-11T20:17:10.674Z",
           "id": "7",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Michel Wisoky",
+            "fullName": "Elza Bosco",
             "id": "8",
-            "picture": "et ipsam explicabo",
+            "picture": "eligendi occaecati debitis",
           },
         },
       ]
@@ -777,7 +602,7 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "quam ipsam nobis",
+                  "uri": "cupiditate sed dignissimos",
                 }
               }
               style={
@@ -814,7 +639,7 @@ exports[`renders correctly 1`] = `
                   ]
                 }
               >
-                Upgradable interactive solution
+                Inverse dynamic open architecture
               </Text>
               <Text
                 style={
@@ -884,7 +709,7 @@ exports[`renders correctly 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "ut sunt qui",
+              "uri": "amet iure ut",
             }
           }
           style={
@@ -1049,7 +874,7 @@ exports[`renders correctly 1`] = `
                     ]
                   }
                 >
-                  44345
+                  2738
                 </Text>
                 <View
                   accessible={true}
@@ -1118,15 +943,15 @@ exports[`renders correctly 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "debitis incidunt accusantium",
-              "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-              "createdAt": "2014-09-11T09:20:29.756Z",
+              "content": "sed libero repudiandae",
+              "contentUpdatedAt": "2015-06-20T04:51:30.834Z",
+              "createdAt": "2015-11-12T20:05:56.328Z",
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Tatyana Johns",
+                "fullName": "Keaton Keeling",
                 "id": "6",
-                "picture": "blanditiis natus et",
+                "picture": "eos itaque velit",
               },
             }
           }
@@ -1134,9 +959,8 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
-                "destructive": true,
                 "onPress": [Function],
-                "text": "Delete Comment",
+                "text": "Report to Owner",
               },
             ]
           }
@@ -1151,15 +975,15 @@ exports[`renders correctly 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "eos itaque velit",
-              "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-              "createdAt": "2012-04-03T21:06:10.473Z",
+              "content": "omnis et porro",
+              "contentUpdatedAt": "2012-01-05T22:26:33.583Z",
+              "createdAt": "2010-05-11T20:17:10.674Z",
               "id": "7",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Michel Wisoky",
+                "fullName": "Elza Bosco",
                 "id": "8",
-                "picture": "et ipsam explicabo",
+                "picture": "eligendi occaecati debitis",
               },
             }
           }
@@ -1167,9 +991,8 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
-                "destructive": true,
                 "onPress": [Function],
-                "text": "Delete Comment",
+                "text": "Report to Owner",
               },
             ]
           }
@@ -1193,7 +1016,7 @@ exports[`renders correctly 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "saepe eum dicta",
+          "uri": "eum eaque enim",
         }
       }
       style={
@@ -1204,7 +1027,7 @@ exports[`renders correctly 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(144, 99, 67)",
+            "backgroundColor": "rgb(144, 160, 67)",
           },
           undefined,
         ]

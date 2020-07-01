@@ -1,5 +1,4 @@
-import React from 'react';
-import { View } from 'react-native';
+/*import React from 'react';
 
 jest.mock('react-native-camera', () => {
   const timeout = (ms: number) =>
@@ -35,9 +34,13 @@ jest.mock('react-native-camera', () => {
     stopRecording = () => {};
 
     render() {
-      return <View>{this.props.children}</View>;
+      return 'Camera';
     }
   }
 
   return { RNCamera };
-});
+});*/
+
+jest.mock('react-native-camera', () => ({
+  RNCamera: 'Camera',
+}));
