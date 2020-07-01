@@ -67,6 +67,53 @@ exports[`render correctly | Me 1`] = `
       <View
         style={
           Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderRadius": 24,
+                "height": 48,
+                "width": 48,
+              },
+              Object {
+                "backgroundColor": "rgb(192, 136, 125)",
+              },
+              Object {
+                "marginRight": 10,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
+                  "fontWeight": "300",
+                },
+              ],
+            ]
+          }
+        >
+          C
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
             Object {},
             Object {
               "alignItems": "center",
@@ -223,6 +270,53 @@ exports[`renders completed item correctly 1`] = `
         ]
       }
     >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderRadius": 24,
+                "height": 48,
+                "width": 48,
+              },
+              Object {
+                "backgroundColor": "rgb(192, 136, 125)",
+              },
+              Object {
+                "marginRight": 10,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
+                  "fontWeight": "300",
+                },
+              ],
+            ]
+          }
+        >
+          C
+        </Text>
+      </View>
       <View
         style={
           Array [
@@ -389,6 +483,53 @@ exports[`renders correctly | Not Me 1`] = `
       <View
         style={
           Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderRadius": 24,
+                "height": 48,
+                "width": 48,
+              },
+              Object {
+                "backgroundColor": "rgb(192, 136, 125)",
+              },
+              Object {
+                "marginRight": 10,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
+                  "fontWeight": "300",
+                },
+              ],
+            ]
+          }
+        >
+          C
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
             Object {},
             Object {
               "alignItems": "center",
@@ -545,6 +686,53 @@ exports[`renders full date if not in same week 1`] = `
         ]
       }
     >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+            Array [
+              Object {
+                "borderRadius": 24,
+                "height": 48,
+                "width": 48,
+              },
+              Object {
+                "backgroundColor": "rgb(192, 136, 125)",
+              },
+              Object {
+                "marginRight": 10,
+              },
+            ],
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#ffffff",
+                },
+                Object {
+                  "fontSize": 26,
+                  "fontWeight": "300",
+                },
+              ],
+            ]
+          }
+        >
+          C
+        </Text>
+      </View>
       <View
         style={
           Array [
