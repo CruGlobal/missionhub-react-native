@@ -308,15 +308,18 @@ exports[`Post is not null renders correctly with post 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                May 5 @ 10:14 AM
+                May 5, 2013 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -352,25 +355,33 @@ exports[`Post is not null renders correctly with post 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            amet iure ut
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  amet iure ut
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -708,15 +719,18 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                May 5 @ 10:14 AM
+                May 5, 2013 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -752,25 +766,33 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            amet iure ut
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  amet iure ut
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -1108,15 +1130,18 @@ exports[`Post is not null renders post without image 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Feb 28 @ 3:01 AM
+                February 28, 2016 @ 3:01 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1152,25 +1177,33 @@ exports[`Post is not null renders post without image 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            sunt qui amet
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  sunt qui amet
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -1467,15 +1500,18 @@ exports[`Post is not null renders with an input 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                May 5 @ 10:14 AM
+                May 5, 2013 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1511,25 +1547,33 @@ exports[`Post is not null renders with an input 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            amet iure ut
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  amet iure ut
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
