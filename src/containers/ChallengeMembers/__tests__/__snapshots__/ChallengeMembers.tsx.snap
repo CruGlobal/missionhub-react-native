@@ -172,18 +172,16 @@ exports[`renders correctly for completed members 1`] = `
                 "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "111",
                 "person": Object {
-                  "first_name": "Christian",
+                  "full_name": "Christian Huffman",
                   "id": "111",
-                  "last_name": "Huffman",
                 },
               },
               Object {
                 "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "112",
                 "person": Object {
-                  "first_name": "Scotty",
+                  "full_name": "Scotty Waggoner",
                   "id": "112",
-                  "last_name": "Waggoner",
                 },
               },
             ]
@@ -285,6 +283,53 @@ exports[`renders correctly for completed members 1`] = `
                       ]
                     }
                   >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          Array [
+                            Object {
+                              "borderRadius": 24,
+                              "height": 48,
+                              "width": 48,
+                            },
+                            Object {
+                              "backgroundColor": "rgb(159, 167, 125)",
+                            },
+                            Object {
+                              "marginRight": 10,
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 26,
+                                "fontWeight": "300",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        C
+                      </Text>
+                    </View>
                     <View
                       style={
                         Array [
@@ -446,6 +491,53 @@ exports[`renders correctly for completed members 1`] = `
                       ]
                     }
                   >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          Array [
+                            Object {
+                              "borderRadius": 24,
+                              "height": 48,
+                              "width": 48,
+                            },
+                            Object {
+                              "backgroundColor": "rgb(216, 216, 67)",
+                            },
+                            Object {
+                              "marginRight": 10,
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 26,
+                                "fontWeight": "300",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        S
+                      </Text>
+                    </View>
                     <View
                       style={
                         Array [
@@ -720,9 +812,8 @@ exports[`renders correctly for joined members 1`] = `
                 "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "111",
                 "person": Object {
-                  "first_name": "Christian",
+                  "full_name": "Christian Huffman",
                   "id": "111",
-                  "last_name": "Huffman",
                 },
               },
             ]
@@ -824,6 +915,53 @@ exports[`renders correctly for joined members 1`] = `
                       ]
                     }
                   >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          Array [
+                            Object {
+                              "borderRadius": 24,
+                              "height": 48,
+                              "width": 48,
+                            },
+                            Object {
+                              "backgroundColor": "rgb(159, 167, 125)",
+                            },
+                            Object {
+                              "marginRight": 10,
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 26,
+                                "fontWeight": "300",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        C
+                      </Text>
+                    </View>
                     <View
                       style={
                         Array [
@@ -1098,18 +1236,16 @@ exports[`renders plural sentence for joined members 1`] = `
                 "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "111",
                 "person": Object {
-                  "first_name": "Christian",
+                  "full_name": "Christian Huffman",
                   "id": "111",
-                  "last_name": "Huffman",
                 },
               },
               Object {
                 "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "112",
                 "person": Object {
-                  "first_name": "Scotty",
+                  "full_name": "Scotty Waggoner",
                   "id": "112",
-                  "last_name": "Waggoner",
                 },
               },
             ]
@@ -1211,6 +1347,53 @@ exports[`renders plural sentence for joined members 1`] = `
                       ]
                     }
                   >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          Array [
+                            Object {
+                              "borderRadius": 24,
+                              "height": 48,
+                              "width": 48,
+                            },
+                            Object {
+                              "backgroundColor": "rgb(159, 167, 125)",
+                            },
+                            Object {
+                              "marginRight": 10,
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 26,
+                                "fontWeight": "300",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        C
+                      </Text>
+                    </View>
                     <View
                       style={
                         Array [
@@ -1372,6 +1555,53 @@ exports[`renders plural sentence for joined members 1`] = `
                       ]
                     }
                   >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          Array [
+                            Object {
+                              "borderRadius": 24,
+                              "height": 48,
+                              "width": 48,
+                            },
+                            Object {
+                              "backgroundColor": "rgb(216, 216, 67)",
+                            },
+                            Object {
+                              "marginRight": 10,
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 26,
+                                "fontWeight": "300",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        S
+                      </Text>
+                    </View>
                     <View
                       style={
                         Array [
@@ -1646,9 +1876,8 @@ exports[`renders singular sentence for completed members 1`] = `
                 "accepted_at": "2020-02-26 12:00:00 PM GMT+0",
                 "id": "111",
                 "person": Object {
-                  "first_name": "Christian",
+                  "full_name": "Christian Huffman",
                   "id": "111",
-                  "last_name": "Huffman",
                 },
               },
             ]
@@ -1750,6 +1979,53 @@ exports[`renders singular sentence for completed members 1`] = `
                       ]
                     }
                   >
+                    <View
+                      style={
+                        Array [
+                          Object {
+                            "alignItems": "center",
+                            "justifyContent": "center",
+                          },
+                          Array [
+                            Object {
+                              "borderRadius": 24,
+                              "height": 48,
+                              "width": 48,
+                            },
+                            Object {
+                              "backgroundColor": "rgb(159, 167, 125)",
+                            },
+                            Object {
+                              "marginRight": 10,
+                            },
+                          ],
+                        ]
+                      }
+                    >
+                      <Text
+                        style={
+                          Array [
+                            Object {
+                              "color": "#505256",
+                            },
+                            Object {
+                              "fontFamily": "SourceSansPro-Regular",
+                            },
+                            Array [
+                              Object {
+                                "color": "#ffffff",
+                              },
+                              Object {
+                                "fontSize": 26,
+                                "fontWeight": "300",
+                              },
+                            ],
+                          ]
+                        }
+                      >
+                        C
+                      </Text>
+                    </View>
                     <View
                       style={
                         Array [
