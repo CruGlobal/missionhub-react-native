@@ -1344,7 +1344,6 @@ exports[`renders Earlier section correctly  1`] = `
             Object {
               "backgroundColor": "#ECEEF2",
               "fontSize": 24,
-              "fontWeight": "300",
             }
           }
         >
@@ -1352,6 +1351,7 @@ exports[`renders Earlier section correctly  1`] = `
             style={
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontWeight": "200",
                 "marginLeft": 10,
@@ -1732,7 +1732,6 @@ exports[`renders Earlier section correctly  1`] = `
             Object {
               "backgroundColor": "#ECEEF2",
               "fontSize": 24,
-              "fontWeight": "300",
             }
           }
         >
@@ -1740,6 +1739,7 @@ exports[`renders Earlier section correctly  1`] = `
             style={
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontWeight": "200",
                 "marginLeft": 10,
@@ -2368,7 +2368,6 @@ exports[`renders Today section correctly  1`] = `
             Object {
               "backgroundColor": "#ECEEF2",
               "fontSize": 24,
-              "fontWeight": "300",
             }
           }
         >
@@ -2376,6 +2375,7 @@ exports[`renders Today section correctly  1`] = `
             style={
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontWeight": "200",
                 "marginLeft": 10,
@@ -2756,7 +2756,6 @@ exports[`renders Today section correctly  1`] = `
             Object {
               "backgroundColor": "#ECEEF2",
               "fontSize": 24,
-              "fontWeight": "300",
             }
           }
         >
@@ -2764,6 +2763,7 @@ exports[`renders Today section correctly  1`] = `
             style={
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontWeight": "200",
                 "marginLeft": 10,
@@ -3954,7 +3954,6 @@ exports[`renders correctly 1`] = `
             Object {
               "backgroundColor": "#ECEEF2",
               "fontSize": 24,
-              "fontWeight": "300",
             }
           }
         >
@@ -3962,6 +3961,7 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontWeight": "200",
                 "marginLeft": 10,
@@ -4342,7 +4342,6 @@ exports[`renders correctly 1`] = `
             Object {
               "backgroundColor": "#ECEEF2",
               "fontSize": 24,
-              "fontWeight": "300",
             }
           }
         >
@@ -4350,6 +4349,7 @@ exports[`renders correctly 1`] = `
             style={
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontWeight": "200",
                 "marginLeft": 10,
@@ -6165,7 +6165,6 @@ exports[`renders with refresh button 1`] = `
             Object {
               "backgroundColor": "#ECEEF2",
               "fontSize": 24,
-              "fontWeight": "300",
             }
           }
         >
@@ -6173,6 +6172,7 @@ exports[`renders with refresh button 1`] = `
             style={
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
                 "fontWeight": "200",
                 "marginLeft": 10,

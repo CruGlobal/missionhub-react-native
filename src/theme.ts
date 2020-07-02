@@ -86,7 +86,6 @@ export const COLORS = {
 const statusBar = {
   backgroundColor: colorConvert({
     color: COLORS.DARK_BLUE,
-    darken: 0.1,
     hex: true,
   }),
   animated: true,
