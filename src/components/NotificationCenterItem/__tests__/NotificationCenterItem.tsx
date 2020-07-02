@@ -283,7 +283,7 @@ it('renders correctly | Comment 2', () => {
             messageTemplate: () =>
               '<<subject_person>> commented on your <<localized_post_type>> in <<community_name>>.',
             trigger: () =>
-              NotificationTriggerEnum.feed_items_comment_on_my_item_notification,
+              NotificationTriggerEnum.feed_items_comment_on_my_feed_item_notification,
             messageVariables: () => [
               {
                 key: 'subject_person',
@@ -318,7 +318,42 @@ it('renders correctly | Comment 3', () => {
             messageTemplate: () =>
               "<<subject_person>> also commented on <<original_poster>>'s <<localized_post_type>> in <<community_name>>.",
             trigger: () =>
-              NotificationTriggerEnum.feed_items_comment_on_others_item_notification,
+              NotificationTriggerEnum.feed_items_comment_on_other_persons_post_notification,
+            messageVariables: () => [
+              {
+                key: 'subject_person',
+                value: 'Christian',
+              },
+              {
+                key: 'original_poster',
+                value: 'Scotty',
+              },
+              {
+                key: 'localized_post_type',
+                value: 'prayer request',
+              },
+              {
+                key: 'community_name',
+                value: 'Bleh',
+              },
+            ],
+          }),
+        },
+      })}
+    />,
+  ).snapshot();
+});
+
+it('renders correctly | Comment 4', () => {
+  renderWithContext(
+    <NotificationCenterItem
+      event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              '<<subject_person>> commented on your <<localized_post_type>> in <<community_name>>.',
+            trigger: () =>
+              NotificationTriggerEnum.feed_items_comment_on_my_post_notification,
             messageVariables: () => [
               {
                 key: 'subject_person',
