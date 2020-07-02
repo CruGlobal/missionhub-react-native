@@ -23,14 +23,12 @@ import {
   ANALYTICS_ASSIGNMENT_TYPE,
   ANALYTICS_EDIT_MODE,
   ANALYTICS_PERMISSION_TYPE,
-  ANALYTICS_MINISTRY_MODE,
   LOGGED_IN,
   NOT_LOGGED_IN,
   //ID_SCHEMA,
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
 import { AuthState } from '../reducers/auth';
-import { userIsJean } from '../utils/common';
 
 import { StepAddedAnalytics } from './__generated__/StepAddedAnalytics';
 
@@ -51,7 +49,6 @@ export interface TrackStateContext {
   [ANALYTICS_ASSIGNMENT_TYPE]: 'self' | 'contact' | 'community member' | '';
   [ANALYTICS_EDIT_MODE]: 'set' | 'update' | '';
   [ANALYTICS_PERMISSION_TYPE]: 'owner' | 'member' | 'admin' | '';
-  [ANALYTICS_MINISTRY_MODE]: boolean;
 }
 
 export interface ScreenContext {
@@ -62,19 +59,6 @@ export interface ScreenContext {
 }
 
 export const ANALYTICS_CONTEXT_CHANGED = 'ANALYTICS_CONTEXT_CHANGED';
-
-export const setAnalyticsMinistryMode = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-  getState: () => { auth: AuthState },
-) => {
-  const authPersonPermissions = getState().auth.person
-    .organizational_permissions;
-  dispatch(
-    updateAnalyticsContext({
-      [ANALYTICS_MINISTRY_MODE]: userIsJean(authPersonPermissions),
-    }),
-  );
-};
 
 export const trackScreenChange = (
   screenName: string | string[],

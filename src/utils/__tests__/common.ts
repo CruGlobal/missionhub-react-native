@@ -5,9 +5,6 @@ import Config from 'react-native-config';
 
 import {
   buildTrackingObj,
-  userIsJean,
-  orgIsPersonalMinistry,
-  orgIsCru,
   hasOrgPermissions,
   isAdminOrOwner,
   isOwner,
@@ -119,47 +116,6 @@ describe('isOnboarding', () => {
     expect(
       isOnboarding({ currentlyOnboarding: false } as OnboardingState),
     ).toEqual(false);
-  });
-});
-
-describe('userIsJean', () => {
-  const caseyPermissions = [{ id: '1', organization: { id: '1' } }];
-  const jeanPermissions = [
-    ...caseyPermissions,
-    { id: '2', organization: { id: '2' } },
-  ];
-  it('should return false for Casey', () => {
-    expect(userIsJean(caseyPermissions)).toEqual(false);
-  });
-  it('should return false for Jean', () => {
-    expect(userIsJean(jeanPermissions)).toEqual(false);
-  });
-});
-
-describe('orgIsPersonalMinistry', () => {
-  it('returns true for empty org', () => {
-    expect(orgIsPersonalMinistry({})).toEqual(true);
-  });
-  it('returns true for personal ministry', () => {
-    expect(orgIsPersonalMinistry({ id: 'personal' })).toEqual(true);
-  });
-});
-
-describe('orgIsCru', () => {
-  it('returns false for empty org', () => {
-    expect(orgIsCru({})).toEqual(false);
-  });
-  it('returns false for personal ministry', () => {
-    expect(orgIsCru({ id: 'personal' })).toEqual(false);
-  });
-  it('returns false for global community', () => {
-    expect(orgIsCru({ id: GLOBAL_COMMUNITY_ID })).toEqual(false);
-  });
-  it('returns false for user-created community', () => {
-    expect(orgIsCru({ id: '1' })).toEqual(false);
-  });
-  it('returns true for cru community', () => {
-    expect(orgIsCru({ id: '1' })).toEqual(false);
   });
 });
 

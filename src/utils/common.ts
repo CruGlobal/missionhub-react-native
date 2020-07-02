@@ -96,19 +96,8 @@ export const personIsCurrentUser = (personId: string, authState: AuthState) =>
 export const isOnboarding = (onboardingState: OnboardingState) =>
   onboardingState.currentlyOnboarding;
 
-export const userIsJean = (
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  orgPermissions: { organization: {} }[],
-) => false;
-
-export const orgIsPersonalMinistry = (org?: { id?: string }) =>
-  !!org && (!org.id || org.id === 'personal');
-
 export const orgIsGlobal = (org?: { id?: string }) =>
   !!org && org.id === GLOBAL_COMMUNITY_ID;
-
-export const orgIsCru = (org?: { id?: string }) =>
-  !!org && !orgIsPersonalMinistry(org) && false && !orgIsGlobal(org);
 
 const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.OWNER,
