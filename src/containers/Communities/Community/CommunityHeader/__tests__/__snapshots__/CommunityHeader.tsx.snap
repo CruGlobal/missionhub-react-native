@@ -5,20 +5,24 @@ exports[`CommunityHeader should render community details 1`] = `
 - First value
 + Second value
 
-@@ -35,11 +35,11 @@
+@@ -33,11 +33,15 @@
+            \\"height\\": 210,
+          }
         }
       >
         <Image
-          source={
-            Object {
--             \\"testUri\\": \\"../../../assets/images/impactBackground.png\\",
+-         source={Object {}}
++         source={
++           Object {
 +             \\"uri\\": \\"recusandae alias consequuntur\\",
-            }
-          }
++           }
++         }
           style={
             Array [
               Object {
-@@ -275,11 +275,11 @@
+                \\"bottom\\": 0,
+                \\"left\\": 0,
+@@ -271,11 +275,11 @@
                   \\"lineHeight\\": 30,
                 },
               ]
@@ -31,14 +35,14 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -355,11 +355,11 @@
+@@ -351,11 +355,11 @@
                         },
                       ],
                     ]
                   }
                 >
 -                 0 Members
-+                 99904 Members
++                 30233 Members
                 </Text>
               </View>
             </View>
@@ -569,11 +573,7 @@ exports[`CommunityHeader should render loading state 1`] = `
       }
     >
       <Image
-        source={
-          Object {
-            "testUri": "../../../assets/images/impactBackground.png",
-          }
-        }
+        source={Object {}}
         style={
           Array [
             Object {

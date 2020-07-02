@@ -64,7 +64,6 @@ export const CommunityHeader = () => {
   const communityPhotoSource = useCommunityPhoto(
     communityId,
     data?.community.communityPhotoUrl,
-    data?.community.userCreated,
   );
 
   return (
@@ -85,11 +84,9 @@ export const CommunityHeader = () => {
                     dispatch(navigatePush(COMMUNITY_PROFILE, { communityId }))
                   }
                 >
-                  {data?.community.userCreated &&
-                  canEditCommunity(
+                  {canEditCommunity(
                     data?.community.people.edges[0].communityPermission
                       .permission,
-                    data?.community.userCreated,
                   ) ? (
                     <EditIcon color={theme.white} />
                   ) : (

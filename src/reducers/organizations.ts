@@ -32,7 +32,6 @@ const globalCommunity = {
   id: GLOBAL_COMMUNITY_ID,
   name: i18next.t('groupsList:globalCommunity'),
   community: true,
-  user_created: true,
 };
 
 const initialState: OrganizationsState = {

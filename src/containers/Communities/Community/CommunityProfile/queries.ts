@@ -9,7 +9,6 @@ export const COMMUNITY_PROFILE_QUERY = gql`
       communityCode
       communityUrl
       communityPhotoUrl
-      userCreated
       people(personIds: [$myId]) {
         edges {
           communityPermission {

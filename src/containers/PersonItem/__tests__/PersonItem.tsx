@@ -44,7 +44,7 @@ const mockState = {
 };
 
 const mockPersonalMinistry = { id: 'personal' };
-const mockOrganization = { id: '111', user_created: false };
+const mockOrganization = { id: '111' };
 
 const mockOrgPermission = {
   organization_id: mockOrganization.id,
