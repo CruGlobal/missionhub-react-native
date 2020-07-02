@@ -33,6 +33,7 @@ interface ImagePickerProps {
   onSelectImage: (image: SelectImageParams) => void;
   children: JSX.Element | JSX.Element[];
   circleOverlay?: boolean;
+  showCropper?: boolean;
 }
 
 function getType(image: Image) {
@@ -46,6 +47,7 @@ const ImagePicker = ({
   onSelectImage,
   children,
   circleOverlay = false,
+  showCropper = true,
 }: ImagePickerProps) => {
   const { t } = useTranslation('imagePicker');
 
@@ -59,10 +61,12 @@ const ImagePicker = ({
         ? ImageCropPicker.openCamera({
             ...DEFAULT_OPTIONS,
             cropperCircleOverlay: circleOverlay,
+            cropping: showCropper,
           })
         : ImageCropPicker.openPicker({
             ...DEFAULT_OPTIONS,
             cropperCircleOverlay: circleOverlay,
+            cropping: showCropper,
           }));
 
       const image = Array.isArray(response) ? response[0] : response;

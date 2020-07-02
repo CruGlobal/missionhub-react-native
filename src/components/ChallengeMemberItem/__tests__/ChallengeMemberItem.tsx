@@ -20,8 +20,7 @@ const item = {
   completed_count: 0,
   person: {
     id: myId,
-    first_name: 'Christian',
-    last_name: 'Huffman',
+    full_name: 'Christian Huffman',
   },
 };
 const onSelect = jest.fn();
