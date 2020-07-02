@@ -391,15 +391,18 @@ exports[`post renders with post 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Sep 11 @ 9:20 AM
+                September 11, 2014 @ 9:20 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -435,25 +438,33 @@ exports[`post renders with post 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            debitis incidunt accusantium
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  debitis incidunt accusantium
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View

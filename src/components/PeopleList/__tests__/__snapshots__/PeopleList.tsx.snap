@@ -5,11 +5,11 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 - First value
 + Second value
 
-@@ -59,11 +59,11 @@
-              size={24}
-              testID=\\"addContactBtn\\"
-              type=\\"MissionHub\\"
-            />
+@@ -47,11 +47,11 @@
+            align=\\"center\\"
+            direction=\\"row\\"
+            justify=\\"end\\"
+          >
             <IconButton
 -             name=\\"upArrowIcon\\"
 +             name=\\"downArrowIcon\\"
@@ -18,7 +18,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
                 Array [
                   \\"personal\\",
                 ]
-@@ -72,187 +72,10 @@
+@@ -60,187 +60,10 @@
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -398,18 +398,6 @@ exports[`renders correctly as Jean 1`] = `
           justify="end"
         >
           <IconButton
-            name="addContactIcon"
-            onPress={[MockFunction]}
-            pressProps={
-              Array [
-                undefined,
-              ]
-            }
-            size={24}
-            testID="addContactBtn"
-            type="MissionHub"
-          />
-          <IconButton
             name="upArrowIcon"
             onPress={[Function]}
             pressProps={
@@ -631,30 +619,6 @@ exports[`renders correctly as Jean 1`] = `
           justify="end"
         >
           <IconButton
-            name="addContactIcon"
-            onPress={[MockFunction]}
-            pressProps={
-              Array [
-                Object {
-                  "expanded": false,
-                  "id": "10",
-                  "name": "org 1",
-                  "people": Array [
-                    Object {
-                      "id": 11,
-                      "type": "person",
-                    },
-                  ],
-                  "type": "organization",
-                  "user_created": false,
-                },
-              ]
-            }
-            size={24}
-            testID="addContactBtn"
-            type="MissionHub"
-          />
-          <IconButton
             name="upArrowIcon"
             onPress={[Function]}
             pressProps={
@@ -724,7 +688,6 @@ exports[`renders correctly as Jean 1`] = `
                     },
                   ],
                   "type": "organization",
-                  "user_created": false,
                 }
               }
               person={
@@ -837,7 +800,6 @@ exports[`renders correctly as Jean 1`] = `
                     },
                   ],
                   "type": "organization",
-                  "user_created": true,
                 }
               }
               person={

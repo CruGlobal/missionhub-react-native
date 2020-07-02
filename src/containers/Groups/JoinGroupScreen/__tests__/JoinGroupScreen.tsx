@@ -43,7 +43,6 @@ const mockCommunity = {
   name: 'Org Name',
   owner: { first_name: 'Owner', last_name: 'Ofthisgroup' },
   contactReport: { memberCount: 2 },
-  user_created: false,
   unread_comments_count: 0,
   community_photo_url: 'www.missionhub.com',
 };

@@ -511,15 +511,18 @@ exports[`should render correctly post details 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Dec 28 @ 5:58 PM
+                December 28, 2017 @ 5:58 PM
               </Text>
               <Text
                 onPress={[Function]}
@@ -555,25 +558,33 @@ exports[`should render correctly post details 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            ipsam nobis cupiditate
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  ipsam nobis cupiditate
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
