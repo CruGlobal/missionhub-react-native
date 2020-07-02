@@ -2098,7 +2098,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "iure ut libero",
           }
         }
         style={
@@ -2109,7 +2109,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(102, 136, 115)",
             },
             undefined,
           ]
@@ -2149,7 +2149,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          nobis cupiditate sed
         </Text>
         <Text
           style={
@@ -2219,7 +2219,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "ratione ut sunt",
       }
     }
     style={
@@ -2384,7 +2384,7 @@ Array [
               ]
             }
           >
-            68521
+            44345
           </Text>
           <View
             accessible={true}
@@ -2558,7 +2558,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "iure ut libero",
           }
         }
         style={
@@ -2569,7 +2569,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(102, 136, 115)",
             },
             undefined,
           ]
@@ -2609,7 +2609,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          nobis cupiditate sed
         </Text>
         <Text
           style={
@@ -2679,7 +2679,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "ratione ut sunt",
       }
     }
     style={
@@ -2907,7 +2907,7 @@ Array [
               ]
             }
           >
-            68521
+            44345
           </Text>
           <View
             accessible={true}
@@ -3081,7 +3081,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "iure ut libero",
           }
         }
         style={
@@ -3092,7 +3092,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(102, 136, 115)",
             },
             undefined,
           ]
@@ -3132,7 +3132,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          nobis cupiditate sed
         </Text>
         <Text
           style={
@@ -3202,7 +3202,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "ratione ut sunt",
       }
     }
     style={
@@ -3366,7 +3366,7 @@ Array [
               ]
             }
           >
-            68521
+            44345
           </Text>
           <View
             accessible={true}
@@ -3540,7 +3540,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "iure ut libero",
           }
         }
         style={
@@ -3551,7 +3551,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(102, 136, 115)",
             },
             undefined,
           ]
@@ -3591,7 +3591,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          nobis cupiditate sed
         </Text>
         <Text
           style={
@@ -3661,7 +3661,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "ratione ut sunt",
       }
     }
     style={
@@ -7713,7 +7713,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "qui recusandae ut",
+            "uri": "nulla quam ipsam",
           }
         }
         style={
@@ -7750,7 +7750,7 @@ Array [
             ]
           }
         >
-          Innovative encompassing moratorium
+          Integrated user-facing intranet
         </Text>
         <Text
           style={
@@ -7820,7 +7820,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "ratione ut sunt",
       }
     }
     style={
@@ -7985,7 +7985,7 @@ Array [
               ]
             }
           >
-            68521
+            44345
           </Text>
           <View
             accessible={true}
@@ -8182,7 +8182,7 @@ Array [
             ]
           }
         >
-          Innovative encompassing moratorium
+          Integrated user-facing intranet
         </Text>
         <Text
           style={
@@ -8252,7 +8252,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "ratione ut sunt",
       }
     }
     style={
@@ -8382,7 +8382,8 @@ Array [
               }
             >
               <SvgMock
-                color="#505256"
+                color="#FF5532"
+                fill="#FF5532"
               />
             </View>
           </View>
@@ -8416,7 +8417,7 @@ Array [
               ]
             }
           >
-            84631
+            68521
           </Text>
           <View
             accessible={true}

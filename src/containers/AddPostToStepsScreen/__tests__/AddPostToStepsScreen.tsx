@@ -6,6 +6,7 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { renderWithContext } from '../../../../testUtils';
 import { trackStepAdded } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
+import { getPersonDetails } from '../../../actions/person';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
   ADD_POST_TO_MY_STEPS,
@@ -21,16 +22,19 @@ import AddPostToStepsScreen from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 
 MockDate.set('2020-05-11 12:00:00', 300);
 
 const trackStepResults = { type: 'track step added' };
 const navigateBackResults = { type: 'navigate back' };
+const getPersonDetailsResponse = { type: 'get person details' };
 
 beforeEach(() => {
   (trackStepAdded as jest.Mock).mockReturnValue(trackStepResults);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
+  (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResponse);
 });
 
 const feedItemId = '1';
@@ -132,6 +136,7 @@ it('creates a new step when user clicks add to my steps button', async () => {
     },
     stepSuggestion: null,
   });
+  expect(getPersonDetails).toHaveBeenCalledWith(personId);
   expect(navigateBack).toHaveBeenCalled();
   expect(useMutation).toHaveBeenMutatedWith(ADD_POST_TO_MY_STEPS, {
     variables: {
@@ -208,6 +213,7 @@ it('changes the title of the step and creates a new step', async () => {
     },
     stepSuggestion: null,
   });
+  expect(getPersonDetails).toHaveBeenCalledWith(personId);
   expect(navigateBack).toHaveBeenCalled();
   expect(useMutation).toHaveBeenMutatedWith(ADD_POST_TO_MY_STEPS, {
     variables: {

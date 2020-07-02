@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`flips camera on pressing flip camera button 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -30,11 +30,11 @@
+        Object {
+          \\"alignItems\\": \\"center\\",
+          \\"flex\\": 1,
+        }
+      }
+-     type=\\"front\\"
++     type=\\"back\\"
+    >
+      <View
+        style={
+          Object {
+            \\"flex\\": 1,"
+`;
+
 exports[`renders pre-recording correctly 1`] = `
 <View
   style={
@@ -9,7 +29,7 @@ exports[`renders pre-recording correctly 1`] = `
     }
   }
 >
-  <Camera
+  <RNCamera
     androidCameraPermissionOptions={
       Object {
         "buttonNegative": "Cancel",
@@ -27,6 +47,7 @@ exports[`renders pre-recording correctly 1`] = `
       }
     }
     flashMode="auto"
+    onRecordingStart={[Function]}
     ratio="16:9"
     style={
       Object {
@@ -73,6 +94,7 @@ exports[`renders pre-recording correctly 1`] = `
               "opacity": 1,
             }
           }
+          testID="CloseButton"
         >
           <SvgMock
             color="#ffffff"
@@ -184,13 +206,14 @@ exports[`renders pre-recording correctly 1`] = `
                 "opacity": 1,
               }
             }
+            testID="FlipCameraButton"
           >
             <SvgMock />
           </View>
         </View>
       </RCTSafeAreaView>
     </View>
-  </Camera>
+  </RNCamera>
 </View>
 `;
 
@@ -203,7 +226,7 @@ exports[`renders recording correctly 1`] = `
     }
   }
 >
-  <Camera
+  <RNCamera
     androidCameraPermissionOptions={
       Object {
         "buttonNegative": "Cancel",
@@ -221,6 +244,7 @@ exports[`renders recording correctly 1`] = `
       }
     }
     flashMode="auto"
+    onRecordingStart={[Function]}
     ratio="16:9"
     style={
       Object {
@@ -247,34 +271,7 @@ exports[`renders recording correctly 1`] = `
             "width": 750,
           }
         }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "backgroundColor": "#00000066",
-              "borderRadius": 18,
-              "margin": 18,
-              "opacity": 1,
-            }
-          }
-        >
-          <SvgMock
-            color="#ffffff"
-            height={36}
-            width={36}
-          />
-        </View>
-      </RCTSafeAreaView>
+      />
       <RCTSafeAreaView
         emulateUnlessSupported={true}
         style={
@@ -354,10 +351,10 @@ exports[`renders recording correctly 1`] = `
               style={
                 Object {
                   "backgroundColor": "#FF5532",
-                  "borderRadius": 12,
-                  "height": 24,
+                  "borderRadius": 2,
+                  "height": 20,
                   "opacity": 1,
-                  "width": 24,
+                  "width": 20,
                 }
               }
             />
@@ -378,12 +375,13 @@ exports[`renders recording correctly 1`] = `
                 "opacity": 1,
               }
             }
+            testID="FlipCameraButton"
           >
             <SvgMock />
           </View>
         </View>
       </RCTSafeAreaView>
     </View>
-  </Camera>
+  </RNCamera>
 </View>
 `;

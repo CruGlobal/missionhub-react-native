@@ -1,18 +1,20 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import { View } from 'react-native';
-import { connect } from 'react-redux-legacy';
-import { withTranslation } from 'react-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { useNavigationParam } from 'react-navigation-hooks';
 
-import Analytics from '../Analytics';
 import ChallengeFeed from '../ChallengeFeed';
 import {
   getGroupChallengeFeed,
   reloadGroupChallengeFeed,
   createChallenge,
 } from '../../actions/challenges';
+import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { TrackStateContext } from '../../actions/analytics';
 import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
-import { refresh, isAdminOrOwner } from '../../utils/common';
+import { isAdminOrOwner } from '../../utils/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { challengesSelector } from '../../selectors/challenges';
@@ -24,139 +26,102 @@ import { ChallengeItem } from '../../components/ChallengeStats';
 import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
-// @ts-ignore
-@withTranslation('groupsChallenge')
-class GroupChallenges extends Component {
-  state = { refreshing: false };
+type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
-  componentDidMount() {
-    this.loadItems();
-  }
+const GroupChallenges = () => {
+  const { t } = useTranslation('groupsChallenge');
+  const dispatch = useDispatch();
+  const communityId = useNavigationParam('communityId');
+  const [refreshing, changeRefreshing] = useState(false);
+  useEffect(() => {
+    dispatch(getGroupChallengeFeed(communityId));
+  }, []);
 
-  loadItems = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
-    dispatch(getGroupChallengeFeed(organization.id));
+  const loadItems = () => {
+    dispatch(getGroupChallengeFeed(communityId));
   };
 
-  reloadItems = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
-    dispatch(refreshCommunity(organization.id));
-    return dispatch(reloadGroupChallengeFeed(organization.id));
+  const organization = useSelector(
+    ({ organizations }: { organizations: OrganizationsState }) =>
+      organizationSelector({ organizations }, { orgId: communityId }),
+  );
+  const myOrgPermission = useSelector(({ auth }: RootState) =>
+    orgPermissionSelector({}, { person: auth.person, organization }),
+  );
+
+  const analyticsPermissionType = useSelector<
+    { auth: AuthState },
+    permissionType
+  >(({ auth }) => getAnalyticsPermissionType(auth, { id: communityId }));
+
+  useAnalytics(['community', 'challenges'], {
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
+    },
+  });
+
+  const challengeItems = useSelector(() =>
+    challengesSelector(
+      {
+        challengeItems: organization.challengeItems || [],
+      },
+      {},
+    ),
+  );
+
+  const canCreate = isAdminOrOwner(myOrgPermission);
+
+  const reloadItems = async () => {
+    changeRefreshing(true);
+    dispatch(refreshCommunity(communityId));
+    await dispatch(reloadGroupChallengeFeed(communityId));
+    changeRefreshing(false);
   };
 
-  refreshItems = () => {
-    refresh(this, this.reloadItems);
-  };
-
-  createChallenge = (challenge: ChallengeItem) => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
-    dispatch(createChallenge(challenge, organization.id));
-  };
-
-  create = () => {
-    // @ts-ignore
-    const { dispatch, organization } = this.props;
+  const create = () => {
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        organization,
+        organization: { id: communityId },
         onComplete: (challenge: ChallengeItem) => {
-          this.createChallenge(challenge);
+          dispatch(createChallenge(challenge, communityId));
           dispatch(navigateBack());
         },
       }),
     );
   };
 
-  render() {
-    const { refreshing } = this.state;
-    const {
-      // @ts-ignore
-      t,
-      // @ts-ignore
-      challengeItems,
-      // @ts-ignore
-      organization,
-      // @ts-ignore
-      myOrgPermissions,
-      // @ts-ignore
-      analyticsPermissionType,
-    } = this.props;
-
-    const canCreate = isAdminOrOwner(myOrgPermissions);
-
-    return (
-      <>
-        <Analytics
-          screenName={['community', 'challenges']}
-          screenContext={{
-            [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-          }}
+  return (
+    <>
+      <View style={styles.cardList}>
+        <CommunitiesCollapsibleHeaderContext.Consumer>
+          {({ collapsibleScrollViewProps }) => (
+            <ChallengeFeed
+              organization={organization}
+              items={challengeItems}
+              loadMoreItemsCallback={loadItems}
+              refreshCallback={reloadItems}
+              refreshing={refreshing}
+              extraPadding={canCreate}
+              collapsibleScrollViewProps={collapsibleScrollViewProps}
+            />
+          )}
+        </CommunitiesCollapsibleHeaderContext.Consumer>
+      </View>
+      {canCreate ? (
+        <BottomButton
+          testID="createButton"
+          onPress={create}
+          text={t('create')}
         />
-        <View style={styles.cardList}>
-          <CommunitiesCollapsibleHeaderContext.Consumer>
-            {({ collapsibleScrollViewProps }) => (
-              <ChallengeFeed
-                organization={organization}
-                items={challengeItems}
-                loadMoreItemsCallback={this.loadItems}
-                refreshCallback={this.refreshItems}
-                refreshing={refreshing}
-                extraPadding={canCreate}
-                collapsibleScrollViewProps={collapsibleScrollViewProps}
-              />
-            )}
-          </CommunitiesCollapsibleHeaderContext.Consumer>
-        </View>
-        {canCreate ? (
-          <BottomButton onPress={this.create} text={t('create')} />
-        ) : null}
-      </>
-    );
-  }
-}
-
-const mapStateToProps = (
-  {
-    auth,
-    organizations,
-  }: { auth: AuthState; organizations: OrganizationsState },
-  {
-    navigation: {
-      state: {
-        params: { communityId = 'personal' },
-      },
-    },
-  }: { navigation: { state: { params: { communityId?: string } } } },
-) => {
-  const organization = organizationSelector(
-    { organizations },
-    { orgId: communityId },
+      ) : null}
+    </>
   );
-
-  return {
-    organization,
-    // @ts-ignore
-    challengeItems: challengesSelector({
-      challengeItems: organization.challengeItems || [],
-    }),
-    pagination: organization.challengePagination || {},
-    myOrgPermissions: orgPermissionSelector(
-      {},
-      {
-        person: auth.person,
-        organization,
-      },
-    ),
-    analyticsPermissionType: getAnalyticsPermissionType(auth, organization),
-  };
 };
 
-export default connect(mapStateToProps)(GroupChallenges);
+export default GroupChallenges;
 
 export const COMMUNITY_CHALLENGES = 'nav/COMMUNITY_CHALLENGES';

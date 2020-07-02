@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -28,53 +28,40 @@ export const RecordVideoScreen = () => {
   const [countdownTime, setCountdownTime] = useState<number>(15);
   const [cameraType, setCameraType] = useState<CameraType>('front');
 
-  useEffect(() => {
-    if (timer && countdownTime <= 0) {
-      endRecording();
-    }
-  }, [countdownTime]);
-
-  useEffect(() => {
-    return endCountdown;
-  }, []);
-
-  const startCountdown = () => {
-    setCountdownTime(15);
-    setTimer(
-      setInterval(() => {
-        setCountdownTime(time => time - 1);
-      }, 1000),
-    );
-  };
-
-  const endCountdown = () => {
-    setCountdownTime(15);
-    timer && clearInterval(timer);
-    setTimer(null);
-  };
-
   const startRecording = async () => {
     if (!camera.current) {
       return;
     }
 
+    const { uri } = await camera.current.recordAsync({ maxDuration: 15 });
+    onEndRecord(uri);
+
+    handleClose();
+  };
+
+  const onStartRecording = () => {
     setVideoState('RECORDING');
     startCountdown();
+  };
 
-    const data = await camera.current.recordAsync();
-    onEndRecord(data);
+  const startCountdown = () => {
+    setCountdownTime(15);
+
+    const interval = setInterval(() => {
+      setCountdownTime(time => (time - 1 > 0 ? time - 1 : 0));
+    }, 1000);
+
+    setTimer(interval);
   };
 
   const endRecording = () => {
-    setVideoState('NOT_RECORDING');
-    endCountdown();
-
     camera.current?.stopRecording();
-
-    dispatch(navigateBack());
   };
 
-  const handleClose = () => dispatch(navigateBack());
+  const handleClose = () => {
+    timer && clearInterval(timer);
+    dispatch(navigateBack());
+  };
 
   const handleFlipCamera = () =>
     setCameraType(cameraType === 'front' ? 'back' : 'front');
@@ -83,6 +70,7 @@ export const RecordVideoScreen = () => {
     <SafeAreaView style={styles.closeWrap}>
       {videoState === 'NOT_RECORDING' ? (
         <Touchable
+          testID="CloseButton"
           onPress={handleClose}
           type="transparent"
           style={styles.closeButton}
@@ -114,7 +102,7 @@ export const RecordVideoScreen = () => {
           <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
         </View>
         {renderRecordButton()}
-        <Touchable onPress={handleFlipCamera}>
+        <Touchable testID="FlipCameraButton" onPress={handleFlipCamera}>
           <CameraRotateIcon />
         </Touchable>
       </View>
@@ -129,6 +117,7 @@ export const RecordVideoScreen = () => {
         type={cameraType}
         flashMode={'auto'}
         ratio={'16:9'}
+        onRecordingStart={onStartRecording}
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',
           message: 'We need your permission to use your camera',

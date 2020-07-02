@@ -819,7 +819,7 @@ export default {
       HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
       THOUGHT: 'Random Thoughts',
-      STEP: 'Encourage One Another',
+      STEP: 'Steps of Faith',
     },
     subheader: {
       STORY: 'Share and celebrate when God does something amazing.',
@@ -864,8 +864,6 @@ export default {
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
     inputPlaceholder: 'Post to community...',
-    everyone: 'Everyone',
-    ownersAndAdmins: 'Owners and Admins',
     recordVideo: 'Record a 15-Second Video',
     postAsYou: 'Post as You',
     ownersAndAdmins: 'Post as Owner/Admin',

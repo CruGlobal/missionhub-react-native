@@ -124,10 +124,6 @@ import ChallengeMembers, {
 import { CommunitiesRoutes } from './containers/Communities/CommunitiesRoutes';
 import NotificationCenterScreen from './containers/NotificationCenterScreen';
 import {
-  RecordVideoScreen,
-  RECORD_VIDEO_SCREEN,
-} from './containers/RecordVideoScreen';
-import {
   OnboardingAddPhotoScreen,
   ONBOARDING_ADD_PHOTO_SCREEN,
 } from './containers/OnboardingAddPhotoScreen';
@@ -313,7 +309,6 @@ const screens = {
   [JOURNEY_EDIT_FLOW]: JourneyEditFlowNavigator,
   [LOADING_SCREEN]: LoadingScreen,
   [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
-  [RECORD_VIDEO_SCREEN]: RecordVideoScreen,
   [COMMUNITY_FEED_WITH_TYPE_SCREEN]: CommunityFeedWithType,
   [ADD_POST_TO_STEPS_SCREEN]: AddPostToStepsScreen,
 };

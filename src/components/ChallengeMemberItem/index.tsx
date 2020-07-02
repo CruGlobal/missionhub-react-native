@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux';
 
 import { Flex, Text, Touchable, Card, DateComponent } from '../common';
 import { AuthState } from '../../reducers/auth';
+import Avatar from '../Avatar';
 import { ChallengeItem } from '../ChallengeStats';
 import CHALLENGE_COMPLETE_GREEN from '../../../assets/images/challengeCompleteGreen.png';
 
@@ -42,10 +43,16 @@ const ChallengeMemberItem = ({
   const content = (
     <Card style={styles.card}>
       <Flex align="center" direction="row" style={styles.row}>
+        <Avatar
+          style={{ marginRight: 10 }}
+          // Use full_name for fullName until we convert these to use graphQL data
+          person={{ ...person, fullName: person.full_name }}
+          size={'medium'}
+        />
         <Flex value={1} justify="between" direction="row" align="center">
           <Flex direction="column">
             <Text style={styles.nameText}>
-              {isMe ? t('me') : `${person.first_name} ${person.last_name}`}
+              {isMe ? t('me') : person.full_name}
             </Text>
             <Text style={[styles.date]}>
               {completed_at ? `${t('completed')} ` : `${t('joined')} `}

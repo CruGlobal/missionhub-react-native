@@ -13,17 +13,11 @@ jest.mock('../../../ImpactTab/ImpactTab', () => ({
 
 it('should render feed tab', () => {
   const FeedTab = communityTabs[0].component;
-  renderWithContext(
-    <FeedTab
-      navigation={{
-        state: {
-          params: {
-            communityId: '1',
-          },
-        },
-      }}
-    />,
-  ).snapshot();
+  renderWithContext(<FeedTab />, {
+    navParams: {
+      communityId: '1',
+    },
+  }).snapshot();
 });
 
 it('should render challenges tab', () => {
@@ -32,15 +26,9 @@ it('should render challenges tab', () => {
 
 it('should render impact tab', () => {
   const ImpactTab = communityTabs[2].component;
-  renderWithContext(
-    <ImpactTab
-      navigation={{
-        state: {
-          params: {
-            communityId: '1',
-          },
-        },
-      }}
-    />,
-  ).snapshot();
+  renderWithContext(<ImpactTab />, {
+    navParams: {
+      communityId: '1',
+    },
+  }).snapshot();
 });

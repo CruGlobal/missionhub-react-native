@@ -1,4 +1,6 @@
-import React, { useState, useMemo } from 'react';
+/* eslint max-lines: 0 */
+
+import React, { useState, useEffect } from 'react';
 import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -137,7 +139,7 @@ export const CreatePostScreen = () => {
           query: GET_COMMUNITY_FEED,
           variables: {
             communityId,
-            subjectType: mapPostTypeToFeedType(postType),
+            subjectType: [mapPostTypeToFeedType(postType)],
           },
         });
         cache.writeQuery({
@@ -189,7 +191,7 @@ export const CreatePostScreen = () => {
     }
   };
 
-  useMemo(() => {
+  useEffect(() => {
     getMediaHeight();
   }, [mediaData]);
 
@@ -303,8 +305,7 @@ export const CreatePostScreen = () => {
 
   const renderImage = () =>
     mediaData ? (
-      // @ts-ignore
-      <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
+      <ImagePicker onSelectImage={handleSavePhoto}>
         <Image
           resizeMode="contain"
           source={{ uri: mediaData }}
@@ -325,11 +326,7 @@ export const CreatePostScreen = () => {
         <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
       </Touchable>
       <View style={styles.lineBreak} />
-      <ImagePicker
-        // @ts-ignore
-        testID="ImagePicker"
-        onSelectImage={handleSavePhoto}
-      >
+      <ImagePicker onSelectImage={handleSavePhoto}>
         <View style={styles.addPhotoButton}>
           <PhotoIcon style={styles.icon} />
           <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
