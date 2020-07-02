@@ -978,7 +978,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
 </View>
 `;
 
-exports[`render contacts count user created org should render admin permissions 1`] = `
+exports[`render contacts count should render admin permissions 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1233,7 +1233,7 @@ exports[`render contacts count user created org should render admin permissions 
 </View>
 `;
 
-exports[`render contacts count user created org should render member permissions 1`] = `
+exports[`render contacts count should render member permissions 1`] = `
 <View
   accessible={true}
   focusable={true}
@@ -1467,7 +1467,7 @@ exports[`render contacts count user created org should render member permissions
 </View>
 `;
 
-exports[`render contacts count user created org should render owner permissions 1`] = `
+exports[`render contacts count should render owner permissions 1`] = `
 <View
   accessible={true}
   focusable={true}

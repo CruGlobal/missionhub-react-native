@@ -169,12 +169,8 @@ export const isAdmin = (
     !!orgPermission.permission &&
     orgPermission.permission === PermissionEnum.admin);
 
-export const canEditCommunity = (
-  permission?: PermissionEnum,
-  userCreated?: boolean,
-) =>
-  permission === PermissionEnum.owner ||
-  (!userCreated && permission === PermissionEnum.admin);
+export const canEditCommunity = (permission?: PermissionEnum) =>
+  permission === PermissionEnum.owner;
 
 // @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>

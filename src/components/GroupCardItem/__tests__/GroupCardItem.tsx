@@ -26,7 +26,6 @@ const group: GetCommunities_communities_nodes = {
     unassignedCount: 0,
     memberCount: 0,
   },
-  userCreated: false,
   unreadCommentsCount: 0,
 };
 
@@ -53,14 +52,13 @@ describe('GroupCardItem', () => {
       group: {
         ...group,
         id: GLOBAL_COMMUNITY_ID,
-        userCreated: true,
       },
     };
 
     test();
   });
 
-  it('renders with no report counts for user created org', () => {
+  it('renders with no report counts', () => {
     props = {
       ...props,
       group: {
@@ -70,75 +68,24 @@ describe('GroupCardItem', () => {
           contactCount,
           unassignedCount,
         },
-        userCreated: true,
       },
     };
 
     test();
   });
 
-  it('renders with all report counts', () => {
+  it('renders group', () => {
     props = {
       ...props,
       group: {
         ...group,
-        report: {
-          ...group.report,
-          contactCount,
-          unassignedCount,
-        },
-        userCreated: false,
       },
     };
 
     test();
   });
 
-  it('renders with unassigned, no contacts', () => {
-    props = {
-      ...props,
-      group: {
-        ...group,
-        report: {
-          ...group.report,
-          unassignedCount,
-        },
-        userCreated: false,
-      },
-    };
-
-    test();
-  });
-
-  it('renders with contacts, no unassigned', () => {
-    props = {
-      ...props,
-      group: {
-        ...group,
-        report: {
-          ...group.report,
-          contactCount,
-        },
-        userCreated: false,
-      },
-    };
-
-    test();
-  });
-
-  it('renders user created group', () => {
-    props = {
-      ...props,
-      group: {
-        ...group,
-        userCreated: true,
-      },
-    };
-
-    test();
-  });
-
-  it('renders user created group with member count', () => {
+  it('renders group with member count', () => {
     props = {
       ...props,
       group: {
@@ -147,14 +94,13 @@ describe('GroupCardItem', () => {
           ...group.report,
           memberCount,
         },
-        userCreated: true,
       },
     };
 
     test();
   });
 
-  it('renders user created group with singular member count', () => {
+  it('renders group with singular member count', () => {
     props = {
       ...props,
       group: {
@@ -163,7 +109,6 @@ describe('GroupCardItem', () => {
           ...group.report,
           memberCount: 1,
         },
-        userCreated: true,
       },
     };
 
@@ -221,7 +166,7 @@ describe('GroupCardItem', () => {
     test();
   });
 
-  it('renders for join screen userCreated no owner', () => {
+  it('renders for join screen no owner', () => {
     props = {
       ...props,
       group: {
@@ -230,7 +175,6 @@ describe('GroupCardItem', () => {
           ...group.report,
           memberCount,
         },
-        userCreated: true,
       },
       onJoin: jest.fn(),
     };

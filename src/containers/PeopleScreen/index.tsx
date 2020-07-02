@@ -86,7 +86,6 @@ export const PeopleScreen = ({
         testID="peopleList"
         sections={false}
         items={items}
-        onAddContact={handleAddContact}
         onRefresh={refresh}
         refreshing={isRefreshing}
         personId={person.id}

@@ -36,8 +36,7 @@ const memberPermissions = { ...orgPerm, permission: PermissionEnum.user };
 const adminPermissions = { ...orgPerm, permission: PermissionEnum.admin };
 const ownerPermissions = { ...orgPerm, permission: PermissionEnum.owner };
 
-const organization = { id: '1234', user_created: false };
-const userOrg = { ...organization, user_created: true };
+const organization = { id: '1234' };
 
 const initialState = {
   auth: { person: me },
@@ -53,44 +52,42 @@ const props = {
 };
 
 describe('render contacts count', () => {
-  describe('user created org', () => {
-    it('should not crash without my org permission', () => {
-      renderWithContext(
-        <CommunityMemberItem {...props} organization={userOrg} />,
-        { initialState },
-      );
-    });
+  it('should not crash without my org permission', () => {
+    renderWithContext(
+      <CommunityMemberItem {...props} organization={organization} />,
+      { initialState },
+    );
+  });
 
-    it('should render member permissions', () => {
-      renderWithContext(
-        <CommunityMemberItem {...props} organization={userOrg} />,
-        { initialState },
-      ).snapshot();
-    });
+  it('should render member permissions', () => {
+    renderWithContext(
+      <CommunityMemberItem {...props} organization={organization} />,
+      { initialState },
+    ).snapshot();
+  });
 
-    it('should render admin permissions', () => {
-      renderWithContext(
-        <CommunityMemberItem
-          {...props}
-          organization={userOrg}
-          personOrgPermission={adminPermissions}
-          myCommunityPermission={adminPermissions}
-        />,
-        { initialState },
-      ).snapshot();
-    });
+  it('should render admin permissions', () => {
+    renderWithContext(
+      <CommunityMemberItem
+        {...props}
+        organization={organization}
+        personOrgPermission={adminPermissions}
+        myCommunityPermission={adminPermissions}
+      />,
+      { initialState },
+    ).snapshot();
+  });
 
-    it('should render owner permissions', () => {
-      renderWithContext(
-        <CommunityMemberItem
-          {...props}
-          organization={userOrg}
-          personOrgPermission={ownerPermissions}
-          myCommunityPermission={ownerPermissions}
-        />,
-        { initialState },
-      ).snapshot();
-    });
+  it('should render owner permissions', () => {
+    renderWithContext(
+      <CommunityMemberItem
+        {...props}
+        organization={organization}
+        personOrgPermission={ownerPermissions}
+        myCommunityPermission={ownerPermissions}
+      />,
+      { initialState },
+    ).snapshot();
   });
 });
 
