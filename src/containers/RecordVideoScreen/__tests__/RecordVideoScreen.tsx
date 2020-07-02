@@ -1,4 +1,5 @@
 import React from 'react';
+import { RNCamera } from 'react-native-camera';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -6,48 +7,67 @@ import { navigateBack } from '../../../actions/navigation';
 
 import { RecordVideoScreen } from '..';
 
+jest.mock('../../../actions/navigation');
+
+const uri = 'file:/video.mov';
+
 const onEndRecord = jest.fn();
+const recordAsync = jest.fn().mockReturnValue({ uri });
+
+const navigateBackResult = { type: 'navigate back' };
+
+beforeEach(() => {
+  (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
+});
 
 it('renders pre-recording correctly', () => {
-  const { snapshot } = renderWithContext(<RecordVideoScreen />, {
+  renderWithContext(<RecordVideoScreen />, {
     navParams: { onEndRecord },
-  });
-
-  snapshot();
+  }).snapshot();
 });
 
 it('renders recording correctly', () => {
-  const { getByTestId, snapshot } = renderWithContext(<RecordVideoScreen />, {
+  const { getByType, snapshot } = renderWithContext(<RecordVideoScreen />, {
     navParams: { onEndRecord },
   });
 
-  fireEvent.press(getByTestId('RecordButton'));
+  fireEvent(getByType(RNCamera), 'onRecordingStart');
 
   snapshot();
 });
 
 it('times out after 15 seconds, ends recording and navigates back', async () => {
-  const { getByTestId } = renderWithContext(<RecordVideoScreen />, {
+  const { getByTestId, getByType } = renderWithContext(<RecordVideoScreen />, {
     navParams: { onEndRecord },
   });
+
+  await flushMicrotasksQueue();
+
+  const CameraProps = getByType(RNCamera).props;
+  CameraProps.ref.current.recordAsync = recordAsync;
 
   fireEvent.press(getByTestId('RecordButton'));
 
   await flushMicrotasksQueue();
 
-  expect(onEndRecord).toHaveBeenCalledWith();
+  expect(recordAsync).toHaveBeenCalledWith({ maxDuration: 15 });
+  expect(onEndRecord).toHaveBeenCalledWith(uri);
+  expect(navigateBack).toHaveBeenCalledWith();
 });
 
-it('ends recording and navigates back on pressing record button', () => {
-  const { getByTestId } = renderWithContext(<RecordVideoScreen />, {
+it('ends recording and navigates back on pressing record button', async () => {
+  const { getByTestId, getByType } = renderWithContext(<RecordVideoScreen />, {
     navParams: { onEndRecord },
   });
 
-  fireEvent.press(getByTestId('RecordButton'));
+  await flushMicrotasksQueue();
+
+  const CameraProps = getByType(RNCamera).props;
 
   fireEvent.press(getByTestId('RecordButton'));
+  fireEvent.press(getByTestId('RecordButton'));
 
-  expect(onEndRecord).toHaveBeenCalledWith();
+  expect(CameraProps.ref.current.stopRecording).toHaveBeenCalledWith();
 });
 
 it('navigates back on pressing close button', () => {
@@ -60,4 +80,17 @@ it('navigates back on pressing close button', () => {
   expect(navigateBack).toHaveBeenCalledWith();
 });
 
-it('flips camera on pressing flip camera button', () => {});
+it('flips camera on pressing flip camera button', () => {
+  const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+    <RecordVideoScreen />,
+    {
+      navParams: { onEndRecord },
+    },
+  );
+
+  recordSnapshot();
+
+  fireEvent.press(getByTestId('FlipCameraButton'));
+
+  diffSnapshot();
+});

@@ -3,7 +3,7 @@ import { StyleProp, ViewStyle, View } from 'react-native';
 import Video from 'react-native-video';
 
 import TrashIcon from '../../../assets/images/trashIcon.svg';
-import { Flex, Touchable } from '../common';
+import { Touchable } from '../common';
 import theme from '../../theme';
 
 import styles from './styles';

@@ -102,7 +102,7 @@ export const RecordVideoScreen = () => {
           <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
         </View>
         {renderRecordButton()}
-        <Touchable onPress={handleFlipCamera}>
+        <Touchable testID="FlipCameraButton" onPress={handleFlipCamera}>
           <CameraRotateIcon />
         </Touchable>
       </View>

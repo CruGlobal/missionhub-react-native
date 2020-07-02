@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';

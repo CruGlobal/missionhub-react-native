@@ -1,3 +1,5 @@
+/* eslint max-lines: 0 */
+
 import React, { useState, useEffect } from 'react';
 import { View, Keyboard, ScrollView, Image } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
