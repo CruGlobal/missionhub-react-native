@@ -202,8 +202,6 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
-    const image =
-      hasImage && mediaData !== post?.mediaExpiringUrl ? mediaData : null;
     const media =
       mediaData && mediaData !== post?.mediaExpiringUrl
         ? new ReactNativeFile({ uri: mediaData })
@@ -215,7 +213,7 @@ export const CreatePostScreen = () => {
           input: {
             id: post.id,
             content: text,
-            media: image,
+            media,
           },
         },
       });
@@ -236,14 +234,14 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = (image: SelectImageParams) => {
-    changeMediaType(image.fileType);
-    changeMediaData(image.data);
+  const handleSavePhoto = ({ fileType, data }: SelectImageParams) => {
+    changeMediaType(fileType);
+    changeMediaData(data);
   };
 
-  const handleSaveVideo = (data: RecordResponse) => {
+  const handleSaveVideo = ({ uri }: RecordResponse) => {
     changeMediaType('video');
-    changeMediaData(data.uri);
+    changeMediaData(uri);
   };
 
   const navigateToRecordVideo = () => {
