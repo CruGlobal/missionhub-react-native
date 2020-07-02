@@ -41,7 +41,6 @@ exports[`renders correctly 1`] = `
             Object {
               "borderRadius": 0,
               "flexDirection": "column",
-              "marginBottom": 5,
               "marginHorizontal": 0,
               "marginVertical": 0,
               "position": "relative",
@@ -192,8 +191,9 @@ exports[`renders correctly 1`] = `
           Object {
             "alignItems": "center",
             "height": 120,
+            "marginBottom": 5,
             "paddingHorizontal": 25,
-            "paddingTop": 5,
+            "paddingTop": 15,
             "position": "relative",
           }
         }
