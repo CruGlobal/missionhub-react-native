@@ -9,6 +9,7 @@ import { RNCamera } from 'react-native-camera';
 import { navigateBack } from '../../actions/navigation';
 import { Text, Touchable } from '../../components/common';
 import CloseButton from '../../../assets/images/closeIcon.svg';
+import { useInterval } from '../../utils/hooks/useInterval';
 import theme from '../../theme';
 
 import CameraRotateIcon from './cameraRotateIcon.svg';
@@ -27,9 +28,14 @@ export const RecordVideoScreen = () => {
   const dispatch = useDispatch();
   const onEndRecord = useNavigationParam('onEndRecord');
   const [videoState, setVideoState] = useState<VideoState>('NOT_RECORDING');
-  const [timer, setTimer] = useState<NodeJS.Timer | null>(null);
   const [countdownTime, setCountdownTime] = useState<number>(15);
   const [cameraType, setCameraType] = useState<CameraType>('front');
+
+  useInterval(
+    () => setCountdownTime(Math.max(countdownTime - 1, 0)),
+    1000,
+    videoState !== 'RECORDING',
+  );
 
   const startRecording = async () => {
     if (!camera.current) {
@@ -44,27 +50,12 @@ export const RecordVideoScreen = () => {
 
   const onStartRecording = () => {
     setVideoState('RECORDING');
-    startCountdown();
-  };
-
-  const startCountdown = () => {
     setCountdownTime(15);
-
-    const interval = setInterval(() => {
-      setCountdownTime(time => (time - 1 > 0 ? time - 1 : 0));
-    }, 1000);
-
-    setTimer(interval);
   };
 
-  const endRecording = () => {
-    camera.current?.stopRecording();
-  };
+  const endRecording = () => camera.current?.stopRecording();
 
-  const handleClose = () => {
-    timer && clearInterval(timer);
-    dispatch(navigateBack());
-  };
+  const handleClose = () => dispatch(navigateBack());
 
   const handleFlipCamera = () =>
     setCameraType(cameraType === 'front' ? 'back' : 'front');
