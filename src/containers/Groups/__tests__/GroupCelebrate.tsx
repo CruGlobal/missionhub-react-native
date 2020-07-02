@@ -31,7 +31,6 @@ const myId = '123';
 const orgId = '1';
 const org: Organization = {
   id: orgId,
-  user_created: false,
 };
 
 const initialState = {
@@ -71,39 +70,10 @@ describe('refresh', () => {
       });
     });
 
-    describe('user created community', () => {
+    describe('community', () => {
       it('should refresh correctly', () => {
         ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
           ...org,
-          user_created: true,
-        });
-
-        const { getByTestId } = renderWithContext(
-          <CommunityFeed
-            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
-          />,
-          {
-            initialState,
-            navParams: {
-              communityId: orgId,
-            },
-          },
-        );
-
-        fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
-
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
-        });
-        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-      });
-    });
-
-    describe('cru community', () => {
-      it('should refresh correctly', () => {
-        ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-          ...org,
-          user_created: false,
         });
 
         const { getByTestId } = renderWithContext(
@@ -163,40 +133,9 @@ describe('refresh', () => {
       });
     });
 
-    describe('user created community', () => {
+    describe('community', () => {
       it('should refresh correctly', () => {
-        ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-          ...org,
-          user_created: true,
-        });
-
-        const { getByTestId } = renderWithContext(
-          <CommunityFeed
-            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
-          />,
-          {
-            initialState,
-            navParams: {
-              communityId: orgId,
-            },
-          },
-        );
-
-        fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
-
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'admin' },
-        });
-        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-      });
-    });
-
-    describe('cru community', () => {
-      it('should refresh correctly', () => {
-        ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-          ...org,
-          user_created: false,
-        });
+        ((organizationSelector as unknown) as jest.Mock).mockReturnValue(org);
 
         const { getByTestId } = renderWithContext(
           <CommunityFeed
@@ -255,12 +194,9 @@ describe('refresh', () => {
       });
     });
 
-    describe('user created community', () => {
+    describe('community', () => {
       it('should refresh correctly', () => {
-        ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-          ...org,
-          user_created: true,
-        });
+        ((organizationSelector as unknown) as jest.Mock).mockReturnValue(org);
 
         const { getByTestId } = renderWithContext(
           <CommunityFeed
@@ -283,33 +219,6 @@ describe('refresh', () => {
       });
     });
 
-    describe('cru community', () => {
-      it('should refresh correctly', () => {
-        ((organizationSelector as unknown) as jest.Mock).mockReturnValue({
-          ...org,
-          user_created: false,
-        });
-
-        const { getByTestId } = renderWithContext(
-          <CommunityFeed
-            collapsibleHeaderContext={CommunitiesCollapsibleHeaderContext}
-          />,
-          {
-            initialState,
-            navParams: {
-              communityId: orgId,
-            },
-          },
-        );
-
-        fireEvent(getByTestId('CelebrateFeed'), 'onRefetch');
-
-        expect(useAnalytics).toHaveBeenCalledWith(['community', 'celebrate'], {
-          screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
-        });
-        expect(refreshCommunity).toHaveBeenCalledWith(org.id);
-      });
-    });
     describe('global community', () => {
       it('should refresh correctly', () => {
         ((organizationSelector as unknown) as jest.Mock).mockReturnValue({

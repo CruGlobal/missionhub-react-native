@@ -330,7 +330,6 @@ describe('addNewOrganization', () => {
       type: 'organization',
       attributes: {
         name,
-        user_created: true,
       },
     },
   };

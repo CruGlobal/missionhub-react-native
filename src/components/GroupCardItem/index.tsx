@@ -3,8 +3,7 @@ import { Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text, Flex, Card, Button } from '../common';
-import Dot from '../Dot';
-import { getFirstNameAndLastInitial, orgIsGlobal } from '../../utils/common';
+import { getFirstNameAndLastInitial } from '../../utils/common';
 import { TouchablePress } from '../Touchable/index.ios';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 import { useCommunityPhoto } from '../../containers/Communities/hooks/useCommunityPhoto';
@@ -23,13 +22,12 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
 
   const {
     name,
-    userCreated,
     communityPhotoUrl,
     // unreadCommentsCount,
     owner: {
       nodes: [owner],
     },
-    report: { contactCount, unassignedCount, memberCount },
+    report: { memberCount },
   } = group;
 
   const handlePress = () => {
@@ -51,35 +49,19 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
                   owner.lastName,
                 ),
               })
-            : userCreated
-            ? t('privateGroup')
-            : ''}
-        </Text>
-      );
-    }
-    if (userCreated) {
-      return (
-        <Text style={styles.groupNumber}>
-          {t('numMembers', { count: memberCount })}
+            : t('privateGroup')}
         </Text>
       );
     }
     return (
       <Text style={styles.groupNumber}>
-        {t('numContacts', { count: contactCount })}
-        <Dot />
-        {t('numUnassigned', { count: unassignedCount })}
+        {t('numMembers', { count: memberCount })}
       </Text>
     );
   }
 
-  const communityPhotoSource = useCommunityPhoto(
-    group.id,
-    communityPhotoUrl,
-    group.userCreated,
-  );
+  const communityPhotoSource = useCommunityPhoto(group.id, communityPhotoUrl);
 
-  const isGlobal = orgIsGlobal(group);
   // const hasNotification = !isGlobal && unreadCommentsCount !== 0;
 
   //not passing a value for onPress to Card makes the card unclickable.
@@ -91,13 +73,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
       onPress={onPress ? handlePress : undefined}
       style={styles.card}
     >
-      <Flex
-        value={1}
-        style={[
-          styles.content,
-          userCreated && !isGlobal ? styles.userCreatedContent : undefined,
-        ]}
-      >
+      <Flex value={1} style={styles.content}>
         <Image
           source={communityPhotoSource}
           resizeMode="cover"

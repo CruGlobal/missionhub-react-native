@@ -11,7 +11,6 @@ Object {
       },
       "id": "_global_community_id",
       "name": "MissionHub Community",
-      "user_created": true,
     },
     Object {
       "id": "1",
@@ -28,7 +27,6 @@ Object {
       "community": true,
       "id": "_global_community_id",
       "name": "MissionHub Community",
-      "user_created": true,
     },
     Object {
       "id": "123",
@@ -47,7 +45,6 @@ Object {
       "community": true,
       "id": "_global_community_id",
       "name": "MissionHub Community",
-      "user_created": true,
     },
     Object {
       "celebratePagination": Object {

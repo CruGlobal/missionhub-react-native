@@ -183,7 +183,6 @@ export const CommunityProfile = () => {
   const communityPhotoSource = useCommunityPhoto(
     communityId,
     data?.community.communityPhotoUrl,
-    data?.community.userCreated,
   );
 
   const renderImage = () => {
@@ -213,9 +212,7 @@ export const CommunityProfile = () => {
     return content;
   };
 
-  const canEdit =
-    data?.community.userCreated &&
-    canEditCommunity(permission, data?.community.userCreated);
+  const canEdit = canEditCommunity(permission);
 
   const owner = data?.community.owners.nodes[0];
 
