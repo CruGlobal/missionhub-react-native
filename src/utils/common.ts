@@ -96,26 +96,8 @@ export const personIsCurrentUser = (personId: string, authState: AuthState) =>
 export const isOnboarding = (onboardingState: OnboardingState) =>
   onboardingState.currentlyOnboarding;
 
-export const orgIsPersonalMinistry = (org?: { id?: string }) =>
-  !!org && (!org.id || org.id === 'personal');
-
-export const orgIsUserCreated = (org?: {
-  user_created?: boolean;
-  userCreated?: boolean;
-}) => !!(org && (org.user_created || org.userCreated));
-
 export const orgIsGlobal = (org?: { id?: string }) =>
   !!org && org.id === GLOBAL_COMMUNITY_ID;
-
-export const orgIsCru = (org?: {
-  id?: string;
-  user_created?: boolean;
-  userCreated?: boolean;
-}) =>
-  !!org &&
-  !orgIsPersonalMinistry(org) &&
-  !orgIsUserCreated(org) &&
-  !orgIsGlobal(org);
 
 const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.OWNER,
@@ -193,11 +175,6 @@ export const canEditCommunity = (
 ) =>
   permission === PermissionEnum.owner ||
   (!userCreated && permission === PermissionEnum.admin);
-
-// @ts-ignore
-export const shouldQueryReportedComments = (org, orgPermission) =>
-  (orgIsCru(org) && isAdminOrOwner(orgPermission)) ||
-  (orgIsUserCreated(org) && isOwner(orgPermission));
 
 // @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
