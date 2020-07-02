@@ -992,4 +992,18 @@ export default {
       ignore: 'You have successfully ignored the post.',
     },
   },
+  recordVideo: {
+    cameraPermissions: {
+      title: 'Permission to use camera',
+      message: 'We need your permission to use your camera',
+      buttonPositive: 'Ok',
+      buttonNegative: 'Cancel',
+    },
+    audioPermissions: {
+      title: 'Permission to use audio recording',
+      message: 'We need your permission to use your audio',
+      buttonPositive: 'Ok',
+      buttonNegative: 'Cancel',
+    },
+  },
 };

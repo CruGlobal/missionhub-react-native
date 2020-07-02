@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { useTranslation } from 'react-i18next';
 //eslint-disable-next-line import/named
 import { RNCamera } from 'react-native-camera';
 
@@ -21,6 +22,7 @@ interface RecordVideoScreenNavParams {
 }
 
 export const RecordVideoScreen = () => {
+  const { t } = useTranslation('recordVideo');
   const camera = useRef<RNCamera>(null);
   const dispatch = useDispatch();
   const onEndRecord = useNavigationParam('onEndRecord');
@@ -119,18 +121,8 @@ export const RecordVideoScreen = () => {
         flashMode={'auto'}
         ratio={'16:9'}
         onRecordingStart={onStartRecording}
-        androidCameraPermissionOptions={{
-          title: 'Permission to use camera',
-          message: 'We need your permission to use your camera',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
-        androidRecordAudioPermissionOptions={{
-          title: 'Permission to use audio recording',
-          message: 'We need your permission to use your audio',
-          buttonPositive: 'Ok',
-          buttonNegative: 'Cancel',
-        }}
+        androidCameraPermissionOptions={t('cameraPermissions')}
+        androidRecordAudioPermissionOptions={t('audioPermissions')}
       >
         <View style={styles.cameraOverlay}>
           {renderCloseButton()}
