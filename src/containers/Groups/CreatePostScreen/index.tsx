@@ -244,8 +244,12 @@ export const CreatePostScreen = () => {
   );
 
   const renderAddPhotoButton = () => (
-    //@ts-ignore
-    <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
+    <ImagePicker
+      //@ts-ignore
+      testID="ImagePicker"
+      onSelectImage={handleSavePhoto}
+      showCropper={false}
+    >
       {imageData && !(imageData === EMPTY_IMAGE_URI) ? (
         <Image
           resizeMode="contain"

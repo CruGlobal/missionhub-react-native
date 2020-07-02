@@ -5,7 +5,6 @@ import Config from 'react-native-config';
 
 import {
   buildTrackingObj,
-  userIsJean,
   hasOrgPermissions,
   isAdminOrOwner,
   isOwner,
@@ -117,22 +116,6 @@ describe('isOnboarding', () => {
     expect(
       isOnboarding({ currentlyOnboarding: false } as OnboardingState),
     ).toEqual(false);
-  });
-});
-
-describe('userIsJean', () => {
-  const caseyPermissions = [
-    { id: '1', organization: { id: '1', user_created: true } },
-  ];
-  const jeanPermissions = [
-    ...caseyPermissions,
-    { id: '2', organization: { id: '2', user_created: false } },
-  ];
-  it('should return false for Casey', () => {
-    expect(userIsJean(caseyPermissions)).toEqual(false);
-  });
-  it('should return true for Jean', () => {
-    expect(userIsJean(jeanPermissions)).toEqual(true);
   });
 });
 

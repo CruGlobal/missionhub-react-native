@@ -96,11 +96,6 @@ export const personIsCurrentUser = (personId: string, authState: AuthState) =>
 export const isOnboarding = (onboardingState: OnboardingState) =>
   onboardingState.currentlyOnboarding;
 
-//If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
-export const userIsJean = (
-  orgPermissions: { organization: { user_created: boolean } }[],
-) => orgPermissions.some(p => !p.organization.user_created);
-
 export const orgIsGlobal = (org?: { id?: string }) =>
   !!org && org.id === GLOBAL_COMMUNITY_ID;
 

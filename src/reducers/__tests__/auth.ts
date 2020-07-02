@@ -6,7 +6,6 @@ import {
   UPDATE_STAGES,
   UPDATE_TOKEN,
 } from '../../constants';
-import * as common from '../../utils/common';
 
 const token = 'asdfasndfiosdc';
 const personId = '123456';
@@ -84,28 +83,6 @@ it('does not set new token after refreshing anonymous login if user is logged ou
   );
 
   expect(state).toEqual({ ...initialState, token: '' });
-});
-
-it('sets isJean after loading me', () => {
-  const isJeanResponse = 'isJean';
-  // @ts-ignore
-  common.userIsJean = jest.fn().mockReturnValue(isJeanResponse);
-
-  const organizational_permissions = [
-    { id: 1, type: 'organizational_permission' },
-  ];
-  const response = {
-    type: 'person',
-    organizational_permissions,
-    user: {
-      groups_feature: true,
-    },
-  };
-
-  const state = callAuth(REQUESTS.GET_ME.SUCCESS, { response });
-
-  expect(state.isJean).toBe(isJeanResponse);
-  expect(common.userIsJean).toHaveBeenCalledWith(organizational_permissions);
 });
 
 it('sets unread_comments_count', () => {
@@ -209,7 +186,6 @@ it('should reset state on logout', () => {
       token: 'some token',
       refreshToken: 'some refresh token',
       person: { user: { id: '1' } },
-      isJean: true,
       upgradeToken: 'some upgrade token',
     },
     {
@@ -221,7 +197,6 @@ it('should reset state on logout', () => {
     token: undefined,
     refreshToken: '',
     person: { user: {} },
-    isJean: false,
     upgradeToken: null,
   });
 });
