@@ -27,13 +27,4 @@ export default StyleSheet.create({
     fontSize: 16,
     fontWeight: 'bold',
   },
-  dateTextStyle: {
-    color: theme.communityThoughtGrey,
-    fontSize: 12,
-  },
-  postContentStyle: {
-    fontSize: 16,
-    color: theme.grey,
-    paddingBottom: 20,
-  },
 });
