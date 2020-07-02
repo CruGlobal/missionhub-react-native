@@ -1,4 +1,5 @@
 import React from 'react';
+//eslint-disable-next-line import/named
 import { RNCamera } from 'react-native-camera';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
@@ -43,15 +44,14 @@ it('times out after 15 seconds, ends recording and navigates back', async () => 
 
   await flushMicrotasksQueue();
 
-  const CameraProps = getByType(RNCamera).props;
-  CameraProps.ref.current.recordAsync = recordAsync;
-
   fireEvent.press(getByTestId('RecordButton'));
 
   await flushMicrotasksQueue();
 
-  expect(recordAsync).toHaveBeenCalledWith({ maxDuration: 15 });
-  expect(onEndRecord).toHaveBeenCalledWith(uri);
+  expect(getByType(RNCamera).instance.recordAsync).toHaveBeenCalledWith({
+    maxDuration: 15,
+  });
+  expect(onEndRecord).toHaveBeenCalledWith('file:/video.mov');
   expect(navigateBack).toHaveBeenCalledWith();
 });
 
@@ -62,12 +62,10 @@ it('ends recording and navigates back on pressing record button', async () => {
 
   await flushMicrotasksQueue();
 
-  const CameraProps = getByType(RNCamera).props;
-
   fireEvent.press(getByTestId('RecordButton'));
   fireEvent.press(getByTestId('RecordButton'));
 
-  expect(CameraProps.ref.current.stopRecording).toHaveBeenCalledWith();
+  expect(getByType(RNCamera).instance.stopRecording).toHaveBeenCalledWith();
 });
 
 it('navigates back on pressing close button', () => {

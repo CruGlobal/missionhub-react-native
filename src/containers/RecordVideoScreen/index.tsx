@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
+//eslint-disable-next-line import/named
 import { RNCamera } from 'react-native-camera';
 
 import { navigateBack } from '../../actions/navigation';
