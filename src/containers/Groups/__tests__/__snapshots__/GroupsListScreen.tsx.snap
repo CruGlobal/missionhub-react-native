@@ -5,7 +5,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -362,11 +362,11 @@
+@@ -366,11 +366,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
           },
           Object {
-@@ -646,11 +646,291 @@
+@@ -650,11 +650,291 @@
               \\"contactCount\\": 26992,
               \\"memberCount\\": 35653,
               \\"unassignedCount\\": 89588,
@@ -310,7 +310,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -708,11 +988,11 @@
+@@ -712,11 +992,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -323,7 +323,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
               }
             }
-@@ -1063,11 +1343,11 @@
+@@ -1067,11 +1347,11 @@
           />
         </View>
         <View
@@ -494,12 +494,16 @@ exports[`GroupsListScreen renders with communities 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          COMMUNITIES
+          Communities
         </Text>
       </View>
       <View
@@ -1571,12 +1575,16 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          COMMUNITIES
+          Communities
         </Text>
       </View>
       <View

@@ -277,6 +277,7 @@ export default {
       'Talk about what this person believes and ways you can help them know the truth about God.',
     part6:
       "Over time you see all the different ways you're helping others draw close to God.",
+    gotIt: 'Got It!',
   },
   stepDetail: {
     openPost: 'Open Post',
@@ -483,7 +484,7 @@ export default {
     sentence: 'Selecting a stage will also assign this person to you.',
   },
   peopleScreen: {
-    header: 'PEOPLE',
+    header: 'People',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
     addStage: 'Add Stage',
