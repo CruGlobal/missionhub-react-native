@@ -240,7 +240,9 @@ describe('getPostTypeAnalytics', () => {
 
   it('returns "" for other feed type', () => {
     expect(
-      getPostTypeAnalytics(FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE),
+      getPostTypeAnalytics(
+        FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
+      ),
     ).toEqual('');
   });
 });

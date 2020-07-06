@@ -43,7 +43,7 @@ export const GET_COMMUNITY_FEED = gql`
       HELP_REQUEST
       THOUGHT
       STEP
-      COMMUNITY_CHALLENGE
+      ACCEPTED_COMMUNITY_CHALLENGE
     ]
     $personIds: [ID!]
     $feedItemsCursor: String

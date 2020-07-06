@@ -735,7 +735,7 @@ describe('getFeedItemType', () => {
     };
 
     expect(getFeedItemType(challenge)).toEqual(
-      FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE,
+      FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE,
     );
   });
 
