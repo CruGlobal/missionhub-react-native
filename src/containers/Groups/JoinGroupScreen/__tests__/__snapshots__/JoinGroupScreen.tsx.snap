@@ -780,7 +780,6 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
               "unassignedCount": 0,
             },
             "unreadCommentsCount": 0,
-            "userCreated": false,
           }
         }
         onJoin={[Function]}

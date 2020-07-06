@@ -63,7 +63,6 @@ const createGlobalCommunity = (t: TFunction, usersCount: number) =>
     id: GLOBAL_COMMUNITY_ID,
     name: t('globalCommunity'),
     unreadCommentsCount: 0,
-    userCreated: true,
     communityPhotoUrl: null,
     owner: { __typename: 'CommunityPersonConnection', nodes: [] },
     report: {

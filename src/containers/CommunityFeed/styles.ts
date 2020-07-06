@@ -21,6 +21,7 @@ export default StyleSheet.create({
   title: {
     fontSize: 24,
     fontWeight: '200',
+    fontFamily: 'SourceSansPro-Light',
     color: theme.grey,
   },
 });

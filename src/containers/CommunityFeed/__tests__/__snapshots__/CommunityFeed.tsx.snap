@@ -2608,6 +2608,7 @@ exports[`renders for Global Community renders correctly 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -3992,6 +3993,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -5375,6 +5377,7 @@ exports[`renders for member renders correctly 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -6047,6 +6050,7 @@ exports[`renders for member renders with type 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -7015,6 +7019,7 @@ exports[`renders for member renders without header 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -8398,6 +8403,7 @@ exports[`renders with clear notification renders correctly 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -9790,6 +9796,7 @@ exports[`renders with items correctly 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -10467,6 +10474,7 @@ exports[`sections renders Earlier section 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -10745,6 +10753,7 @@ exports[`sections renders New section 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }
@@ -11023,6 +11032,7 @@ exports[`sections renders Today section 1`] = `
           style={
             Object {
               "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
               "fontWeight": "200",
             }

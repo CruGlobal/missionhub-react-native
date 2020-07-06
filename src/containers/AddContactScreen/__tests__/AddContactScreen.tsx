@@ -63,7 +63,7 @@ const closeDrawerResults = { type: 'drawer closed' };
 const next = jest.fn();
 
 const initialState = {
-  auth: { person: me, isJean: false },
+  auth: { person: me },
   drawer: { isOpen: false },
 };
 
