@@ -181,7 +181,7 @@ const FeedItemDetailScreen = () => {
       ? [
           {
             text: t('communityFeedItems:delete.buttonText'),
-            onPress: () => deleteFeedItem(dispatch(navigateBack())),
+            onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
             destructive: true,
           },
         ]
