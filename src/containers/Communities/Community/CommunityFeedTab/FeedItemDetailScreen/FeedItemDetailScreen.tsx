@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { View, SafeAreaView, FlatList } from 'react-native';
+import { View, SafeAreaView, FlatList, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -22,13 +22,18 @@ import BackButton from '../../../../../components/BackButton';
 import Header from '../../../../../components/Header';
 import { ErrorNotice } from '../../../../../components/ErrorNotice/ErrorNotice';
 import { RootState } from '../../../../../reducers';
-import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
-import { useMyId } from '../../../../../utils/hooks/useIsMe';
+import { useMyId, useIsMe } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
 import { navigateBack, navigatePush } from '../../../../../actions/navigation';
 import { COMMUNITY_TABS } from '../../constants';
+import {
+  useDeleteFeedItem,
+  useEditFeedItem,
+} from '../../../../../components/CommunityFeedItem';
+import { isOwner, isAdminOrOwner } from '../../../../../utils/common';
+import theme from '../../../../../theme';
 
 import FeedCommentBox from './FeedCommentBox';
 import styles from './styles';
@@ -55,6 +60,11 @@ const FeedItemDetailScreen = () => {
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
   });
+  const deleteFeedItem = useDeleteFeedItem(data?.feedItem);
+  const editFeedItem = useEditFeedItem(
+    data?.feedItem.subject,
+    data?.feedItem.community?.id,
+  );
 
   const analyticsPermissionType = useSelector(({ auth }: RootState) =>
     getAnalyticsPermissionType(auth, { id: communityId }),
@@ -122,20 +132,22 @@ const FeedItemDetailScreen = () => {
   };
 
   useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
+  const communityPermission =
+    data?.feedItem.community?.people.edges[0].communityPermission;
+  const isMe = useIsMe(data?.feedItem.subjectPerson?.id || '');
+
+  function handleBack() {
+    fromNotificationCenterItem
+      ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
+      : dispatch(navigateBack());
+  }
 
   const renderHeader = () => (
     <SafeAreaView>
       <Header
         left={<BackButton />}
         center={
-          <Touchable
-            testID="CommunityNameHeader"
-            onPress={() =>
-              fromNotificationCenterItem
-                ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
-                : dispatch(navigateBack())
-            }
-          >
+          <Touchable testID="CommunityNameHeader" onPress={handleBack}>
             <Text style={styles.headerText}>
               {data?.feedItem.community?.name}
             </Text>
@@ -151,6 +163,26 @@ const FeedItemDetailScreen = () => {
     </SafeAreaView>
   );
 
+  const menuActions = [
+    ...(isMe
+      ? [
+          {
+            text: t('communityFeedItems:edit.buttonText'),
+            onPress: editFeedItem,
+          },
+        ]
+      : []),
+    ...(isMe || isAdminOrOwner(communityPermission)
+      ? [
+          {
+            text: t('communityFeedItems:delete.buttonText'),
+            onPress: () => deleteFeedItem(handleBack),
+            destructive: true,
+          },
+        ]
+      : []),
+  ];
+
   const renderCommentsList = () =>
     data ? (
       <CommentsList
@@ -158,10 +190,7 @@ const FeedItemDetailScreen = () => {
         comments={data.feedItem.comments.nodes}
         editingCommentId={editingCommentId}
         setEditingCommentId={setEditingCommentId}
-        isOwner={
-          data.feedItem.community?.people.edges[0].communityPermission
-            .permission === PermissionEnum.owner
-        }
+        isOwner={isOwner(communityPermission)}
         listProps={{
           ref: listRef,
           refreshControl: (
@@ -177,6 +206,7 @@ const FeedItemDetailScreen = () => {
                 feedItem={data?.feedItem}
                 onCommentPress={() => feedCommentBox.current?.focus()}
                 postLabelPressable={false}
+                menuActions={menuActions}
               />
               <Separator style={styles.belowItem} />
             </>
@@ -219,6 +249,7 @@ const FeedItemDetailScreen = () => {
 
   return (
     <View style={styles.pageContainer}>
+      <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       {renderCommentsList()}
       {renderCommentBox()}
