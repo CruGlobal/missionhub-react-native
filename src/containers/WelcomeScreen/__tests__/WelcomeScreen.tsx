@@ -87,12 +87,4 @@ describe('WelcomeScreen', () => {
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith({ signin: true });
   });
-
-  it('should fire analytics event on mount', () => {
-    renderWithContext(<WelcomeScreen next={next} />, { initialState });
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_STARTED,
-    );
-  });
 });

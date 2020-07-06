@@ -154,6 +154,7 @@ export function trackStepAdded(step?: StepAddedAnalytics | null) {
         [ACTIONS.STEPS_ADDED.key]: 1, // One step of faith added. Historically multiple could be added at once and needed to be tracked.
       }),
     );
+    appsFlyer.trackEvent(ACTIONS.STEPS_ADDED.name, ACTIONS.STEPS_ADDED);
   };
 }
 
