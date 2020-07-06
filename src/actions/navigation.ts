@@ -117,7 +117,7 @@ export const navigateToFeedItemComments = (
   );
 };
 
-export const navigateToCommunitiesFeed = (communityId: string) => (
+export const navigateToCommunityFeed = (communityId: string) => (
   dispatch: ThunkDispatch<{}, null, AnyAction>,
 ) => {
   dispatch(

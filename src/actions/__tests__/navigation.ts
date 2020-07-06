@@ -13,7 +13,7 @@ import {
   navigateNestedReset,
   navigateToMainTabs,
   navigateToFeedItemComments,
-  navigateToCommunitiesFeed,
+  navigateToCommunityFeed,
 } from '../navigation';
 import { MAIN_TABS, COMMUNITIES_TAB } from '../../constants';
 import { loadHome } from '../auth/userData';
@@ -231,11 +231,11 @@ describe('navigateToFeedItemComments', () => {
   });
 });
 
-describe('navigateToCommunitiesFeed', () => {
+describe('navigateToCommunityFeed', () => {
   const communityId = '123456';
 
   it('navigates to COMMUNITIES_TAB', () => {
-    store.dispatch<any>(navigateToCommunitiesFeed(communityId));
+    store.dispatch<any>(navigateToCommunityFeed(communityId));
 
     expect(store.getActions()).toEqual([
       {

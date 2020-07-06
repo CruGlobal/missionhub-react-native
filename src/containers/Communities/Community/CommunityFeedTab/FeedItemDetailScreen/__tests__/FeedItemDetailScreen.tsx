@@ -13,7 +13,7 @@ import CommentsList from '../../../../../CommentsList';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
 import {
   navigateBack,
-  navigateToCommunitiesFeed,
+  navigateToCommunityFeed,
 } from '../../../../../../actions/navigation';
 import FeedItemDetailScreen from '../FeedItemDetailScreen';
 import FeedCommentBox from '../FeedCommentBox';
@@ -50,8 +50,8 @@ beforeEach(() => {
     ({ onShow }: { onShow: () => void }) => (onShowKeyboard = onShow),
   );
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
-  (navigateToCommunitiesFeed as jest.Mock).mockReturnValue({
-    type: 'navigateToCommunitiesFeed',
+  (navigateToCommunityFeed as jest.Mock).mockReturnValue({
+    type: 'navigateToCommunityFeed',
   });
 });
 
@@ -125,7 +125,7 @@ describe('nav on community name', () => {
     await flushMicrotasksQueue();
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
-    expect(navigateToCommunitiesFeed).toHaveBeenCalledWith(communityId);
+    expect(navigateToCommunityFeed).toHaveBeenCalledWith(communityId);
   });
 });
 
