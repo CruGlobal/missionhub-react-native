@@ -26,8 +26,10 @@ import { useMyId, useIsMe } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
-import { navigateBack, navigatePush } from '../../../../../actions/navigation';
-import { COMMUNITY_TABS } from '../../constants';
+import {
+  navigateBack,
+  navigateToCommunitiesFeed,
+} from '../../../../../actions/navigation';
 import {
   useDeleteFeedItem,
   useEditFeedItem,
@@ -138,7 +140,7 @@ const FeedItemDetailScreen = () => {
 
   function handleBack() {
     fromNotificationCenterItem
-      ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
+      ? dispatch(navigateToCommunitiesFeed(communityId))
       : dispatch(navigateBack());
   }
 

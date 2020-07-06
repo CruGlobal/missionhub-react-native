@@ -116,3 +116,20 @@ export const navigateToFeedItemComments = (
     ]),
   );
 };
+
+export const navigateToCommunitiesFeed = (communityId: string) => (
+  dispatch: ThunkDispatch<{}, null, AnyAction>,
+) => {
+  dispatch(
+    navigateNestedReset([
+      {
+        routeName: MAIN_TABS,
+        tabName: COMMUNITIES_TAB,
+      },
+      {
+        routeName: COMMUNITY_TABS,
+        params: { communityId },
+      },
+    ]),
+  );
+};

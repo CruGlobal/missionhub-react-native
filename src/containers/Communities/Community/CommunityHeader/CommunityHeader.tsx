@@ -15,10 +15,7 @@ import DeprecatedBackButton from '../../../DeprecatedBackButton';
 import theme from '../../../../theme';
 import Header from '../../../../components/Header';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
-import {
-  navigatePush,
-  navigateNestedReset,
-} from '../../../../actions/navigation';
+import { navigatePush } from '../../../../actions/navigation';
 import { COMMUNITY_PROFILE } from '../CommunityProfile/CommunityProfile';
 import { COMMUNITY_MEMBERS } from '../CommunityMembers/CommunityMembers';
 import InfoIcon from '../../../../../assets/images/infoIcon.svg';
@@ -27,7 +24,6 @@ import { useMyId } from '../../../../utils/hooks/useIsMe';
 import { useCommunityPhoto } from '../../hooks/useCommunityPhoto';
 import { canEditCommunity, orgIsGlobal } from '../../../../utils/common';
 import { communityTabs } from '../constants';
-import { MAIN_TABS, COMMUNITIES_TAB } from '../../../../constants';
 
 import styles from './styles';
 import {
@@ -70,17 +66,6 @@ export const CommunityHeader = () => {
     data?.community.communityPhotoUrl,
   );
 
-  const onBackPress = () => {
-    dispatch(
-      navigateNestedReset([
-        {
-          routeName: MAIN_TABS,
-          tabName: COMMUNITIES_TAB,
-        },
-      ]),
-    );
-  };
-
   return (
     <CollapsibleViewHeader
       context={CommunitiesCollapsibleHeaderContext}
@@ -90,7 +75,7 @@ export const CommunityHeader = () => {
         <ImageBackground source={communityPhotoSource} style={styles.image}>
           <View style={styles.imageOverlay} />
           <Header
-            left={<DeprecatedBackButton customNavigate={onBackPress} />}
+            left={<DeprecatedBackButton />}
             right={
               isGlobalCommunity ? null : (
                 <Button
