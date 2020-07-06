@@ -8,7 +8,9 @@ import {
   getGroupChallengeFeed,
   createChallenge,
 } from '../../../actions/challenges';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
+import { refreshCommunity } from '../../../actions/organizations';
+import { reloadGroupChallengeFeed } from '../../../actions/challenges';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import ChallengeFeed from '../../ChallengeFeed';
@@ -20,6 +22,8 @@ jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/challenges');
 jest.mock('../../../utils/common');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/organizations');
+jest.mock('../../../actions/challenges');
 jest.mock('../../../utils/analytics');
 
 const mockDate = '2018-09-01';
@@ -82,7 +86,10 @@ beforeEach(() => {
 
   (isAdminOrOwner as jest.Mock).mockReturnValue(false);
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
-  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigated back' });
+  (refreshCommunity as jest.Mock).mockReturnValue({ type: 'refreshCommunity' });
+  (reloadGroupChallengeFeed as jest.Mock).mockReturnValue({
+    type: 'reloadGroupChallengeFeed',
+  });
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('admin');
 });
 
@@ -179,6 +186,8 @@ it('should call create', async () => {
   });
   (navigatePush as jest.Mock).mock.calls[0][1].onComplete(challenge);
   expect(createChallenge).toHaveBeenCalledWith(challenge, orgId);
+  expect(refreshCommunity).toHaveBeenCalledWith(orgId);
+  expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(orgId);
 });
 
 it('should call API to create', () => {
