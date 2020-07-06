@@ -108,12 +108,14 @@ const MHUB_PERMISSIONS = [
   PermissionEnum.user,
 ];
 
-export const hasOrgPermissions = (
-  orgPermission: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  } | null,
-) => {
+type OrgPermissionCheck =
+  | {
+      permission_id?: string;
+      permission?: PermissionEnum;
+    }
+  | null
+  | undefined;
+export const hasOrgPermissions = (orgPermission: OrgPermissionCheck) => {
   return (
     (!!orgPermission &&
       MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`)) ||
@@ -123,15 +125,7 @@ export const hasOrgPermissions = (
   );
 };
 
-export const isAdminOrOwner = (
-  orgPermission:
-    | {
-        permission_id?: string;
-        permission?: PermissionEnum;
-      }
-    | null
-    | undefined,
-) =>
+export const isAdminOrOwner = (orgPermission: OrgPermissionCheck) =>
   (!!orgPermission &&
     [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
       `${orgPermission.permission_id}`,
@@ -142,27 +136,14 @@ export const isAdminOrOwner = (
       orgPermission.permission,
     ));
 
-export const isOwner = (
-  orgPermission:
-    | {
-        permission_id?: string;
-        permission?: PermissionEnum;
-      }
-    | null
-    | undefined,
-) =>
+export const isOwner = (orgPermission: OrgPermissionCheck) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER) ||
   (!!orgPermission &&
     !!orgPermission.permission &&
     orgPermission.permission === PermissionEnum.owner);
 
-export const isAdmin = (
-  orgPermission: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  } | null,
-) =>
+export const isAdmin = (orgPermission: OrgPermissionCheck) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN) ||
   (!!orgPermission &&
@@ -422,7 +403,7 @@ export const mapFeedTypeToPostType = (feedType: FeedItemSubjectTypeEnum) => {
 export const getFeedItemType = (subject: CommunityFeedItem_subject) => {
   switch (subject.__typename) {
     case 'AcceptedCommunityChallenge':
-      return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
+      return FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE;
     case 'Step':
       return FeedItemSubjectTypeEnum.STEP;
     case 'Post':

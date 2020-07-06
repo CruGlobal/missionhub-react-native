@@ -933,7 +933,7 @@ exports[`different notification types Comunity Challenge renders correctly | Com
             },
           ]
         }
-        testID="COMMUNITY_CHALLENGELabel"
+        testID="ACCEPTED_COMMUNITY_CHALLENGELabel"
       >
         <SvgMock
           color="#ffffff"
@@ -1106,7 +1106,7 @@ exports[`different notification types Comunity Challenge renders with default co
             },
           ]
         }
-        testID="COMMUNITY_CHALLENGELabel"
+        testID="ACCEPTED_COMMUNITY_CHALLENGELabel"
       >
         <SvgMock
           color="#ffffff"
