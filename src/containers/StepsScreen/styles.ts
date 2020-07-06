@@ -14,6 +14,7 @@ export default StyleSheet.create({
   list: {
     paddingVertical: 8,
   },
+  headerTitle: { fontSize: 16, lineHeight: 24, fontWeight: '400' },
   nullWrap: {
     flex: 1,
     alignItems: 'center',
