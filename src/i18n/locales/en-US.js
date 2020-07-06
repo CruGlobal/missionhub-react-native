@@ -483,7 +483,7 @@ export default {
     sentence: 'Selecting a stage will also assign this person to you.',
   },
   peopleScreen: {
-    header: 'PEOPLE',
+    header: 'People',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
     addStage: 'Add Stage',
@@ -809,7 +809,7 @@ export default {
     QUESTION: 'Spiritual Question',
     HELP_REQUEST: 'Community Need',
     THOUGHT: "What's on Your Mind",
-    COMMUNITY_CHALLENGE: 'Challenge',
+    ACCEPTED_COMMUNITY_CHALLENGE: 'Challenge',
     ANNOUNCEMENT: 'Announcement',
     STEP: 'Step of Faith',
     header: {

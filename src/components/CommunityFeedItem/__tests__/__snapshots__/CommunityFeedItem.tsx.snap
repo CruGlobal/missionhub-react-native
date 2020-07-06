@@ -45,7 +45,7 @@ exports[`Community renders challenge correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="COMMUNITY_CHALLENGEButton"
+          testID="ACCEPTED_COMMUNITY_CHALLENGEButton"
         >
           <View
             style={

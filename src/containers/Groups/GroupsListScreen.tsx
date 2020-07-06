@@ -229,6 +229,7 @@ const GroupsListScreen = ({
   return (
     <View style={styles.container}>
       <Header
+        titleStyle={styles.headerTitle}
         left={
           <IconButton
             testID="IconButton"
@@ -237,7 +238,7 @@ const GroupsListScreen = ({
             onPress={handleOpenMainMenu}
           />
         }
-        title={t('header').toUpperCase()}
+        title={t('header')}
       />
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flex: 1 }}>

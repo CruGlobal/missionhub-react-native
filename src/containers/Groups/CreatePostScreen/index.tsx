@@ -1,7 +1,7 @@
 /* eslint max-lines: 0 */
 
 import React, { useState, useEffect } from 'react';
-import { View, Keyboard, ScrollView, Image } from 'react-native';
+import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -340,6 +340,7 @@ export const CreatePostScreen = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       <View style={styles.lineBreak} />
       <ErrorNotice
