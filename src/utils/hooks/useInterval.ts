@@ -19,7 +19,6 @@ export const useInterval = (
     if (!pause) {
       const id = setInterval(tick, delay);
       return () => {
-        console.log('clear');
         clearInterval(id);
       };
     }

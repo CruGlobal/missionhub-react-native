@@ -13,7 +13,6 @@ jest.mock('../../../actions/navigation');
 const uri = 'file:/video.mov';
 
 const onEndRecord = jest.fn();
-const recordAsync = jest.fn().mockReturnValue({ uri });
 
 const navigateBackResult = { type: 'navigate back' };
 
@@ -44,25 +43,22 @@ it('times out after 15 seconds, ends recording and navigates back', async () => 
 
   await flushMicrotasksQueue();
 
-  fireEvent.press(getByTestId('RecordButton'));
-
-  await flushMicrotasksQueue();
+  await fireEvent.press(getByTestId('RecordButton'));
 
   expect(getByType(RNCamera).instance.recordAsync).toHaveBeenCalledWith({
     maxDuration: 15,
   });
-  expect(onEndRecord).toHaveBeenCalledWith('file:/video.mov');
+  expect(onEndRecord).toHaveBeenCalledWith(uri);
   expect(navigateBack).toHaveBeenCalledWith();
 });
 
-it('ends recording and navigates back on pressing record button', async () => {
+it('ends recording and navigates back on pressing record button', () => {
   const { getByTestId, getByType } = renderWithContext(<RecordVideoScreen />, {
     navParams: { onEndRecord },
   });
 
-  await flushMicrotasksQueue();
+  fireEvent(getByType(RNCamera), 'onRecordingStart');
 
-  fireEvent.press(getByTestId('RecordButton'));
   fireEvent.press(getByTestId('RecordButton'));
 
   expect(getByType(RNCamera).instance.stopRecording).toHaveBeenCalledWith();
