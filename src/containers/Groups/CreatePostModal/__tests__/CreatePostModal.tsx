@@ -2,14 +2,17 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../testUtils';
+import { ACTIONS } from '../../../../constants';
 import { PostTypeEnum } from '../../../../../__generated__/globalTypes';
 import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
+import { trackAction } from '../../../../actions/analytics';
 import { navigatePush } from '../../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../../CreatePostScreen';
 
 import CreatePostModal from '..';
 
+jest.mock('../../../../actions/analytics');
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../utils/analytics');
@@ -26,10 +29,13 @@ const props = {
 const initialState = {
   auth: { person: { id: '1' } },
 };
+
+const trackActionResults = { type: 'track action' };
 const navigatePushResults = { type: 'navigate push' };
 
 beforeEach(() => {
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('member');
+  (trackAction as jest.Mock).mockReturnValue(trackActionResults);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResults);
 });
 
@@ -78,6 +84,9 @@ it('fires onPress and navigates | member', async () => {
 
   fireEvent.press(getByTestId('STORYButton'));
   expect(closeModal).toHaveBeenCalledWith();
+  expect(trackAction).toHaveBeenCalledWith(ACTIONS.POST_TYPE_SELECTED.name, {
+    [ACTIONS.POST_TYPE_SELECTED.key]: PostTypeEnum.story,
+  });
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.story,
@@ -97,6 +106,9 @@ it('fires onPress and navigates | owner', async () => {
 
   fireEvent.press(getByTestId('ANNOUNCEMENTButton'));
   expect(closeModal).toHaveBeenCalledWith();
+  expect(trackAction).toHaveBeenCalledWith(ACTIONS.POST_TYPE_SELECTED.name, {
+    [ACTIONS.POST_TYPE_SELECTED.key]: PostTypeEnum.announcement,
+  });
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.announcement,

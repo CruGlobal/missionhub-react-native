@@ -63,7 +63,6 @@ const createGlobalCommunity = (t: TFunction, usersCount: number) =>
     id: GLOBAL_COMMUNITY_ID,
     name: t('globalCommunity'),
     unreadCommentsCount: 0,
-    userCreated: true,
     communityPhotoUrl: null,
     owner: { __typename: 'CommunityPersonConnection', nodes: [] },
     report: {
@@ -230,6 +229,7 @@ const GroupsListScreen = ({
   return (
     <View style={styles.container}>
       <Header
+        titleStyle={styles.headerTitle}
         left={
           <IconButton
             testID="IconButton"
@@ -238,7 +238,7 @@ const GroupsListScreen = ({
             onPress={handleOpenMainMenu}
           />
         }
-        title={t('header').toUpperCase()}
+        title={t('header')}
       />
       <View style={{ flexDirection: 'row' }}>
         <View style={{ flex: 1 }}>

@@ -41,7 +41,6 @@ exports[`renders correctly 1`] = `
             Object {
               "borderRadius": 0,
               "flexDirection": "column",
-              "marginBottom": 5,
               "marginHorizontal": 0,
               "marginVertical": 0,
               "position": "relative",
@@ -192,8 +191,9 @@ exports[`renders correctly 1`] = `
           Object {
             "alignItems": "center",
             "height": 120,
+            "marginBottom": 5,
             "paddingHorizontal": 25,
-            "paddingTop": 5,
+            "paddingTop": 15,
             "position": "relative",
           }
         }
@@ -235,7 +235,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          Celebrate Together
+          Steps of Faith
         </Text>
         <Text
           style={
@@ -257,7 +257,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          See what God is doing through your Community’s completed steps.
+          Recognize your Community’s steps of faith.
         </Text>
       </View>
     </View>

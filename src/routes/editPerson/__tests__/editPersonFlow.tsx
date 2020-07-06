@@ -92,7 +92,7 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: me, isJean: true },
+          auth: { person: me },
           drawer: { isOpen: false },
         },
         navParams: {},
@@ -116,7 +116,7 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' }, isJean: true },
+          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -165,7 +165,7 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' }, isJean: true },
+          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -212,7 +212,7 @@ describe('AddContactScreen next', () => {
       <WrappedAddContactScreen />,
       {
         initialState: {
-          auth: { person: { id: '1' }, isJean: true },
+          auth: { person: { id: '1' } },
           drawer: { isOpen: false },
         },
         navParams: {
@@ -256,7 +256,7 @@ describe('SelectStageScreen next', () => {
       <WrappedSelectStageScreen next={next} />,
       {
         initialState: {
-          auth: { person: me, isJean: true },
+          auth: { person: me },
           drawer: { isOpen: false },
           people: { people: {} },
           stages: { stages },

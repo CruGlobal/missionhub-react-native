@@ -4,13 +4,13 @@ import theme, { COLORS } from '../../theme';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
     flexDirection: 'row',
     paddingVertical: 8,
     paddingHorizontal: 30,
   },
   contentContainer: {
     paddingLeft: 10,
+    paddingRight: 25,
   },
   commentHeader: { flexDirection: 'row', alignItems: 'flex-end' },
   name: {

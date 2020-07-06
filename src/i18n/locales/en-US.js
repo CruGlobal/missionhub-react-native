@@ -483,7 +483,7 @@ export default {
     sentence: 'Selecting a stage will also assign this person to you.',
   },
   peopleScreen: {
-    header: 'PEOPLE',
+    header: 'People',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
     addStage: 'Add Stage',
@@ -809,7 +809,7 @@ export default {
     QUESTION: 'Spiritual Question',
     HELP_REQUEST: 'Community Need',
     THOUGHT: "What's on Your Mind",
-    COMMUNITY_CHALLENGE: 'Challenge',
+    ACCEPTED_COMMUNITY_CHALLENGE: 'Challenge',
     ANNOUNCEMENT: 'Announcement',
     STEP: 'Step of Faith',
     header: {
@@ -819,20 +819,19 @@ export default {
       HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
       THOUGHT: 'Random Thoughts',
-      STEP: 'Celebrate Together',
+      STEP: 'Steps of Faith',
     },
     subheader: {
-      STORY: 'When God does something amazing, share the joy here.',
+      STORY: 'Share and celebrate when God does something amazing.',
       PRAYER_REQUEST:
-        "Share a prayer request, or turn someone's request into your next step of faith.",
+        'Invite others to join you in prayer and find ways to pray for them.',
       QUESTION:
-        "Ask a question, or turn someone's question into your next step of faith.",
-      HELP_REQUEST:
-        "Share a need, or turn someone's request into your next step of faith.",
+        'Ask a question or join a conversation about life, God and the Bible.',
+      HELP_REQUEST: 'Share and respond to needs in the community.',
       ANNOUNCEMENT: 'Get the latest news, like directions to the next potluck.',
       THOUGHT:
         'Share a random thought, or pass on the meme that made you laugh until you cried.',
-      STEP: 'See what God is doing through your Community’s completed steps.',
+      STEP: 'Recognize your Community’s steps of faith.',
     },
     nullState: {
       STORY: 'Spur one another on toward love and good deeds.',
@@ -854,12 +853,12 @@ export default {
       STEP: '1 Thessalonians 5:11',
     },
     card: {
-      STORY: 'Read a God Story',
+      STORY: 'God Stories',
       PRAYER_REQUEST: 'Prayer Requests',
-      QUESTION: 'Answer a Question',
-      HELP_REQUEST: 'Provide Help',
+      QUESTION: 'Spiritual Questions',
+      HELP_REQUEST: 'Community Needs',
       ANNOUNCEMENT: 'Announcements',
-      STEP: 'Celebrate Others',
+      STEP: 'Steps of Faith',
     },
   },
   createPostScreen: {
@@ -873,7 +872,7 @@ export default {
       STORY: 'Share a God Story',
       PRAYER_REQUEST: 'Ask for Prayer',
       QUESTION: 'Ask a Spiritual Question',
-      HELP_REQUEST: 'Ask for Help',
+      HELP_REQUEST: 'Share a Need',
       ANNOUNCEMENT: 'Make an Announcement',
       THOUGHT: "What's on Your Mind",
     },
@@ -881,7 +880,7 @@ export default {
       story: 'Share an inspiring God story...',
       prayer_request: 'Share a prayer need...',
       question: 'Ask a spiritual question...',
-      help_request: 'Ask for help...',
+      help_request: 'Share a need...',
       thought: "What's on your mind?",
       announcement: 'Make an announcement...',
     },
@@ -972,5 +971,24 @@ export default {
     reportedComment: 'Reported Comment',
     reportedBy: 'Reported By',
     openPost: 'Open Post',
+    deletePost: {
+      title: 'Delete Post?',
+      message: 'Are you sure you want to delete this post?',
+      buttonText: 'Delete Post',
+    },
+    deleteFeedItemComment: {
+      title: 'Delete Comment?',
+      message: 'Are you sure you want to delete this comment?',
+      buttonText: 'Delete Comment',
+    },
+    hurray: 'Hurray',
+    respondedFeedItemCommentMessage: {
+      delete: 'You have successfully deleted the comment.',
+      ignore: 'You have successfully ignored the comment.',
+    },
+    respondedPostMessage: {
+      delete: 'You have successfully deleted the post.',
+      ignore: 'You have successfully ignored the post.',
+    },
   },
 };

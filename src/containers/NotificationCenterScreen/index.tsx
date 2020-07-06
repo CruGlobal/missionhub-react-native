@@ -19,9 +19,6 @@ import { NotificationItem } from '../../components/NotificationCenterItem/__gene
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
-import RefreshButton from '../../components/RefreshButton';
-import { GET_UNREAD_NOTIFICATION_STATUS } from '../../components/TabIcon/queries';
-import { GetUnreadNotificationStatus } from '../../components/TabIcon/__generated__/GetUnreadNotificationStatus';
 
 import {
   UpdateLatestNotification,
@@ -69,13 +66,6 @@ const NotificationCenterScreen = () => {
     }
   });
 
-  const {
-    data: {
-      notifications: { nodes: latestNotification = [] } = {},
-      notificationState,
-    } = {},
-  } = useQuery<GetUnreadNotificationStatus>(GET_UNREAD_NOTIFICATION_STATUS);
-
   const filteredSections = [
     {
       id: 0,
@@ -106,8 +96,6 @@ const NotificationCenterScreen = () => {
   const { notifications_panel } = useFeatureFlags();
 
   const onOpenMainMenu = () => dispatch(openMainMenu());
-  const hasNewNotification =
-    latestNotification[0]?.createdAt !== notificationState?.lastReadDateTime;
 
   const renderNull = () => (
     <Flex justify="center" align="center" style={{ marginTop: '50%' }}>
@@ -124,7 +112,7 @@ const NotificationCenterScreen = () => {
         <Text style={styles.sectionHeaderText}>{t(`${section.name}`)}</Text>
       </View>
     ),
-    [],
+    [filteredSections],
   );
 
   const renderItem = ({
@@ -191,9 +179,6 @@ const NotificationCenterScreen = () => {
         message={t('errorLoadingNotifications')}
         refetch={refetch}
       />
-      {hasNewNotification ? (
-        <RefreshButton loading={loading} refresh={refetch} />
-      ) : null}
       <SectionList
         testID="notificationCenter"
         style={{

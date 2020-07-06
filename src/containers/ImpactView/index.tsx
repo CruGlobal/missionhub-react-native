@@ -11,7 +11,6 @@ import { impactSummarySelector } from '../../selectors/impact';
 import { organizationSelector } from '../../selectors/organizations';
 import { useMyId, useIsMe } from '../../utils/hooks/useIsMe';
 import { RootState } from '../../reducers';
-import { orgIsPersonalMinistry } from '../../utils/common';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -43,9 +42,7 @@ const ImpactView = ({
     organizationSelector({ organizations }, { orgId: communityId }),
   );
 
-  const isPersonalMinistryMe = isMe && orgIsPersonalMinistry(organization);
   const isOrgImpact = !personId;
-  const isUserCreatedOrg = organization.user_created;
   // Impact summary isn't scoped by org unless showing org summary. See above comment
   const impact = useSelector((state: RootState) =>
     impactSummarySelector(state, {
@@ -58,11 +55,7 @@ const ImpactView = ({
   );
 
   const screenSection = isOrgImpact ? 'community' : 'person';
-  const screenSubsection = isOrgImpact
-    ? 'impact'
-    : isMe && !isPersonalMinistryMe
-    ? 'my impact'
-    : 'impact';
+  const screenSubsection = isMe ? 'my impact' : 'impact';
   useAnalytics([screenSection, screenSubsection], {
     assignmentType: (personId && { personId, communityId }) || undefined,
     permissionType: (!personId && { communityId }) || undefined,
@@ -105,8 +98,7 @@ const ImpactView = ({
     const isSpecificContact =
       !paramGlobal && !isMe && !isGlobalCommunity && personId;
 
-    const hideStageSentence =
-      !paramGlobal && isUserCreatedOrg && pathway_moved_count === 0;
+    const hideStageSentence = !paramGlobal && pathway_moved_count === 0;
 
     const year = new Date().getFullYear();
 

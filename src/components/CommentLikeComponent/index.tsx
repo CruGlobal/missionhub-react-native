@@ -11,6 +11,7 @@ import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
 import { navigatePush } from '../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import { TouchablePress } from '../Touchable/index.ios';
 
 import CommentIcon from './commentIcon.svg';
 import HeartIcon from './heartIcon.svg';
@@ -25,10 +26,13 @@ import {
 
 interface CommentLikeComponentProps {
   feedItem: CommunityFeedItemCommentLike;
+  onCommentPress?: TouchablePress;
+  testID?: string;
 }
 
 export const CommentLikeComponent = ({
   feedItem,
+  onCommentPress,
 }: CommentLikeComponentProps) => {
   const {
     id,
@@ -81,7 +85,7 @@ export const CommentLikeComponent = ({
         <Button
           testID="CommentIconButton"
           type="transparent"
-          onPress={handleCommentPress}
+          onPress={onCommentPress || handleCommentPress}
           viewProps={{ hitSlop: theme.hitSlop(25) }}
         >
           <CommentIcon />

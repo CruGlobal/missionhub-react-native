@@ -18,7 +18,6 @@ export default StyleSheet.create({
     borderRadius: 0,
     marginHorizontal: 0,
     marginVertical: 0,
-    marginBottom: 5,
     flexDirection: 'column',
     shadowOpacity: 0,
   },
@@ -28,7 +27,8 @@ export default StyleSheet.create({
     position: 'relative',
     paddingHorizontal: 25,
     alignItems: 'center',
-    paddingTop: 5,
+    paddingTop: 15,
+    marginBottom: 5,
   },
   headerIcon: {
     opacity: 0.2,
@@ -144,10 +144,10 @@ export default StyleSheet.create({
   THOUGHT: {
     backgroundColor: theme.communityThoughtGrey,
   },
-  colorCOMMUNITY_CHALLENGE: {
+  colorACCEPTED_COMMUNITY_CHALLENGE: {
     color: theme.communityChallengeGreen,
   },
-  COMMUNITY_CHALLENGE: {
+  ACCEPTED_COMMUNITY_CHALLENGE: {
     backgroundColor: theme.communityChallengeGreen,
   },
   colorANNOUNCEMENT: {

@@ -33,7 +33,10 @@ const PostTypeBgStyle: {
   [key in FeedItemSubjectTypeEnum]: StyleProp<{ backgroundColor: string }>;
 } = {
   ANNOUNCEMENT: styles.ANNOUNCEMENT,
-  COMMUNITY_CHALLENGE: styles.COMMUNITY_CHALLENGE,
+  ACCEPTED_COMMUNITY_CHALLENGE: styles.ACCEPTED_COMMUNITY_CHALLENGE,
+  COMMUNITY_CHALLENGE: null,
+  COMMUNITY: null,
+  COMMUNITY_PERMISSION: null,
   HELP_REQUEST: styles.HELP_REQUEST,
   PRAYER_REQUEST: styles.PRAYER_REQUEST,
   QUESTION: styles.QUESTION,
@@ -45,7 +48,10 @@ const PostTypeColorStyle: {
   [key in FeedItemSubjectTypeEnum]: StyleProp<{ color: string }>;
 } = {
   ANNOUNCEMENT: styles.colorANNOUNCEMENT,
-  COMMUNITY_CHALLENGE: styles.colorCOMMUNITY_CHALLENGE,
+  ACCEPTED_COMMUNITY_CHALLENGE: styles.colorACCEPTED_COMMUNITY_CHALLENGE,
+  COMMUNITY_CHALLENGE: null,
+  COMMUNITY: null,
+  COMMUNITY_PERMISSION: null,
   HELP_REQUEST: styles.colorHELP_REQUEST,
   PRAYER_REQUEST: styles.colorPRAYER_REQUEST,
   QUESTION: styles.colorQUESTION,
@@ -89,12 +95,14 @@ function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
       return <CareRequestIcon {...iconProps} />;
     case FeedItemSubjectTypeEnum.THOUGHT:
       return <OnYourMindIcon {...iconProps} />;
-    case FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE:
+    case FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE:
       return <ChallengesIcon {...iconProps} />;
     case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
       return <AnnouncementIcon {...iconProps} />;
     case FeedItemSubjectTypeEnum.STEP:
       return <StepsOfFaithIcon {...iconProps} />;
+    default:
+      return null;
   }
 }
 

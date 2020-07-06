@@ -102,7 +102,7 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
       FeedItem: () => ({
         community: () => ({ id: communityId }),
         subject: () => ({
-          __typename: 'CommunityChallenge',
+          __typename: 'AcceptedCommunityChallenge',
         }),
       }),
     },
@@ -347,6 +347,11 @@ describe('long-press card', () => {
         { initialState },
       );
 
+      // Used to fix unsupported subject type error
+      if (storyPostItem.subject.__typename !== 'Post') {
+        throw new Error('Subject type was not a Post');
+      }
+
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
         1,
@@ -358,8 +363,9 @@ describe('long-press card', () => {
         i18next.t('communityFeedItems:delete.title'),
         i18next.t('communityFeedItems:delete.message'),
         [
-          { text: i18next.t('cancel') },
+          { text: i18next.t('cancel'), style: 'cancel' },
           {
+            style: 'destructive',
             text: i18next.t('communityFeedItems:delete.buttonText'),
             onPress: expect.any(Function),
           },
@@ -381,6 +387,11 @@ describe('long-press card', () => {
         { initialState },
       );
 
+      // Used to fix unsupported subject type error
+      if (storyPostItem.subject.__typename !== 'Post') {
+        throw new Error('Subject type was not a Post');
+      }
+
       fireEvent(getByTestId('popupMenuButton'), 'onLongPress');
       (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
         0,
@@ -392,7 +403,7 @@ describe('long-press card', () => {
         i18next.t('communityFeedItems:report.title'),
         i18next.t('communityFeedItems:report.message'),
         [
-          { text: i18next.t('cancel') },
+          { text: i18next.t('cancel'), style: 'cancel' },
           {
             text: i18next.t('communityFeedItems:report.confirmButtonText'),
             onPress: expect.any(Function),

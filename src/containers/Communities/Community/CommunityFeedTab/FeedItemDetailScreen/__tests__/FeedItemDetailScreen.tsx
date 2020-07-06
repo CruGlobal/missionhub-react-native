@@ -8,9 +8,14 @@ import { ORG_PERMISSIONS } from '../../../../../../constants';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
-import { navigateBack } from '../../../../../../actions/navigation';
+import {
+  navigateBack,
+  navigatePush,
+} from '../../../../../../actions/navigation';
 import FeedItemDetailScreen from '../FeedItemDetailScreen';
 import FeedCommentBox from '../FeedCommentBox';
+import { COMMUNITY_TABS } from '../../../constants';
+import { PermissionEnum } from '../../../../../../../__generated__/globalTypes';
 
 jest.mock('../../../../../../utils/hooks/useKeyboardListeners');
 jest.mock('../../../../../../selectors/organizations');
@@ -22,6 +27,7 @@ jest.mock('lodash.debounce', () => jest.fn().mockImplementation(fn => fn));
 MockDate.set('2019-04-12 12:00:00', 300);
 
 const myId = 'myId';
+const notMyId = 'notMyId';
 const communityId = '24234234';
 const feedItemId = '1';
 const personId = '2';
@@ -43,6 +49,7 @@ beforeEach(() => {
     ({ onShow }: { onShow: () => void }) => (onShowKeyboard = onShow),
   );
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 });
 
 it('renders loading', () => {
@@ -100,6 +107,95 @@ describe('refresh', () => {
 
     await flushMicrotasksQueue();
     diffSnapshot();
+  });
+});
+
+describe('nav on community name', () => {
+  it('calls navigate back', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigateBack).toHaveBeenCalled();
+  });
+  it('goes to community tabs', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId, fromNotificationCenterItem: true },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, { communityId });
+  });
+});
+
+describe('edit/delete post', () => {
+  it('no options for not my post', async () => {
+    const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+      mocks: {
+        FeedItem: () => ({
+          community: () => ({
+            id: communityId,
+            people: () => ({
+              edges: () => [
+                { communityPermission: { permission: PermissionEnum.user } },
+              ],
+            }),
+          }),
+          subjectPerson: () => ({ id: notMyId }),
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+  it('edit and delete for my post', async () => {
+    const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+      mocks: {
+        FeedItem: () => ({
+          community: () => ({
+            id: communityId,
+            people: () => ({
+              edges: () => [
+                { communityPermission: { permission: PermissionEnum.user } },
+              ],
+            }),
+          }),
+          subjectPerson: () => ({ id: myId }),
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+  it('delete for admin and not my post', async () => {
+    const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+      mocks: {
+        FeedItem: () => ({
+          community: () => ({
+            id: communityId,
+            people: () => ({
+              edges: () => [
+                { communityPermission: { permission: PermissionEnum.admin } },
+              ],
+            }),
+          }),
+          subjectPerson: () => ({ id: notMyId }),
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+    snapshot();
   });
 });
 

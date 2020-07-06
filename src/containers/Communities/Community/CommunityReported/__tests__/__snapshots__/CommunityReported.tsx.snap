@@ -48,6 +48,47 @@ exports[`reported comment screen render correctly 1`] = `
       <View
         style={
           Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
+              ],
+            ]
+          }
+        >
+          Reported Comment
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
             Object {
               "paddingRight": 5,
             },
@@ -112,13 +153,21 @@ exports[`reported comment screen render correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 120,
+      }
+    }
     style={
       Object {
         "backgroundColor": "#ECEEF2",
+        "height": "100%",
       }
     }
-  />
+  >
+    <View />
+  </RCTScrollView>
 </View>
 `;
 
@@ -170,6 +219,47 @@ exports[`reported post screen render correctly 1`] = `
       <View
         style={
           Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
+              ],
+            ]
+          }
+        >
+          Reported Comment
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
             Object {
               "paddingRight": 5,
             },
@@ -234,12 +324,20 @@ exports[`reported post screen render correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <View
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 120,
+      }
+    }
     style={
       Object {
         "backgroundColor": "#ECEEF2",
+        "height": "100%",
       }
     }
-  />
+  >
+    <View />
+  </RCTScrollView>
 </View>
 `;

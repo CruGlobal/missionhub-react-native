@@ -260,18 +260,20 @@ describe('trackAction', () => {
 
 describe('trackStepAdded', () => {
   it('should track suggested steps', async () => {
-    await store.dispatch<any>(
-      trackStepAdded(
-        mockFragment<StepAddedAnalytics>(STEP_ADDED_ANALYTICS_FRAGMENT, {
-          mocks: {
-            Step: () => ({
-              stepType: () => StepTypeEnum.share,
-              receiver: () => ({ id: '2' }), // non me id
-            }),
-          },
-        }),
-      ),
+    const mockStep = mockFragment<StepAddedAnalytics>(
+      STEP_ADDED_ANALYTICS_FRAGMENT,
+      {
+        mocks: {
+          Step: () => ({
+            stepType: () => StepTypeEnum.share,
+            post: () => null,
+            receiver: () => ({ id: '2' }), // non me id
+          }),
+        },
+      },
     );
+
+    await store.dispatch<any>(trackStepAdded(mockStep));
 
     expect(store.getActions()).toEqual([]);
     expect(RNOmniture.trackAction).toHaveBeenCalledTimes(2);
@@ -279,7 +281,38 @@ describe('trackStepAdded', () => {
       ACTIONS.STEP_DETAIL.name,
       {
         [ACTIONS.STEP_DETAIL
-          .key]: `${StepTypeEnum.share} | N | ${i18next.language} | 1 | 2`,
+          .key]: `${StepTypeEnum.share} | N | ${i18next.language} | ${mockStep.stepSuggestion?.id} | ${mockStep.stepSuggestion?.stage.id}`,
+      },
+    );
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(
+      ACTIONS.STEPS_ADDED.name,
+      { [ACTIONS.STEPS_ADDED.key]: 1 },
+    );
+  });
+
+  it('should track step from post', async () => {
+    const mockStep = mockFragment<StepAddedAnalytics>(
+      STEP_ADDED_ANALYTICS_FRAGMENT,
+      {
+        mocks: {
+          Step: () => ({
+            stepType: () => StepTypeEnum.share,
+            stepSuggestion: () => null,
+            receiver: () => ({ id: '2' }), // non me id
+          }),
+        },
+      },
+    );
+
+    await store.dispatch<any>(trackStepAdded(mockStep));
+
+    expect(store.getActions()).toEqual([]);
+    expect(RNOmniture.trackAction).toHaveBeenCalledTimes(2);
+    expect(RNOmniture.trackAction).toHaveBeenCalledWith(
+      ACTIONS.STEP_DETAIL.name,
+      {
+        [ACTIONS.STEP_DETAIL
+          .key]: `${StepTypeEnum.share} | N | ${i18next.language} | ${mockStep.post?.postType}`,
       },
     );
     expect(RNOmniture.trackAction).toHaveBeenCalledWith(
@@ -296,6 +329,7 @@ describe('trackStepAdded', () => {
             Step: () => ({
               stepType: () => StepTypeEnum.share,
               stepSuggestion: () => null,
+              post: () => null,
               receiver: () => ({ id: myId }),
             }),
           },

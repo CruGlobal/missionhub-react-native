@@ -321,15 +321,18 @@ exports[`should render correctly | Care Step 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Sep 8 @ 6:46 AM
+                September 8, 2010 @ 6:46 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -365,25 +368,33 @@ exports[`should render correctly | Care Step 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            ut libero qui
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  ut libero qui
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -795,15 +806,18 @@ exports[`should render correctly | Pray Step 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Sep 8 @ 6:46 AM
+                September 8, 2010 @ 6:46 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -839,25 +853,33 @@ exports[`should render correctly | Pray Step 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            ut libero qui
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  ut libero qui
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -1270,15 +1292,18 @@ exports[`should render correctly | Share Step 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Sep 8 @ 6:46 AM
+                September 8, 2010 @ 6:46 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1314,25 +1339,33 @@ exports[`should render correctly | Share Step 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            ut libero qui
-          </Text>
+            <View
+              style={
+                Object {
+                  "marginVertical": 10,
+                }
+              }
+            >
+              <Text
+                style={
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "lineHeight": 24,
+                    "paddingBottom": 20,
+                  }
+                }
+              >
+                <Text>
+                  ut libero qui
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View

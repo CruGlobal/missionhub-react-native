@@ -54,19 +54,28 @@ const sortedAcceptedChallenges = {
     {
       accepted_at: mockDate,
       id: '111',
-      person: { id: '111', first_name: 'Christian', last_name: 'Huffman' },
+      person: {
+        id: '111',
+        full_name: 'Christian Huffman',
+      },
     },
   ],
   completed: [
     {
       completed_at: mockDate,
       id: '112',
-      person: { id: '112', first_name: 'Scotty', last_name: 'Waggoner' },
+      person: {
+        id: '112',
+        full_name: 'Scotty Waggoner',
+      },
     },
     {
       completed_at: mockDate,
       id: '113',
-      person: { id: '113', first_name: 'Robert', last_name: 'Eldredge' },
+      person: {
+        id: '113',
+        full_name: 'Robert Eldredge',
+      },
     },
   ],
 };
@@ -107,12 +116,18 @@ it('renders plural sentence for joined members', () => {
       {
         accepted_at: mockDate,
         id: '111',
-        person: { id: '111', first_name: 'Christian', last_name: 'Huffman' },
+        person: {
+          id: '111',
+          full_name: 'Christian Huffman',
+        },
       },
       {
         accepted_at: mockDate,
         id: '112',
-        person: { id: '112', first_name: 'Scotty', last_name: 'Waggoner' },
+        person: {
+          id: '112',
+          full_name: 'Scotty Waggoner',
+        },
       },
     ],
   });
@@ -160,7 +175,10 @@ it('renders singular sentence for completed members', () => {
       {
         completed_at: mockDate,
         id: '112',
-        person: { id: '112', first_name: 'Scotty', last_name: 'Waggoner' },
+        person: {
+          id: '112',
+          full_name: 'Scotty Waggoner',
+        },
       },
     ],
   });

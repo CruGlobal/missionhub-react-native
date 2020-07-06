@@ -1,6 +1,8 @@
+/* eslint max-lines: 0 */
+
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-import { MockList } from 'graphql-tools';
+import { IMocks } from 'graphql-tools';
 
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
@@ -38,6 +40,12 @@ beforeEach(() => {
   );
 });
 
+function mockFrag(mocks: IMocks) {
+  return mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+    mocks,
+  });
+}
+
 describe('CommunityFeedItemContent', () => {
   const testEvent = (
     feedItem: FeedItem,
@@ -52,63 +60,49 @@ describe('CommunityFeedItemContent', () => {
   describe('Challenge Items', () => {
     it('renders for accepted challenge', () =>
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'CommunityChallenge',
-                acceptedCommunityChallengesList: () =>
-                  new MockList(1, () => ({
-                    completedAt: null,
-                  })),
-              }),
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'AcceptedCommunityChallenge',
+              completedAt: () => null,
             }),
-          },
+          }),
         }),
       ));
 
     it('renders for completed challenge', () =>
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'CommunityChallenge',
-                acceptedCommunityChallengesList: () => new MockList(1),
-              }),
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'AcceptedCommunityChallenge',
             }),
-          },
+          }),
         }),
       ));
 
     it('renders with no subjectPerson, defaults to subjectPersonName', () =>
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'CommunityChallenge',
-                acceptedCommunityChallengesList: () => new MockList(1),
-              }),
-              subjectPerson: () => null,
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'AcceptedCommunityChallenge',
             }),
-          },
+            subjectPerson: () => null,
+          }),
         }),
       ));
 
     it('renders with no subjectPerson and no subjectPersonName', () =>
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'CommunityChallenge',
-                acceptedCommunityChallengesList: () => new MockList(1),
-              }),
-              subjectPerson: () => null,
-              subjectPersonName: () => null,
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'AcceptedCommunityChallenge',
             }),
-          },
+            subjectPerson: () => null,
+            subjectPersonName: () => null,
+          }),
         }),
       ));
   });
@@ -117,15 +111,13 @@ describe('CommunityFeedItemContent', () => {
     describe('renders step of faith event with stage', () => {
       const testEventStage = (stageNum: string) =>
         testEvent(
-          mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-            mocks: {
-              FeedItem: () => ({
-                subject: () => ({
-                  __typename: 'Step',
-                  receiverStageAtCompletion: () => ({ id: stageNum }),
-                }),
+          mockFrag({
+            FeedItem: () => ({
+              subject: () => ({
+                __typename: 'Step',
+                receiverStageAtCompletion: () => ({ id: stageNum }),
               }),
-            },
+            }),
           }),
         );
 
@@ -139,44 +131,34 @@ describe('CommunityFeedItemContent', () => {
 
     it('renders step of faith event without stage', () =>
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'Step',
-                receiverStageAtCompletion: () => null,
-              }),
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Step',
+              receiverStageAtCompletion: () => null,
             }),
-          },
+          }),
         }),
       ));
 
     it('renders with no subjectPerson, defaults to subjectPersonName', () =>
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'Step',
-              }),
-              subjectPerson: () => null,
-            }),
-          },
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({ __typename: 'Step' }),
+            subjectPerson: () => null,
+          }),
         }),
       ));
 
     it('renders with no subjectPerson and no subjectPersonName', () =>
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'Step',
-              }),
-              subjectPerson: () => null,
-              subjectPersonName: () => null,
-            }),
-          },
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({ __typename: 'Step' }),
+            subjectPerson: () => null,
+            subjectPersonName: () => null,
+          }),
         }),
       ));
   });
@@ -184,34 +166,43 @@ describe('CommunityFeedItemContent', () => {
   describe('Post Items', () => {
     it('renders post', () => {
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'Post',
-                postType: PostTypeEnum.story,
-              }),
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.story,
             }),
-          },
+          }),
         }),
       );
     });
     it('renders post with AddToMySteps', () => {
       testEvent(
-        mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              subject: () => ({
-                __typename: 'Post',
-                postType: PostTypeEnum.prayer_request,
-                stepStatus: PostStepStatusEnum.NONE,
-              }),
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.prayer_request,
+              stepStatus: PostStepStatusEnum.NONE,
             }),
-          },
+          }),
         }),
       );
     });
     it('renders post without AddToMyStepsButton', () => {
+      testEvent(
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.prayer_request,
+              stepStatus: PostStepStatusEnum.INCOMPLETE,
+            }),
+          }),
+        }),
+      );
+    });
+    it('renders post without likeAndComment section', () => {
       testEvent(
         mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
           mocks: {
@@ -224,30 +215,77 @@ describe('CommunityFeedItemContent', () => {
             }),
           },
         }),
+        { showLikeAndComment: false },
       );
     });
+  });
+  it('renders community name and community photo when postType is announcement', () => {
+    testEvent(
+      mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+        mocks: {
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.announcement,
+              stepStatus: PostStepStatusEnum.INCOMPLETE,
+            }),
+          }),
+        },
+      }),
+    );
+  });
+  it('renders default community avatar when communityPhotoUrl is null', () => {
+    testEvent(
+      mockFragment<FeedItem>(COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT, {
+        mocks: {
+          FeedItem: () => ({
+            community: () => ({
+              communityPhotoUrl: null,
+            }),
+            subject: () => ({
+              __typename: 'Post',
+              postType: PostTypeEnum.announcement,
+              stepStatus: PostStepStatusEnum.INCOMPLETE,
+            }),
+          }),
+        },
+      }),
+    );
+  });
+  it('renders with menu options', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({ subject: () => ({ __typename: 'Step' }) }),
+      }),
+      { menuActions: [{ text: 'Hi!', onPress: () => {} }] },
+    );
+  });
+  it('renders without menu options', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({ subject: () => ({ __typename: 'Step' }) }),
+      }),
+      { menuActions: [] },
+    );
   });
 });
 
 describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen', async () => {
-    const challengeFeedItem = mockFragment<FeedItem>(
-      COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT,
-      {
-        mocks: {
-          FeedItem: () => ({
-            subject: () => ({
-              __typename: 'CommunityChallenge',
-            }),
-          }),
-        },
-      },
-    );
+    const challengeFeedItem = mockFrag({
+      FeedItem: () => ({
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
+      }),
+    });
 
     const { getByTestId, store } = renderWithContext(
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
       { initialState },
     );
+    // Used to fix unsupported subject type error
+    if (challengeFeedItem.subject.__typename !== 'AcceptedCommunityChallenge') {
+      throw new Error('Type was not AcceptedCommunityChallenge');
+    }
 
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
@@ -265,24 +303,22 @@ describe('onPressChallengeLink', () => {
   });
 
   it('navigates to challenge detail screen | Global Community Challenge', async () => {
-    const challengeFeedItem = mockFragment<FeedItem>(
-      COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT,
-      {
-        mocks: {
-          FeedItem: () => ({
-            subject: () => ({
-              __typename: 'CommunityChallenge',
-            }),
-            community: () => null,
-          }),
-        },
-      },
-    );
+    const challengeFeedItem = mockFrag({
+      FeedItem: () => ({
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
+        community: () => null,
+      }),
+    });
 
     const { getByTestId, store } = renderWithContext(
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
       { initialState },
     );
+    // Used to fix unsupported subject type error
+    if (challengeFeedItem.subject.__typename !== 'AcceptedCommunityChallenge') {
+      throw new Error('Type was not AcceptedCommunityChallenge');
+    }
+
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
@@ -299,16 +335,11 @@ describe('onPressChallengeLink', () => {
 
 describe('press footer', () => {
   it('nothing should happen', () => {
-    const challengeFeedItem = mockFragment<FeedItem>(
-      COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT,
-      {
-        mocks: {
-          FeedItem: () => ({
-            subject: () => ({ __typename: 'CommunityChallenge' }),
-          }),
-        },
-      },
-    );
+    const challengeFeedItem = mockFrag({
+      FeedItem: () => ({
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
+      }),
+    });
     const { getByTestId } = renderWithContext(
       <CommunityFeedItemContent feedItem={challengeFeedItem} />,
       { initialState },
@@ -317,4 +348,23 @@ describe('press footer', () => {
     fireEvent.press(getByTestId('FooterTouchable'));
     expect(navigatePush).not.toHaveBeenCalled();
   });
+});
+
+it('press comment press', () => {
+  const storyFeedItem = mockFrag({
+    FeedItem: () => ({
+      subject: () => ({ __typename: 'Post', postType: PostTypeEnum.story }),
+    }),
+  });
+  const onCommentPress = jest.fn();
+  const { getByTestId } = renderWithContext(
+    <CommunityFeedItemContent
+      feedItem={storyFeedItem}
+      onCommentPress={onCommentPress}
+    />,
+    { initialState },
+  );
+
+  fireEvent(getByTestId('CommentLikeComponent'), 'onCommentPress');
+  expect(onCommentPress).toHaveBeenCalled();
 });

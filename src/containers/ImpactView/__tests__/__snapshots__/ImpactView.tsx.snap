@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`ImpactView ME person impact view for user created org renders empty state 1`] = `
+exports[`ImpactView ME person impact view for org renders empty state 1`] = `
 <View
   style={
     Object {
@@ -92,7 +92,7 @@ You will see how others have moved on their spiritual journey here shortly.
 </View>
 `;
 
-exports[`ImpactView ME person impact view for user created org renders plural state 1`] = `
+exports[`ImpactView ME person impact view for org renders plural state 1`] = `
 <View
   style={
     Object {
@@ -186,7 +186,7 @@ exports[`ImpactView ME person impact view for user created org renders plural st
 </View>
 `;
 
-exports[`ImpactView ME person impact view for user created org renders singular state 1`] = `
+exports[`ImpactView ME person impact view for org renders singular state 1`] = `
 <View
   style={
     Object {
@@ -319,8 +319,6 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
       }
     >
       Here you will see all the steps you have taken.
-
-See what God has done through you below.
     </Text>
   </View>
   <Image
@@ -842,7 +840,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
 </View>
 `;
 
-exports[`ImpactView user created member impact renders empty state 1`] = `
+exports[`ImpactView member impact renders empty state 1`] = `
 <View
   style={
     Object {
@@ -934,7 +932,7 @@ You will see how others have moved on their spiritual journey here shortly.
 </View>
 `;
 
-exports[`ImpactView user created member impact renders plural state 1`] = `
+exports[`ImpactView member impact renders plural state 1`] = `
 <View
   style={
     Object {
@@ -1028,7 +1026,7 @@ exports[`ImpactView user created member impact renders plural state 1`] = `
 </View>
 `;
 
-exports[`ImpactView user created member impact renders singular state 1`] = `
+exports[`ImpactView member impact renders singular state 1`] = `
 <View
   style={
     Object {

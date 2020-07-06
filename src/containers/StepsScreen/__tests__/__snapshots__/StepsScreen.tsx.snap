@@ -449,12 +449,16 @@ exports[`renders empty screen correctly 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          STEPS OF FAITH
+          Steps of Faith
         </Text>
       </View>
       <View
@@ -792,12 +796,16 @@ exports[`renders loading screen correctly 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          STEPS OF FAITH
+          Steps of Faith
         </Text>
       </View>
       <View
@@ -1366,12 +1374,16 @@ exports[`renders screen with steps correctly 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          STEPS OF FAITH
+          Steps of Faith
         </Text>
       </View>
       <View
@@ -1693,7 +1705,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -656,10 +656,54 @@
+@@ -660,10 +660,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1748,7 +1760,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -760,9 +804,82 @@
+@@ -764,9 +808,82 @@
                 }
               }
               testID=\\"stepItem\\"

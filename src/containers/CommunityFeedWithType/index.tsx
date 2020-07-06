@@ -23,7 +23,7 @@ const CommunityFeedWithType = () => {
 
   return (
     <View style={{ height: '100%' }}>
-      <StatusBar {...theme.statusBar.lightContent} />
+      <StatusBar {...theme.statusBar.lightContent} hidden={true} />
       <PostTypeLabel
         communityName={communityName}
         type={type}

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { View, StatusBar, Image } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
-import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
@@ -11,7 +10,6 @@ import {
   completeChallenge,
   joinChallenge,
   updateChallenge,
-  reloadGroupChallengeFeed,
 } from '../../actions/challenges';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
@@ -22,9 +20,7 @@ import BottomButton from '../../components/BottomButton';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import { communityChallengeSelector } from '../../selectors/challenges';
-import { orgPermissionSelector } from '../../selectors/people';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
-import { isAdminOrOwner } from '../../utils/common';
 import theme from '../../theme';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
@@ -57,7 +53,6 @@ const ChallengeDetailScreen = () => {
 
   useEffect(() => {
     // needed to update redux with newest challenges
-    dispatch(reloadGroupChallengeFeed(orgId));
     dispatch(getChallenge(challenge.id));
   }, []);
 
@@ -109,7 +104,7 @@ const ChallengeDetailScreen = () => {
       <Header
         left={<DeprecatedBackButton iconStyle={{ color: theme.lightGrey }} />}
         right={
-          !completed && !isPast && canEditChallenges ? (
+          !isPast && canEditChallenges ? (
             <Button
               testID="editButton"
               type="transparent"
@@ -135,47 +130,6 @@ const ChallengeDetailScreen = () => {
   );
 };
 
-const mapStateToProps = (
-  {
-    auth,
-    organizations,
-  }: { auth: AuthState; organizations: OrganizationsState },
-  // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-  { navigation }: any,
-) => {
-  const navParams = navigation.state.params || {};
-  const { challengeId, orgId } = navParams;
-  const myId = auth.person.id;
-
-  const challenge = communityChallengeSelector(
-    { organizations },
-    { orgId, challengeId },
-  );
-
-  const acceptedChallenge =
-    challenge.accepted_community_challenges &&
-    challenge.accepted_community_challenges.find(
-      (c: ChallengeItem) => c.person && c.person.id === myId,
-    );
-
-  const myOrgPerm = orgPermissionSelector(
-    {},
-    {
-      person: auth.person,
-      organization: { id: orgId },
-    },
-  );
-  const canEditChallenges = myOrgPerm && isAdminOrOwner(myOrgPerm);
-
-  return {
-    ...navParams,
-    myId,
-    challenge,
-    acceptedChallenge,
-    canEditChallenges,
-  };
-};
-
-export default connect(mapStateToProps)(ChallengeDetailScreen);
+export default ChallengeDetailScreen;
 
 export const CHALLENGE_DETAIL_SCREEN = 'nav/CHALLENGE_DETAIL';

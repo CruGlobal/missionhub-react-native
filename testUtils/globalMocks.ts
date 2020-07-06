@@ -40,8 +40,7 @@ export const globalMocks: IMocks = {
   StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
   RelationshipTypeEnum: () =>
     faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
-  NotificationTriggerEnum: () =>
-    faker.random.arrayElement(Object.values(NotificationTriggerEnum)),
+  NotificationTriggerEnum: () => NotificationTriggerEnum.step_reminder,
   Step: () => ({
     title: faker.lorem.sentence(),
   }),
@@ -77,7 +76,7 @@ export const globalMocks: IMocks = {
   FeedItemSubject: () => {
     return {
       __typename: faker.random.arrayElement([
-        'CommunityChallenge',
+        'AcceptedCommunityChallenge',
         'Step',
         'Post',
       ]),

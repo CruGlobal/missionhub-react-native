@@ -9,7 +9,7 @@ import {
   navigateToAddStepFlow,
 } from '../../../actions/misc';
 import { navToPersonScreen } from '../../../actions/person';
-import { orgIsCru, hasOrgPermissions } from '../../../utils/common';
+import { hasOrgPermissions } from '../../../utils/common';
 import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../../components/PeopleList/__generated__/GetPeopleStepsCount';
 
 import PersonItem from '..';
@@ -44,15 +44,11 @@ const mockState = {
 };
 
 const mockPersonalMinistry = { id: 'personal' };
-const mockOrganization = { id: '111', user_created: false };
+const mockOrganization = { id: '111' };
 
 const mockOrgPermission = {
   organization_id: mockOrganization.id,
   followup_status: 'contacted',
-};
-const mockOrgPermissionUncontacted = {
-  organization_id: mockOrganization.id,
-  followup_status: 'uncontacted',
 };
 const mockContactAssignment = {
   id: '90',
@@ -125,7 +121,6 @@ beforeEach(() => {
 });
 
 it('renders me correctly', () => {
-  (orgIsCru as jest.Mock).mockReturnValue(false);
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
   renderWithContext(
@@ -137,12 +132,10 @@ it('renders me correctly', () => {
     { initialState: mockState },
   ).snapshot();
 
-  expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
 
 it('renders personal ministry contact correctly', () => {
-  (orgIsCru as jest.Mock).mockReturnValue(false);
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
   renderWithContext(
@@ -154,12 +147,10 @@ it('renders personal ministry contact correctly', () => {
     { initialState: mockState },
   ).snapshot();
 
-  expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
 
 it('renders personal ministry with no steps correctly', () => {
-  (orgIsCru as jest.Mock).mockReturnValue(false);
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
   const { getByTestId, snapshot } = renderWithContext(
@@ -174,81 +165,7 @@ it('renders personal ministry with no steps correctly', () => {
   );
   snapshot();
   expect(getByTestId('stepIcon')).toBeTruthy();
-  expect(orgIsCru).toHaveBeenCalledWith(mockPersonalMinistry);
   expect(hasOrgPermissions).not.toHaveBeenCalled();
-});
-
-it('renders cru org contact correctly', () => {
-  (orgIsCru as jest.Mock).mockReturnValue(true);
-  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
-
-  renderWithContext(
-    <PersonItem
-      person={(mockPerson as unknown) as PersonAttributes}
-      organization={mockOrganization}
-      stepsData={totalStepCount}
-    />,
-    { initialState: mockState },
-  ).snapshot();
-
-  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
-  expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermission);
-});
-
-it('renders cru org contact without stage correctly', () => {
-  (orgIsCru as jest.Mock).mockReturnValue(true);
-  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
-
-  renderWithContext(
-    <PersonItem
-      person={(mockPersonWithNoStage as unknown) as PersonAttributes}
-      organization={mockOrganization}
-      stepsData={totalStepCount}
-    />,
-    { initialState: mockState },
-  ).snapshot();
-
-  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
-  expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermission);
-});
-
-it('renders uncontacted cru org contact correctly', () => {
-  (orgIsCru as jest.Mock).mockReturnValue(true);
-  (hasOrgPermissions as jest.Mock).mockReturnValue(false);
-
-  renderWithContext(
-    <PersonItem
-      person={
-        ({
-          ...mockPerson,
-          organizational_permissions: [mockOrgPermissionUncontacted],
-        } as unknown) as PersonAttributes
-      }
-      organization={mockOrganization}
-      stepsData={totalStepCount}
-    />,
-    { initialState: mockState },
-  ).snapshot();
-
-  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
-  expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermissionUncontacted);
-});
-
-it('renders cru org member correctly', () => {
-  (orgIsCru as jest.Mock).mockReturnValue(true);
-  (hasOrgPermissions as jest.Mock).mockReturnValue(true);
-
-  renderWithContext(
-    <PersonItem
-      person={(mockPerson as unknown) as PersonAttributes}
-      organization={mockOrganization}
-      stepsData={totalStepCount}
-    />,
-    { initialState: mockState },
-  ).snapshot();
-
-  expect(orgIsCru).toHaveBeenCalledWith(mockOrganization);
-  expect(hasOrgPermissions).toHaveBeenCalledWith(mockOrgPermission);
 });
 
 describe('handleChangeStage', () => {

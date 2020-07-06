@@ -34,7 +34,6 @@ exports[`label variations render extra large label 1`] = `
           Object {
             "borderRadius": 0,
             "flexDirection": "column",
-            "marginBottom": 5,
             "marginHorizontal": 0,
             "marginVertical": 0,
             "position": "relative",
@@ -221,8 +220,9 @@ exports[`label variations render extra large label 1`] = `
         Object {
           "alignItems": "center",
           "height": 120,
+          "marginBottom": 5,
           "paddingHorizontal": 25,
-          "paddingTop": 5,
+          "paddingTop": 15,
           "position": "relative",
         }
       }
@@ -286,7 +286,7 @@ exports[`label variations render extra large label 1`] = `
           ]
         }
       >
-        When God does something amazing, share the joy here.
+        Share and celebrate when God does something amazing.
       </Text>
     </View>
   </View>
@@ -735,7 +735,7 @@ exports[`post types cards renders Community Need Label 1`] = `
         ]
       }
     >
-      Provide Help
+      Community Needs
     </Text>
   </View>
 </View>
@@ -844,7 +844,7 @@ exports[`post types cards renders God Story Label 1`] = `
         ]
       }
     >
-      Read a God Story
+      God Stories
     </Text>
   </View>
 </View>
@@ -1171,7 +1171,7 @@ exports[`post types cards renders Spiritual Question Label 1`] = `
         ]
       }
     >
-      Answer a Question
+      Spiritual Questions
     </Text>
   </View>
 </View>
@@ -1280,7 +1280,7 @@ exports[`post types cards renders Step Of Faith Label 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>
@@ -1453,7 +1453,7 @@ exports[`post types cards renders people 1`] = `
                 "width": 24,
               },
               Object {
-                "backgroundColor": "rgb(199, 163, 67)",
+                "backgroundColor": "#B4B6BA",
               },
               Array [
                 Object {
@@ -1518,7 +1518,7 @@ exports[`post types cards renders people 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>
@@ -1616,7 +1616,7 @@ exports[`post types cards renders people with count only 1`] = `
                 "width": 24,
               },
               Object {
-                "backgroundColor": "rgb(199, 163, 67)",
+                "backgroundColor": "#B4B6BA",
               },
               Array [
                 Object {
@@ -1681,7 +1681,7 @@ exports[`post types cards renders people with count only 1`] = `
         ]
       }
     >
-      Celebrate Others
+      Steps of Faith
     </Text>
   </View>
 </View>

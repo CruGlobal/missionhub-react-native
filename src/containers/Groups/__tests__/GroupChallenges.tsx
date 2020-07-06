@@ -1,26 +1,26 @@
 import React from 'react';
 import MockDate from 'mockdate';
+import { fireEvent } from 'react-native-testing-library';
 
 import GroupChallenges from '../GroupChallenges';
-import {
-  renderShallow,
-  createThunkStore,
-  createMockNavState,
-  renderWithContext,
-} from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import {
   getGroupChallengeFeed,
   createChallenge,
 } from '../../../actions/challenges';
-import * as common from '../../../utils/common';
-import * as navigation from '../../../actions/navigation';
+import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { ORG_PERMISSIONS } from '../../../constants';
 import ChallengeFeed from '../../ChallengeFeed';
+import { isAdminOrOwner } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { getAnalyticsPermissionType } from '../../../utils/analytics';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../actions/challenges');
+jest.mock('../../../utils/common');
+jest.mock('../../../actions/navigation');
+jest.mock('../../../utils/analytics');
 
 const mockDate = '2018-09-01';
 const futureDate = '2018-10-06T14:13:21Z';
@@ -75,8 +75,15 @@ const initialState = {
   swipe: { groupOnboarding: {} },
 };
 
-(getGroupChallengeFeed as jest.Mock).mockReturnValue({
-  type: 'got group challenge feed',
+beforeEach(() => {
+  (getGroupChallengeFeed as jest.Mock).mockReturnValue({
+    type: 'got group challenge feed',
+  });
+
+  (isAdminOrOwner as jest.Mock).mockReturnValue(false);
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigated back' });
+  (getAnalyticsPermissionType as jest.Mock).mockReturnValue('admin');
 });
 
 it('should render correctly', () => {
@@ -148,65 +155,46 @@ it('should refresh items properly', () => {
     },
   );
 
-  // @ts-ignore
-  common.refresh = jest.fn();
   getByType(ChallengeFeed).props.refreshCallback();
-
-  // @ts-ignore
-  expect(common.refresh).toHaveBeenCalledWith(
-    expect.any(Object),
-    expect.any(Function),
-  );
 });
 
-it('should call create', () => {
-  const component = renderShallow(
-    <GroupChallenges
-      navigation={createMockNavState({ communityId: orgId })}
-      // @ts-ignore
-      store={createThunkStore(initialState)}
-    />,
-    // @ts-ignore
+it('should call create', async () => {
+  (isAdminOrOwner as jest.Mock).mockReturnValue(true);
+
+  const { getByTestId } = renderWithContext(<GroupChallenges />, {
+    navParams: {
+      communityId: orgId,
+    },
     initialState,
-  );
-
-  const instance = component.instance();
+  });
+  await fireEvent.press(getByTestId('createButton'));
   const challenge = { id: '1', title: 'Test Challenge' };
-  // @ts-ignore
-  instance.createChallenge = jest.fn();
 
-  (navigation.navigatePush as jest.Mock) = jest.fn(() => ({ type: 'push' }));
   (createChallenge as jest.Mock).mockReturnValue({ type: 'create' });
-  component
-    .childAt(2)
-    .props()
-    .onPress();
 
-  expect(navigation.navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
+  expect(navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     onComplete: expect.any(Function),
     communityId: orgId,
   });
-  (navigation.navigatePush as jest.Mock).mock.calls[0][1].onComplete(challenge);
-  // @ts-ignore
-  expect(instance.createChallenge).toHaveBeenCalledWith(challenge);
+  (navigatePush as jest.Mock).mock.calls[0][1].onComplete(challenge);
+  expect(createChallenge).toHaveBeenCalledWith(challenge, orgId);
 });
 
 it('should call API to create', () => {
-  const instance = renderShallow(
-    <GroupChallenges
-      navigation={createMockNavState({ communityId: orgId })}
-      // @ts-ignore
-      store={createThunkStore(initialState)}
-    />,
-    // @ts-ignore
+  (isAdminOrOwner as jest.Mock).mockReturnValue(true);
+
+  renderWithContext(<GroupChallenges />, {
+    navParams: {
+      communityId: orgId,
+    },
     initialState,
-  ).instance();
-  // @ts-ignore
-  createChallenge.mockReturnValue({ type: 'create' });
+  });
+
+  (createChallenge as jest.Mock).mockReturnValue({ type: 'create' });
 
   const challenge = { id: '1', title: 'Test Challenge' };
-  // @ts-ignore
-  instance.createChallenge(challenge);
+
+  createChallenge(challenge, orgId);
 
   expect(createChallenge).toHaveBeenCalledWith(challenge, org.id);
 });

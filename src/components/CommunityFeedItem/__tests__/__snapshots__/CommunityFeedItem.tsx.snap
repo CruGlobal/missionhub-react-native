@@ -45,7 +45,7 @@ exports[`Community renders challenge correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="COMMUNITY_CHALLENGEButton"
+          testID="ACCEPTED_COMMUNITY_CHALLENGEButton"
         >
           <View
             style={
@@ -133,11 +133,11 @@ exports[`Community renders challenge correctly 1`] = `
         <Avatar
           person={
             Object {
-              "firstName": "Janelle",
-              "fullName": "Janelle Upton",
-              "id": "17",
-              "lastName": "Upton",
-              "picture": "explicabo exercitationem ut",
+              "firstName": "Aimee",
+              "fullName": "Aimee Boehm",
+              "id": "16",
+              "lastName": "Boehm",
+              "picture": "soluta sint non",
             }
           }
           size="medium"
@@ -176,7 +176,7 @@ exports[`Community renders challenge correctly 1`] = `
               ]
             }
           >
-            cupiditate sit vitae
+            error sunt laborum
           </Text>
           <Text
             style={
@@ -202,7 +202,7 @@ exports[`Community renders challenge correctly 1`] = `
             }
             testID="Text"
           >
-            July 23, 2012 @ 4:41 AM
+            February 6, 2017 @ 7:24 AM
           </Text>
         </View>
       </View>
@@ -232,7 +232,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Janelle U. completed a Challenge:
+        Aimee B. completed a Challenge:
       </Text>
       <View
         style={
@@ -294,7 +294,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              minima ducimus temporibus
+              quis sed magni
             </Text>
           </View>
         </View>
@@ -456,7 +456,7 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              67883
+              14672
             </Text>
             <View
               accessible={true}
@@ -706,7 +706,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   ]
                 }
               >
-                qui recusandae ut
+                nulla quam ipsam
               </Text>
               <Text
                 style={
@@ -970,7 +970,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#505256"
+                      color="#A97398"
                     />
                   </View>
                 </View>
@@ -1004,7 +1004,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     ]
                   }
                 >
-                  84631
+                  68521
                 </Text>
                 <View
                   accessible={true}
@@ -1213,11 +1213,11 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Arvel",
-                  "fullName": "Arvel Simonis",
+                  "firstName": "Shad",
+                  "fullName": "Shad Ortiz",
                   "id": "8",
-                  "lastName": "Simonis",
-                  "picture": "eaque enim ipsum",
+                  "lastName": "Ortiz",
+                  "picture": "aspernatur deserunt quam",
                 }
               }
               size="medium"
@@ -1256,7 +1256,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   ]
                 }
               >
-                aspernatur deserunt quam
+                nostrum ipsam qui
               </Text>
               <Text
                 style={
@@ -1282,7 +1282,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
                 testID="Text"
               >
-                November 26, 2016 @ 12:02 AM
+                February 4, 2011 @ 4:27 PM
               </Text>
             </View>
           </View>
@@ -1316,7 +1316,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
               >
                 <Text>
-                  eligendi occaecati debitis
+                  dicta eum eaque
                 </Text>
               </Text>
             </View>
@@ -1326,7 +1326,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "et saepe eum",
+              "uri": "enim ipsum inventore",
             }
           }
           style={
@@ -1491,7 +1491,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     ]
                   }
                 >
-                  67165
+                  68650
                 </Text>
                 <View
                   accessible={true}
@@ -1700,11 +1700,11 @@ exports[`Community renders post correctly without image 1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Arvel",
-                  "fullName": "Arvel Simonis",
+                  "firstName": "Shad",
+                  "fullName": "Shad Ortiz",
                   "id": "8",
-                  "lastName": "Simonis",
-                  "picture": "eaque enim ipsum",
+                  "lastName": "Ortiz",
+                  "picture": "aspernatur deserunt quam",
                 }
               }
               size="medium"
@@ -1743,7 +1743,7 @@ exports[`Community renders post correctly without image 1`] = `
                   ]
                 }
               >
-                aspernatur deserunt quam
+                nostrum ipsam qui
               </Text>
               <Text
                 style={
@@ -1769,7 +1769,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
                 testID="Text"
               >
-                November 26, 2016 @ 12:02 AM
+                February 4, 2011 @ 4:27 PM
               </Text>
             </View>
           </View>
@@ -1803,7 +1803,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
               >
                 <Text>
-                  eligendi occaecati debitis
+                  dicta eum eaque
                 </Text>
               </Text>
             </View>
@@ -1965,7 +1965,7 @@ exports[`Community renders post correctly without image 1`] = `
                     ]
                   }
                 >
-                  67165
+                  68650
                 </Text>
                 <View
                   accessible={true}
@@ -2174,11 +2174,11 @@ exports[`Community renders post created by me correctly without add to steps but
             <Avatar
               person={
                 Object {
-                  "firstName": "Marco",
-                  "fullName": "Marco Volkman",
+                  "firstName": "Jacquelyn",
+                  "fullName": "Jacquelyn Lynch",
                   "id": "1",
-                  "lastName": "Volkman",
-                  "picture": "esse blanditiis natus",
+                  "lastName": "Lynch",
+                  "picture": "et eos itaque",
                 }
               }
               size="medium"
@@ -2247,7 +2247,7 @@ exports[`Community renders post created by me correctly without add to steps but
                       ]
                     }
                   >
-                    velit omnis et
+                    ipsam explicabo eligendi
                   </Text>
                 </View>
               </View>
@@ -2275,7 +2275,7 @@ exports[`Community renders post created by me correctly without add to steps but
                 }
                 testID="Text"
               >
-                March 9, 2013 @ 10:46 PM
+                August 9, 2015 @ 9:31 AM
               </Text>
             </View>
           </View>
@@ -2309,7 +2309,7 @@ exports[`Community renders post created by me correctly without add to steps but
                 }
               >
                 <Text>
-                  sed dignissimos debitis
+                  incidunt accusantium sed
                 </Text>
               </Text>
             </View>
@@ -2319,7 +2319,7 @@ exports[`Community renders post created by me correctly without add to steps but
           resizeMode="cover"
           source={
             Object {
-              "uri": "incidunt accusantium sed",
+              "uri": "libero repudiandae esse",
             }
           }
           style={
@@ -2406,7 +2406,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  80275
+                  86502
                 </Text>
                 <View
                   accessible={true}
@@ -2485,7 +2485,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  71597
+                  51815
                 </Text>
                 <View
                   accessible={true}
@@ -2671,11 +2671,11 @@ exports[`Community renders step correctly 1`] = `
         <Avatar
           person={
             Object {
-              "firstName": "Mathew",
-              "fullName": "Mathew Green",
+              "firstName": "Alexys",
+              "fullName": "Alexys Rohan",
               "id": "12",
-              "lastName": "Green",
-              "picture": "ipsam qui nobis",
+              "lastName": "Rohan",
+              "picture": "fuga doloribus distinctio",
             }
           }
           size="medium"
@@ -2714,7 +2714,7 @@ exports[`Community renders step correctly 1`] = `
               ]
             }
           >
-            sit aperiam placeat
+            aut architecto ducimus
           </Text>
           <Text
             style={
@@ -2740,7 +2740,7 @@ exports[`Community renders step correctly 1`] = `
             }
             testID="Text"
           >
-            September 15, 2014 @ 10:43 PM
+            November 30, 2015 @ 5:35 AM
           </Text>
         </View>
       </View>
@@ -2770,7 +2770,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Mathew G. completed a Step of Faith with a  person.
+        Alexys R. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -2929,7 +2929,7 @@ exports[`Community renders step correctly 1`] = `
                 ]
               }
             >
-              62402
+              46923
             </Text>
             <View
               accessible={true}
@@ -3136,11 +3136,11 @@ exports[`Community renders with clear notification button correctly 1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Arvel",
-                  "fullName": "Arvel Simonis",
+                  "firstName": "Shad",
+                  "fullName": "Shad Ortiz",
                   "id": "8",
-                  "lastName": "Simonis",
-                  "picture": "eaque enim ipsum",
+                  "lastName": "Ortiz",
+                  "picture": "aspernatur deserunt quam",
                 }
               }
               size="medium"
@@ -3179,7 +3179,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   ]
                 }
               >
-                aspernatur deserunt quam
+                nostrum ipsam qui
               </Text>
               <Text
                 style={
@@ -3205,7 +3205,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
                 testID="Text"
               >
-                November 26, 2016 @ 12:02 AM
+                February 4, 2011 @ 4:27 PM
               </Text>
             </View>
           </View>
@@ -3239,7 +3239,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
               >
                 <Text>
-                  eligendi occaecati debitis
+                  dicta eum eaque
                 </Text>
               </Text>
             </View>
@@ -3249,7 +3249,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "et saepe eum",
+              "uri": "enim ipsum inventore",
             }
           }
           style={
@@ -3414,7 +3414,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     ]
                   }
                 >
-                  67165
+                  68650
                 </Text>
                 <View
                   accessible={true}
@@ -3699,7 +3699,7 @@ exports[`global community renders correctly 1`] = `
               ]
             }
           >
-            sit aperiam placeat
+            aut architecto ducimus
           </Text>
           <Text
             style={
@@ -3725,7 +3725,7 @@ exports[`global community renders correctly 1`] = `
             }
             testID="Text"
           >
-            September 15, 2014 @ 10:43 PM
+            November 30, 2015 @ 5:35 AM
           </Text>
         </View>
       </View>
@@ -3755,7 +3755,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Mathew G. completed a Step of Faith with a  person.
+        Alexys R. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -3914,7 +3914,7 @@ exports[`global community renders correctly 1`] = `
                 ]
               }
             >
-              62402
+              46923
             </Text>
             <View
               accessible={true}
@@ -4127,7 +4127,7 @@ exports[`global community renders post item correctly 1`] = `
               ]
             }
           >
-            aspernatur deserunt quam
+            nostrum ipsam qui
           </Text>
           <Text
             style={
@@ -4153,7 +4153,7 @@ exports[`global community renders post item correctly 1`] = `
             }
             testID="Text"
           >
-            November 26, 2016 @ 12:02 AM
+            February 4, 2011 @ 4:27 PM
           </Text>
         </View>
       </View>
@@ -4187,7 +4187,7 @@ exports[`global community renders post item correctly 1`] = `
             }
           >
             <Text>
-              eligendi occaecati debitis
+              dicta eum eaque
             </Text>
           </Text>
         </View>
@@ -4197,7 +4197,7 @@ exports[`global community renders post item correctly 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "et saepe eum",
+          "uri": "enim ipsum inventore",
         }
       }
       style={
@@ -4362,7 +4362,7 @@ exports[`global community renders post item correctly 1`] = `
                 ]
               }
             >
-              67165
+              68650
             </Text>
             <View
               accessible={true}
@@ -4575,7 +4575,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               ]
             }
           >
-            sit aperiam placeat
+            aut architecto ducimus
           </Text>
           <Text
             style={
@@ -4601,7 +4601,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             }
             testID="Text"
           >
-            September 15, 2014 @ 10:43 PM
+            November 30, 2015 @ 5:35 AM
           </Text>
         </View>
       </View>
@@ -4631,7 +4631,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Mathew G. completed a Step of Faith with a  person.
+        Alexys R. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -4790,7 +4790,7 @@ exports[`global community renders with clear notification button correctly 1`] =
                 ]
               }
             >
-              62402
+              46923
             </Text>
             <View
               accessible={true}
@@ -5067,11 +5067,11 @@ exports[`renders with name pressable correctly 1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Arvel",
-                  "fullName": "Arvel Simonis",
+                  "firstName": "Shad",
+                  "fullName": "Shad Ortiz",
                   "id": "8",
-                  "lastName": "Simonis",
-                  "picture": "eaque enim ipsum",
+                  "lastName": "Ortiz",
+                  "picture": "aspernatur deserunt quam",
                 }
               }
               size="medium"
@@ -5140,7 +5140,7 @@ exports[`renders with name pressable correctly 1`] = `
                       ]
                     }
                   >
-                    aspernatur deserunt quam
+                    nostrum ipsam qui
                   </Text>
                 </View>
               </View>
@@ -5168,7 +5168,7 @@ exports[`renders with name pressable correctly 1`] = `
                 }
                 testID="Text"
               >
-                November 26, 2016 @ 12:02 AM
+                February 4, 2011 @ 4:27 PM
               </Text>
             </View>
           </View>
@@ -5202,7 +5202,7 @@ exports[`renders with name pressable correctly 1`] = `
                 }
               >
                 <Text>
-                  eligendi occaecati debitis
+                  dicta eum eaque
                 </Text>
               </Text>
             </View>
@@ -5212,7 +5212,7 @@ exports[`renders with name pressable correctly 1`] = `
           resizeMode="cover"
           source={
             Object {
-              "uri": "et saepe eum",
+              "uri": "enim ipsum inventore",
             }
           }
           style={
@@ -5377,7 +5377,7 @@ exports[`renders with name pressable correctly 1`] = `
                     ]
                   }
                 >
-                  67165
+                  68650
                 </Text>
                 <View
                   accessible={true}

@@ -24,6 +24,15 @@ export const NOTIFICATION_ITEM_FRAGMENT = gql`
   }
 `;
 
+export const GET_COMMUNITY_PHOTO = gql`
+  query GetCommunityPhoto($communityId: ID!) {
+    community(id: $communityId) {
+      id
+      communityPhotoUrl
+    }
+  }
+`;
+
 export const CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT = gql`
   fragment ContentComplaintGroupItem on ContentComplaintGroup {
     __typename
@@ -37,6 +46,7 @@ export const CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT = gql`
           id
         }
         feedItem {
+          id
           community {
             id
             name
@@ -58,6 +68,7 @@ export const CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT = gql`
           id
         }
         feedItem {
+          id
           community {
             id
             name

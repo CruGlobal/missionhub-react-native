@@ -3,6 +3,7 @@ import { View, Modal, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 
+import { ACTIONS } from '../../../constants';
 import { Flex } from '../../../components/common';
 import PostTypeLabel, {
   PostLabelSizeEnum,
@@ -11,6 +12,7 @@ import LineIcon from '../../../../assets/images/lineIcon.svg';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { navigatePush } from '../../../actions/navigation';
+import { trackAction } from '../../../actions/analytics';
 import { CREATE_POST_SCREEN } from '../CreatePostScreen';
 import CloseButton from '../../../components/CloseButton';
 import {
@@ -48,6 +50,12 @@ const CreatePostModal = ({
 
   const navigateToCreatePostScreen = (postType: PostTypeEnum) => {
     closeModal();
+
+    dispatch(
+      trackAction(ACTIONS.POST_TYPE_SELECTED.name, {
+        [ACTIONS.POST_TYPE_SELECTED.key]: postType,
+      }),
+    );
     return dispatch(
       navigatePush(CREATE_POST_SCREEN, {
         communityId,

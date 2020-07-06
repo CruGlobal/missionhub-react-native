@@ -13,8 +13,6 @@ export default StyleSheet.create({
   content: {
     height: GroupCardHeight,
     borderRadius,
-  },
-  userCreatedContent: {
     backgroundColor: theme.accentColor,
   },
   image: {

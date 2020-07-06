@@ -21,8 +21,7 @@ import CommunityMemberItem from '../../../../components/CommunityMemberItem';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { removeGroupInviteInfo } from '../../../../actions/swipe';
 import { trackActionWithoutData } from '../../../../actions/analytics';
-import { navigatePush, navigateBack } from '../../../../actions/navigation';
-import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../../routes/constants';
+import { navigateBack } from '../../../../actions/navigation';
 import IconButton from '../../../../components/IconButton';
 import Text from '../../../../components/Text';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
@@ -30,6 +29,7 @@ import { Organization } from '../../../../reducers/organizations';
 import theme from '../../../../theme';
 import { RootState } from '../../../../reducers';
 import { FooterLoading } from '../../../../components/FooterLoading';
+import { useMyId } from '../../../../utils/hooks/useIsMe';
 
 import styles from './styles';
 import { COMMUNITY_MEMBERS_QUERY } from './queries';
@@ -41,6 +41,7 @@ import {
 export const CommunityMembers = () => {
   const dispatch = useDispatch();
   const communityId: string = useNavigationParam('communityId');
+  const myId = useMyId();
 
   const { data, error, fetchMore, refetch, loading } = useQuery<
     CommunityMembersQuery,
@@ -55,6 +56,10 @@ export const CommunityMembers = () => {
   const groupInviteInfo = useSelector(
     ({ swipe }: RootState) => swipe.groupInviteInfo,
   );
+
+  const myCommunityPermission = data?.community.people.edges.find(
+    p => p.node.id === myId,
+  )?.communityPermission;
 
   useAnalytics(['community', 'members'], {
     permissionType: { communityId },
@@ -89,26 +94,18 @@ export const CommunityMembers = () => {
   };
 
   async function handleInvite() {
-    if (data?.community.userCreated) {
-      const url = getCommunityUrl(organization.community_url);
-      const code = organization.community_code;
+    const url = getCommunityUrl(organization.community_url);
+    const code = organization.community_code;
 
-      const { action } = await Share.share({
-        message: t('sendInviteMessage', { url, code }),
-      });
-      if (action === Share.sharedAction) {
-        dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
-        if (groupInviteInfo) {
-          Alert.alert('', t('invited', { orgName: organization.name }));
-          dispatch(removeGroupInviteInfo());
-        }
+    const { action } = await Share.share({
+      message: t('sendInviteMessage', { url, code }),
+    });
+    if (action === Share.sharedAction) {
+      dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
+      if (groupInviteInfo) {
+        Alert.alert('', t('invited', { orgName: organization.name }));
+        dispatch(removeGroupInviteInfo());
       }
-    } else {
-      dispatch(
-        navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
-          organization: organization.id ? organization : undefined,
-        }),
-      );
     }
   }
 
@@ -118,6 +115,7 @@ export const CommunityMembers = () => {
 
       <FlatList
         testID="CommunityMemberList"
+        initialNumToRender={12}
         data={data?.community.people.edges || []}
         keyExtractor={k => k.node.id}
         ListHeaderComponent={() => (
@@ -137,6 +135,7 @@ export const CommunityMembers = () => {
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
           <CommunityMemberItem
+            myCommunityPermission={myCommunityPermission}
             organization={organization}
             personOrgPermission={item.communityPermission}
             person={item.node}

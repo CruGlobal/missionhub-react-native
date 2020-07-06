@@ -48,7 +48,6 @@ const orgs = [
         type: 'person',
       },
     ],
-    user_created: false,
   },
   {
     id: '20',
@@ -61,7 +60,6 @@ const orgs = [
         type: 'person',
       },
     ],
-    user_created: true,
   },
 ];
 
@@ -105,18 +103,6 @@ it('renders correctly as Jean', async () => {
 });
 
 describe('button presses', () => {
-  it('onAddContact is called when add contact icon is pressed', async () => {
-    const { getAllByTestId } = renderWithContext(
-      <PeopleList {...props} sections={true} items={orgs} />,
-    );
-    await flushMicrotasksQueue();
-
-    const addContactBtn = getAllByTestId('addContactBtn')[0];
-    fireEvent(addContactBtn, 'press', addContactBtn.props.pressProps[0]);
-
-    expect(props.onAddContact).toHaveBeenCalledWith(undefined);
-  });
-
   it('arrow icon toggles collapsed sections', async () => {
     const { recordSnapshot, getAllByTestId, diffSnapshot } = renderWithContext(
       <PeopleList {...props} sections={true} items={orgs} />,

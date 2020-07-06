@@ -33,7 +33,6 @@ interface PeopleListProps {
   sections: boolean;
   refreshing: boolean;
   onRefresh: () => Promise<void>;
-  onAddContact: (org: any) => void;
   testID?: string;
   personId: string;
 }
@@ -43,7 +42,6 @@ export default ({
   sections,
   refreshing,
   onRefresh,
-  onAddContact,
   personId,
 }: PeopleListProps) => {
   const { t } = useTranslation('peopleScreen');
@@ -131,16 +129,6 @@ export default ({
           {org.name || t('personalMinistry')}
         </Text>
         <Flex direction="row" justify="end" align="center">
-          {!org.user_created ? (
-            <IconButton
-              testID="addContactBtn"
-              name="addContactIcon"
-              type="MissionHub"
-              size={24}
-              pressProps={[org && org.id !== 'personal' ? org : undefined]}
-              onPress={onAddContact}
-            />
-          ) : null}
           <IconButton
             testID="toggleSectionBtn"
             name={collapsedOrgs.has(org.id) ? 'downArrowIcon' : 'upArrowIcon'}

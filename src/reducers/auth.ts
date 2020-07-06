@@ -6,7 +6,6 @@ import {
   UPDATE_STAGES,
   UPDATE_TOKEN,
 } from '../constants';
-import { userIsJean } from '../utils/common';
 import { REQUESTS } from '../api/routes';
 
 import { Person } from './people';
@@ -20,7 +19,6 @@ export interface AuthState {
   token?: string;
   refreshToken: string;
   person: Person;
-  isJean: boolean;
   upgradeToken: string | null;
 }
 
@@ -28,7 +26,6 @@ const initialAuthState: AuthState = {
   token: undefined,
   refreshToken: '',
   person: { user: {} },
-  isJean: false,
   upgradeToken: null,
 };
 
@@ -102,7 +99,6 @@ function authReducer(state = initialAuthState, action: any) {
           ...person,
           stage: state.person.id === person.id ? state.person.stage : null, // Add the stage if we're getting the same user again
         },
-        isJean: userIsJean(person.organizational_permissions),
       };
     case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS:
       return {

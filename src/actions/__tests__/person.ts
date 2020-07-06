@@ -29,7 +29,7 @@ import {
 } from '../person';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { trackActionWithoutData, setAnalyticsMinistryMode } from '../analytics';
+import { trackActionWithoutData } from '../analytics';
 import { navigatePush } from '../navigation';
 import { getMyCommunities } from '../organizations';
 import { PeopleState } from '../../reducers/people';
@@ -88,13 +88,9 @@ beforeEach(() => {
 
 describe('get me', () => {
   const action = { type: 'got me' };
-  const setMinistryModeResult = { type: 'set ministry mode' };
 
   beforeEach(() => {
     (callApi as jest.Mock).mockReturnValue(action);
-    (setAnalyticsMinistryMode as jest.Mock).mockReturnValue(
-      setMinistryModeResult,
-    );
   });
 
   it('should get me', async () => {
@@ -104,9 +100,8 @@ describe('get me', () => {
     expect(callApi).toHaveBeenCalledWith(REQUESTS.GET_ME, {
       include: expectedInclude,
     });
-    expect(setAnalyticsMinistryMode).toHaveBeenCalledWith();
     // @ts-ignore
-    expect(store.getActions()).toEqual([action, setMinistryModeResult]);
+    expect(store.getActions()).toEqual([action]);
   });
 
   it('should add extra include', () => {

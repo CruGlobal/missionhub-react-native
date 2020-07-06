@@ -41,25 +41,20 @@ export interface AvatarProps {
   customText?: string;
 }
 
-const EMPTY_PERSON = { id: '-', fullName: '-', picture: null };
-
-const Avatar = ({
-  person = EMPTY_PERSON,
-  size,
-  style,
-  customText,
-}: AvatarProps) => {
-  const initial = customText || person.fullName[0] || '-';
-  const color = useMemo(() => colorThis(`${person.fullName}${person.id}`, 1), [
-    person,
-  ]);
+const Avatar = ({ person, size, style, customText }: AvatarProps) => {
+  const initial = customText || person?.fullName[0] || '';
+  const color = useMemo(
+    () =>
+      person ? colorThis(`${person.fullName}${person.id}`, 1) : theme.lightGrey,
+    [person],
+  );
 
   const wrapStyle = [wrapStyles[size], { backgroundColor: color }, style];
 
   if (person?.picture) {
     return (
       <Image
-        source={{ uri: person?.picture }}
+        source={{ uri: person.picture }}
         style={wrapStyle}
         resizeMode="cover"
       />

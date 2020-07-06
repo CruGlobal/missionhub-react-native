@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { View, Keyboard, ScrollView, Image } from 'react-native';
+import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -117,7 +117,7 @@ export const CreatePostScreen = () => {
           query: GET_COMMUNITY_FEED,
           variables: {
             communityId,
-            subjectType: mapPostTypeToFeedType(postType),
+            subjectType: [mapPostTypeToFeedType(postType)],
           },
         });
         cache.writeQuery({
@@ -230,8 +230,12 @@ export const CreatePostScreen = () => {
   );
 
   const renderAddPhotoButton = () => (
-    //@ts-ignore
-    <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
+    <ImagePicker
+      //@ts-ignore
+      testID="ImagePicker"
+      onSelectImage={handleSavePhoto}
+      showCropper={false}
+    >
       {imageData && !(imageData === EMPTY_IMAGE_URI) ? (
         <Image
           resizeMode="contain"
@@ -253,6 +257,7 @@ export const CreatePostScreen = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       <View style={styles.lineBreak} />
       <ErrorNotice
