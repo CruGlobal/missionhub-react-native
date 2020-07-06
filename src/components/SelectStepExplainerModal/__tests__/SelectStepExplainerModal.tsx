@@ -43,18 +43,21 @@ describe('presses buttons', () => {
   });
 
   it('presses Got It button', () => {
+    jest.useFakeTimers();
     fireEvent(
       screen.getByTestId('SelectStepExplainerCarousel'),
       'onSnapToItem',
       5,
     );
 
-    // fireEvent(
-    //   screen.getAllByTestId('SelectStepExplainerGotItButton')[1],
-    //   'onPress',
-    // );
+    fireEvent(
+      screen.getAllByTestId('SelectStepExplainerGotItButton')[1],
+      'onPress',
+    );
+    // To fix issue with debounce on button press
+    jest.runAllTimers();
 
-    // expect(onClose).toHaveBeenCalled();
+    expect(onClose).toHaveBeenCalled();
   });
 });
 
