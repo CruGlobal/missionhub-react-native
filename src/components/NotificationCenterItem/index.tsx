@@ -130,7 +130,7 @@ export const NotificationCenterItem = ({
           <PostTypeLabel
             showText={false}
             size={PostLabelSizeEnum.small}
-            type={FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE}
+            type={FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE}
           />
         );
       default:

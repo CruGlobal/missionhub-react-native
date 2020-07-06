@@ -810,7 +810,7 @@ export default {
     QUESTION: 'Spiritual Question',
     HELP_REQUEST: 'Community Need',
     THOUGHT: "What's on Your Mind",
-    COMMUNITY_CHALLENGE: 'Challenge',
+    ACCEPTED_COMMUNITY_CHALLENGE: 'Challenge',
     ANNOUNCEMENT: 'Announcement',
     STEP: 'Step of Faith',
     header: {
