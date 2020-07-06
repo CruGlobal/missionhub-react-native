@@ -133,7 +133,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
     <View style={styles.container}>
       <AnnouncementsModal />
       <Header
-        titleStyle={{ fontSize: 16, lineHeight: 24, fontWeight: '400' }}
+        titleStyle={styles.headerTitle}
         testID="header"
         left={
           <IconButton

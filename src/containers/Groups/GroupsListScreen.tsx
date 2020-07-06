@@ -229,7 +229,7 @@ const GroupsListScreen = ({
   return (
     <View style={styles.container}>
       <Header
-        titleStyle={{ fontSize: 16, lineHeight: 24, fontWeight: '400' }}
+        titleStyle={styles.headerTitle}
         left={
           <IconButton
             testID="IconButton"

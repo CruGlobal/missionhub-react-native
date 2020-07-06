@@ -64,7 +64,7 @@ export const PeopleScreen = ({
   return (
     <View style={styles.pageContainer}>
       <Header
-        titleStyle={{ fontSize: 16, lineHeight: 24, fontWeight: '400' }}
+        titleStyle={styles.headerTitle}
         testID="header"
         left={
           <IconButton
