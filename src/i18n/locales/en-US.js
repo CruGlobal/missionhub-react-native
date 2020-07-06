@@ -483,7 +483,7 @@ export default {
     sentence: 'Selecting a stage will also assign this person to you.',
   },
   peopleScreen: {
-    header: 'PEOPLE',
+    header: 'People',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
     addStage: 'Add Stage',

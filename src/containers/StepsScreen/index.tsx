@@ -133,6 +133,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
     <View style={styles.container}>
       <AnnouncementsModal />
       <Header
+        titleStyle={{ fontSize: 16, lineHeight: 24, fontWeight: '400' }}
         testID="header"
         left={
           <IconButton
@@ -142,7 +143,7 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
             onPress={() => dispatch(openMainMenu())}
           />
         }
-        title={t('title').toUpperCase()}
+        title={t('title')}
       />
       <ErrorNotice
         error={error}

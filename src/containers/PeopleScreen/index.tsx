@@ -7,7 +7,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import { getMyPeople } from '../../actions/people';
 import { allAssignedPeopleSelector } from '../../selectors/people';
 import { navigatePush } from '../../actions/navigation';
-import { IconButton } from '../../components/common';
+import { IconButton, Button } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import { openMainMenu } from '../../utils/common';
@@ -21,6 +21,7 @@ import {
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
 import { RootState } from '../../reducers';
+import AddPersonIcon from '../../../assets/images/addPersonIcon.svg';
 
 import styles from './styles';
 
@@ -63,6 +64,7 @@ export const PeopleScreen = ({
   return (
     <View style={styles.pageContainer}>
       <Header
+        titleStyle={{ fontSize: 16, lineHeight: 24, fontWeight: '400' }}
         testID="header"
         left={
           <IconButton
@@ -72,14 +74,11 @@ export const PeopleScreen = ({
           />
         }
         right={
-          <IconButton
-            name="addContactIcon"
-            type="MissionHub"
-            size={24}
-            onPress={handleAddContact}
-          />
+          <Button onPress={handleAddContact}>
+            <AddPersonIcon />
+          </Button>
         }
-        title={t('header').toUpperCase()}
+        title={t('header')}
         shadow={true}
       />
       <PeopleList
