@@ -86,7 +86,6 @@ const GroupChallenges = () => {
         organization: { id: communityId },
         onComplete: (challenge: ChallengeItem) => {
           dispatch(createChallenge(challenge, communityId));
-          reloadItems();
         },
       }),
     );
