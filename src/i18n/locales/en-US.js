@@ -560,6 +560,10 @@ export default {
       confirmButtonText: 'Report Post',
     },
     addToMySteps: 'Add to My Steps',
+    viewChallenge: 'View Challenge',
+    challengeAcceptedHeader: 'Challenge Accepted!',
+    challengeCompletedHeader: 'Challenge Completed!',
+    newMemberHeader: 'New Member!',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     stepOfFaithUnknownStage:
