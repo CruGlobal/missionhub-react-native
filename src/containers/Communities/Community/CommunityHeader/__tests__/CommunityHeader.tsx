@@ -3,14 +3,24 @@ import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../testUtils';
 import { CommunityHeader } from '../CommunityHeader';
-import { GLOBAL_COMMUNITY_ID } from '../../../../../constants';
+import {
+  GLOBAL_COMMUNITY_ID,
+  MAIN_TABS,
+  COMMUNITIES_TAB,
+} from '../../../../../constants';
 import { COMMUNITY_PROFILE } from '../../CommunityProfile/CommunityProfile';
-import { navigatePush } from '../../../../../actions/navigation';
+import {
+  navigatePush,
+  navigateNestedReset,
+} from '../../../../../actions/navigation';
 import { COMMUNITY_MEMBERS } from '../../CommunityMembers/CommunityMembers';
 
 jest.mock('../../../../../actions/navigation');
 
 (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
+(navigateNestedReset as jest.Mock).mockReturnValue({
+  type: 'navigateNestedReset',
+});
 
 const communityId = '1';
 
@@ -57,6 +67,20 @@ describe('CommunityHeader', () => {
     recordSnapshot();
     await flushMicrotasksQueue();
     diffSnapshot();
+  });
+  it('should navigate to communtity list on back press', () => {
+    const { getByTestId } = renderWithContext(<CommunityHeader />, {
+      initialState,
+      navParams: { communityId },
+    });
+
+    fireEvent.press(getByTestId('DeprecatedBackButton'));
+    expect(navigateNestedReset).toHaveBeenCalledWith([
+      {
+        routeName: MAIN_TABS,
+        tabName: COMMUNITIES_TAB,
+      },
+    ]);
   });
   it('should navigate to the community profile screen', () => {
     const { getByTestId } = renderWithContext(<CommunityHeader />, {
