@@ -66,7 +66,9 @@ const GroupChallenges = () => {
 
   const challengeItems = useSelector(() =>
     challengesSelector(
-      { challengeItems: organization.challengeItems || [] },
+      {
+        challengeItems: organization.challengeItems || [],
+      },
       {},
     ),
   );
