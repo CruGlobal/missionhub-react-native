@@ -79,7 +79,7 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
 -               testID=\\"ANNOUNCEMENTLabel\\"
-+               testID=\\"COMMUNITY_CHALLENGELabel\\"
++               testID=\\"ACCEPTED_COMMUNITY_CHALLENGELabel\\"
               >
                 <SvgMock
                   color=\\"#ffffff\\"

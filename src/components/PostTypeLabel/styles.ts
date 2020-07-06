@@ -144,10 +144,10 @@ export default StyleSheet.create({
   THOUGHT: {
     backgroundColor: theme.communityThoughtGrey,
   },
-  colorCOMMUNITY_CHALLENGE: {
+  colorACCEPTED_COMMUNITY_CHALLENGE: {
     color: theme.communityChallengeGreen,
   },
-  COMMUNITY_CHALLENGE: {
+  ACCEPTED_COMMUNITY_CHALLENGE: {
     backgroundColor: theme.communityChallengeGreen,
   },
   colorANNOUNCEMENT: {
