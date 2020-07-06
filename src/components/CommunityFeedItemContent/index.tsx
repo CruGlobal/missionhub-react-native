@@ -1,3 +1,4 @@
+/* eslint max-lines: 0 */
 import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -28,6 +29,9 @@ import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { TouchablePress } from '../Touchable/index.ios';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
+import PopupMenu from '../PopupMenu';
+import KebabIcon from '../../../assets/images/kebabIcon.svg';
+import theme from '../../theme';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -46,6 +50,7 @@ export interface CommunityFeedItemContentProps {
   postLabelPressable?: boolean;
   showLikeAndComment?: boolean;
   onCommentPress?: TouchablePress;
+  menuActions?: { text: string; onPress: () => void; destructive?: boolean }[];
 }
 
 export const CommunityFeedItemContent = ({
@@ -54,12 +59,12 @@ export const CommunityFeedItemContent = ({
   postLabelPressable = true,
   showLikeAndComment = true,
   onCommentPress,
+  menuActions,
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
-  const { subject, subjectPerson, subjectPersonName } = feedItem;
-
+  const { subject, subjectPerson, subjectPersonName, community } = feedItem;
   if (
     subject.__typename !== 'Post' &&
     subject.__typename !== 'AcceptedCommunityChallenge' &&
@@ -72,11 +77,9 @@ export const CommunityFeedItemContent = ({
 
   const imageData =
     (subject.__typename === 'Post' && subject.mediaExpiringUrl) || null;
-
   const stepStatus =
     (subject.__typename === 'Post' && subject.stepStatus) ||
     PostStepStatusEnum.NOT_SUPPORTED;
-
   const imageAspectRatio = useAspectRatio(imageData);
 
   const itemType = getFeedItemType(subject);
@@ -96,13 +99,11 @@ export const CommunityFeedItemContent = ({
     ? subjectPersonName
     : t('aMissionHubUser');
 
-  const isGlobal = !feedItem.community;
+  const isGlobal = !community;
 
   const onPressChallengeLink = async () => {
     const challengeId = subject.id;
-    const communityId = feedItem.community
-      ? feedItem.community.id
-      : GLOBAL_COMMUNITY_ID;
+    const communityId = community ? community.id : GLOBAL_COMMUNITY_ID;
     await dispatch(reloadGroupChallengeFeed(communityId));
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
@@ -116,8 +117,8 @@ export const CommunityFeedItemContent = ({
     dispatch(
       navigatePush(COMMUNITY_FEED_WITH_TYPE_SCREEN, {
         type: itemType,
-        communityId: feedItem.community?.id,
-        communityName: feedItem.community?.name,
+        communityId: community?.id,
+        communityName: community?.name,
       }),
     );
   };
@@ -126,7 +127,7 @@ export const CommunityFeedItemContent = ({
     dispatch(
       navigatePush(ADD_POST_TO_STEPS_SCREEN, {
         feedItemId: feedItem.id,
-        communityId: feedItem.community?.id,
+        communityId: community?.id,
       }),
     );
 
@@ -189,9 +190,9 @@ export const CommunityFeedItemContent = ({
   const renderAvatar = () => {
     switch (itemType) {
       case FeedItemSubjectTypeEnum.ANNOUNCEMENT:
-        return feedItem.community?.communityPhotoUrl ? (
+        return community?.communityPhotoUrl ? (
           <Image
-            source={{ uri: feedItem.community?.communityPhotoUrl }}
+            source={{ uri: community?.communityPhotoUrl }}
             style={styles.communityPhotoWrapStyles}
             resizeMode="cover"
           />
@@ -199,8 +200,8 @@ export const CommunityFeedItemContent = ({
           <DefaultCommunityAvatar />
         );
       default:
-        return feedItem.subjectPerson ? (
-          <Avatar size={'medium'} person={feedItem.subjectPerson} />
+        return subjectPerson ? (
+          <Avatar size={'medium'} person={subjectPerson} />
         ) : null;
     }
   };
@@ -237,6 +238,16 @@ export const CommunityFeedItemContent = ({
           type={itemType}
           onPress={postLabelPressable ? navToFilteredFeed : undefined}
         />
+        {menuActions && menuActions.length > 0 ? (
+          <View style={styles.popupMenuWrap}>
+            <PopupMenu
+              actions={menuActions}
+              buttonProps={{ style: styles.popupButton }}
+            >
+              <KebabIcon color={theme.grey} />
+            </PopupMenu>
+          </View>
+        ) : null}
       </View>
       <View style={styles.headerRow}>
         {!isGlobal ? renderAvatar() : null}
@@ -246,12 +257,12 @@ export const CommunityFeedItemContent = ({
           }
         >
           {itemType === FeedItemSubjectTypeEnum.ANNOUNCEMENT ? (
-            <Text style={styles.communityName}>{feedItem.community?.name}</Text>
+            <Text style={styles.communityName}>{community?.name}</Text>
           ) : (
             <CommunityFeedItemName
               name={subjectPersonName}
-              personId={feedItem.subjectPerson?.id}
-              communityId={feedItem.community?.id}
+              personId={subjectPerson?.id}
+              communityId={community?.id}
               pressable={namePressable}
             />
           )}
@@ -265,9 +276,7 @@ export const CommunityFeedItemContent = ({
     imageData ? (
       <Image
         source={{ uri: imageData }}
-        style={{
-          aspectRatio: imageAspectRatio,
-        }}
+        style={{ aspectRatio: imageAspectRatio }}
         resizeMode="cover"
       />
     ) : null;
