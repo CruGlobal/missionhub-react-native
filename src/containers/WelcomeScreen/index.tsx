@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -7,9 +7,7 @@ import { useDispatch } from 'react-redux';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import { trackActionWithoutData } from '../../actions/analytics';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ACTIONS } from '../../constants';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 
@@ -26,10 +24,6 @@ const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
   useAnalytics(['onboarding', 'welcome'], {
     sectionType: true,
   });
-
-  useEffect(() => {
-    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
-  }, [dispatch]);
 
   const navigateToNext = (signin = false) => {
     dispatch(next({ signin }));

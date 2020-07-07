@@ -5,7 +5,6 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { ACTIONS } from '../../../constants';
 
 import WelcomeScreen from '..';
 
@@ -86,13 +85,5 @@ describe('WelcomeScreen', () => {
 
     expect(next).toHaveBeenCalledTimes(1);
     expect(next).toHaveBeenCalledWith({ signin: true });
-  });
-
-  it('should fire analytics event on mount', () => {
-    renderWithContext(<WelcomeScreen next={next} />, { initialState });
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(
-      ACTIONS.ONBOARDING_STARTED,
-    );
   });
 });
