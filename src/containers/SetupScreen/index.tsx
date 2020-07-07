@@ -7,6 +7,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useMutation } from '@apollo/react-hooks';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import appsFlyer from 'react-native-appsflyer';
 
 import { Text, Flex, Input } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
@@ -137,6 +138,7 @@ const SetupScreen = ({
         });
 
         dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+        appsFlyer.trackEvent(ACTIONS.PERSON_ADDED.name, ACTIONS.PERSON_ADDED);
         data?.createPerson?.person &&
           dispatch({
             type: LOAD_PERSON_DETAILS,

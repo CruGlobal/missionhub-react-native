@@ -277,6 +277,7 @@ export default {
       'Talk about what this person believes and ways you can help them know the truth about God.',
     part6:
       "Over time you see all the different ways you're helping others draw close to God.",
+    gotIt: 'Got It!',
   },
   stepDetail: {
     openPost: 'Open Post',
@@ -560,6 +561,10 @@ export default {
       confirmButtonText: 'Report Post',
     },
     addToMySteps: 'Add to My Steps',
+    viewChallenge: 'View Challenge',
+    challengeAcceptedHeader: 'Challenge Accepted!',
+    challengeCompletedHeader: 'Challenge Completed!',
+    newMemberHeader: 'New Member!',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     stepOfFaithUnknownStage:

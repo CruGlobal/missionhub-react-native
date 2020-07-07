@@ -3,6 +3,7 @@
 import uuidv4 from 'uuid/v4';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import appsFlyer from 'react-native-appsflyer';
 
 import { AuthState } from '../reducers/auth';
 import { Person } from '../reducers/people';
@@ -83,6 +84,10 @@ export const startOnboarding = () => (
 ) => {
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   dispatch({ type: START_ONBOARDING });
+  appsFlyer.trackEvent(
+    ACTIONS.ONBOARDING_STARTED.name,
+    ACTIONS.ONBOARDING_STARTED,
+  );
 };
 
 export function createMyPerson(firstName: string, lastName: string) {

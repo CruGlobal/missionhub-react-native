@@ -29,97 +29,26 @@ exports[`Community renders challenge correctly 1`] = `
           }
         }
       >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+        <Text
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#3CC8E6",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "lineHeight": 20,
+              },
+            ]
           }
-          testID="ACCEPTED_COMMUNITY_CHALLENGEButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#00CA99",
-                  },
-                  null,
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Challenge
-            </Text>
-          </View>
-        </View>
+          Challenge Accepted!
+        </Text>
       </View>
       <View
         style={
@@ -225,9 +154,9 @@ exports[`Community renders challenge correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
+              "fontSize": 16,
               "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "lineHeight": 24,
             },
           ]
         }
@@ -241,63 +170,31 @@ exports[`Community renders challenge correctly 1`] = `
           }
         }
       >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
+        <Text
+          numberOfLines={2}
           style={
-            Object {
-              "opacity": 1,
-            }
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "fontWeight": "400",
+                "letterSpacing": 0,
+                "lineHeight": 24,
+                "marginBottom": 10,
+                "textAlign": "left",
+                "textDecorationColor": "#3CC8E6",
+                "textDecorationLine": "underline",
+              },
+            ]
           }
-          testID="ChallengeLinkButton"
         >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {
-                  "marginTop": 4,
-                },
-                null,
-              ]
-            }
-          >
-            <Text
-              numberOfLines={2}
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 14,
-                    "fontWeight": "400",
-                    "letterSpacing": 0,
-                    "lineHeight": 18,
-                    "textAlign": "left",
-                  },
-                ]
-              }
-            >
-              voluptates ut ullam
-            </Text>
-          </View>
-        </View>
+          voluptates ut ullam
+        </Text>
       </View>
     </View>
     <View
@@ -332,6 +229,58 @@ exports[`Community renders challenge correctly 1`] = `
       }
       testID="FooterTouchable"
     >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+        testID="ChallengeLinkButton"
+      >
+        <SvgMock
+          color="#505256"
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 24,
+              "justifyContent": "center",
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+                "paddingLeft": 12,
+              },
+            ]
+          }
+        >
+          View Challenge
+        </Text>
+      </View>
       <View
         style={
           Object {
@@ -2763,9 +2712,9 @@ exports[`Community renders step correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
+              "fontSize": 16,
               "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "lineHeight": 24,
             },
           ]
         }
@@ -3747,9 +3696,9 @@ exports[`global community renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
+              "fontSize": 16,
               "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "lineHeight": 24,
             },
           ]
         }
@@ -4622,9 +4571,9 @@ exports[`global community renders with clear notification button correctly 1`] =
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
+              "fontSize": 16,
               "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "lineHeight": 24,
             },
           ]
         }

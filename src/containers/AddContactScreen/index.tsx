@@ -10,6 +10,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { DrawerActions } from 'react-navigation-drawer';
+import appsFlyer from 'react-native-appsflyer';
 
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
@@ -172,7 +173,10 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
       }
 
       results && setPerson({ ...person, id: results.id });
-      !isEdit && dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+      if (!isEdit) {
+        dispatch(trackActionWithoutData(ACTIONS.PERSON_ADDED));
+        appsFlyer.trackEvent(ACTIONS.PERSON_ADDED.name, ACTIONS.PERSON_ADDED);
+      }
 
       complete(true, results ?? undefined);
     } catch {}

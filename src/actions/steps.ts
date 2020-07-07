@@ -1,4 +1,5 @@
 import { ThunkDispatch } from 'redux-thunk';
+import appsFlyer from 'react-native-appsflyer';
 
 import {
   COMPLETED_STEP_COUNT,
@@ -117,6 +118,7 @@ export function completeStep(
         [ACTIONS.STEP_COMPLETED.key]: null,
       }),
     );
+    appsFlyer.trackEvent(ACTIONS.STEP_COMPLETED.name, ACTIONS.STEP_COMPLETED);
   };
 }
 
