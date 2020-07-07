@@ -38,6 +38,12 @@ export default StyleSheet.create({
     lineHeight: 16,
     color: theme.lightGrey,
   },
+  headerTextOnly: {
+    fontSize: 16,
+    lineHeight: 20,
+    color: theme.parakeetBlue,
+    fontWeight: 'bold',
+  },
   row: {
     flexDirection: 'row',
   },
@@ -46,20 +52,24 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
   messageText: {
-    fontSize: 14,
-    lineHeight: 18,
+    fontSize: 16,
+    lineHeight: 24,
     justifyContent: 'flex-start',
   },
   challengeLinkButton: {
-    marginTop: 4,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   challengeLinkText: {
-    fontSize: 14,
-    lineHeight: 18,
+    fontSize: 16,
+    lineHeight: 24,
+    textDecorationLine: 'underline',
+    textDecorationColor: theme.parakeetBlue,
     fontWeight: '400',
     letterSpacing: 0,
-    color: theme.primaryColor,
     textAlign: 'left',
+    marginBottom: 10,
   },
   footerWrap: {
     flexDirection: 'row',
@@ -73,6 +83,12 @@ export default StyleSheet.create({
   },
 
   stepIcon: {
+    height: 24,
+    width: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  challengeIcon: {
     height: 24,
     width: 24,
     alignItems: 'center',
