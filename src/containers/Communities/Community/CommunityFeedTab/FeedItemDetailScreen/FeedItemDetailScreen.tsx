@@ -26,8 +26,10 @@ import { useMyId, useIsMe } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
-import { navigateBack, navigatePush } from '../../../../../actions/navigation';
-import { COMMUNITY_TABS } from '../../constants';
+import {
+  navigateBack,
+  navigateToCommunityFeed,
+} from '../../../../../actions/navigation';
 import {
   useDeleteFeedItem,
   useEditFeedItem,
@@ -136,18 +138,21 @@ const FeedItemDetailScreen = () => {
     data?.feedItem.community?.people.edges[0].communityPermission;
   const isMe = useIsMe(data?.feedItem.subjectPerson?.id || '');
 
-  function handleBack() {
+  const handleCommunityNamePress = () => {
     fromNotificationCenterItem
-      ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
+      ? dispatch(navigateToCommunityFeed(communityId))
       : dispatch(navigateBack());
-  }
+  };
 
   const renderHeader = () => (
     <SafeAreaView>
       <Header
         left={<BackButton />}
         center={
-          <Touchable testID="CommunityNameHeader" onPress={handleBack}>
+          <Touchable
+            testID="CommunityNameHeader"
+            onPress={handleCommunityNamePress}
+          >
             <Text style={styles.headerText}>
               {data?.feedItem.community?.name}
             </Text>
@@ -176,7 +181,7 @@ const FeedItemDetailScreen = () => {
       ? [
           {
             text: t('communityFeedItems:delete.buttonText'),
-            onPress: () => deleteFeedItem(handleBack),
+            onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
             destructive: true,
           },
         ]
