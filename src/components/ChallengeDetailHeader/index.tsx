@@ -1,7 +1,7 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import Markdown from 'react-native-markdown-renderer';
+import Markdown from 'react-native-markdown-display';
 import moment from 'moment';
 
 import { Flex, Text, DateComponent } from '../common';
