@@ -50,7 +50,7 @@ describe('presses buttons', () => {
       5,
     );
 
-    fireEvent(screen.getByTestId('SelectStepExplainerGotItButton'), 'onPress');
+    fireEvent.press(screen.getByTestId('SelectStepExplainerGotItButton'));
     // To fix issue with debounce on button press
     jest.runAllTimers();
 
