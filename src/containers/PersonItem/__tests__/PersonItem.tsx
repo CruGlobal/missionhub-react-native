@@ -168,6 +168,20 @@ it('renders personal ministry with no steps correctly', () => {
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
 
+it('renders person with no stage correctly', () => {
+  const { snapshot } = renderWithContext(
+    <PersonItem
+      person={(mockPersonWithNoStage as unknown) as PersonAttributes}
+      organization={mockOrganization}
+      stepsData={noStepsCount}
+    />,
+    {
+      initialState: mockState,
+    },
+  );
+  snapshot();
+});
+
 describe('handleChangeStage', () => {
   describe('isMe', () => {
     it('navigates to my stage screen without stage', () => {

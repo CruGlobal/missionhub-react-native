@@ -72,15 +72,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -525,15 +530,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -957,15 +967,20 @@ Array [
     >
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -1389,15 +1404,20 @@ Array [
     >
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -1913,15 +1933,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -2373,15 +2398,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -2896,15 +2926,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -3355,15 +3390,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -3612,15 +3652,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -4052,15 +4097,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -4492,15 +4542,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -4932,15 +4987,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -5372,15 +5432,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -5812,15 +5877,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -6252,15 +6322,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -6671,15 +6746,20 @@ Array [
     >
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -7089,15 +7169,20 @@ Array [
     >
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -7522,12 +7607,16 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
@@ -7954,12 +8043,16 @@ Array [
       <SvgMock />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
@@ -8440,15 +8533,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -8880,15 +8978,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {

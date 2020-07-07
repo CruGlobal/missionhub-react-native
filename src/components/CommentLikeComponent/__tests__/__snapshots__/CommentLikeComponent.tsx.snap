@@ -864,6 +864,333 @@ exports[`with subject person renders for someone else 1`] = `
 </View>
 `;
 
+exports[`with subject person renders prayer request liked 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+        "width": 80,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "lineHeight": 20,
+            "paddingRight": 10,
+            "textAlign": "right",
+            "width": 30,
+          },
+        ]
+      }
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="LikeIconButton"
+    >
+      <View
+        hitSlop={
+          Object {
+            "bottom": 25,
+            "left": 25,
+            "right": 25,
+            "top": 25,
+          }
+        }
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "height": 24,
+              "marginRight": 20,
+              "width": 24,
+            },
+            null,
+          ]
+        }
+      >
+        <SvgMock
+          color="#FF5532"
+          fill="#FF5532"
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "lineHeight": 20,
+            "paddingRight": 10,
+            "textAlign": "right",
+            "width": 30,
+          },
+        ]
+      }
+    >
+      41702
+    </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="CommentIconButton"
+    >
+      <View
+        hitSlop={
+          Object {
+            "bottom": 25,
+            "left": 25,
+            "right": 25,
+            "top": 25,
+          }
+        }
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <SvgMock />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`with subject person renders prayer request not liked 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+        "width": 80,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "lineHeight": 20,
+            "paddingRight": 10,
+            "textAlign": "right",
+            "width": 30,
+          },
+        ]
+      }
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="LikeIconButton"
+    >
+      <View
+        hitSlop={
+          Object {
+            "bottom": 25,
+            "left": 25,
+            "right": 25,
+            "top": 25,
+          }
+        }
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {
+              "height": 24,
+              "marginRight": 20,
+              "width": 24,
+            },
+            null,
+          ]
+        }
+      >
+        <SvgMock
+          color="#505256"
+        />
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+        "width": 40,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 14,
+            "lineHeight": 20,
+            "paddingRight": 10,
+            "textAlign": "right",
+            "width": 30,
+          },
+        ]
+      }
+    >
+      41702
+    </Text>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="CommentIconButton"
+    >
+      <View
+        hitSlop={
+          Object {
+            "bottom": 25,
+            "left": 25,
+            "right": 25,
+            "top": 25,
+          }
+        }
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+            },
+            null,
+            Object {},
+            null,
+          ]
+        }
+      >
+        <SvgMock />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`with subject person renders when not liked 1`] = `
 <View
   style={
