@@ -2,6 +2,7 @@
 
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
+import appsFlyer from 'react-native-appsflyer';
 
 import { AuthState } from '../../reducers/auth';
 import { navigatePush, navigateToMainTabs } from '../../actions/navigation';
@@ -229,6 +230,10 @@ export const onboardingFlowGenerator = ({
     CelebrationScreen,
     () => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
       dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
+      appsFlyer.trackEvent(
+        ACTIONS.ONBOARDING_COMPLETE.name,
+        ACTIONS.ONBOARDING_COMPLETE,
+      );
       dispatch(navigateToMainTabs());
     },
   ),
