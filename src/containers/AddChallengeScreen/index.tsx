@@ -35,9 +35,7 @@ const AddChallengeScreen = () => {
     details?: string;
   }) => void = useNavigationParam('onComplete');
   const challenge: ChallengeInterface = useNavigationParam('challenge');
-  const { id: communityId }: { id: string } = useNavigationParam(
-    'organization',
-  );
+  const communityId: string = useNavigationParam('communityId');
   const [title, changeTitle] = useState(isEdit ? challenge.title : '');
   const [detail, changeDetail] = useState(
     isEdit ? challenge.details_markdown : '',
