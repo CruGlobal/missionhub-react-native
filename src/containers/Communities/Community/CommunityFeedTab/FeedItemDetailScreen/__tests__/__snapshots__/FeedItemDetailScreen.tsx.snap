@@ -2726,36 +2726,72 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -281,17 +281,17 @@
-                      \\"paddingLeft\\": 20,
-                      \\"paddingRight\\": 16,
-                      \\"paddingVertical\\": 0,
+@@ -267,102 +267,31 @@
+                  \\"justifyContent\\": \\"flex-start\\",
+                  \\"paddingVertical\\": 8,
+                }
+              }
+            >
+-             <View
+-               style={
+-                 Array [
+-                   Object {
+-                     \\"alignItems\\": \\"center\\",
+-                     \\"borderRadius\\": 18,
+-                     \\"flexDirection\\": \\"row\\",
+-                     \\"height\\": 36,
+-                     \\"justifyContent\\": \\"space-between\\",
+-                     \\"paddingLeft\\": 20,
+-                     \\"paddingRight\\": 16,
+-                     \\"paddingVertical\\": 0,
+-                   },
+-                   Object {
+-                     \\"backgroundColor\\": \\"#505256\\",
+-                   },
+-                   null,
+-                   null,
+-                 ]
+-               }
+-               testID=\\"ANNOUNCEMENTLabel\\"
+-             >
+-               <SvgMock
+-                 color=\\"#ffffff\\"
+-                 height={20}
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"marginLeft\\": -10,
+-                       \\"marginRight\\": 10,
+-                     },
+-                     undefined,
+-                   ]
+-                 }
+-                 width={20}
+-               />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      \\"color\\": \\"#505256\\",
                     },
                     Object {
--                     \\"backgroundColor\\": \\"#505256\\",
-+                     \\"backgroundColor\\": \\"#00CA99\\",
+                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                     },
-                    null,
-                    null,
+                    Object {
+-                       \\"color\\": \\"#ffffff\\",
+-                       \\"fontSize\\": 14,
++                     \\"color\\": \\"#3CC8E6\\",
++                     \\"fontSize\\": 16,
++                     \\"fontWeight\\": \\"bold\\",
+                      \\"lineHeight\\": 20,
+                    },
                   ]
                 }
--               testID=\\"ANNOUNCEMENTLabel\\"
-+               testID=\\"ACCEPTED_COMMUNITY_CHALLENGELabel\\"
               >
-                <SvgMock
-                  color=\\"#ffffff\\"
-                  height={20}
-                  style={
-@@ -320,49 +320,14 @@
-                        \\"lineHeight\\": 20,
-                      },
-                    ]
-                  }
-                >
 -                 Announcement
-+                 Challenge
-                </Text>
-              </View>
++               Challenge Accepted!
+              </Text>
+-             </View>
 -             <View
 -               style={
 -                 Object {
@@ -2789,15 +2825,15 @@ exports[`refresh calls refreshComments 1`] = `
 -                 <SvgMock
 -                   color=\\"#505256\\"
 -                 />
+-               </View>
             </View>
--             </View>
 -           </View>
             <View
               style={
                 Object {
                   \\"flexDirection\\": \\"row\\",
                   \\"justifyContent\\": \\"flex-start\\",
-@@ -372,19 +337,25 @@
+@@ -372,19 +301,25 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2825,7 +2861,7 @@ exports[`refresh calls refreshComments 1`] = `
               <View
                 style={
                   Object {
-@@ -401,19 +372,27 @@
+@@ -401,19 +336,27 @@
                       Object {
                         \\"color\\": \\"#505256\\",
                       },
@@ -2854,7 +2890,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -435,11 +414,11 @@
+@@ -435,11 +378,11 @@
                       ],
                     ]
                   }
@@ -2867,12 +2903,14 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -448,50 +427,95 @@
+@@ -448,50 +391,63 @@
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 8,
               }
             }
           >
+-           <View
+-             style={Object {}}
 +           <Text
 +             style={
 +               Array [
@@ -2883,86 +2921,57 @@ exports[`refresh calls refreshComments 1`] = `
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                 },
 +                 Object {
-+                   \\"fontSize\\": 14,
++                   \\"fontSize\\": 16,
 +                   \\"justifyContent\\": \\"flex-start\\",
-+                   \\"lineHeight\\": 18,
++                   \\"lineHeight\\": 24,
 +                 },
 +               ]
 +             }
-+           >
+            >
 +             Richard B. completed a Challenge:
 +           </Text>
             <View
--             style={Object {}}
-+             style={
-+               Object {
-+                 \\"flexDirection\\": \\"row\\",
-+               }
-+             }
-            >
-              <View
-+               accessible={true}
-+               focusable={true}
-+               isTVSelectable={true}
-+               onClick={[Function bound touchableHandlePress]}
-+               onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+               onResponderMove={[Function bound touchableHandleResponderMove]}
-+               onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-                style={
-                  Object {
+              style={
+                Object {
 -                   \\"marginVertical\\": 10,
-+                   \\"opacity\\": 1,
-                  }
-+               }
-+               testID=\\"ChallengeLinkButton\\"
-+             >
-+               <View
-+                 style={
-+                   Array [
-+                     Object {
-+                       \\"backgroundColor\\": \\"transparent\\",
-+                     },
-+                     null,
-+                     Object {
-+                       \\"marginTop\\": 4,
-+                     },
-+                     null,
-+                   ]
-                  }
-                >
-                  <Text
-+                   numberOfLines={2}
-                    style={
-+                     Array [
-                        Object {
-                          \\"color\\": \\"#505256\\",
-+                       },
-+                       Object {
-                          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                       },
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-                          \\"fontSize\\": 14,
-+                         \\"fontWeight\\": \\"400\\",
-+                         \\"letterSpacing\\": 0,
-                          \\"lineHeight\\": 18,
++                 \\"flexDirection\\": \\"row\\",
+                }
+              }
+            >
+              <Text
++               numberOfLines={2}
+                style={
++                 Array [
+                    Object {
+                      \\"color\\": \\"#505256\\",
++                   },
++                   Object {
+                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                     \\"fontSize\\": 14,
+-                     \\"lineHeight\\": 18,
 -                   }
-+                         \\"textAlign\\": \\"left\\",
-+                       },
-+                     ]
-                    }
-                  >
++                   },
++                   Object {
++                     \\"fontSize\\": 16,
++                     \\"fontWeight\\": \\"400\\",
++                     \\"letterSpacing\\": 0,
++                     \\"lineHeight\\": 24,
++                     \\"marginBottom\\": 10,
++                     \\"textAlign\\": \\"left\\",
++                     \\"textDecorationColor\\": \\"#3CC8E6\\",
++                     \\"textDecorationLine\\": \\"underline\\",
++                   },
++                 ]
+                }
+              >
 -                 <Text>
 -                   corporis repellat ratione
-+                   libero aspernatur deserunt
-                  </Text>
++               libero aspernatur deserunt
+              </Text>
 -               </Text>
-                </View>
-              </View>
             </View>
+          </View>
+-         </View>
 -         <Image
 -           resizeMode=\\"cover\\"
 -           source={
@@ -2976,13 +2985,76 @@ exports[`refresh calls refreshComments 1`] = `
 -             }
 -           }
 -         />
-+         </View>
           <View
             style={
               Array [
                 Object {
                   \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -609,12 +633,11 @@
+@@ -519,11 +475,63 @@
+                \\"paddingHorizontal\\": 20,
+                \\"paddingVertical\\": 16,
+              }
+            }
+            testID=\\"FooterTouchable\\"
++         >
++           <View
++             accessible={true}
++             focusable={true}
++             isTVSelectable={true}
++             onClick={[Function bound touchableHandlePress]}
++             onResponderGrant={[Function bound touchableHandleResponderGrant]}
++             onResponderMove={[Function bound touchableHandleResponderMove]}
++             onResponderRelease={[Function bound touchableHandleResponderRelease]}
++             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             style={
++               Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"flex\\": 1,
++                 \\"flexDirection\\": \\"row\\",
++                 \\"opacity\\": 1,
++               }
++             }
++             testID=\\"ChallengeLinkButton\\"
++           >
++             <SvgMock
++               color=\\"#505256\\"
++               style={
++                 Object {
++                   \\"alignItems\\": \\"center\\",
++                   \\"height\\": 24,
++                   \\"justifyContent\\": \\"center\\",
++                   \\"width\\": 24,
++                 }
++               }
++             />
++             <Text
++               style={
++                 Array [
++                   Object {
++                     \\"color\\": \\"#505256\\",
++                   },
++                   Object {
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   },
++                   Object {
++                     \\"fontSize\\": 14,
++                     \\"lineHeight\\": 20,
++                     \\"paddingLeft\\": 12,
++                   },
++                 ]
++               }
+              >
++               View Challenge
++             </Text>
++           </View>
+            <View
+              style={
+                Object {
+                  \\"flex\\": 1,
+                  \\"justifyContent\\": \\"flex-end\\",
+@@ -609,12 +617,11 @@
                           null,
                         ]
                       }
@@ -2996,7 +3068,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -644,11 +667,11 @@
+@@ -644,11 +651,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -3009,7 +3081,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -713,29 +736,28 @@
+@@ -713,29 +720,28 @@
         >
           <CommentItem
             comment={
@@ -3047,7 +3119,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -746,29 +768,28 @@
+@@ -746,29 +752,28 @@
         >
           <CommentItem
             comment={
@@ -3085,7 +3157,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -788,22 +809,22 @@
+@@ -788,22 +793,22 @@
     >
       <Image
         resizeMode=\\"cover\\"

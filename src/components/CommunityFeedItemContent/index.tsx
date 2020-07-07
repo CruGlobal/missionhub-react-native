@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Markdown from 'react-native-markdown-renderer';
 
-import { Text, Button, Touchable } from '../common';
+import { Text, Touchable } from '../common';
 import { navigatePush } from '../../actions/navigation';
 import { reloadGroupChallengeFeed } from '../../actions/challenges';
 import { CHALLENGE_DETAIL_SCREEN } from '../../containers/ChallengeDetailScreen';
@@ -31,6 +31,7 @@ import { TouchablePress } from '../Touchable/index.ios';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 import PopupMenu from '../PopupMenu';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
+import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
 
 import {
@@ -102,7 +103,8 @@ export const CommunityFeedItemContent = ({
   const isGlobal = !community;
 
   const onPressChallengeLink = async () => {
-    const challengeId = subject.id;
+    const challengeId = (subject as CommunityFeedItemContent_subject_AcceptedCommunityChallenge)
+      .communityChallenge.id;
     const communityId = community ? community.id : GLOBAL_COMMUNITY_ID;
     await dispatch(reloadGroupChallengeFeed(communityId));
     dispatch(
@@ -218,26 +220,25 @@ export const CommunityFeedItemContent = ({
     subject: CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
   ) => (
     <View style={styles.row}>
-      <Button
-        testID="ChallengeLinkButton"
-        type="transparent"
-        onPress={onPressChallengeLink}
-        style={styles.challengeLinkButton}
-      >
-        <Text numberOfLines={2} style={styles.challengeLinkText}>
-          {subject.communityChallenge.title}
-        </Text>
-      </Button>
+      <Text numberOfLines={2} style={styles.challengeLinkText}>
+        {subject.communityChallenge.title}
+      </Text>
     </View>
   );
 
   const renderHeader = () => (
     <View style={styles.headerWrap}>
       <View style={styles.headerRow}>
-        <PostTypeLabel
-          type={itemType}
-          onPress={postLabelPressable ? navToFilteredFeed : undefined}
-        />
+        {subject.__typename === 'AcceptedCommunityChallenge' ? (
+          <Text style={styles.headerTextOnly}>
+            {t('challengeAcceptedHeader')}
+          </Text>
+        ) : (
+          <PostTypeLabel
+            type={itemType}
+            onPress={postLabelPressable ? navToFilteredFeed : undefined}
+          />
+        )}
         {menuActions && menuActions.length > 0 ? (
           <View style={styles.popupMenuWrap}>
             <PopupMenu
@@ -290,6 +291,9 @@ export const CommunityFeedItemContent = ({
       testID="FooterTouchable"
     >
       {addToSteps ? renderAddToStepsButton() : null}
+      {subject.__typename === 'AcceptedCommunityChallenge'
+        ? renderViewChallengeButton()
+        : null}
       <View style={styles.commentLikeWrap}>
         <CommentLikeComponent
           testID="CommentLikeComponent"
@@ -309,6 +313,16 @@ export const CommunityFeedItemContent = ({
       <StepIcon style={styles.stepIcon} />
       <PlusIcon style={styles.plusIcon} />
       <Text style={styles.addStepText}>{t('addToMySteps')}</Text>
+    </Touchable>
+  );
+  const renderViewChallengeButton = () => (
+    <Touchable
+      onPress={onPressChallengeLink}
+      style={styles.challengeLinkButton}
+      testID="ChallengeLinkButton"
+    >
+      <ChallengesTarget style={styles.challengeIcon} color={theme.grey} />
+      <Text style={styles.addStepText}>{t('viewChallenge')}</Text>
     </Touchable>
   );
 
