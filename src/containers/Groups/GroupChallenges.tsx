@@ -18,7 +18,7 @@ import { isAdminOrOwner } from '../../utils/common';
 import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { challengesSelector } from '../../selectors/challenges';
-import { navigatePush, navigateBack } from '../../actions/navigation';
+import { navigatePush } from '../../actions/navigation';
 import { refreshCommunity } from '../../actions/organizations';
 import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
@@ -88,7 +88,6 @@ const GroupChallenges = () => {
         organization: { id: communityId },
         onComplete: (challenge: ChallengeItem) => {
           dispatch(createChallenge(challenge, communityId));
-          dispatch(navigateBack());
         },
       }),
     );
