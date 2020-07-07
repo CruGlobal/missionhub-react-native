@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { connect } from 'react-redux-legacy';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
@@ -7,13 +7,10 @@ import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
-import {
-  trackActionWithoutData,
-  TrackStateContext,
-} from '../../actions/analytics';
+import { TrackStateContext } from '../../actions/analytics';
 import { getAnalyticsSectionType } from '../../utils/analytics';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ACTIONS, ANALYTICS_SECTION_TYPE } from '../../constants';
+import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';
 import { OnboardingState } from '../../reducers/onboarding';
@@ -37,10 +34,6 @@ const WelcomeScreen = ({
       [ANALYTICS_SECTION_TYPE]: analyticsSection,
     },
   });
-
-  useEffect(() => {
-    dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
-  }, [dispatch]);
 
   const navigateToNext = (signin = false) => {
     dispatch(next({ signin }));
