@@ -159,8 +159,6 @@ export const NotificationCenterItem = ({
             challengeId: screenData.challengeId,
           }),
         );
-      case NotificationTriggerEnum.feed_items_assigned_to_alert_step:
-        return;
       default:
         return dispatch(
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {

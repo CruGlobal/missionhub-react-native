@@ -13,6 +13,7 @@ import {
   navigateNestedReset,
   navigateToMainTabs,
   navigateToFeedItemComments,
+  navigateToCommunityFeed,
 } from '../navigation';
 import { MAIN_TABS, COMMUNITIES_TAB } from '../../constants';
 import { loadHome } from '../auth/userData';
@@ -222,6 +223,37 @@ describe('navigateToFeedItemComments', () => {
             params: {
               feedItemId,
             },
+          },
+        ],
+      },
+    ]);
+  });
+});
+
+describe('navigateToCommunityFeed', () => {
+  const communityId = '123456';
+
+  it('navigates to COMMUNITIES_TAB', () => {
+    store.dispatch<any>(navigateToCommunityFeed(communityId));
+
+    expect(store.getActions()).toEqual([
+      {
+        type: 'Navigation/RESET',
+        index: 1,
+        key: null,
+        actions: [
+          {
+            type: 'Navigation/NAVIGATE',
+            routeName: MAIN_TABS,
+            action: {
+              type: 'Navigation/NAVIGATE',
+              routeName: COMMUNITIES_TAB,
+            },
+          },
+          {
+            type: 'Navigation/NAVIGATE',
+            routeName: COMMUNITY_TABS,
+            params: { communityId },
           },
         ],
       },

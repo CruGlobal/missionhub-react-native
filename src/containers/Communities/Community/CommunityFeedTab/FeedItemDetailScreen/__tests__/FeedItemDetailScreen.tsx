@@ -10,11 +10,10 @@ import CommentsList from '../../../../../CommentsList';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
 import {
   navigateBack,
-  navigatePush,
+  navigateToCommunityFeed,
 } from '../../../../../../actions/navigation';
 import FeedItemDetailScreen from '../FeedItemDetailScreen';
 import FeedCommentBox from '../FeedCommentBox';
-import { COMMUNITY_TABS } from '../../../constants';
 import { PermissionEnum } from '../../../../../../../__generated__/globalTypes';
 
 jest.mock('../../../../../../utils/hooks/useKeyboardListeners');
@@ -49,7 +48,9 @@ beforeEach(() => {
     ({ onShow }: { onShow: () => void }) => (onShowKeyboard = onShow),
   );
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
-  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
+  (navigateToCommunityFeed as jest.Mock).mockReturnValue({
+    type: 'navigateToCommunityFeed',
+  });
 });
 
 it('renders loading', () => {
@@ -129,7 +130,7 @@ describe('nav on community name', () => {
     await flushMicrotasksQueue();
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
-    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, { communityId });
+    expect(navigateToCommunityFeed).toHaveBeenCalledWith(communityId);
   });
 });
 

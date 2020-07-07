@@ -8,7 +8,7 @@ import {
   getGroupChallengeFeed,
   createChallenge,
 } from '../../../actions/challenges';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { ORG_PERMISSIONS } from '../../../constants';
 import ChallengeFeed from '../../ChallengeFeed';
@@ -82,7 +82,6 @@ beforeEach(() => {
 
   (isAdminOrOwner as jest.Mock).mockReturnValue(false);
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
-  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigated back' });
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('admin');
 });
 
