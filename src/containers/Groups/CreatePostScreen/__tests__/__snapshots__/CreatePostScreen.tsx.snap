@@ -222,7 +222,7 @@ exports[`Select image should select an image 1`] = `
 -           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
-+               \\"height\\": 562.5,
++               \\"aspectRatio\\": 1.3333333333333333,
                 \\"width\\": 750,
               }
             }
@@ -1215,7 +1215,7 @@ exports[`renders correctly for update post with image 1`] = `
           }
           style={
             Object {
-              "height": 0,
+              "aspectRatio": 2,
               "width": 750,
             }
           }

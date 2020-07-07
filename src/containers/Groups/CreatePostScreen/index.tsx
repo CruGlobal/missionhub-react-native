@@ -1,6 +1,6 @@
 /* eslint max-lines: 0 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -42,6 +42,7 @@ import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
 } from '../../CommunityFeed/__generated__/GetCommunityFeed';
+import { useAspectRatio } from '../../../utils/hooks/useAspectRatio';
 
 import PhotoIcon from './photoIcon.svg';
 import VideoIcon from './videoIcon.svg';
@@ -88,7 +89,9 @@ export const CreatePostScreen = () => {
   const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
   );
-  const [mediaHeight, changeMediaHeight] = useState<number>(0);
+  const imageAspectRatio = useAspectRatio(
+    mediaType === 'image' ? mediaData : null,
+  );
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -171,28 +174,6 @@ export const CreatePostScreen = () => {
 
   const hasImage = mediaType?.includes('image');
   const hasVideo = mediaType?.includes('video');
-
-  const getMediaHeight = () => {
-    if (!mediaData) {
-      return changeMediaHeight(0);
-    }
-
-    if (hasImage) {
-      return Image.getSize(
-        mediaData,
-        (width, height) =>
-          changeMediaHeight((height * theme.fullWidth) / width),
-        () => {},
-      );
-    }
-    if (hasVideo) {
-      return changeMediaHeight(theme.fullHeight); //dimensions of video are full height and width of phone
-    }
-  };
-
-  useEffect(() => {
-    getMediaHeight();
-  }, [mediaData]);
 
   const savePost = async () => {
     if (!text) {
@@ -293,7 +274,7 @@ export const CreatePostScreen = () => {
     mediaData ? (
       <VideoPlayer
         uri={mediaData}
-        style={{ width: theme.fullWidth, height: mediaHeight }}
+        style={{ width: theme.fullWidth, height: theme.fullHeight }}
         onDelete={handleDeleteVideo}
       />
     ) : null;
@@ -304,7 +285,10 @@ export const CreatePostScreen = () => {
         <Image
           resizeMode="contain"
           source={{ uri: mediaData }}
-          style={{ width: theme.fullWidth, height: mediaHeight }}
+          style={{
+            width: theme.fullWidth,
+            aspectRatio: imageAspectRatio,
+          }}
         />
       </ImagePicker>
     ) : null;
