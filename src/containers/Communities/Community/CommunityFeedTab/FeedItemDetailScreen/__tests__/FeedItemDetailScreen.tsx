@@ -92,6 +92,36 @@ it('renders correctly', async () => {
   expect(navigateBack).not.toHaveBeenCalled();
 });
 
+it('renders correctly with communityId passed in', async () => {
+  const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+    initialState,
+    navParams: { feedItemId, communityId },
+    mocks: {
+      FeedItem: () => ({
+        subjectPerson: () => ({ id: personId }),
+        community: () => ({ id: communityId }),
+      }),
+    },
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId: undefined, communityId },
+    permissionType: { communityId },
+    triggerTracking: false,
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: true,
+  });
+  expect(navigateBack).not.toHaveBeenCalled();
+});
+
 describe('refresh', () => {
   it('calls refreshComments', async () => {
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(

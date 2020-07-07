@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import debounce from 'lodash.debounce';
 import { useDispatch } from 'react-redux';
 
+import { GLOBAL_COMMUNITY_ID } from '../../../../../constants';
 import CommentsList from '../../../../CommentsList';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
 import {
@@ -67,7 +68,7 @@ const FeedItemDetailScreen = () => {
   );
 
   const personId = data?.feedItem.subjectPerson?.id;
-  const communityId = navCommunityId ?? data?.feedItem.community?.id;
+  const communityId = navCommunityId || data?.feedItem.community?.id;
   const readyToTrack = !!(personId && communityId);
   useAnalytics(['post', 'detail'], {
     assignmentType: { personId, communityId },
@@ -138,7 +139,7 @@ const FeedItemDetailScreen = () => {
 
   const handleCommunityNamePress = () => {
     fromNotificationCenterItem
-      ? dispatch(navigateToCommunityFeed(communityId))
+      ? dispatch(navigateToCommunityFeed(communityId || GLOBAL_COMMUNITY_ID))
       : dispatch(navigateBack());
   };
 
