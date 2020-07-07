@@ -8,18 +8,10 @@ import PushNotification from 'react-native-push-notification';
 import { AccessToken } from 'react-native-fbsdk';
 
 import { REQUESTS } from '../../../api/routes';
-import { LOGOUT, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
-import {
-  SIGN_IN_FLOW,
-  GET_STARTED_ONBOARDING_FLOW,
-  ADD_SOMEONE_ONBOARDING_FLOW,
-} from '../../../routes/constants';
+import { LOGOUT } from '../../../constants';
+import { SIGN_IN_FLOW } from '../../../routes/constants';
 import { LANDING_SCREEN } from '../../../containers/LandingScreen';
-import {
-  logout,
-  navigateToPostAuthScreen,
-  handleInvalidAccessToken,
-} from '../auth';
+import { logout, handleInvalidAccessToken } from '../auth';
 import { getFeatureFlags } from '../../misc';
 import { refreshAccessToken } from '../key';
 import { refreshAnonymousLogin } from '../anonymous';
@@ -108,73 +100,6 @@ describe('logout', () => {
     expect(PushNotification.unregister).toHaveBeenCalled();
     // @ts-ignore
     expect(store.getActions()).toEqual([{ type: LOGOUT }, navigateResetResult]);
-  });
-});
-
-describe('navigateToPostAuthScreen', () => {
-  it("should navigate to get started if user's pathway_stage_id is missing", () => {
-    store = mockStore({
-      auth: {
-        person: {
-          user: {},
-        },
-      },
-    });
-
-    store.dispatch<any>(navigateToPostAuthScreen());
-
-    expect(startOnboarding).toHaveBeenCalledWith();
-    expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW);
-    expect(store.getActions()).toEqual([
-      startOnboardingResult,
-      navigateResetResult,
-    ]);
-  });
-
-  it('should navigate to main tabs if user has pathway_stage_id and contact assignments', () => {
-    store = mockStore({
-      auth: {
-        person: {
-          contact_assignments: [{ pathway_stage_id: '1' }],
-          user: {
-            pathway_stage_id: '1',
-          },
-        },
-      },
-    });
-
-    store.dispatch<any>(navigateToPostAuthScreen());
-
-    expect(navigateToMainTabs).toHaveBeenCalledWith();
-    expect(checkNotifications).toHaveBeenCalledWith(
-      NOTIFICATION_PROMPT_TYPES.LOGIN,
-    );
-    expect(store.getActions()).toEqual([
-      navigateToMainTabsResult,
-      checkNotificationsResult,
-    ]);
-  });
-
-  it('should navigate to add someone if user has pathway_stage_id and no contact assignments', () => {
-    store = mockStore({
-      auth: {
-        person: {
-          contact_assignments: [],
-          user: {
-            pathway_stage_id: '1',
-          },
-        },
-      },
-    });
-
-    store.dispatch<any>(navigateToPostAuthScreen());
-
-    expect(startOnboarding).toHaveBeenCalledWith();
-    expect(navigateReset).toHaveBeenCalledWith(ADD_SOMEONE_ONBOARDING_FLOW);
-    expect(store.getActions()).toEqual([
-      startOnboardingResult,
-      navigateResetResult,
-    ]);
   });
 });
 

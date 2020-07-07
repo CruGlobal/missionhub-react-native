@@ -2,67 +2,30 @@ import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { isAuthenticated } from '../utils/common';
-import {
-  ADD_SOMEONE_ONBOARDING_FLOW,
-  GET_STARTED_ONBOARDING_FLOW,
-} from '../routes/constants';
+import { GET_STARTED_ONBOARDING_FLOW } from '../routes/constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
-import { AuthState } from '../reducers/auth';
-import { OnboardingState } from '../reducers/onboarding';
-import { PeopleState, Person } from '../reducers/people';
-import { NotificationsState } from '../reducers/notifications';
+import { RootState } from '../reducers';
 import { RELOAD_APP, NOTIFICATION_PROMPT_TYPES } from '../constants';
 
 import { navigateReset, navigateToMainTabs } from './navigation';
 import { startOnboarding } from './onboarding';
 import { checkNotifications } from './notifications';
 
-export const resetToInitialRoute = () => (
-  dispatch: ThunkDispatch<
-    { auth: AuthState; notifications: NotificationsState },
-    {},
-    AnyAction
-  >,
-  getState: () => {
-    auth: AuthState;
-    onboarding: OnboardingState;
-    people: PeopleState;
-  },
+export const resetToInitialRoute = (preservePreviousScreen = false) => (
+  dispatch: ThunkDispatch<RootState, {}, AnyAction>,
+  getState: () => RootState,
 ) => {
-  dispatch({ type: RELOAD_APP });
+  !preservePreviousScreen && dispatch({ type: RELOAD_APP });
 
-  const { auth, onboarding, people } = getState();
-  if (auth && isAuthenticated(auth)) {
-    if (
-      onboarding.skippedAddingPerson ||
-      hasContactWithPathwayStage(auth.person.id, people)
-    ) {
-      dispatch(navigateToMainTabs());
-      return dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
-    }
+  const { auth } = getState();
 
-    dispatch(startOnboarding());
-    return dispatch(
-      navigateReset(
-        auth.person.user.pathway_stage_id
-          ? ADD_SOMEONE_ONBOARDING_FLOW
-          : GET_STARTED_ONBOARDING_FLOW,
-      ),
-    );
+  if (!isAuthenticated(auth)) {
+    return dispatch(navigateReset(LANDING_SCREEN));
   }
-
-  dispatch(navigateReset(LANDING_SCREEN));
+  if (!auth.person?.user?.pathway_stage_id) {
+    dispatch(startOnboarding());
+    return dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
+  }
+  dispatch(navigateToMainTabs());
+  return dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
 };
-
-function hasContactWithPathwayStage(myId: string, people: PeopleState) {
-  return Object.values(people.people).some(
-    (person: Person) =>
-      person.id !== myId &&
-      // @ts-ignore
-      person.reverse_contact_assignments.some(
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        (assignment: any) =>
-          assignment.assigned_to.id === myId && assignment.pathway_stage_id,
-      ),
-  );
-}
