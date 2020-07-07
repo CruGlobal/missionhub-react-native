@@ -507,31 +507,6 @@ describe('handleNotificationPress', () => {
       challengeId: mockChallengeNotification.screenData.challengeId,
     });
   });
-
-  it('does not navigate if notification is step', () => {
-    const { getByTestId } = renderWithContext(
-      <NotificationCenterItem
-        event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
-          mocks: {
-            Notification: () => ({
-              messageTemplate: () => '<<subject_person>> took a step of faith!',
-              trigger: () =>
-                NotificationTriggerEnum.feed_items_assigned_to_alert_step,
-              messageVariables: () => [
-                {
-                  key: 'subject_person',
-                  value: 'Christian',
-                },
-              ],
-            }),
-          },
-        })}
-      />,
-    );
-
-    fireEvent.press(getByTestId('notificationButton'));
-    expect(navigatePush).not.toHaveBeenCalled();
-  });
 });
 
 describe('ReportedNotificationItem', () => {
