@@ -3,7 +3,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import Markdown from 'react-native-markdown-renderer';
+import Markdown from 'react-native-markdown-display';
 
 import { Text, Touchable } from '../common';
 import { navigatePush } from '../../actions/navigation';

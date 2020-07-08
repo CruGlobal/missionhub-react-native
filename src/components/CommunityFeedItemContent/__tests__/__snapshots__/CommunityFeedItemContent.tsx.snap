@@ -2015,21 +2015,33 @@ Array [
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
+            "width": "100%",
           }
         }
       >
         <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 14,
-              "lineHeight": 18,
-            }
-          }
+          style={Object {}}
         >
-          <Text>
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
             quisquam recusandae alias
           </Text>
         </Text>
@@ -2480,21 +2492,33 @@ Array [
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
+            "width": "100%",
           }
         }
       >
         <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 14,
-              "lineHeight": 18,
-            }
-          }
+          style={Object {}}
         >
-          <Text>
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
             quisquam recusandae alias
           </Text>
         </Text>
@@ -3008,21 +3032,33 @@ Array [
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
+            "width": "100%",
           }
         }
       >
         <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 14,
-              "lineHeight": 18,
-            }
-          }
+          style={Object {}}
         >
-          <Text>
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
             quisquam recusandae alias
           </Text>
         </Text>
@@ -3472,21 +3508,33 @@ Array [
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
+            "width": "100%",
           }
         }
       >
         <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 14,
-              "lineHeight": 18,
-            }
-          }
+          style={Object {}}
         >
-          <Text>
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
             quisquam recusandae alias
           </Text>
         </Text>
@@ -7680,21 +7728,33 @@ Array [
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
+            "width": "100%",
           }
         }
       >
         <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 14,
-              "lineHeight": 18,
-            }
-          }
+          style={Object {}}
         >
-          <Text>
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
             quisquam recusandae alias
           </Text>
         </Text>
@@ -8116,21 +8176,33 @@ Array [
       <View
         style={
           Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
             "marginVertical": 10,
+            "width": "100%",
           }
         }
       >
         <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontFamily": "SourceSansPro-Regular",
-              "fontSize": 14,
-              "lineHeight": 18,
-            }
-          }
+          style={Object {}}
         >
-          <Text>
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
             quisquam recusandae alias
           </Text>
         </Text>
