@@ -946,8 +946,7 @@ exports[`with subject person renders prayer request liked 1`] = `
         }
       >
         <SvgMock
-          color="#FF5532"
-          fill="#FF5532"
+          color="#A97398"
         />
       </View>
     </View>

@@ -66,8 +66,10 @@ describe('with subject person', () => {
   it('renders prayer request liked', () => {
     render({
       FeedItem: () => ({
-        __typename: 'Post',
-        postType: PostTypeEnum.prayer_request,
+        subject: {
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+        },
         liked: true,
       }),
     }).snapshot();
@@ -76,8 +78,10 @@ describe('with subject person', () => {
   it('renders prayer request not liked', () => {
     render({
       FeedItem: () => ({
-        __typename: 'Post',
-        postType: PostTypeEnum.prayer_request,
+        subject: {
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+        },
         liked: false,
       }),
     }).snapshot();
