@@ -1,13 +1,36 @@
 import React from 'react';
+import { StyleProp, ViewStyle, View } from 'react-native';
 import Video from 'react-native-video';
 
-import { Flex } from '../common';
+import TrashIcon from '../../../assets/images/trashIcon.svg';
+import { Touchable } from '../common';
+import theme from '../../theme';
 
 import styles from './styles';
 
-const VideoPlayer = ({ uri }: { uri: string }) => {
+interface VideoPlayerProps {
+  uri: string;
+  style?: StyleProp<ViewStyle>;
+  onDelete?: () => void;
+}
+
+const VideoPlayer = ({ uri, style, onDelete }: VideoPlayerProps) => {
+  const renderDeleteButton = () =>
+    onDelete ? (
+      <View style={styles.deleteWrap}>
+        <Touchable
+          testID="DeleteButton"
+          onPress={onDelete}
+          type="transparent"
+          style={styles.deleteButton}
+        >
+          <TrashIcon color={theme.white} height={24} width={24} />
+        </Touchable>
+      </View>
+    ) : null;
+
   return (
-    <Flex style={styles.videoContainer}>
+    <View style={[styles.videoContainer, style]}>
       <Video
         source={{
           uri,
@@ -16,7 +39,9 @@ const VideoPlayer = ({ uri }: { uri: string }) => {
         paused={true}
         style={styles.videoPlayer}
       />
-    </Flex>
+      {renderDeleteButton()}
+    </View>
   );
 };
+
 export default VideoPlayer;

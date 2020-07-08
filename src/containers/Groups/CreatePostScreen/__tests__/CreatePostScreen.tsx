@@ -1,5 +1,7 @@
+/* eslint max-lines: 0 */
+
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
 import {
@@ -27,6 +29,7 @@ import { CreatePostScreen } from '..';
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');
+jest.mock('react-native-video', () => 'Video');
 
 const myId = '5';
 const navigatePushResult = { type: 'navigated push' };
@@ -43,6 +46,7 @@ const post = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT, {
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
 const MOCK_IMAGE = 'data:image/jpeg;base64,base64image.jpeg';
+const MOCK_VIDEO = 'file:/video.mov';
 
 const initialState = {
   auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
@@ -71,12 +75,17 @@ it('renders correctly for new post', () => {
   });
 });
 
-it('renders correctly for update post', () => {
+it('renders correctly for update post without media', () => {
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
       communityId,
-      post: { ...post, postType: PostTypeEnum.prayer_request },
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: undefined,
+        mediaExpiringUrl: undefined,
+      },
     },
   }).snapshot();
 
@@ -88,15 +97,48 @@ it('renders correctly for update post', () => {
   });
 });
 
-it('renders correctly on android', () => {
-  ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+it('renders correctly for update post with image', () => {
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
       communityId,
-      post: { ...post, postType: PostTypeEnum.prayer_request },
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: 'image/jpeg',
+        mediaExpiringUrl: MOCK_IMAGE,
+      },
     },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]: 'owner',
+      [ANALYTICS_EDIT_MODE]: 'update',
+    },
+  });
+});
+
+it('renders correctly for update post with video', () => {
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: {
+      communityId,
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: 'video',
+        mediaExpiringUrl: MOCK_VIDEO,
+      },
+    },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    screenContext: {
+      [ANALYTICS_PERMISSION_TYPE]: 'owner',
+      [ANALYTICS_EDIT_MODE]: 'update',
+    },
+  });
 });
 
 describe('renders for post types', () => {
@@ -169,6 +211,40 @@ describe('Select image', () => {
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
       data: MOCK_IMAGE,
     });
+
+    await flushMicrotasksQueue();
+
+    diffSnapshot();
+  });
+});
+
+describe('Select video', () => {
+  const onComplete = jest.fn();
+
+  it('should select a video', async () => {
+    (navigatePush as jest.Mock).mockImplementation(
+      (_, { onEndRecord }: { onEndRecord: (uri: string) => void }) => {
+        onEndRecord(MOCK_VIDEO);
+        return navigatePushResult;
+      },
+    );
+
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <CreatePostScreen />,
+      {
+        initialState,
+        navParams: {
+          onComplete,
+          communityId,
+          postType: PostTypeEnum.story,
+        },
+      },
+    );
+    recordSnapshot();
+
+    await fireEvent.press(getByTestId('VideoButton'));
+
+    await flushMicrotasksQueue();
 
     diffSnapshot();
   });

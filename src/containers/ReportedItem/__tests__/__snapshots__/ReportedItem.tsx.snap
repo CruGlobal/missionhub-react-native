@@ -110,7 +110,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -           ]
 -         }
 -       >
--         Stand-alone asymmetric service-desk
+-         Assimilated didactic challenge
 -       </Text>
 -     </View>
 -     <Text
@@ -225,7 +225,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -         resizeMode=\\"cover\\"
 -         source={
 -           Object {
--             \\"uri\\": \\"debitis et saepe\\",
+-             \\"uri\\": \\"eum dicta eum\\",
 -           }
 -         }
 -         style={
@@ -236,7 +236,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -               \\"width\\": 48,
 -             },
 -             Object {
--               \\"backgroundColor\\": \\"rgb(135, 155, 115)\\",
+-               \\"backgroundColor\\": \\"rgb(123, 167, 67)\\",
 -             },
 -             undefined,
 -           ]
@@ -347,7 +347,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -     resizeMode=\\"cover\\"
 -     source={
 -       Object {
--         \\"uri\\": \\"et ipsam explicabo\\",
+-         \\"uri\\": \\"eligendi occaecati debitis\\",
 -       }
 -     }
 -     style={
@@ -633,7 +633,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           ]
 -         }
 -       >
--         Stand-alone asymmetric service-desk
+-         Assimilated didactic challenge
 -       </Text>
 -     </View>
 -     <Text
@@ -748,7 +748,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         resizeMode=\\"cover\\"
 -         source={
 -           Object {
--             \\"uri\\": \\"debitis et saepe\\",
+-             \\"uri\\": \\"eum dicta eum\\",
 -           }
 -         }
 -         style={
@@ -759,7 +759,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               \\"width\\": 48,
 -             },
 -             Object {
--               \\"backgroundColor\\": \\"rgb(135, 155, 115)\\",
+-               \\"backgroundColor\\": \\"rgb(123, 167, 67)\\",
 -             },
 -             undefined,
 -           ]
@@ -870,7 +870,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -     resizeMode=\\"cover\\"
 -     source={
 -       Object {
--         \\"uri\\": \\"et ipsam explicabo\\",
+-         \\"uri\\": \\"eligendi occaecati debitis\\",
 -       }
 -     }
 -     style={

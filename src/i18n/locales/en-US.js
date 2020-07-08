@@ -869,6 +869,7 @@ export default {
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
     inputPlaceholder: 'Post to community...',
+    recordVideo: 'Record a 15-Second Video',
     postAsYou: 'Post as You',
     ownersAndAdmins: 'Post as Owner/Admin',
     addAPhoto: 'Add a Photo',
@@ -994,6 +995,20 @@ export default {
     respondedPostMessage: {
       delete: 'You have successfully deleted the post.',
       ignore: 'You have successfully ignored the post.',
+    },
+  },
+  recordVideo: {
+    cameraPermissions: {
+      title: 'Permission to use camera',
+      message: 'We need your permission to use your camera',
+      buttonPositive: 'Ok',
+      buttonNegative: 'Cancel',
+    },
+    audioPermissions: {
+      title: 'Permission to use audio recording',
+      message: 'We need your permission to use your audio',
+      buttonPositive: 'Ok',
+      buttonNegative: 'Cancel',
     },
   },
 };

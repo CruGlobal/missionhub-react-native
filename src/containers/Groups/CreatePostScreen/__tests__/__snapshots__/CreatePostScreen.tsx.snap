@@ -72,9 +72,9 @@ exports[`Creating a post user types a post 1`] = `
 +         value=\\"This is my cool story! 📘✏️\\"
         />
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}"
+          style={
+            Object {
+              \\"backgroundColor\\": \\"#ECEEF2\\","
 `;
 
 exports[`Select image should select an image 1`] = `
@@ -82,21 +82,97 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -286,63 +286,20 @@
+@@ -269,19 +269,10 @@
+          testID=\\"PostInput\\"
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+          value=\\"\\"
+        />
+        <View
+-         style={
+-           Object {
+-             \\"backgroundColor\\": \\"#ECEEF2\\",
+-             \\"height\\": 1,
+-             \\"width\\": 750,
+-           }
+-         }
+-       />
+-       <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function bound touchableHandlePress]}
+          onResponderGrant={[Function bound touchableHandleResponderGrant]}
+@@ -290,122 +281,28 @@
+          onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+          onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+          onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+          style={
+            Object {
+-             \\"flex\\": 1,
+-             \\"flexDirection\\": \\"row\\",
+-             \\"justifyContent\\": \\"flex-start\\",
               \\"opacity\\": 1,
+-             \\"paddingHorizontal\\": 35,
+-             \\"paddingVertical\\": 20,
+-           }
             }
-          }
-          testID=\\"popupMenuButton\\"
-        >
--         <View
+-         testID=\\"VideoButton\\"
+-       >
+-         <SvgMock
 -           style={
 -             Object {
--               \\"backgroundColor\\": \\"#ECEEF2\\",
--               \\"height\\": 1,
--               \\"width\\": 750,
--             }
+-               \\"height\\": 24,
+-               \\"width\\": 24,
+          }
 -           }
 -         />
+-         <Text
+-           style={
+-             Array [
+-               Object {
+-                 \\"color\\": \\"#505256\\",
+-               },
+-               Object {
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               },
+-               Object {
+-                 \\"fontSize\\": 16,
+-                 \\"lineHeight\\": 24,
+-                 \\"paddingHorizontal\\": 10,
+-               },
+-             ]
+-           }
+-         >
+-           Record a 15-Second Video
+-         </Text>
+-       </View>
+-       <View
+-         style={
+-           Object {
+-             \\"backgroundColor\\": \\"#ECEEF2\\",
+-             \\"height\\": 1,
+-             \\"width\\": 750,
+-           }
+-         }
+-       />
+-       <View
+-         accessible={true}
+-         focusable={true}
+-         isTVSelectable={true}
+-         onClick={[Function bound touchableHandlePress]}
+-         onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-         onResponderMove={[Function bound touchableHandleResponderMove]}
+-         onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         style={
+-           Object {
+-             \\"opacity\\": 1,
+-           }
+-         }
+          testID=\\"popupMenuButton\\"
+        >
 -         <View
 -           style={
 +         <Image
@@ -140,17 +216,203 @@ exports[`Select image should select an image 1`] = `
 -             Add a Photo
 -           </Text>
 -         </View>
--         <View
--           style={
--             Object {
--               \\"backgroundColor\\": \\"#ECEEF2\\",
--               \\"height\\": 1,
-+               \\"height\\": 0,
+-       </View>
+-       <View
+-         style={
+-           Object {
+-             \\"backgroundColor\\": \\"#ECEEF2\\",
+-             \\"height\\": 1,
++               \\"aspectRatio\\": 1.3333333333333333,
                 \\"width\\": 750,
               }
             }
           />
-        </View>"
++       </View>
+      </View>
+    </RCTScrollView>
+  </View>"
+`;
+
+exports[`Select video should select a video 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -270,77 +270,49 @@
+          underlineColorAndroid=\\"rgba(0,0,0,0)\\"
+          value=\\"\\"
+        />
+        <View
+          style={
++           Array [
+              Object {
+-             \\"backgroundColor\\": \\"#ECEEF2\\",
+-             \\"height\\": 1,
++               \\"flex\\": 1,
++               \\"height\\": 300,
++             },
++             Object {
++               \\"height\\": 1334,
+                \\"width\\": 750,
++             },
++           ]
+          }
+-         }
+-       />
+-       <View
+-         accessible={true}
+-         focusable={true}
+-         isTVSelectable={true}
+-         onClick={[Function bound touchableHandlePress]}
+-         onResponderGrant={[Function bound touchableHandleResponderGrant]}
+-         onResponderMove={[Function bound touchableHandleResponderMove]}
+-         onResponderRelease={[Function bound touchableHandleResponderRelease]}
+-         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+-         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         style={
++       >
++         <Video
++           controls={true}
++           paused={true}
++           source={
+              Object {
+-             \\"flex\\": 1,
+-             \\"flexDirection\\": \\"row\\",
+-             \\"justifyContent\\": \\"flex-start\\",
+-             \\"opacity\\": 1,
+-             \\"paddingHorizontal\\": 35,
+-             \\"paddingVertical\\": 20,
++               \\"uri\\": \\"file:/video.mov\\",
+              }
+            }
+-         testID=\\"VideoButton\\"
+-       >
+-         <SvgMock
+            style={
+              Object {
+-               \\"height\\": 24,
+-               \\"width\\": 24,
++               \\"bottom\\": 0,
++               \\"left\\": 0,
++               \\"position\\": \\"absolute\\",
++               \\"right\\": 0,
++               \\"top\\": 0,
+              }
+            }
+          />
+-         <Text
+-           style={
+-             Array [
+-               Object {
+-                 \\"color\\": \\"#505256\\",
+-               },
+-               Object {
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               },
+-               Object {
+-                 \\"fontSize\\": 16,
+-                 \\"lineHeight\\": 24,
+-                 \\"paddingHorizontal\\": 10,
+-               },
+-             ]
+-           }
+-         >
+-           Record a 15-Second Video
+-         </Text>
+-       </View>
+          <View
+            style={
+              Object {
+-             \\"backgroundColor\\": \\"#ECEEF2\\",
+-             \\"height\\": 1,
++               \\"alignItems\\": \\"flex-end\\",
++               \\"justifyContent\\": \\"flex-end\\",
+                \\"width\\": 750,
+              }
+            }
+-       />
++         >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function bound touchableHandlePress]}
+@@ -350,62 +322,28 @@
+              onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+              onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+              style={
+                Object {
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#FF5532\\",
++                 \\"borderRadius\\": 18,
++                 \\"height\\": 40,
++                 \\"justifyContent\\": \\"center\\",
++                 \\"margin\\": 16,
+                  \\"opacity\\": 1,
++                 \\"width\\": 40,
+                }
+              }
+-         testID=\\"popupMenuButton\\"
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"flex\\": 1,
+-               \\"flexDirection\\": \\"row\\",
+-               \\"justifyContent\\": \\"flex-start\\",
+-               \\"paddingHorizontal\\": 35,
+-               \\"paddingVertical\\": 20,
+-             }
+-           }
++             testID=\\"DeleteButton\\"
+            >
+              <SvgMock
+-             style={
+-               Object {
+-                 \\"height\\": 24,
+-                 \\"width\\": 24,
+-               }
+-             }
++               color=\\"#ffffff\\"
++               height={24}
++               width={24}
+              />
+-           <Text
+-             style={
+-               Array [
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                 },
+-                 Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 },
+-                 Object {
+-                   \\"fontSize\\": 16,
+-                   \\"lineHeight\\": 24,
+-                   \\"paddingHorizontal\\": 10,
+-                 },
+-               ]
+-             }
+-           >
+-             Add a Photo
+-           </Text>
+            </View>
+          </View>
+-       <View
+-         style={
+-           Object {
+-             \\"backgroundColor\\": \\"#ECEEF2\\",
+-             \\"height\\": 1,
+-             \\"width\\": 750,
+-           }
+-         }
+-       />
++       </View>
+      </View>
+    </RCTScrollView>
+  </View>"
 `;
 
 exports[`Updating a post user types a post 1`] = `
@@ -168,9 +430,9 @@ exports[`Updating a post user types a post 1`] = `
 +         value=\\"This is my cool story! 📘✏️\\"
         />
         <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}"
+          style={
+            Object {
+              \\"backgroundColor\\": \\"#ECEEF2\\","
 `;
 
 exports[`renders correctly for new post 1`] = `
@@ -447,6 +709,75 @@ exports[`renders correctly for new post 1`] = `
         value=""
       />
       <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -464,15 +795,6 @@ exports[`renders correctly for new post 1`] = `
         }
         testID="popupMenuButton"
       >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
         <View
           style={
             Object {
@@ -512,22 +834,22 @@ exports[`renders correctly for new post 1`] = `
             Add a Photo
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
 `;
 
-exports[`renders correctly for update post 1`] = `
+exports[`renders correctly for update post with image 1`] = `
 <View
   style={
     Object {
@@ -888,12 +1210,12 @@ exports[`renders correctly for update post 1`] = `
           resizeMode="contain"
           source={
             Object {
-              "uri": "repellat ratione ut",
+              "uri": "data:image/jpeg;base64,base64image.jpeg",
             }
           }
           style={
             Object {
-              "height": 0,
+              "aspectRatio": 2,
               "width": 750,
             }
           }
@@ -904,7 +1226,7 @@ exports[`renders correctly for update post 1`] = `
 </View>
 `;
 
-exports[`renders correctly on android 1`] = `
+exports[`renders correctly for update post with video 1`] = `
 <View
   style={
     Object {
@@ -1244,6 +1566,493 @@ exports[`renders correctly on android 1`] = `
         value="alias consequuntur corporis"
       />
       <View
+        style={
+          Array [
+            Object {
+              "flex": 1,
+              "height": 300,
+            },
+            Object {
+              "height": 1334,
+              "width": 750,
+            },
+          ]
+        }
+      >
+        <Video
+          controls={true}
+          paused={true}
+          source={
+            Object {
+              "uri": "file:/video.mov",
+            }
+          }
+          style={
+            Object {
+              "bottom": 0,
+              "left": 0,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "flex-end",
+              "justifyContent": "flex-end",
+              "width": 750,
+            }
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "#FF5532",
+                "borderRadius": 18,
+                "height": 40,
+                "justifyContent": "center",
+                "margin": 16,
+                "opacity": 1,
+                "width": 40,
+              }
+            }
+            testID="DeleteButton"
+          >
+            <SvgMock
+              color="#ffffff"
+              height={24}
+              width={24}
+            />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders correctly for update post without media 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+      "flexDirection": "column",
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          null,
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="BackButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "alignSelf": "flex-start",
+                    "justifyContent": "center",
+                  },
+                  Object {
+                    "paddingHorizontal": 10,
+                    "paddingTop": 0,
+                  },
+                ],
+                null,
+              ]
+            }
+          >
+            <SvgMock
+              color="#505256"
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+              },
+            ]
+          }
+        >
+          Prayer Request
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="CreatePostButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {
+                  "paddingHorizontal": 10,
+                  "paddingTop": 0,
+                },
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#3CC8E6",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <View
+    style={
+      Object {
+        "backgroundColor": "#ECEEF2",
+        "height": 1,
+        "width": 750,
+      }
+    }
+  />
+  <RCTScrollView
+    contentInset={
+      Object {
+        "bottom": 90,
+      }
+    }
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "marginTop": 26,
+            "paddingHorizontal": 35,
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "borderRadius": 18,
+                "flexDirection": "row",
+                "height": 36,
+                "justifyContent": "space-between",
+                "paddingLeft": 20,
+                "paddingRight": 16,
+                "paddingVertical": 0,
+              },
+              Object {
+                "backgroundColor": "#A97398",
+              },
+              null,
+              null,
+            ]
+          }
+          testID="PRAYER_REQUESTLabel"
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            Prayer Request
+          </Text>
+        </View>
+      </View>
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={true}
+        multiline={true}
+        onChangeText={[Function]}
+        placeholder="Share a prayer need..."
+        placeholderTextColor="#B4B6BA"
+        rejectResponderTermination={true}
+        scrollEnabled={false}
+        selectionColor="#52C5DC"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#B4B6BA",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "paddingBottom": 28,
+              "paddingHorizontal": 35,
+              "paddingTop": 20,
+            },
+          ]
+        }
+        testID="PostInput"
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value="alias consequuntur corporis"
+      />
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -1261,21 +2070,55 @@ exports[`renders correctly on android 1`] = `
         }
         testID="popupMenuButton"
       >
-        <Image
-          resizeMode="contain"
-          source={
-            Object {
-              "uri": "repellat ratione ut",
-            }
-          }
+        <View
           style={
             Object {
-              "height": 0,
-              "width": 750,
+              "flex": 1,
+              "flexDirection": "row",
+              "justifyContent": "flex-start",
+              "paddingHorizontal": 35,
+              "paddingVertical": 20,
             }
           }
-        />
+        >
+          <SvgMock
+            style={
+              Object {
+                "height": 24,
+                "width": 24,
+              }
+            }
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 16,
+                  "lineHeight": 24,
+                  "paddingHorizontal": 10,
+                },
+              ]
+            }
+          >
+            Add a Photo
+          </Text>
+        </View>
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
@@ -1555,6 +2398,75 @@ exports[`renders for post types renders for announcement 1`] = `
         value=""
       />
       <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -1572,15 +2484,6 @@ exports[`renders for post types renders for announcement 1`] = `
         }
         testID="popupMenuButton"
       >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
         <View
           style={
             Object {
@@ -1620,16 +2523,16 @@ exports[`renders for post types renders for announcement 1`] = `
             Add a Photo
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
@@ -1909,6 +2812,75 @@ exports[`renders for post types renders for help request 1`] = `
         value=""
       />
       <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -1926,15 +2898,6 @@ exports[`renders for post types renders for help request 1`] = `
         }
         testID="popupMenuButton"
       >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
         <View
           style={
             Object {
@@ -1974,16 +2937,16 @@ exports[`renders for post types renders for help request 1`] = `
             Add a Photo
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
@@ -2263,6 +3226,75 @@ exports[`renders for post types renders for prayer request 1`] = `
         value=""
       />
       <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -2280,15 +3312,6 @@ exports[`renders for post types renders for prayer request 1`] = `
         }
         testID="popupMenuButton"
       >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
         <View
           style={
             Object {
@@ -2328,16 +3351,16 @@ exports[`renders for post types renders for prayer request 1`] = `
             Add a Photo
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
@@ -2617,6 +3640,75 @@ exports[`renders for post types renders for spiritual question 1`] = `
         value=""
       />
       <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -2634,15 +3726,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
         }
         testID="popupMenuButton"
       >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
         <View
           style={
             Object {
@@ -2682,16 +3765,16 @@ exports[`renders for post types renders for spiritual question 1`] = `
             Add a Photo
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
@@ -2971,6 +4054,75 @@ exports[`renders for post types renders for story 1`] = `
         value=""
       />
       <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -2988,15 +4140,6 @@ exports[`renders for post types renders for story 1`] = `
         }
         testID="popupMenuButton"
       >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
         <View
           style={
             Object {
@@ -3036,16 +4179,16 @@ exports[`renders for post types renders for story 1`] = `
             Add a Photo
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>
@@ -3325,6 +4468,75 @@ exports[`renders for post types renders for thought 1`] = `
         value=""
       />
       <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "flex": 1,
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "opacity": 1,
+            "paddingHorizontal": 35,
+            "paddingVertical": 20,
+          }
+        }
+        testID="VideoButton"
+      >
+        <SvgMock
+          style={
+            Object {
+              "height": 24,
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 16,
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              },
+            ]
+          }
+        >
+          Record a 15-Second Video
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
+      <View
         accessible={true}
         focusable={true}
         isTVSelectable={true}
@@ -3342,15 +4554,6 @@ exports[`renders for post types renders for thought 1`] = `
         }
         testID="popupMenuButton"
       >
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
         <View
           style={
             Object {
@@ -3390,16 +4593,16 @@ exports[`renders for post types renders for thought 1`] = `
             Add a Photo
           </Text>
         </View>
-        <View
-          style={
-            Object {
-              "backgroundColor": "#ECEEF2",
-              "height": 1,
-              "width": 750,
-            }
-          }
-        />
       </View>
+      <View
+        style={
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+            "width": 750,
+          }
+        }
+      />
     </View>
   </RCTScrollView>
 </View>

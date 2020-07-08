@@ -5,10 +5,121 @@ exports[`renders correctly 1`] = `
   style={
     Array [
       Object {
+        "flex": 1,
         "height": 300,
-        "width": "100%",
       },
-      Object {},
+      undefined,
+    ]
+  }
+>
+  <Video
+    controls={true}
+    paused={true}
+    source={
+      Object {
+        "uri": "testVideo.mp4",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders with delete button 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "height": 300,
+      },
+      Object {
+        "height": 1000,
+      },
+    ]
+  }
+>
+  <Video
+    controls={true}
+    paused={true}
+    source={
+      Object {
+        "uri": "testVideo.mp4",
+      }
+    }
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "flex-end",
+        "justifyContent": "flex-end",
+        "width": 750,
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "#FF5532",
+          "borderRadius": 18,
+          "height": 40,
+          "justifyContent": "center",
+          "margin": 16,
+          "opacity": 1,
+          "width": 40,
+        }
+      }
+      testID="DeleteButton"
+    >
+      <SvgMock
+        color="#ffffff"
+        height={24}
+        width={24}
+      />
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders with style 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 1,
+        "height": 300,
+      },
+      Object {
+        "height": 1000,
+      },
     ]
   }
 >

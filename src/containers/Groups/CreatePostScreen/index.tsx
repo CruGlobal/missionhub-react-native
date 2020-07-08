@@ -1,4 +1,6 @@
-import React, { useState, useMemo } from 'react';
+/* eslint max-lines: 0 */
+
+import React, { useState } from 'react';
 import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
@@ -15,12 +17,14 @@ import {
   getAnalyticsPermissionType,
   getPostTypeAnalytics,
 } from '../../../utils/analytics';
-import { Input, Text, Button } from '../../../components/common';
+import { Input, Text, Button, Touchable } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
+import VideoPlayer from '../../../components/VideoPlayer';
+import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
 import { AuthState } from '../../../reducers/auth';
@@ -29,7 +33,7 @@ import {
   trackActionWithoutData,
   TrackStateContext,
 } from '../../../actions/analytics';
-import { navigateBack } from '../../../actions/navigation';
+import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
@@ -38,8 +42,10 @@ import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
 } from '../../CommunityFeed/__generated__/GetCommunityFeed';
+import { useAspectRatio } from '../../../utils/hooks/useAspectRatio';
 
-import CameraIcon from './cameraIcon.svg';
+import PhotoIcon from './photoIcon.svg';
+import VideoIcon from './videoIcon.svg';
 import SendIcon from './sendIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
@@ -47,6 +53,7 @@ import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
+type MediaType = 'image' | 'video' | null;
 
 interface CreatePostScreenParams {
   onComplete: () => void;
@@ -62,8 +69,6 @@ export type CreatePostScreenNavParams =
   | CreatePostNavParams
   | UpdatePostNavParams;
 
-const EMPTY_IMAGE_URI = '/media/original/missing.png';
-
 export const CreatePostScreen = () => {
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
@@ -78,10 +83,15 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [imageData, changeImageData] = useState<string | null>(
+  const [mediaType, changeMediaType] = useState<MediaType>(
+    (post?.mediaContentType || null) as MediaType,
+  );
+  const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
   );
-  const [imageHeight, changeImageHeight] = useState<number>(0);
+  const imageAspectRatio = useAspectRatio(
+    mediaType === 'image' ? mediaData : null,
+  );
 
   const analyticsPermissionType = useSelector<
     { auth: AuthState },
@@ -162,6 +172,9 @@ export const CreatePostScreen = () => {
     UpdatePostVariables
   >(UPDATE_POST);
 
+  const hasImage = mediaType?.includes('image');
+  const hasVideo = mediaType?.includes('video');
+
   const savePost = async () => {
     if (!text) {
       return;
@@ -175,14 +188,22 @@ export const CreatePostScreen = () => {
           input: {
             id: post.id,
             content: text,
-            media: imageData === post.mediaExpiringUrl ? undefined : imageData,
+            media:
+              hasImage && mediaData !== post.mediaExpiringUrl
+                ? mediaData
+                : undefined,
           },
         },
       });
     } else {
       await createPost({
         variables: {
-          input: { content: text, communityId, postType, media: imageData },
+          input: {
+            content: text,
+            communityId,
+            postType,
+            media: hasImage ? mediaData : null,
+          },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
@@ -191,20 +212,26 @@ export const CreatePostScreen = () => {
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = ({ data }: SelectImageParams) =>
-    changeImageData(data);
+  const handleSavePhoto = (image: SelectImageParams) => {
+    changeMediaType('image');
+    changeMediaData(image.data);
+  };
 
-  useMemo(() => {
-    if (!imageData) {
-      return changeImageHeight(0);
-    }
+  const handleSaveVideo = (uri: string) => {
+    changeMediaType('video');
+    changeMediaData(uri);
+  };
 
-    Image.getSize(
-      imageData,
-      (width, height) => changeImageHeight((height * theme.fullWidth) / width),
-      () => {},
+  const navigateToRecordVideo = () => {
+    dispatch(
+      navigatePush(RECORD_VIDEO_SCREEN, { onEndRecord: handleSaveVideo }),
     );
-  }, [imageData]);
+  };
+
+  const handleDeleteVideo = () => {
+    changeMediaType(null);
+    changeMediaData(null);
+  };
 
   const renderSendButton = () =>
     text ? (
@@ -243,31 +270,57 @@ export const CreatePostScreen = () => {
     />
   );
 
-  const renderAddPhotoButton = () => (
-    <ImagePicker
-      //@ts-ignore
-      testID="ImagePicker"
-      onSelectImage={handleSavePhoto}
-      showCropper={false}
-    >
-      {imageData && !(imageData === EMPTY_IMAGE_URI) ? (
+  const renderVideo = () =>
+    mediaData ? (
+      <VideoPlayer
+        uri={mediaData}
+        style={{ width: theme.fullWidth, height: theme.fullHeight }}
+        onDelete={handleDeleteVideo}
+      />
+    ) : null;
+
+  const renderImage = () =>
+    mediaData ? (
+      <ImagePicker onSelectImage={handleSavePhoto}>
         <Image
           resizeMode="contain"
-          source={{ uri: imageData }}
-          style={{ width: theme.fullWidth, height: imageHeight }}
+          source={{ uri: mediaData }}
+          style={{
+            width: theme.fullWidth,
+            aspectRatio: imageAspectRatio,
+          }}
         />
-      ) : (
-        <>
-          <View style={styles.lineBreak} />
-          <View style={styles.addPhotoButton}>
-            <CameraIcon style={styles.icon} />
-            <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
-          </View>
-          <View style={styles.lineBreak} />
-        </>
-      )}
-    </ImagePicker>
+      </ImagePicker>
+    ) : null;
+
+  const renderVideoPhotoButtons = () => (
+    <>
+      <View style={styles.lineBreak} />
+      <Touchable
+        testID="VideoButton"
+        style={styles.addPhotoButton}
+        onPress={navigateToRecordVideo}
+      >
+        <VideoIcon style={styles.icon} />
+        <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
+      </Touchable>
+      <View style={styles.lineBreak} />
+      <ImagePicker onSelectImage={handleSavePhoto}>
+        <View style={styles.addPhotoButton}>
+          <PhotoIcon style={styles.icon} />
+          <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
+        </View>
+      </ImagePicker>
+      <View style={styles.lineBreak} />
+    </>
   );
+
+  const renderMedia = () =>
+    hasImage
+      ? renderImage()
+      : hasVideo
+      ? renderVideo()
+      : renderVideoPhotoButtons();
 
   return (
     <View style={styles.container}>
@@ -301,7 +354,7 @@ export const CreatePostScreen = () => {
           placeholderTextColor={theme.lightGrey}
           style={styles.textInput}
         />
-        {renderAddPhotoButton()}
+        {renderMedia()}
       </ScrollView>
     </View>
   );
