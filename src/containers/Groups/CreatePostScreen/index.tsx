@@ -6,6 +6,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
+import { ReactNativeFile } from 'apollo-upload-client';
 
 import {
   ACTIONS,
@@ -53,7 +54,6 @@ import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-type MediaType = 'image' | 'video' | null;
 
 interface CreatePostScreenParams {
   onComplete: () => void;
@@ -83,8 +83,8 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [mediaType, changeMediaType] = useState<MediaType>(
-    (post?.mediaContentType || null) as MediaType,
+  const [mediaType, changeMediaType] = useState<string | null>(
+    post?.mediaContentType || null,
   );
   const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
@@ -172,8 +172,8 @@ export const CreatePostScreen = () => {
     UpdatePostVariables
   >(UPDATE_POST);
 
-  const hasImage = mediaType?.includes('image');
-  const hasVideo = mediaType?.includes('video');
+  const hasImage = mediaData && mediaType?.includes('image');
+  const hasVideo = mediaData && mediaType?.includes('video');
 
   const savePost = async () => {
     if (!text) {
@@ -182,16 +182,22 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
+    const media: string | ReactNativeFile | undefined =
+      mediaData === post?.mediaExpiringUrl
+        ? undefined
+        : hasImage
+        ? mediaData
+        : hasVideo
+        ? new ReactNativeFile({ uri: mediaData })
+        : undefined;
+
     if (post) {
       await updatePost({
         variables: {
           input: {
             id: post.id,
             content: text,
-            media:
-              hasImage && mediaData !== post.mediaExpiringUrl
-                ? mediaData
-                : undefined,
+            media,
           },
         },
       });
@@ -202,7 +208,7 @@ export const CreatePostScreen = () => {
             content: text,
             communityId,
             postType,
-            media: hasImage ? mediaData : null,
+            media,
           },
         },
       });
