@@ -2,7 +2,7 @@ import React from 'react';
 import { StatusBar, View, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import Markdown from 'react-native-markdown-renderer';
+import Markdown from 'react-native-markdown-display';
 import { ScrollView } from 'react-native';
 
 import Header from '../Header/index';

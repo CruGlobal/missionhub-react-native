@@ -270,7 +270,11 @@ export const CreatePostScreen = () => {
         error={errorUpdatePost}
         refetch={savePost}
       />
-      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentInset={{ bottom: 90 }}
+        keyboardShouldPersistTaps="handled"
+      >
         <View style={styles.postLabelRow}>
           <PostTypeLabel type={mapPostTypeToFeedType(postType)} />
         </View>

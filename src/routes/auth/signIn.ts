@@ -1,11 +1,11 @@
 import { createStackNavigator } from 'react-navigation-stack';
 
-import { navigateToPostAuthScreen } from '../../actions/auth/auth';
+import { resetToInitialRoute } from '../../actions/navigationInit';
 
 import { authFlowGenerator } from './authFlowGenerator';
 
 export const SignInFlowScreens = authFlowGenerator({
-  completeAction: navigateToPostAuthScreen(),
+  completeAction: resetToInitialRoute(true),
   includeSignUp: false,
 });
 

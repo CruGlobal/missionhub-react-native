@@ -473,21 +473,33 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   alias consequuntur corporis
                 </Text>
               </Text>
@@ -1371,21 +1383,33 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   alias consequuntur corporis
                 </Text>
               </Text>
@@ -2236,21 +2260,33 @@ exports[`edit/delete post no options for not my post 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   alias consequuntur corporis
                 </Text>
               </Text>
@@ -2726,12 +2762,15 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -267,102 +267,31 @@
+@@ -264,128 +264,63 @@
+              style={
+                Object {
+                  \\"flexDirection\\": \\"row\\",
                   \\"justifyContent\\": \\"flex-start\\",
                   \\"paddingVertical\\": 8,
+-               }
                 }
-              }
-            >
+-           >
 -             <View
 -               style={
 -                 Array [
@@ -2751,9 +2790,9 @@ exports[`refresh calls refreshComments 1`] = `
 -                   null,
 -                   null,
 -                 ]
--               }
+              }
 -               testID=\\"ANNOUNCEMENTLabel\\"
--             >
+            >
 -               <SvgMock
 -                 color=\\"#ffffff\\"
 -                 height={20}
@@ -2791,10 +2830,10 @@ exports[`refresh calls refreshComments 1`] = `
 -                 Announcement
 +               Challenge Accepted!
               </Text>
--             </View>
--             <View
--               style={
--                 Object {
+            </View>
+            <View
+              style={
+                Object {
 -                   \\"alignItems\\": \\"flex-end\\",
 -                   \\"flex\\": 1,
 -                   \\"justifyContent\\": \\"center\\",
@@ -2826,14 +2865,16 @@ exports[`refresh calls refreshComments 1`] = `
 -                   color=\\"#505256\\"
 -                 />
 -               </View>
-            </View>
+-             </View>
 -           </View>
-            <View
-              style={
-                Object {
+-           <View
+-             style={
+-               Object {
                   \\"flexDirection\\": \\"row\\",
                   \\"justifyContent\\": \\"flex-start\\",
-@@ -372,19 +301,25 @@
+                  \\"paddingVertical\\": 8,
+                }
+              }
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2849,7 +2890,6 @@ exports[`refresh calls refreshComments 1`] = `
                       \\"borderRadius\\": 24,
                       \\"height\\": 48,
                       \\"width\\": 48,
--                 }
 +                   },
 +                   Object {
 +                     \\"backgroundColor\\": \\"rgb(159, 161, 130)\\",
@@ -2857,10 +2897,12 @@ exports[`refresh calls refreshComments 1`] = `
 +                   undefined,
 +                 ]
                 }
+-               }
               />
               <View
                 style={
                   Object {
+                    \\"alignItems\\": \\"flex-start\\",
 @@ -401,19 +336,27 @@
                       Object {
                         \\"color\\": \\"#505256\\",
@@ -2903,7 +2945,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -448,50 +391,63 @@
+@@ -448,62 +391,63 @@
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 8,
               }
@@ -2933,23 +2975,32 @@ exports[`refresh calls refreshComments 1`] = `
             <View
               style={
                 Object {
+-                   \\"alignItems\\": \\"flex-start\\",
+                  \\"flexDirection\\": \\"row\\",
+-                   \\"flexWrap\\": \\"wrap\\",
+-                   \\"justifyContent\\": \\"flex-start\\",
+-                   \\"marginBottom\\": 10,
+-                   \\"marginTop\\": 10,
 -                   \\"marginVertical\\": 10,
-+                 \\"flexDirection\\": \\"row\\",
+-                   \\"width\\": \\"100%\\",
                 }
               }
             >
               <Text
+-                 style={Object {}}
+-               >
+-                 <Text
 +               numberOfLines={2}
                 style={
-+                 Array [
+                  Array [
+-                       Object {},
                     Object {
                       \\"color\\": \\"#505256\\",
 +                   },
 +                   Object {
                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                     \\"fontSize\\": 14,
--                     \\"lineHeight\\": 18,
--                   }
+-                         \\"fontSize\\": 14,
+-                         \\"lineHeight\\": 18,
 +                   },
 +                   Object {
 +                     \\"fontSize\\": 16,
@@ -2960,18 +3011,17 @@ exports[`refresh calls refreshComments 1`] = `
 +                     \\"textAlign\\": \\"left\\",
 +                     \\"textDecorationColor\\": \\"#3CC8E6\\",
 +                     \\"textDecorationLine\\": \\"underline\\",
-+                   },
-+                 ]
+                    },
+                  ]
                 }
               >
--                 <Text>
 -                   corporis repellat ratione
 +               libero aspernatur deserunt
               </Text>
 -               </Text>
+-             </View>
             </View>
           </View>
--         </View>
 -         <Image
 -           resizeMode=\\"cover\\"
 -           source={
@@ -2990,7 +3040,7 @@ exports[`refresh calls refreshComments 1`] = `
               Array [
                 Object {
                   \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -519,11 +475,63 @@
+@@ -531,11 +475,63 @@
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 16,
               }
@@ -3054,7 +3104,7 @@ exports[`refresh calls refreshComments 1`] = `
                 Object {
                   \\"flex\\": 1,
                   \\"justifyContent\\": \\"flex-end\\",
-@@ -609,12 +617,11 @@
+@@ -621,12 +617,11 @@
                           null,
                         ]
                       }
@@ -3068,7 +3118,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -644,11 +651,11 @@
+@@ -656,11 +651,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -3081,7 +3131,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -713,29 +720,28 @@
+@@ -725,29 +720,28 @@
         >
           <CommentItem
             comment={
@@ -3119,7 +3169,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -746,29 +752,28 @@
+@@ -758,29 +752,28 @@
         >
           <CommentItem
             comment={
@@ -3157,7 +3207,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -788,22 +793,22 @@
+@@ -800,22 +793,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3622,21 +3672,33 @@ exports[`renders correctly 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   alias consequuntur corporis
                 </Text>
               </Text>
@@ -4485,21 +4547,33 @@ exports[`renders correctly with communityId passed in 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   alias consequuntur corporis
                 </Text>
               </Text>

@@ -62,7 +62,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -266,11 +310,11 @@
+@@ -267,11 +311,11 @@
               },
             ]
           }
@@ -82,7 +82,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -286,63 +286,20 @@
+@@ -287,63 +287,20 @@
               \\"opacity\\": 1,
             }
           }
@@ -158,7 +158,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -332,11 +332,11 @@
+@@ -333,11 +333,11 @@
               },
             ]
           }
@@ -333,6 +333,7 @@ exports[`renders correctly for new post 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -753,6 +754,7 @@ exports[`renders correctly for update post 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -1130,6 +1132,7 @@ exports[`renders correctly on android 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -1441,6 +1444,7 @@ exports[`renders for post types renders for announcement 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -1795,6 +1799,7 @@ exports[`renders for post types renders for help request 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -2149,6 +2154,7 @@ exports[`renders for post types renders for prayer request 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -2503,6 +2509,7 @@ exports[`renders for post types renders for spiritual question 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -2857,6 +2864,7 @@ exports[`renders for post types renders for story 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -3211,6 +3219,7 @@ exports[`renders for post types renders for thought 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,

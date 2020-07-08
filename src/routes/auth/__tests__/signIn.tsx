@@ -5,21 +5,22 @@ import thunk from 'redux-thunk';
 import { SignInFlowScreens } from '../signIn';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-// @ts-ignore
-import { innerNavigateToPostAuthScreen } from '../../../actions/auth/auth'; //eslint-disable-line import/named
 import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
 import { MFA_CODE_SCREEN } from '../../../containers/Auth/MFACodeScreen';
-
-jest.mock('../../../actions/auth/auth', () => ({
-  get navigateToPostAuthScreen() {
-    // @ts-ignore
-    return () => this.innerNavigateToPostAuthScreen;
-  },
-  innerNavigateToPostAuthScreen: jest.fn(),
-}));
-jest.mock('../../../actions/navigation');
 // @ts-ignore
-navigatePush.mockReturnValue(() => {});
+import { innerResetToInitialRoute } from '../../../actions/navigationInit';
+
+jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/navigationInit', () => {
+  const innerResetToInitialRoute = jest.fn(() => ({
+    type: 'resetToInitialRoute',
+  }));
+  return {
+    resetToInitialRoute: jest.fn(() => innerResetToInitialRoute),
+    innerResetToInitialRoute,
+  };
+});
+(navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 
 const store = configureStore([thunk])();
 
@@ -44,7 +45,7 @@ describe('SignInScreen next', () => {
         .props.next(),
     );
 
-    expect(innerNavigateToPostAuthScreen).toHaveBeenCalled();
+    expect(innerResetToInitialRoute).toHaveBeenCalled();
   });
   it('should navigate to mfa code screen', async () => {
     const Component = SignInFlowScreens[SIGN_IN_SCREEN].screen;
@@ -67,7 +68,7 @@ describe('SignInScreen next', () => {
         }),
     );
 
-    expect(innerNavigateToPostAuthScreen).not.toHaveBeenCalled();
+    expect(innerResetToInitialRoute).not.toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(MFA_CODE_SCREEN, {
       email,
       password,
@@ -92,6 +93,6 @@ describe('MFACodeScreen next', () => {
         .props.next(),
     );
 
-    expect(innerNavigateToPostAuthScreen).toHaveBeenCalled();
+    expect(innerResetToInitialRoute).toHaveBeenCalled();
   });
 });
