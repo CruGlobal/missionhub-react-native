@@ -42,7 +42,6 @@ import { configureNotificationHandler } from './actions/notifications';
 import { PlatformKeyboardAvoidingView } from './components/common';
 import { setupFirebaseDynamicLinks } from './actions/deepLink';
 import theme from './theme';
-import { navigateToPostAuthScreen } from './actions/auth/auth';
 import { getFeatureFlags } from './actions/misc';
 import { createApolloClient } from './apolloClient';
 
@@ -103,7 +102,7 @@ export default class App extends Component {
           // If we successfully logged in with the user's guest code, clear it out now
           DefaultPreference.clear(key);
           // @ts-ignore
-          store.dispatch(navigateToPostAuthScreen());
+          store.dispatch(resetToInitialRoute(true));
         } catch (e) {
           // This happens when there is a problem with the code from the API call
           // We don't want to clear out the key here
