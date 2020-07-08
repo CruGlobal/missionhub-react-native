@@ -4,7 +4,10 @@ import MockDate from 'mockdate';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../../testUtils';
-import { ORG_PERMISSIONS } from '../../../../../../constants';
+import {
+  ORG_PERMISSIONS,
+  GLOBAL_COMMUNITY_ID,
+} from '../../../../../../constants';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
@@ -150,8 +153,9 @@ describe('nav on community name', () => {
     await flushMicrotasksQueue();
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
-    expect(navigateBack).toHaveBeenCalled();
+    expect(navigateBack).toHaveBeenCalledWith();
   });
+
   it('goes to community tabs', async () => {
     const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
@@ -161,6 +165,22 @@ describe('nav on community name', () => {
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
     expect(navigateToCommunityFeed).toHaveBeenCalledWith(communityId);
+  });
+
+  it('goes to global community tabs', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, fromNotificationCenterItem: true },
+      mocks: {
+        FeedItem: () => ({
+          community: () => null,
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigateToCommunityFeed).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
   });
 });
 
