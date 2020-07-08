@@ -25,6 +25,7 @@
   "rules": {
     "strict": 0,
     "no-console": 2,
+    "no-debugger": "error",
     "no-case-declarations": 0,
     "import/order": [
       2,
