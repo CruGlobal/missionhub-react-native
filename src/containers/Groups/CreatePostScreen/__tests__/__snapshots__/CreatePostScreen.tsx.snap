@@ -62,7 +62,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -266,11 +310,11 @@
+@@ -267,11 +311,11 @@
               },
             ]
           }
@@ -82,7 +82,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -269,19 +269,10 @@
+@@ -270,19 +270,10 @@
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -102,7 +102,7 @@ exports[`Select image should select an image 1`] = `
           isTVSelectable={true}
           onClick={[Function bound touchableHandlePress]}
           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-@@ -290,122 +281,28 @@
+@@ -291,122 +282,28 @@
           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
@@ -238,7 +238,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -270,77 +270,49 @@
+@@ -271,77 +271,49 @@
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
         />
@@ -338,7 +338,7 @@ exports[`Select video should select a video 1`] = `
               focusable={true}
               isTVSelectable={true}
               onClick={[Function bound touchableHandlePress]}
-@@ -350,62 +322,28 @@
+@@ -351,62 +323,28 @@
               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
@@ -420,7 +420,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -332,11 +332,11 @@
+@@ -333,11 +333,11 @@
               },
             ]
           }
@@ -595,6 +595,7 @@ exports[`renders correctly for new post 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -1075,6 +1076,7 @@ exports[`renders correctly for update post with image 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -1452,6 +1454,7 @@ exports[`renders correctly for update post with video 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -1870,6 +1873,7 @@ exports[`renders correctly for update post without media 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -2284,6 +2288,7 @@ exports[`renders for post types renders for announcement 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -2698,6 +2703,7 @@ exports[`renders for post types renders for help request 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -3112,6 +3118,7 @@ exports[`renders for post types renders for prayer request 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -3526,6 +3533,7 @@ exports[`renders for post types renders for spiritual question 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -3940,6 +3948,7 @@ exports[`renders for post types renders for story 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,
@@ -4354,6 +4363,7 @@ exports[`renders for post types renders for thought 1`] = `
         "bottom": 90,
       }
     }
+    keyboardShouldPersistTaps="handled"
     style={
       Object {
         "flex": 1,

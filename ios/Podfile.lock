@@ -3,7 +3,7 @@ PODS:
   - AppsFlyerFramework (5.1.0)
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
-  - CodePush (5.7.0):
+  - CodePush (6.2.1):
     - Base64 (~> 1.1)
     - JWT (~> 3.0.0-beta.7)
     - React
@@ -31,53 +31,50 @@ PODS:
     - FBSDKShareKit/Share (= 5.8.0)
   - FBSDKShareKit/Share (5.8.0):
     - FBSDKCoreKit (~> 5.0)
-  - Firebase/Core (6.13.0):
+  - Firebase/Analytics (6.27.1):
+    - Firebase/Core
+  - Firebase/Core (6.27.1):
     - Firebase/CoreOnly
-    - FirebaseAnalytics (= 6.1.6)
-  - Firebase/CoreOnly (6.13.0):
-    - FirebaseCore (= 6.4.0)
-  - Firebase/DynamicLinks (6.13.0):
+    - FirebaseAnalytics (= 6.6.2)
+  - Firebase/CoreOnly (6.27.1):
+    - FirebaseCore (= 6.8.1)
+  - Firebase/DynamicLinks (6.27.1):
     - Firebase/CoreOnly
-    - FirebaseDynamicLinks (~> 4.0.5)
-  - Firebase/Performance (6.13.0):
+    - FirebaseDynamicLinks (~> 4.1.0)
+  - Firebase/Performance (6.27.1):
     - Firebase/CoreOnly
-    - FirebasePerformance (~> 3.1.7)
-  - FirebaseABTesting (3.2.0):
-    - FirebaseAnalyticsInterop (~> 1.3)
-    - FirebaseCore (~> 6.1)
+    - FirebasePerformance (~> 3.1.11)
+  - FirebaseABTesting (3.3.0):
+    - FirebaseCore (~> 6.8)
     - Protobuf (>= 3.9.2, ~> 3.9)
-  - FirebaseAnalytics (6.1.6):
-    - FirebaseCore (~> 6.4)
-    - FirebaseInstanceID (~> 4.2)
-    - GoogleAppMeasurement (= 6.1.6)
+  - FirebaseAnalytics (6.6.2):
+    - FirebaseCore (~> 6.8)
+    - FirebaseInstallations (~> 1.4)
+    - GoogleAppMeasurement (= 6.6.2)
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (= 0.3.9011)
-  - FirebaseAnalyticsInterop (1.5.0)
-  - FirebaseCore (6.4.0):
-    - FirebaseCoreDiagnostics (~> 1.0)
-    - FirebaseCoreDiagnosticsInterop (~> 1.0)
-    - GoogleUtilities/Environment (~> 6.2)
-    - GoogleUtilities/Logger (~> 6.2)
-  - FirebaseCoreDiagnostics (1.2.4):
-    - FirebaseCoreDiagnosticsInterop (~> 1.2)
-    - GoogleDataTransportCCTSupport (~> 3.0)
+    - nanopb (~> 1.30905.0)
+  - FirebaseCore (6.8.1):
+    - FirebaseCoreDiagnostics (~> 1.3)
     - GoogleUtilities/Environment (~> 6.5)
     - GoogleUtilities/Logger (~> 6.5)
-    - nanopb (~> 0.3.901)
-  - FirebaseCoreDiagnosticsInterop (1.2.0)
-  - FirebaseDynamicLinks (4.0.8):
-    - FirebaseAnalyticsInterop (~> 1.3)
-    - FirebaseCore (~> 6.2)
-  - FirebaseInstanceID (4.2.7):
-    - FirebaseCore (~> 6.0)
-    - GoogleUtilities/Environment (~> 6.0)
-    - GoogleUtilities/UserDefaults (~> 6.0)
-  - FirebasePerformance (3.1.7):
-    - FirebaseCore (~> 6.4)
-    - FirebaseInstanceID (~> 4.2)
+  - FirebaseCoreDiagnostics (1.4.0):
+    - GoogleDataTransportCCTSupport (~> 3.1)
+    - GoogleUtilities/Environment (~> 6.5)
+    - GoogleUtilities/Logger (~> 6.5)
+    - nanopb (~> 1.30905.0)
+  - FirebaseDynamicLinks (4.1.0):
+    - FirebaseCore (~> 6.8)
+  - FirebaseInstallations (1.4.0):
+    - FirebaseCore (~> 6.8)
+    - GoogleUtilities/Environment (~> 6.6)
+    - GoogleUtilities/UserDefaults (~> 6.6)
+    - PromisesObjC (~> 1.2)
+  - FirebasePerformance (3.1.11):
+    - FirebaseCore (~> 6.6)
+    - FirebaseInstallations (~> 1.1)
     - FirebaseRemoteConfig (~> 4.4)
     - GoogleToolboxForMac/Logger (~> 2.1)
     - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
@@ -86,14 +83,12 @@ PODS:
     - GoogleUtilities/MethodSwizzler (~> 6.2)
     - GTMSessionFetcher/Core (~> 1.1)
     - Protobuf (~> 3.9)
-  - FirebaseRemoteConfig (4.4.9):
+  - FirebaseRemoteConfig (4.6.0):
     - FirebaseABTesting (~> 3.1)
-    - FirebaseAnalyticsInterop (~> 1.4)
-    - FirebaseCore (~> 6.2)
-    - FirebaseInstanceID (~> 4.2)
+    - FirebaseCore (~> 6.8)
+    - FirebaseInstallations (~> 1.1)
     - GoogleUtilities/Environment (~> 6.2)
     - "GoogleUtilities/NSData+zlib (~> 6.2)"
-    - Protobuf (>= 3.9.2, ~> 3.9)
   - Folly (2018.10.22.00):
     - boost-for-react-native
     - DoubleConversion
@@ -104,16 +99,16 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - GoogleAppMeasurement (6.1.6):
+  - GoogleAppMeasurement (6.6.2):
     - GoogleUtilities/AppDelegateSwizzler (~> 6.0)
     - GoogleUtilities/MethodSwizzler (~> 6.0)
     - GoogleUtilities/Network (~> 6.0)
     - "GoogleUtilities/NSData+zlib (~> 6.0)"
-    - nanopb (= 0.3.9011)
-  - GoogleDataTransport (6.1.0)
-  - GoogleDataTransportCCTSupport (3.0.0):
-    - GoogleDataTransport (~> 6.0)
-    - nanopb (~> 0.3.901)
+    - nanopb (~> 1.30905.0)
+  - GoogleDataTransport (6.2.1)
+  - GoogleDataTransportCCTSupport (3.2.0):
+    - GoogleDataTransport (~> 6.1)
+    - nanopb (~> 1.30905.0)
   - GoogleToolboxForMac/Defines (2.2.2)
   - GoogleToolboxForMac/Logger (2.2.2):
     - GoogleToolboxForMac/Defines (= 2.2.2)
@@ -142,13 +137,13 @@ PODS:
   - GTMSessionFetcher/Core (1.4.0)
   - JWT (3.0.0-beta.12):
     - Base64 (~> 1.1.2)
-  - nanopb (0.3.9011):
-    - nanopb/decode (= 0.3.9011)
-    - nanopb/encode (= 0.3.9011)
-  - nanopb/decode (0.3.9011)
-  - nanopb/encode (0.3.9011)
-  - PromisesObjC (1.2.8)
-  - Protobuf (3.11.4)
+  - nanopb (1.30905.0):
+    - nanopb/decode (= 1.30905.0)
+    - nanopb/encode (= 1.30905.0)
+  - nanopb/decode (1.30905.0)
+  - nanopb/encode (1.30905.0)
+  - PromisesObjC (1.2.9)
+  - Protobuf (3.12.0)
   - QBImagePickerController (3.4.0)
   - RCTRequired (0.61.2)
   - RCTTypeSafety (0.61.2):
@@ -348,10 +343,10 @@ PODS:
   - react-native-fbsdk/Share (1.1.2):
     - FBSDKShareKit (= 5.8)
     - React
-  - react-native-video (4.4.5):
+  - react-native-video (5.0.2):
     - React
-    - react-native-video/Video (= 4.4.5)
-  - react-native-video/Video (4.4.5):
+    - react-native-video/Video (= 5.0.2)
+  - react-native-video/Video (5.0.2):
     - React
   - React-RCTActionSheet (0.61.2):
     - React-Core/RCTActionSheetHeaders (= 0.61.2)
@@ -394,17 +389,16 @@ PODS:
     - React
   - RNDeviceInfo (5.3.0):
     - React
-  - RNFBApp (6.3.4):
-    - Firebase/Core (~> 6.13.0)
+  - RNFBApp (8.1.0):
+    - Firebase/CoreOnly (~> 6.27.0)
     - React
-  - RNFBDynamicLinks (6.3.4):
-    - Firebase/Core (~> 6.13.0)
-    - Firebase/DynamicLinks (~> 6.13.0)
+  - RNFBDynamicLinks (7.3.1):
+    - Firebase/Analytics (~> 6.27.0)
+    - Firebase/DynamicLinks (~> 6.27.0)
     - React
     - RNFBApp
-  - RNFBPerf (6.3.4):
-    - Firebase/Core (~> 6.13.0)
-    - Firebase/Performance (~> 6.13.0)
+  - RNFBPerf (7.2.1):
+    - Firebase/Performance (~> 6.27.0)
     - React
     - RNFBApp
   - RNGestureHandler (1.6.1):
@@ -498,12 +492,10 @@ SPEC REPOS:
     - Firebase
     - FirebaseABTesting
     - FirebaseAnalytics
-    - FirebaseAnalyticsInterop
     - FirebaseCore
     - FirebaseCoreDiagnostics
-    - FirebaseCoreDiagnosticsInterop
     - FirebaseDynamicLinks
-    - FirebaseInstanceID
+    - FirebaseInstallations
     - FirebasePerformance
     - FirebaseRemoteConfig
     - GoogleAppMeasurement
@@ -620,36 +612,34 @@ SPEC CHECKSUMS:
   AppsFlyerFramework: b5e6d0d1718c445eeb151769e97246c00ae4628d
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  CodePush: d2e54ad42df82a8db65b2d23d8191b950ba945e1
+  CodePush: 3968d9e97ed70a1c8b029266dd5b6aa69cee4b0a
   DoubleConversion: 5805e889d232975c086db112ece9ed034df7a0b2
   FBLazyVector: 68b6a76960fbd8ecd9fb7ce0aadd3329c3340a99
   FBReactNativeSpec: 5a764c60abdc3336a213e5310c40b74741f32839
   FBSDKCoreKit: e7dcac0aabcfb09d0166998edd95fe3b05a0ce5d
   FBSDKLoginKit: 1b0cf04df0370b37404213157b060d6666ede814
   FBSDKShareKit: abc29e1bb4f9f59f679adf1ae191006d68455f96
-  Firebase: 458d109512200d1aca2e1b9b6cf7d68a869a4a46
-  FirebaseABTesting: 821a3a3e4a145987e80fee3657c4de1cb9adf693
-  FirebaseAnalytics: 45f36d9c429fc91d206283900ab75390cd05ee8a
-  FirebaseAnalyticsInterop: 3f86269c38ae41f47afeb43ebf32a001f58fcdae
-  FirebaseCore: 307ea2508df730c5865334e41965bd9ea344b0e5
-  FirebaseCoreDiagnostics: b59c024493a409f8aecba02c99928d0d8431d159
-  FirebaseCoreDiagnosticsInterop: 296e2c5f5314500a850ad0b83e9e7c10b011a850
-  FirebaseDynamicLinks: 417dc6dbb6013233c77558290d73296f429656a6
-  FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
-  FirebasePerformance: 22273a775eaed4cd3e072c9b88396a5e4b285c3f
-  FirebaseRemoteConfig: 47abf7a04a9082091955ea555aa79cfdd249b19c
+  Firebase: 919186c8e119dd9372a45fd1dd17a8a942bc1892
+  FirebaseABTesting: b7f8b6c8c9398e98bb30c4195f697b5b73a330d0
+  FirebaseAnalytics: 5fa308e1b13f838d0f6dc74719ac2a72e8c5afc4
+  FirebaseCore: 8cd4f8ea22075e0ee582849b1cf79d8816506085
+  FirebaseCoreDiagnostics: 4505e4d4009b1d93f605088ee7d7764d5f0d1c84
+  FirebaseDynamicLinks: 50cff91aff05347770be750dde61d3311ff7ffc8
+  FirebaseInstallations: 293f567159b6d66d1c990f13bb868066096c94ec
+  FirebasePerformance: 5652d2004001e886da6dca04f478c695f87c4702
+  FirebaseRemoteConfig: 63ae9d14848e645c7f070daa6af89265be48f803
   Folly: 30e7936e1c45c08d884aa59369ed951a8e68cf51
   glog: 1f3da668190260b06b429bb211bfbee5cd790c28
-  GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
-  GoogleDataTransport: f6f8eba931df03ebd2232ff4645aa85f8f47b5ab
-  GoogleDataTransportCCTSupport: 0f39025e8cf51f168711bd3fb773938d7e62ddb5
+  GoogleAppMeasurement: 8cd1f289d60e629cf16ab03363b9e89c776b9651
+  GoogleDataTransport: 9a8a16f79feffc7f42096743de2a7c4815e84020
+  GoogleDataTransportCCTSupport: 489c1265d2c85b68187a83a911913d190012158d
   GoogleToolboxForMac: 800648f8b3127618c1b59c7f97684427630c5ea3
   GoogleUtilities: 39530bc0ad980530298e9c4af8549e991fd033b1
   GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   JWT: 9b5c05abbcc1a0e69c3c91e1655b3387fc7e581d
-  nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
-  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
-  Protobuf: 176220c526ad8bd09ab1fb40a978eac3fef665f7
+  nanopb: c43f40fadfe79e8b8db116583945847910cbabc9
+  PromisesObjC: b48e0338dbbac2207e611750777895f7a5811b75
+  Protobuf: 2793fcd0622a00b546c60e7cbbcc493e043e9bb9
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RCTRequired: c639d59ed389cfb1f1203f65c2ea946d8ec586e2
   RCTTypeSafety: dc23fb655d6c77667c78e327bf661bc11e3b8aec
@@ -664,7 +654,7 @@ SPEC CHECKSUMS:
   react-native-camera: 6d47390c89812306baa37b88508a1f110b4a9794
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
   react-native-fbsdk: c35d42169e64aaf66f01713c1e18d0674f7f6519
-  react-native-video: eee541262ada11bc7ffe8ec5508e6a877937c462
+  react-native-video: d01ed7ff1e38fa7dcc6c15c94cf505e661b7bfd0
   React-RCTActionSheet: 89b037c0fb7d2671607cb645760164e7e0c013f6
   React-RCTAnimation: e3cefa93c38c004c318f7ec04b883eb14b8b8235
   React-RCTBlob: d26ac0e313fbf14e7203473fd593ccaaeee8329e
@@ -678,9 +668,9 @@ SPEC CHECKSUMS:
   ReactCommon: 5848032ed2f274fcb40f6b9ec24067787c42d479
   RNDefaultPreference: 628cb35719f2fe4111c000ccfa7e186400bbc47e
   RNDeviceInfo: f245326b5b61b80db7e9cbc9de6c75688572a4e0
-  RNFBApp: 7d4006751de8bb5cafa2e8d2e7d94ee250df81db
-  RNFBDynamicLinks: e0d320b2bd02dee6ed1f0a7d8deecdf3469db461
-  RNFBPerf: d5c9efa43b61bdcff5ac949932055b5e5a5c132f
+  RNFBApp: 5d3900b676c2d07a20afc5a7075caff109cf8520
+  RNFBDynamicLinks: 5c2ee93e59a89fae161680b632e34e1bb657fa7f
+  RNFBPerf: 722f29a818667116665e21e6ae88ffa7aac6150e
   RNGestureHandler: 8f09cd560f8d533eb36da5a6c5a843af9f056b38
   RNImageCropPicker: 0a731d984e64ee4c28bddaa7ce52262e4b80979f
   RNLocalize: 07eb7a91d10021cdf59d80061ebf3adb8a5b5688
@@ -694,6 +684,6 @@ SPEC CHECKSUMS:
   SSZipArchive: 62d4947b08730e4cda640473b0066d209ff033c9
   Yoga: 14927e37bd25376d216b150ab2a561773d57911f
 
-PODFILE CHECKSUM: 71fd416ec27fe85e8d618bb841d10d252e07d719
+PODFILE CHECKSUM: 3608c92f8c7ebbb435f697c924c380f6083d33ae
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.9.1

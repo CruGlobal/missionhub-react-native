@@ -42,10 +42,10 @@ exports[`Reported Post call handleDelete 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
--       }
 +       \\"justifyContent\\": \\"center\\",
 +       \\"marginTop\\": \\"50%\\",
       }
+-     }
 -   >
 -     <View
 -       style={
@@ -75,6 +75,24 @@ exports[`Reported Post call handleDelete 1`] = `
 -         Reported By
 -         :
 -       </Text>
+-       <Text
+-         numberOfLines={1}
+-         style={
+-           Array [
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-             Object {
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             },
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-           ]
+-         }
+-       >
+-         Roscoe Johnson
+-       </Text>
 +   <SvgMock />
     <Text
 -         numberOfLines={1}
@@ -89,24 +107,6 @@ exports[`Reported Post call handleDelete 1`] = `
 -             Object {
 -               \\"color\\": \\"#505256\\",
           },
--           ]
--         }
--       >
--         Roscoe Johnson
--       </Text>
--       <Text
--         numberOfLines={1}
--         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
 -           ]
 -         }
 -       >
@@ -162,14 +162,14 @@ exports[`Reported Post call handleDelete 1`] = `
 -               \\"paddingLeft\\": 20,
 -               \\"paddingRight\\": 16,
 -               \\"paddingVertical\\": 0,
+-             },
+-             Object {
+-               \\"backgroundColor\\": \\"#FD726D\\",
 +           \\"fontSize\\": 24,
 +           \\"fontWeight\\": \\"300\\",
 +           \\"lineHeight\\": 30,
 +           \\"paddingVertical\\": 20,
           },
--             Object {
--               \\"backgroundColor\\": \\"#FD726D\\",
--             },
 -             null,
 -             null,
         ]
@@ -322,21 +322,33 @@ exports[`Reported Post call handleDelete 1`] = `
 -       <View
 -         style={
 -           Object {
+-             \\"alignItems\\": \\"flex-start\\",
+-             \\"flexDirection\\": \\"row\\",
+-             \\"flexWrap\\": \\"wrap\\",
+-             \\"justifyContent\\": \\"flex-start\\",
+-             \\"marginBottom\\": 10,
+-             \\"marginTop\\": 10,
 -             \\"marginVertical\\": 10,
+-             \\"width\\": \\"100%\\",
 -           }
 -         }
 -       >
 -         <Text
--           style={
--             Object {
--               \\"color\\": \\"#505256\\",
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               \\"fontSize\\": 14,
--               \\"lineHeight\\": 18,
--             }
--           }
+-           style={Object {}}
 -         >
--           <Text>
+-           <Text
+-             style={
+-               Array [
+-                 Object {},
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontSize\\": 14,
+-                   \\"lineHeight\\": 18,
+-                 },
+-               ]
+-             }
+-           >
 -             et porro ut
 -           </Text>
 -         </Text>
@@ -440,8 +452,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -             }
 -           >
 -             IGNORE
-+     You have successfully deleted the post.
-    </Text>
+-           </Text>
 -         </View>
 -       </View>
 -     </View>
@@ -515,7 +526,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -             }
 -           >
 -             DELETE
--           </Text>
++     You have successfully deleted the post.
+    </Text>
 -         </View>
 -       </View>
 -     </View>
@@ -565,10 +577,10 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
--       }
 +       \\"justifyContent\\": \\"center\\",
 +       \\"marginTop\\": \\"50%\\",
       }
+-     }
 -   >
 -     <View
 -       style={
@@ -598,6 +610,24 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         Reported By
 -         :
 -       </Text>
+-       <Text
+-         numberOfLines={1}
+-         style={
+-           Array [
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-             Object {
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             },
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-           ]
+-         }
+-       >
+-         Roscoe Johnson
+-       </Text>
 +   <SvgMock />
     <Text
 -         numberOfLines={1}
@@ -612,24 +642,6 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             Object {
 -               \\"color\\": \\"#505256\\",
           },
--           ]
--         }
--       >
--         Roscoe Johnson
--       </Text>
--       <Text
--         numberOfLines={1}
--         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
 -           ]
 -         }
 -       >
@@ -685,14 +697,14 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               \\"paddingLeft\\": 20,
 -               \\"paddingRight\\": 16,
 -               \\"paddingVertical\\": 0,
+-             },
+-             Object {
+-               \\"backgroundColor\\": \\"#FD726D\\",
 +           \\"fontSize\\": 24,
 +           \\"fontWeight\\": \\"300\\",
 +           \\"lineHeight\\": 30,
 +           \\"paddingVertical\\": 20,
           },
--             Object {
--               \\"backgroundColor\\": \\"#FD726D\\",
--             },
 -             null,
 -             null,
         ]
@@ -845,21 +857,33 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       <View
 -         style={
 -           Object {
+-             \\"alignItems\\": \\"flex-start\\",
+-             \\"flexDirection\\": \\"row\\",
+-             \\"flexWrap\\": \\"wrap\\",
+-             \\"justifyContent\\": \\"flex-start\\",
+-             \\"marginBottom\\": 10,
+-             \\"marginTop\\": 10,
 -             \\"marginVertical\\": 10,
+-             \\"width\\": \\"100%\\",
 -           }
 -         }
 -       >
 -         <Text
--           style={
--             Object {
--               \\"color\\": \\"#505256\\",
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               \\"fontSize\\": 14,
--               \\"lineHeight\\": 18,
--             }
--           }
+-           style={Object {}}
 -         >
--           <Text>
+-           <Text
+-             style={
+-               Array [
+-                 Object {},
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontSize\\": 14,
+-                   \\"lineHeight\\": 18,
+-                 },
+-               ]
+-             }
+-           >
 -             et porro ut
 -           </Text>
 -         </Text>
@@ -963,8 +987,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             }
 -           >
 -             IGNORE
-+     You have successfully ignored the post.
-    </Text>
+-           </Text>
 -         </View>
 -       </View>
 -     </View>
@@ -1038,7 +1061,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             }
 -           >
 -             DELETE
--           </Text>
++     You have successfully ignored the post.
+    </Text>
 -         </View>
 -       </View>
 -     </View>

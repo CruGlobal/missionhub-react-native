@@ -96,7 +96,7 @@ export default StyleSheet.create({
     backgroundColor: theme.impactBlue,
     paddingTop: 20,
     paddingHorizontal: 15,
-    flex: 0.8,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-evenly',
@@ -117,16 +117,12 @@ export default StyleSheet.create({
     marginRight: 3,
     fontWeight: 'bold',
   },
-  finalCardContainer: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
+
   gotItButton: {
     width: theme.fullWidth - 100,
     height: 48,
-    marginVertical: 20,
+    marginVertical: 15,
+    marginHorizontal: 30,
   },
   gotItText: {
     color: theme.white,
