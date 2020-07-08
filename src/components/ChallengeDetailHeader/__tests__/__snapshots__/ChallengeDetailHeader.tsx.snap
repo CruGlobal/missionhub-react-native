@@ -292,21 +292,33 @@ exports[`render for active challenge 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 24,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                      },
+                    ]
+                  }
+                >
                   Add details to your Challenge (optional)
                 </Text>
               </Text>
@@ -611,21 +623,33 @@ exports[`render for past challenge 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 24,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                      },
+                    ]
+                  }
+                >
                   Add details to your Challenge (optional)
                 </Text>
               </Text>
@@ -1226,21 +1250,33 @@ exports[`renders with details 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 24,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                      },
+                    ]
+                  }
+                >
                   Super cool details
                 </Text>
               </Text>
