@@ -282,21 +282,33 @@ exports[`post renders with post 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 ut sunt qui
               </Text>
             </Text>
@@ -444,22 +456,34 @@ exports[`post renders with post 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 24,
-                    "paddingBottom": 20,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 20,
+                      },
+                    ]
+                  }
+                >
                   debitis incidunt accusantium
                 </Text>
               </Text>
@@ -776,21 +800,33 @@ exports[`post renders without post 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 consequuntur corporis repellat
               </Text>
             </Text>
@@ -1351,21 +1387,33 @@ exports[`with challenge suggestion renders correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 consequuntur corporis repellat
               </Text>
             </Text>
@@ -1659,21 +1707,33 @@ exports[`without challenge suggestion renders correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 consequuntur corporis repellat
               </Text>
             </Text>
