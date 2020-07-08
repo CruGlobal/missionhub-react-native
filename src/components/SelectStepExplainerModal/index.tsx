@@ -143,22 +143,8 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
                   </View>
                 )}
                 <View style={[{ flex: 0.9 }, styles.textWrap]}>
-                  {text && !stepType && activeIndex !== lastPageIndex && (
+                  {text && !stepType && (
                     <Text style={[styles.text, styles.textOnly]}>{text}</Text>
-                  )}
-                  {text && !stepType && activeIndex === lastPageIndex && (
-                    <View style={styles.finalCardContainer}>
-                      <Text style={[styles.text, styles.textOnly]}>{text}</Text>
-                      <Button
-                        testID="SelectStepExplainerGotItButton"
-                        type="secondary"
-                        style={styles.gotItButton}
-                        buttonTextStyle={styles.gotItText}
-                        text={t('gotIt').toUpperCase()}
-                        onPress={() => onClose()}
-                        pill={true}
-                      />
-                    </View>
                   )}
                   {stepType && text && (
                     <>
@@ -197,7 +183,17 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
             dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
             dotContainerStyle={{ marginHorizontal: 4 }}
           />
-        ) : null}
+        ) : (
+          <Button
+            testID="SelectStepExplainerGotItButton"
+            type="secondary"
+            style={styles.gotItButton}
+            buttonTextStyle={styles.gotItText}
+            text={t('gotIt').toUpperCase()}
+            onPress={() => onClose()}
+            pill={true}
+          />
+        )}
         <View style={styles.closeButtonWrap}>
           <IconButton
             name="close"
