@@ -1,17 +1,12 @@
 import React from 'react';
 import { Image, View } from 'react-native';
-import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useQuery, useApolloClient } from '@apollo/react-hooks';
-import gql from 'graphql-tag';
+import { useQuery } from '@apollo/react-hooks';
 
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
 import { Text } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/analytics';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
-import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { getMomentDate } from '../../utils/date';
@@ -25,29 +20,10 @@ import {
 
 const CompletedStepDetailScreen = () => {
   const stepId = useNavigationParam('stepId');
+  const personId = useNavigationParam('personId');
 
-  const apolloClient = useApolloClient();
-
-  const analyticsAssignmentType = useSelector(
-    ({ auth }: { auth: AuthState }) => {
-      let stepReceiverId = '';
-      try {
-        const step = apolloClient.readFragment({
-          id: `Step:${stepId}`,
-          fragment: gql`
-            fragment stepReceiver on Step {
-              receiver {
-                id
-              }
-          `,
-        });
-        stepReceiverId = step.receiver.id;
-      } catch {}
-      return getAnalyticsAssignmentType({ id: stepReceiverId }, auth);
-    },
-  );
   useAnalytics(['step detail', 'completed step'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+    assignmentType: { personId },
   });
   const { t } = useTranslation('completedStepDetail');
   const { data, error, refetch } = useQuery<

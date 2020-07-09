@@ -13,6 +13,7 @@ import FORGIVEN from '../../../assets/images/forgivenIcon.png';
 import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
+import NoStage from '../../../assets/images/noStage.svg';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import { Text, Touchable, Icon, Card } from '../../components/common';
 import {
@@ -92,7 +93,9 @@ const PersonItem = ({
             resizeMode={'contain'}
             source={stageIcons[stage.id - 1]}
           />
-        ) : null}
+        ) : (
+          <NoStage />
+        )}
       </View>
     );
   };

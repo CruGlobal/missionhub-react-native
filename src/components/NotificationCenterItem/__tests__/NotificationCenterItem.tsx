@@ -423,7 +423,6 @@ describe('handleNotificationPress', () => {
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       fromNotificationCenterItem: true,
       feedItemId: mockNotification.screenData.feedItemId,
-      communityId,
     });
   });
 

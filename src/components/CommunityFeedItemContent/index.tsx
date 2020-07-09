@@ -253,9 +253,10 @@ export const CommunityFeedItemContent = ({
       <View style={styles.headerRow}>
         {!isGlobal ? renderAvatar() : null}
         <View
-          style={
-            isGlobal ? styles.globalHeaderNameWrapper : styles.headerNameWrapper
-          }
+          style={[
+            styles.headerNameWrapper,
+            isGlobal ? styles.globalHeaderNameWrapper : undefined,
+          ]}
         >
           {itemType === FeedItemSubjectTypeEnum.ANNOUNCEMENT ? (
             <Text style={styles.communityName}>{community?.name}</Text>

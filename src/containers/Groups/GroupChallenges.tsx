@@ -15,7 +15,6 @@ import { TrackStateContext } from '../../actions/analytics';
 import BottomButton from '../../components/BottomButton';
 import { organizationSelector } from '../../selectors/organizations';
 import { isAdminOrOwner } from '../../utils/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
 import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
 import { challengesSelector } from '../../selectors/challenges';
 import { navigatePush } from '../../actions/navigation';
@@ -24,7 +23,6 @@ import { ADD_CHALLENGE_SCREEN } from '../AddChallengeScreen';
 import { orgPermissionSelector } from '../../selectors/people';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import { CommunitiesCollapsibleHeaderContext } from '../Communities/Community/CommunityHeader/CommunityHeader';
-import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
 import { RootState } from '../../reducers';
 
@@ -53,15 +51,8 @@ const GroupChallenges = () => {
     orgPermissionSelector({}, { person: auth.person, organization }),
   );
 
-  const analyticsPermissionType = useSelector<
-    { auth: AuthState },
-    permissionType
-  >(({ auth }) => getAnalyticsPermissionType(auth, { id: communityId }));
-
   useAnalytics(['community', 'challenges'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-    },
+    permissionType: { communityId: organization.id },
   });
 
   const challengeItems = useSelector(() =>
@@ -85,7 +76,7 @@ const GroupChallenges = () => {
   const create = () => {
     dispatch(
       navigatePush(ADD_CHALLENGE_SCREEN, {
-        organization: { id: communityId },
+        communityId: organization.id,
         onComplete: (challenge: ChallengeItem) => {
           dispatch(createChallenge(challenge, communityId));
         },

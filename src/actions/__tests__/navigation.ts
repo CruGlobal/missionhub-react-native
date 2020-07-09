@@ -222,7 +222,6 @@ describe('navigateToFeedItemComments', () => {
             routeName: FEED_ITEM_DETAIL_SCREEN,
             params: {
               feedItemId,
-              communityId,
             },
           },
         ],

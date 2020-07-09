@@ -16,6 +16,7 @@ import { TouchablePress } from '../Touchable/index.ios';
 import CommentIcon from './commentIcon.svg';
 import HeartIcon from './heartIcon.svg';
 import PrayerIcon from './prayerIcon.svg';
+import PrayerIconActive from './prayerIconActive.svg';
 import styles from './styles';
 import { CommunityFeedItemCommentLike } from './__generated__/CommunityFeedItemCommentLike';
 import { SET_FEED_ITEM_LIKE_MUTATION } from './queries';
@@ -61,7 +62,6 @@ export const CommentLikeComponent = ({
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: feedItem.id,
-        communityId: feedItem.community?.id,
       }),
     );
 
@@ -112,11 +112,11 @@ export const CommentLikeComponent = ({
           viewProps={{ hitSlop: theme.hitSlop(25) }}
         >
           {isPrayer ? (
-            <PrayerIcon
-              color={
-                liked ? theme.communityPrayerRequestPurple : theme.textColor
-              }
-            />
+            liked ? (
+              <PrayerIconActive color={theme.communityPrayerRequestPurple} />
+            ) : (
+              <PrayerIcon color={theme.textColor} />
+            )
           ) : (
             <HeartIcon
               color={liked ? theme.red : theme.textColor}

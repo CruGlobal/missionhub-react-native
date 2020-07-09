@@ -9,7 +9,7 @@ import { renderWithContext } from '../../../../testUtils';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { useIsMe } from '../../../utils/hooks/useIsMe';
-import { trackScreenChange, trackAction } from '../../../actions/analytics';
+import { trackAction } from '../../../actions/analytics';
 import { getPersonDetails } from '../../../actions/person';
 import { UPDATE_PERSON } from '../../../containers/SetupScreen/queries';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
@@ -34,7 +34,6 @@ const navigateBackResponse = { type: 'navigate back' };
 const navigatePushResponse = { type: 'navigate push' };
 const getPersonDetailsResponse = { type: 'get person details' };
 const trackActionResponse = { type: 'track action' };
-const trackScreenChangeResponse = { type: 'track screen change' };
 const selectPersonStageResult = { type: 'update select person stage' };
 const closeDrawerResults = { type: 'drawer closed' };
 
@@ -73,7 +72,6 @@ const stages: Stage[] = [
 const getStagesResult = { type: 'get stages', response: stages };
 
 beforeEach(() => {
-  (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResponse);
   (trackAction as jest.Mock).mockReturnValue(trackActionResponse);
   (useIsMe as jest.Mock).mockReturnValue(false);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResponse);
@@ -285,7 +283,6 @@ describe('SelectStageScreen next', () => {
     );
     expect(onComplete).toHaveBeenCalledWith(stages[1]);
     expect(store.getActions()).toEqual([
-      trackScreenChangeResponse,
       selectPersonStageResult,
       navigateBackResponse,
       trackActionResponse,
