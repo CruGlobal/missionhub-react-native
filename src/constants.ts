@@ -192,6 +192,9 @@ export const ACTIONS = {
   },
   POST_STEP_ADDED: {
     name: 'Add to My Steps',
+    key: 'cru.addtomysteps',
+  },
+  STEP_POST_TYPE: {
     key: 'cru.stepposttype',
   },
   ALLOW: {

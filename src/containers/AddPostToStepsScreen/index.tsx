@@ -104,8 +104,9 @@ const AddPostToStepsScreen = () => {
     const postType = data?.addPostToMySteps?.step?.post?.postType;
 
     dispatch(
-      trackAction(ACTIONS.STEP_DETAIL.name, {
-        [ACTIONS.STEP_DETAIL.key]: postType,
+      trackAction(ACTIONS.POST_STEP_ADDED.name, {
+        [ACTIONS.POST_STEP_ADDED.key]: null,
+        [ACTIONS.STEP_POST_TYPE.key]: postType,
       }),
     );
     dispatch(getPersonDetails(person?.id));
