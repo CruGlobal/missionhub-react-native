@@ -61,7 +61,6 @@ export const CommentLikeComponent = ({
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: feedItem.id,
-        communityId: feedItem.community?.id,
       }),
     );
 

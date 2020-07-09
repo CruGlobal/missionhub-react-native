@@ -2,7 +2,7 @@ import 'react-native';
 import React from 'react';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { ANALYTICS_PERMISSION_TYPE, ORG_PERMISSIONS } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 
@@ -37,7 +37,7 @@ it('renders correctly', () => {
   expect(useAnalytics).toHaveBeenCalledWith(
     ['feed', 'card', 'steps of faith'],
     {
-      screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'member' },
+      permissionType: { communityId },
     },
   );
 });

@@ -3,7 +3,6 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import { ANALYTICS_SECTION_TYPE } from '../../../constants';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
@@ -33,7 +32,7 @@ it('renders correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['onboarding', 'personal greeting'],
-    { screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' } },
+    { sectionType: true },
   );
 });
 
@@ -46,7 +45,7 @@ it('renders without back button correctly', () => {
 
   expect(useAnalytics).toHaveBeenCalledWith(
     ['onboarding', 'personal greeting'],
-    { screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' } },
+    { sectionType: true },
   );
 });
 

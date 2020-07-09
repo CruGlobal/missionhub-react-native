@@ -20,16 +20,8 @@ import Header from '../../components/Header';
 import Skip from '../../components/Skip';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { getAnalyticsSectionType } from '../../utils/analytics';
-import {
-  trackActionWithoutData,
-  TrackStateContext,
-} from '../../actions/analytics';
-import {
-  ACTIONS,
-  ANALYTICS_SECTION_TYPE,
-  LOAD_PERSON_DETAILS,
-} from '../../constants';
+import { trackActionWithoutData } from '../../actions/analytics';
+import { ACTIONS, LOAD_PERSON_DETAILS } from '../../constants';
 import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
@@ -52,7 +44,6 @@ interface SetupScreenProps {
     personId?: string;
   }) => ThunkAction<unknown, {}, {}, AnyAction>;
   isMe: boolean;
-  analyticsSection: TrackStateContext[typeof ANALYTICS_SECTION_TYPE];
   personId?: string;
   loadedFirstName?: string;
   loadedLastName?: string;
@@ -62,14 +53,13 @@ interface SetupScreenProps {
 const SetupScreen = ({
   next,
   isMe,
-  analyticsSection,
   personId,
   loadedFirstName = '',
   loadedLastName = '',
   hideSkipBtn = false,
 }: SetupScreenProps) => {
   useAnalytics(['onboarding', `${isMe ? 'self' : 'contact'} name`], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: analyticsSection },
+    sectionType: true,
   });
   const { t } = useTranslation('onboardingCreatePerson');
   const relationshipType: RelationshipTypeEnum = useNavigationParam(
@@ -259,7 +249,6 @@ const mapStateToProps = (
 
   return {
     isMe,
-    analyticsSection: getAnalyticsSectionType(onboarding),
     ...(isMe
       ? {
           loadedFirstName: auth.person.first_name,

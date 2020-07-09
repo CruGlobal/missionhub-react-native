@@ -1,15 +1,11 @@
 import React from 'react';
 import { View } from 'react-native';
-import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
 import { Button, Icon } from '../../components/common';
-import { getAnalyticsAssignmentType } from '../../utils/analytics';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../constants';
-import { TrackStateContext } from '../../actions/analytics';
 import { completeStep, deleteStepWithTracking } from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
@@ -17,7 +13,6 @@ import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
 import ReminderDateText from '../../components/ReminderDateText';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { AuthState } from '../../reducers/auth';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 
 import styles from './styles';
@@ -27,15 +22,14 @@ import {
   AcceptedStepDetailVariables,
 } from './__generated__/AcceptedStepDetail';
 
-interface AcceptedStepDetailScreenProps {
-  analyticsAssignmentType: TrackStateContext[typeof ANALYTICS_ASSIGNMENT_TYPE];
-}
-
-const AcceptedStepDetailScreen = ({
-  analyticsAssignmentType,
-}: AcceptedStepDetailScreenProps) => {
+const AcceptedStepDetailScreen = () => {
   const { t } = useTranslation('acceptedStepDetail');
   const dispatch = useDispatch();
+  const personId: string = useNavigationParam('personId');
+
+  useAnalytics(['step detail', 'active step'], {
+    assignmentType: { personId },
+  });
 
   const { data: { step } = { step: undefined }, error, refetch } = useQuery<
     AcceptedStepDetail,
@@ -44,11 +38,6 @@ const AcceptedStepDetailScreen = ({
     variables: { id: useNavigationParam('stepId') },
   });
 
-  useAnalytics(['step detail', 'active step'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-    },
-  });
   const post = step?.post;
   const handleCompleteStep = () =>
     step &&
@@ -139,18 +128,5 @@ const AcceptedStepDetailScreen = ({
   );
 };
 
-const mapStateToProps = (
-  { auth }: { auth: AuthState },
-  {
-    navigation: {
-      state: {
-        params: { personId },
-      },
-    }, //eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }: any,
-) => ({
-  analyticsAssignmentType: getAnalyticsAssignmentType({ id: personId }, auth),
-});
-
-export default connect(mapStateToProps)(AcceptedStepDetailScreen);
+export default AcceptedStepDetailScreen;
 export const ACCEPTED_STEP_DETAIL_SCREEN = 'nav/ACCEPTED_STEP_DETAIL_SCREEN';

@@ -184,7 +184,6 @@ export const CommunityFeedItem = ({
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: feedItem.id,
-        communityId: community?.id,
       }),
     );
 
