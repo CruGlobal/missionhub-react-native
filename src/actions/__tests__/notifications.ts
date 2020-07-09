@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint max-lines: 0 */
 
+// eslint-disable-next-line import/default
 import RNPushNotification, {
+  // eslint-disable-next-line import/named
   PushNotificationPermissions,
 } from 'react-native-push-notification';
 import { PushNotificationIOS } from 'react-native';

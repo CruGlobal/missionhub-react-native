@@ -2,9 +2,8 @@
 
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
-// @ts-ignore
+// eslint-disable-next-line import/default
 import PushNotification from 'react-native-push-notification';
-// @ts-ignore
 import { AccessToken } from 'react-native-fbsdk';
 
 import { REQUESTS } from '../../../api/routes';
