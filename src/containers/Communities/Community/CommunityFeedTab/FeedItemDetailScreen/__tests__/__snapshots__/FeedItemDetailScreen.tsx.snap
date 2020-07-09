@@ -3618,15 +3618,20 @@ exports[`renders correctly 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -4506,6 +4511,7 @@ exports[`renders correctly with communityId passed in 1`] = `
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
