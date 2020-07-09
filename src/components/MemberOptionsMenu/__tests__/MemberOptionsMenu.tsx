@@ -16,7 +16,7 @@ import {
   removeAsAdmin,
   archiveOrgPermission,
 } from '../../../actions/person';
-import { navigateBack } from '../../../actions/navigation';
+import { navigateToMainTabs } from '../../../actions/navigation';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
 
 import MemberOptionsMenu, {
@@ -388,7 +388,7 @@ describe('confirm screen', () => {
 });
 
 describe('Leave Community', () => {
-  const navigateBackResult = { type: 'navigated back' };
+  const navigateToMainTabResults = { type: 'navigated to main community tab' };
 
   beforeEach(() => {
     props = {
@@ -409,7 +409,7 @@ describe('Leave Community', () => {
 
   it('sets flag to archive my permission on unmount', async () => {
     // @ts-ignore
-    navigateBack.mockReturnValue(navigateBackResult);
+    navigateToMainTabs.mockReturnValue(navigateToMainTabResults);
     // @ts-ignore
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
 
@@ -418,7 +418,7 @@ describe('Leave Community', () => {
 
     expect(onActionTaken).toHaveBeenCalled();
     // @ts-ignore
-    expect(store.getActions()).toEqual([navigateBackResult]);
+    expect(store.getActions()).toEqual([navigateToMainTabResults]);
   });
 
   it('sends api request to archive my permission on unmount if leaveCommunityOnUnmount flag set', async () => {
