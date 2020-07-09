@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { View } from 'react-native';
 import { ThunkAction } from 'redux-thunk';
@@ -8,16 +8,6 @@ import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import {
-  getAnalyticsSectionType,
-  getAnalyticsAssignmentType,
-} from '../../utils/analytics';
-import { AuthState } from '../../reducers/auth';
-import { OnboardingState } from '../../reducers/onboarding';
-import {
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-} from '../../constants';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
 import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
@@ -55,18 +45,9 @@ const SuggestedStepDetailScreen = ({
   const personId: string = useNavigationParam('personId');
   const orgId: string | undefined = useNavigationParam('orgId');
 
-  const analyticsSection = useSelector(
-    ({ onboarding }: { onboarding: OnboardingState }) =>
-      getAnalyticsSectionType(onboarding),
-  );
-  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsAssignmentType({ id: personId }, auth),
-  );
   useAnalytics(['step detail', 'add step'], {
-    screenContext: {
-      [ANALYTICS_SECTION_TYPE]: analyticsSection,
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-    },
+    sectionType: true,
+    assignmentType: { personId },
   });
 
   const { data, error, refetch } = useQuery<

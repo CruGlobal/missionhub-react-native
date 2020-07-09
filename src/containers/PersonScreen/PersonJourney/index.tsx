@@ -14,12 +14,10 @@ import NULL from '../../../../assets/images/ourJourney.png';
 import { removeSwipeJourney } from '../../../actions/swipe';
 import NullStateComponent from '../../../components/NullStateComponent';
 import { JOURNEY_EDIT_FLOW } from '../../../routes/constants';
-import { getAnalyticsAssignmentType } from '../../../utils/analytics';
 import {
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
   ACCEPTED_STEP,
-  ANALYTICS_ASSIGNMENT_TYPE,
 } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { RootState } from '../../../reducers';
@@ -53,11 +51,9 @@ export const PersonJourney = ({
     ({ journey }: RootState) => journey['personal'][personId] || undefined,
   );
   const showReminder = useSelector(({ swipe }: RootState) => swipe.journey);
-  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-    getAnalyticsAssignmentType(person, auth),
-  );
+
   useAnalytics(['person', person.id === myId ? 'my journey' : 'our journey'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+    assignmentType: { personId },
   });
 
   useEffect(() => {

@@ -31,7 +31,6 @@ const trackActionResponse = { type: 'tracked action' };
 
 const myId = '1';
 const feedItemId = '12';
-const communityId = '3';
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
@@ -184,7 +183,6 @@ describe('with subject person', () => {
     const { getByTestId } = render({
       FeedItem: () => ({
         id: feedItemId,
-        community: { id: communityId },
       }),
     });
 
@@ -192,7 +190,6 @@ describe('with subject person', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId,
-      communityId,
     });
   });
 
@@ -205,7 +202,6 @@ describe('with subject person', () => {
           mocks: {
             FeedItem: () => ({
               id: feedItemId,
-              community: { id: communityId },
             }),
           },
         })}

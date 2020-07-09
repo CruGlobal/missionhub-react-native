@@ -1,15 +1,10 @@
 import React, { useContext } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
 import { CommunityFeed } from '../CommunityFeed';
 import { refreshCommunity } from '../../actions/organizations';
-import { organizationSelector } from '../../selectors/organizations';
 import { orgIsGlobal } from '../../utils/common';
-import { getAnalyticsPermissionType } from '../../utils/analytics';
-import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { AuthState } from '../../reducers/auth';
-import { OrganizationsState } from '../../reducers/organizations';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { CollapsibleViewContext } from '../../components/CollapsibleView/CollapsibleView';
 
@@ -24,22 +19,13 @@ const GroupCommunityFeed = ({
 
   const communityId: string = useNavigationParam('communityId');
 
-  const organization = useSelector(
-    ({ organizations }: { organizations: OrganizationsState }) =>
-      organizationSelector({ organizations }, { orgId: communityId }),
-  );
-
-  const analyticsPermissionType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsPermissionType(auth, organization),
-  );
-
   useAnalytics(['community', 'celebrate'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+    permissionType: { communityId },
   });
 
   const handleRefetch = () => {
     // TODO: this still needed?
-    dispatch(refreshCommunity(organization.id));
+    dispatch(refreshCommunity(communityId));
   };
 
   const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);
@@ -49,7 +35,7 @@ const GroupCommunityFeed = ({
       testID="CelebrateFeed"
       communityId={communityId}
       onRefetch={handleRefetch}
-      itemNamePressable={!orgIsGlobal(organization)}
+      itemNamePressable={!orgIsGlobal({ id: communityId })}
       collapsibleScrollViewProps={collapsibleScrollViewProps}
     />
   );

@@ -12,12 +12,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
-import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
+import { ACTIONS } from '../../../../constants';
 import { RefreshControl } from '../../../../components/common';
 import BottomButton from '../../../../components/BottomButton';
 import { getCommunityUrl } from '../../../../utils/common';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
-import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import CommunityMemberItem from '../../../../components/CommunityMemberItem';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { removeGroupInviteInfo } from '../../../../actions/swipe';
@@ -62,11 +61,8 @@ export const CommunityMembers = () => {
     p => p.node.id === myId,
   )?.communityPermission;
 
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, organization),
-  );
   useAnalytics(['community', 'members'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+    permissionType: { communityId },
   });
   const { t } = useTranslation('groupsMembers');
 

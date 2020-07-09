@@ -5,13 +5,8 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-import {
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ANALYTICS_EDIT_MODE,
-} from '../../../constants';
 import { getStages } from '../../../actions/stages';
-import { trackAction, trackScreenChange } from '../../../actions/analytics';
+import { trackAction } from '../../../actions/analytics';
 import {
   selectMyStage,
   selectPersonStage,
@@ -19,6 +14,7 @@ import {
 } from '../../../actions/selectStage';
 import { Stage } from '../../../reducers/stages';
 import { ACTIONS } from '../../../constants';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import SelectStageScreen, { SelectStageNavParams } from '..';
 
@@ -33,6 +29,7 @@ jest.mock('../../../components/common', () => ({
 }));
 jest.mock('../../DeprecatedBackButton', () => 'DeprecatedBackButton');
 jest.mock('../../../components/Header', () => 'Header');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const baseStage: Stage = {
   id: '1',
@@ -125,9 +122,9 @@ const baseParams = {
 
 const next = jest.fn();
 const onComplete = jest.fn();
+const handleScreenChange = jest.fn();
 
 const trackActionResult = { type: 'track action' };
-const trackScreenChangeResult = { type: 'track screen change' };
 const getStagesResult = { type: 'get stages', response: stages };
 const selectMyStageResult = { type: 'select my stage' };
 const selectPersonStageResult = { type: 'select person stage' };
@@ -136,12 +133,12 @@ const nextResult = { type: 'next' };
 
 beforeEach(() => {
   (trackAction as jest.Mock).mockReturnValue(trackActionResult);
-  (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResult);
   (getStages as jest.Mock).mockReturnValue(getStagesResult);
   (selectMyStage as jest.Mock).mockReturnValue(selectMyStageResult);
   (selectPersonStage as jest.Mock).mockReturnValue(selectPersonStageResult);
   (updateUserStage as jest.Mock).mockReturnValue(updateUserStageResult);
   (next as jest.Mock).mockReturnValue(nextResult);
+  (useAnalytics as jest.Mock).mockReturnValue(handleScreenChange);
 });
 
 describe('renders', () => {
@@ -153,6 +150,13 @@ describe('renders', () => {
       },
       navParams: baseParams,
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('', {
+      sectionType: true,
+      assignmentType: { personId: assignedPersonId },
+      editMode: { isEdit: false },
+      triggerTracking: false,
+    });
   });
 
   it('renders correctly without back button', () => {
@@ -163,6 +167,13 @@ describe('renders', () => {
         enableBackButton: false,
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('', {
+      sectionType: true,
+      assignmentType: { personId: assignedPersonId },
+      editMode: { isEdit: false },
+      triggerTracking: false,
+    });
   });
 
   it('renders correctly with question text', () => {
@@ -173,6 +184,13 @@ describe('renders', () => {
         questionText: 'Question?',
       },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith('', {
+      sectionType: true,
+      assignmentType: { personId: assignedPersonId },
+      editMode: { isEdit: false },
+      triggerTracking: false,
+    });
   });
 });
 
@@ -188,11 +206,14 @@ describe('renders for me', () => {
       navParams: myNavParams,
     }).snapshot();
 
-    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-      [ANALYTICS_EDIT_MODE]: 'set',
+    expect(useAnalytics).toHaveBeenCalledWith('', {
+      sectionType: true,
+      assignmentType: { personId: myId },
+      editMode: { isEdit: false },
+      triggerTracking: false,
     });
+
+    expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
   });
 
   it('renders firstItem correctly', () => {
@@ -201,11 +222,14 @@ describe('renders for me', () => {
       navParams: { ...myNavParams, selectedStageId: 1 },
     }).snapshot();
 
-    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-      [ANALYTICS_EDIT_MODE]: 'update',
+    expect(useAnalytics).toHaveBeenCalledWith('', {
+      sectionType: true,
+      assignmentType: { personId: myId },
+      editMode: { isEdit: true },
+      triggerTracking: false,
     });
+
+    expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 2']);
   });
 });
 
@@ -221,11 +245,14 @@ describe('renders for other', () => {
       navParams: otherNavParams,
     }).snapshot();
 
-    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      [ANALYTICS_EDIT_MODE]: 'set',
+    expect(useAnalytics).toHaveBeenCalledWith('', {
+      sectionType: true,
+      assignmentType: { personId: assignedPersonId },
+      editMode: { isEdit: false },
+      triggerTracking: false,
     });
+
+    expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
   });
 
   it('renders firstItem correctly', () => {
@@ -234,11 +261,14 @@ describe('renders for other', () => {
       navParams: { ...otherNavParams, selectedStageId: 1 },
     }).snapshot();
 
-    expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 2'], {
-      [ANALYTICS_SECTION_TYPE]: '',
-      [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      [ANALYTICS_EDIT_MODE]: 'update',
+    expect(useAnalytics).toHaveBeenCalledWith('', {
+      sectionType: true,
+      assignmentType: { personId: assignedPersonId },
+      editMode: { isEdit: true },
+      triggerTracking: false,
     });
+
+    expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 2']);
   });
 });
 
@@ -277,15 +307,8 @@ describe('actions on mount', () => {
       );
 
       expect(getStages).toHaveBeenCalledWith();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-        [ANALYTICS_EDIT_MODE]: 'update',
-      });
-      expect(store.getActions()).toEqual([
-        getStagesResult,
-        trackScreenChangeResult,
-      ]);
+      expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([getStagesResult]);
     });
 
     it('gets stages and snaps to first item on mount in onboarding', async () => {
@@ -303,15 +326,8 @@ describe('actions on mount', () => {
       );
 
       expect(getStages).toHaveBeenCalledWith();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
-        [ANALYTICS_SECTION_TYPE]: 'onboarding',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-        [ANALYTICS_EDIT_MODE]: 'update',
-      });
-      expect(store.getActions()).toEqual([
-        getStagesResult,
-        trackScreenChangeResult,
-      ]);
+      expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([getStagesResult]);
     });
   });
 
@@ -330,15 +346,8 @@ describe('actions on mount', () => {
       );
 
       expect(getStages).toHaveBeenCalledWith();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-        [ANALYTICS_EDIT_MODE]: 'update',
-      });
-      expect(store.getActions()).toEqual([
-        getStagesResult,
-        trackScreenChangeResult,
-      ]);
+      expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([getStagesResult]);
     });
   });
 
@@ -351,12 +360,8 @@ describe('actions on mount', () => {
       });
 
       expect(getStages).not.toHaveBeenCalled();
-      expect(trackScreenChange).toHaveBeenCalledWith(['stage', 'stage 1'], {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'self',
-        [ANALYTICS_EDIT_MODE]: 'update',
-      });
-      expect(store.getActions()).toEqual([trackScreenChangeResult]);
+      expect(handleScreenChange).toHaveBeenCalledWith(['stage', 'stage 1']);
+      expect(store.getActions()).toEqual([]);
     });
   });
 });
@@ -403,7 +408,6 @@ describe('setStage', () => {
 
       expect(selectMyStage).toHaveBeenCalledWith(stage.id);
       expect(store.getActions()).toEqual([
-        trackScreenChangeResult,
         selectMyStageResult,
         nextResult,
         trackActionResult,
@@ -427,11 +431,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectMyStage).not.toHaveBeenCalled();
-      expect(store.getActions()).toEqual([
-        trackScreenChangeResult,
-        nextResult,
-        trackActionResult,
-      ]);
+      expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
   });
 
@@ -460,7 +460,6 @@ describe('setStage', () => {
         stage.id,
       );
       expect(store.getActions()).toEqual([
-        trackScreenChangeResult,
         updateUserStageResult,
         nextResult,
         trackActionResult,
@@ -484,11 +483,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(updateUserStage).not.toHaveBeenCalled();
-      expect(store.getActions()).toEqual([
-        trackScreenChangeResult,
-        nextResult,
-        trackActionResult,
-      ]);
+      expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
 
     it('selects new stage for edit screen', async () => {
@@ -515,7 +510,6 @@ describe('setStage', () => {
 
       expect(updateUserStage).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
-        trackScreenChangeResult,
         updateUserStageResult,
         nextResult,
         trackActionResult,
@@ -550,7 +544,6 @@ describe('setStage', () => {
         orgId,
       );
       expect(store.getActions()).toEqual([
-        trackScreenChangeResult,
         selectPersonStageResult,
         nextResult,
         trackActionResult,
@@ -574,11 +567,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectPersonStage).not.toHaveBeenCalled();
-      expect(store.getActions()).toEqual([
-        trackScreenChangeResult,
-        nextResult,
-        trackActionResult,
-      ]);
+      expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
   });
 });

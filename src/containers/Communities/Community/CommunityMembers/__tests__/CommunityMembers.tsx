@@ -9,6 +9,7 @@ import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { renderWithContext } from '../../../../../../testUtils';
 import { navToPersonScreen } from '../../../../../actions/person';
 import * as common from '../../../../../utils/common';
+import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import {
   trackActionWithoutData,
   trackScreenChange,
@@ -29,6 +30,7 @@ jest.mock('../../../../../actions/person');
 jest.mock('../../../../../actions/swipe');
 jest.mock('../../../../../actions/analytics');
 jest.mock('../../../../../utils/common');
+jest.mock('../../../../../utils/hooks/useAnalytics');
 
 // @ts-ignore
 common.refresh = jest.fn();
@@ -79,6 +81,10 @@ describe('CommunityMembers', () => {
       initialState,
       navParams: { communityId },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
+      permissionType: { communityId },
+    });
   });
 
   it('should render empty state', () => {
@@ -91,6 +97,10 @@ describe('CommunityMembers', () => {
       },
       navParams: { communityId },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
+      permissionType: { communityId },
+    });
   });
 
   it('renders with content', async () => {
@@ -112,6 +122,10 @@ describe('CommunityMembers', () => {
           }),
         }),
       },
+    });
+
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
+      permissionType: { communityId },
     });
 
     await flushMicrotasksQueue();
