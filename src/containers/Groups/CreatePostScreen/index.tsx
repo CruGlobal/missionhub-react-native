@@ -85,30 +85,33 @@ export const CreatePostScreen = () => {
     CreatePostVariables
   >(CREATE_POST, {
     update: (cache, { data }) => {
-      const originalData = cache.readQuery<
-        GetCommunityFeed,
-        GetCommunityFeedVariables
-      >({
-        query: GET_COMMUNITY_FEED,
-        variables: { communityId },
-      });
-      cache.writeQuery({
-        query: GET_COMMUNITY_FEED,
-        variables: { communityId },
-        data: {
-          ...originalData,
-          community: {
-            ...originalData?.community,
-            feedItems: {
-              ...originalData?.community.feedItems,
-              nodes: [
-                data?.createPost?.post?.feedItem,
-                ...(originalData?.community.feedItems.nodes || []),
-              ],
+      try {
+        const originalData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId },
+          data: {
+            ...originalData,
+            community: {
+              ...originalData?.community,
+              feedItems: {
+                ...originalData?.community.feedItems,
+                nodes: [
+                  data?.createPost?.post?.feedItem,
+                  ...(originalData?.community.feedItems.nodes || []),
+                ],
+              },
             },
           },
-        },
-      });
+        });
+      } catch {}
+
       try {
         const originalFilteredData = cache.readQuery<
           GetCommunityFeed,

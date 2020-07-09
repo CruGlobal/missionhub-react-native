@@ -17,8 +17,9 @@ import {
   removeAsAdmin,
   archiveOrgPermission,
 } from '../../actions/person';
-import { navigateBack } from '../../actions/navigation';
+import { navigateToMainTabs } from '../../actions/navigation';
 import { Person } from '../../reducers/people';
+import { COMMUNITIES_TAB } from '../../constants';
 
 import styles from './styles';
 
@@ -52,7 +53,7 @@ class MemberOptionsMenu extends Component<{
 
     this.leaveCommunityOnUnmount = true;
     onActionTaken();
-    dispatch(navigateBack());
+    dispatch(navigateToMainTabs(COMMUNITIES_TAB));
   };
 
   updatePermissionHandleTryItNowError = async (
