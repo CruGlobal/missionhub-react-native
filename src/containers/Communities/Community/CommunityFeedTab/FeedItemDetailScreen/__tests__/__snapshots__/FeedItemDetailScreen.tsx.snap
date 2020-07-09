@@ -396,15 +396,20 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -1306,15 +1311,20 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -2183,15 +2193,20 @@ exports[`edit/delete post no options for not my post 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -2901,9 +2916,17 @@ exports[`refresh calls refreshComments 1`] = `
               />
               <View
                 style={
-                  Object {
-                    \\"alignItems\\": \\"flex-start\\",
-@@ -401,19 +336,27 @@
+                  Array [
+                    Object {
+@@ -398,26 +333,35 @@
+                    undefined,
+                  ]
+                }
+              >
+                <Text
++                 numberOfLines={2}
+                  style={
+                    Array [
                       Object {
                         \\"color\\": \\"#505256\\",
                       },
@@ -2932,7 +2955,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -435,11 +378,11 @@
+@@ -439,11 +383,11 @@
                       ],
                     ]
                   }
@@ -2945,7 +2968,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -448,62 +391,63 @@
+@@ -452,62 +396,63 @@
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 8,
               }
@@ -3040,7 +3063,7 @@ exports[`refresh calls refreshComments 1`] = `
               Array [
                 Object {
                   \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -531,11 +475,63 @@
+@@ -535,11 +480,63 @@
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 16,
               }
@@ -3104,7 +3127,7 @@ exports[`refresh calls refreshComments 1`] = `
                 Object {
                   \\"flex\\": 1,
                   \\"justifyContent\\": \\"flex-end\\",
-@@ -621,12 +617,11 @@
+@@ -625,12 +622,11 @@
                           null,
                         ]
                       }
@@ -3118,7 +3141,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -656,11 +651,11 @@
+@@ -660,11 +656,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -3131,7 +3154,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -725,29 +720,28 @@
+@@ -729,29 +725,28 @@
         >
           <CommentItem
             comment={
@@ -3169,7 +3192,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -758,29 +752,28 @@
+@@ -762,29 +757,28 @@
         >
           <CommentItem
             comment={
@@ -3207,7 +3230,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -800,22 +793,22 @@
+@@ -804,22 +798,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3595,15 +3618,20 @@ exports[`renders correctly 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -4470,15 +4498,20 @@ exports[`renders correctly with communityId passed in 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {

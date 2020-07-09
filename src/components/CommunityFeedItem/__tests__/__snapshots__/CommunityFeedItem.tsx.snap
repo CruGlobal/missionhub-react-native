@@ -73,15 +73,20 @@ exports[`Community renders challenge correctly 1`] = `
         />
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-              "paddingHorizontal": 8,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              undefined,
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -623,15 +628,20 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -1185,15 +1195,20 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -1684,15 +1699,20 @@ exports[`Community renders post correctly without image 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -2170,12 +2190,16 @@ exports[`Community renders post created by me correctly without add to steps but
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <View
@@ -2209,6 +2233,7 @@ exports[`Community renders post created by me correctly without add to steps but
                   }
                 >
                   <Text
+                    numberOfLines={2}
                     style={
                       Array [
                         Object {
@@ -2679,15 +2704,20 @@ exports[`Community renders step correctly 1`] = `
         />
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-              "paddingHorizontal": 8,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              undefined,
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -3144,15 +3174,20 @@ exports[`Community renders with clear notification button correctly 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -3677,14 +3712,22 @@ exports[`global community renders correctly 1`] = `
       >
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "paddingHorizontal": 0,
+              },
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -4105,14 +4148,22 @@ exports[`global community renders post item correctly 1`] = `
       >
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "paddingHorizontal": 0,
+              },
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -4565,14 +4616,22 @@ exports[`global community renders with clear notification button correctly 1`] =
       >
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "paddingHorizontal": 0,
+              },
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -5099,12 +5158,16 @@ exports[`renders with name pressable correctly 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <View
@@ -5138,6 +5201,7 @@ exports[`renders with name pressable correctly 1`] = `
                   }
                 >
                   <Text
+                    numberOfLines={2}
                     style={
                       Array [
                         Object {

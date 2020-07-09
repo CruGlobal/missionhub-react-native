@@ -14,15 +14,14 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   headerNameWrapper: {
+    flex: 1,
     flexDirection: 'column',
     paddingHorizontal: 8,
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
   globalHeaderNameWrapper: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    paddingHorizontal: 0,
   },
   communityName: {
     fontWeight: 'bold',
