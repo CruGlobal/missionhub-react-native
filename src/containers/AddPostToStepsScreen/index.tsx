@@ -5,9 +5,10 @@ import { useMutation, useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
+import { ACTIONS } from '../../constants';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { navigateBack } from '../../actions/navigation';
-import { trackStepAdded } from '../../actions/analytics';
+import { trackAction } from '../../actions/analytics';
 import { getPersonDetails } from '../../actions/person';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import StepDetailScreen from '../../components/StepDetailScreen';
@@ -100,7 +101,13 @@ const AddPostToStepsScreen = () => {
       },
     });
 
-    dispatch(trackStepAdded(data?.addPostToMySteps?.step));
+    const postType = data?.addPostToMySteps?.step?.post?.postType;
+
+    dispatch(
+      trackAction(ACTIONS.STEP_DETAIL.name, {
+        [ACTIONS.STEP_DETAIL.key]: postType,
+      }),
+    );
     dispatch(getPersonDetails(person?.id));
     dispatch(navigateBack());
   };
