@@ -16,7 +16,6 @@ import {
   parseNotificationData,
   SET_NOTIFICATION_ANALYTICS,
   RNPushNotificationPayload,
-  PushNotificationPayloadData,
   PushNotificationPayloadIosOrAndroid,
   PushNotificationPayloadAndroid,
   PushNotificationPayloadIos,
@@ -45,6 +44,7 @@ import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../../containers/Groups/GroupChallenges';
+import { LOADING_SCREEN } from '../../containers/LoadingScreen';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -52,7 +52,6 @@ jest.mock('../celebration');
 jest.mock('../challenges');
 jest.mock('../navigation');
 jest.mock('../api');
-jest.mock('react-native-push-notification');
 jest.mock('react-native-config', () => ({
   GCM_SENDER_ID: 'Test GCM Sender ID',
   APNS_MODE: 'APNS',
@@ -376,6 +375,7 @@ describe('configureNotificationHandler', () => {
     expect(RNPushNotification.configure).toHaveBeenCalledWith({
       onRegister: expect.any(Function),
       onNotification: expect.any(Function),
+      onRegistrationError: expect.any(Function),
       senderID: GCM_SENDER_ID,
       requestPermissions: false,
     });
@@ -504,9 +504,7 @@ describe('askNotificationPermissions', () => {
     });
 
     async function testNotification(
-      notification:
-        | PushNotificationPayloadData
-        | PushNotificationPayloadIosOrAndroid,
+      notification: PushNotificationPayloadIosOrAndroid,
       userInteraction = true,
     ) {
       const deepLinkComplete = new Promise(resolve =>
@@ -528,7 +526,10 @@ describe('askNotificationPermissions', () => {
 
     describe('userInteraction = false', () => {
       it('on iOS, should call iOS finish', async () => {
-        await testNotification({ ...baseNotification, screen: 'home' }, false);
+        await testNotification(
+          { ...baseNotification, data: { screen: 'home' } },
+          false,
+        );
 
         expect(navigateToMainTabs).toHaveBeenCalled();
         expect(finish).toHaveBeenCalledWith(
@@ -543,14 +544,17 @@ describe('askNotificationPermissions', () => {
       it('on Android, should do nothing', async () => {
         ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
 
-        await testNotification({ ...baseNotification, screen: 'home' }, false);
+        await testNotification(
+          { ...baseNotification, data: { screen: 'home' } },
+          false,
+        );
 
         expect(store.getActions()).toEqual([]);
       });
     });
 
     it('should deep link to home screen', async () => {
-      await testNotification({ ...baseNotification, screen: 'home' });
+      await testNotification({ ...baseNotification, data: { screen: 'home' } });
 
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
@@ -560,7 +564,10 @@ describe('askNotificationPermissions', () => {
     });
 
     it('should deep link to main steps tab screen', async () => {
-      await testNotification({ ...baseNotification, screen: 'steps' });
+      await testNotification({
+        ...baseNotification,
+        data: { screen: 'steps' },
+      });
 
       expect(navigateToMainTabs).toHaveBeenCalled();
       expect(store.getActions()).toEqual([
@@ -572,9 +579,11 @@ describe('askNotificationPermissions', () => {
     it('should deep link to contact screen', async () => {
       await testNotification({
         ...baseNotification,
-        screen: 'person_steps',
-        person_id: '1',
-        organization_id: '2',
+        data: {
+          screen: 'person_steps',
+          person_id: '1',
+          organization_id: '2',
+        },
       });
 
       expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
@@ -610,7 +619,10 @@ describe('askNotificationPermissions', () => {
     });
 
     it("should deep link to ME user's contact screen", async () => {
-      await testNotification({ ...baseNotification, screen: 'my_steps' });
+      await testNotification({
+        ...baseNotification,
+        data: { screen: 'my_steps' },
+      });
 
       expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
       expect(store.getActions()).toEqual([
@@ -624,9 +636,10 @@ describe('askNotificationPermissions', () => {
 
       await testNotification({
         ...baseNotification,
-        screen: 'add_a_person',
-        person_id: '1',
-        organization_id: organization.id,
+        data: {
+          screen: 'add_a_person',
+          organization_id: organization.id,
+        },
       });
 
       expect(navigatePush).toHaveBeenCalledWith(
@@ -644,9 +657,11 @@ describe('askNotificationPermissions', () => {
     describe('parseNotificationData', () => {
       const notification = {
         ...baseNotification,
-        screen: 'celebrate',
-        organization_id: organization.id,
-        screen_extra_data,
+        data: {
+          screen: 'celebrate',
+          organization_id: organization.id,
+          screen_extra_data,
+        },
       } as PushNotificationPayloadAndroid;
 
       const iosNotification = {
@@ -667,7 +682,7 @@ describe('askNotificationPermissions', () => {
         expect(parsedData).toMatchObject({
           screen: 'celebrate',
           organization_id: '234234',
-          celebration_item_id: '111',
+          celebration_item_id,
         });
       });
       it('Should parse iosNotification correctly', () => {
@@ -676,35 +691,41 @@ describe('askNotificationPermissions', () => {
           screen: 'celebrate',
           person_id: undefined,
           organization_id: '234234',
-          celebration_item_id: '111',
+          celebration_item_id,
         });
       });
     });
 
-    describe('celebrate_feed', () => {
+    describe('celebrate', () => {
       it('should navigate to community celebrate feed', async () => {
         await testNotification({
           ...baseNotification,
-          screen: 'celebrate_feed',
-          organization_id: organization.id,
-          screen_extra_data: {
-            celebration_item_id: '111',
+          data: {
+            screen: 'celebrate',
+            organization_id: organization.id,
+            screen_extra_data: {
+              celebration_item_id,
+            },
           },
         });
 
-        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
-          communityId: organization.id,
-        });
+        expect(navigatePush).toHaveBeenCalledWith(LOADING_SCREEN);
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
+          celebration_item_id,
+          organization.id,
+        );
       });
       it('should not navigate if no organization_id', async () => {
-        await testNotification(({
+        await testNotification({
           ...baseNotification,
-          screen: 'celebrate_feed',
-          organization_id: undefined,
-          screen_extra_data: {
-            celebration_item_id: '111',
+          data: {
+            screen: 'celebrate',
+            organization_id: '',
+            screen_extra_data: {
+              celebration_item_id,
+            },
           },
-        } as unknown) as PushNotificationPayloadData);
+        });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(navigatePush).not.toHaveBeenCalled();
@@ -715,9 +736,11 @@ describe('askNotificationPermissions', () => {
       it('should navigate to FEED_ITEM_DETAIL_SCREEN', async () => {
         await testNotification({
           ...baseNotification,
-          screen: 'celebrate_item',
-          organization_id: organization.id,
-          screen_extra_data,
+          data: {
+            screen: 'celebrate_item',
+            organization_id: organization.id,
+            screen_extra_data,
+          },
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
@@ -728,24 +751,28 @@ describe('askNotificationPermissions', () => {
         );
       });
       it('should not navigate if no organization_id', async () => {
-        await testNotification(({
+        await testNotification({
           ...baseNotification,
-          screen: 'celebrate_item',
-          organization_id: undefined,
-          screen_extra_data,
-        } as unknown) as PushNotificationPayloadData);
+          data: {
+            screen: 'celebrate_item',
+            organization_id: '',
+            screen_extra_data,
+          },
+        });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalledWith();
         expect(navigateToFeedItemComments).not.toHaveBeenCalled();
       });
       it('should navigate to COMMUNITY_TABS if no celebrate_item_id', async () => {
-        await testNotification(({
+        await testNotification({
           ...baseNotification,
-          screen: 'celebrate_item',
-          organization_id: organization.id,
-          screen_extra_data: {},
-        } as unknown) as PushNotificationPayloadData);
+          data: {
+            screen: 'celebrate_item',
+            organization_id: organization.id,
+            screen_extra_data: { celebration_item_id: '' },
+          },
+        });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalledWith();
@@ -760,9 +787,11 @@ describe('askNotificationPermissions', () => {
       it('should look for stored org', async () => {
         await testNotification({
           ...baseNotification,
-          screen: 'celebrate',
-          organization_id: organization.id,
-          screen_extra_data,
+          data: {
+            screen: 'celebrate',
+            organization_id: organization.id,
+            screen_extra_data,
+          },
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
@@ -774,12 +803,14 @@ describe('askNotificationPermissions', () => {
       });
 
       it('should not navigate to org if no id passed', async () => {
-        await testNotification(({
+        await testNotification({
           ...baseNotification,
-          screen: 'celebrate',
-          organization_id: undefined,
-          screen_extra_data,
-        } as unknown) as PushNotificationPayloadData);
+          data: {
+            screen: 'celebrate',
+            organization_id: '',
+            screen_extra_data,
+          },
+        });
 
         expect(refreshCommunity).not.toHaveBeenCalled();
         expect(getCelebrateFeed).not.toHaveBeenCalled();
@@ -791,8 +822,10 @@ describe('askNotificationPermissions', () => {
       it('should look for stored org', async () => {
         await testNotification({
           ...baseNotification,
-          screen: 'community_challenges',
-          organization_id: organization.id,
+          data: {
+            screen: 'community_challenges',
+            organization_id: organization.id,
+          },
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
@@ -805,15 +838,19 @@ describe('askNotificationPermissions', () => {
       it('should navigate to global community if no id passed', async () => {
         const global_community = { id: GLOBAL_COMMUNITY_ID };
         (refreshCommunity as jest.Mock).mockReturnValue(() => global_community);
-        await testNotification(({
+        await testNotification({
           ...baseNotification,
-          screen: 'community_challenges',
-          organization_id: undefined,
-        } as unknown) as PushNotificationPayloadData);
-        expect(refreshCommunity).toHaveBeenCalledWith(undefined);
-        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(undefined);
+          data: {
+            screen: 'community_challenges',
+            organization_id: null,
+          },
+        });
+        expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+        expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
+          GLOBAL_COMMUNITY_ID,
+        );
         expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_CHALLENGES, {
-          communityId: undefined,
+          communityId: GLOBAL_COMMUNITY_ID,
         });
       });
     });

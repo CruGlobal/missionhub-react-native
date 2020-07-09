@@ -23,7 +23,6 @@ import { startOnboarding } from '../../onboarding';
 jest.mock('react-native-fbsdk', () => ({
   AccessToken: { getCurrentAccessToken: jest.fn() },
 }));
-jest.mock('react-native-push-notification');
 jest.mock('../../notifications');
 jest.mock('../../navigation');
 jest.mock('../../onboarding');

@@ -1,7 +1,9 @@
 /* eslint-disable max-lines */
 
-import { PushNotificationIOS } from 'react-native';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
+// eslint-disable-next-line import/default
 import PushNotification, {
+  // eslint-disable-next-line import/named
   PushNotification as RNPushNotificationPayloadAndConstructor,
 } from 'react-native-push-notification';
 import { AnyAction } from 'redux';
@@ -23,6 +25,7 @@ import { NotificationsState } from '../reducers/notifications';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
 import { RootState } from '../reducers';
+import { rollbar } from '../utils/rollbar.config';
 
 import { refreshCommunity } from './organizations';
 import { navToPersonScreen } from './person';
@@ -75,8 +78,9 @@ export type PushNotificationPayloadIos = RNPushNotificationPayload & {
   };
 };
 
-export type PushNotificationPayloadAndroid = RNPushNotificationPayload &
-  PushNotificationPayloadData;
+export type PushNotificationPayloadAndroid = RNPushNotificationPayload & {
+  data: PushNotificationPayloadData;
+};
 
 export type PushNotificationPayloadData =
   | { screen: 'home' }
@@ -95,7 +99,7 @@ export type PushNotificationPayloadData =
       organization_id: string;
       screen_extra_data: string | { celebration_item_id: string };
     }
-  | { screen: 'community_challenges'; organization_id: string };
+  | { screen: 'community_challenges'; organization_id: string | null };
 
 type ParsedNotificationData =
   | { screen: 'home' }
@@ -114,7 +118,7 @@ type ParsedNotificationData =
       organization_id: string;
       celebration_item_id: string;
     }
-  | { screen: 'community_challenges'; organization_id: string };
+  | { screen: 'community_challenges'; organization_id: string | null };
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
@@ -226,6 +230,13 @@ export function configureNotificationHandler() {
         notification.finish(PushNotificationIOS.FetchResult.NoData);
       },
 
+      // @ts-ignore onRegistrationError hasn't been added to @types/react-native-push-notification yet
+      onRegistrationError: (error: Error) => {
+        // eslint-disable-next-line no-console
+        console.log(error.message, error);
+        !__DEV__ && rollbar.error(error);
+      },
+
       // ANDROID ONLY: GCM Sender ID
       senderID: GCM_SENDER_ID,
 
@@ -333,7 +344,7 @@ export function parseNotificationData(
 
   const payloadData = isIosPayload(notification)
     ? notification.data.link.data
-    : notification;
+    : notification.data;
 
   switch (payloadData.screen) {
     case 'celebrate':

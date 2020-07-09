@@ -4,8 +4,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <!-- Permissions for react-native-push-notification -->
-    <permission android:name="${applicationId}.permission.C2D_MESSAGE" android:protectionLevel="signature" />
-    <uses-permission android:name="${applicationId}.permission.C2D_MESSAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
     <!-- End permissions for react-native-push-notification -->
 
@@ -50,13 +49,18 @@
         <receiver android:name="com.adobe.mobile.MessageNotificationHandler" />
 
         <!-- Config for react-native-push-notification -->
-        <receiver android:name="com.google.android.gms.gcm.GcmReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-                <category android:name="${applicationId}" />
-            </intent-filter>
-        </receiver>
+        <meta-data android:name="com.dieam.reactnativepushnotification.notification_channel_name" android:value="General"/>
+        <meta-data android:name="com.dieam.reactnativepushnotification.notification_channel_description" android:value="This channel is used for general notifications."/>
 
+        <!-- Change the value to true to enable pop-up for in foreground (remote-only, for local use ignoreInForeground) -->
+        <meta-data android:name="com.dieam.reactnativepushnotification.notification_foreground" android:value="true"/>
+        <!-- Change the value to false if you don't want the creation of the default channel -->
+        <meta-data android:name="com.dieam.reactnativepushnotification.channel_create_default" android:value="true"/>
+        <!-- Change the resource name to your App's accent color - or any other color you want -->
+        <!-- <meta-data android:name="com.dieam.reactnativepushnotification.notification_color" android:resource="@color/white"/> -->
+        <!-- or @android:color/{name} to use a standard color -->
+
+        <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationActions" />
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher" />
         <receiver android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver">
             <intent-filter>
@@ -64,10 +68,9 @@
             </intent-filter>
         </receiver>
 
-        <service android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationRegistrationService"/>
         <service android:name="com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService" android:exported="false">
             <intent-filter>
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
         <!-- End config for react-native-push-notification -->
