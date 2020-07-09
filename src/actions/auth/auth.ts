@@ -1,29 +1,15 @@
 import PushNotification from 'react-native-push-notification';
 // @ts-ignore
 import { AccessToken } from 'react-native-fbsdk';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 
-import {
-  CLEAR_UPGRADE_TOKEN,
-  LOGOUT,
-  NOTIFICATION_PROMPT_TYPES,
-} from '../../constants';
+import { CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
 import { rollbar } from '../../utils/rollbar.config';
 import { navigateReset } from '../navigation';
-import { deletePushToken, checkNotifications } from '../notifications';
-import {
-  SIGN_IN_FLOW,
-  ADD_SOMEONE_ONBOARDING_FLOW,
-  GET_STARTED_ONBOARDING_FLOW,
-} from '../../routes/constants';
+import { deletePushToken } from '../notifications';
+import { SIGN_IN_FLOW } from '../../routes/constants';
 import { getFeatureFlags } from '../misc';
-import { navigateToMainTabs } from '../navigation';
 import { apolloClient } from '../../apolloClient';
-import { startOnboarding } from '../onboarding';
-import { AuthState } from '../../reducers/auth';
-import { NotificationsState } from '../../reducers/notifications';
 
 import { refreshAccessToken } from './key';
 import { refreshAnonymousLogin } from './anonymous';
@@ -74,34 +60,6 @@ export const retryIfInvalidatedClientToken = (
     }
   }
 };
-
-export const navigateToPostAuthScreen = () => (
-  dispatch: ThunkDispatch<
-    { auth: AuthState; notifications: NotificationsState },
-    {},
-    AnyAction
-  >,
-  getState: () => { auth: AuthState },
-) => {
-  const { person } = getState().auth;
-
-  if (!person.user.pathway_stage_id) {
-    dispatch(startOnboarding());
-    dispatch(navigateReset(GET_STARTED_ONBOARDING_FLOW));
-  } else if (hasPersonWithStageSelected(person)) {
-    dispatch(navigateToMainTabs());
-    dispatch(checkNotifications(NOTIFICATION_PROMPT_TYPES.LOGIN));
-  } else {
-    dispatch(startOnboarding());
-    dispatch(navigateReset(ADD_SOMEONE_ONBOARDING_FLOW));
-  }
-};
-
-// @ts-ignore
-function hasPersonWithStageSelected(person) {
-  // @ts-ignore
-  return person.contact_assignments.some(contact => contact.pathway_stage_id);
-}
 
 export const handleInvalidAccessToken = () => {
   // @ts-ignore

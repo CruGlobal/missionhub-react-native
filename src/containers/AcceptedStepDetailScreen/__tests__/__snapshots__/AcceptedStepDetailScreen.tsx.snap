@@ -564,22 +564,34 @@ exports[`should render correctly post details 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 16,
-                    "lineHeight": 24,
-                    "paddingBottom": 20,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 20,
+                      },
+                    ]
+                  }
+                >
                   ipsam nobis cupiditate
                 </Text>
               </Text>
@@ -2342,21 +2354,33 @@ exports[`with description, with reminder should render correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 alias consequuntur corporis
               </Text>
             </Text>
@@ -2807,21 +2831,33 @@ exports[`with description, without reminder should render correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 alias consequuntur corporis
               </Text>
             </Text>
