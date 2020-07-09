@@ -13,6 +13,8 @@ import {
   GCM_SENDER_ID,
   GLOBAL_COMMUNITY_ID,
   NOTIFICATION_PROMPT_TYPES,
+  MAIN_TABS,
+  COMMUNITIES_TAB,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
@@ -26,6 +28,7 @@ import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
 import { RootState } from '../reducers';
 import { rollbar } from '../utils/rollbar.config';
+import { CHALLENGE_DETAIL_SCREEN } from '../containers/ChallengeDetailScreen';
 
 import { refreshCommunity } from './organizations';
 import { navToPersonScreen } from './person';
@@ -34,6 +37,7 @@ import {
   navigatePush,
   navigateToMainTabs,
   navigateToFeedItemComments,
+  navigateNestedReset,
 } from './navigation';
 import callApi from './api';
 import { getCelebrateFeed } from './celebration';
@@ -99,7 +103,11 @@ export type PushNotificationPayloadData =
       organization_id: string;
       screen_extra_data: string | { celebration_item_id: string };
     }
-  | { screen: 'community_challenges'; organization_id: string | null };
+  | {
+      screen: 'community_challenges';
+      organization_id: string | null;
+      challenge_id: string;
+    };
 
 type ParsedNotificationData =
   | { screen: 'home' }
@@ -118,7 +126,11 @@ type ParsedNotificationData =
       organization_id: string;
       celebration_item_id: string;
     }
-  | { screen: 'community_challenges'; organization_id: string | null };
+  | {
+      screen: 'community_challenges';
+      organization_id: string | null;
+      challenge_id: string;
+    };
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
@@ -318,16 +330,32 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         }
       }
       case 'community_challenges': {
-        const { organization_id } = notificationData;
+        const { organization_id, challenge_id } = notificationData;
         // IOS Global Community Challenges PN returns the organization_id as null
-        const orgId =
+        const communityId =
           organization_id === null ? GLOBAL_COMMUNITY_ID : organization_id;
-        await dispatch(refreshCommunity(orgId));
-        await dispatch(reloadGroupChallengeFeed(orgId));
+        await dispatch(refreshCommunity(communityId));
+        await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
-          navigatePush(COMMUNITY_CHALLENGES, {
-            communityId: orgId,
-          }),
+          navigateNestedReset([
+            {
+              routeName: MAIN_TABS,
+              tabName: COMMUNITIES_TAB,
+            },
+            {
+              routeName: COMMUNITY_TABS,
+              params: { communityId },
+              tabName: COMMUNITY_CHALLENGES,
+            },
+            {
+              routeName: CHALLENGE_DETAIL_SCREEN,
+              params: {
+                challengeId: challenge_id,
+                orgId: communityId,
+                isAdmin: false,
+              },
+            },
+          ]),
         );
       }
     }
