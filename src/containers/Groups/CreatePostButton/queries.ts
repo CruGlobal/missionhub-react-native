@@ -1,5 +1,7 @@
 import gql from 'graphql-tag';
 
+import { AVATAR_FRAGMENT } from '../../../components/Avatar/queries';
+
 export const GET_MY_COMMUNITY_PERMISSION_QUERY = gql`
   query getMyCommunityPermission($id: ID!, $myId: ID!) {
     community(id: $id) {
@@ -11,11 +13,10 @@ export const GET_MY_COMMUNITY_PERMISSION_QUERY = gql`
           }
         }
         nodes {
-          id
-          fullName
-          picture
+          ...Avatar
         }
       }
     }
   }
+  ${AVATAR_FRAGMENT}
 `;
