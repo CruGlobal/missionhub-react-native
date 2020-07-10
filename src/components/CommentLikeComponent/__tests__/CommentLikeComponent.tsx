@@ -3,6 +3,7 @@ import React from 'react';
 import { MockStore } from 'redux-mock-store';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { ReactTestInstance } from 'react-test-renderer';
+import { IMocks } from 'graphql-tools';
 import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -16,6 +17,7 @@ import {
 import { CommunityFeedItemCommentLike } from '../__generated__/CommunityFeedItemCommentLike';
 import { navigatePush } from '../../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 
 import { CommentLikeComponent } from '..';
 
@@ -29,99 +31,73 @@ const trackActionResponse = { type: 'tracked action' };
 
 const myId = '1';
 const feedItemId = '12';
-const communityId = '3';
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResponse);
 });
 
-it('renders nothing with no subject person', () => {
-  renderWithContext(
+function render(mocks?: IMocks) {
+  return renderWithContext(
     <CommentLikeComponent
       feedItem={mockFragment<CommunityFeedItemCommentLike>(
         COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-        { mocks: { FeedItem: () => ({ subjectPerson: null }) } },
+        mocks ? { mocks } : undefined,
       )}
     />,
-    {
-      initialState,
-    },
-  ).snapshot();
+    { initialState },
+  );
+}
+
+it('renders nothing with no subject person', () => {
+  render({ FeedItem: () => ({ subjectPerson: null }) }).snapshot();
 });
 
 describe('with subject person', () => {
   it('renders for me', () => {
-    renderWithContext(
-      <CommentLikeComponent
-        feedItem={mockFragment<CommunityFeedItemCommentLike>(
-          COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-          { mocks: { FeedItem: () => ({ subjectPerson: { id: myId } }) } },
-        )}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
+    render({ FeedItem: () => ({ subjectPerson: { id: myId } }) }).snapshot();
   });
 
   it('renders for someone else', () => {
-    renderWithContext(
-      <CommentLikeComponent
-        feedItem={mockFragment<CommunityFeedItemCommentLike>(
-          COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-        )}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
+    render().snapshot();
+  });
+
+  it('renders prayer request liked', () => {
+    render({
+      FeedItem: () => ({
+        subject: {
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+        },
+        liked: true,
+      }),
+    }).snapshot();
+  });
+
+  it('renders prayer request not liked', () => {
+    render({
+      FeedItem: () => ({
+        subject: {
+          __typename: 'Post',
+          postType: PostTypeEnum.prayer_request,
+        },
+        liked: false,
+      }),
+    }).snapshot();
   });
 
   it('renders when not liked', () => {
-    renderWithContext(
-      <CommentLikeComponent
-        feedItem={mockFragment<CommunityFeedItemCommentLike>(
-          COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-          { mocks: { FeedItem: () => ({ liked: false }) } },
-        )}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
+    render({ FeedItem: () => ({ liked: false }) }).snapshot();
   });
 
   it('renders 0 comments_count', () => {
-    renderWithContext(
-      <CommentLikeComponent
-        feedItem={mockFragment<CommunityFeedItemCommentLike>(
-          COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-          { mocks: { BasePageInfo: () => ({ totalCount: 0 }) } },
-        )}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
+    render({ BasePageInfo: () => ({ totalCount: 0 }) }).snapshot();
   });
 
   it('renders 0 likes_count', () => {
-    renderWithContext(
-      <CommentLikeComponent
-        feedItem={mockFragment<CommunityFeedItemCommentLike>(
-          COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-          {
-            mocks: {
-              FeedItem: () => ({ subjectPerson: { id: myId }, likesCount: 0 }),
-            },
-          },
-        )}
-      />,
-      {
-        initialState,
-      },
-    ).snapshot();
+    render({
+      FeedItem: () => ({ subjectPerson: { id: myId }, likesCount: 0 }),
+    }).snapshot();
   });
 
   describe('onPress like button', () => {
@@ -134,25 +110,13 @@ describe('with subject person', () => {
       };
 
       beforeEach(() => {
-        screen = renderWithContext(
-          <CommentLikeComponent
-            feedItem={mockFragment<CommunityFeedItemCommentLike>(
-              COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-              {
-                mocks: {
-                  FeedItem: () => ({
-                    id: feedItemId,
-                    subjectPerson: { id: myId },
-                    liked: false,
-                  }),
-                },
-              },
-            )}
-          />,
-          {
-            initialState,
-          },
-        );
+        screen = render({
+          FeedItem: () => ({
+            id: feedItemId,
+            subjectPerson: { id: myId },
+            liked: false,
+          }),
+        });
       });
 
       it('renders disabled heart button', async () => {
@@ -185,25 +149,13 @@ describe('with subject person', () => {
       };
 
       beforeEach(() => {
-        screen = renderWithContext(
-          <CommentLikeComponent
-            feedItem={mockFragment<CommunityFeedItemCommentLike>(
-              COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT,
-              {
-                mocks: {
-                  FeedItem: () => ({
-                    id: feedItemId,
-                    subjectPerson: { id: myId },
-                    liked: true,
-                  }),
-                },
-              },
-            )}
-          />,
-          {
-            initialState,
-          },
-        );
+        screen = render({
+          FeedItem: () => ({
+            id: feedItemId,
+            subjectPerson: { id: myId },
+            liked: true,
+          }),
+        });
       });
 
       it('renders disabled heart button', async () => {
@@ -228,25 +180,16 @@ describe('with subject person', () => {
   });
 
   it('onPress comment button', () => {
-    const { getByTestId } = renderWithContext(
-      <CommentLikeComponent
-        feedItem={mockFragment(COMMUNITY_FEED_ITEM_COMMENT_LIKE_FRAGMENT, {
-          mocks: {
-            FeedItem: () => ({
-              id: feedItemId,
-              community: { id: communityId },
-            }),
-          },
-        })}
-      />,
-      { initialState },
-    );
+    const { getByTestId } = render({
+      FeedItem: () => ({
+        id: feedItemId,
+      }),
+    });
 
     fireEvent.press(getByTestId('CommentIconButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId,
-      communityId,
     });
   });
 
@@ -259,7 +202,6 @@ describe('with subject person', () => {
           mocks: {
             FeedItem: () => ({
               id: feedItemId,
-              community: { id: communityId },
             }),
           },
         })}

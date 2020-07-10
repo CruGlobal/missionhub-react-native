@@ -13,6 +13,7 @@ import { renderWithContext } from '../../../../../testUtils';
 import RowSwipeable from '../../../../components/RowSwipeable';
 import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
 import { navigatePush } from '../../../../actions/navigation';
+import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 
 import { PersonJourney } from '..';
 
@@ -32,14 +33,22 @@ jest.mock('../../../../actions/navigation');
 
 (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 
+const myId = '111';
 const personId = '123';
 const orgId = '222';
 
-const mockPerson = {
-  id: personId,
-  first_name: 'ben',
+const mockMePerson = {
+  id: myId,
+  first_name: 'Mike',
   organizational_permissions: [
     { organization_id: orgId, permission_id: ORG_PERMISSIONS.OWNER },
+  ],
+};
+const mockPerson = {
+  id: personId,
+  first_name: 'Ben',
+  organizational_permissions: [
+    { organization_id: orgId, permission_id: ORG_PERMISSIONS.USER },
   ],
 };
 
@@ -49,7 +58,7 @@ const mockJourneyList = [
 
 const initialState = {
   auth: {
-    person: mockPerson,
+    person: mockMePerson,
   },
   swipe: {
     journey: false,
@@ -57,7 +66,7 @@ const initialState = {
   journey: {
     personal: {},
   },
-  people: { people: { [mockPerson.id]: mockPerson } },
+  people: { people: { [personId]: mockPerson, [myId]: mockMePerson } },
 };
 
 describe('PersonJourney', () => {
@@ -71,6 +80,10 @@ describe('PersonJourney', () => {
         initialState,
       },
     ).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'our journey'], {
+      assignmentType: { personId },
+    });
   });
 
   it('renders null screen correctly', () => {
@@ -105,6 +118,27 @@ describe('PersonJourney', () => {
         },
       },
     ).snapshot();
+  });
+
+  it('renders screen with steps for me correctly', () => {
+    renderWithContext(
+      <PersonJourney
+        collapsibleHeaderContext={PersonCollapsibleHeaderContext}
+      />,
+      {
+        navParams: { personId: myId },
+        initialState: {
+          ...initialState,
+          journey: {
+            personal: { [myId]: mockJourneyList },
+          },
+        },
+      },
+    ).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my journey'], {
+      assignmentType: { personId: myId },
+    });
   });
 });
 
@@ -176,8 +210,12 @@ describe('journey methods', () => {
                 {
                   id: '124',
                   _type: 'pathway_progression_audit',
-                  person: { id: personId },
+                  person: mockPerson,
                   created_at: '2010-01-01 12:12:12',
+                  new_pathway_stage: {
+                    id: '1',
+                    name: 'Curious',
+                  },
                 },
               ],
             },

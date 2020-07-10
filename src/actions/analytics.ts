@@ -137,8 +137,6 @@ export function trackStepAdded(step?: StepAddedAnalytics | null) {
 
     if (step.stepSuggestion) {
       trackedStep = `${trackedStep} | ${step.stepSuggestion.id} | ${step.stepSuggestion.stage.id}`;
-    } else if (step.post) {
-      trackedStep = `${trackedStep} | ${step.post.postType}`;
     } else {
       dispatch(trackActionWithoutData(ACTIONS.STEP_CREATED));
     }

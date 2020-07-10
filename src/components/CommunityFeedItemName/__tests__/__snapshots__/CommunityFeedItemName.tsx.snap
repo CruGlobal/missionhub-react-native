@@ -2,6 +2,7 @@
 
 exports[`renders correctly not pressable 1`] = `
 <Text
+  numberOfLines={2}
   style={
     Array [
       Object {
@@ -61,6 +62,7 @@ exports[`renders correctly with name 1`] = `
     }
   >
     <Text
+      numberOfLines={2}
       style={
         Array [
           Object {
@@ -92,6 +94,7 @@ exports[`renders correctly with name 1`] = `
 
 exports[`renders correctly without name 1`] = `
 <Text
+  numberOfLines={2}
   style={
     Array [
       Object {

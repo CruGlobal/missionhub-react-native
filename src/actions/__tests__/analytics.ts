@@ -290,37 +290,6 @@ describe('trackStepAdded', () => {
     );
   });
 
-  it('should track step from post', async () => {
-    const mockStep = mockFragment<StepAddedAnalytics>(
-      STEP_ADDED_ANALYTICS_FRAGMENT,
-      {
-        mocks: {
-          Step: () => ({
-            stepType: () => StepTypeEnum.share,
-            stepSuggestion: () => null,
-            receiver: () => ({ id: '2' }), // non me id
-          }),
-        },
-      },
-    );
-
-    await store.dispatch<any>(trackStepAdded(mockStep));
-
-    expect(store.getActions()).toEqual([]);
-    expect(RNOmniture.trackAction).toHaveBeenCalledTimes(2);
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(
-      ACTIONS.STEP_DETAIL.name,
-      {
-        [ACTIONS.STEP_DETAIL
-          .key]: `${StepTypeEnum.share} | N | ${i18next.language} | ${mockStep.post?.postType}`,
-      },
-    );
-    expect(RNOmniture.trackAction).toHaveBeenCalledWith(
-      ACTIONS.STEPS_ADDED.name,
-      { [ACTIONS.STEPS_ADDED.key]: 1 },
-    );
-  });
-
   it('should track custom steps', async () => {
     await store.dispatch<any>(
       trackStepAdded(

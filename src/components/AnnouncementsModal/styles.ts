@@ -9,7 +9,6 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-
   containerStyle: {
     flex: 0.4,
     width: '80%',
@@ -17,7 +16,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     backgroundColor: theme.white,
     borderRadius: 14,
-    padding: 14,
+    paddingHorizontal: 14,
     paddingVertical: 40,
   },
   modalButton: {
@@ -32,8 +31,9 @@ export default StyleSheet.create({
   closeButton: {
     color: theme.lightGrey,
     position: 'absolute',
-    top: -40,
-    right: -5,
+    padding: 25,
+    top: -70,
+    right: -20,
     margin: 0,
     justifyContent: 'flex-end',
   },
