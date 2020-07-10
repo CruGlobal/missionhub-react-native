@@ -8,6 +8,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 //eslint-disable-next-line import/named
 import { RecordResponse } from 'react-native-camera';
+//eslint-disable-next-line import/named
 import { ReactNativeFile } from 'apollo-upload-client';
 
 import {
@@ -190,7 +191,11 @@ export const CreatePostScreen = () => {
         : hasImage
         ? mediaData
         : hasVideo
-        ? new ReactNativeFile({ uri: mediaData, type: mediaType })
+        ? new ReactNativeFile({
+            name: 'upload',
+            uri: mediaData,
+            type: mediaType,
+          })
         : undefined;
 
     if (post) {
@@ -223,14 +228,12 @@ export const CreatePostScreen = () => {
   const handleSavePhoto = (image: SelectImageParams) => {
     const { data, fileType } = image;
     changeMediaType(`image/${fileType}`);
-    console.log(fileType);
     changeMediaData(data);
   };
 
   const handleSaveVideo = (response: RecordResponse) => {
     const { uri, codec = 'mp4' } = response;
     changeMediaType(`video/${String(codec)}`);
-    console.log(codec);
     changeMediaData(uri);
   };
 
