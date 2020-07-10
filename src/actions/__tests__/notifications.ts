@@ -37,6 +37,7 @@ import {
   navigateReset,
   navigateToMainTabs,
   navigateToFeedItemComments,
+  navigateNestedReset,
 } from '../navigation';
 import { refreshCommunity } from '../organizations';
 import { reloadGroupChallengeFeed } from '../challenges';
@@ -45,7 +46,6 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerS
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
-import { COMMUNITY_CHALLENGES } from '../../containers/Groups/GroupChallenges';
 import { LOADING_SCREEN } from '../../containers/LoadingScreen';
 
 jest.mock('../person');
@@ -88,6 +88,9 @@ beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
   (callApi as jest.Mock).mockReturnValue(callApiResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigateNestedReset as jest.Mock).mockReturnValue({
+    type: 'navigateNestedReset',
+  });
   (navigateReset as jest.Mock).mockReturnValue(navigateResetResult);
   (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue(
     permission,
@@ -827,14 +830,38 @@ describe('askNotificationPermissions', () => {
           data: {
             screen: 'community_challenges',
             organization_id: organization.id,
+            challenge_id: '1',
           },
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(organization.id);
-        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_CHALLENGES, {
-          communityId: organization.id,
-        });
+        expect((navigateNestedReset as jest.Mock).mock.calls[0])
+          .toMatchInlineSnapshot(`
+          Array [
+            Array [
+              Object {
+                "routeName": "nav/MAIN_TABS",
+                "tabName": "CommunitiesTab",
+              },
+              Object {
+                "params": Object {
+                  "communityId": "234234",
+                },
+                "routeName": "nav/COMMUNITY_TABS",
+                "tabName": "nav/COMMUNITY_CHALLENGES",
+              },
+              Object {
+                "params": Object {
+                  "challengeId": "1",
+                  "isAdmin": false,
+                  "orgId": "234234",
+                },
+                "routeName": "nav/CHALLENGE_DETAIL",
+              },
+            ],
+          ]
+        `);
       });
 
       it('should navigate to global community if no id passed', async () => {
@@ -845,15 +872,39 @@ describe('askNotificationPermissions', () => {
           data: {
             screen: 'community_challenges',
             organization_id: null,
+            challenge_id: '1',
           },
         });
         expect(refreshCommunity).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
         expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
           GLOBAL_COMMUNITY_ID,
         );
-        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_CHALLENGES, {
-          communityId: GLOBAL_COMMUNITY_ID,
-        });
+        expect((navigateNestedReset as jest.Mock).mock.calls[0])
+          .toMatchInlineSnapshot(`
+          Array [
+            Array [
+              Object {
+                "routeName": "nav/MAIN_TABS",
+                "tabName": "CommunitiesTab",
+              },
+              Object {
+                "params": Object {
+                  "communityId": "_global_community_id",
+                },
+                "routeName": "nav/COMMUNITY_TABS",
+                "tabName": "nav/COMMUNITY_CHALLENGES",
+              },
+              Object {
+                "params": Object {
+                  "challengeId": "1",
+                  "isAdmin": false,
+                  "orgId": "_global_community_id",
+                },
+                "routeName": "nav/CHALLENGE_DETAIL",
+              },
+            ],
+          ]
+        `);
       });
     });
   });
