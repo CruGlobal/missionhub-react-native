@@ -11,8 +11,10 @@ import {
   DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
 } from '../routes/constants';
 import { AuthState } from '../reducers/auth';
+import { MAIN_TABS, COMMUNITIES_TAB } from '../constants';
+import { LANDING_SCREEN } from '../containers/LandingScreen';
 
-import { navigateReset } from './navigation';
+import { navigateNestedReset } from './navigation';
 import { startOnboarding } from './onboarding';
 
 export const setupFirebaseDynamicLinks = () => (
@@ -52,16 +54,33 @@ const handleJoinCommunityDeepLink = (
   if (communityUrlCode) {
     if (hasAuth) {
       dispatch(
-        navigateReset(DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW, {
-          communityUrlCode,
-        }),
+        navigateNestedReset([
+          {
+            routeName: MAIN_TABS,
+            tabName: COMMUNITIES_TAB,
+          },
+          {
+            routeName: DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
+            params: {
+              communityUrlCode,
+            },
+          },
+        ]),
       );
     } else {
       dispatch(startOnboarding());
       dispatch(
-        navigateReset(DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW, {
-          communityUrlCode,
-        }),
+        navigateNestedReset([
+          {
+            routeName: LANDING_SCREEN,
+          },
+          {
+            routeName: DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
+            params: {
+              communityUrlCode,
+            },
+          },
+        ]),
       );
     }
   }
