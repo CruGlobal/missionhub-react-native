@@ -10,6 +10,11 @@ export const GET_MY_COMMUNITY_PERMISSION_QUERY = gql`
             permission
           }
         }
+        nodes {
+          id
+          fullName
+          picture
+        }
       }
     }
   }

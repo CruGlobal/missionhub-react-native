@@ -404,7 +404,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
           \\"title\\": \\"dates.earlier\\",
         },
       ]
-@@ -827,11 +1215,399 @@
+@@ -827,10 +1215,398 @@
                 \\"id\\": \\"47\\",
                 \\"lastName\\": \\"Paucek\\",
                 \\"picture\\": \\"molestiae et facere\\",
@@ -758,7 +758,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"picture\\": \\"voluptatem in provident\\",
 +             },
 +             \\"subjectPersonName\\": \\"Carolyn Dietrich\\",
-            },
++           },
 +           Object {
 +             \\"__typename\\": \\"FeedItem\\",
 +             \\"comments\\": Object {
@@ -798,29 +798,11 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"picture\\": \\"recusandae et dolor\\",
 +             },
 +             \\"subjectPersonName\\": \\"Trevion McClure\\",
-+           },
+            },
           ],
           \\"id\\": 2,
           \\"title\\": \\"dates.earlier\\",
-        },
-      ]
-@@ -859,13 +1635,13 @@
-        <CreatePostButton
-          communityId=\\"456\\"
-          person={
-            Object {
-              \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Tressa Bayer\\",
--             \\"id\\": \\"50\\",
--             \\"picture\\": \\"sint odit dolor\\",
-+             \\"fullName\\": \\"Ryleigh Schmitt\\",
-+             \\"id\\": \\"97\\",
-+             \\"picture\\": \\"amet sunt vitae\\",
-            }
-          }
-        />
-        <CommunityFeedPostCards
-          communityId=\\"456\\""
+        },"
 `;
 
 exports[`handle pagination community feed pagination should not load more when no next page 1`] = `
@@ -3915,14 +3897,6 @@ exports[`renders for Unread Comments renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Tressa Bayer",
-            "id": "50",
-            "picture": "sint odit dolor",
-          }
-        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -5284,14 +5258,6 @@ exports[`renders for member renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Tressa Bayer",
-            "id": "50",
-            "picture": "sint odit dolor",
-          }
-        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -5957,14 +5923,6 @@ exports[`renders for member renders with type 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Kaden Ortiz",
-            "id": "8",
-            "picture": "repudiandae esse blanditiis",
-          }
-        }
         type="STEP"
       />
     </View>
@@ -8280,14 +8238,6 @@ exports[`renders with clear notification renders correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Tressa Bayer",
-            "id": "50",
-            "picture": "sint odit dolor",
-          }
-        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -9658,14 +9608,6 @@ exports[`renders with items correctly 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Tressa Bayer",
-            "id": "50",
-            "picture": "sint odit dolor",
-          }
-        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -10331,14 +10273,6 @@ exports[`sections renders Earlier section 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Immanuel Thiel",
-            "id": "8",
-            "picture": "incidunt accusantium sed",
-          }
-        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -10610,14 +10544,6 @@ exports[`sections renders New section 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Immanuel Thiel",
-            "id": "8",
-            "picture": "incidunt accusantium sed",
-          }
-        }
       />
       <CommunityFeedPostCards
         communityId="456"
@@ -10889,14 +10815,6 @@ exports[`sections renders Today section 1`] = `
     >
       <CreatePostButton
         communityId="456"
-        person={
-          Object {
-            "__typename": "Person",
-            "fullName": "Immanuel Thiel",
-            "id": "8",
-            "picture": "incidunt accusantium sed",
-          }
-        }
       />
       <CommunityFeedPostCards
         communityId="456"
