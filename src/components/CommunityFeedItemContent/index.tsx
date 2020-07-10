@@ -30,6 +30,7 @@ import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { TouchablePress } from '../Touchable/index.ios';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 import PopupMenu from '../PopupMenu';
+import VideoPlayer from '../VideoPlayer';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
@@ -76,12 +77,14 @@ export const CommunityFeedItemContent = ({
     );
   }
 
-  const imageData =
+  const mediaData =
     (subject.__typename === 'Post' && subject.mediaExpiringUrl) || null;
+  const mediaType =
+    (subject.__typename === 'Post' && subject.mediaContentType) || null;
   const stepStatus =
     (subject.__typename === 'Post' && subject.stepStatus) ||
     PostStepStatusEnum.NOT_SUPPORTED;
-  const imageAspectRatio = useAspectRatio(imageData);
+  const aspectRatio = useAspectRatio(mediaData);
 
   const itemType = getFeedItemType(subject);
   const addToSteps =
@@ -101,6 +104,9 @@ export const CommunityFeedItemContent = ({
     : t('aMissionHubUser');
 
   const isGlobal = !community;
+
+  const hasImage = mediaType?.includes('image');
+  const hasVideo = mediaType?.includes('video');
 
   const onPressChallengeLink = async () => {
     const challengeId = (subject as CommunityFeedItemContent_subject_AcceptedCommunityChallenge)
@@ -275,13 +281,28 @@ export const CommunityFeedItemContent = ({
   );
 
   const renderImage = () =>
-    imageData ? (
+    mediaData ? (
       <Image
-        source={{ uri: imageData }}
-        style={{ aspectRatio: imageAspectRatio }}
+        source={{ uri: mediaData }}
+        style={{ aspectRatio }}
         resizeMode="cover"
       />
     ) : null;
+
+  const renderVideo = () =>
+    mediaData ? (
+      <Touchable
+        isAndroidOpacity={true}
+        activeOpacity={1}
+        onPress={() => {}}
+        testID="VideoTouchable"
+      >
+        <VideoPlayer uri={mediaData} style={{ height: 400 }} />
+      </Touchable>
+    ) : null;
+
+  const renderMedia = () =>
+    hasImage ? renderImage() : hasVideo ? renderVideo() : null;
 
   const renderFooter = () => (
     <Touchable
@@ -336,7 +357,7 @@ export const CommunityFeedItemContent = ({
           ? renderChallengeLink(subject)
           : null}
       </View>
-      {renderImage()}
+      {renderMedia()}
       {showLikeAndComment ? (
         <>
           <Separator />
