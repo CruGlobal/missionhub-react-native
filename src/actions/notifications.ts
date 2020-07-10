@@ -302,6 +302,7 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         }
         return;
       }
+      // We intend to deprecate 'celebrate'. 'celebrate_item' should always have 'celebration_item_id' defined while the old celebrate required conditional logic  https://jira.cru.org/browse/MHP-3151
       case 'celebrate':
       case 'celebrate_item': {
         const { organization_id, celebration_item_id } = notificationData;
