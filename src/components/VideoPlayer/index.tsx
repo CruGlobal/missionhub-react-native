@@ -12,9 +12,13 @@ interface VideoPlayerProps {
   uri: string;
   style?: StyleProp<ViewStyle>;
   onDelete?: () => void;
+  width?: number;
 }
 
-const VideoPlayer = ({ uri, style, onDelete }: VideoPlayerProps) => {
+const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
+  const ratio = 16.0 / 9.0;
+  const height = (width && ratio * width) || 300;
+
   const renderDeleteButton = () =>
     onDelete ? (
       <View style={styles.deleteWrap}>
@@ -30,7 +34,7 @@ const VideoPlayer = ({ uri, style, onDelete }: VideoPlayerProps) => {
     ) : null;
 
   return (
-    <View style={[styles.videoContainer, style]}>
+    <View style={[styles.videoContainer, { height }, style]}>
       <Video
         source={{
           uri,

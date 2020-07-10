@@ -45,6 +45,7 @@ import {
 import StepIcon from './stepIcon.svg';
 import PlusIcon from './plusIcon.svg';
 import styles, { markdown } from './styles';
+import { CardHorizontalMargin } from '../Card/styles';
 
 export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;
@@ -297,7 +298,10 @@ export const CommunityFeedItemContent = ({
         onPress={() => {}}
         testID="VideoTouchable"
       >
-        <VideoPlayer uri={mediaData} style={{ height: 400 }} />
+        <VideoPlayer
+          uri={mediaData}
+          width={theme.fullWidth - CardHorizontalMargin * 2.0}
+        />
       </Touchable>
     ) : null;
 
