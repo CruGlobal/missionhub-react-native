@@ -19,36 +19,6 @@ Array [
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
       <Image
         resizeMode="cover"
         source={
@@ -158,48 +128,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      Branson G. accepted a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -477,36 +435,6 @@ Array [
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
       <Image
         resizeMode="cover"
         source={
@@ -616,48 +544,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      Elizabeth Z. completed a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -935,36 +851,6 @@ Array [
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
       <View
         style={
           Array [
@@ -1053,48 +939,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      A MissionHub user completed a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -1372,36 +1246,6 @@ Array [
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
       <View
         style={
           Array [
@@ -1490,48 +1334,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      amet iure ut completed a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -3789,6 +3621,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -4234,6 +4067,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -4679,6 +4513,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -5124,6 +4959,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -5569,6 +5405,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -6014,6 +5851,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -6459,6 +6297,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -6883,6 +6722,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -7306,6 +7146,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -8694,6 +8535,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -9139,6 +8981,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }

@@ -91,7 +91,7 @@ export const useAnalytics = (
     ...(permissionType
       ? {
           [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionType(
-            edges[0].communityPermission.permission,
+            edges[0]?.communityPermission.permission,
           ),
         }
       : {}),
