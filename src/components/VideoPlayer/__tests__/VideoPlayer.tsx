@@ -28,6 +28,12 @@ it('renders with delete button', () => {
   ).snapshot();
 });
 
+it('renders with width', () => {
+  renderWithContext(
+    <VideoPlayer uri={'testVideo.mp4'} width={900} />,
+  ).snapshot();
+});
+
 it('calls onDelete', () => {
   const { getByTestId } = renderWithContext(
     <VideoPlayer
