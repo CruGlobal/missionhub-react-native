@@ -196,6 +196,7 @@ describe('Select image', () => {
     recordSnapshot();
 
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+      fileType: 'jpg',
       data: MOCK_IMAGE,
     });
 
