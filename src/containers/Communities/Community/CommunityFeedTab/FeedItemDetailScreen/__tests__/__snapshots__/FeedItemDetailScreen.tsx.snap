@@ -511,19 +511,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "sunt qui amet",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -1426,19 +1413,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "sunt qui amet",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -2308,19 +2282,6 @@ exports[`edit/delete post no options for not my post 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "sunt qui amet",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -2862,7 +2823,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -450,21 +485,21 @@
+@@ -450,11 +485,11 @@
                           \\"lineHeight\\": 18,
                         },
                       ]
@@ -2875,18 +2836,7 @@ exports[`refresh calls refreshComments 1`] = `
               </View>
             </View>
           </View>
-          <Image
-            resizeMode=\\"cover\\"
-            source={
-              Object {
--               \\"uri\\": \\"amet iure ut\\",
-+               \\"uri\\": \\"eligendi nostrum ipsam\\",
-              }
-            }
-            style={
-              Object {
-                \\"aspectRatio\\": 1.3333333333333333,
-@@ -625,11 +660,11 @@
+@@ -612,11 +647,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -2899,7 +2849,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -694,28 +729,29 @@
+@@ -681,28 +716,29 @@
         >
           <CommentItem
             comment={
@@ -2937,7 +2887,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -726,28 +762,29 @@
+@@ -713,28 +749,29 @@
         >
           <CommentItem
             comment={
@@ -2975,7 +2925,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -767,22 +804,22 @@
+@@ -754,22 +791,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3513,19 +3463,6 @@ exports[`renders correctly 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "sunt qui amet",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -4428,19 +4365,6 @@ exports[`renders correctly with communityId passed in 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "sunt qui amet",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [

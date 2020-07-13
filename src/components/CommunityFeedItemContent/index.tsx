@@ -34,6 +34,7 @@ import VideoPlayer from '../VideoPlayer';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
+import { CardHorizontalMargin } from '../Card/styles';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -45,7 +46,6 @@ import {
 import StepIcon from './stepIcon.svg';
 import PlusIcon from './plusIcon.svg';
 import styles, { markdown } from './styles';
-import { CardHorizontalMargin } from '../Card/styles';
 
 export interface CommunityFeedItemContentProps {
   feedItem: FeedItem;

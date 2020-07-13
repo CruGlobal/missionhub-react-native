@@ -1914,7 +1914,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "iure ut libero",
+            "uri": "repellat ratione ut",
           }
         }
         style={
@@ -1925,7 +1925,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(102, 136, 115)",
+              "backgroundColor": "rgb(110, 167, 125)",
             },
             undefined,
           ]
@@ -1970,7 +1970,7 @@ Array [
             ]
           }
         >
-          nobis cupiditate sed
+          qui recusandae ut
         </Text>
         <Text
           style={
@@ -2048,19 +2048,6 @@ Array [
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "ratione ut sunt",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -2182,8 +2169,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -2217,7 +2203,7 @@ Array [
               ]
             }
           >
-            44345
+            84631
           </Text>
           <View
             accessible={true}
@@ -2391,7 +2377,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "iure ut libero",
+            "uri": "repellat ratione ut",
           }
         }
         style={
@@ -2402,7 +2388,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(102, 136, 115)",
+              "backgroundColor": "rgb(110, 167, 125)",
             },
             undefined,
           ]
@@ -2447,7 +2433,7 @@ Array [
             ]
           }
         >
-          nobis cupiditate sed
+          qui recusandae ut
         </Text>
         <Text
           style={
@@ -2525,19 +2511,6 @@ Array [
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "ratione ut sunt",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -2723,7 +2696,7 @@ Array [
               }
             >
               <SvgMock
-                color="#A97398"
+                color="#505256"
               />
             </View>
           </View>
@@ -2757,7 +2730,7 @@ Array [
               ]
             }
           >
-            44345
+            84631
           </Text>
           <View
             accessible={true}
@@ -2931,7 +2904,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "iure ut libero",
+            "uri": "repellat ratione ut",
           }
         }
         style={
@@ -2942,7 +2915,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(102, 136, 115)",
+              "backgroundColor": "rgb(110, 167, 125)",
             },
             undefined,
           ]
@@ -2987,7 +2960,7 @@ Array [
             ]
           }
         >
-          nobis cupiditate sed
+          qui recusandae ut
         </Text>
         <Text
           style={
@@ -3065,19 +3038,6 @@ Array [
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "ratione ut sunt",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -3199,7 +3159,7 @@ Array [
               }
             >
               <SvgMock
-                color="#A97398"
+                color="#505256"
               />
             </View>
           </View>
@@ -3233,7 +3193,7 @@ Array [
               ]
             }
           >
-            44345
+            84631
           </Text>
           <View
             accessible={true}
@@ -3407,7 +3367,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "iure ut libero",
+            "uri": "repellat ratione ut",
           }
         }
         style={
@@ -3418,7 +3378,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(102, 136, 115)",
+              "backgroundColor": "rgb(110, 167, 125)",
             },
             undefined,
           ]
@@ -3463,7 +3423,7 @@ Array [
             ]
           }
         >
-          nobis cupiditate sed
+          qui recusandae ut
         </Text>
         <Text
           style={
@@ -3541,19 +3501,6 @@ Array [
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "ratione ut sunt",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
 ]
 `;
 
@@ -7642,7 +7589,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "nulla quam ipsam",
+            "uri": "iure ut libero",
           }
         }
         style={
@@ -7683,7 +7630,7 @@ Array [
             ]
           }
         >
-          Integrated user-facing intranet
+          Compatible foreground collaboration
         </Text>
         <Text
           style={
@@ -7761,19 +7708,6 @@ Array [
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "ratione ut sunt",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -7895,8 +7829,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -7930,7 +7863,7 @@ Array [
               ]
             }
           >
-            44345
+            84631
           </Text>
           <View
             accessible={true}
@@ -8131,7 +8064,471 @@ Array [
             ]
           }
         >
-          Integrated user-facing intranet
+          Compatible foreground collaboration
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={Object {}}
+        >
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "marginRight": 20,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#FF5532"
+                fill="#FF5532"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            39676
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent renders with image 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
+                  "paddingVertical": 0,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "sunt qui amet",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(136, 162, 125)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          nulla quam ipsam
         </Text>
         <Text
           style={
@@ -8213,7 +8610,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "ratione ut sunt",
+        "uri": "consequuntur corporis repellat",
       }
     }
     style={
@@ -8859,6 +9256,521 @@ Array [
             }
           >
             39676
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent renders with video 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
+                  "paddingVertical": 0,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "sunt qui amet",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(136, 162, 125)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          nulla quam ipsam
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={Object {}}
+        >
+          <Text
+            style={
+              Array [
+                Object {},
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+              ]
+            }
+          >
+            quisquam recusandae alias
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="VideoTouchable"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "height": 1276.4444444444443,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Video
+        controls={true}
+        paused={true}
+        source={
+          Object {
+            "uri": "consequuntur corporis repellat",
+          }
+        }
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      />
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "marginRight": 20,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#FF5532"
+                fill="#FF5532"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            68521
           </Text>
           <View
             accessible={true}
