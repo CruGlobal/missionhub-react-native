@@ -5,7 +5,6 @@ import theme from '../../theme';
 export default StyleSheet.create({
   videoContainer: {
     flex: 1,
-    height: 300,
   },
   videoPlayer: {
     ...StyleSheet.absoluteFillObject,

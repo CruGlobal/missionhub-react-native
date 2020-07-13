@@ -278,8 +278,8 @@ export const CreatePostScreen = () => {
     mediaData ? (
       <VideoPlayer
         uri={mediaData}
-        style={{ width: theme.fullWidth, height: theme.fullHeight }}
         onDelete={handleDeleteVideo}
+        width={theme.fullWidth}
       />
     ) : null;
 

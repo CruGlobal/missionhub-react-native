@@ -238,7 +238,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -271,77 +271,49 @@
+@@ -271,77 +271,48 @@
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
         />
@@ -248,15 +248,8 @@ exports[`Select video should select a video 1`] = `
               Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
-+               \\"flex\\": 1,
-+               \\"height\\": 300,
-+             },
-+             Object {
-+               \\"height\\": 1334,
-                \\"width\\": 750,
-+             },
-+           ]
-          }
+-             \\"width\\": 750,
+-           }
 -         }
 -       />
 -       <View
@@ -271,11 +264,8 @@ exports[`Select video should select a video 1`] = `
 -         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
 -         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
 -         style={
-+       >
-+         <Video
-+           controls={true}
-+           paused={true}
-+           source={
++               \\"flex\\": 1,
++             },
               Object {
 -             \\"flex\\": 1,
 -             \\"flexDirection\\": \\"row\\",
@@ -283,28 +273,31 @@ exports[`Select video should select a video 1`] = `
 -             \\"opacity\\": 1,
 -             \\"paddingHorizontal\\": 35,
 -             \\"paddingVertical\\": 20,
-+               \\"uri\\": \\"file:/video.mov\\",
-              }
-            }
+-           }
++               \\"height\\": 1333.3333333333333,
++             },
++             undefined,
++           ]
+          }
 -         testID=\\"VideoButton\\"
--       >
+        >
 -         <SvgMock
-            style={
+-           style={
++         <Video
++           controls={true}
++           paused={true}
++           source={
               Object {
 -               \\"height\\": 24,
 -               \\"width\\": 24,
-+               \\"bottom\\": 0,
-+               \\"left\\": 0,
-+               \\"position\\": \\"absolute\\",
-+               \\"right\\": 0,
-+               \\"top\\": 0,
++               \\"uri\\": \\"file:/video.mov\\",
               }
             }
-          />
+-         />
 -         <Text
--           style={
+            style={
 -             Array [
--               Object {
+              Object {
 -                 \\"color\\": \\"#505256\\",
 -               },
 -               Object {
@@ -316,11 +309,18 @@ exports[`Select video should select a video 1`] = `
 -                 \\"paddingHorizontal\\": 10,
 -               },
 -             ]
--           }
++               \\"bottom\\": 0,
++               \\"left\\": 0,
++               \\"position\\": \\"absolute\\",
++               \\"right\\": 0,
++               \\"top\\": 0,
+              }
 -         >
 -           Record a 15-Second Video
 -         </Text>
 -       </View>
++           }
++         />
           <View
             style={
               Object {
@@ -338,7 +338,7 @@ exports[`Select video should select a video 1`] = `
               focusable={true}
               isTVSelectable={true}
               onClick={[Function bound touchableHandlePress]}
-@@ -351,62 +323,28 @@
+@@ -351,62 +322,28 @@
               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
@@ -398,8 +398,9 @@ exports[`Select video should select a video 1`] = `
 -           >
 -             Add a Photo
 -           </Text>
-            </View>
++           </View>
           </View>
+        </View>
 -       <View
 -         style={
 -           Object {
@@ -409,7 +410,6 @@ exports[`Select video should select a video 1`] = `
 -           }
 -         }
 -       />
-+       </View>
       </View>
     </RCTScrollView>
   </View>"
@@ -1573,12 +1573,11 @@ exports[`renders correctly for update post with video 1`] = `
           Array [
             Object {
               "flex": 1,
-              "height": 300,
             },
             Object {
-              "height": 1334,
-              "width": 750,
+              "height": 1333.3333333333333,
             },
+            undefined,
           ]
         }
       >

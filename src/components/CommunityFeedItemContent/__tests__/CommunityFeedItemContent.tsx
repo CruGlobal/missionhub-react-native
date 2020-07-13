@@ -23,6 +23,7 @@ import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
+jest.mock('react-native-video', () => 'Video');
 
 const initialState = {
   auth: { person: { id: '1' } },
@@ -171,6 +172,8 @@ describe('CommunityFeedItemContent', () => {
             subject: () => ({
               __typename: 'Post',
               postType: PostTypeEnum.story,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         }),
@@ -184,6 +187,8 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.prayer_request,
               stepStatus: PostStepStatusEnum.NONE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         }),
@@ -197,6 +202,8 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.prayer_request,
               stepStatus: PostStepStatusEnum.INCOMPLETE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         }),
@@ -211,6 +218,8 @@ describe('CommunityFeedItemContent', () => {
                 __typename: 'Post',
                 postType: PostTypeEnum.prayer_request,
                 stepStatus: PostStepStatusEnum.INCOMPLETE,
+                mediaContentType: null,
+                mediaExpiringUrl: null,
               }),
             }),
           },
@@ -228,6 +237,8 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.announcement,
               stepStatus: PostStepStatusEnum.INCOMPLETE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         },
@@ -246,9 +257,37 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.announcement,
               stepStatus: PostStepStatusEnum.INCOMPLETE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         },
+      }),
+    );
+  });
+  it('renders with image', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({
+          subject: () => ({
+            __typename: 'Post',
+            postType: PostTypeEnum.story,
+            mediaContentType: 'image/jpg',
+          }),
+        }),
+      }),
+    );
+  });
+  it('renders with video', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({
+          subject: () => ({
+            __typename: 'Post',
+            postType: PostTypeEnum.story,
+            mediaContentType: 'video/mp4',
+          }),
+        }),
       }),
     );
   });
@@ -346,6 +385,23 @@ describe('press footer', () => {
     );
 
     fireEvent.press(getByTestId('FooterTouchable'));
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+});
+
+describe('press video', () => {
+  it('nothing should happen', () => {
+    const videoPostItem = mockFrag({
+      FeedItem: () => ({
+        subject: () => ({ __typename: 'Post', mediaContentType: 'video/mp4' }),
+      }),
+    });
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItemContent feedItem={videoPostItem} />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('VideoTouchable'));
     expect(navigatePush).not.toHaveBeenCalled();
   });
 });

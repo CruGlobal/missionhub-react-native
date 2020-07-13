@@ -743,19 +743,6 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "ratione ut sunt",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -1310,19 +1297,6 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "a velit provident",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -2337,19 +2311,6 @@ exports[`Community renders post created by me correctly without add to steps but
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "eos itaque velit",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -3288,19 +3249,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "a velit provident",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -4263,19 +4211,6 @@ exports[`global community renders post item correctly 1`] = `
         </View>
       </View>
     </View>
-    <Image
-      resizeMode="cover"
-      source={
-        Object {
-          "uri": "a velit provident",
-        }
-      }
-      style={
-        Object {
-          "aspectRatio": 2,
-        }
-      }
-    />
     <View
       style={
         Array [
@@ -5302,19 +5237,6 @@ exports[`renders with name pressable correctly 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "a velit provident",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
