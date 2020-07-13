@@ -175,7 +175,7 @@ export const CreatePostScreen = () => {
     Keyboard.dismiss();
 
     const media: string | ReactNativeFile | undefined =
-      mediaData === post?.mediaExpiringUrl
+      !mediaData || !mediaType || mediaData === post?.mediaExpiringUrl
         ? undefined
         : hasImage
         ? mediaData
