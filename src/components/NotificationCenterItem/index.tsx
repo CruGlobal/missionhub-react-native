@@ -72,6 +72,10 @@ export const NotificationCenterItem = ({
           return (
             <Text key={word}>{getMessageVariable('localized_post_type')}</Text>
           );
+        case '<<localized_feed_item>>':
+          return (
+            <Text key={word}>{getMessageVariable('localized_feed_item')}</Text>
+          );
         case '<<community_name>>':
           return (
             <Text key={word} style={styles.boldedItemText}>
