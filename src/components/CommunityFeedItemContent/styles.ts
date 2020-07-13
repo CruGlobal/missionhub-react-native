@@ -54,6 +54,7 @@ export default StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     justifyContent: 'flex-start',
+    paddingBottom: 8,
   },
   challengeLinkButton: {
     flex: 1,

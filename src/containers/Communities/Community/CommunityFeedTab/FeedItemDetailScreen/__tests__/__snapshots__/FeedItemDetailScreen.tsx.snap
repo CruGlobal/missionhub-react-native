@@ -2777,15 +2777,12 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -264,128 +264,63 @@
-              style={
-                Object {
-                  \\"flexDirection\\": \\"row\\",
+@@ -267,124 +267,29 @@
                   \\"justifyContent\\": \\"flex-start\\",
                   \\"paddingVertical\\": 8,
--               }
                 }
--           >
+              }
+            >
 -             <View
 -               style={
 -                 Array [
@@ -2805,9 +2802,9 @@ exports[`refresh calls refreshComments 1`] = `
 -                   null,
 -                   null,
 -                 ]
-              }
+-               }
 -               testID=\\"ANNOUNCEMENTLabel\\"
-            >
+-             >
 -               <SvgMock
 -                 color=\\"#ffffff\\"
 -                 height={20}
@@ -2822,33 +2819,29 @@ exports[`refresh calls refreshComments 1`] = `
 -                 }
 -                 width={20}
 -               />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      \\"color\\": \\"#505256\\",
-                    },
-                    Object {
-                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                    },
-                    Object {
+-               <Text
+-                 style={
+-                   Array [
+-                     Object {
+-                       \\"color\\": \\"#505256\\",
+-                     },
+-                     Object {
+-                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                     },
+-                     Object {
 -                       \\"color\\": \\"#ffffff\\",
 -                       \\"fontSize\\": 14,
-+                     \\"color\\": \\"#3CC8E6\\",
-+                     \\"fontSize\\": 16,
-+                     \\"fontWeight\\": \\"bold\\",
-                      \\"lineHeight\\": 20,
-                    },
-                  ]
-                }
-              >
+-                       \\"lineHeight\\": 20,
+-                     },
+-                   ]
+-                 }
+-               >
 -                 Announcement
-+               Challenge Accepted!
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
+-               </Text>
+-             </View>
+-             <View
+-               style={
+-                 Object {
 -                   \\"alignItems\\": \\"flex-end\\",
 -                   \\"flex\\": 1,
 -                   \\"justifyContent\\": \\"center\\",
@@ -2885,12 +2878,12 @@ exports[`refresh calls refreshComments 1`] = `
 -           <View
 -             style={
 -               Object {
-                  \\"flexDirection\\": \\"row\\",
-                  \\"justifyContent\\": \\"flex-start\\",
-                  \\"paddingVertical\\": 8,
-                }
-              }
-            >
+-                 \\"flexDirection\\": \\"row\\",
+-                 \\"justifyContent\\": \\"flex-start\\",
+-                 \\"paddingVertical\\": 8,
+-               }
+-             }
+-           >
               <Image
                 resizeMode=\\"cover\\"
                 source={
@@ -2905,6 +2898,7 @@ exports[`refresh calls refreshComments 1`] = `
                       \\"borderRadius\\": 24,
                       \\"height\\": 48,
                       \\"width\\": 48,
+-                 }
 +                   },
 +                   Object {
 +                     \\"backgroundColor\\": \\"rgb(159, 161, 130)\\",
@@ -2912,13 +2906,11 @@ exports[`refresh calls refreshComments 1`] = `
 +                   undefined,
 +                 ]
                 }
--               }
               />
               <View
                 style={
                   Array [
-                    Object {
-@@ -398,26 +333,35 @@
+@@ -398,26 +303,35 @@
                     undefined,
                   ]
                 }
@@ -2955,7 +2947,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -439,11 +383,11 @@
+@@ -439,11 +353,11 @@
                       ],
                     ]
                   }
@@ -2968,7 +2960,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -452,62 +396,63 @@
+@@ -452,62 +366,51 @@
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 8,
               }
@@ -2976,75 +2968,68 @@ exports[`refresh calls refreshComments 1`] = `
           >
 -           <View
 -             style={Object {}}
+-           >
+-             <View
 +           <Text
-+             style={
-+               Array [
-+                 Object {
-+                   \\"color\\": \\"#505256\\",
-+                 },
-+                 Object {
-+                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                 },
-+                 Object {
-+                   \\"fontSize\\": 16,
-+                   \\"justifyContent\\": \\"flex-start\\",
-+                   \\"lineHeight\\": 24,
-+                 },
-+               ]
-+             }
-            >
-+             Richard B. completed a Challenge:
-+           </Text>
-            <View
               style={
-                Object {
++               Array [
+                  Object {
 -                   \\"alignItems\\": \\"flex-start\\",
-                  \\"flexDirection\\": \\"row\\",
+-                   \\"flexDirection\\": \\"row\\",
 -                   \\"flexWrap\\": \\"wrap\\",
 -                   \\"justifyContent\\": \\"flex-start\\",
 -                   \\"marginBottom\\": 10,
 -                   \\"marginTop\\": 10,
 -                   \\"marginVertical\\": 10,
 -                   \\"width\\": \\"100%\\",
-                }
+-                 }
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"color\\": \\"#3CC8E6\\",
++                   \\"fontSize\\": 16,
++                   \\"fontWeight\\": \\"bold\\",
++                   \\"lineHeight\\": 20,
++                 },
++               ]
               }
             >
-              <Text
+-               <Text
 -                 style={Object {}}
 -               >
--                 <Text
-+               numberOfLines={2}
-                style={
-                  Array [
++             Joined a Challenge!
++           </Text>
+            <Text
+              style={
+                Array [
 -                       Object {},
-                    Object {
-                      \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                  Object {
+                    \\"color\\": \\"#505256\\",
++                 },
++                 Object {
+                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                         \\"fontSize\\": 14,
 -                         \\"lineHeight\\": 18,
-+                   },
-+                   Object {
-+                     \\"fontSize\\": 16,
-+                     \\"fontWeight\\": \\"400\\",
-+                     \\"letterSpacing\\": 0,
-+                     \\"lineHeight\\": 24,
-+                     \\"marginBottom\\": 10,
-+                     \\"textAlign\\": \\"left\\",
-+                     \\"textDecorationColor\\": \\"#3CC8E6\\",
-+                     \\"textDecorationLine\\": \\"underline\\",
-                    },
-                  ]
-                }
-              >
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"justifyContent\\": \\"flex-start\\",
++                   \\"lineHeight\\": 24,
++                   \\"paddingBottom\\": 8,
+                  },
+                ]
+              }
+            >
 -                   corporis repellat ratione
-+               libero aspernatur deserunt
-              </Text>
++             libero aspernatur deserunt
+            </Text>
 -               </Text>
--             </View>
-            </View>
           </View>
+-           </View>
+-         </View>
 -         <Image
 -           resizeMode=\\"cover\\"
 -           source={
@@ -3063,7 +3048,7 @@ exports[`refresh calls refreshComments 1`] = `
               Array [
                 Object {
                   \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -535,11 +480,63 @@
+@@ -535,11 +438,63 @@
                 \\"paddingHorizontal\\": 20,
                 \\"paddingVertical\\": 16,
               }
@@ -3127,7 +3112,7 @@ exports[`refresh calls refreshComments 1`] = `
                 Object {
                   \\"flex\\": 1,
                   \\"justifyContent\\": \\"flex-end\\",
-@@ -625,12 +622,11 @@
+@@ -625,12 +580,11 @@
                           null,
                         ]
                       }
@@ -3141,7 +3126,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -660,11 +656,11 @@
+@@ -660,11 +614,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -3154,7 +3139,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -729,29 +725,28 @@
+@@ -729,29 +683,28 @@
         >
           <CommentItem
             comment={
@@ -3192,7 +3177,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -762,29 +757,28 @@
+@@ -762,29 +715,28 @@
         >
           <CommentItem
             comment={
@@ -3230,7 +3215,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -804,22 +798,22 @@
+@@ -804,22 +756,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
