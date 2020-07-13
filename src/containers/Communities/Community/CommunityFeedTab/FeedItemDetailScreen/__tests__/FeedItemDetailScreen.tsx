@@ -5,8 +5,8 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../../testUtils';
 import {
-  ANALYTICS_PERMISSION_TYPE,
   ORG_PERMISSIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../../../../../../constants';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
@@ -32,6 +32,7 @@ const myId = 'myId';
 const notMyId = 'notMyId';
 const communityId = '24234234';
 const feedItemId = '1';
+const personId = '2';
 const auth = {
   person: {
     id: myId,
@@ -58,21 +59,28 @@ beforeEach(() => {
 it('renders loading', () => {
   renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId },
+    navParams: { feedItemId },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
-    },
-  });
   expect(navigateBack).not.toHaveBeenCalled();
 });
 
 it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId },
+    navParams: { feedItemId },
+    mocks: {
+      FeedItem: () => ({
+        subjectPerson: () => ({ id: personId }),
+        community: () => ({ id: communityId }),
+      }),
+    },
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId: undefined, communityId: undefined },
+    permissionType: { communityId: undefined },
+    triggerTracking: false,
   });
 
   await flushMicrotasksQueue();
@@ -80,9 +88,39 @@ it('renders correctly', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: true,
+  });
+  expect(navigateBack).not.toHaveBeenCalled();
+});
+
+it('renders correctly with communityId passed in', async () => {
+  const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+    initialState,
+    navParams: { feedItemId, communityId },
+    mocks: {
+      FeedItem: () => ({
+        subjectPerson: () => ({ id: personId }),
+        community: () => ({ id: communityId }),
+      }),
     },
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId: undefined, communityId },
+    permissionType: { communityId },
+    triggerTracking: false,
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: true,
   });
   expect(navigateBack).not.toHaveBeenCalled();
 });
@@ -93,7 +131,7 @@ describe('refresh', () => {
       <FeedItemDetailScreen />,
       {
         initialState,
-        navParams: { feedItemId, communityId },
+        navParams: { feedItemId },
       },
     );
     await flushMicrotasksQueue();
@@ -115,8 +153,9 @@ describe('nav on community name', () => {
     await flushMicrotasksQueue();
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
-    expect(navigateBack).toHaveBeenCalled();
+    expect(navigateBack).toHaveBeenCalledWith();
   });
+
   it('goes to community tabs', async () => {
     const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
@@ -126,6 +165,22 @@ describe('nav on community name', () => {
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
     expect(navigateToCommunityFeed).toHaveBeenCalledWith(communityId);
+  });
+
+  it('goes to global community tabs', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, fromNotificationCenterItem: true },
+      mocks: {
+        FeedItem: () => ({
+          community: () => null,
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigateToCommunityFeed).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
   });
 });
 
@@ -201,7 +256,7 @@ describe('celebrate add complete', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId },
+      navParams: { feedItemId },
     });
 
     await flushMicrotasksQueue();
@@ -223,7 +278,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId },
+      navParams: { feedItemId },
     });
 
     await flushMicrotasksQueue();

@@ -190,6 +190,13 @@ export const ACTIONS = {
     name: 'Step of Faith Created',
     key: 'cru.stepoffaithcreated',
   },
+  POST_STEP_ADDED: {
+    name: 'Add to My Steps',
+    key: 'cru.addtomysteps',
+  },
+  STEP_POST_TYPE: {
+    key: 'cru.stepposttype',
+  },
   ALLOW: {
     name: 'Notification Permissions',
     key: 'cru.notificationsallowed',

@@ -7,10 +7,7 @@ import { MockList } from 'graphql-tools';
 import { SectionList } from 'react-native';
 
 import { renderWithContext } from '../../../../../testUtils';
-import {
-  ANALYTICS_ASSIGNMENT_TYPE,
-  ORG_PERMISSIONS,
-} from '../../../../constants';
+import { ORG_PERMISSIONS } from '../../../../constants';
 import {
   navigateToStageScreen,
   navigateToAddStepFlow,
@@ -107,7 +104,7 @@ it('renders correctly when no steps', () => {
   ).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+    assignmentType: { personId: person.id },
   });
 });
 
@@ -124,7 +121,7 @@ it('renders correctly when me and no steps', () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'self' },
+    assignmentType: { personId: mePerson.id },
   });
   expect(getByText('Your Steps of Faith will appear here.')).toBeTruthy();
 });
@@ -151,7 +148,7 @@ it('renders correctly with steps', async () => {
   );
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+    assignmentType: { personId: person.id },
   });
 
   await flushMicrotasksQueue();
@@ -185,7 +182,7 @@ it('should paginate', async () => {
   recordSnapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['person', 'my steps'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: 'contact' },
+    assignmentType: { personId: person.id },
   });
 
   fireEvent(getByType(SectionList), 'onEndReached');

@@ -15,13 +15,14 @@ import { COMPLETE_STEP_SCREEN } from '../../../containers/AddStepScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { CELEBRATION_SCREEN } from '../../../containers/CelebrationScreen';
 import { updateChallengeNote } from '../../../actions/steps';
-import { trackAction, trackScreenChange } from '../../../actions/analytics';
+import { trackAction } from '../../../actions/analytics';
 
 jest.mock('../../utils');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/journey');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '111';
 const otherId = '222';
@@ -56,7 +57,6 @@ const buildAndCallNext = async (
 
 const navigatePushResponse = { type: 'navigate push' };
 const reloadJourneyResponse = { type: 'reload journey' };
-const trackScreenChangeResponse = { type: 'trackScreenChange' };
 const popToTopResponse = { type: 'pop to top of stack' };
 const popResponse = { type: 'pop once' };
 const flowCompleteResponse = { type: 'on flow complete' };
@@ -72,7 +72,6 @@ beforeEach(() => {
     updateChallengeNoteResponse,
   );
   (trackAction as jest.Mock).mockReturnValue(trackActionResponse);
-  (trackScreenChange as jest.Mock).mockReturnValue(trackScreenChangeResponse);
 });
 
 describe('AddStepScreen next', () => {
@@ -111,10 +110,7 @@ describe('AddStepScreen next', () => {
         personId: myId,
         orgId,
       });
-      expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
-        navigatePushResponse,
-      ]);
+      expect(store.getActions()).toEqual([navigatePushResponse]);
     });
   });
 
@@ -149,7 +145,6 @@ describe('AddStepScreen next', () => {
         personId: myId,
       });
       expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
         { type: RESET_STEP_COUNT, userId: myId },
         navigatePushResponse,
       ]);
@@ -181,10 +176,7 @@ describe('AddStepScreen next', () => {
         orgId,
         personId: myId,
       });
-      expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
-        navigatePushResponse,
-      ]);
+      expect(store.getActions()).toEqual([navigatePushResponse]);
     });
   });
 
@@ -210,10 +202,7 @@ describe('AddStepScreen next', () => {
         personId: otherId,
         orgId,
       });
-      expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
-        navigatePushResponse,
-      ]);
+      expect(store.getActions()).toEqual([navigatePushResponse]);
     });
   });
 
@@ -243,7 +232,6 @@ describe('AddStepScreen next', () => {
         personId: otherId,
       });
       expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
         { type: RESET_STEP_COUNT, userId: otherId },
         navigatePushResponse,
       ]);
@@ -275,10 +263,7 @@ describe('AddStepScreen next', () => {
         orgId,
         personId: otherId,
       });
-      expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
-        navigatePushResponse,
-      ]);
+      expect(store.getActions()).toEqual([navigatePushResponse]);
     });
   });
 
@@ -312,7 +297,6 @@ describe('AddStepScreen next', () => {
         [ACTIONS.INTERACTION.COMMENT]: null,
       });
       expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
         updateChallengeNoteResponse,
         trackActionResponse,
         navigatePushResponse,
@@ -359,7 +343,6 @@ describe('CelebrationScreen next', () => {
 
     it('should fire required next actions', () => {
       expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
         reloadJourneyResponse,
         popToTopResponse,
         popResponse,
@@ -409,7 +392,6 @@ describe('CelebrationScreen next', () => {
 
     it('should fire required next actions', () => {
       expect(store.getActions()).toEqual([
-        trackScreenChangeResponse,
         reloadJourneyResponse,
         popToTopResponse,
         popResponse,

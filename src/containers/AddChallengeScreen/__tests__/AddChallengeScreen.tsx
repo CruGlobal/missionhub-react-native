@@ -6,7 +6,7 @@ import moment from 'moment';
 import { fireEvent } from 'react-native-testing-library';
 
 import { orgPermissionSelector } from '../../../selectors/people';
-import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
@@ -16,7 +16,7 @@ import AddChallengeScreen from '..';
 const mockDate = '2020-02-13';
 MockDate.set(mockDate);
 
-const organization = { id: '7' };
+const communityId = '7';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../selectors/people');
@@ -47,13 +47,13 @@ it('renders correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
     initialState,
     navParams: {
-      organization,
+      communityId,
       onComplete,
       isEdit: false,
     },
   }).snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'create'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    permissionType: { communityId },
   });
 });
 
@@ -62,7 +62,7 @@ it('renders correctly on android', () => {
   renderWithContext(<AddChallengeScreen />, {
     initialState,
     navParams: {
-      organization,
+      communityId,
       onComplete,
       isEdit: false,
     },
@@ -73,14 +73,14 @@ it('renders edit challenge correctly', () => {
   renderWithContext(<AddChallengeScreen />, {
     initialState,
     navParams: {
-      organization,
+      communityId,
       onComplete,
       challenge: editChallenge,
       isEdit: true,
     },
   }).snapshot();
   expect(useAnalytics).toHaveBeenCalledWith(['challenge', 'edit'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: 'owner' },
+    permissionType: { communityId },
   });
 });
 
@@ -91,7 +91,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -107,7 +107,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -124,7 +124,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -142,7 +142,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -160,7 +160,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -180,7 +180,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -201,7 +201,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -219,7 +219,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -238,7 +238,7 @@ describe('create methods', () => {
       <AddChallengeScreen />,
       {
         initialState,
-        navParams: { organization, onComplete, isEdit: false },
+        navParams: { communityId, onComplete, isEdit: false },
       },
     );
     recordSnapshot();
@@ -264,7 +264,7 @@ describe('create methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: false,
         },
@@ -295,7 +295,7 @@ describe('edit methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },
@@ -313,7 +313,7 @@ describe('edit methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },
@@ -333,7 +333,7 @@ describe('edit methods', () => {
       {
         initialState,
         navParams: {
-          organization,
+          communityId,
           onComplete,
           isEdit: true,
           challenge: { ...challenge, details_markdown: details },

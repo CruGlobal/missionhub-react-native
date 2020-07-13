@@ -50,7 +50,12 @@ const AcceptedStepItem = ({
     );
   };
   const handleNavigateCompletedDetailScreen = () => {
-    dispatch(navigatePush(COMPLETED_STEP_DETAIL_SCREEN, { stepId: step.id }));
+    dispatch(
+      navigatePush(COMPLETED_STEP_DETAIL_SCREEN, {
+        stepId: step.id,
+        personId: step.receiver.id,
+      }),
+    );
   };
   const handleCompleteStep = async () => {
     await dispatch(completeStep(step, CONTACT_STEPS));

@@ -22,6 +22,7 @@ import {
 } from '../../utils/hooks/useAnalytics';
 import { RootState } from '../../reducers';
 import AddPersonIcon from '../../../assets/images/addPersonIcon.svg';
+import AnnouncementsModal from '../../components/AnnouncementsModal';
 
 import styles from './styles';
 
@@ -63,6 +64,7 @@ export const PeopleScreen = ({
 
   return (
     <View style={styles.pageContainer}>
+      <AnnouncementsModal />
       <Header
         titleStyle={styles.headerTitle}
         testID="header"

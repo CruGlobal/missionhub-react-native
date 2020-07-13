@@ -7,13 +7,11 @@ import { AnyAction } from 'redux';
 import { useIsFocused, useNavigationParam } from 'react-navigation-hooks';
 
 import { Text, Input } from '../../../components/common';
-import { getAnalyticsAssignmentType } from '../../../utils/analytics';
 import { savePersonNote, getPersonNote } from '../../../actions/person';
 import NOTES from '../../../../assets/images/myNotes.png';
 import NullStateComponent from '../../../components/NullStateComponent';
 import BottomButton from '../../../components/BottomButton';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { isAndroid } from '../../../utils/common';
 import { CollapsibleViewContext } from '../../../components/CollapsibleView/CollapsibleView';
 import { RootState } from '../../../reducers';
@@ -36,12 +34,8 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
       },
   );
 
-  const analyticsAssignmentType = useSelector(({ auth }: RootState) =>
-    getAnalyticsAssignmentType(person, auth),
-  );
-
   useAnalytics(['person', 'my notes'], {
-    screenContext: { [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType },
+    assignmentType: { personId },
   });
   const { t } = useTranslation('notes');
   const dispatch = useDispatch<ThunkDispatch<{}, {}, AnyAction>>();
