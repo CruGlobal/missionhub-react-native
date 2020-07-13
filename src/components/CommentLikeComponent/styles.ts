@@ -23,11 +23,11 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+    marginLeft: 20,
   },
-  icon: {
+  likeIcon: {
     height: 24,
     width: 24,
-    marginRight: 20,
   },
   likeCount: {
     width: 30,
