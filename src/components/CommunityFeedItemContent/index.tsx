@@ -83,13 +83,17 @@ export const CommunityFeedItemContent = ({
     PostStepStatusEnum.NOT_SUPPORTED;
   const imageAspectRatio = useAspectRatio(imageData);
 
+  const isGlobal = !community;
+
   const itemType = getFeedItemType(subject);
   const addToSteps =
     [
       FeedItemSubjectTypeEnum.HELP_REQUEST,
       FeedItemSubjectTypeEnum.PRAYER_REQUEST,
       FeedItemSubjectTypeEnum.QUESTION,
-    ].includes(itemType) && stepStatus === PostStepStatusEnum.NONE;
+    ].includes(itemType) &&
+    stepStatus === PostStepStatusEnum.NONE &&
+    !isGlobal;
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(
@@ -99,8 +103,6 @@ export const CommunityFeedItemContent = ({
     : subjectPersonName
     ? subjectPersonName
     : t('aMissionHubUser');
-
-  const isGlobal = !community;
 
   const onPressChallengeLink = async () => {
     const challengeId = (subject as CommunityFeedItemContent_subject_AcceptedCommunityChallenge)
@@ -283,6 +285,7 @@ export const CommunityFeedItemContent = ({
         <CommentLikeComponent
           testID="CommentLikeComponent"
           feedItem={feedItem}
+          hideComment={isGlobal}
           onCommentPress={onCommentPress}
         />
       </View>

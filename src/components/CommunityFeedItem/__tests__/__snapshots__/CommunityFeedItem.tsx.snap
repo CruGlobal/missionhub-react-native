@@ -325,7 +325,6 @@ exports[`Community renders challenge correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -345,6 +344,7 @@ exports[`Community renders challenge correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
+                "marginLeft": 20,
                 "width": 40,
               }
             }
@@ -891,7 +891,6 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -910,6 +909,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -1394,7 +1394,6 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -1414,6 +1413,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -1885,7 +1885,6 @@ exports[`Community renders post correctly without image 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -1905,6 +1904,7 @@ exports[`Community renders post correctly without image 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -2423,7 +2423,6 @@ exports[`Community renders post created by me correctly without add to steps but
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -2442,6 +2441,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -2872,7 +2872,6 @@ exports[`Community renders step correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -2892,6 +2891,7 @@ exports[`Community renders step correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
+                "marginLeft": 20,
                 "width": 40,
               }
             }
@@ -3374,7 +3374,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -3394,6 +3393,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -3883,7 +3883,6 @@ exports[`global community renders correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -3894,79 +3893,6 @@ exports[`global community renders correctly 1`] = `
                   color="#FF5532"
                   fill="#FF5532"
                 />
-              </View>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              46923
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
               </View>
             </View>
           </View>
@@ -4351,7 +4277,6 @@ exports[`global community renders post item correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -4362,79 +4287,6 @@ exports[`global community renders post item correctly 1`] = `
                   color="#FF5532"
                   fill="#FF5532"
                 />
-              </View>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              68650
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
               </View>
             </View>
           </View>
@@ -4788,7 +4640,6 @@ exports[`global community renders with clear notification button correctly 1`] =
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -4799,79 +4650,6 @@ exports[`global community renders with clear notification button correctly 1`] =
                   color="#FF5532"
                   fill="#FF5532"
                 />
-              </View>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              46923
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
               </View>
             </View>
           </View>
@@ -5392,7 +5170,6 @@ exports[`renders with name pressable correctly 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -5412,6 +5189,7 @@ exports[`renders with name pressable correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }

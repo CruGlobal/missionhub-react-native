@@ -74,7 +74,6 @@ exports[`renders nothing with no subject person 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -94,6 +93,7 @@ exports[`renders nothing with no subject person 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
@@ -181,9 +181,9 @@ exports[`with subject person onPress like button like -> unlike renders disabled
 +             },
               Object {
                 \\"height\\": 24,
-                \\"marginRight\\": 20,
                 \\"width\\": 24,
-              },"
+              },
+              null,"
 `;
 
 exports[`with subject person onPress like button unlike -> like renders disabled heart button 1`] = `
@@ -203,9 +203,9 @@ exports[`with subject person onPress like button unlike -> like renders disabled
 +             },
               Object {
                 \\"height\\": 24,
-                \\"marginRight\\": 20,
                 \\"width\\": 24,
-              },"
+              },
+              null,"
 `;
 
 exports[`with subject person renders 0 comments_count 1`] = `
@@ -282,7 +282,6 @@ exports[`with subject person renders 0 comments_count 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -302,6 +301,7 @@ exports[`with subject person renders 0 comments_count 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
@@ -444,7 +444,6 @@ exports[`with subject person renders 0 likes_count 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -464,6 +463,7 @@ exports[`with subject person renders 0 likes_count 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
@@ -610,7 +610,6 @@ exports[`with subject person renders for me 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -630,6 +629,7 @@ exports[`with subject person renders for me 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
@@ -774,7 +774,6 @@ exports[`with subject person renders for someone else 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -794,6 +793,7 @@ exports[`with subject person renders for someone else 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
@@ -938,7 +938,6 @@ exports[`with subject person renders prayer request liked 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -957,6 +956,7 @@ exports[`with subject person renders prayer request liked 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
@@ -1101,7 +1101,6 @@ exports[`with subject person renders prayer request not liked 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -1120,6 +1119,7 @@ exports[`with subject person renders prayer request not liked 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
@@ -1264,7 +1264,6 @@ exports[`with subject person renders when not liked 1`] = `
             null,
             Object {
               "height": 24,
-              "marginRight": 20,
               "width": 24,
             },
             null,
@@ -1283,6 +1282,7 @@ exports[`with subject person renders when not liked 1`] = `
         "alignItems": "center",
         "flexDirection": "row",
         "justifyContent": "flex-end",
+        "marginLeft": 20,
         "width": 40,
       }
     }
