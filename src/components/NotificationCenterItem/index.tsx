@@ -118,12 +118,12 @@ export const NotificationCenterItem = ({
 
   const renderIcon = () => {
     // Comments and Challenges don't return a FeedItemSubjectType, so we have to check
-    // for them seperately
+    // for them separately
     switch (trigger) {
       case NotificationTriggerEnum.feed_items_comment_notification:
-      case NotificationTriggerEnum.feed_items_comment_on_my_post_notification:
+      case NotificationTriggerEnum.feed_items_comment_on_my_item_notification:
       case NotificationTriggerEnum.feed_items_comment_on_my_feed_item_notification:
-      case NotificationTriggerEnum.feed_items_comment_on_other_persons_post_notification:
+      case NotificationTriggerEnum.feed_items_comment_on_others_item_notification:
         return <CommentIcon />;
       case NotificationTriggerEnum.community_challenge_created_alert:
         return (
