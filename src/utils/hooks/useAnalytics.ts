@@ -62,14 +62,14 @@ export const useAnalytics = (
     error,
   } = useQuery<getMyCommunityPermission>(GET_MY_COMMUNITY_PERMISSION_QUERY, {
     variables: {
-      id: permissionType?.communityId || '',
+      id: permissionType?.communityId,
       myId,
     },
     fetchPolicy: 'cache-first',
-    skip: !permissionType,
+    skip: !(permissionType?.communityId && triggerTracking),
   });
 
-  const screenContext = {
+  const buildScreenContext = () => ({
     ...(assignmentType
       ? {
           [ANALYTICS_ASSIGNMENT_TYPE]: getAnalyticsAssignmentType(
@@ -95,9 +95,10 @@ export const useAnalytics = (
           ),
         }
       : {}),
-  };
+  });
 
   const handleScreenChange = (name: string | string[]) => {
+    const screenContext = buildScreenContext();
     dispatch(trackScreenChange(name, screenContext));
   };
 

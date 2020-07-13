@@ -2,15 +2,9 @@ import dynamicLinks from '@react-native-firebase/dynamic-links';
 import { AnyAction } from 'redux';
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
-// eslint-disable-next-line import/named
-import { NavigationActions, StackActions } from 'react-navigation';
 
 import { startOnboarding } from '../onboarding';
 import { setupFirebaseDynamicLinks } from '../deepLink';
-import {
-  DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
-  DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
-} from '../../routes/constants';
 
 jest.mock('../onboarding');
 
@@ -26,12 +20,10 @@ beforeEach(() => {
 const test = async ({
   auth = false,
   initialLink = false,
-  expectedActions,
   deepLinkUrl = 'https://missionhub.com/c/1234567890123456',
 }: {
   auth?: boolean;
   initialLink?: boolean;
-  expectedActions: object[];
   deepLinkUrl?: string;
 }) => {
   ((dynamicLinks as unknown) as jest.Mock).mockReturnValue({
@@ -47,127 +39,189 @@ const test = async ({
 
   await store.dispatch((setupFirebaseDynamicLinks() as unknown) as AnyAction);
 
-  expect(store.getActions()).toEqual(expectedActions);
+  return store.getActions();
 };
 
 describe('setupFirebaseDynamicLinks', () => {
   describe('unauthenticated', () => {
-    it('should handle a link that launched the app ', () =>
-      test({
-        auth: false,
-        initialLink: true,
-        expectedActions: [
-          startOnboardingResponse,
-          StackActions.reset({
-            index: 0,
-            key: null,
-            actions: [
-              NavigationActions.navigate({
-                routeName: DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
-                params: {
-                  communityUrlCode: '1234567890123456',
+    it('should handle a link that launched the app ', async () => {
+      expect(
+        await test({
+          auth: false,
+          initialLink: true,
+        }),
+      ).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "type": "start onboarding",
+          },
+          Object {
+            "actions": Array [
+              Object {
+                "routeName": "nav/LANDING",
+                "type": "Navigation/NAVIGATE",
+              },
+              Object {
+                "params": Object {
+                  "communityUrlCode": "1234567890123456",
                 },
-              }),
+                "routeName": "nav/DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW",
+                "type": "Navigation/NAVIGATE",
+              },
             ],
-          }),
-        ],
-      }));
-    it('should handle a link that was opened while the app was running ', () =>
-      test({
-        auth: false,
-        initialLink: false,
-        expectedActions: [
-          startOnboardingResponse,
-          StackActions.reset({
-            index: 0,
-            key: null,
-            actions: [
-              NavigationActions.navigate({
-                routeName: DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW,
-                params: {
-                  communityUrlCode: '1234567890123456',
+            "index": 1,
+            "key": null,
+            "type": "Navigation/RESET",
+          },
+        ]
+      `);
+    });
+    it('should handle a link that was opened while the app was running ', async () => {
+      expect(
+        await test({
+          auth: false,
+          initialLink: false,
+        }),
+      ).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "type": "start onboarding",
+          },
+          Object {
+            "actions": Array [
+              Object {
+                "routeName": "nav/LANDING",
+                "type": "Navigation/NAVIGATE",
+              },
+              Object {
+                "params": Object {
+                  "communityUrlCode": "1234567890123456",
                 },
-              }),
+                "routeName": "nav/DEEP_LINK_JOIN_COMMUNITY_UNAUTHENTENTICATED_FLOW",
+                "type": "Navigation/NAVIGATE",
+              },
             ],
-          }),
-        ],
-      }));
+            "index": 1,
+            "key": null,
+            "type": "Navigation/RESET",
+          },
+        ]
+      `);
+    });
   });
   describe('authenticated', () => {
-    it('should handle a link that launched the app ', () =>
-      test({
-        auth: true,
-        initialLink: true,
-        expectedActions: [
-          StackActions.reset({
-            index: 0,
-            key: null,
-            actions: [
-              NavigationActions.navigate({
-                routeName: DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
-                params: {
-                  communityUrlCode: '1234567890123456',
+    it('should handle a link that launched the app ', async () => {
+      expect(
+        await test({
+          auth: true,
+          initialLink: true,
+        }),
+      ).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "actions": Array [
+              Object {
+                "action": Object {
+                  "routeName": "CommunitiesTab",
+                  "type": "Navigation/NAVIGATE",
                 },
-              }),
-            ],
-          }),
-        ],
-      }));
-    it('should handle a link that was opened while the app was running', () =>
-      test({
-        auth: true,
-        initialLink: false,
-        expectedActions: [
-          StackActions.reset({
-            index: 0,
-            key: null,
-            actions: [
-              NavigationActions.navigate({
-                routeName: DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW,
-                params: {
-                  communityUrlCode: '1234567890123456',
+                "routeName": "nav/MAIN_TABS",
+                "type": "Navigation/NAVIGATE",
+              },
+              Object {
+                "params": Object {
+                  "communityUrlCode": "1234567890123456",
                 },
-              }),
+                "routeName": "nav/DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW",
+                "type": "Navigation/NAVIGATE",
+              },
             ],
-          }),
-        ],
-      }));
+            "index": 1,
+            "key": null,
+            "type": "Navigation/RESET",
+          },
+        ]
+      `);
+    });
+    it('should handle a link that was opened while the app was running', async () => {
+      expect(
+        await test({
+          auth: true,
+          initialLink: false,
+        }),
+      ).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "actions": Array [
+              Object {
+                "action": Object {
+                  "routeName": "CommunitiesTab",
+                  "type": "Navigation/NAVIGATE",
+                },
+                "routeName": "nav/MAIN_TABS",
+                "type": "Navigation/NAVIGATE",
+              },
+              Object {
+                "params": Object {
+                  "communityUrlCode": "1234567890123456",
+                },
+                "routeName": "nav/DEEP_LINK_JOIN_COMMUNITY_AUTHENTENTICATED_FLOW",
+                "type": "Navigation/NAVIGATE",
+              },
+            ],
+            "index": 1,
+            "key": null,
+            "type": "Navigation/RESET",
+          },
+        ]
+      `);
+    });
   });
   describe('unknown links', () => {
-    it('should ignore an empty link', () =>
-      test({
-        deepLinkUrl: '',
-        expectedActions: [],
-      }));
+    it('should ignore an empty link', async () => {
+      expect(
+        await test({
+          deepLinkUrl: '',
+        }),
+      ).toEqual([]);
+    });
     it('should ignore a link with the wrong domain', async () => {
-      await test({
-        deepLinkUrl: 'https://mhub.cc/c/1234567890123456',
-        expectedActions: [],
-      });
-      await test({
-        deepLinkUrl: 'https://missionhub.page.link/c/1234567890123456',
-        expectedActions: [],
-      });
+      expect(
+        await test({
+          deepLinkUrl: 'https://mhub.cc/c/1234567890123456',
+        }),
+      ).toEqual([]);
+      expect(
+        await test({
+          deepLinkUrl: 'https://missionhub.page.link/c/1234567890123456',
+        }),
+      ).toEqual([]);
     });
     it('should ignore a link with the wrong path', async () => {
-      await test({
-        deepLinkUrl: 'https://missionhub.com/s/1234567890123456',
-        expectedActions: [],
-      });
-      await test({
-        deepLinkUrl: 'https://missionhub.com/1234567890123456',
-        expectedActions: [],
-      });
+      expect(
+        await test({
+          deepLinkUrl: 'https://missionhub.com/s/1234567890123456',
+        }),
+      ).toEqual([]);
+      expect(
+        await test({
+          deepLinkUrl: 'https://missionhub.com/1234567890123456',
+        }),
+      ).toEqual([]);
     });
-    it('should ignore a link using http', () =>
-      test({
-        deepLinkUrl: 'http://missionhub.com/c/1234567890123456',
-        expectedActions: [],
-      }));
-    it('should ignore a link with too short of a code', () =>
-      test({
-        deepLinkUrl: 'https://missionhub.com/c/123456789012345',
-        expectedActions: [],
-      }));
+    it('should ignore a link using http', async () => {
+      expect(
+        await test({
+          deepLinkUrl: 'http://missionhub.com/c/1234567890123456',
+        }),
+      ).toEqual([]);
+    });
+    it('should ignore a link with too short of a code', async () => {
+      expect(
+        await test({
+          deepLinkUrl: 'https://missionhub.com/c/123456789012345',
+        }),
+      ).toEqual([]);
+    });
   });
 });

@@ -103,7 +103,6 @@ export const CommunityFeed = ({
           pageInfo: { endCursor = null, hasNextPage = false } = {},
         } = {},
       } = {},
-      currentUser: { person = undefined } = {},
     } = {},
     loading,
     error,
@@ -128,7 +127,6 @@ export const CommunityFeed = ({
           } = {},
         } = {},
       } = {},
-      currentUser: { person: globalPerson = undefined } = {},
     } = {},
     loading: globalLoading,
     error: globalError,
@@ -263,7 +261,6 @@ export const CommunityFeed = ({
         {noHeader || isGlobal ? null : (
           <>
             <CreatePostButton
-              person={person || globalPerson}
               communityId={communityId}
               type={filteredFeedType}
             />
@@ -285,7 +282,6 @@ export const CommunityFeed = ({
       globalRefetch,
       noHeader,
       communityId,
-      person,
       personId,
       filteredFeedType,
     ],
