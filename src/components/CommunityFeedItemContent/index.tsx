@@ -77,10 +77,7 @@ export const CommunityFeedItemContent = ({
   }
 
   const imageData =
-    (subject.__typename === 'Post' &&
-      subject.mediaContentType?.includes('image') &&
-      subject.mediaExpiringUrl) ||
-    null;
+    (subject.__typename === 'Post' && subject.mediaExpiringUrl) || null;
   const stepStatus =
     (subject.__typename === 'Post' && subject.stepStatus) ||
     PostStepStatusEnum.NOT_SUPPORTED;

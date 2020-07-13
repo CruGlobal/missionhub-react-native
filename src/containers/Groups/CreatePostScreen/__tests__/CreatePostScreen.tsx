@@ -42,6 +42,7 @@ const post = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT, {
 const MOCK_POST = 'This is my cool story! 📘✏️';
 const MOCK_IMAGE = 'data:image/jpeg;base64,base64image.jpeg';
 const MOCK_VIDEO = 'file:/video.mov';
+const videoType = 'video/mp4';
 
 const initialState = {
   auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
@@ -49,7 +50,19 @@ const initialState = {
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
-  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigatePush as jest.Mock).mockImplementation(
+    (
+      _,
+      {
+        onEndRecord,
+      }: {
+        onEndRecord: ({ codec, uri }: { codec: string; uri: string }) => void;
+      },
+    ) => {
+      onEndRecord({ codec: 'mp4', uri: MOCK_VIDEO });
+      return navigatePushResult;
+    },
+  );
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
@@ -210,13 +223,6 @@ describe('Select video', () => {
   const onComplete = jest.fn();
 
   it('should select a video', async () => {
-    (navigatePush as jest.Mock).mockImplementation(
-      (_, { onEndRecord }: { onEndRecord: (uri: string) => void }) => {
-        onEndRecord(MOCK_VIDEO);
-        return navigatePushResult;
-      },
-    );
-
     const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
       <CreatePostScreen />,
       {
@@ -275,7 +281,7 @@ describe('Creating a post', () => {
           content: MOCK_POST,
           communityId,
           postType: PostTypeEnum.prayer_request,
-          media: null,
+          media: undefined,
         },
       },
     });
@@ -304,6 +310,38 @@ describe('Creating a post', () => {
           communityId,
           postType: PostTypeEnum.prayer_request,
           media: MOCK_IMAGE,
+        },
+      },
+    });
+  });
+
+  it('calls savePost function with video', async () => {
+    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        communityId,
+        postType,
+      },
+    });
+
+    await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
+    await fireEvent.press(getByTestId('VideoButton'));
+    await flushMicrotasksQueue();
+
+    await fireEvent.press(getByTestId('CreatePostButton'));
+
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
+      variables: {
+        input: {
+          content: MOCK_POST,
+          communityId,
+          postType: PostTypeEnum.prayer_request,
+          media: {
+            name: 'upload',
+            type: videoType,
+            uri: MOCK_VIDEO,
+          },
         },
       },
     });
