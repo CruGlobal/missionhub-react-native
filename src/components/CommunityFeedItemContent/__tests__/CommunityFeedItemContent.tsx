@@ -389,6 +389,23 @@ describe('press footer', () => {
   });
 });
 
+describe('press video', () => {
+  it('nothing should happen', () => {
+    const videoPostItem = mockFrag({
+      FeedItem: () => ({
+        subject: () => ({ __typename: 'Post', mediaContentType: 'video/mp4' }),
+      }),
+    });
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItemContent feedItem={videoPostItem} />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('VideoTouchable'));
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+});
+
 it('press comment press', () => {
   const storyFeedItem = mockFrag({
     FeedItem: () => ({

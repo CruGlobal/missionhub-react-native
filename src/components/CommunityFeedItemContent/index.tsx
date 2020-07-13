@@ -106,9 +106,6 @@ export const CommunityFeedItemContent = ({
 
   const isGlobal = !community;
 
-  const hasImage = mediaType?.includes('image');
-  const hasVideo = mediaType?.includes('video');
-
   const onPressChallengeLink = async () => {
     const challengeId = (subject as CommunityFeedItemContent_subject_AcceptedCommunityChallenge)
       .communityChallenge.id;
@@ -281,17 +278,14 @@ export const CommunityFeedItemContent = ({
     </View>
   );
 
-  const renderImage = () =>
-    mediaData ? (
+  const renderMedia = () =>
+    mediaData && mediaType?.includes('image') ? (
       <Image
         source={{ uri: mediaData }}
         style={{ aspectRatio }}
         resizeMode="cover"
       />
-    ) : null;
-
-  const renderVideo = () =>
-    mediaData ? (
+    ) : mediaData && mediaType?.includes('video') ? (
       <Touchable
         isAndroidOpacity={true}
         activeOpacity={1}
@@ -304,9 +298,6 @@ export const CommunityFeedItemContent = ({
         />
       </Touchable>
     ) : null;
-
-  const renderMedia = () =>
-    hasImage ? renderImage() : hasVideo ? renderVideo() : null;
 
   const renderFooter = () => (
     <Touchable
