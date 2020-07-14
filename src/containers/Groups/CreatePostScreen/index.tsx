@@ -164,8 +164,8 @@ export const CreatePostScreen = () => {
     UpdatePostVariables
   >(UPDATE_POST);
 
-  const hasImage = mediaData && mediaType?.includes('image');
-  const hasVideo = mediaData && mediaType?.includes('video');
+  const hasImage = mediaType?.includes('image');
+  const hasVideo = mediaType?.includes('video');
 
   const savePost = async () => {
     if (!text) {
@@ -174,12 +174,12 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
+    const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
+
     const media: string | ReactNativeFile | undefined =
-      !mediaData || !mediaType || mediaData === post?.mediaExpiringUrl
-        ? undefined
-        : hasImage
+      mediaData && mediaType && hasImage && mediaHasChanged
         ? mediaData
-        : hasVideo
+        : mediaData && mediaType && hasVideo && mediaHasChanged
         ? new ReactNativeFile({
             name: 'upload',
             uri: mediaData,
@@ -274,29 +274,6 @@ export const CreatePostScreen = () => {
     />
   );
 
-  const renderVideo = () =>
-    mediaData ? (
-      <VideoPlayer
-        uri={mediaData}
-        onDelete={handleDeleteVideo}
-        width={theme.fullWidth}
-      />
-    ) : null;
-
-  const renderImage = () =>
-    mediaData ? (
-      <ImagePicker onSelectImage={handleSavePhoto}>
-        <Image
-          resizeMode="contain"
-          source={{ uri: mediaData }}
-          style={{
-            width: theme.fullWidth,
-            aspectRatio: imageAspectRatio,
-          }}
-        />
-      </ImagePicker>
-    ) : null;
-
   const renderVideoPhotoButtons = () => (
     <>
       <View style={styles.lineBreak} />
@@ -320,11 +297,26 @@ export const CreatePostScreen = () => {
   );
 
   const renderMedia = () =>
-    hasImage
-      ? renderImage()
-      : hasVideo
-      ? renderVideo()
-      : renderVideoPhotoButtons();
+    mediaData && hasImage ? (
+      <ImagePicker onSelectImage={handleSavePhoto}>
+        <Image
+          resizeMode="contain"
+          source={{ uri: mediaData }}
+          style={{
+            width: theme.fullWidth,
+            aspectRatio: imageAspectRatio,
+          }}
+        />
+      </ImagePicker>
+    ) : mediaData && hasVideo ? (
+      <VideoPlayer
+        uri={mediaData}
+        onDelete={handleDeleteVideo}
+        width={theme.fullWidth}
+      />
+    ) : (
+      renderVideoPhotoButtons()
+    );
 
   return (
     <View style={styles.container}>
