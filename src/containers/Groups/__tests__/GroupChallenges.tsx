@@ -8,9 +8,9 @@ import {
   getGroupChallengeFeed,
   createChallenge,
 } from '../../../actions/challenges';
-import { navigatePush, navigateBack } from '../../../actions/navigation';
+import { navigatePush } from '../../../actions/navigation';
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
-import { ORG_PERMISSIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import { ORG_PERMISSIONS } from '../../../constants';
 import ChallengeFeed from '../../ChallengeFeed';
 import { isAdminOrOwner } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -82,7 +82,6 @@ beforeEach(() => {
 
   (isAdminOrOwner as jest.Mock).mockReturnValue(false);
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
-  (navigateBack as jest.Mock).mockReturnValue({ type: 'navigated back' });
   (getAnalyticsPermissionType as jest.Mock).mockReturnValue('admin');
 });
 
@@ -95,10 +94,9 @@ it('should render correctly', () => {
       initialState,
     },
   ).snapshot;
+
   expect(useAnalytics).toHaveBeenCalledWith(['community', 'challenges'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'admin',
-    },
+    permissionType: { communityId: orgId },
   });
 });
 
@@ -175,7 +173,7 @@ it('should call create', async () => {
 
   expect(navigatePush).toHaveBeenCalledWith(ADD_CHALLENGE_SCREEN, {
     onComplete: expect.any(Function),
-    organization: { id: orgId },
+    communityId: orgId,
   });
   (navigatePush as jest.Mock).mock.calls[0][1].onComplete(challenge);
   expect(createChallenge).toHaveBeenCalledWith(challenge, orgId);

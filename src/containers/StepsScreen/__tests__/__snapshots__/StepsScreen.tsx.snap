@@ -9,309 +9,6 @@ exports[`renders empty screen correctly 1`] = `
     }
   }
 >
-  <Modal
-    animationType="slide"
-    hardwareAccelerated={false}
-    transparent={true}
-    visible={true}
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "rgba(0,0,0,0.5)",
-          "flex": 1,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 14,
-            "flex": 0.4,
-            "justifyContent": "space-around",
-            "padding": 14,
-            "paddingVertical": 40,
-            "width": "80%",
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "width": "100%",
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-              },
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 32,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "justifyContent": "flex-end",
-                          "margin": 0,
-                          "position": "absolute",
-                          "right": -5,
-                          "top": -40,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <Text
-          style={
-            Object {
-              "color": "#333333",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            }
-          }
-        >
-          recusandae alias consequuntur
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 22,
-              "textAlign": "center",
-            }
-          }
-        >
-          esse repellat quisquam
-        </Text>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              CORPORIS REPELLAT RATIONE
-            </Text>
-          </View>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              LIBERO QUI RECUSANDAE
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </Modal>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -449,12 +146,16 @@ exports[`renders empty screen correctly 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          STEPS OF FAITH
+          Steps of Faith
         </Text>
       </View>
       <View
@@ -792,12 +493,16 @@ exports[`renders loading screen correctly 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          STEPS OF FAITH
+          Steps of Faith
         </Text>
       </View>
       <View
@@ -926,309 +631,6 @@ exports[`renders screen with steps correctly 1`] = `
     }
   }
 >
-  <Modal
-    animationType="slide"
-    hardwareAccelerated={false}
-    transparent={true}
-    visible={true}
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "rgba(0,0,0,0.5)",
-          "flex": 1,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 14,
-            "flex": 0.4,
-            "justifyContent": "space-around",
-            "padding": 14,
-            "paddingVertical": 40,
-            "width": "80%",
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "width": "100%",
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-              },
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 32,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "justifyContent": "flex-end",
-                          "margin": 0,
-                          "position": "absolute",
-                          "right": -5,
-                          "top": -40,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <Text
-          style={
-            Object {
-              "color": "#333333",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            }
-          }
-        >
-          itaque velit omnis
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 22,
-              "textAlign": "center",
-            }
-          }
-        >
-          natus et eos
-        </Text>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              ET PORRO UT
-            </Text>
-          </View>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              ET SAEPE EUM
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </Modal>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1366,12 +768,16 @@ exports[`renders screen with steps correctly 1`] = `
                   "fontSize": 14,
                   "fontWeight": "500",
                 },
-                undefined,
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
               ],
             ]
           }
         >
-          STEPS OF FAITH
+          Steps of Faith
         </Text>
       </View>
       <View
@@ -1693,7 +1099,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -656,10 +656,54 @@
+@@ -357,10 +357,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1703,52 +1109,52 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"14\\",
++               \\"id\\": \\"11\\",
 +             },
-+             \\"completedAt\\": \\"2015-11-30T05:35:49.224Z\\",
-+             \\"id\\": \\"12\\",
++             \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
++             \\"id\\": \\"9\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Alexys Rohan\\",
-+               \\"id\\": \\"13\\",
++               \\"fullName\\": \\"Dorcas Dach\\",
++               \\"id\\": \\"10\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"15\\",
-+               \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
++               \\"id\\": \\"12\\",
++               \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
 +             \\"stepType\\": \\"affirm\\",
-+             \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
++             \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"18\\",
++               \\"id\\": \\"15\\",
 +             },
-+             \\"completedAt\\": \\"2017-01-19T11:48:41.969Z\\",
-+             \\"id\\": \\"16\\",
++             \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
++             \\"id\\": \\"13\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Isabell Schamberger\\",
-+               \\"id\\": \\"17\\",
++               \\"fullName\\": \\"Margaret Williamson\\",
++               \\"id\\": \\"14\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"19\\",
-+               \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
++               \\"id\\": \\"16\\",
++               \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"stepType\\": \\"bond\\",
-+             \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
++             \\"stepType\\": \\"care\\",
++             \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
 +           },
           ]
         }
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -760,9 +804,82 @@
+@@ -461,9 +505,82 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1765,23 +1171,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"14\\",
++                   \\"id\\": \\"11\\",
 +                 },
-+                 \\"completedAt\\": \\"2015-11-30T05:35:49.224Z\\",
-+                 \\"id\\": \\"12\\",
++                 \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
++                 \\"id\\": \\"9\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Alexys Rohan\\",
-+                   \\"id\\": \\"13\\",
++                   \\"fullName\\": \\"Dorcas Dach\\",
++                   \\"id\\": \\"10\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"15\\",
-+                   \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
++                   \\"id\\": \\"12\\",
++                   \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
 +                 \\"stepType\\": \\"affirm\\",
-+                 \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
++                 \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1798,23 +1204,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"18\\",
++                   \\"id\\": \\"15\\",
 +                 },
-+                 \\"completedAt\\": \\"2017-01-19T11:48:41.969Z\\",
-+                 \\"id\\": \\"16\\",
++                 \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
++                 \\"id\\": \\"13\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Isabell Schamberger\\",
-+                   \\"id\\": \\"17\\",
++                   \\"fullName\\": \\"Margaret Williamson\\",
++                   \\"id\\": \\"14\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"19\\",
-+                   \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
++                   \\"id\\": \\"16\\",
++                   \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepType\\": \\"bond\\",
-+                 \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
++                 \\"stepType\\": \\"care\\",
++                 \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"

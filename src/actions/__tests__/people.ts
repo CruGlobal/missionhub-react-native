@@ -45,7 +45,6 @@ describe('getMyPeople', () => {
     });
     store = mockStore({
       auth: {
-        isJean: false,
         person: mockUser,
       },
     });

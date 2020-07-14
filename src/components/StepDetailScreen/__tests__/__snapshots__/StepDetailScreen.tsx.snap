@@ -308,15 +308,18 @@ exports[`Post is not null renders correctly with post 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                May 5 @ 10:14 AM
+                May 5, 2013 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -352,25 +355,45 @@ exports[`Post is not null renders correctly with post 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            amet iure ut
-          </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
+                  "marginVertical": 10,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={Object {}}
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 20,
+                      },
+                    ]
+                  }
+                >
+                  amet iure ut
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -708,15 +731,18 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                May 5 @ 10:14 AM
+                May 5, 2013 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -752,25 +778,45 @@ exports[`Post is not null renders correctly with post with image 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            amet iure ut
-          </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
+                  "marginVertical": 10,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={Object {}}
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 20,
+                      },
+                    ]
+                  }
+                >
+                  amet iure ut
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -1108,15 +1154,18 @@ exports[`Post is not null renders post without image 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Feb 28 @ 3:01 AM
+                February 28, 2016 @ 3:01 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1152,25 +1201,45 @@ exports[`Post is not null renders post without image 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            sunt qui amet
-          </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
+                  "marginVertical": 10,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={Object {}}
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 20,
+                      },
+                    ]
+                  }
+                >
+                  sunt qui amet
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
     </View>
@@ -1467,15 +1536,18 @@ exports[`Post is not null renders with an input 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                May 5 @ 10:14 AM
+                May 5, 2013 @ 10:14 AM
               </Text>
               <Text
                 onPress={[Function]}
@@ -1511,25 +1583,45 @@ exports[`Post is not null renders with an input 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            amet iure ut
-          </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
+                  "marginVertical": 10,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={Object {}}
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 20,
+                      },
+                    ]
+                  }
+                >
+                  amet iure ut
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -1998,21 +2090,33 @@ exports[`markdown is not null renders correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 ROBERT ROBERT ROBERT
               </Text>
             </Text>
@@ -2250,21 +2354,33 @@ exports[`markdown is not null renders correctly on android 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 ROBERT ROBERT ROBERT
               </Text>
             </Text>
@@ -2502,21 +2618,33 @@ exports[`markdown is not null renders correctly on android with bottom button pr
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 ROBERT ROBERT ROBERT
               </Text>
             </Text>
@@ -2836,21 +2964,33 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 ROBERT ROBERT ROBERT
               </Text>
             </Text>
@@ -3678,21 +3818,33 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 Christian Christian Christian
               </Text>
             </Text>

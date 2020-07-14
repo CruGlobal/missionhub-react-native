@@ -9,6 +9,7 @@ import { GROUP_ONBOARDING_TYPES } from '../../Groups/OnboardingCard';
 import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID, ORG_PERMISSIONS } from '../../../constants';
 import { getImpactSummary } from '../../../actions/impact';
+import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 
 import ImpactView from '..';
 
@@ -18,7 +19,7 @@ MockDate.set('2018-09-12 12:00:00 PM GMT+0');
 
 (getImpactSummary as jest.Mock).mockReturnValue({ type: 'getImpactSummary' });
 
-const userCreatedcommunityId = '43';
+const communityId = '43';
 
 const me = {
   id: '1',
@@ -26,7 +27,7 @@ const me = {
   first_name: 'ME',
   organizational_permissions: [
     {
-      organization_id: userCreatedcommunityId,
+      organization_id: communityId,
       permission_id: ORG_PERMISSIONS.USER,
     },
   ],
@@ -46,7 +47,7 @@ const personImpact = {
   receivers_count: 6,
   pathway_moved_count: 4,
 };
-const userCreatedOrgImpact = {
+const orgImpact = {
   id: '43-2018',
   type: 'impact_report',
   steps_count: 13,
@@ -64,12 +65,10 @@ const globalImpact = {
 const globalOrg = {
   id: GLOBAL_COMMUNITY_ID,
   name: 'Global Community',
-  user_created: true,
 };
-const userCreatedOrg = {
-  id: userCreatedcommunityId,
-  name: 'User Created Org',
-  user_created: true,
+const org = {
+  id: communityId,
+  name: 'Org',
 };
 
 const state = {
@@ -80,12 +79,12 @@ const state = {
     summary: {
       [`${me.id}-`]: myImpact,
       [`${person.id}-`]: personImpact,
-      [`-${userCreatedcommunityId}`]: userCreatedOrgImpact,
+      [`-${communityId}`]: orgImpact,
       '-': globalImpact,
     },
   },
   organizations: {
-    all: [globalOrg, userCreatedOrg],
+    all: [globalOrg, org],
   },
   swipe: {
     groupOnboarding: {
@@ -97,7 +96,12 @@ const state = {
 describe('ImpactView', () => {
   it('should refresh impact data', () => {
     renderWithContext(<ImpactView personId={me.id} />, { initialState: state });
+
     expect(getImpactSummary).toHaveBeenCalledTimes(2);
+    expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+      assignmentType: { personId: me.id, communityId: 'personal' },
+      permissionType: undefined,
+    });
   });
 
   describe('ME person personal impact view', () => {
@@ -124,6 +128,11 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: { personId: me.id, communityId: 'personal' },
+        permissionType: undefined,
+      });
     });
 
     it('renders singular state', () => {
@@ -151,21 +160,31 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: { personId: me.id, communityId: 'personal' },
+        permissionType: undefined,
+      });
     });
 
     it('renders plural state', () => {
       renderWithContext(<ImpactView personId={me.id} />, {
         initialState: state,
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: { personId: me.id, communityId: 'personal' },
+        permissionType: undefined,
+      });
     });
   });
 
-  describe('ME person impact view for user created org', () => {
+  describe('ME person impact view for org', () => {
     const meWithOrgPermission = {
       ...me,
       organizational_permissions: [
         {
-          organization_id: userCreatedcommunityId,
+          organization_id: communityId,
           permission_id: ORG_PERMISSIONS.OWNER,
         },
       ],
@@ -175,7 +194,7 @@ describe('ImpactView', () => {
       renderWithContext(
         <ImpactView
           personId={meWithOrgPermission.id}
-          communityId={userCreatedcommunityId}
+          communityId={communityId}
         />,
         {
           initialState: {
@@ -200,13 +219,21 @@ describe('ImpactView', () => {
           },
         },
       ).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: {
+          personId: me.id,
+          communityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders singular state', () => {
       renderWithContext(
         <ImpactView
           personId={meWithOrgPermission.id}
-          communityId={userCreatedcommunityId}
+          communityId={communityId}
         />,
         {
           initialState: {
@@ -233,27 +260,43 @@ describe('ImpactView', () => {
           },
         },
       ).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: {
+          personId: me.id,
+          communityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders plural state', () => {
       renderWithContext(
         <ImpactView
           personId={meWithOrgPermission.id}
-          communityId={userCreatedcommunityId}
+          communityId={communityId}
         />,
         {
           initialState: state,
         },
       ).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'my impact'], {
+        assignmentType: {
+          personId: me.id,
+          communityId,
+        },
+        permissionType: undefined,
+      });
     });
   });
 
-  describe('user created member impact', () => {
+  describe('member impact', () => {
     const personWithOrgPermission = {
       ...person,
       organizational_permissions: [
         {
-          organization_id: userCreatedcommunityId,
+          organization_id: communityId,
           permission_id: ORG_PERMISSIONS.OWNER,
         },
       ],
@@ -263,7 +306,7 @@ describe('ImpactView', () => {
       const { snapshot } = renderWithContext(
         <ImpactView
           personId={personWithOrgPermission.id}
-          communityId={userCreatedcommunityId}
+          communityId={communityId}
         />,
         {
           initialState: {
@@ -292,13 +335,21 @@ describe('ImpactView', () => {
       await flushMicrotasksQueue();
 
       snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: {
+          personId: person.id,
+          communityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders singular state', async () => {
       const { snapshot } = renderWithContext(
         <ImpactView
           personId={personWithOrgPermission.id}
-          communityId={userCreatedcommunityId}
+          communityId={communityId}
         />,
         {
           initialState: {
@@ -329,13 +380,21 @@ describe('ImpactView', () => {
       await flushMicrotasksQueue();
 
       snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: {
+          personId: person.id,
+          communityId,
+        },
+        permissionType: undefined,
+      });
     });
 
     it('renders plural state', async () => {
       const { snapshot } = renderWithContext(
         <ImpactView
           personId={personWithOrgPermission.id}
-          communityId={userCreatedcommunityId}
+          communityId={communityId}
         />,
         {
           initialState: state,
@@ -345,20 +404,28 @@ describe('ImpactView', () => {
       await flushMicrotasksQueue();
 
       snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['person', 'impact'], {
+        assignmentType: {
+          personId: person.id,
+          communityId,
+        },
+        permissionType: undefined,
+      });
     });
   });
 
   describe('user-created community impact', () => {
     it('renders empty state', () => {
-      renderWithContext(<ImpactView communityId={userCreatedcommunityId} />, {
+      renderWithContext(<ImpactView communityId={communityId} />, {
         initialState: {
           ...state,
           impact: {
             ...state.impact,
             summary: {
               ...state.impact.summary,
-              [`-${userCreatedcommunityId}`]: {
-                ...userCreatedOrgImpact,
+              [`-${communityId}`]: {
+                ...orgImpact,
                 steps_count: 0,
                 pathway_moved_count: 0,
               },
@@ -372,18 +439,23 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId },
+      });
     });
 
     it('renders singular state', () => {
-      renderWithContext(<ImpactView communityId={userCreatedcommunityId} />, {
+      renderWithContext(<ImpactView communityId={communityId} />, {
         initialState: {
           ...state,
           impact: {
             ...state.impact,
             summary: {
               ...state.impact.summary,
-              [`-${userCreatedcommunityId}`]: {
-                ...userCreatedOrgImpact,
+              [`-${communityId}`]: {
+                ...orgImpact,
                 steps_count: 1,
                 receivers_count: 1,
                 pathway_moved_count: 1,
@@ -399,12 +471,22 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId },
+      });
     });
 
     it('renders plural state', () => {
-      renderWithContext(<ImpactView communityId={userCreatedcommunityId} />, {
+      renderWithContext(<ImpactView communityId={communityId} />, {
         initialState: state,
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId },
+      });
     });
   });
 
@@ -432,6 +514,11 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: GLOBAL_COMMUNITY_ID },
+      });
     });
 
     it('renders singular state', () => {
@@ -459,12 +546,22 @@ describe('ImpactView', () => {
           },
         },
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: GLOBAL_COMMUNITY_ID },
+      });
     });
 
     it('renders plural state', () => {
       renderWithContext(<ImpactView communityId={GLOBAL_COMMUNITY_ID} />, {
         initialState: state,
       }).snapshot();
+
+      expect(useAnalytics).toHaveBeenCalledWith(['community', 'impact'], {
+        assignmentType: undefined,
+        permissionType: { communityId: GLOBAL_COMMUNITY_ID },
+      });
     });
   });
 });

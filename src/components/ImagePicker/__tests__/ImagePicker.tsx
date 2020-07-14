@@ -35,6 +35,14 @@ it('renders image picker with circle overlay', () => {
   ).snapshot();
 });
 
+it('renders image picker without cropper', () => {
+  renderWithContext(
+    <ImagePicker onSelectImage={onSelectImage} showCropper={false}>
+      <View />
+    </ImagePicker>,
+  ).snapshot();
+});
+
 describe('press image picker', () => {
   let mockResponse = {};
   let mockFinalData = {};

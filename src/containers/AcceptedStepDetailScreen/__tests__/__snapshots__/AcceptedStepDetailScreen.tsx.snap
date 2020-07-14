@@ -511,15 +511,18 @@ exports[`should render correctly post details 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {},
+                    ],
                   ]
                 }
                 testID="Text"
               >
-                Dec 28 @ 5:58 PM
+                December 28, 2017 @ 5:58 PM
               </Text>
               <Text
                 onPress={[Function]}
@@ -555,25 +558,45 @@ exports[`should render correctly post details 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingBottom": 20,
-                },
-              ]
-            }
+          <View
+            style={Object {}}
           >
-            ipsam nobis cupiditate
-          </Text>
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
+                  "marginVertical": 10,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={Object {}}
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "lineHeight": 24,
+                        "paddingBottom": 20,
+                      },
+                    ]
+                  }
+                >
+                  ipsam nobis cupiditate
+                </Text>
+              </Text>
+            </View>
+          </View>
         </View>
       </View>
       <View
@@ -2331,21 +2354,33 @@ exports[`with description, with reminder should render correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 alias consequuntur corporis
               </Text>
             </Text>
@@ -2796,21 +2831,33 @@ exports[`with description, without reminder should render correctly 1`] = `
           <View
             style={
               Object {
+                "alignItems": "flex-start",
+                "flexDirection": "row",
+                "flexWrap": "wrap",
+                "justifyContent": "flex-start",
+                "marginBottom": 10,
+                "marginTop": 10,
                 "marginVertical": 10,
+                "width": "100%",
               }
             }
           >
             <Text
-              style={
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                }
-              }
+              style={Object {}}
             >
-              <Text>
+              <Text
+                style={
+                  Array [
+                    Object {},
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "lineHeight": 24,
+                    },
+                  ]
+                }
+              >
                 alias consequuntur corporis
               </Text>
             </Text>

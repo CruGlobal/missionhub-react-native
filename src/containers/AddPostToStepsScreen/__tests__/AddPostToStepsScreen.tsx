@@ -3,8 +3,9 @@ import MockDate from 'mockdate';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 
+import { ACTIONS } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
-import { trackStepAdded } from '../../../actions/analytics';
+import { trackAction } from '../../../actions/analytics';
 import { navigateBack } from '../../../actions/navigation';
 import { getPersonDetails } from '../../../actions/person';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -27,12 +28,12 @@ jest.mock('../../../utils/hooks/useAnalytics');
 
 MockDate.set('2020-05-11 12:00:00', 300);
 
-const trackStepResults = { type: 'track step added' };
+const trackActionResults = { type: 'track action' };
 const navigateBackResults = { type: 'navigate back' };
 const getPersonDetailsResponse = { type: 'get person details' };
 
 beforeEach(() => {
-  (trackStepAdded as jest.Mock).mockReturnValue(trackStepResults);
+  (trackAction as jest.Mock).mockReturnValue(trackActionResults);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResults);
   (getPersonDetails as jest.Mock).mockReturnValue(getPersonDetailsResponse);
 });
@@ -119,22 +120,9 @@ it('creates a new step when user clicks add to my steps button', async () => {
   fireEvent.press(getByTestId('AddToMyStepsButton'));
   await flushMicrotasksQueue();
 
-  expect(trackStepAdded).toHaveBeenCalledWith({
-    __typename: 'Step',
-    id: stepId,
-    title: stepTitle,
-    stepType: StepTypeEnum.pray,
-    post: {
-      __typename: 'Post',
-      id: mockPostId,
-      postType: PostTypeEnum.prayer_request,
-      stepStatus: PostStepStatusEnum.NONE,
-    },
-    receiver: {
-      __typename: 'Person',
-      id: personId,
-    },
-    stepSuggestion: null,
+  expect(trackAction).toHaveBeenCalledWith(ACTIONS.POST_STEP_ADDED.name, {
+    [ACTIONS.POST_STEP_ADDED.key]: null,
+    [ACTIONS.STEP_POST_TYPE.key]: PostTypeEnum.prayer_request,
   });
   expect(getPersonDetails).toHaveBeenCalledWith(personId);
   expect(navigateBack).toHaveBeenCalled();
@@ -196,22 +184,9 @@ it('changes the title of the step and creates a new step', async () => {
   fireEvent.press(getByTestId('AddToMyStepsButton'));
   await flushMicrotasksQueue();
 
-  expect(trackStepAdded).toHaveBeenCalledWith({
-    __typename: 'Step',
-    id: stepId,
-    title: mockNewStepTitle,
-    stepType: StepTypeEnum.pray,
-    post: {
-      __typename: 'Post',
-      id: mockPostId,
-      postType: PostTypeEnum.prayer_request,
-      stepStatus: PostStepStatusEnum.NONE,
-    },
-    receiver: {
-      __typename: 'Person',
-      id: personId,
-    },
-    stepSuggestion: null,
+  expect(trackAction).toHaveBeenCalledWith(ACTIONS.POST_STEP_ADDED.name, {
+    [ACTIONS.POST_STEP_ADDED.key]: null,
+    [ACTIONS.STEP_POST_TYPE.key]: PostTypeEnum.prayer_request,
   });
   expect(getPersonDetails).toHaveBeenCalledWith(personId);
   expect(navigateBack).toHaveBeenCalled();

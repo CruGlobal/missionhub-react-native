@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { View, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 
@@ -11,38 +10,20 @@ import PostTypeLabel, {
   PostLabelSizeEnum,
 } from '../../components/PostTypeLabel';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import {
-  getPostTypeAnalytics,
-  getAnalyticsPermissionType,
-} from '../../utils/analytics';
-import { ANALYTICS_PERMISSION_TYPE } from '../../constants';
-import { AuthState } from '../../reducers/auth';
-import { OrganizationsState } from '../../reducers/organizations';
-import { organizationSelector } from '../../selectors/organizations';
+import { getPostTypeAnalytics } from '../../utils/analytics';
 
 const CommunityFeedWithType = () => {
   const communityId: string = useNavigationParam('communityId');
   const communityName: string = useNavigationParam('communityName');
   const type: FeedItemSubjectTypeEnum = useNavigationParam('type');
 
-  const organization = useSelector(
-    ({ organizations }: { organizations: OrganizationsState }) =>
-      organizationSelector({ organizations }, { orgId: communityId }),
-  );
-
-  const analyticsPermissionType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsPermissionType(auth, organization),
-  );
-
   useAnalytics(['feed', 'card', getPostTypeAnalytics(type)], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-    },
+    permissionType: { communityId },
   });
 
   return (
     <View style={{ height: '100%' }}>
-      <StatusBar {...theme.statusBar.lightContent} />
+      <StatusBar {...theme.statusBar.lightContent} hidden={true} />
       <PostTypeLabel
         communityName={communityName}
         type={type}

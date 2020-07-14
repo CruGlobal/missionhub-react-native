@@ -22,11 +22,7 @@ import {
   trackActionWithoutData,
   trackScreenChange,
 } from '../../../../../actions/analytics';
-import {
-  ACTIONS,
-  COMMUNITIES_TAB,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../../../constants';
+import { ACTIONS, COMMUNITIES_TAB } from '../../../../../constants';
 import * as common from '../../../../../utils/common';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import { CommunityProfile } from '../CommunityProfile';
@@ -105,9 +101,7 @@ describe('CommunityProfile', () => {
     diffSnapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith(['community', 'detail'], {
-      screenContext: {
-        [ANALYTICS_PERMISSION_TYPE]: 'member',
-      },
+      permissionType: { communityId },
     });
   });
 
@@ -118,7 +112,6 @@ describe('CommunityProfile', () => {
       mocks: {
         Query: () => ({
           community: () => ({
-            userCreated: () => true,
             people: () => ({
               edges: () => [
                 {
@@ -145,7 +138,6 @@ describe('CommunityProfile', () => {
       mocks: {
         Query: () => ({
           community: () => ({
-            userCreated: () => true,
             people: () => ({
               edges: () => [
                 {
@@ -226,7 +218,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -261,7 +252,6 @@ describe('CommunityProfile', () => {
         navParams: { communityId },
         mocks: {
           Community: () => ({
-            userCreated: true,
             people: () => ({
               edges: () => [
                 {
@@ -290,7 +280,6 @@ describe('CommunityProfile', () => {
         navParams: { communityId },
         mocks: {
           Community: () => ({
-            userCreated: true,
             people: () => ({
               edges: () => [
                 {
@@ -322,7 +311,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -371,7 +359,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -401,7 +388,6 @@ describe('CommunityProfile', () => {
         navParams: { communityId },
         mocks: {
           Community: () => ({
-            userCreated: true,
             people: () => ({
               edges: () => [
                 {
@@ -431,7 +417,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {
@@ -463,7 +448,6 @@ describe('CommunityProfile', () => {
           navParams: { communityId },
           mocks: {
             Community: () => ({
-              userCreated: true,
               people: () => ({
                 edges: () => [
                   {

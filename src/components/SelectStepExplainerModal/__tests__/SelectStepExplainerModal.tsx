@@ -25,11 +25,35 @@ describe('renders correctly', () => {
   it('renders correctly', () => {
     screen.snapshot();
   });
+
+  it('render with Got It Button', () => {
+    fireEvent(
+      screen.getByTestId('SelectStepExplainerCarousel'),
+      'onSnapToItem',
+      5,
+    );
+    screen.snapshot();
+  });
 });
 
 describe('presses buttons', () => {
   it('presses close button', () => {
     fireEvent.press(screen.getByTestId('SelectStepExplainerCloseButton'));
+    expect(onClose).toHaveBeenCalled();
+  });
+
+  it('presses Got It button', () => {
+    jest.useFakeTimers();
+    fireEvent(
+      screen.getByTestId('SelectStepExplainerCarousel'),
+      'onSnapToItem',
+      5,
+    );
+
+    fireEvent.press(screen.getByTestId('SelectStepExplainerGotItButton'));
+    // To fix issue with debounce on button press
+    jest.runAllTimers();
+
     expect(onClose).toHaveBeenCalled();
   });
 });

@@ -5,7 +5,6 @@ const COMMUNITY_FRAGMENT = gql`
     id
     name
     unreadCommentsCount
-    userCreated
     communityPhotoUrl
     owner: people(permissions: [owner]) {
       nodes {

@@ -121,15 +121,16 @@ export const NotificationCenterItem = ({
     // for them seperately
     switch (trigger) {
       case NotificationTriggerEnum.feed_items_comment_notification:
-      case NotificationTriggerEnum.feed_items_comment_on_my_item_notification:
-      case NotificationTriggerEnum.feed_items_comment_on_others_item_notification:
+      case NotificationTriggerEnum.feed_items_comment_on_my_post_notification:
+      case NotificationTriggerEnum.feed_items_comment_on_my_feed_item_notification:
+      case NotificationTriggerEnum.feed_items_comment_on_other_persons_post_notification:
         return <CommentIcon />;
       case NotificationTriggerEnum.community_challenge_created_alert:
         return (
           <PostTypeLabel
             showText={false}
             size={PostLabelSizeEnum.small}
-            type={FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE}
+            type={FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE}
           />
         );
       default:
@@ -158,14 +159,11 @@ export const NotificationCenterItem = ({
             challengeId: screenData.challengeId,
           }),
         );
-      case NotificationTriggerEnum.feed_items_assigned_to_alert_step:
-        return;
       default:
         return dispatch(
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {
             fromNotificationCenterItem: true,
             feedItemId: screenData.feedItemId,
-            communityId: screenData.communityId,
           }),
         );
     }

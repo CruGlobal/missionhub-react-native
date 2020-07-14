@@ -24,7 +24,6 @@ import {
   getCommunityUrl,
   canEditCommunity,
 } from '../../../../utils/common';
-import { getAnalyticsPermissionTypeGraphQL } from '../../../../utils/analytics';
 import {
   navigateBack,
   navigateToMainTabs,
@@ -41,11 +40,7 @@ import {
   trackActionWithoutData,
   trackScreenChange,
 } from '../../../../actions/analytics';
-import {
-  ACTIONS,
-  COMMUNITIES_TAB,
-  ANALYTICS_PERMISSION_TYPE,
-} from '../../../../constants';
+import { ACTIONS, COMMUNITIES_TAB } from '../../../../constants';
 import PopupMenu from '../../../../components/PopupMenu';
 import Header from '../../../../components/Header';
 import { useMyId } from '../../../../utils/hooks/useIsMe';
@@ -82,11 +77,7 @@ export const CommunityProfile = () => {
     data?.community.people.edges[0].communityPermission.permission;
 
   useAnalytics(['community', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: getAnalyticsPermissionTypeGraphQL(
-        permission,
-      ),
-    },
+    permissionType: { communityId },
   });
 
   const save = async () => {
@@ -183,7 +174,6 @@ export const CommunityProfile = () => {
   const communityPhotoSource = useCommunityPhoto(
     communityId,
     data?.community.communityPhotoUrl,
-    data?.community.userCreated,
   );
 
   const renderImage = () => {
@@ -213,9 +203,7 @@ export const CommunityProfile = () => {
     return content;
   };
 
-  const canEdit =
-    data?.community.userCreated &&
-    canEditCommunity(permission, data?.community.userCreated);
+  const canEdit = canEditCommunity(permission);
 
   const owner = data?.community.owners.nodes[0];
 

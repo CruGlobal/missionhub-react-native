@@ -9,7 +9,7 @@ matrix:
       before_script:
         - echo "TRAVIS_COMMIT=$TRAVIS_COMMIT" >> ./.env.production
         - |
-          if [ "$TRAVIS_BRANCH" == "master" ]; then
+          if [ "$TRAVIS_BRANCH" == "master" ] || [ "$TRAVIS_BRANCH" == "develop" ]; then
             echo "Setting ENVFILE to .env.production"
             export ENVFILE=.env.production
           else
@@ -142,11 +142,12 @@ matrix:
       language: objective-c
       xcode_workspace: ios/MissionHub.xcworkspace
       os: osx
-      osx_image: xcode10.2
+      osx_image: xcode11.4
       if: tag =~ ^v\d+\.\d+\.\d+(-ios|-android)?$
       before_install:
         - openssl aes-256-cbc -pass "pass:$GOOGLE_PLAY_API_FILE_PASSWORD" -in ./android/fastlane/GooglePlayAPI.enc -out ./android/fastlane/GooglePlayAPI.json -d -a
         - brew update
+        - brew upgrade node
         - brew install yarn
       install:
         - yarn

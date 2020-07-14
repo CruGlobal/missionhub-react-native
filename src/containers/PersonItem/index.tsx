@@ -13,14 +13,14 @@ import FORGIVEN from '../../../assets/images/forgivenIcon.png';
 import GROWING from '../../../assets/images/growingIcon.png';
 import GUIDING from '../../../assets/images/guidingIcon.png';
 import NOTSURE from '../../../assets/images/notsureIcon.png';
+import NoStage from '../../../assets/images/noStage.svg';
 import ItemHeaderText from '../../components/ItemHeaderText';
-import { Text, Touchable, Icon, Card, Dot } from '../../components/common';
+import { Text, Touchable, Icon, Card } from '../../components/common';
 import {
   navigateToStageScreen,
   navigateToAddStepFlow,
 } from '../../actions/misc';
 import { navToPersonScreen } from '../../actions/person';
-import { hasOrgPermissions, orgIsCru } from '../../utils/common';
 import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
 import { StagesObj, StagesState } from '../../reducers/stages';
@@ -54,7 +54,6 @@ const PersonItem = ({
 }: PersonItemProps) => {
   const { t } = useTranslation();
   const totalCount = stepsData ? stepsData.steps.pageInfo.totalCount : 0;
-  const orgId = organization && organization.id;
   const isMe = person.id === me.id;
   const contactAssignment =
     useSelector(({ auth }: RootState) =>
@@ -66,20 +65,6 @@ const PersonItem = ({
   const stage = isMe
     ? me.stage
     : stagesObj[`${contactAssignment.pathway_stage_id}`];
-
-  const isCruOrg = orgIsCru(organization);
-
-  const personOrgPermissions = (person.organizational_permissions || []).find(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (orgPermission: any) => orgPermission.organization_id === orgId,
-  );
-
-  const status =
-    isMe || !isCruOrg || hasOrgPermissions(personOrgPermissions)
-      ? ''
-      : personOrgPermissions
-      ? personOrgPermissions.followup_status || ''
-      : 'uncontacted';
 
   const handleSelect = () => dispatch(navToPersonScreen(person.id));
 
@@ -108,7 +93,9 @@ const PersonItem = ({
             resizeMode={'contain'}
             source={stageIcons[stage.id - 1]}
           />
-        ) : null}
+        ) : (
+          <NoStage />
+        )}
       </View>
     );
   };
@@ -129,14 +116,6 @@ const PersonItem = ({
               </Text>
             </Touchable>
           )}
-          {status ? (
-            <View style={styles.textRow}>
-              <Dot style={styles.stage} />
-              <Text style={[styles.stage]}>
-                {t(`followupStatus.${status.toLowerCase()}`)}
-              </Text>
-            </View>
-          ) : null}
         </View>
       </View>
     );

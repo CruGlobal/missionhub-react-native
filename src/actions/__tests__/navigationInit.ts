@@ -3,6 +3,9 @@ import { resetToInitialRoute } from '../navigationInit';
 import { createThunkStore } from '../../../testUtils';
 import { startOnboarding } from '../onboarding';
 import { checkNotifications } from '../notifications';
+import { LANDING_SCREEN } from '../../containers/LandingScreen';
+import { GET_STARTED_ONBOARDING_FLOW } from '../../routes/constants';
+import { NOTIFICATION_PROMPT_TYPES } from '../../constants';
 
 jest.mock('../notifications');
 jest.mock('../navigation');
@@ -13,10 +16,10 @@ const token =
   'sfhaspofuasdnfpwqnfoiqwofiwqioefpqwnofuoweqfniuqweouiowqefonpqnowfpowqfneqowfenopnqwnfeo';
 const myId = '1';
 
-const navigateToMainTabsResult = { type: 'nav to main tabs' };
-const navigateResetResult = { type: 'navigate refresh' };
-const startOnboardingResult = { type: 'start onboarding' };
-const checkNotificationsResult = { type: 'check notifications' };
+const navigateToMainTabsResult = { type: 'navigateToMainTabs' };
+const navigateResetResult = { type: 'navigateReset' };
+const startOnboardingResult = { type: 'startOnboarding' };
+const checkNotificationsResult = { type: 'checkNotifications' };
 
 beforeEach(() => {
   (navigateToMainTabs as jest.Mock).mockReturnValue(navigateToMainTabsResult);
@@ -25,146 +28,117 @@ beforeEach(() => {
   (checkNotifications as jest.Mock).mockReturnValue(checkNotificationsResult);
 });
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const test = (store: { [key: string]: any }) => {
-  const mockStore = createThunkStore(store);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  mockStore.dispatch<any>(resetToInitialRoute());
-  expect(mockStore.getActions()).toMatchSnapshot();
-};
-
-describe('initialRoute', () => {
-  describe('not logged in user', () => {
-    it('should go to Login screen', () => {
-      test({
+describe('resetToInitialRoute', () => {
+  describe('unauthenticated user', () => {
+    it('should navigate to landing screen', () => {
+      const mockStore = createThunkStore({
         auth: {
           token: '',
         },
       });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      mockStore.dispatch<any>(resetToInitialRoute());
+      expect(navigateReset).toHaveBeenCalledWith(LANDING_SCREEN);
+      expect(mockStore.getActions()).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "type": "app/RELOAD_APP",
+          },
+          Object {
+            "type": "navigateReset",
+          },
+        ]
+      `);
     });
   });
 
-  describe('logged in user', () => {
-    it('has not completed onboarding but has a contact with pathway stage should go to MainTabs', () => {
-      test({
+  describe('authenticated user without stage', () => {
+    it('should navigate to get started screen', () => {
+      const mockStore = createThunkStore({
         auth: {
           token,
-          person: { id: myId },
-        },
-        onboarding: { skippedAddingPerson: false },
-        people: {
-          people: {
-            [myId]: {
-              id: myId,
-              reverse_contact_assignments: [],
-            },
-            '2': {
-              reverse_contact_assignments: [
-                {
-                  assigned_to: { id: '3' },
-                  pathway_stage_id: '4',
-                },
-                {
-                  assigned_to: { id: myId },
-                  pathway_stage_id: '5',
-                },
-              ],
-            },
+          person: {
+            id: myId,
           },
         },
       });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      mockStore.dispatch<any>(resetToInitialRoute());
+      expect(startOnboarding).toHaveBeenCalled();
+      expect(navigateReset).toHaveBeenCalledWith(GET_STARTED_ONBOARDING_FLOW);
+      expect(mockStore.getActions()).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "type": "app/RELOAD_APP",
+          },
+          Object {
+            "type": "startOnboarding",
+          },
+          Object {
+            "type": "navigateReset",
+          },
+        ]
+      `);
     });
+  });
 
-    it('has skipped adding person but does not have contact with pathway stage should go to MainTabs', () => {
-      test({
+  describe('authenticated user with stage', () => {
+    it('should navigate to main tabs', () => {
+      const mockStore = createThunkStore({
         auth: {
           token,
+          person: {
+            id: myId,
+            user: { pathway_stage_id: '3' },
+          },
         },
-        onboarding: { skippedAddingPerson: true },
       });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      mockStore.dispatch<any>(resetToInitialRoute());
+      expect(navigateToMainTabs).toHaveBeenCalled();
+      expect(checkNotifications).toHaveBeenCalledWith(
+        NOTIFICATION_PROMPT_TYPES.LOGIN,
+      );
+      expect(mockStore.getActions()).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "type": "app/RELOAD_APP",
+          },
+          Object {
+            "type": "navigateToMainTabs",
+          },
+          Object {
+            "type": "checkNotifications",
+          },
+        ]
+      `);
     });
-
-    describe('has not completed onboarding and does not have a contact with pathway stage', () => {
-      it('has self stage should go to AddSomeone', () => {
-        test({
-          auth: {
-            token,
-            person: {
-              id: myId,
-              user: { pathway_stage_id: '3' },
-            },
+    it('should not dispatch reload app if preservePreviousScreen is set', () => {
+      const mockStore = createThunkStore({
+        auth: {
+          token,
+          person: {
+            id: myId,
+            user: { pathway_stage_id: '3' },
           },
-          onboarding: { skippedAddingPerson: false },
-          people: {
-            people: {
-              '2': {
-                reverse_contact_assignments: [
-                  {
-                    assigned_to: { id: '3' },
-                    pathway_stage_id: '4',
-                  },
-                  {
-                    assigned_to: { id: myId },
-                    pathway_stage_id: null,
-                  },
-                ],
-              },
-            },
-          },
-        });
+        },
       });
-
-      it('does not have self stage should go to GetStarted', () => {
-        test({
-          auth: {
-            token,
-            person: {
-              id: myId,
-              user: { pathway_stage_id: null },
-            },
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      mockStore.dispatch<any>(resetToInitialRoute(true));
+      expect(navigateToMainTabs).toHaveBeenCalled();
+      expect(checkNotifications).toHaveBeenCalledWith(
+        NOTIFICATION_PROMPT_TYPES.LOGIN,
+      );
+      expect(mockStore.getActions()).toMatchInlineSnapshot(`
+        Array [
+          Object {
+            "type": "navigateToMainTabs",
           },
-          onboarding: { skippedAddingPerson: false },
-          people: {
-            people: {
-              [myId]: { reverse_contact_assignments: [] },
-              '2': {
-                reverse_contact_assignments: [
-                  {
-                    assigned_to: { id: myId },
-                    pathway_stage_id: null,
-                  },
-                ],
-              },
-            },
+          Object {
+            "type": "checkNotifications",
           },
-        });
-      });
-
-      it('should not check my reverse contact assignments', () => {
-        test({
-          auth: {
-            token,
-            person: {
-              id: myId,
-              user: { pathway_stage_id: null },
-            },
-          },
-          onboarding: { skippedAddingPerson: false },
-          people: {
-            people: {
-              [myId]: {
-                id: myId,
-                reverse_contact_assignments: [
-                  {
-                    assigned_to: { id: myId },
-                    pathway_stage_id: '3',
-                  },
-                ],
-              },
-            },
-          },
-        });
-      });
+        ]
+      `);
     });
   });
 });

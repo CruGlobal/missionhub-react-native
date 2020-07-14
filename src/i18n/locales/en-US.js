@@ -277,6 +277,7 @@ export default {
       'Talk about what this person believes and ways you can help them know the truth about God.',
     part6:
       "Over time you see all the different ways you're helping others draw close to God.",
+    gotIt: 'Got It!',
   },
   stepDetail: {
     openPost: 'Open Post',
@@ -483,7 +484,7 @@ export default {
     sentence: 'Selecting a stage will also assign this person to you.',
   },
   peopleScreen: {
-    header: 'PEOPLE',
+    header: 'People',
     personalMinistry: 'Personal Ministry',
     personal: 'personal',
     addStage: 'Add Stage',
@@ -560,13 +561,15 @@ export default {
       confirmButtonText: 'Report Post',
     },
     addToMySteps: 'Add to My Steps',
+    viewChallenge: 'View Challenge',
+    challengeAcceptedHeader: 'Joined a Challenge!',
+    challengeCompletedHeader: 'Completed a Challenge!',
+    newMemberHeader: 'We have a new member!',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     stepOfFaithUnknownStage:
       '{{initiator}} completed a Step of Faith with someone.',
     stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
-    challengeAccepted: '{{initiator}} accepted a Challenge:',
-    challengeCompleted: '{{initiator}} completed a Challenge:',
     missionHubUser: 'MissionHub user',
     aMissionHubUser: 'A MissionHub user',
   },
@@ -809,7 +812,7 @@ export default {
     QUESTION: 'Spiritual Question',
     HELP_REQUEST: 'Community Need',
     THOUGHT: "What's on Your Mind",
-    COMMUNITY_CHALLENGE: 'Challenge',
+    ACCEPTED_COMMUNITY_CHALLENGE: 'Challenge',
     ANNOUNCEMENT: 'Announcement',
     STEP: 'Step of Faith',
     header: {

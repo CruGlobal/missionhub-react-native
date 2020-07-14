@@ -118,7 +118,6 @@ export const ANALYTICS_SECTION_TYPE = 'cru.section-type';
 export const ANALYTICS_ASSIGNMENT_TYPE = 'cru.assignment-type';
 export const ANALYTICS_EDIT_MODE = 'cru.edit-mode';
 export const ANALYTICS_PERMISSION_TYPE = 'cru.permission-type';
-export const ANALYTICS_MINISTRY_MODE = 'cru.ministry-mode';
 
 export const ID_SCHEMA = 'iglu:org.cru/ids/jsonschema/1-0-3';
 export const LOGGED_IN = 'logged in';
@@ -190,6 +189,13 @@ export const ACTIONS = {
   STEP_CREATED: {
     name: 'Step of Faith Created',
     key: 'cru.stepoffaithcreated',
+  },
+  POST_STEP_ADDED: {
+    name: 'Add to My Steps',
+    key: 'cru.addtomysteps',
+  },
+  STEP_POST_TYPE: {
+    key: 'cru.stepposttype',
   },
   ALLOW: {
     name: 'Notification Permissions',

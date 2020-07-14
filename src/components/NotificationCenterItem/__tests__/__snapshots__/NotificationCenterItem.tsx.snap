@@ -111,7 +111,7 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -143,7 +143,7 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -287,7 +287,7 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -319,7 +319,7 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -449,7 +449,7 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -481,7 +481,7 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -639,7 +639,7 @@ exports[`different notification types Announcement renders correctly | Announcem
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -812,7 +812,7 @@ exports[`different notification types Announcement renders with default communit
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -933,7 +933,7 @@ exports[`different notification types Comunity Challenge renders correctly | Com
             },
           ]
         }
-        testID="COMMUNITY_CHALLENGELabel"
+        testID="ACCEPTED_COMMUNITY_CHALLENGELabel"
       >
         <SvgMock
           color="#ffffff"
@@ -1000,7 +1000,7 @@ exports[`different notification types Comunity Challenge renders correctly | Com
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1106,7 +1106,7 @@ exports[`different notification types Comunity Challenge renders with default co
             },
           ]
         }
-        testID="COMMUNITY_CHALLENGELabel"
+        testID="ACCEPTED_COMMUNITY_CHALLENGELabel"
       >
         <SvgMock
           color="#ffffff"
@@ -1173,7 +1173,7 @@ exports[`different notification types Comunity Challenge renders with default co
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1305,7 +1305,7 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1337,7 +1337,7 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1399,7 +1399,7 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1592,7 +1592,7 @@ exports[`different notification types renders correctly | Community Need 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1654,7 +1654,7 @@ exports[`different notification types renders correctly | Community Need 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1832,7 +1832,7 @@ exports[`different notification types renders correctly | God Story 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -1894,7 +1894,7 @@ exports[`different notification types renders correctly | God Story 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2072,7 +2072,7 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2134,7 +2134,7 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2312,7 +2312,7 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2374,7 +2374,7 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2552,7 +2552,7 @@ exports[`different notification types renders correctly | Thought 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2614,7 +2614,7 @@ exports[`different notification types renders correctly | Thought 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2746,7 +2746,7 @@ exports[`renders correctly | Comment 2 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2808,7 +2808,7 @@ exports[`renders correctly | Comment 2 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2955,7 +2955,7 @@ exports[`renders correctly | Comment 3 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -2987,7 +2987,7 @@ exports[`renders correctly | Comment 3 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }
@@ -3049,7 +3049,216 @@ exports[`renders correctly | Comment 3 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Bleh
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          .
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        November 13, 2015 8:52 PM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly | Comment 4 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="notificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "recusandae alias consequuntur",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
+          },
+          Object {
+            "backgroundColor": "rgb(115, 115, 152)",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Christian
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           commented on your 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          prayer request
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           in 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "bold",
               },
             ]
           }
@@ -3257,7 +3466,7 @@ exports[`renders correctly 1`] = `
                 "fontFamily": "SourceSansPro-Regular",
               },
               Object {
-                "fontWeight": "600",
+                "fontWeight": "bold",
               },
             ]
           }

@@ -18,16 +18,22 @@ exports[`renders correctly as Casey 1`] = `
       />
     }
     right={
-      <IconButton
-        name="addContactIcon"
+      <Button
         onPress={[Function]}
-        size={24}
-        type="MissionHub"
-      />
+      >
+        <SvgMock />
+      </Button>
     }
     shadow={true}
     testID="header"
-    title="PEOPLE"
+    title="People"
+    titleStyle={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "400",
+        "lineHeight": 24,
+      }
+    }
   />
   <PeopleList
     items={
@@ -46,7 +52,6 @@ exports[`renders correctly as Casey 1`] = `
         },
       ]
     }
-    onAddContact={[Function]}
     onRefresh={[Function]}
     personId="4224323"
     refreshing={false}
@@ -74,16 +79,22 @@ exports[`renders empty correctly 1`] = `
       />
     }
     right={
-      <IconButton
-        name="addContactIcon"
+      <Button
         onPress={[Function]}
-        size={24}
-        type="MissionHub"
-      />
+      >
+        <SvgMock />
+      </Button>
     }
     shadow={true}
     testID="header"
-    title="PEOPLE"
+    title="People"
+    titleStyle={
+      Object {
+        "fontSize": 16,
+        "fontWeight": "400",
+        "lineHeight": 24,
+      }
+    }
   />
   <PeopleList
     items={
@@ -93,7 +104,6 @@ exports[`renders empty correctly 1`] = `
         },
       ]
     }
-    onAddContact={[Function]}
     onRefresh={[Function]}
     personId="4224323"
     refreshing={false}

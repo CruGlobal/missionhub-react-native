@@ -29,107 +29,6 @@ exports[`Community renders challenge correctly 1`] = `
           }
         }
       >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="COMMUNITY_CHALLENGEButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "borderRadius": 18,
-                    "flexDirection": "row",
-                    "height": 36,
-                    "justifyContent": "space-between",
-                    "paddingLeft": 20,
-                    "paddingRight": 16,
-                    "paddingVertical": 0,
-                  },
-                  Object {
-                    "backgroundColor": "#00CA99",
-                  },
-                  null,
-                  null,
-                ],
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <SvgMock
-              color="#ffffff"
-              height={20}
-              style={
-                Array [
-                  Object {
-                    "marginLeft": -10,
-                    "marginRight": 10,
-                  },
-                  undefined,
-                ]
-              }
-              width={20}
-            />
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
-              }
-            >
-              Challenge
-            </Text>
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Object {
-            "flexDirection": "row",
-            "justifyContent": "flex-start",
-            "paddingVertical": 8,
-          }
-        }
-      >
         <Avatar
           person={
             Object {
@@ -144,15 +43,20 @@ exports[`Community renders challenge correctly 1`] = `
         />
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-              "paddingHorizontal": 8,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              undefined,
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -225,80 +129,36 @@ exports[`Community renders challenge correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
-              "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "color": "#3CC8E6",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "lineHeight": 20,
             },
           ]
         }
       >
-        Aimee B. completed a Challenge:
+        Joined a Challenge!
       </Text>
-      <View
+      <Text
         style={
-          Object {
-            "flexDirection": "row",
-          }
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 16,
+              "justifyContent": "flex-start",
+              "lineHeight": 24,
+              "paddingBottom": 8,
+            },
+          ]
         }
       >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="ChallengeLinkButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "backgroundColor": "transparent",
-                },
-                null,
-                Object {
-                  "marginTop": 4,
-                },
-                null,
-              ]
-            }
-          >
-            <Text
-              numberOfLines={2}
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 14,
-                    "fontWeight": "400",
-                    "letterSpacing": 0,
-                    "lineHeight": 18,
-                    "textAlign": "left",
-                  },
-                ]
-              }
-            >
-              quis sed magni
-            </Text>
-          </View>
-        </View>
-      </View>
+        quis sed magni
+      </Text>
     </View>
     <View
       style={
@@ -332,6 +192,58 @@ exports[`Community renders challenge correctly 1`] = `
       }
       testID="FooterTouchable"
     >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "alignItems": "center",
+            "flex": 1,
+            "flexDirection": "row",
+            "opacity": 1,
+          }
+        }
+        testID="ChallengeLinkButton"
+      >
+        <SvgMock
+          color="#505256"
+          style={
+            Object {
+              "alignItems": "center",
+              "height": 24,
+              "justifyContent": "center",
+              "width": 24,
+            }
+          }
+        />
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontSize": 14,
+                "lineHeight": 20,
+                "paddingLeft": 12,
+              },
+            ]
+          }
+        >
+          View Challenge
+        </Text>
+      </View>
       <View
         style={
           Object {
@@ -413,7 +325,6 @@ exports[`Community renders challenge correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -433,6 +344,7 @@ exports[`Community renders challenge correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
+                "marginLeft": 20,
                 "width": 40,
               }
             }
@@ -674,15 +586,20 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -751,21 +668,33 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   quisquam recusandae alias
                 </Text>
               </Text>
@@ -962,7 +891,6 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -981,6 +909,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -1224,15 +1153,20 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -1301,21 +1235,33 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   dicta eum eaque
                 </Text>
               </Text>
@@ -1448,7 +1394,6 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -1468,6 +1413,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -1711,15 +1657,20 @@ exports[`Community renders post correctly without image 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -1788,21 +1739,33 @@ exports[`Community renders post correctly without image 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   dicta eum eaque
                 </Text>
               </Text>
@@ -1922,7 +1885,6 @@ exports[`Community renders post correctly without image 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -1942,6 +1904,7 @@ exports[`Community renders post correctly without image 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -2185,12 +2148,16 @@ exports[`Community renders post created by me correctly without add to steps but
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <View
@@ -2224,6 +2191,7 @@ exports[`Community renders post created by me correctly without add to steps but
                   }
                 >
                   <Text
+                    numberOfLines={2}
                     style={
                       Array [
                         Object {
@@ -2294,21 +2262,33 @@ exports[`Community renders post created by me correctly without add to steps but
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   incidunt accusantium sed
                 </Text>
               </Text>
@@ -2443,7 +2423,6 @@ exports[`Community renders post created by me correctly without add to steps but
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -2462,6 +2441,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -2682,15 +2662,20 @@ exports[`Community renders step correctly 1`] = `
         />
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-              "paddingHorizontal": 8,
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              undefined,
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -2763,9 +2748,10 @@ exports[`Community renders step correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
+              "fontSize": 16,
               "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "lineHeight": 24,
+              "paddingBottom": 8,
             },
           ]
         }
@@ -2886,7 +2872,6 @@ exports[`Community renders step correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -2906,6 +2891,7 @@ exports[`Community renders step correctly 1`] = `
                 "alignItems": "center",
                 "flexDirection": "row",
                 "justifyContent": "flex-end",
+                "marginLeft": 20,
                 "width": 40,
               }
             }
@@ -3147,15 +3133,20 @@ exports[`Community renders with clear notification button correctly 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -3224,21 +3215,33 @@ exports[`Community renders with clear notification button correctly 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   dicta eum eaque
                 </Text>
               </Text>
@@ -3371,7 +3374,6 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -3391,6 +3393,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -3668,14 +3671,22 @@ exports[`global community renders correctly 1`] = `
       >
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "paddingHorizontal": 0,
+              },
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -3748,9 +3759,10 @@ exports[`global community renders correctly 1`] = `
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
+              "fontSize": 16,
               "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "lineHeight": 24,
+              "paddingBottom": 8,
             },
           ]
         }
@@ -3871,7 +3883,6 @@ exports[`global community renders correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -3882,79 +3893,6 @@ exports[`global community renders correctly 1`] = `
                   color="#FF5532"
                   fill="#FF5532"
                 />
-              </View>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              46923
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
               </View>
             </View>
           </View>
@@ -4096,14 +4034,22 @@ exports[`global community renders post item correctly 1`] = `
       >
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "paddingHorizontal": 0,
+              },
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -4172,21 +4118,33 @@ exports[`global community renders post item correctly 1`] = `
         <View
           style={
             Object {
+              "alignItems": "flex-start",
+              "flexDirection": "row",
+              "flexWrap": "wrap",
+              "justifyContent": "flex-start",
+              "marginBottom": 10,
+              "marginTop": 10,
               "marginVertical": 10,
+              "width": "100%",
             }
           }
         >
           <Text
-            style={
-              Object {
-                "color": "#505256",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 14,
-                "lineHeight": 18,
-              }
-            }
+            style={Object {}}
           >
-            <Text>
+            <Text
+              style={
+                Array [
+                  Object {},
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "lineHeight": 18,
+                  },
+                ]
+              }
+            >
               dicta eum eaque
             </Text>
           </Text>
@@ -4319,7 +4277,6 @@ exports[`global community renders post item correctly 1`] = `
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -4330,79 +4287,6 @@ exports[`global community renders post item correctly 1`] = `
                   color="#FF5532"
                   fill="#FF5532"
                 />
-              </View>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              68650
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
               </View>
             </View>
           </View>
@@ -4544,14 +4428,22 @@ exports[`global community renders with clear notification button correctly 1`] =
       >
         <View
           style={
-            Object {
-              "alignItems": "flex-start",
-              "flexDirection": "column",
-              "justifyContent": "center",
-            }
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              Object {
+                "paddingHorizontal": 0,
+              },
+            ]
           }
         >
           <Text
+            numberOfLines={2}
             style={
               Array [
                 Object {
@@ -4624,9 +4516,10 @@ exports[`global community renders with clear notification button correctly 1`] =
               "fontFamily": "SourceSansPro-Regular",
             },
             Object {
-              "fontSize": 14,
+              "fontSize": 16,
               "justifyContent": "flex-start",
-              "lineHeight": 18,
+              "lineHeight": 24,
+              "paddingBottom": 8,
             },
           ]
         }
@@ -4747,7 +4640,6 @@ exports[`global community renders with clear notification button correctly 1`] =
                     null,
                     Object {
                       "height": 24,
-                      "marginRight": 20,
                       "width": 24,
                     },
                     null,
@@ -4758,79 +4650,6 @@ exports[`global community renders with clear notification button correctly 1`] =
                   color="#FF5532"
                   fill="#FF5532"
                 />
-              </View>
-            </View>
-          </View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              46923
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
               </View>
             </View>
           </View>
@@ -5078,12 +4897,16 @@ exports[`renders with name pressable correctly 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <View
@@ -5117,6 +4940,7 @@ exports[`renders with name pressable correctly 1`] = `
                   }
                 >
                   <Text
+                    numberOfLines={2}
                     style={
                       Array [
                         Object {
@@ -5187,21 +5011,33 @@ exports[`renders with name pressable correctly 1`] = `
             <View
               style={
                 Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
                   "marginVertical": 10,
+                  "width": "100%",
                 }
               }
             >
               <Text
-                style={
-                  Object {
-                    "color": "#505256",
-                    "fontFamily": "SourceSansPro-Regular",
-                    "fontSize": 14,
-                    "lineHeight": 18,
-                  }
-                }
+                style={Object {}}
               >
-                <Text>
+                <Text
+                  style={
+                    Array [
+                      Object {},
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                    ]
+                  }
+                >
                   dicta eum eaque
                 </Text>
               </Text>
@@ -5334,7 +5170,6 @@ exports[`renders with name pressable correctly 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -5354,6 +5189,7 @@ exports[`renders with name pressable correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }

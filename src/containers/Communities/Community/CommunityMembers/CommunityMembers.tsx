@@ -12,18 +12,16 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 
-import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../../constants';
+import { ACTIONS } from '../../../../constants';
 import { RefreshControl } from '../../../../components/common';
 import BottomButton from '../../../../components/BottomButton';
 import { getCommunityUrl } from '../../../../utils/common';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
-import { getAnalyticsPermissionType } from '../../../../utils/analytics';
 import CommunityMemberItem from '../../../../components/CommunityMemberItem';
 import { organizationSelector } from '../../../../selectors/organizations';
 import { removeGroupInviteInfo } from '../../../../actions/swipe';
 import { trackActionWithoutData } from '../../../../actions/analytics';
-import { navigatePush, navigateBack } from '../../../../actions/navigation';
-import { ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW } from '../../../../routes/constants';
+import { navigateBack } from '../../../../actions/navigation';
 import IconButton from '../../../../components/IconButton';
 import Text from '../../../../components/Text';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
@@ -63,11 +61,8 @@ export const CommunityMembers = () => {
     p => p.node.id === myId,
   )?.communityPermission;
 
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, organization),
-  );
   useAnalytics(['community', 'members'], {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType },
+    permissionType: { communityId },
   });
   const { t } = useTranslation('groupsMembers');
 
@@ -99,26 +94,18 @@ export const CommunityMembers = () => {
   };
 
   async function handleInvite() {
-    if (data?.community.userCreated) {
-      const url = getCommunityUrl(organization.community_url);
-      const code = organization.community_code;
+    const url = getCommunityUrl(organization.community_url);
+    const code = organization.community_code;
 
-      const { action } = await Share.share({
-        message: t('sendInviteMessage', { url, code }),
-      });
-      if (action === Share.sharedAction) {
-        dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
-        if (groupInviteInfo) {
-          Alert.alert('', t('invited', { orgName: organization.name }));
-          dispatch(removeGroupInviteInfo());
-        }
+    const { action } = await Share.share({
+      message: t('sendInviteMessage', { url, code }),
+    });
+    if (action === Share.sharedAction) {
+      dispatch(trackActionWithoutData(ACTIONS.SEND_COMMUNITY_INVITE));
+      if (groupInviteInfo) {
+        Alert.alert('', t('invited', { orgName: organization.name }));
+        dispatch(removeGroupInviteInfo());
       }
-    } else {
-      dispatch(
-        navigatePush(ADD_PERSON_THEN_COMMUNITY_MEMBERS_FLOW, {
-          organization: organization.id ? organization : undefined,
-        }),
-      );
     }
   }
 

@@ -1,20 +1,13 @@
 import React, { useState, useMemo } from 'react';
-import { View, Keyboard, ScrollView, Image } from 'react-native';
+import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
-import {
-  ACTIONS,
-  ANALYTICS_PERMISSION_TYPE,
-  ANALYTICS_EDIT_MODE,
-} from '../../../constants';
+import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
-import {
-  getAnalyticsPermissionType,
-  getPostTypeAnalytics,
-} from '../../../utils/analytics';
+import { getPostTypeAnalytics } from '../../../utils/analytics';
 import { Input, Text, Button } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
@@ -23,7 +16,6 @@ import ImagePicker, {
 import PostTypeLabel from '../../../components/PostTypeLabel';
 import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
-import { AuthState } from '../../../reducers/auth';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
   trackActionWithoutData,
@@ -83,15 +75,9 @@ export const CreatePostScreen = () => {
   );
   const [imageHeight, changeImageHeight] = useState<number>(0);
 
-  const analyticsPermissionType = useSelector<
-    { auth: AuthState },
-    permissionType
-  >(({ auth }) => getAnalyticsPermissionType(auth, { id: communityId }));
   useAnalytics(['post', getPostTypeAnalytics(postType)], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-      [ANALYTICS_EDIT_MODE]: post ? 'update' : 'set',
-    },
+    permissionType: { communityId },
+    editMode: { isEdit: !!post },
   });
 
   const [createPost, { error: errorCreatePost }] = useMutation<
@@ -99,30 +85,33 @@ export const CreatePostScreen = () => {
     CreatePostVariables
   >(CREATE_POST, {
     update: (cache, { data }) => {
-      const originalData = cache.readQuery<
-        GetCommunityFeed,
-        GetCommunityFeedVariables
-      >({
-        query: GET_COMMUNITY_FEED,
-        variables: { communityId },
-      });
-      cache.writeQuery({
-        query: GET_COMMUNITY_FEED,
-        variables: { communityId },
-        data: {
-          ...originalData,
-          community: {
-            ...originalData?.community,
-            feedItems: {
-              ...originalData?.community.feedItems,
-              nodes: [
-                data?.createPost?.post?.feedItem,
-                ...(originalData?.community.feedItems.nodes || []),
-              ],
+      try {
+        const originalData = cache.readQuery<
+          GetCommunityFeed,
+          GetCommunityFeedVariables
+        >({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId },
+        });
+        cache.writeQuery({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId },
+          data: {
+            ...originalData,
+            community: {
+              ...originalData?.community,
+              feedItems: {
+                ...originalData?.community.feedItems,
+                nodes: [
+                  data?.createPost?.post?.feedItem,
+                  ...(originalData?.community.feedItems.nodes || []),
+                ],
+              },
             },
           },
-        },
-      });
+        });
+      } catch {}
+
       try {
         const originalFilteredData = cache.readQuery<
           GetCommunityFeed,
@@ -244,8 +233,12 @@ export const CreatePostScreen = () => {
   );
 
   const renderAddPhotoButton = () => (
-    //@ts-ignore
-    <ImagePicker testID="ImagePicker" onSelectImage={handleSavePhoto}>
+    <ImagePicker
+      //@ts-ignore
+      testID="ImagePicker"
+      onSelectImage={handleSavePhoto}
+      showCropper={false}
+    >
       {imageData && !(imageData === EMPTY_IMAGE_URI) ? (
         <Image
           resizeMode="contain"
@@ -267,6 +260,7 @@ export const CreatePostScreen = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       <View style={styles.lineBreak} />
       <ErrorNotice
@@ -279,7 +273,11 @@ export const CreatePostScreen = () => {
         error={errorUpdatePost}
         refetch={savePost}
       />
-      <ScrollView style={{ flex: 1 }} contentInset={{ bottom: 90 }}>
+      <ScrollView
+        style={{ flex: 1 }}
+        contentInset={{ bottom: 90 }}
+        keyboardShouldPersistTaps="handled"
+      >
         <View style={styles.postLabelRow}>
           <PostTypeLabel type={mapPostTypeToFeedType(postType)} />
         </View>

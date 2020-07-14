@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react';
-import { View, SafeAreaView, FlatList } from 'react-native';
+import { View, SafeAreaView, FlatList, StatusBar } from 'react-native';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import debounce from 'lodash.debounce';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
+import { GLOBAL_COMMUNITY_ID } from '../../../../../constants';
 import CommentsList from '../../../../CommentsList';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
 import {
@@ -14,21 +15,25 @@ import {
   Separator,
   Touchable,
 } from '../../../../../components/common';
-import { ANALYTICS_PERMISSION_TYPE } from '../../../../../constants';
-import { getAnalyticsPermissionType } from '../../../../../utils/analytics';
 import { useKeyboardListeners } from '../../../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import BackButton from '../../../../../components/BackButton';
 import Header from '../../../../../components/Header';
 import { ErrorNotice } from '../../../../../components/ErrorNotice/ErrorNotice';
-import { RootState } from '../../../../../reducers';
-import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
-import { useMyId } from '../../../../../utils/hooks/useIsMe';
+import { useMyId, useIsMe } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
 import { CommentBoxHandles } from '../../../../../components/CommentBox';
-import { navigateBack, navigatePush } from '../../../../../actions/navigation';
-import { COMMUNITY_TABS } from '../../constants';
+import {
+  navigateBack,
+  navigateToCommunityFeed,
+} from '../../../../../actions/navigation';
+import {
+  useDeleteFeedItem,
+  useEditFeedItem,
+} from '../../../../../components/CommunityFeedItem';
+import { isOwner, isAdminOrOwner } from '../../../../../utils/common';
+import theme from '../../../../../theme';
 
 import FeedCommentBox from './FeedCommentBox';
 import styles from './styles';
@@ -41,8 +46,9 @@ import {
 const FeedItemDetailScreen = () => {
   const feedCommentBox = useRef<CommentBoxHandles>(null);
   const { t } = useTranslation('feedItemDetail');
+
   const feedItemId: string = useNavigationParam('feedItemId');
-  const communityId: string = useNavigationParam('communityId');
+  const navCommunityId: string | undefined = useNavigationParam('communityId');
   const fromNotificationCenterItem: boolean = useNavigationParam(
     'fromNotificationCenterItem',
   );
@@ -55,14 +61,19 @@ const FeedItemDetailScreen = () => {
   >(FEED_ITEM_DETAIL_QUERY, {
     variables: { feedItemId, myId },
   });
-
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, { id: communityId }),
+  const deleteFeedItem = useDeleteFeedItem(data?.feedItem);
+  const editFeedItem = useEditFeedItem(
+    data?.feedItem.subject,
+    data?.feedItem.community?.id,
   );
+
+  const personId = data?.feedItem.subjectPerson?.id;
+  const communityId = navCommunityId || data?.feedItem.community?.id;
+  const readyToTrack = !!(personId && communityId);
   useAnalytics(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-    },
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: readyToTrack,
   });
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
@@ -122,6 +133,15 @@ const FeedItemDetailScreen = () => {
   };
 
   useKeyboardListeners({ onShow: () => scrollToFocusedRef() });
+  const communityPermission =
+    data?.feedItem.community?.people.edges[0].communityPermission;
+  const isMe = useIsMe(data?.feedItem.subjectPerson?.id || '');
+
+  const handleCommunityNamePress = () => {
+    fromNotificationCenterItem
+      ? dispatch(navigateToCommunityFeed(communityId || GLOBAL_COMMUNITY_ID))
+      : dispatch(navigateBack());
+  };
 
   const renderHeader = () => (
     <SafeAreaView>
@@ -130,11 +150,7 @@ const FeedItemDetailScreen = () => {
         center={
           <Touchable
             testID="CommunityNameHeader"
-            onPress={() =>
-              fromNotificationCenterItem
-                ? dispatch(navigatePush(COMMUNITY_TABS, { communityId }))
-                : dispatch(navigateBack())
-            }
+            onPress={handleCommunityNamePress}
           >
             <Text style={styles.headerText}>
               {data?.feedItem.community?.name}
@@ -151,6 +167,26 @@ const FeedItemDetailScreen = () => {
     </SafeAreaView>
   );
 
+  const menuActions = [
+    ...(isMe
+      ? [
+          {
+            text: t('communityFeedItems:edit.buttonText'),
+            onPress: editFeedItem,
+          },
+        ]
+      : []),
+    ...(isMe || isAdminOrOwner(communityPermission)
+      ? [
+          {
+            text: t('communityFeedItems:delete.buttonText'),
+            onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
+            destructive: true,
+          },
+        ]
+      : []),
+  ];
+
   const renderCommentsList = () =>
     data ? (
       <CommentsList
@@ -158,10 +194,7 @@ const FeedItemDetailScreen = () => {
         comments={data.feedItem.comments.nodes}
         editingCommentId={editingCommentId}
         setEditingCommentId={setEditingCommentId}
-        isOwner={
-          data.feedItem.community?.people.edges[0].communityPermission
-            .permission === PermissionEnum.owner
-        }
+        isOwner={isOwner(communityPermission)}
         listProps={{
           ref: listRef,
           refreshControl: (
@@ -177,6 +210,7 @@ const FeedItemDetailScreen = () => {
                 feedItem={data?.feedItem}
                 onCommentPress={() => feedCommentBox.current?.focus()}
                 postLabelPressable={false}
+                menuActions={menuActions}
               />
               <Separator style={styles.belowItem} />
             </>
@@ -219,6 +253,7 @@ const FeedItemDetailScreen = () => {
 
   return (
     <View style={styles.pageContainer}>
+      <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       {renderCommentsList()}
       {renderCommentBox()}

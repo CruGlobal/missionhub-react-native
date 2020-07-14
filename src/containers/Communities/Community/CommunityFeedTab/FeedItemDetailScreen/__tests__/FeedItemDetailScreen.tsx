@@ -5,19 +5,19 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../../testUtils';
 import {
-  ANALYTICS_PERMISSION_TYPE,
   ORG_PERMISSIONS,
+  GLOBAL_COMMUNITY_ID,
 } from '../../../../../../constants';
 import { useKeyboardListeners } from '../../../../../../utils/hooks/useKeyboardListeners';
 import CommentsList from '../../../../../CommentsList';
 import { useAnalytics } from '../../../../../../utils/hooks/useAnalytics';
 import {
   navigateBack,
-  navigatePush,
+  navigateToCommunityFeed,
 } from '../../../../../../actions/navigation';
 import FeedItemDetailScreen from '../FeedItemDetailScreen';
 import FeedCommentBox from '../FeedCommentBox';
-import { COMMUNITY_TABS } from '../../../constants';
+import { PermissionEnum } from '../../../../../../../__generated__/globalTypes';
 
 jest.mock('../../../../../../utils/hooks/useKeyboardListeners');
 jest.mock('../../../../../../selectors/organizations');
@@ -29,8 +29,10 @@ jest.mock('lodash.debounce', () => jest.fn().mockImplementation(fn => fn));
 MockDate.set('2019-04-12 12:00:00', 300);
 
 const myId = 'myId';
+const notMyId = 'notMyId';
 const communityId = '24234234';
 const feedItemId = '1';
+const personId = '2';
 const auth = {
   person: {
     id: myId,
@@ -49,27 +51,36 @@ beforeEach(() => {
     ({ onShow }: { onShow: () => void }) => (onShowKeyboard = onShow),
   );
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigateBack' });
-  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
+  (navigateToCommunityFeed as jest.Mock).mockReturnValue({
+    type: 'navigateToCommunityFeed',
+  });
 });
 
 it('renders loading', () => {
   renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId },
+    navParams: { feedItemId },
   }).snapshot();
 
-  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
-    },
-  });
   expect(navigateBack).not.toHaveBeenCalled();
 });
 
 it('renders correctly', async () => {
   const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
     initialState,
-    navParams: { feedItemId, communityId },
+    navParams: { feedItemId },
+    mocks: {
+      FeedItem: () => ({
+        subjectPerson: () => ({ id: personId }),
+        community: () => ({ id: communityId }),
+      }),
+    },
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId: undefined, communityId: undefined },
+    permissionType: { communityId: undefined },
+    triggerTracking: false,
   });
 
   await flushMicrotasksQueue();
@@ -77,9 +88,39 @@ it('renders correctly', async () => {
   snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: 'member',
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: true,
+  });
+  expect(navigateBack).not.toHaveBeenCalled();
+});
+
+it('renders correctly with communityId passed in', async () => {
+  const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+    initialState,
+    navParams: { feedItemId, communityId },
+    mocks: {
+      FeedItem: () => ({
+        subjectPerson: () => ({ id: personId }),
+        community: () => ({ id: communityId }),
+      }),
     },
+  });
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId: undefined, communityId },
+    permissionType: { communityId },
+    triggerTracking: false,
+  });
+
+  await flushMicrotasksQueue();
+
+  snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'detail'], {
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: true,
   });
   expect(navigateBack).not.toHaveBeenCalled();
 });
@@ -90,7 +131,7 @@ describe('refresh', () => {
       <FeedItemDetailScreen />,
       {
         initialState,
-        navParams: { feedItemId, communityId },
+        navParams: { feedItemId },
       },
     );
     await flushMicrotasksQueue();
@@ -112,8 +153,9 @@ describe('nav on community name', () => {
     await flushMicrotasksQueue();
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
-    expect(navigateBack).toHaveBeenCalled();
+    expect(navigateBack).toHaveBeenCalledWith();
   });
+
   it('goes to community tabs', async () => {
     const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
@@ -122,7 +164,89 @@ describe('nav on community name', () => {
     await flushMicrotasksQueue();
 
     fireEvent.press(getByTestId('CommunityNameHeader'));
-    expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, { communityId });
+    expect(navigateToCommunityFeed).toHaveBeenCalledWith(communityId);
+  });
+
+  it('goes to global community tabs', async () => {
+    const { getByTestId } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, fromNotificationCenterItem: true },
+      mocks: {
+        FeedItem: () => ({
+          community: () => null,
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+
+    fireEvent.press(getByTestId('CommunityNameHeader'));
+    expect(navigateToCommunityFeed).toHaveBeenCalledWith(GLOBAL_COMMUNITY_ID);
+  });
+});
+
+describe('edit/delete post', () => {
+  it('no options for not my post', async () => {
+    const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+      mocks: {
+        FeedItem: () => ({
+          community: () => ({
+            id: communityId,
+            people: () => ({
+              edges: () => [
+                { communityPermission: { permission: PermissionEnum.user } },
+              ],
+            }),
+          }),
+          subjectPerson: () => ({ id: notMyId }),
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+  it('edit and delete for my post', async () => {
+    const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+      mocks: {
+        FeedItem: () => ({
+          community: () => ({
+            id: communityId,
+            people: () => ({
+              edges: () => [
+                { communityPermission: { permission: PermissionEnum.user } },
+              ],
+            }),
+          }),
+          subjectPerson: () => ({ id: myId }),
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+  it('delete for admin and not my post', async () => {
+    const { snapshot } = renderWithContext(<FeedItemDetailScreen />, {
+      initialState,
+      navParams: { feedItemId, communityId },
+      mocks: {
+        FeedItem: () => ({
+          community: () => ({
+            id: communityId,
+            people: () => ({
+              edges: () => [
+                { communityPermission: { permission: PermissionEnum.admin } },
+              ],
+            }),
+          }),
+          subjectPerson: () => ({ id: notMyId }),
+        }),
+      },
+    });
+    await flushMicrotasksQueue();
+    snapshot();
   });
 });
 
@@ -132,7 +256,7 @@ describe('celebrate add complete', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId },
+      navParams: { feedItemId },
     });
 
     await flushMicrotasksQueue();
@@ -154,7 +278,7 @@ describe('keyboard show', () => {
 
     const { getByType } = renderWithContext(<FeedItemDetailScreen />, {
       initialState,
-      navParams: { feedItemId, communityId },
+      navParams: { feedItemId },
     });
 
     await flushMicrotasksQueue();

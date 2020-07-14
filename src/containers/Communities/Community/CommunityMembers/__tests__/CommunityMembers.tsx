@@ -9,12 +9,13 @@ import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
 import { renderWithContext } from '../../../../../../testUtils';
 import { navToPersonScreen } from '../../../../../actions/person';
 import * as common from '../../../../../utils/common';
+import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import {
   trackActionWithoutData,
   trackScreenChange,
 } from '../../../../../actions/analytics';
 import { removeGroupInviteInfo } from '../../../../../actions/swipe';
-import { navigateBack, navigatePush } from '../../../../../actions/navigation';
+import { navigateBack } from '../../../../../actions/navigation';
 import { CommunityMembers } from '../CommunityMembers';
 import { ACTIONS } from '../../../../../constants';
 import { organizationSelector } from '../../../../../selectors/organizations';
@@ -29,6 +30,7 @@ jest.mock('../../../../../actions/person');
 jest.mock('../../../../../actions/swipe');
 jest.mock('../../../../../actions/analytics');
 jest.mock('../../../../../utils/common');
+jest.mock('../../../../../utils/hooks/useAnalytics');
 
 // @ts-ignore
 common.refresh = jest.fn();
@@ -41,7 +43,6 @@ const testcode = 'testcode';
 const organization = {
   id: orgId,
   name: 'Test Org',
-  user_created: true,
   community_url: testurl,
   community_code: testcode,
 };
@@ -80,6 +81,10 @@ describe('CommunityMembers', () => {
       initialState,
       navParams: { communityId },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
+      permissionType: { communityId },
+    });
   });
 
   it('should render empty state', () => {
@@ -92,6 +97,10 @@ describe('CommunityMembers', () => {
       },
       navParams: { communityId },
     }).snapshot();
+
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
+      permissionType: { communityId },
+    });
   });
 
   it('renders with content', async () => {
@@ -101,7 +110,6 @@ describe('CommunityMembers', () => {
       mocks: {
         Query: () => ({
           community: () => ({
-            userCreated: () => true,
             people: () => ({
               edges: () => [
                 {
@@ -114,6 +122,10 @@ describe('CommunityMembers', () => {
           }),
         }),
       },
+    });
+
+    expect(useAnalytics).toHaveBeenCalledWith(['community', 'members'], {
+      permissionType: { communityId },
     });
 
     await flushMicrotasksQueue();
@@ -132,7 +144,7 @@ describe('CommunityMembers', () => {
     expect(navigateBack).toHaveBeenCalled();
   });
 
-  it('should press invite button user created', async () => {
+  it('should press invite button', async () => {
     // @ts-ignore
     Share.share = jest.fn(() => ({ action: Share.sharedAction }));
     // @ts-ignore
@@ -158,20 +170,6 @@ describe('CommunityMembers', () => {
     expect(trackActionWithoutData).toHaveBeenCalledWith(
       ACTIONS.SEND_COMMUNITY_INVITE,
     );
-  });
-
-  it('should press invite button not user created', async () => {
-    const { getByTestId } = renderWithContext(<CommunityMembers />, {
-      initialState,
-      navParams: { communityId },
-      mocks: {
-        Query: () => ({ community: () => ({ userCreated: () => false }) }),
-      },
-    });
-    await flushMicrotasksQueue();
-    await fireEvent.press(getByTestId('CommunityMemberInviteButton'));
-
-    expect(navigatePush).toHaveBeenCalled();
   });
 
   it('should load next page', async () => {

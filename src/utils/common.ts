@@ -96,31 +96,8 @@ export const personIsCurrentUser = (personId: string, authState: AuthState) =>
 export const isOnboarding = (onboardingState: OnboardingState) =>
   onboardingState.currentlyOnboarding;
 
-//If the user has permissions in a Cru Community (that is, user_created === false), they are Jean
-export const userIsJean = (
-  orgPermissions: { organization: { user_created: boolean } }[],
-) => orgPermissions.some(p => !p.organization.user_created);
-
-export const orgIsPersonalMinistry = (org?: { id?: string }) =>
-  !!org && (!org.id || org.id === 'personal');
-
-export const orgIsUserCreated = (org?: {
-  user_created?: boolean;
-  userCreated?: boolean;
-}) => !!(org && (org.user_created || org.userCreated));
-
 export const orgIsGlobal = (org?: { id?: string }) =>
   !!org && org.id === GLOBAL_COMMUNITY_ID;
-
-export const orgIsCru = (org?: {
-  id?: string;
-  user_created?: boolean;
-  userCreated?: boolean;
-}) =>
-  !!org &&
-  !orgIsPersonalMinistry(org) &&
-  !orgIsUserCreated(org) &&
-  !orgIsGlobal(org);
 
 const MHUB_PERMISSIONS = [
   ORG_PERMISSIONS.OWNER,
@@ -131,12 +108,14 @@ const MHUB_PERMISSIONS = [
   PermissionEnum.user,
 ];
 
-export const hasOrgPermissions = (
-  orgPermission: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  } | null,
-) => {
+type OrgPermissionCheck =
+  | {
+      permission_id?: string;
+      permission?: PermissionEnum;
+    }
+  | null
+  | undefined;
+export const hasOrgPermissions = (orgPermission: OrgPermissionCheck) => {
   return (
     (!!orgPermission &&
       MHUB_PERMISSIONS.includes(`${orgPermission.permission_id}`)) ||
@@ -146,15 +125,7 @@ export const hasOrgPermissions = (
   );
 };
 
-export const isAdminOrOwner = (
-  orgPermission:
-    | {
-        permission_id?: string;
-        permission?: PermissionEnum;
-      }
-    | null
-    | undefined,
-) =>
+export const isAdminOrOwner = (orgPermission: OrgPermissionCheck) =>
   (!!orgPermission &&
     [ORG_PERMISSIONS.ADMIN, ORG_PERMISSIONS.OWNER].includes(
       `${orgPermission.permission_id}`,
@@ -165,44 +136,22 @@ export const isAdminOrOwner = (
       orgPermission.permission,
     ));
 
-export const isOwner = (
-  orgPermission:
-    | {
-        permission_id?: string;
-        permission?: PermissionEnum;
-      }
-    | null
-    | undefined,
-) =>
+export const isOwner = (orgPermission: OrgPermissionCheck) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.OWNER) ||
   (!!orgPermission &&
     !!orgPermission.permission &&
     orgPermission.permission === PermissionEnum.owner);
 
-export const isAdmin = (
-  orgPermission: {
-    permission_id?: string;
-    permission?: PermissionEnum;
-  } | null,
-) =>
+export const isAdmin = (orgPermission: OrgPermissionCheck) =>
   (!!orgPermission &&
     `${orgPermission.permission_id}` === ORG_PERMISSIONS.ADMIN) ||
   (!!orgPermission &&
     !!orgPermission.permission &&
     orgPermission.permission === PermissionEnum.admin);
 
-export const canEditCommunity = (
-  permission?: PermissionEnum,
-  userCreated?: boolean,
-) =>
-  permission === PermissionEnum.owner ||
-  (!userCreated && permission === PermissionEnum.admin);
-
-// @ts-ignore
-export const shouldQueryReportedComments = (org, orgPermission) =>
-  (orgIsCru(org) && isAdminOrOwner(orgPermission)) ||
-  (orgIsUserCreated(org) && isOwner(orgPermission));
+export const canEditCommunity = (permission?: PermissionEnum) =>
+  permission === PermissionEnum.owner;
 
 // @ts-ignore
 export const findAllNonPlaceHolders = (jsonApiResponse, type) =>
@@ -454,7 +403,7 @@ export const mapFeedTypeToPostType = (feedType: FeedItemSubjectTypeEnum) => {
 export const getFeedItemType = (subject: CommunityFeedItem_subject) => {
   switch (subject.__typename) {
     case 'AcceptedCommunityChallenge':
-      return FeedItemSubjectTypeEnum.COMMUNITY_CHALLENGE;
+      return FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE;
     case 'Step':
       return FeedItemSubjectTypeEnum.STEP;
     case 'Post':

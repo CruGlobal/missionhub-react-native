@@ -495,21 +495,33 @@ exports[`should call navigateBack from press 1`] = `
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
+                    "width": "100%",
                   }
                 }
               >
                 <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                    }
-                  }
+                  style={Object {}}
                 >
-                  <Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "lineHeight": 24,
+                        },
+                      ]
+                    }
+                  >
                     Add details to your Challenge (optional)
                   </Text>
                 </Text>
@@ -1140,21 +1152,33 @@ exports[`should render completed challenge correctly 1`] = `
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
+                    "width": "100%",
                   }
                 }
               >
                 <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                    }
-                  }
+                  style={Object {}}
                 >
-                  <Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "lineHeight": 24,
+                        },
+                      ]
+                    }
+                  >
                     Add details to your Challenge (optional)
                   </Text>
                 </Text>
@@ -1678,21 +1702,33 @@ exports[`should render joined challenge correctly 1`] = `
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
+                    "width": "100%",
                   }
                 }
               >
                 <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                    }
-                  }
+                  style={Object {}}
                 >
-                  <Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "lineHeight": 24,
+                        },
+                      ]
+                    }
+                  >
                     Add details to your Challenge (optional)
                   </Text>
                 </Text>
@@ -2323,21 +2359,33 @@ exports[`should render unjoined challenge correctly 1`] = `
               <View
                 style={
                   Object {
+                    "alignItems": "flex-start",
+                    "flexDirection": "row",
+                    "flexWrap": "wrap",
+                    "justifyContent": "flex-start",
+                    "marginBottom": 10,
+                    "marginTop": 10,
                     "marginVertical": 10,
+                    "width": "100%",
                   }
                 }
               >
                 <Text
-                  style={
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-Regular",
-                      "fontSize": 16,
-                      "lineHeight": 24,
-                    }
-                  }
+                  style={Object {}}
                 >
-                  <Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {},
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "lineHeight": 24,
+                        },
+                      ]
+                    }
+                  >
                     Add details to your Challenge (optional)
                   </Text>
                 </Text>

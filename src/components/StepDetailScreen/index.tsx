@@ -2,12 +2,12 @@ import React from 'react';
 import { StatusBar, View, Image } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import Markdown from 'react-native-markdown-renderer';
+import Markdown from 'react-native-markdown-display';
 import { ScrollView } from 'react-native';
 
 import Header from '../Header/index';
 import BottomButton, { BottomButtonProps } from '../BottomButton/index';
-import { Text, Flex, DateComponent } from '../common';
+import { Text, Flex } from '../common';
 import Avatar from '../Avatar';
 import markdownStyles from '../../markdownStyles';
 import theme from '../../theme';
@@ -19,6 +19,7 @@ import BackButton from '../BackButton';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { navigatePush } from '../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
+import CardTime from '../CardTime';
 
 import styles from './styles';
 import { StepDetailPost } from './__generated__/StepDetailPost';
@@ -58,8 +59,6 @@ const StepDetailScreen = ({
     body,
     pageContainer,
     personNameStyle,
-    dateTextStyle,
-    postContentStyle,
   } = styles;
   const { t } = useTranslation('stepDetail');
   const aspectRatio = useAspectRatio(post?.mediaExpiringUrl);
@@ -69,7 +68,6 @@ const StepDetailScreen = ({
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: post?.feedItem.id,
-        communityId: post?.feedItem.community?.id,
       }),
     );
   };
@@ -84,11 +82,7 @@ const StepDetailScreen = ({
               <Flex style={{ marginLeft: 10 }}>
                 <Text style={personNameStyle}>{post.author.fullName}</Text>
                 <Flex direction="row" justify="center" align="center">
-                  <DateComponent
-                    style={dateTextStyle}
-                    date={post.createdAt}
-                    format={'MMM D @ LT'}
-                  />
+                  <CardTime date={post.createdAt} />
                   <Text
                     testID={'openPostButton'}
                     onPress={handleOpenPost}
@@ -104,7 +98,19 @@ const StepDetailScreen = ({
               </Flex>
             </Flex>
             <Flex style={{ paddingTop: 10 }}>
-              <Text style={postContentStyle}>{post.content}</Text>
+              <Markdown
+                style={{
+                  ...markdownStyles,
+                  text: {
+                    ...markdownStyles.text,
+                    fontSize: 16,
+                    color: theme.grey,
+                    paddingBottom: 20,
+                  },
+                }}
+              >
+                {post.content}
+              </Markdown>
             </Flex>
           </View>
           {post?.mediaExpiringUrl ? (

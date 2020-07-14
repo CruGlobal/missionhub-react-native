@@ -78,13 +78,11 @@ it('should update single org', () => {
   const newOrg = {
     id: org1Id,
     name: 'new test org 1',
-    user_created: true,
   };
   const resultOrg = {
     id: org1Id,
     name: newOrg.name,
     community_photo_url: startOrg.community_photo_url,
-    user_created: true,
   };
   expect(
     organizations(
@@ -112,7 +110,6 @@ it('should load single org', () => {
   const newOrg = {
     id: org2Id,
     name: 'new test org 1',
-    user_created: true,
   };
   expect(
     organizations(
@@ -660,7 +657,6 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
               id: GLOBAL_COMMUNITY_ID,
               name: 'MissionHub Community',
               community: true,
-              user_created: true,
               contactReport: {
                 some_prop: 'Roge',
               },

@@ -117,4 +117,16 @@ export default StyleSheet.create({
     marginRight: 3,
     fontWeight: 'bold',
   },
+
+  gotItButton: {
+    width: theme.fullWidth - 100,
+    height: 48,
+    marginVertical: 15,
+    marginHorizontal: 30,
+  },
+  gotItText: {
+    color: theme.white,
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
 });

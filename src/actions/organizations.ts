@@ -275,7 +275,6 @@ export function addNewOrganization(name: string, imageData?: ImageData) {
         type: 'organization',
         attributes: {
           name,
-          user_created: true,
         },
       },
     };

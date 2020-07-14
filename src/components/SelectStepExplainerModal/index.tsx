@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { View, Image, ImageSourcePropType } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import { Text, IconButton } from '../../components/common';
+import { Text, IconButton, Button } from '../../components/common';
 import theme from '../../theme';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
@@ -101,12 +102,14 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
   useEffect(() => {
     setViewed();
   }, []);
-
+  const { t } = useTranslation('selectStepExplainer');
+  const lastPageIndex = AddStepExplainer.length - 1;
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <View style={styles.container}>
       <View style={styles.card}>
         <Carousel
+          testID="SelectStepExplainerCarousel"
           data={AddStepExplainer}
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}
@@ -169,16 +172,28 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           removeClippedSubviews={false}
           bounces={false}
         />
-        <Pagination
-          activeDotIndex={activeIndex}
-          dotsLength={6}
-          inactiveDotScale={0.9}
-          dotColor={theme.impactBlue}
-          inactiveDotColor={theme.grey3}
-          containerStyle={{ marginBottom: 10 }}
-          dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
-          dotContainerStyle={{ marginHorizontal: 4 }}
-        />
+        {activeIndex !== lastPageIndex ? (
+          <Pagination
+            activeDotIndex={activeIndex}
+            dotsLength={6}
+            inactiveDotScale={0.9}
+            dotColor={theme.impactBlue}
+            inactiveDotColor={theme.grey3}
+            containerStyle={{ marginBottom: 10 }}
+            dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
+            dotContainerStyle={{ marginHorizontal: 4 }}
+          />
+        ) : (
+          <Button
+            testID="SelectStepExplainerGotItButton"
+            type="secondary"
+            style={styles.gotItButton}
+            buttonTextStyle={styles.gotItText}
+            text={t('gotIt').toUpperCase()}
+            onPress={() => onClose()}
+            pill={true}
+          />
+        )}
         <View style={styles.closeButtonWrap}>
           <IconButton
             name="close"

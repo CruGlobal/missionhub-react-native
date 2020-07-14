@@ -111,7 +111,24 @@ export const navigateToFeedItemComments = (
       },
       {
         routeName: FEED_ITEM_DETAIL_SCREEN,
-        params: { feedItemId, communityId },
+        params: { feedItemId },
+      },
+    ]),
+  );
+};
+
+export const navigateToCommunityFeed = (communityId: string) => (
+  dispatch: ThunkDispatch<{}, null, AnyAction>,
+) => {
+  dispatch(
+    navigateNestedReset([
+      {
+        routeName: MAIN_TABS,
+        tabName: COMMUNITIES_TAB,
+      },
+      {
+        routeName: COMMUNITY_TABS,
+        params: { communityId },
       },
     ]),
   );

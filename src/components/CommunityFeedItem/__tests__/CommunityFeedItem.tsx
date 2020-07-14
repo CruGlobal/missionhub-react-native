@@ -304,7 +304,6 @@ describe('press card', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: stepItem.id,
-      communityId,
     });
   });
 });
@@ -364,8 +363,9 @@ describe('long-press card', () => {
         i18next.t('communityFeedItems:delete.title'),
         i18next.t('communityFeedItems:delete.message'),
         [
-          { text: i18next.t('cancel') },
+          { text: i18next.t('cancel'), style: 'cancel' },
           {
+            style: 'destructive',
             text: i18next.t('communityFeedItems:delete.buttonText'),
             onPress: expect.any(Function),
           },
@@ -403,7 +403,7 @@ describe('long-press card', () => {
         i18next.t('communityFeedItems:report.title'),
         i18next.t('communityFeedItems:report.message'),
         [
-          { text: i18next.t('cancel') },
+          { text: i18next.t('cancel'), style: 'cancel' },
           {
             text: i18next.t('communityFeedItems:report.confirmButtonText'),
             onPress: expect.any(Function),

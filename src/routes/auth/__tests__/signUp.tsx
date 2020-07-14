@@ -5,21 +5,22 @@ import thunk from 'redux-thunk';
 import { SignUpFlowScreens } from '../signUp';
 import { renderShallow } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
-// @ts-ignore
-import { innerNavigateToPostAuthScreen } from '../../../actions/auth/auth'; //eslint-disable-line import/named
 import { SIGN_UP_SCREEN } from '../../../containers/Auth/SignUpScreen';
 import { SIGN_IN_SCREEN } from '../../../containers/Auth/SignInScreen';
-
-jest.mock('../../../actions/auth/auth', () => ({
-  get navigateToPostAuthScreen() {
-    // @ts-ignore
-    return () => this.innerNavigateToPostAuthScreen;
-  },
-  innerNavigateToPostAuthScreen: jest.fn(),
-}));
-jest.mock('../../../actions/navigation');
 // @ts-ignore
-navigatePush.mockReturnValue(() => {});
+import { innerResetToInitialRoute } from '../../../actions/navigationInit';
+
+jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/navigationInit', () => {
+  const innerResetToInitialRoute = jest.fn(() => ({
+    type: 'resetToInitialRoute',
+  }));
+  return {
+    resetToInitialRoute: jest.fn(() => innerResetToInitialRoute),
+    innerResetToInitialRoute,
+  };
+});
+(navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
 
 const store = configureStore([thunk])();
 
@@ -42,7 +43,7 @@ describe('SignUpScreen next', () => {
         .props.next(),
     );
 
-    expect(innerNavigateToPostAuthScreen).toHaveBeenCalled();
+    expect(innerResetToInitialRoute).toHaveBeenCalled();
   });
   it('should navigate to sign in screen', async () => {
     // @ts-ignore
@@ -64,7 +65,7 @@ describe('SignUpScreen next', () => {
         }),
     );
 
-    expect(innerNavigateToPostAuthScreen).not.toHaveBeenCalled();
+    expect(innerResetToInitialRoute).not.toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(SIGN_IN_SCREEN);
   });
 });

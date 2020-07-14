@@ -15,12 +15,12 @@ export default StyleSheet.create({
   sectionHeader: {
     backgroundColor: theme.extraLightGrey,
     fontSize: 24,
-    fontWeight: '300',
   },
   sectionHeaderText: {
     fontSize: 24,
+    fontFamily: 'SourceSansPro-Light',
     fontWeight: '200',
-    color: '#505256',
+    color: theme.textColor,
     padding: 10,
     marginLeft: 10,
   },

@@ -2,7 +2,6 @@ import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
-import { ANALYTICS_SECTION_TYPE } from '../../constants';
 import AddSomeoneScreen from '../AddSomeoneScreen';
 import { renderWithContext } from '../../../testUtils';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
@@ -48,7 +47,7 @@ it('tracks screen change on mount', () => {
   });
 
   expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'add someone'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
+    sectionType: true,
   });
 });
 

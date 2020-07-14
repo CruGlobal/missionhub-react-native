@@ -11,7 +11,6 @@ Components to convert to TS+Hooks
 - RowSwipeable
 - SearchList
 - SearchPeopleItem
-- SwipeTabMenu
 - common.js
 
 #### Finished

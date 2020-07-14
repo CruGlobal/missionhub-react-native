@@ -14,15 +14,14 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   headerNameWrapper: {
+    flex: 1,
     flexDirection: 'column',
     paddingHorizontal: 8,
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
   globalHeaderNameWrapper: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    paddingHorizontal: 0,
   },
   communityName: {
     fontWeight: 'bold',
@@ -38,6 +37,12 @@ export default StyleSheet.create({
     lineHeight: 16,
     color: theme.lightGrey,
   },
+  headerTextOnly: {
+    fontSize: 16,
+    lineHeight: 20,
+    color: theme.parakeetBlue,
+    fontWeight: 'bold',
+  },
   row: {
     flexDirection: 'row',
   },
@@ -46,20 +51,25 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
   messageText: {
-    fontSize: 14,
-    lineHeight: 18,
+    fontSize: 16,
+    lineHeight: 24,
     justifyContent: 'flex-start',
+    paddingBottom: 8,
   },
   challengeLinkButton: {
-    marginTop: 4,
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   challengeLinkText: {
-    fontSize: 14,
-    lineHeight: 18,
+    fontSize: 16,
+    lineHeight: 24,
+    textDecorationLine: 'underline',
+    textDecorationColor: theme.parakeetBlue,
     fontWeight: '400',
     letterSpacing: 0,
-    color: theme.primaryColor,
     textAlign: 'left',
+    marginBottom: 10,
   },
   footerWrap: {
     flexDirection: 'row',
@@ -73,6 +83,12 @@ export default StyleSheet.create({
   },
 
   stepIcon: {
+    height: 24,
+    width: 24,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  challengeIcon: {
     height: 24,
     width: 24,
     alignItems: 'center',
@@ -95,6 +111,16 @@ export default StyleSheet.create({
   commentLikeWrap: {
     flex: 1,
     justifyContent: 'flex-end',
+  },
+  popupMenuWrap: {
+    flex: 1,
+    alignItems: 'flex-end',
+    justifyContent: 'center',
+  },
+  popupButton: {
+    paddingRight: 12,
+    paddingLeft: 30,
+    paddingVertical: 5,
   },
 });
 

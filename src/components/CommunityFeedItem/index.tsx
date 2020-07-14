@@ -3,6 +3,7 @@ import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
+import i18n from 'i18next';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
@@ -38,6 +39,114 @@ interface CommunityFeedItemProps {
   onClearNotification?: (item: FeedItemFragment) => void;
 }
 
+export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
+  const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
+    DELETE_POST,
+    {
+      update: cache => {
+        if (!feedItem || !feedItem.community) {
+          return;
+        }
+        const { subject, community } = feedItem;
+
+        try {
+          const originalData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId: community.id },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId: community.id },
+            data: {
+              ...originalData,
+              community: {
+                ...originalData?.community,
+                feedItems: {
+                  ...originalData?.community.feedItems,
+                  nodes: (originalData?.community.feedItems.nodes || []).filter(
+                    ({ id }) => id !== feedItem.id,
+                  ),
+                },
+              },
+            },
+          });
+
+          const originalFilteredData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId: community.id,
+              subjectType: [getFeedItemType(subject)],
+            },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId: community.id,
+              subjectType: getFeedItemType(subject),
+            },
+            data: {
+              ...originalFilteredData,
+              community: {
+                ...originalFilteredData?.community,
+                feedItems: {
+                  ...originalFilteredData?.community.feedItems,
+                  nodes: (
+                    originalFilteredData?.community.feedItems.nodes || []
+                  ).filter(({ id }) => id !== feedItem.id),
+                },
+              },
+            },
+          });
+        } catch {}
+      },
+    },
+  );
+
+  function deleteFeedItem(onComplete?: Function) {
+    Alert.alert(
+      i18n.t('communityFeedItems:delete.title'),
+      i18n.t('communityFeedItems:delete.message'),
+      [
+        { text: i18n.t('cancel'), style: 'cancel' },
+        {
+          style: 'destructive',
+          text: i18n.t('communityFeedItems:delete.buttonText'),
+          onPress: async () => {
+            await deletePost({
+              variables: { id: feedItem?.subject.id as string },
+            });
+            onComplete && onComplete();
+          },
+        },
+      ],
+    );
+  }
+  return deleteFeedItem;
+}
+
+export function useEditFeedItem(
+  subject?: CommunityFeedItem_subject,
+  communityId?: string,
+) {
+  const dispatch = useDispatch();
+
+  function editFeedItem() {
+    dispatch(
+      navigatePush(CREATE_POST_SCREEN, {
+        post: subject,
+        communityId,
+      } as CreatePostScreenNavParams),
+    );
+  }
+  return editFeedItem;
+}
+
 export const CommunityFeedItem = ({
   feedItem,
   namePressable,
@@ -48,70 +157,7 @@ export const CommunityFeedItem = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
   const isMe = useIsMe(subjectPerson?.id || '');
-  const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
-    DELETE_POST,
-    {
-      update: cache => {
-        if (!community) {
-          return;
-        }
 
-        const originalData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId: community.id },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId: community.id },
-          data: {
-            ...originalData,
-            community: {
-              ...originalData?.community,
-              feedItems: {
-                ...originalData?.community.feedItems,
-                nodes: (originalData?.community.feedItems.nodes || []).filter(
-                  ({ id }) => id !== feedItem.id,
-                ),
-              },
-            },
-          },
-        });
-
-        const originalFilteredData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId: community.id,
-            subjectType: [getFeedItemType(subject)],
-          },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId: community.id,
-            subjectType: getFeedItemType(subject),
-          },
-          data: {
-            ...originalFilteredData,
-            community: {
-              ...originalFilteredData?.community,
-              feedItems: {
-                ...originalFilteredData?.community.feedItems,
-                nodes: (
-                  originalFilteredData?.community.feedItems.nodes || []
-                ).filter(({ id }) => id !== feedItem.id),
-              },
-            },
-          },
-        });
-      },
-    },
-  );
   const [reportPost] = useMutation<ReportPost, ReportPostVariables>(
     REPORT_POST,
   );
@@ -127,6 +173,8 @@ export const CommunityFeedItem = ({
       'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
     );
   }
+  const deleteFeedItem = useDeleteFeedItem(feedItem);
+  const editFeedItem = useEditFeedItem(feedItem.subject, community?.id);
 
   const isPost = (
     subject: CommunityFeedItem_subject,
@@ -136,35 +184,15 @@ export const CommunityFeedItem = ({
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: feedItem.id,
-        communityId: community?.id,
       }),
     );
 
   const clearNotification = () =>
     onClearNotification && onClearNotification(feedItem);
 
-  const handleEdit = () =>
-    dispatch(
-      navigatePush(CREATE_POST_SCREEN, {
-        post: subject,
-        communityId: feedItem.community?.id,
-      } as CreatePostScreenNavParams),
-    );
-
-  const handleDelete = () =>
-    Alert.alert(t('delete.title'), t('delete.message'), [
-      { text: t('cancel') },
-      {
-        text: t('delete.buttonText'),
-        onPress: async () => {
-          await deletePost({ variables: { id: subject.id } });
-        },
-      },
-    ]);
-
   const handleReport = () =>
     Alert.alert(t('report.title'), t('report.message'), [
-      { text: t('cancel') },
+      { text: t('cancel'), style: 'cancel' },
       {
         text: t('report.confirmButtonText'),
         onPress: () => reportPost({ variables: { id: subject.id } }),
@@ -177,11 +205,12 @@ export const CommunityFeedItem = ({
         ? [
             {
               text: t('edit.buttonText'),
-              onPress: () => handleEdit(),
+              onPress: () => editFeedItem(),
             },
             {
               text: t('delete.buttonText'),
-              onPress: () => handleDelete(),
+              onPress: () => deleteFeedItem(),
+              destructive: true,
             },
           ]
         : [
