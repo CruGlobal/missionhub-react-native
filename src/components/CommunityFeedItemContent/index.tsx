@@ -320,7 +320,9 @@ export const CommunityFeedItemContent = ({
       <View style={styles.postTextWrap}>
         {subject.__typename === 'AcceptedCommunityChallenge' && (
           <Text style={styles.headerTextOnly}>
-            {t('challengeAcceptedHeader')}
+            {subject.completedAt
+              ? t('challengeCompletedHeader')
+              : t('challengeAcceptedHeader')}
           </Text>
         )}
         {renderMessage()}

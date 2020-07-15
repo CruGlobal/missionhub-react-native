@@ -3000,7 +3000,7 @@ exports[`refresh calls refreshComments 1`] = `
 -               <Text
 -                 style={Object {}}
 -               >
-+             Joined a Challenge!
++             Completed a Challenge!
 +           </Text>
             <Text
               style={
