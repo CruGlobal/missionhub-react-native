@@ -6,6 +6,10 @@ import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
+//eslint-disable-next-line import/named
+import { RecordResponse } from 'react-native-camera';
+//eslint-disable-next-line import/named
+import { ReactNativeFile } from 'apollo-upload-client';
 
 import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
@@ -45,7 +49,6 @@ import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
-type MediaType = 'image' | 'video' | null;
 
 interface CreatePostScreenParams {
   onComplete: () => void;
@@ -75,8 +78,8 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [mediaType, changeMediaType] = useState<MediaType>(
-    (post?.mediaContentType || null) as MediaType,
+  const [mediaType, changeMediaType] = useState<string | null>(
+    post?.mediaContentType || null,
   );
   const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
@@ -171,16 +174,26 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
+    const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
+
+    const media: string | ReactNativeFile | undefined =
+      mediaData && mediaType && hasImage && mediaHasChanged
+        ? mediaData
+        : mediaData && mediaType && hasVideo && mediaHasChanged
+        ? new ReactNativeFile({
+            name: 'upload',
+            uri: mediaData,
+            type: mediaType,
+          })
+        : undefined;
+
     if (post) {
       await updatePost({
         variables: {
           input: {
             id: post.id,
             content: text,
-            media:
-              hasImage && mediaData !== post.mediaExpiringUrl
-                ? mediaData
-                : undefined,
+            media,
           },
         },
       });
@@ -191,7 +204,7 @@ export const CreatePostScreen = () => {
             content: text,
             communityId,
             postType,
-            media: hasImage ? mediaData : null,
+            media,
           },
         },
       });
@@ -202,12 +215,14 @@ export const CreatePostScreen = () => {
   };
 
   const handleSavePhoto = (image: SelectImageParams) => {
-    changeMediaType('image');
-    changeMediaData(image.data);
+    const { data, fileType } = image;
+    changeMediaType(`image/${fileType}`);
+    changeMediaData(data);
   };
 
-  const handleSaveVideo = (uri: string) => {
-    changeMediaType('video');
+  const handleSaveVideo = (response: RecordResponse) => {
+    const { uri, codec = 'mp4' } = response;
+    changeMediaType(`video/${String(codec)}`);
     changeMediaData(uri);
   };
 
@@ -259,29 +274,6 @@ export const CreatePostScreen = () => {
     />
   );
 
-  const renderVideo = () =>
-    mediaData ? (
-      <VideoPlayer
-        uri={mediaData}
-        onDelete={handleDeleteVideo}
-        width={theme.fullWidth}
-      />
-    ) : null;
-
-  const renderImage = () =>
-    mediaData ? (
-      <ImagePicker onSelectImage={handleSavePhoto}>
-        <Image
-          resizeMode="contain"
-          source={{ uri: mediaData }}
-          style={{
-            width: theme.fullWidth,
-            aspectRatio: imageAspectRatio,
-          }}
-        />
-      </ImagePicker>
-    ) : null;
-
   const renderVideoPhotoButtons = () => (
     <>
       <View style={styles.lineBreak} />
@@ -305,11 +297,26 @@ export const CreatePostScreen = () => {
   );
 
   const renderMedia = () =>
-    hasImage
-      ? renderImage()
-      : hasVideo
-      ? renderVideo()
-      : renderVideoPhotoButtons();
+    mediaData && hasImage ? (
+      <ImagePicker onSelectImage={handleSavePhoto}>
+        <Image
+          resizeMode="contain"
+          source={{ uri: mediaData }}
+          style={{
+            width: theme.fullWidth,
+            aspectRatio: imageAspectRatio,
+          }}
+        />
+      </ImagePicker>
+    ) : mediaData && hasVideo ? (
+      <VideoPlayer
+        uri={mediaData}
+        onDelete={handleDeleteVideo}
+        width={theme.fullWidth}
+      />
+    ) : (
+      renderVideoPhotoButtons()
+    );
 
   return (
     <View style={styles.container}>

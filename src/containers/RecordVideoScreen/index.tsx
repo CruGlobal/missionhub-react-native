@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 //eslint-disable-next-line import/named
-import { RNCamera } from 'react-native-camera';
+import { RNCamera, RecordResponse } from 'react-native-camera';
 
 import { navigateBack } from '../../actions/navigation';
 import { Text, Touchable } from '../../components/common';
@@ -19,14 +19,16 @@ type CameraType = 'front' | 'back';
 type VideoState = 'NOT_RECORDING' | 'RECORDING' | 'PROCESSING';
 
 interface RecordVideoScreenNavParams {
-  onEndRecord: (uri: string) => void;
+  onEndRecord: (response: RecordResponse) => void;
 }
 
 export const RecordVideoScreen = () => {
   const { t } = useTranslation('recordVideo');
   const camera = useRef<RNCamera>(null);
   const dispatch = useDispatch();
-  const onEndRecord = useNavigationParam('onEndRecord');
+  const onEndRecord: (response: RecordResponse) => void = useNavigationParam(
+    'onEndRecord',
+  );
   const [videoState, setVideoState] = useState<VideoState>('NOT_RECORDING');
   const [countdownTime, setCountdownTime] = useState<number>(15);
   const [cameraType, setCameraType] = useState<CameraType>('front');
@@ -42,8 +44,8 @@ export const RecordVideoScreen = () => {
       return;
     }
 
-    const { uri } = await camera.current.recordAsync({ maxDuration: 15 });
-    onEndRecord(uri);
+    const response = await camera.current.recordAsync({ maxDuration: 15 });
+    onEndRecord(response);
 
     handleClose();
   };

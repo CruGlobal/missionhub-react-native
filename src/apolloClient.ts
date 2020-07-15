@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import { ApolloClient } from 'apollo-client';
 import { ApolloLink } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http';
+import { createUploadLink } from 'apollo-upload-client';
 import { onError } from 'apollo-link-error';
 import {
   InMemoryCache,
@@ -62,12 +62,12 @@ export const createApolloClient = async () => {
     );
   });
 
-  const httpLink = new HttpLink({
+  const uploadLink = createUploadLink({
     uri: `${BASE_URL}/apis/graphql`,
     credentials: 'same-origin',
   });
 
-  const link = ApolloLink.from([rollbarLink, authLink, httpLink]);
+  const link = ApolloLink.from([rollbarLink, authLink, uploadLink]);
 
   const fragmentMatcher = new IntrospectionFragmentMatcher({
     introspectionQueryResultData: introspectionQueryResultData as IntrospectionResultData,

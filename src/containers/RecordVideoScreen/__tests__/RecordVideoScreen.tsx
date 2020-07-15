@@ -10,7 +10,10 @@ import { RecordVideoScreen } from '..';
 
 jest.mock('../../../actions/navigation');
 
-const uri = 'file:/video.mov';
+const videoResponse = {
+  codec: 'mp4',
+  uri: 'file:/video.mov',
+};
 
 const onEndRecord = jest.fn();
 
@@ -48,7 +51,7 @@ it('times out after 15 seconds, ends recording and navigates back', async () => 
   expect(getByType(RNCamera).instance.recordAsync).toHaveBeenCalledWith({
     maxDuration: 15,
   });
-  expect(onEndRecord).toHaveBeenCalledWith(uri);
+  expect(onEndRecord).toHaveBeenCalledWith(videoResponse);
   expect(navigateBack).toHaveBeenCalledWith();
 });
 

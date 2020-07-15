@@ -30,6 +30,7 @@ jest.mock('react-native-camera', () => {
     recordAsync = jest.fn().mockImplementation(async () => {
       await timeout(2000);
       return {
+        codec: 'mp4',
         uri: MOCK_VIDEO,
       };
     });

@@ -222,7 +222,7 @@ exports[`Select image should select an image 1`] = `
 -           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
-+               \\"aspectRatio\\": 1.3333333333333333,
++               \\"aspectRatio\\": 2,
                 \\"width\\": 750,
               }
             }
