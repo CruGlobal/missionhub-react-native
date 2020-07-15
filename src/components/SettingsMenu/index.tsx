@@ -3,6 +3,7 @@ import { Alert, Linking } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
@@ -15,10 +16,10 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 
 interface SettingsMenuProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   isAnonymousUser: boolean;
 }
 

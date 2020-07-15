@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { getMyPeople } from '../../actions/people';
 import { allAssignedPeopleSelector } from '../../selectors/people';
@@ -27,8 +28,7 @@ import AnnouncementsModal from '../../components/AnnouncementsModal';
 import styles from './styles';
 
 interface PeopleScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items: any;
   hasNoContacts: boolean;

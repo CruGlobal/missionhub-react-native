@@ -24,6 +24,7 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 import {
@@ -33,7 +34,7 @@ import {
 import { STEPS_QUERY } from './queries';
 
 interface StepsScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
 }
 
 const StepsScreen = ({ dispatch }: StepsScreenProps) => {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-native';
 import { useTranslation } from 'react-i18next';
-// eslint-disable-next-line import/named
 import ImageCropPicker, { Image } from 'react-native-image-crop-picker';
 
 import PopupMenu from '../../components/PopupMenu';

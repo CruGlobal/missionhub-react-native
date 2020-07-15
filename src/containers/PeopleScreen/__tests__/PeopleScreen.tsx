@@ -11,7 +11,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
-
 import { PeopleScreen } from '..';
 
 jest.mock('react-native-device-info');

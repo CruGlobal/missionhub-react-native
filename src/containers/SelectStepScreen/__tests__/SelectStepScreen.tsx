@@ -8,7 +8,6 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderWithContext } from '../../../../testUtils';
 import { STEP_SUGGESTIONS_QUERY } from '../queries';
 import { StepTypeEnum } from '../../../../__generated__/globalTypes';
-
 import SelectStepScreen from '..';
 
 jest.mock('../../../actions/navigation');
@@ -142,7 +141,7 @@ describe('loading', () => {
     renderWithContext(<SelectStepScreen next={next} />, {
       initialState: state,
       navParams: { personId, orgId, enableSkipButton },
-    }).snapshot;
+    }).snapshot();
   });
 });
 

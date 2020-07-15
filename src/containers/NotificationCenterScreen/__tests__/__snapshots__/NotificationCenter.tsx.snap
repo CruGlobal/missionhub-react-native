@@ -921,6 +921,11 @@ exports[`handle pagination should not load more when no next page 1`] = `
 Compared values have no visual difference."
 `;
 
+exports[`handles refresh 1`] = `
+"Snapshot Diff:
+Compared values have no visual difference."
+`;
+
 exports[`renders Earlier section correctly  1`] = `
 <View
   style={

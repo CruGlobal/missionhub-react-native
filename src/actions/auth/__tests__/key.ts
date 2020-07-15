@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

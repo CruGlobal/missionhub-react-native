@@ -3,7 +3,6 @@ import { BackHandler } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import SideMenu from '..';
 
 const action = jest.fn();

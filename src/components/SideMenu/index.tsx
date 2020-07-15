@@ -7,6 +7,7 @@ import { AnyAction } from 'redux';
 
 import { Flex, Button, IconButton } from '../common';
 import { DrawerState } from '../../reducers/drawer';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
@@ -18,7 +19,7 @@ export interface MenuItemsType {
 
 interface SideMenuProps {
   isOpen: boolean;
-  dispatch: ThunkDispatch<{}, null, AnyAction>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   menuItems: MenuItemsType[];
   testID?: string;
 }

@@ -1,10 +1,9 @@
 /* eslint max-lines: 0 */
 
-import 'react-native';
+import { SectionList } from 'react-native';
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { MockList } from 'graphql-tools';
-import { SectionList } from 'react-native';
 
 import { renderWithContext } from '../../../../../testUtils';
 import { ORG_PERMISSIONS } from '../../../../constants';
@@ -14,7 +13,6 @@ import {
 } from '../../../../actions/misc';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
-
 import { PersonSteps } from '..';
 
 jest.mock('../../../../actions/steps');

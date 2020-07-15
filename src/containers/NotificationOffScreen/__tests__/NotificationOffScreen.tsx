@@ -1,4 +1,5 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import React from 'react';
 import { Linking } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
@@ -10,7 +11,6 @@ import { navigateBack } from '../../../actions/navigation';
 import { requestNativePermissions } from '../../../actions/notifications';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import NotificationOffScreen from '..';
 
 jest.mock('react-native-hooks');
@@ -218,6 +218,7 @@ describe('button methods', () => {
           },
         );
 
+        // eslint-disable-next-line @typescript-eslint/no-var-requires
         const svc = require('@services/appState').default;
         svc.setStore(store);
 

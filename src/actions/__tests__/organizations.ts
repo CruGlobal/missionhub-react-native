@@ -1,5 +1,4 @@
-/* eslint max-lines: 0 */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-explicit-any, max-lines */
 
 import configureStore, { MockStore } from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -763,13 +762,15 @@ describe('joinCommunity', () => {
     ]);
   });
 
-  it('should pass on API error if the error is unrelated to preexisting membership ', () => {
+  it('should pass on API error if the error is unrelated to preexisting membership ', async () => {
     (callApi as jest.Mock).mockReturnValue(() =>
       Promise.reject({
         apiError: { errors: [{ detail: 'some error' }] },
       }),
     );
-    expect(store.dispatch<any>(joinCommunity(orgId, code))).rejects.toThrow();
+    await expect(
+      store.dispatch<any>(joinCommunity(orgId, code)),
+    ).rejects.toEqual({ apiError: { errors: [{ detail: 'some error' }] } });
   });
 });
 

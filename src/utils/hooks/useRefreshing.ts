@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useRefreshing = (onRefreshAction: () => any) => {
+export const useRefreshing = (onRefreshAction: () => void) => {
   const [isRefreshing, setRefreshing] = useState(false);
 
   const refresh = useCallback(async () => {

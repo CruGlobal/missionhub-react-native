@@ -1,7 +1,8 @@
 jest.mock(
   'react-native/Libraries/Utilities/NativePlatformConstantsIOS',
   () => ({
-    ...require.requireActual(
+    // @ts-ignore
+    ...jest.requireActual(
       'react-native/Libraries/Utilities/NativePlatformConstantsIOS',
     ),
     getConstants: () => ({

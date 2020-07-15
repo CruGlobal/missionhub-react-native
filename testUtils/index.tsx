@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import thunk from 'redux-thunk';
 import configureStore, { MockStore } from 'redux-mock-store';
-// eslint-disable-next-line import/named
 import { NavigationParams, NavigationProvider } from 'react-navigation';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { ReactTestRendererJSON } from 'react-test-renderer';
@@ -23,7 +22,7 @@ Enzyme.configure({ adapter: new Adapter() });
 export const createThunkStore = configureStore([thunk]);
 
 interface ContextParams {
-  initialState?: {};
+  initialState?: Record<string, unknown>;
   store?: MockStore;
   navParams?: NavigationParams;
   mocks?: IMocks;

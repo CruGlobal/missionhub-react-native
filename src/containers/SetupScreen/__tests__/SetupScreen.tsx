@@ -10,7 +10,6 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { createMyPerson, createPerson } from '../../../actions/onboarding';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { UPDATE_PERSON, CREATE_PERSON } from '../queries';
-
 import SetupScreen from '..';
 
 const personId = '1';

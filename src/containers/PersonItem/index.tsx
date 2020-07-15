@@ -1,4 +1,3 @@
-/* eslint complexity: 0 */
 import React from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux-legacy';
@@ -6,6 +5,7 @@ import { ThunkDispatch } from 'redux-thunk';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
+import { AnyAction } from 'redux';
 
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -39,8 +39,7 @@ interface PersonItemProps {
   organization?: Organization;
   me: Person;
   stagesObj: StagesObj;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   stepsData?: PersonStepCount;
 }
 

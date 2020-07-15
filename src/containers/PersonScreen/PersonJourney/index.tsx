@@ -105,8 +105,7 @@ export const PersonJourney = ({
         <RowSwipeable
           key={item.id}
           // @ts-ignore
-          editPressProps={[item]}
-          onEdit={handleEditInteraction}
+          onEdit={() => handleEditInteraction(item)}
           bump={showReminder && item.isFirstInteraction}
           onBumpComplete={
             showReminder && item.isFirstInteraction ? completeBump : undefined

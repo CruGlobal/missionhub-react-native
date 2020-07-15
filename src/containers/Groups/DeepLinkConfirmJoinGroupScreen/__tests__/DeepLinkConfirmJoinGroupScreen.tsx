@@ -8,7 +8,6 @@ import {
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
-
 import JoinGroupScreen from '..';
 
 jest.mock('../../../../actions/navigation', () => ({

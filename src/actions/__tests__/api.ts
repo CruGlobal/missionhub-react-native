@@ -1,5 +1,3 @@
-/* eslint max-params: 0 */
-
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
@@ -41,7 +39,8 @@ const invalidGrantError = { error: INVALID_GRANT };
 // @ts-ignore
 global.APILOG = jest.fn();
 
-async function test(
+// eslint-disable-next-line max-params
+async function testCallApi(
   // @ts-ignore
   state,
   // @ts-ignore
@@ -67,7 +66,7 @@ async function test(
   try {
     // @ts-ignore
     await store.dispatch(callApi(request, query, data));
-  } catch (e) {
+  } catch {
     expect(API_CALLS[request.name]).toHaveBeenCalledWith(query, data);
     expect(method).toHaveBeenCalledWith(...methodParams);
 
@@ -82,8 +81,8 @@ async function test(
   }
 }
 
-it('should handle expired token', () => {
-  return test(
+it('should handle expired token', async () => {
+  await testCallApi(
     { refreshToken: 'refresh' },
     getMeRequest,
     expiredTokenError,
@@ -93,10 +92,11 @@ it('should handle expired token', () => {
     accessTokenQuery,
     {},
   );
+  expect.hasAssertions();
 });
 
-it('should handle invalid token', () => {
-  return test(
+it('should handle invalid token', async () => {
+  await testCallApi(
     { refreshToken: 'refresh' },
     getMeRequest,
     invalidTokenError,
@@ -106,10 +106,11 @@ it('should handle invalid token', () => {
     accessTokenQuery,
     {},
   );
+  expect.hasAssertions();
 });
 
-it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', () => {
-  return test(
+it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async () => {
+  await testCallApi(
     { refreshToken: 'refresh' },
     refreshRequest,
     invalidGrantError,
@@ -119,6 +120,7 @@ it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', () => {
     {},
     refreshTokenData,
   );
+  expect.hasAssertions();
 });
 
 it("should not logout if invalid_grant is returned and request wasn't KEY_REFRESH_TOKEN", async () => {

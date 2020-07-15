@@ -8,7 +8,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
-
 import SettingsMenu from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');

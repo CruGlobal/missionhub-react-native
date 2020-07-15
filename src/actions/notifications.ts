@@ -137,7 +137,7 @@ export const checkNotifications = (
     showedPrompt: boolean;
   }) => void,
 ) => async (
-  dispatch: ThunkDispatch<{ notifications: NotificationsState }, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => { auth: AuthState; notifications: NotificationsState },
 ) => {
   const skipNotificationOff =
@@ -202,7 +202,7 @@ export const requestNativePermissions = () => async () => {
 
 export function configureNotificationHandler() {
   return (
-    dispatch: ThunkDispatch<{ auth: AuthState }, {}, AnyAction>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { notifications: NotificationsState },
   ) => {
     PushNotification.configure({
@@ -237,7 +237,7 @@ export function configureNotificationHandler() {
 
 function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
   return async (
-    dispatch: ThunkDispatch<RootState, {}, AnyAction>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
     if (isAndroid && !notification.userInteraction) {
@@ -352,7 +352,7 @@ export function parseNotificationData(
 }
 
 const setPushDevice = (token: string) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   const data = {
     data: {
@@ -368,7 +368,7 @@ const setPushDevice = (token: string) => (
 };
 
 export const deletePushToken = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => { notifications: NotificationsState },
 ) => {
   const { pushDevice } = getState().notifications;

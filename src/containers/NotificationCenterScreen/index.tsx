@@ -25,7 +25,11 @@ import {
   UpdateLatestNotificationVariables,
 } from './__generated__/UpdateLatestNotification';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
-import { GetNotifications } from './__generated__/GetNotifications';
+import {
+  GetNotifications,
+  GetNotifications_contentComplaints,
+  GetNotifications_notifications_nodes,
+} from './__generated__/GetNotifications';
 import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
 import styles from './styles';
 
@@ -66,7 +70,14 @@ const NotificationCenterScreen = () => {
     }
   });
 
-  const filteredSections = [
+  const filteredSections: {
+    id: number;
+    name: string;
+    data: (
+      | GetNotifications_contentComplaints
+      | GetNotifications_notifications_nodes
+    )[];
+  }[] = [
     {
       id: 0,
       name: 'reportedActivity',

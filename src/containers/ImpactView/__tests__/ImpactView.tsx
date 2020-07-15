@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import 'react-native';
 import React from 'react';
@@ -10,7 +10,6 @@ import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID, ORG_PERMISSIONS } from '../../../constants';
 import { getImpactSummary } from '../../../actions/impact';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import ImpactView from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');

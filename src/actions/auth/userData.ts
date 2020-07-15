@@ -18,6 +18,7 @@ import { AuthState } from '../../reducers/auth';
 import { requestNativePermissions } from '../notifications';
 import { isAndroid } from '../../utils/common';
 import { AnalyticsState } from '../../reducers/analytics';
+import { RootState } from '../../reducers';
 
 function getTimezoneString() {
   return `${(new Date().getTimezoneOffset() / 60) * -1}`;
@@ -77,7 +78,7 @@ export function authSuccess() {
 
 export function loadHome() {
   return (
-    dispatch: ThunkDispatch<never, never, never>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
     // Don't try to run all these things if there is no token

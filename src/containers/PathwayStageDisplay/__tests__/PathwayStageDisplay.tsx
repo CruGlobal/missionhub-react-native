@@ -7,7 +7,6 @@ import {
   personSelector,
   contactAssignmentSelector,
 } from '../../../selectors/people';
-
 import PathwayStageDisplay from '..';
 
 jest.mock('../../../selectors/people');

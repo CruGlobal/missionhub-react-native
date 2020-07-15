@@ -16,7 +16,6 @@ import {
   CommunityFeedItem,
   CommunityFeedItem_subject_Post,
 } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
-
 import { CreatePostScreen } from '..';
 
 jest.mock('../../../../actions/navigation');

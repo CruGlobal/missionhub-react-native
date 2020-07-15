@@ -2,7 +2,6 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import LoadMore from '..';
 
 const onPress = jest.fn();

@@ -10,7 +10,6 @@ import {
   renderWithContext,
 } from '../../../../../testUtils';
 import { lookupOrgCommunityCode } from '../../../../actions/organizations';
-
 import JoinGroupScreen from '..';
 
 jest.mock('../../../../actions/navigation', () => ({

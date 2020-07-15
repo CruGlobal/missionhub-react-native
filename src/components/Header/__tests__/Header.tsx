@@ -2,7 +2,6 @@ import React from 'react';
 
 import { Text } from '../../common';
 import { renderWithContext } from '../../../../testUtils';
-
 import Header from '..';
 
 it('renders with no props', () => {

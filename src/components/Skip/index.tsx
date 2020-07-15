@@ -1,14 +1,18 @@
 import React from 'react';
-import { ViewStyle, TextStyle, StyleProp } from 'react-native';
+import {
+  ViewStyle,
+  TextStyle,
+  StyleProp,
+  GestureResponderEvent,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../common';
-import { TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
 interface SkipProps {
-  onSkip: TouchablePress;
+  onSkip: (event: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
   textStyle?: StyleProp<TextStyle>;
   testID?: string;

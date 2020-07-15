@@ -4,7 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import theme from '../../../theme';
-
 import CloseButton, { CloseButtonTypeEnum } from '..';
 
 jest.mock('../../../actions/navigation');

@@ -95,7 +95,7 @@ export const AddStepExplainer: {
   },
 ];
 
-function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
+function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
   const [setViewed] = useMutation<SetStepExplainerModalViewed>(
     SET_STEP_EXPLAINER_MODAL_VIEWED,
   );

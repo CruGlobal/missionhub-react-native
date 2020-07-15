@@ -6,23 +6,20 @@ import {
   TouchableWithoutFeedback,
   Platform,
   TouchableHighlightProps,
+  GestureResponderEvent,
 } from 'react-native';
 
 import theme from '../../theme';
-
-import { TouchablePress, PressPropsType } from './index.ios';
 
 interface TouchableAndroidProps extends TouchableHighlightProps {
   borderless?: boolean;
   withoutFeedback?: boolean;
   isAndroidOpacity?: boolean;
-  pressProps?: PressPropsType;
-  onPress?: TouchablePress;
+  onPress?: (event: GestureResponderEvent) => void;
   children?: React.ReactNode;
 }
 
 const TouchableAndroid = ({
-  pressProps = [],
   onPress,
   borderless = false,
   isAndroidOpacity,
@@ -31,10 +28,9 @@ const TouchableAndroid = ({
   withoutFeedback,
   ...rest
 }: TouchableAndroidProps) => {
-  const handlePress = () => {
+  const handlePress = (event: GestureResponderEvent) => {
     if (onPress) {
-      // Call the onPress with all of the pressProps passed in or just undefined if it doesn't exist
-      onPress(...pressProps);
+      onPress(event);
     }
   };
   if (isAndroidOpacity) {

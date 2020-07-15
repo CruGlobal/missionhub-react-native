@@ -4,18 +4,21 @@ import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { ThunkAction } from 'redux-thunk';
 import { useDispatch } from 'react-redux';
+import { AnyAction } from 'redux';
 
 import { Flex, Text, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import Header from '../../components/Header';
 import DeprecatedBackButton from '../DeprecatedBackButton';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
 interface WelcomeScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (params: { signin: boolean }) => ThunkAction<void, any, null, never>;
+  next: (params: {
+    signin: boolean;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
@@ -60,7 +63,7 @@ const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
             <Button
               testID="get-started-sign-in-variant"
               pill={true}
-              onPress={navigateToNext}
+              onPress={() => navigateToNext()}
               style={styles.clearButton}
               buttonTextStyle={styles.buttonText}
               text={t('getStartedButton').toUpperCase()}
@@ -69,7 +72,7 @@ const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
         ) : (
           <BottomButton
             testID={'get-started'}
-            onPress={navigateToNext}
+            onPress={() => navigateToNext()}
             text={t('continue')}
           />
         )}

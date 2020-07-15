@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import React from 'react';
 import { Alert } from 'react-native';
@@ -18,7 +18,6 @@ import {
 } from '../../../actions/person';
 import { navigateToMainTabs } from '../../../actions/navigation';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
-
 import MemberOptionsMenu, {
   API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE,
 } from '..';
@@ -42,7 +41,7 @@ let store;
 const onActionTaken = jest.fn();
 const defaultProps = { t: i18next.t, dispatch: () => {}, myId, onActionTaken };
 
-const test = () => {
+const testMembersOptionsMenu = () => {
   // @ts-ignore
   testSnapshotShallow(<MemberOptionsMenu {...props} />);
 };
@@ -64,7 +63,10 @@ describe('MemberOptionsMenu', () => {
         }),
     );
 
-    it('renders correctly', () => test());
+    it('renders correctly', () => {
+      testMembersOptionsMenu();
+      expect.hasAssertions();
+    });
 
     it('shows an alert message if I attempt to leave', () => {
       Alert.alert = jest.fn();
@@ -96,7 +98,8 @@ describe('MemberOptionsMenu', () => {
       personIsAdmin: false,
       organization,
     };
-    test();
+    testMembersOptionsMenu();
+    expect.hasAssertions();
   });
 
   it('renders for admin looking at admin', () => {
@@ -111,7 +114,8 @@ describe('MemberOptionsMenu', () => {
       personIsAdmin: true,
       organization,
     };
-    test();
+    testMembersOptionsMenu();
+    expect.hasAssertions();
   });
 
   describe(' looking at member, when I am owner', () => {
@@ -130,7 +134,10 @@ describe('MemberOptionsMenu', () => {
         }),
     );
 
-    it('renders correctly', () => test());
+    it('renders correctly', () => {
+      testMembersOptionsMenu();
+      expect.hasAssertions();
+    });
 
     it('transfers ownership', () => {
       // @ts-ignore
@@ -186,15 +193,13 @@ describe('MemberOptionsMenu', () => {
       // @ts-ignore
       transferOrgOwnership.mockReturnValue(() => Promise.reject(error));
 
-      try {
+      await expect(
         // @ts-ignore
-        await renderShallow(<MemberOptionsMenu {...props} />)
+        renderShallow(<MemberOptionsMenu {...props} />)
           .instance()
           // @ts-ignore
-          .makeOwner();
-      } catch (e) {
-        expect(e).toEqual(error);
-      }
+          .makeOwner(),
+      ).rejects.toEqual(error);
     });
   });
 
@@ -210,7 +215,8 @@ describe('MemberOptionsMenu', () => {
       personIsAdmin: true,
       organization,
     };
-    test();
+    testMembersOptionsMenu();
+    expect.hasAssertions();
   });
 });
 
@@ -317,12 +323,10 @@ describe('confirm screen', () => {
       // @ts-ignore
       makeAdmin.mockReturnValue(() => Promise.reject(error));
 
-      try {
+      await expect(
         // @ts-ignore
-        await screen.instance().makeAdmin();
-      } catch (e) {
-        expect(e).toEqual(error);
-      }
+        screen.instance().makeAdmin(),
+      ).rejects.toEqual(error);
     });
   });
 

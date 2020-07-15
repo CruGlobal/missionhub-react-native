@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handleRefresh refetches steps and checks for unread comments 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -379,14 +379,14 @@
+        onScrollBeginDrag={[Function anonymous]}
+        onScrollEndDrag={[Function anonymous]}
+        refreshControl={
+          <RefreshControlMock
+            onRefresh={[Function _callee]}
+-           refreshing={false}
++           refreshing={true}
+          />
+        }
+-       refreshing={false}
++       refreshing={true}
+        removeClippedSubviews={false}
+        renderItem={[Function anonymous]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}"
+`;
+
 exports[`renders empty screen correctly 1`] = `
 <View
   style={
