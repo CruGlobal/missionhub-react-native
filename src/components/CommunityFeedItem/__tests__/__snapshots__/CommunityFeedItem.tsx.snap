@@ -137,11 +137,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-<<<<<<< HEAD
-        Krystina B. completed a Challenge:
-=======
         Completed a Challenge!
->>>>>>> origin/develop
       </Text>
       <Text
         style={
@@ -161,37 +157,8 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-<<<<<<< HEAD
-        <Text
-          numberOfLines={2}
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "fontWeight": "400",
-                "letterSpacing": 0,
-                "lineHeight": 24,
-                "marginBottom": 10,
-                "textAlign": "left",
-                "textDecorationColor": "#3CC8E6",
-                "textDecorationLine": "underline",
-              },
-            ]
-          }
-        >
-          voluptates ut ullam
-        </Text>
-      </View>
-=======
-        quis sed magni
+        voluptates ut ullam
       </Text>
->>>>>>> origin/develop
     </View>
     <View
       style={
@@ -3875,82 +3842,6 @@ exports[`global community renders correctly 1`] = `
               </View>
             </View>
           </View>
-<<<<<<< HEAD
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              1936
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
-              </View>
-            </View>
-          </View>
-=======
->>>>>>> origin/develop
         </View>
       </View>
     </View>
@@ -4332,82 +4223,6 @@ exports[`global community renders post item correctly 1`] = `
               </View>
             </View>
           </View>
-<<<<<<< HEAD
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              66063
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
-              </View>
-            </View>
-          </View>
-=======
->>>>>>> origin/develop
         </View>
       </View>
     </View>
@@ -4770,82 +4585,6 @@ exports[`global community renders with clear notification button correctly 1`] =
               </View>
             </View>
           </View>
-<<<<<<< HEAD
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 40,
-              }
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
-              }
-            >
-              1936
-            </Text>
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "opacity": 1,
-                }
-              }
-              testID="CommentIconButton"
-            >
-              <View
-                hitSlop={
-                  Object {
-                    "bottom": 25,
-                    "left": 25,
-                    "right": 25,
-                    "top": 25,
-                  }
-                }
-                style={
-                  Array [
-                    Object {
-                      "backgroundColor": "transparent",
-                    },
-                    null,
-                    Object {},
-                    null,
-                  ]
-                }
-              >
-                <SvgMock />
-              </View>
-            </View>
-          </View>
-=======
->>>>>>> origin/develop
         </View>
       </View>
     </View>

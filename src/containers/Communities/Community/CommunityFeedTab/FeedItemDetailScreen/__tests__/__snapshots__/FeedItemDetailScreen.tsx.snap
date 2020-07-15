@@ -2738,113 +2738,54 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -267,124 +267,29 @@
-                  \\"justifyContent\\": \\"flex-start\\",
-                  \\"paddingVertical\\": 8,
-                }
-              }
+@@ -323,10 +323,45 @@
+                  }
+                >
+                  Announcement
+                </Text>
+              </View>
++             <View
++               style={
++                 Object {
++                   \\"alignItems\\": \\"flex-end\\",
++                   \\"flex\\": 1,
++                   \\"justifyContent\\": \\"center\\",
++                 }
++               }
++             >
++               <View
++                 accessible={true}
++                 focusable={true}
++                 isTVSelectable={true}
++                 onClick={[Function bound touchableHandlePress]}
++                 onResponderGrant={[Function bound touchableHandleResponderGrant]}
++                 onResponderMove={[Function bound touchableHandleResponderMove]}
++                 onResponderRelease={[Function bound touchableHandleResponderRelease]}
++                 onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
++                 onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
++                 onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++                 style={
++                   Object {
++                     \\"opacity\\": 1,
++                     \\"paddingLeft\\": 30,
++                     \\"paddingRight\\": 12,
++                     \\"paddingVertical\\": 5,
++                   }
++                 }
++                 testID=\\"popupMenuButton\\"
++               >
++                 <SvgMock
++                   color=\\"#505256\\"
++                 />
++               </View>
++             </View>
+            </View>
+            <View
+              style={
+                Object {
+                  \\"flexDirection\\": \\"row\\",
+@@ -337,11 +372,11 @@
             >
--             <View
--               style={
--                 Array [
--                   Object {
--                     \\"alignItems\\": \\"center\\",
--                     \\"borderRadius\\": 18,
--                     \\"flexDirection\\": \\"row\\",
--                     \\"height\\": 36,
--                     \\"justifyContent\\": \\"space-between\\",
--                     \\"paddingLeft\\": 20,
--                     \\"paddingRight\\": 16,
--                     \\"paddingVertical\\": 0,
--                   },
--                   Object {
--                     \\"backgroundColor\\": \\"#505256\\",
--                   },
--                   null,
--                   null,
--                 ]
--               }
--               testID=\\"ANNOUNCEMENTLabel\\"
--             >
--               <SvgMock
--                 color=\\"#ffffff\\"
--                 height={20}
--                 style={
--                   Array [
--                     Object {
--                       \\"marginLeft\\": -10,
--                       \\"marginRight\\": 10,
--                     },
--                     undefined,
--                   ]
--                 }
--                 width={20}
--               />
--               <Text
--                 style={
--                   Array [
--                     Object {
--                       \\"color\\": \\"#505256\\",
--                     },
--                     Object {
--                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                     },
--                     Object {
--                       \\"color\\": \\"#ffffff\\",
--                       \\"fontSize\\": 14,
--                       \\"lineHeight\\": 20,
--                     },
--                   ]
--                 }
--               >
--                 Announcement
--               </Text>
--             </View>
--             <View
--               style={
--                 Object {
--                   \\"alignItems\\": \\"flex-end\\",
--                   \\"flex\\": 1,
--                   \\"justifyContent\\": \\"center\\",
--                 }
--               }
--             >
--               <View
--                 accessible={true}
--                 focusable={true}
--                 isTVSelectable={true}
--                 onClick={[Function bound touchableHandlePress]}
--                 onResponderGrant={[Function bound touchableHandleResponderGrant]}
--                 onResponderMove={[Function bound touchableHandleResponderMove]}
--                 onResponderRelease={[Function bound touchableHandleResponderRelease]}
--                 onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--                 onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--                 onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
--                 style={
--                   Object {
--                     \\"opacity\\": 1,
--                     \\"paddingLeft\\": 30,
--                     \\"paddingRight\\": 12,
--                     \\"paddingVertical\\": 5,
--                   }
--                 }
--                 testID=\\"popupMenuButton\\"
--               >
--                 <SvgMock
--                   color=\\"#505256\\"
--                 />
--               </View>
--             </View>
--           </View>
--           <View
--             style={
--               Object {
--                 \\"flexDirection\\": \\"row\\",
--                 \\"justifyContent\\": \\"flex-start\\",
--                 \\"paddingVertical\\": 8,
--               }
--             }
--           >
               <Image
                 resizeMode=\\"cover\\"
                 source={
@@ -2854,34 +2795,10 @@ exports[`refresh calls refreshComments 1`] = `
                   }
                 }
                 style={
-+                 Array [
-                    Object {
-                      \\"borderRadius\\": 24,
-                      \\"height\\": 48,
-                      \\"width\\": 48,
--                 }
-+                   },
-+                   Object {
-+                     \\"backgroundColor\\": \\"rgb(159, 161, 130)\\",
-+                   },
-+                   undefined,
-+                 ]
-                }
-              />
-              <View
-                style={
-                  Array [
-@@ -398,26 +303,35 @@
-                    undefined,
-                  ]
-                }
-              >
-                <Text
-+                 numberOfLines={2}
-                  style={
-                    Array [
-                      Object {
-                        \\"color\\": \\"#505256\\",
+                  Object {
+                    \\"borderRadius\\": 24,
+@@ -378,11 +413,11 @@
+                        \\"fontWeight\\": \\"bold\\",
                       },
                     ]
                   }
@@ -2893,7 +2810,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -439,11 +353,11 @@
+@@ -404,11 +439,11 @@
                       ],
                     ]
                   }
@@ -2906,173 +2823,20 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -452,62 +366,51 @@
-                \\"paddingHorizontal\\": 20,
-                \\"paddingVertical\\": 8,
-              }
-            }
-          >
--           <View
--             style={Object {}}
--           >
--             <View
-+           <Text
-              style={
-+               Array [
-                  Object {
--                   \\"alignItems\\": \\"flex-start\\",
--                   \\"flexDirection\\": \\"row\\",
--                   \\"flexWrap\\": \\"wrap\\",
--                   \\"justifyContent\\": \\"flex-start\\",
--                   \\"marginBottom\\": 10,
--                   \\"marginTop\\": 10,
--                   \\"marginVertical\\": 10,
--                   \\"width\\": \\"100%\\",
--                 }
-+                   \\"color\\": \\"#505256\\",
-+                 },
-+                 Object {
-+                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                 },
-+                 Object {
-+                   \\"color\\": \\"#3CC8E6\\",
-+                   \\"fontSize\\": 16,
-+                   \\"fontWeight\\": \\"bold\\",
-+                   \\"lineHeight\\": 20,
-+                 },
-+               ]
-              }
-            >
--               <Text
--                 style={Object {}}
--               >
-+             Completed a Challenge!
-+           </Text>
-            <Text
-              style={
-                Array [
--                       Object {},
-                  Object {
-                    \\"color\\": \\"#505256\\",
-+                 },
-+                 Object {
-                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                         \\"fontSize\\": 14,
--                         \\"lineHeight\\": 18,
-+                 },
-+                 Object {
-+                   \\"fontSize\\": 16,
-+                   \\"justifyContent\\": \\"flex-start\\",
-+                   \\"lineHeight\\": 24,
-+                   \\"paddingBottom\\": 8,
-                  },
-                ]
-              }
-            >
+@@ -450,11 +485,11 @@
+                          \\"lineHeight\\": 18,
+                        },
+                      ]
+                    }
+                  >
 -                   corporis repellat ratione
-+             libero aspernatur deserunt
-            </Text>
--               </Text>
++                   quam tempore a
+                  </Text>
+                </Text>
+              </View>
+            </View>
           </View>
--           </View>
--         </View>
--         <Image
--           resizeMode=\\"cover\\"
--           source={
--             Object {
--               \\"uri\\": \\"ut sunt qui\\",
--             }
--           }
--           style={
--             Object {
--               \\"aspectRatio\\": 1.3333333333333333,
--             }
--           }
--         />
-          <View
-            style={
-              Array [
-                Object {
-                  \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -535,11 +438,63 @@
-                \\"paddingHorizontal\\": 20,
-                \\"paddingVertical\\": 16,
-              }
-            }
-            testID=\\"FooterTouchable\\"
-+         >
-+           <View
-+             accessible={true}
-+             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+             style={
-+               Object {
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"flex\\": 1,
-+                 \\"flexDirection\\": \\"row\\",
-+                 \\"opacity\\": 1,
-+               }
-+             }
-+             testID=\\"ChallengeLinkButton\\"
-+           >
-+             <SvgMock
-+               color=\\"#505256\\"
-+               style={
-+                 Object {
-+                   \\"alignItems\\": \\"center\\",
-+                   \\"height\\": 24,
-+                   \\"justifyContent\\": \\"center\\",
-+                   \\"width\\": 24,
-+                 }
-+               }
-+             />
-+             <Text
-+               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"fontSize\\": 14,
-+                     \\"lineHeight\\": 20,
-+                     \\"paddingLeft\\": 12,
-+                   },
-+                 ]
-+               }
-              >
-+               View Challenge
-+             </Text>
-+           </View>
-            <View
-              style={
-                Object {
-                  \\"flex\\": 1,
-                  \\"justifyContent\\": \\"flex-end\\",
-@@ -624,12 +579,11 @@
-                          null,
-                        ]
-                      }
-                    >
-                      <SvgMock
--                       color=\\"#FF5532\\"
--                       fill=\\"#FF5532\\"
-+                       color=\\"#505256\\"
-                      />
-                    </View>
-                  </View>
-                </View>
-                <View
-@@ -660,11 +614,11 @@
+@@ -612,11 +647,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -3085,7 +2849,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -729,29 +683,28 @@
+@@ -681,28 +716,29 @@
         >
           <CommentItem
             comment={
@@ -3123,7 +2887,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -762,29 +715,28 @@
+@@ -713,28 +749,29 @@
         >
           <CommentItem
             comment={
@@ -3161,7 +2925,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -804,22 +756,22 @@
+@@ -754,22 +791,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
