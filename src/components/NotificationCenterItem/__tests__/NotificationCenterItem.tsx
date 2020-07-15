@@ -182,6 +182,46 @@ describe('different notification types', () => {
     });
   });
 
+  describe('Prayed For You Notification', () => {
+    const mockPrayedForYouNotification = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              '<<subject_person>> prayed for you in <<community_name>>.',
+            trigger: () =>
+              NotificationTriggerEnum.prayer_post_like_notification,
+            screenData: () => ({ communityId: '1234' }),
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'subject_person',
+                value: 'Christian Huffman',
+              },
+            ],
+          }),
+        },
+      },
+    );
+
+    it('renders correctly', () => {
+      renderWithContext(
+        <NotificationCenterItem event={mockPrayedForYouNotification} />,
+      ).snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_PHOTO, {
+        variables: {
+          communityId: mockPrayedForYouNotification.screenData.communityId,
+        },
+        fetchPolicy: 'cache-first',
+        skip: true,
+      });
+    });
+  });
+
   describe('Comunity Challenge', () => {
     const mockCommunityChallenge = mockFragment<NotificationItem>(
       NOTIFICATION_ITEM_FRAGMENT,
@@ -199,6 +239,32 @@ describe('different notification types', () => {
               {
                 key: 'community_name',
                 value: 'Bleh 2.0',
+              },
+            ],
+          }),
+        },
+      },
+    );
+    const mockCompletedCommunityChallenge = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            screenData: () => ({
+              communityId: '1234',
+            }),
+            messageTemplate: () =>
+              '<<subject_person>> completed a challenge in <<community_name>>.',
+            trigger: () =>
+              NotificationTriggerEnum.completed_challenge_notification,
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'subject_person',
+                value: 'Christian Huffman',
               },
             ],
           }),
@@ -231,6 +297,19 @@ describe('different notification types', () => {
       expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_PHOTO, {
         variables: {
           communityId: mockCommunityChallenge.screenData.communityId,
+        },
+        fetchPolicy: 'cache-first',
+        skip: false,
+      });
+    });
+
+    it('renders completed challenge notification', () => {
+      renderWithContext(
+        <NotificationCenterItem event={mockCompletedCommunityChallenge} />,
+      ).snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_PHOTO, {
+        variables: {
+          communityId: mockCompletedCommunityChallenge.screenData.communityId,
         },
         fetchPolicy: 'cache-first',
         skip: false,
@@ -426,7 +505,7 @@ describe('handleNotificationPress', () => {
     });
   });
 
-  it('navigates to challenge detail screen', async () => {
+  it('navigates to challenge detail screen | Challenge Created', async () => {
     const mockChallengeNotification = mockFragment<NotificationItem>(
       NOTIFICATION_ITEM_FRAGMENT,
       {
@@ -465,6 +544,48 @@ describe('handleNotificationPress', () => {
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
       orgId: mockChallengeNotification.screenData.communityId,
       challengeId: mockChallengeNotification.screenData.challengeId,
+    });
+  });
+
+  it('navigates to challenge detail screen | Challenge Completed', async () => {
+    const mockCompletedChallengeNotification = mockFragment<NotificationItem>(
+      NOTIFICATION_ITEM_FRAGMENT,
+      {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              '<<subject_person>> completed a challenge in <<community_name>>.',
+            trigger: () =>
+              NotificationTriggerEnum.completed_challenge_notification,
+            messageVariables: () => [
+              {
+                key: 'community_name',
+                value: 'Bleh 2.0',
+              },
+              {
+                key: 'subject_person',
+                value: 'Christian Huffman',
+              },
+            ],
+            screenData: {
+              communityId: '1234',
+              challengeId: '4321',
+            },
+          }),
+        },
+      },
+    );
+    const { getByTestId } = renderWithContext(
+      <NotificationCenterItem event={mockCompletedChallengeNotification} />,
+    );
+
+    await fireEvent.press(getByTestId('notificationButton'));
+    expect(reloadGroupChallengeFeed).toHaveBeenCalledWith(
+      mockCompletedChallengeNotification.screenData.communityId,
+    );
+    expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      orgId: mockCompletedChallengeNotification.screenData.communityId,
+      challengeId: mockCompletedChallengeNotification.screenData.challengeId,
     });
   });
 
