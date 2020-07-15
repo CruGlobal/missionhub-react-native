@@ -137,7 +137,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Joined a Challenge!
+        Completed a Challenge!
       </Text>
       <Text
         style={

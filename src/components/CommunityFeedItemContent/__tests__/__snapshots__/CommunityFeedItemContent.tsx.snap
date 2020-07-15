@@ -552,7 +552,7 @@ Array [
         ]
       }
     >
-      Joined a Challenge!
+      Completed a Challenge!
     </Text>
     <Text
       style={
@@ -947,7 +947,7 @@ Array [
         ]
       }
     >
-      Joined a Challenge!
+      Completed a Challenge!
     </Text>
     <Text
       style={
@@ -1342,7 +1342,7 @@ Array [
         ]
       }
     >
-      Joined a Challenge!
+      Completed a Challenge!
     </Text>
     <Text
       style={
