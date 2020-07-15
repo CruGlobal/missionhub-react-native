@@ -16,6 +16,7 @@ import { COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT } from '../queries';
 import {
   PostTypeEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
 
 import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
@@ -62,6 +63,7 @@ describe('CommunityFeedItemContent', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
+            subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
             subject: () => ({
               __typename: 'AcceptedCommunityChallenge',
               completedAt: () => null,
@@ -75,6 +77,7 @@ describe('CommunityFeedItemContent', () => {
         mockFrag({
           FeedItem: () => ({
             subject: () => ({
+              subjectEvent: FeedItemSubjectEventEnum.challengeCompleted,
               __typename: 'AcceptedCommunityChallenge',
             }),
           }),

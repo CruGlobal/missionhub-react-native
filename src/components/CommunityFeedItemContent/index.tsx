@@ -16,6 +16,7 @@ import {
 import {
   FeedItemSubjectTypeEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../../../__generated__/globalTypes';
 import PostTypeLabel from '../PostTypeLabel';
 import Avatar from '../Avatar';
@@ -65,7 +66,13 @@ export const CommunityFeedItemContent = ({
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
 
-  const { subject, subjectPerson, subjectPersonName, community } = feedItem;
+  const {
+    subject,
+    subjectEvent,
+    subjectPerson,
+    subjectPersonName,
+    community,
+  } = feedItem;
   if (
     subject.__typename !== 'Post' &&
     subject.__typename !== 'AcceptedCommunityChallenge' &&
@@ -318,13 +325,15 @@ export const CommunityFeedItemContent = ({
     <>
       {renderHeader()}
       <View style={styles.postTextWrap}>
-        {subject.__typename === 'AcceptedCommunityChallenge' && (
+        {subject.__typename === 'AcceptedCommunityChallenge' &&
+        (subjectEvent === FeedItemSubjectEventEnum.challengeCompleted ||
+          subjectEvent === FeedItemSubjectEventEnum.challengeJoined) ? (
           <Text style={styles.headerTextOnly}>
-            {subject.completedAt
+            {subjectEvent === FeedItemSubjectEventEnum.challengeCompleted
               ? t('challengeCompletedHeader')
               : t('challengeAcceptedHeader')}
           </Text>
-        )}
+        ) : null}
         {renderMessage()}
       </View>
       {renderImage()}
