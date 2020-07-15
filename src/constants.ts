@@ -359,6 +359,14 @@ export const ACTIONS = {
     name: 'Share Story',
     key: 'cru.sharestory',
   },
+  PHOTO_ADDED: {
+    name: 'Add Photo to Post',
+    key: 'cru.addphototopost',
+  },
+  VIDEO_ADDED: {
+    name: 'Add Video to Post',
+    key: 'cru.addvideotopost',
+  },
   POST_TYPE_SELECTED: {
     name: 'Post Type Selected',
     key: 'cru.posttype',
