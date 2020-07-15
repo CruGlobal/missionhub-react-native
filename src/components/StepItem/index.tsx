@@ -84,18 +84,20 @@ const StepItem = ({
         </View>
         <Text style={styles.description}>{step.title}</Text>
         {step.completedAt ? null : (
-          <ReminderButton
-            testID="StepReminderButton"
-            stepId={step.id}
-            reminder={step.reminder}
-          >
-            <View style={reminderButton}>
-              {step.reminder ? (
-                <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-              ) : null}
-              <ReminderDateText reminder={step.reminder} />
-            </View>
-          </ReminderButton>
+          <View style={{ alignSelf: 'flex-start' }}>
+            <ReminderButton
+              testID="StepReminderButton"
+              stepId={step.id}
+              reminder={step.reminder}
+            >
+              <View style={reminderButton}>
+                {step.reminder ? (
+                  <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
+                ) : null}
+                <ReminderDateText reminder={step.reminder} />
+              </View>
+            </ReminderButton>
+          </View>
         )}
       </View>
       {showCheckbox ? (

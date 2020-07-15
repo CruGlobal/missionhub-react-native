@@ -19,36 +19,6 @@ Array [
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
       <Image
         resizeMode="cover"
         source={
@@ -158,48 +128,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      Branson G. accepted a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -366,7 +324,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -385,6 +342,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -468,36 +426,6 @@ Array [
       }
     }
   >
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
     <View
       style={
         Object {
@@ -616,48 +544,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      Elizabeth Z. completed a Challenge:
+      Completed a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -824,7 +740,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -843,6 +758,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -926,36 +842,6 @@ Array [
       }
     }
   >
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
     <View
       style={
         Object {
@@ -1053,48 +939,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      A MissionHub user completed a Challenge:
+      Completed a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -1261,7 +1135,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -1280,6 +1153,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -1363,36 +1237,6 @@ Array [
       }
     }
   >
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
     <View
       style={
         Object {
@@ -1490,48 +1334,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      amet iure ut completed a Challenge:
+      Completed a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -1698,7 +1530,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -1717,6 +1548,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -2161,7 +1993,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -2180,6 +2011,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -2688,7 +2520,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -2707,6 +2538,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -3151,7 +2983,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -3170,6 +3001,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -3736,6 +3568,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -3856,7 +3689,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -3876,6 +3708,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -4181,6 +4014,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -4301,7 +4135,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -4321,6 +4154,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -4626,6 +4460,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -4746,7 +4581,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -4766,6 +4600,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -5071,6 +4906,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -5191,7 +5027,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -5211,6 +5046,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -5516,6 +5352,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -5636,7 +5473,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -5656,6 +5492,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -5961,6 +5798,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -6081,7 +5919,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -6101,6 +5938,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -6406,6 +6244,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -6526,7 +6365,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -6546,6 +6384,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -6830,6 +6669,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -6950,7 +6790,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -6969,6 +6808,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -7253,6 +7093,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -7373,7 +7214,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -7392,6 +7232,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -7821,7 +7662,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -7840,6 +7680,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -8255,7 +8096,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -8275,6 +8115,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -8577,34 +8418,14 @@ Array [
             "flexDirection": "row",
             "flexWrap": "wrap",
             "justifyContent": "flex-start",
-            "marginBottom": 10,
-            "marginTop": 10,
-            "marginVertical": 10,
-            "width": "100%",
-          }
-        }
-      >
-        <Text
-          style={Object {}}
-        >
-          <Text
-            style={
-              Array [
-                Object {},
-                Object {
-                  "color": "#505256",
-                  "fontFamily": "SourceSansPro-Regular",
-                  "fontSize": 14,
-                  "lineHeight": 18,
-                },
-              ]
-            }
-          >
-            quisquam recusandae alias
-          </Text>
-        </Text>
-      </View>
-    </View>
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
+      }
+    >
+      Mina W. completed a Step of Faith with a Forgiven person.
+    </Text>
   </View>,
   <Image
     resizeMode="cover"
@@ -8732,7 +8553,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -8752,6 +8572,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -10052,6 +9873,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -10172,7 +9994,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -10192,6 +10013,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }

@@ -27,12 +27,14 @@ import {
 
 interface CommentLikeComponentProps {
   feedItem: CommunityFeedItemCommentLike;
+  hideComment?: boolean;
   onCommentPress?: TouchablePress;
   testID?: string;
 }
 
 export const CommentLikeComponent = ({
   feedItem,
+  hideComment = false,
   onCommentPress,
 }: CommentLikeComponentProps) => {
   const {
@@ -108,7 +110,7 @@ export const CommentLikeComponent = ({
           type="transparent"
           disabled={isLikeDisabled}
           onPress={onPressLikeIcon}
-          style={styles.icon}
+          style={styles.likeIcon}
           viewProps={{ hitSlop: theme.hitSlop(25) }}
         >
           {isPrayer ? (
@@ -131,7 +133,7 @@ export const CommentLikeComponent = ({
   return (
     <View style={styles.container}>
       {renderLikeIcon()}
-      {renderCommentIcon()}
+      {hideComment ? null : renderCommentIcon()}
     </View>
   );
 };

@@ -87,13 +87,17 @@ export const CommunityFeedItemContent = ({
     PostStepStatusEnum.NOT_SUPPORTED;
   const aspectRatio = useAspectRatio(mediaData);
 
+  const isGlobal = !community;
+
   const itemType = getFeedItemType(subject);
   const addToSteps =
     [
       FeedItemSubjectTypeEnum.HELP_REQUEST,
       FeedItemSubjectTypeEnum.PRAYER_REQUEST,
       FeedItemSubjectTypeEnum.QUESTION,
-    ].includes(itemType) && stepStatus === PostStepStatusEnum.NONE;
+    ].includes(itemType) &&
+    stepStatus === PostStepStatusEnum.NONE &&
+    !isGlobal;
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(
@@ -103,8 +107,6 @@ export const CommunityFeedItemContent = ({
     : subjectPersonName
     ? subjectPersonName
     : t('aMissionHubUser');
-
-  const isGlobal = !community;
 
   const onPressChallengeLink = async () => {
     const challengeId = (subject as CommunityFeedItemContent_subject_AcceptedCommunityChallenge)
@@ -140,9 +142,7 @@ export const CommunityFeedItemContent = ({
   const renderChallengeMessage = (
     subject: CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
   ) => {
-    return t(subject.completedAt ? 'challengeCompleted' : 'challengeAccepted', {
-      initiator: personName,
-    });
+    return subject.communityChallenge.title || '';
   };
 
   const renderStepOfFaithMessage = (
@@ -220,40 +220,26 @@ export const CommunityFeedItemContent = ({
     subject: CommunityFeedItemContent_subject_Post,
   ) => <Markdown style={markdown}>{subject.content}</Markdown>;
 
-  const renderChallengeLink = (
-    subject: CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
-  ) => (
-    <View style={styles.row}>
-      <Text numberOfLines={2} style={styles.challengeLinkText}>
-        {subject.communityChallenge.title}
-      </Text>
-    </View>
-  );
-
   const renderHeader = () => (
     <View style={styles.headerWrap}>
-      <View style={styles.headerRow}>
-        {subject.__typename === 'AcceptedCommunityChallenge' ? (
-          <Text style={styles.headerTextOnly}>
-            {t('challengeAcceptedHeader')}
-          </Text>
-        ) : (
+      {subject.__typename === 'AcceptedCommunityChallenge' ? null : (
+        <View style={styles.headerRow}>
           <PostTypeLabel
             type={itemType}
             onPress={postLabelPressable ? navToFilteredFeed : undefined}
           />
-        )}
-        {menuActions && menuActions.length > 0 ? (
-          <View style={styles.popupMenuWrap}>
-            <PopupMenu
-              actions={menuActions}
-              buttonProps={{ style: styles.popupButton }}
-            >
-              <KebabIcon color={theme.grey} />
-            </PopupMenu>
-          </View>
-        ) : null}
-      </View>
+          {menuActions && menuActions.length > 0 ? (
+            <View style={styles.popupMenuWrap}>
+              <PopupMenu
+                actions={menuActions}
+                buttonProps={{ style: styles.popupButton }}
+              >
+                <KebabIcon color={theme.grey} />
+              </PopupMenu>
+            </View>
+          ) : null}
+        </View>
+      )}
       <View style={styles.headerRow}>
         {!isGlobal ? renderAvatar() : null}
         <View
@@ -315,6 +301,7 @@ export const CommunityFeedItemContent = ({
         <CommentLikeComponent
           testID="CommentLikeComponent"
           feedItem={feedItem}
+          hideComment={isGlobal}
           onCommentPress={onCommentPress}
         />
       </View>
@@ -347,10 +334,14 @@ export const CommunityFeedItemContent = ({
     <>
       {renderHeader()}
       <View style={styles.postTextWrap}>
+        {subject.__typename === 'AcceptedCommunityChallenge' && (
+          <Text style={styles.headerTextOnly}>
+            {subject.completedAt
+              ? t('challengeCompletedHeader')
+              : t('challengeAcceptedHeader')}
+          </Text>
+        )}
         {renderMessage()}
-        {subject.__typename === 'AcceptedCommunityChallenge'
-          ? renderChallengeLink(subject)
-          : null}
       </View>
       {renderMedia()}
       {showLikeAndComment ? (
