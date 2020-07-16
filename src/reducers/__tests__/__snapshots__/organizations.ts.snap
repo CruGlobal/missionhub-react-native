@@ -10,7 +10,7 @@ Object {
         "some_prop": "Roge",
       },
       "id": "_global_community_id",
-      "name": "MissionHub Community",
+      "name": "MissionHub",
     },
     Object {
       "id": "1",
@@ -26,7 +26,7 @@ Object {
     Object {
       "community": true,
       "id": "_global_community_id",
-      "name": "MissionHub Community",
+      "name": "MissionHub",
     },
     Object {
       "id": "123",
@@ -44,7 +44,7 @@ Object {
     Object {
       "community": true,
       "id": "_global_community_id",
-      "name": "MissionHub Community",
+      "name": "MissionHub",
     },
     Object {
       "celebratePagination": Object {
