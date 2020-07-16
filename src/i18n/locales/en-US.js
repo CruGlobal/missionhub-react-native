@@ -831,7 +831,7 @@ export default {
       QUESTION:
         'Ask a question or join a conversation about life, God and the Bible.',
       HELP_REQUEST: 'Share and respond to needs in the community.',
-      ANNOUNCEMENT: 'Get the latest news, like directions to the next potluck.',
+      ANNOUNCEMENT: 'Get the latest community news.',
       THOUGHT:
         'Share a random thought, or pass on the meme that made you laugh until you cried.',
       STEP: 'Recognize your Community’s steps of faith.',
