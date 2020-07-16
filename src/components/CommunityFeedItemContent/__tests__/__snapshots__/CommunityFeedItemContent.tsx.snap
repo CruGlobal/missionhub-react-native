@@ -552,7 +552,7 @@ Array [
         ]
       }
     >
-      Joined a Challenge!
+      Completed a Challenge!
     </Text>
     <Text
       style={
@@ -1304,26 +1304,6 @@ Array [
       }
     }
   >
-    <Text
-      style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#3CC8E6",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "lineHeight": 20,
-          },
-        ]
-      }
-    >
-      Joined a Challenge!
-    </Text>
     <Text
       style={
         Array [
