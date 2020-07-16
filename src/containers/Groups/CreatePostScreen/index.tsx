@@ -211,15 +211,8 @@ export const CreatePostScreen = () => {
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
-    if (media) {
-      if (hasImage) {
-        dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
-        console.log('photo');
-      } else if (hasVideo) {
-        dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
-        console.log('video');
-      }
-    }
+    media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
+    media && hasImage && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
 
     dispatch(navigateBack());
   };
