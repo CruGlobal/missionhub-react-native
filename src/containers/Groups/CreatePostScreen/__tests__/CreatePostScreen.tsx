@@ -336,6 +336,12 @@ describe('Creating a post', () => {
     await fireEvent.press(getByTestId('CreatePostButton'));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -364,6 +370,10 @@ describe('Creating a post', () => {
     await fireEvent.press(getByTestId('CreatePostButton'));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -392,6 +402,10 @@ describe('Creating a post', () => {
     await fireEvent.press(getByTestId('CreatePostButton'));
 
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -439,7 +453,15 @@ describe('Updating a post', () => {
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.SHARE_STORY,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
@@ -466,13 +488,56 @@ describe('Updating a post', () => {
     });
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.SHARE_STORY,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
           content: MOCK_POST,
           id: post.id,
           media: MOCK_IMAGE,
+        },
+      },
+    });
+  });
+
+  it('calls savePost function with video', async () => {
+    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        communityId,
+        post,
+      },
+    });
+
+    await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
+    await fireEvent.press(getByTestId('VideoButton'));
+    await flushMicrotasksQueue();
+
+    await fireEvent.press(getByTestId('CreatePostButton'));
+
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.SHARE_STORY,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
+      variables: {
+        input: {
+          content: MOCK_POST,
+          id: post.id,
+          media: {
+            name: 'upload',
+            type: videoType,
+            uri: MOCK_VIDEO,
+          },
         },
       },
     });

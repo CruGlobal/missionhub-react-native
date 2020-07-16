@@ -214,6 +214,9 @@ export const CreatePostScreen = () => {
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
+    media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
+    media && hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
+
     dispatch(navigateBack());
   };
 
