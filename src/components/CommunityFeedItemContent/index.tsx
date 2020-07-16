@@ -35,6 +35,7 @@ import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
 import { CardHorizontalMargin } from '../Card/styles';
+import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -66,6 +67,7 @@ export const CommunityFeedItemContent = ({
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
+  const { video: videoEnabled } = useFeatureFlags();
 
   const { subject, subjectPerson, subjectPersonName, community } = feedItem;
   if (
@@ -271,7 +273,7 @@ export const CommunityFeedItemContent = ({
         style={{ aspectRatio }}
         resizeMode="cover"
       />
-    ) : mediaData && mediaType?.includes('video') ? (
+    ) : mediaData && videoEnabled && mediaType?.includes('video') ? (
       <Touchable
         isAndroidOpacity={true}
         activeOpacity={1}

@@ -39,6 +39,7 @@ import {
   GetCommunityFeedVariables,
 } from '../../CommunityFeed/__generated__/GetCommunityFeed';
 import { useAspectRatio } from '../../../utils/hooks/useAspectRatio';
+import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
 
 import PhotoIcon from './photoIcon.svg';
 import VideoIcon from './videoIcon.svg';
@@ -92,6 +93,8 @@ export const CreatePostScreen = () => {
     permissionType: { communityId },
     editMode: { isEdit: !!post },
   });
+
+  const { video: videoEnabled } = useFeatureFlags();
 
   const [createPost, { error: errorCreatePost }] = useMutation<
     CreatePost,
@@ -165,7 +168,7 @@ export const CreatePostScreen = () => {
   >(UPDATE_POST);
 
   const hasImage = mediaType?.includes('image');
-  const hasVideo = mediaType?.includes('video');
+  const hasVideo = videoEnabled && mediaType?.includes('video');
 
   const savePost = async () => {
     if (!text) {
@@ -276,15 +279,19 @@ export const CreatePostScreen = () => {
 
   const renderVideoPhotoButtons = () => (
     <>
-      <View style={styles.lineBreak} />
-      <Touchable
-        testID="VideoButton"
-        style={styles.addPhotoButton}
-        onPress={navigateToRecordVideo}
-      >
-        <VideoIcon style={styles.icon} />
-        <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
-      </Touchable>
+      {videoEnabled ? (
+        <>
+          <View style={styles.lineBreak} />
+          <Touchable
+            testID="VideoButton"
+            style={styles.addPhotoButton}
+            onPress={navigateToRecordVideo}
+          >
+            <VideoIcon style={styles.icon} />
+            <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
+          </Touchable>
+        </>
+      ) : null}
       <View style={styles.lineBreak} />
       <ImagePicker onSelectImage={handleSavePhoto}>
         <View style={styles.addPhotoButton}>
