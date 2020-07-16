@@ -106,8 +106,6 @@ const AddContactFields = ({
           <Flex align="center">
             {isMe ? (
               <ImagePicker
-                // @ts-ignore
-                testID="ImagePicker"
                 onSelectImage={handleImageChange}
                 circleOverlay={true}
               >
