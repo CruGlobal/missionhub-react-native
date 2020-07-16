@@ -24,13 +24,13 @@ import styles from './styles';
 interface CreatePostButtonProps {
   type?: FeedItemSubjectTypeEnum;
   communityId: string;
-  feedRefetch: () => void;
+  onComplete: () => void;
 }
 
 export const CreatePostButton = ({
   type,
   communityId,
-  feedRefetch,
+  onComplete,
 }: CreatePostButtonProps) => {
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
@@ -66,7 +66,7 @@ export const CreatePostButton = ({
       navigatePush(CREATE_POST_SCREEN, {
         communityId,
         postType,
-        onSave: feedRefetch,
+        onComplete,
       }),
     );
   };
@@ -85,6 +85,7 @@ export const CreatePostButton = ({
           closeModal={closeModal}
           communityId={communityId}
           adminOrOwner={adminOrOwner}
+          onComplete={onComplete}
         />
       ) : null}
       <Button

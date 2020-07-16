@@ -70,6 +70,7 @@ export const CreatePostScreen = () => {
   const dispatch = useDispatch();
 
   const communityId: string = useNavigationParam('communityId');
+  const onComplete: () => void = useNavigationParam('onComplete');
   const post: CommunityFeedItem_subject_Post | undefined = useNavigationParam(
     'post',
   );
@@ -218,6 +219,8 @@ export const CreatePostScreen = () => {
 
     media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
     media && hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
+
+    onComplete();
   };
 
   const handleSavePhoto = (image: SelectImageParams) => {

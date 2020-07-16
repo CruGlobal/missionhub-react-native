@@ -242,6 +242,7 @@ export const CommunityFeed = ({
       feedItem={item}
       namePressable={itemNamePressable}
       postTypePressable={!personId && !filteredFeedType}
+      onEditPost={refetch}
     />
   );
 
@@ -263,7 +264,7 @@ export const CommunityFeed = ({
             <CreatePostButton
               communityId={communityId}
               type={filteredFeedType}
-              feedRefetch={refetch}
+              onComplete={refetch}
             />
             {filteredFeedType ? null : (
               <CommunityFeedPostCards
