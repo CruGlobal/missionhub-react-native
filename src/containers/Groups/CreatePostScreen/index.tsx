@@ -177,6 +177,8 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
+    dispatch(navigateBack());
+
     const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
 
     const media: string | ReactNativeFile | undefined =
@@ -216,8 +218,6 @@ export const CreatePostScreen = () => {
 
     media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
     media && hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
-
-    dispatch(navigateBack());
   };
 
   const handleSavePhoto = (image: SelectImageParams) => {
