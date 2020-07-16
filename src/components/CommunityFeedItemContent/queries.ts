@@ -25,6 +25,7 @@ export const COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT = gql`
       ... on Post {
         id
         content
+        mediaContentType
         mediaExpiringUrl
         stepStatus
       }

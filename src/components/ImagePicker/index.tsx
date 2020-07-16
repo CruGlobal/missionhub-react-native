@@ -110,6 +110,7 @@ const ImagePicker = ({
 
   return (
     <PopupMenu
+      testID="ImagePicker"
       actions={[
         { text: t('takePhoto'), onPress: takePhoto },
         { text: t('chooseFromLibrary'), onPress: chooseFromLibrary },
