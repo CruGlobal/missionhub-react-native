@@ -24,6 +24,7 @@ import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
@@ -101,9 +102,8 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
     mocks: {
       FeedItem: () => ({
         community: () => ({ id: communityId }),
-        subject: () => ({
-          __typename: 'AcceptedCommunityChallenge',
-        }),
+        subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
       }),
     },
   },
