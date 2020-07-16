@@ -529,7 +529,7 @@ export default {
     groupsNull: 'Your communities will show up here.',
     joinCommunity: 'Join a Community',
     createCommunity: 'Create a Community',
-    globalCommunity: 'MissionHub Community',
+    globalCommunity: 'MissionHub',
     errorLoadingCommunities: 'Error loading communities',
   },
   shareAStoryScreen: {
@@ -905,7 +905,7 @@ export default {
     memberCount: '{{count}} Member',
     memberCount_plural: '{{count}} Members',
     errorLoadingCommunityDetails: 'Error loading community details',
-    globalCommunity: 'MissionHub Community',
+    globalCommunity: 'MissionHub',
   },
   personHeader: {
     editPerson: 'Edit Person',
