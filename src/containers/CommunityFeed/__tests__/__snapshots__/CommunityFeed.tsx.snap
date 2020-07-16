@@ -82,7 +82,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"completedAt\\": \\"2019-05-16T21:04:06.229Z\\",
 +               \\"id\\": \\"56\\",
 +             },
-+             \\"subjectEvent\\": \\"postCreated\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Dangelo\\",
@@ -121,7 +121,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"62\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"challengeCompleted\\",
++             \\"subjectEvent\\": \\"challengeJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Mervin\\",
@@ -162,7 +162,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"completedAt\\": \\"2019-12-15T18:57:44.143Z\\",
 +               \\"id\\": \\"66\\",
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Keenan\\",
@@ -201,7 +201,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"72\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"communityCreated\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Adolph\\",
@@ -320,7 +320,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"completedAt\\": \\"2019-07-16T13:18:53.336Z\\",
 +               \\"id\\": \\"86\\",
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"challengeJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Kenyon\\",
@@ -359,7 +359,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"92\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Concepcion\\",
@@ -398,7 +398,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"97\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"communityCreated\\",
++             \\"subjectEvent\\": \\"stepCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Dena\\",
@@ -492,7 +492,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"completedAt\\": \\"2019-05-16T21:04:06.229Z\\",
 +               \\"id\\": \\"56\\",
 +             },
-+             \\"subjectEvent\\": \\"postCreated\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Dangelo\\",
@@ -531,7 +531,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"62\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"challengeCompleted\\",
++             \\"subjectEvent\\": \\"challengeJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Mervin\\",
@@ -572,7 +572,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"completedAt\\": \\"2019-12-15T18:57:44.143Z\\",
 +               \\"id\\": \\"66\\",
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Keenan\\",
@@ -611,7 +611,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"72\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"communityCreated\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Adolph\\",
@@ -730,7 +730,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +               \\"completedAt\\": \\"2019-07-16T13:18:53.336Z\\",
 +               \\"id\\": \\"86\\",
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"challengeJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Kenyon\\",
@@ -769,7 +769,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"92\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Concepcion\\",
@@ -808,7 +808,7 @@ exports[`handle pagination community feed pagination paginates when close to bot
 +                 \\"id\\": \\"97\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"communityCreated\\",
++             \\"subjectEvent\\": \\"stepCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Dena\\",
@@ -869,7 +869,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +               \\"postType\\": \\"announcement\\",
 +               \\"stepStatus\\": \\"NONE\\",
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Tressa\\",
@@ -910,7 +910,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +               \\"completedAt\\": \\"2019-05-16T21:04:06.229Z\\",
 +               \\"id\\": \\"52\\",
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"stepCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Telly\\",
@@ -949,7 +949,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"58\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Oswaldo\\",
@@ -990,7 +990,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +               \\"completedAt\\": \\"2019-12-15T18:57:44.143Z\\",
 +               \\"id\\": \\"62\\",
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Lewis\\",
@@ -1107,7 +1107,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"78\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"communityJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Breana\\",
@@ -1187,7 +1187,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"88\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Forrest\\",
@@ -1226,7 +1226,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"93\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"challengeJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Dorothy\\",
@@ -1277,7 +1277,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +               \\"postType\\": \\"announcement\\",
 +               \\"stepStatus\\": \\"NONE\\",
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Tressa\\",
@@ -1318,7 +1318,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +               \\"completedAt\\": \\"2019-05-16T21:04:06.229Z\\",
 +               \\"id\\": \\"52\\",
 +             },
-+             \\"subjectEvent\\": \\"challengeJoined\\",
++             \\"subjectEvent\\": \\"stepCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Telly\\",
@@ -1357,7 +1357,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"58\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Oswaldo\\",
@@ -1398,7 +1398,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +               \\"completedAt\\": \\"2019-12-15T18:57:44.143Z\\",
 +               \\"id\\": \\"62\\",
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"postCreated\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Lewis\\",
@@ -1515,7 +1515,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"78\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"communityJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Breana\\",
@@ -1595,7 +1595,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"88\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"challengeCompleted\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Forrest\\",
@@ -1634,7 +1634,7 @@ exports[`handle pagination global community feed pagination paginates when close
 +                 \\"id\\": \\"93\\",
 +               },
 +             },
-+             \\"subjectEvent\\": \\"stepCompleted\\",
++             \\"subjectEvent\\": \\"challengeJoined\\",
 +             \\"subjectPerson\\": Object {
 +               \\"__typename\\": \\"Person\\",
 +               \\"firstName\\": \\"Dorothy\\",
@@ -1773,7 +1773,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "INCOMPLETE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Hayden",
@@ -1814,7 +1814,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "6",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Mina",
@@ -1855,7 +1855,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "11",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Aaliyah",
@@ -1933,7 +1933,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Caesar",
@@ -1972,7 +1972,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Audrey",
@@ -2011,7 +2011,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                 "id": "30",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Chyna",
@@ -2050,7 +2050,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Ezequiel",
@@ -2130,7 +2130,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                 "id": "44",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Kali",
@@ -2210,7 +2210,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "INCOMPLETE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Hayden",
@@ -2251,7 +2251,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "6",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Mina",
@@ -2292,7 +2292,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "11",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Aaliyah",
@@ -2370,7 +2370,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Caesar",
@@ -2409,7 +2409,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Audrey",
@@ -2448,7 +2448,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                 "id": "30",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Chyna",
@@ -2487,7 +2487,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Ezequiel",
@@ -2567,7 +2567,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                 "id": "44",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Kali",
@@ -2672,7 +2672,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "INCOMPLETE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Hayden",
@@ -2724,7 +2724,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "6",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Mina",
@@ -2776,7 +2776,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "11",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Aaliyah",
@@ -2876,7 +2876,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Caesar",
@@ -2926,7 +2926,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Audrey",
@@ -2976,7 +2976,7 @@ exports[`renders for Global Community renders correctly 1`] = `
                 "id": "30",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Chyna",
@@ -3026,7 +3026,7 @@ exports[`renders for Global Community renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Ezequiel",
@@ -3151,7 +3151,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -3192,7 +3192,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -3233,7 +3233,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -3272,7 +3272,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -3311,7 +3311,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -3350,7 +3350,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -3428,7 +3428,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -3469,7 +3469,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -3590,7 +3590,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -3631,7 +3631,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -3672,7 +3672,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -3711,7 +3711,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -3750,7 +3750,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -3789,7 +3789,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -3867,7 +3867,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -3908,7 +3908,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -4062,7 +4062,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -4114,7 +4114,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -4166,7 +4166,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -4216,7 +4216,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -4266,7 +4266,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -4316,7 +4316,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -4416,7 +4416,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -4468,7 +4468,7 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -4541,7 +4541,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -4582,7 +4582,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -4662,7 +4662,7 @@ exports[`renders for member renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -4701,7 +4701,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -4740,7 +4740,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -4779,7 +4779,7 @@ exports[`renders for member renders correctly 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -4818,7 +4818,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -4859,7 +4859,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -4980,7 +4980,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -5021,7 +5021,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -5101,7 +5101,7 @@ exports[`renders for member renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -5140,7 +5140,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -5179,7 +5179,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -5218,7 +5218,7 @@ exports[`renders for member renders correctly 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -5257,7 +5257,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -5298,7 +5298,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -5452,7 +5452,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -5504,7 +5504,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -5606,7 +5606,7 @@ exports[`renders for member renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -5656,7 +5656,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -5706,7 +5706,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -5756,7 +5756,7 @@ exports[`renders for member renders correctly 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -5806,7 +5806,7 @@ exports[`renders for member renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -5858,7 +5858,7 @@ exports[`renders for member renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -5931,7 +5931,7 @@ exports[`renders for member renders with type 1`] = `
               "completedAt": "2016-01-27T11:31:41.601Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -6013,7 +6013,7 @@ exports[`renders for member renders with type 1`] = `
               "completedAt": "2016-01-27T11:31:41.601Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -6123,7 +6123,7 @@ exports[`renders for member renders with type 1`] = `
               "completedAt": "2016-01-27T11:31:41.601Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -6200,7 +6200,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -6241,7 +6241,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -6282,7 +6282,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -6321,7 +6321,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -6360,7 +6360,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -6399,7 +6399,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -6438,7 +6438,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -6477,7 +6477,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -6518,7 +6518,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -6557,7 +6557,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "46",
               },
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Elza",
@@ -6639,7 +6639,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -6680,7 +6680,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -6721,7 +6721,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -6760,7 +6760,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -6799,7 +6799,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -6838,7 +6838,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -6877,7 +6877,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -6916,7 +6916,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -6957,7 +6957,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -6996,7 +6996,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "46",
               },
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Elza",
@@ -7103,7 +7103,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -7155,7 +7155,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -7207,7 +7207,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -7257,7 +7257,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -7307,7 +7307,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -7357,7 +7357,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -7407,7 +7407,7 @@ exports[`renders for member renders without header 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -7457,7 +7457,7 @@ exports[`renders for member renders without header 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -7509,7 +7509,7 @@ exports[`renders for member renders without header 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -7582,7 +7582,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -7623,7 +7623,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -7664,7 +7664,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -7703,7 +7703,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -7742,7 +7742,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -7781,7 +7781,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -7820,7 +7820,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -7859,7 +7859,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -7900,7 +7900,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -8021,7 +8021,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -8062,7 +8062,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -8103,7 +8103,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -8142,7 +8142,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -8181,7 +8181,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -8220,7 +8220,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -8259,7 +8259,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -8298,7 +8298,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -8339,7 +8339,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -8493,7 +8493,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -8546,7 +8546,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2017-02-20T20:26:34.826Z",
               "id": "8",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Branson",
@@ -8599,7 +8599,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2015-05-07T06:42:18.291Z",
               "id": "13",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "postCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Zola",
@@ -8650,7 +8650,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -8701,7 +8701,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityCreated",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -8752,7 +8752,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "question",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "stepCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Gideon",
@@ -8803,7 +8803,7 @@ exports[`renders with clear notification renders correctly 1`] = `
                 "id": "32",
               },
             },
-            "subjectEvent": "postCreated",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Marcellus",
@@ -8854,7 +8854,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "postType": "story",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Tre",
@@ -8907,7 +8907,7 @@ exports[`renders with clear notification renders correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -8981,7 +8981,7 @@ exports[`renders with items correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -9102,7 +9102,7 @@ exports[`renders with items correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -9141,7 +9141,7 @@ exports[`renders with items correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -9299,7 +9299,7 @@ exports[`renders with items correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -9338,7 +9338,7 @@ exports[`renders with items correctly 1`] = `
                 "id": "46",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Elza",
@@ -9420,7 +9420,7 @@ exports[`renders with items correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -9541,7 +9541,7 @@ exports[`renders with items correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -9580,7 +9580,7 @@ exports[`renders with items correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -9738,7 +9738,7 @@ exports[`renders with items correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -9777,7 +9777,7 @@ exports[`renders with items correctly 1`] = `
                 "id": "46",
               },
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Elza",
@@ -9892,7 +9892,7 @@ exports[`renders with items correctly 1`] = `
               "completedAt": "2014-11-09T17:50:11.907Z",
               "id": "3",
             },
-            "subjectEvent": "challengeJoined",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -10046,7 +10046,7 @@ exports[`renders with items correctly 1`] = `
                 "id": "19",
               },
             },
-            "subjectEvent": "stepCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Darwin",
@@ -10096,7 +10096,7 @@ exports[`renders with items correctly 1`] = `
               "postType": "announcement",
               "stepStatus": "NONE",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Grace",
@@ -10298,7 +10298,7 @@ exports[`renders with items correctly 1`] = `
               "completedAt": "2016-01-28T10:57:20.814Z",
               "id": "40",
             },
-            "subjectEvent": "communityCreated",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Roscoe",
@@ -10645,7 +10645,7 @@ exports[`sections renders New section 1`] = `
               "completedAt": "2010-01-19T12:03:03.064Z",
               "id": "3",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -10727,7 +10727,7 @@ exports[`sections renders New section 1`] = `
               "completedAt": "2010-01-19T12:03:03.064Z",
               "id": "3",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -10842,7 +10842,7 @@ exports[`sections renders New section 1`] = `
               "completedAt": "2010-01-19T12:03:03.064Z",
               "id": "3",
             },
-            "subjectEvent": "challengeCompleted",
+            "subjectEvent": "communityJoined",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -10919,7 +10919,7 @@ exports[`sections renders Today section 1`] = `
               "completedAt": "2010-01-19T12:03:03.064Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -11001,7 +11001,7 @@ exports[`sections renders Today section 1`] = `
               "completedAt": "2010-01-19T12:03:03.064Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
@@ -11116,7 +11116,7 @@ exports[`sections renders Today section 1`] = `
               "completedAt": "2010-01-19T12:03:03.064Z",
               "id": "3",
             },
-            "subjectEvent": "communityJoined",
+            "subjectEvent": "challengeCompleted",
             "subjectPerson": Object {
               "__typename": "Person",
               "firstName": "Torey",
