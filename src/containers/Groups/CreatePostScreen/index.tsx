@@ -212,7 +212,7 @@ export const CreatePostScreen = () => {
     }
 
     media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
-    media && hasImage && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
+    media && hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
 
     dispatch(navigateBack());
   };
