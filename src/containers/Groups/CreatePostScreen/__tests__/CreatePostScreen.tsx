@@ -18,12 +18,14 @@ import {
   CommunityFeedItem,
   CommunityFeedItem_subject_Post,
 } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { useFeatureFlags } from '../../../../utils/hooks/useFeatureFlags';
 
 import { CreatePostScreen } from '..';
 
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');
+jest.mock('../../../../utils/hooks/useFeatureFlags');
 jest.mock('react-native-video', () => 'Video');
 
 const myId = '5';
@@ -67,6 +69,7 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: true });
 });
 
 it('renders correctly for new post', () => {
@@ -81,7 +84,43 @@ it('renders correctly for new post', () => {
   });
 });
 
+it('renders correctly for new post and feature flag false', () => {
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: { communityId, postType },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: false },
+  });
+});
+
 it('renders correctly for update post without media', () => {
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: {
+      communityId,
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: undefined,
+        mediaExpiringUrl: undefined,
+      },
+    },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: true },
+  });
+});
+
+it('renders correctly for update post without media and feature flag false', () => {
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
@@ -122,6 +161,28 @@ it('renders correctly for update post with image', () => {
 });
 
 it('renders correctly for update post with video', () => {
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: {
+      communityId,
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: 'video',
+        mediaExpiringUrl: MOCK_VIDEO,
+      },
+    },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: true },
+  });
+});
+
+it('renders correctly for update post without video if feature flag is false', () => {
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {

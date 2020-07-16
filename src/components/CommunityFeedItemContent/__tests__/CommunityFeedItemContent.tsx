@@ -17,12 +17,14 @@ import {
   PostTypeEnum,
   PostStepStatusEnum,
 } from '../../../../__generated__/globalTypes';
+import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
 
 import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
+jest.mock('../../../utils/hooks/useFeatureFlags');
 jest.mock('react-native-video', () => 'Video');
 
 const initialState = {
@@ -39,6 +41,7 @@ beforeEach(() => {
   (reloadGroupChallengeFeed as jest.Mock).mockReturnValue(
     reloadGroupChallengeFeedReponse,
   );
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: true });
 });
 
 function mockFrag(mocks: IMocks) {
@@ -279,6 +282,21 @@ describe('CommunityFeedItemContent', () => {
     );
   });
   it('renders with video', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({
+          subject: () => ({
+            __typename: 'Post',
+            postType: PostTypeEnum.story,
+            mediaContentType: 'video/mp4',
+          }),
+        }),
+      }),
+    );
+  });
+  it('renders without video if feature flag is false', () => {
+    (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
     testEvent(
       mockFrag({
         FeedItem: () => ({
