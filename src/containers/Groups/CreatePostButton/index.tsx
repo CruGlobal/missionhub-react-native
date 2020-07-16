@@ -24,11 +24,13 @@ import styles from './styles';
 interface CreatePostButtonProps {
   type?: FeedItemSubjectTypeEnum;
   communityId: string;
+  feedRefetch: () => void;
 }
 
 export const CreatePostButton = ({
   type,
   communityId,
+  feedRefetch,
 }: CreatePostButtonProps) => {
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
@@ -64,6 +66,7 @@ export const CreatePostButton = ({
       navigatePush(CREATE_POST_SCREEN, {
         communityId,
         postType,
+        onSave: feedRefetch,
       }),
     );
   };

@@ -263,6 +263,7 @@ export const CommunityFeed = ({
             <CreatePostButton
               communityId={communityId}
               type={filteredFeedType}
+              feedRefetch={refetch}
             />
             {filteredFeedType ? null : (
               <CommunityFeedPostCards
