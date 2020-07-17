@@ -86,16 +86,17 @@ export const CreatePostScreen = () => {
   const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
   );
-  const imageAspectRatio = useAspectRatio(
-    mediaType === 'image' ? mediaData : null,
-  );
+  const { video: videoEnabled } = useFeatureFlags();
+
+  const hasImage = mediaType?.includes('image');
+  const hasVideo = videoEnabled && mediaType?.includes('video');
+
+  const imageAspectRatio = useAspectRatio(hasImage ? mediaData : null);
 
   useAnalytics(['post', getPostTypeAnalytics(postType)], {
     permissionType: { communityId },
     editMode: { isEdit: !!post },
   });
-
-  const { video: videoEnabled } = useFeatureFlags();
 
   const [createPost, { error: errorCreatePost }] = useMutation<
     CreatePost,
@@ -167,9 +168,6 @@ export const CreatePostScreen = () => {
     UpdatePost,
     UpdatePostVariables
   >(UPDATE_POST);
-
-  const hasImage = mediaType?.includes('image');
-  const hasVideo = videoEnabled && mediaType?.includes('video');
 
   const savePost = async () => {
     if (!text) {
@@ -299,7 +297,7 @@ export const CreatePostScreen = () => {
         </>
       ) : null}
       <View style={styles.lineBreak} />
-      <ImagePicker onSelectImage={handleSavePhoto}>
+      <ImagePicker onSelectImage={handleSavePhoto} showCropper={false}>
         <View style={styles.addPhotoButton}>
           <PhotoIcon style={styles.icon} />
           <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
@@ -311,7 +309,7 @@ export const CreatePostScreen = () => {
 
   const renderMedia = () =>
     mediaData && hasImage ? (
-      <ImagePicker onSelectImage={handleSavePhoto}>
+      <ImagePicker onSelectImage={handleSavePhoto} showCropper={false}>
         <Image
           resizeMode="contain"
           source={{ uri: mediaData }}
