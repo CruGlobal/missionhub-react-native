@@ -16,6 +16,7 @@ import { COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT } from '../queries';
 import {
   PostTypeEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
 import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
 
@@ -66,6 +67,7 @@ describe('CommunityFeedItemContent', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
+            subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
             subject: () => ({
               __typename: 'AcceptedCommunityChallenge',
               completedAt: () => null,
@@ -78,9 +80,8 @@ describe('CommunityFeedItemContent', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
-            subject: () => ({
-              __typename: 'AcceptedCommunityChallenge',
-            }),
+            subjectEvent: FeedItemSubjectEventEnum.challengeCompleted,
+            subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
           }),
         }),
       ));
@@ -89,9 +90,8 @@ describe('CommunityFeedItemContent', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
-            subject: () => ({
-              __typename: 'AcceptedCommunityChallenge',
-            }),
+            subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
+            subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
             subjectPerson: () => null,
           }),
         }),
@@ -101,9 +101,8 @@ describe('CommunityFeedItemContent', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
-            subject: () => ({
-              __typename: 'AcceptedCommunityChallenge',
-            }),
+            subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
+            subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
             subjectPerson: () => null,
             subjectPersonName: () => null,
           }),
@@ -331,6 +330,7 @@ describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen', async () => {
     const challengeFeedItem = mockFrag({
       FeedItem: () => ({
+        subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
         subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
       }),
     });
@@ -362,6 +362,7 @@ describe('onPressChallengeLink', () => {
   it('navigates to challenge detail screen | Global Community Challenge', async () => {
     const challengeFeedItem = mockFrag({
       FeedItem: () => ({
+        subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
         subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
         community: () => null,
       }),
@@ -394,6 +395,7 @@ describe('press footer', () => {
   it('nothing should happen', () => {
     const challengeFeedItem = mockFrag({
       FeedItem: () => ({
+        subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
         subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
       }),
     });
