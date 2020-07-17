@@ -27,14 +27,18 @@ export default StyleSheet.create({
     position: 'relative',
     paddingHorizontal: 25,
     alignItems: 'center',
-    paddingTop: 15,
     marginBottom: 5,
   },
+  headerTitle: {
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: 'normal',
+  },
   headerIcon: {
-    opacity: 0.2,
+    opacity: 0.4,
     position: 'absolute',
-    bottom: -75,
-    right: -30,
+    bottom: -60,
+    right: -40,
   },
   headerText: {
     fontSize: 24,

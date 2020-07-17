@@ -458,6 +458,41 @@ it('renders correctly | Comment 4', () => {
   ).snapshot();
 });
 
+it('renders correctly | Comment 5', () => {
+  renderWithContext(
+    <NotificationCenterItem
+      event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
+        mocks: {
+          Notification: () => ({
+            messageTemplate: () =>
+              '<<subject_person>> commented on your <<localized_feed_item>> in <<community_name>>.',
+            trigger: () =>
+              NotificationTriggerEnum.feed_items_comment_on_my_feed_item_notification,
+            messageVariables: () => [
+              {
+                key: 'subject_person',
+                value: 'Christian',
+              },
+              {
+                key: 'original_poster',
+                value: 'Scotty',
+              },
+              {
+                key: 'localized_feed_item',
+                value: 'step of faith',
+              },
+              {
+                key: 'community_name',
+                value: 'Bleh',
+              },
+            ],
+          }),
+        },
+      })}
+    />,
+  ).snapshot();
+});
+
 describe('handleNotificationPress', () => {
   it('navigates when notification is pressed', () => {
     const mockNotification = mockFragment<NotificationItem>(

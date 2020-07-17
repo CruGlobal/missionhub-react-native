@@ -42,9 +42,11 @@ exports[`Reported Post call handleDelete 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
--       }
--     }
--   >
++       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
+      }
+    }
+  >
 -     <View
 -       style={
 -         Array [
@@ -73,22 +75,27 @@ exports[`Reported Post call handleDelete 1`] = `
 -         Reported By
 -         :
 -       </Text>
--       <Text
++   <SvgMock />
+    <Text
 -         numberOfLines={1}
--         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--           ]
--         }
--       >
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          },
+          Object {
+            \\"color\\": \\"#505256\\",
++           \\"fontSize\\": 24,
++           \\"fontWeight\\": \\"300\\",
++           \\"lineHeight\\": 30,
++           \\"paddingVertical\\": 20,
+          },
+        ]
+      }
+    >
 -         Roscoe Johnson
 -       </Text>
 -       <Text
@@ -107,7 +114,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -           ]
 -         }
 -       >
--         Stand-alone asymmetric service-desk
+-         Synergistic tertiary service-desk
 -       </Text>
 -     </View>
 -     <Text
@@ -128,7 +135,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -       testID=\\"openPostButton\\"
 -     >
 -       Open Post
--     </Text>
++     Hurray
+    </Text>
 -   </View>
 -   <View
 -     style={
@@ -147,77 +155,11 @@ exports[`Reported Post call handleDelete 1`] = `
 -         }
 -       }
 -     >
--       <View
--         style={
--           Array [
--             Object {
--               \\"alignItems\\": \\"center\\",
--               \\"borderRadius\\": 18,
--               \\"flexDirection\\": \\"row\\",
--               \\"height\\": 36,
--               \\"justifyContent\\": \\"space-between\\",
--               \\"paddingLeft\\": 20,
--               \\"paddingRight\\": 16,
--               \\"paddingVertical\\": 0,
--             },
--             Object {
--               \\"backgroundColor\\": \\"#FD726D\\",
--             },
--             null,
--             null,
--           ]
--         }
--         testID=\\"HELP_REQUESTLabel\\"
--       >
--         <SvgMock
--           color=\\"#ffffff\\"
--           height={20}
--           style={
--             Array [
--               Object {
--                 \\"marginLeft\\": -10,
--                 \\"marginRight\\": 10,
--               },
--               undefined,
--             ]
--           }
--           width={20}
--         />
--         <Text
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"lineHeight\\": 20,
--               },
--             ]
--           }
--         >
--           Community Need
--         </Text>
--       </View>
--     </View>
--     <View
--       style={
--         Object {
--           \\"flexDirection\\": \\"row\\",
--           \\"justifyContent\\": \\"flex-start\\",
--           \\"paddingVertical\\": 8,
--         }
--       }
--     >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
 -           Object {
--             \\"uri\\": \\"debitis et saepe\\",
+-             \\"uri\\": \\"eligendi occaecati debitis\\",
 -           }
 -         }
 -         style={
@@ -228,7 +170,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -               \\"width\\": 48,
 -             },
 -             Object {
--               \\"backgroundColor\\": \\"rgb(135, 155, 115)\\",
+-               \\"backgroundColor\\": \\"rgb(135, 121, 125)\\",
 -             },
 -             undefined,
 -           ]
@@ -241,13 +183,12 @@ exports[`Reported Post call handleDelete 1`] = `
 -               \\"alignItems\\": \\"flex-start\\",
 -               \\"flex\\": 1,
 -               \\"flexDirection\\": \\"column\\",
-        \\"justifyContent\\": \\"center\\",
+-               \\"justifyContent\\": \\"center\\",
 -               \\"paddingHorizontal\\": 8,
 -             },
 -             undefined,
 -           ]
-+       \\"marginTop\\": \\"50%\\",
-      }
+-         }
 -       >
 -         <Text
 -           numberOfLines={2}
@@ -272,11 +213,10 @@ exports[`Reported Post call handleDelete 1`] = `
 -                 },
 -               ],
 -             ]
-    }
-  >
+-           }
+-         >
 -           Keaton Keeling
 -         </Text>
-+   <SvgMock />
     <Text
       style={
         Array [
@@ -308,69 +248,33 @@ exports[`Reported Post call handleDelete 1`] = `
 -   </View>
 -   <View
 -     style={
--       Object {
+          Object {
 -         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <View
--       style={Object {}}
--     >
--       <View
--         style={
+-     <Text
+-       style={
+-         Array [
 -           Object {
--             \\"alignItems\\": \\"flex-start\\",
--             \\"flexDirection\\": \\"row\\",
--             \\"flexWrap\\": \\"wrap\\",
--             \\"justifyContent\\": \\"flex-start\\",
--             \\"marginBottom\\": 10,
--             \\"marginTop\\": 10,
--             \\"marginVertical\\": 10,
--             \\"width\\": \\"100%\\",
--           }
--         }
--       >
--         <Text
--           style={Object {}}
--         >
--           <Text
--             style={
--               Array [
--                 Object {},
-          Object {
             \\"color\\": \\"#505256\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"lineHeight\\": 18,
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
+-           },
+-           Object {
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           },
+-           Object {
+            \\"fontSize\\": 16,
+-             \\"justifyContent\\": \\"flex-start\\",
+            \\"lineHeight\\": 24,
+-             \\"paddingBottom\\": 8,
           },
         ]
       }
     >
--             et porro ut
-+     Hurray
-    </Text>
--         </Text>
--       </View>
--     </View>
+-       porro ut et
+-     </Text>
 -   </View>
--   <Image
--     resizeMode=\\"cover\\"
--     source={
--       Object {
--         \\"uri\\": \\"et ipsam explicabo\\",
--       }
--     }
--     style={
--       Object {
--         \\"aspectRatio\\": 2,
--       }
--     }
--   />
 -   <View
 -     style={
 -       Array [
@@ -431,14 +335,14 @@ exports[`Reported Post call handleDelete 1`] = `
 -             ]
 -           }
 -         >
-    <Text
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           <Text
+-             style={
+-               Array [
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                 },
+-                 Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 },
 -                 Array [
 -                   Object {
@@ -500,7 +404,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -               Object {
 -                 \\"borderBottomRightRadius\\": 8,
 -                 \\"height\\": 50,
-          },
+-               },
 -               null,
 -             ]
 -           }
@@ -508,8 +412,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -           <Text
 -             style={
 -               Array [
-          Object {
-            \\"color\\": \\"#505256\\",
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
 -                 },
 -                 Object {
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
@@ -522,14 +426,12 @@ exports[`Reported Post call handleDelete 1`] = `
 -                     \\"fontWeight\\": \\"500\\",
 -                     \\"letterSpacing\\": 1.5,
 -                     \\"textAlign\\": \\"center\\",
-+           \\"fontSize\\": 16,
-+           \\"lineHeight\\": 24,
-          },
+-                   },
 -                   Object {},
 -                 ],
-        ]
-      }
-    >
+-               ]
+-             }
+-           >
 -             DELETE
 +     You have successfully deleted the post.
     </Text>
@@ -582,9 +484,11 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
--       }
--     }
--   >
++       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
+      }
+    }
+  >
 -     <View
 -       style={
 -         Array [
@@ -613,22 +517,27 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         Reported By
 -         :
 -       </Text>
--       <Text
++   <SvgMock />
+    <Text
 -         numberOfLines={1}
--         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--           ]
--         }
--       >
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          },
+          Object {
+            \\"color\\": \\"#505256\\",
++           \\"fontSize\\": 24,
++           \\"fontWeight\\": \\"300\\",
++           \\"lineHeight\\": 30,
++           \\"paddingVertical\\": 20,
+          },
+        ]
+      }
+    >
 -         Roscoe Johnson
 -       </Text>
 -       <Text
@@ -647,7 +556,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           ]
 -         }
 -       >
--         Stand-alone asymmetric service-desk
+-         Synergistic tertiary service-desk
 -       </Text>
 -     </View>
 -     <Text
@@ -668,7 +577,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       testID=\\"openPostButton\\"
 -     >
 -       Open Post
--     </Text>
++     Hurray
+    </Text>
 -   </View>
 -   <View
 -     style={
@@ -687,77 +597,11 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         }
 -       }
 -     >
--       <View
--         style={
--           Array [
--             Object {
--               \\"alignItems\\": \\"center\\",
--               \\"borderRadius\\": 18,
--               \\"flexDirection\\": \\"row\\",
--               \\"height\\": 36,
--               \\"justifyContent\\": \\"space-between\\",
--               \\"paddingLeft\\": 20,
--               \\"paddingRight\\": 16,
--               \\"paddingVertical\\": 0,
--             },
--             Object {
--               \\"backgroundColor\\": \\"#FD726D\\",
--             },
--             null,
--             null,
--           ]
--         }
--         testID=\\"HELP_REQUESTLabel\\"
--       >
--         <SvgMock
--           color=\\"#ffffff\\"
--           height={20}
--           style={
--             Array [
--               Object {
--                 \\"marginLeft\\": -10,
--                 \\"marginRight\\": 10,
--               },
--               undefined,
--             ]
--           }
--           width={20}
--         />
--         <Text
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"lineHeight\\": 20,
--               },
--             ]
--           }
--         >
--           Community Need
--         </Text>
--       </View>
--     </View>
--     <View
--       style={
--         Object {
--           \\"flexDirection\\": \\"row\\",
--           \\"justifyContent\\": \\"flex-start\\",
--           \\"paddingVertical\\": 8,
--         }
--       }
--     >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
 -           Object {
--             \\"uri\\": \\"debitis et saepe\\",
+-             \\"uri\\": \\"eligendi occaecati debitis\\",
 -           }
 -         }
 -         style={
@@ -768,7 +612,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               \\"width\\": 48,
 -             },
 -             Object {
--               \\"backgroundColor\\": \\"rgb(135, 155, 115)\\",
+-               \\"backgroundColor\\": \\"rgb(135, 121, 125)\\",
 -             },
 -             undefined,
 -           ]
@@ -781,13 +625,12 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               \\"alignItems\\": \\"flex-start\\",
 -               \\"flex\\": 1,
 -               \\"flexDirection\\": \\"column\\",
-        \\"justifyContent\\": \\"center\\",
+-               \\"justifyContent\\": \\"center\\",
 -               \\"paddingHorizontal\\": 8,
 -             },
 -             undefined,
 -           ]
-+       \\"marginTop\\": \\"50%\\",
-      }
+-         }
 -       >
 -         <Text
 -           numberOfLines={2}
@@ -812,11 +655,10 @@ exports[`Reported Post call handleIgnore 1`] = `
 -                 },
 -               ],
 -             ]
-    }
-  >
+-           }
+-         >
 -           Keaton Keeling
 -         </Text>
-+   <SvgMock />
     <Text
       style={
         Array [
@@ -848,69 +690,33 @@ exports[`Reported Post call handleIgnore 1`] = `
 -   </View>
 -   <View
 -     style={
--       Object {
+          Object {
 -         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <View
--       style={Object {}}
--     >
--       <View
--         style={
+-     <Text
+-       style={
+-         Array [
 -           Object {
--             \\"alignItems\\": \\"flex-start\\",
--             \\"flexDirection\\": \\"row\\",
--             \\"flexWrap\\": \\"wrap\\",
--             \\"justifyContent\\": \\"flex-start\\",
--             \\"marginBottom\\": 10,
--             \\"marginTop\\": 10,
--             \\"marginVertical\\": 10,
--             \\"width\\": \\"100%\\",
--           }
--         }
--       >
--         <Text
--           style={Object {}}
--         >
--           <Text
--             style={
--               Array [
--                 Object {},
-          Object {
             \\"color\\": \\"#505256\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"lineHeight\\": 18,
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
+-           },
+-           Object {
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           },
+-           Object {
+            \\"fontSize\\": 16,
+-             \\"justifyContent\\": \\"flex-start\\",
+            \\"lineHeight\\": 24,
+-             \\"paddingBottom\\": 8,
           },
         ]
       }
     >
--             et porro ut
-+     Hurray
-    </Text>
--         </Text>
--       </View>
--     </View>
+-       porro ut et
+-     </Text>
 -   </View>
--   <Image
--     resizeMode=\\"cover\\"
--     source={
--       Object {
--         \\"uri\\": \\"et ipsam explicabo\\",
--       }
--     }
--     style={
--       Object {
--         \\"aspectRatio\\": 2,
--       }
--     }
--   />
 -   <View
 -     style={
 -       Array [
@@ -971,14 +777,14 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             ]
 -           }
 -         >
-    <Text
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           <Text
+-             style={
+-               Array [
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                 },
+-                 Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                 },
 -                 Array [
 -                   Object {
@@ -1040,7 +846,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               Object {
 -                 \\"borderBottomRightRadius\\": 8,
 -                 \\"height\\": 50,
-          },
+-               },
 -               null,
 -             ]
 -           }
@@ -1048,8 +854,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           <Text
 -             style={
 -               Array [
-          Object {
-            \\"color\\": \\"#505256\\",
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
 -                 },
 -                 Object {
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
@@ -1062,14 +868,12 @@ exports[`Reported Post call handleIgnore 1`] = `
 -                     \\"fontWeight\\": \\"500\\",
 -                     \\"letterSpacing\\": 1.5,
 -                     \\"textAlign\\": \\"center\\",
-+           \\"fontSize\\": 16,
-+           \\"lineHeight\\": 24,
-          },
+-                   },
 -                   Object {},
 -                 ],
-        ]
-      }
-    >
+-               ]
+-             }
+-           >
 -             DELETE
 +     You have successfully ignored the post.
     </Text>

@@ -355,9 +355,17 @@ export const ACTIONS = {
     name: 'Delete Community',
     key: 'cru.communitydelete',
   },
-  SHARE_STORY: {
-    name: 'Share Story',
-    key: 'cru.sharestory',
+  CREATE_POST: {
+    name: 'Create Post',
+    key: 'cru.posttype',
+  },
+  PHOTO_ADDED: {
+    name: 'Add Photo to Post',
+    key: 'cru.addphototopost',
+  },
+  VIDEO_ADDED: {
+    name: 'Add Video to Post',
+    key: 'cru.addvideotopost',
   },
   POST_TYPE_SELECTED: {
     name: 'Post Type Selected',

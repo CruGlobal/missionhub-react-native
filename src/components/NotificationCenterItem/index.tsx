@@ -53,40 +53,28 @@ export const NotificationCenterItem = ({
   };
 
   const renderNotificationTemplateMessage = () => {
+    enum BoldedMessageVariableEnum {
+      'subject_person',
+      'person_name',
+      'community_name',
+      'original_poster',
+    }
     const templateArray = messageTemplate.split(/(<<.*?>>)/).filter(Boolean);
     return templateArray.map((word: string) => {
-      switch (word) {
-        case '<<subject_person>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('subject_person') || ''}
-            </Text>
-          );
-        case '<<person_name>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('person_name') || ''}
-            </Text>
-          );
-        case '<<localized_post_type>>':
-          return (
-            <Text key={word}>{getMessageVariable('localized_post_type')}</Text>
-          );
-        case '<<community_name>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('community_name') || ''}
-            </Text>
-          );
-        case '<<original_poster>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('original_poster') || ''}
-            </Text>
-          );
-        default:
-          return <Text key={word}>{word}</Text>;
-      }
+      const filteredWord = word.replace(/[^a-zA-Z _]/g, '');
+      return word.match(/[<>]+/g) ? (
+        Object.values(BoldedMessageVariableEnum).includes(filteredWord) ? (
+          <Text style={styles.boldedItemText}>
+            {getMessageVariable(filteredWord)}
+          </Text>
+        ) : (
+          <Text style={styles.itemText}>
+            {getMessageVariable(filteredWord)}
+          </Text>
+        )
+      ) : (
+        <Text key={word}>{word}</Text>
+      );
     });
   };
 

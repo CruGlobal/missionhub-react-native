@@ -193,14 +193,13 @@ exports[`renders correctly 1`] = `
             "height": 120,
             "marginBottom": 5,
             "paddingHorizontal": 25,
-            "paddingTop": 15,
             "position": "relative",
           }
         }
       >
         <SvgMock
           color="#ffffff"
-          height={225}
+          height={200}
           style={
             Array [
               Object {
@@ -208,14 +207,14 @@ exports[`renders correctly 1`] = `
                 "marginRight": 10,
               },
               Object {
-                "bottom": -75,
-                "opacity": 0.2,
+                "bottom": -60,
+                "opacity": 0.4,
                 "position": "absolute",
-                "right": -30,
+                "right": -40,
               },
             ]
           }
-          width={225}
+          width={200}
         />
         <Text
           style={
