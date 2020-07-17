@@ -33,7 +33,6 @@ import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
-import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
@@ -334,16 +333,6 @@ export const CreatePostScreen = () => {
       <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       <View style={styles.lineBreak} />
-      <ErrorNotice
-        message={t('errorCreatingPost')}
-        error={errorCreatePost}
-        refetch={savePost}
-      />
-      <ErrorNotice
-        message={t('errorUpdatingPost')}
-        error={errorUpdatePost}
-        refetch={savePost}
-      />
       <ScrollView
         style={{ flex: 1 }}
         contentInset={{ bottom: 90 }}
