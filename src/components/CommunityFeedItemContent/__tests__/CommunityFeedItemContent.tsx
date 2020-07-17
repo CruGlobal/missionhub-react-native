@@ -18,12 +18,15 @@ import {
   PostStepStatusEnum,
   FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
+import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
 
 import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/challenges');
+jest.mock('../../../utils/hooks/useFeatureFlags');
+jest.mock('react-native-video', () => 'Video');
 
 const initialState = {
   auth: { person: { id: '1' } },
@@ -39,6 +42,7 @@ beforeEach(() => {
   (reloadGroupChallengeFeed as jest.Mock).mockReturnValue(
     reloadGroupChallengeFeedReponse,
   );
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: true });
 });
 
 function mockFrag(mocks: IMocks) {
@@ -170,6 +174,8 @@ describe('CommunityFeedItemContent', () => {
             subject: () => ({
               __typename: 'Post',
               postType: PostTypeEnum.story,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         }),
@@ -183,6 +189,8 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.prayer_request,
               stepStatus: PostStepStatusEnum.NONE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         }),
@@ -196,6 +204,8 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.prayer_request,
               stepStatus: PostStepStatusEnum.INCOMPLETE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         }),
@@ -210,6 +220,8 @@ describe('CommunityFeedItemContent', () => {
                 __typename: 'Post',
                 postType: PostTypeEnum.prayer_request,
                 stepStatus: PostStepStatusEnum.INCOMPLETE,
+                mediaContentType: null,
+                mediaExpiringUrl: null,
               }),
             }),
           },
@@ -227,6 +239,8 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.announcement,
               stepStatus: PostStepStatusEnum.INCOMPLETE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         },
@@ -245,9 +259,52 @@ describe('CommunityFeedItemContent', () => {
               __typename: 'Post',
               postType: PostTypeEnum.announcement,
               stepStatus: PostStepStatusEnum.INCOMPLETE,
+              mediaContentType: null,
+              mediaExpiringUrl: null,
             }),
           }),
         },
+      }),
+    );
+  });
+  it('renders with image', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({
+          subject: () => ({
+            __typename: 'Post',
+            postType: PostTypeEnum.story,
+            mediaContentType: 'image/jpg',
+          }),
+        }),
+      }),
+    );
+  });
+  it('renders with video', () => {
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({
+          subject: () => ({
+            __typename: 'Post',
+            postType: PostTypeEnum.story,
+            mediaContentType: 'video/mp4',
+          }),
+        }),
+      }),
+    );
+  });
+  it('renders without video if feature flag is false', () => {
+    (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
+    testEvent(
+      mockFrag({
+        FeedItem: () => ({
+          subject: () => ({
+            __typename: 'Post',
+            postType: PostTypeEnum.story,
+            mediaContentType: 'video/mp4',
+          }),
+        }),
       }),
     );
   });
@@ -348,6 +405,23 @@ describe('press footer', () => {
     );
 
     fireEvent.press(getByTestId('FooterTouchable'));
+    expect(navigatePush).not.toHaveBeenCalled();
+  });
+});
+
+describe('press video', () => {
+  it('nothing should happen', () => {
+    const videoPostItem = mockFrag({
+      FeedItem: () => ({
+        subject: () => ({ __typename: 'Post', mediaContentType: 'video/mp4' }),
+      }),
+    });
+    const { getByTestId } = renderWithContext(
+      <CommunityFeedItemContent feedItem={videoPostItem} />,
+      { initialState },
+    );
+
+    fireEvent.press(getByTestId('VideoTouchable'));
     expect(navigatePush).not.toHaveBeenCalled();
   });
 });

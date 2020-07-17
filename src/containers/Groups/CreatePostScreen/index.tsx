@@ -1,19 +1,27 @@
-import React, { useState, useMemo } from 'react';
+/* eslint max-lines: 0 */
+
+import React, { useState } from 'react';
 import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
+//eslint-disable-next-line import/named
+import { RecordResponse } from 'react-native-camera';
+//eslint-disable-next-line import/named
+import { ReactNativeFile } from 'apollo-upload-client';
 
 import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getPostTypeAnalytics } from '../../../utils/analytics';
-import { Input, Text, Button } from '../../../components/common';
+import { Input, Text, Button, Touchable } from '../../../components/common';
 import Header from '../../../components/Header';
 import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
+import VideoPlayer from '../../../components/VideoPlayer';
+import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
@@ -21,7 +29,7 @@ import {
   trackActionWithoutData,
   TrackStateContext,
 } from '../../../actions/analytics';
-import { navigateBack } from '../../../actions/navigation';
+import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
@@ -30,8 +38,11 @@ import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
 } from '../../CommunityFeed/__generated__/GetCommunityFeed';
+import { useAspectRatio } from '../../../utils/hooks/useAspectRatio';
+import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
 
-import CameraIcon from './cameraIcon.svg';
+import PhotoIcon from './photoIcon.svg';
+import VideoIcon from './videoIcon.svg';
 import SendIcon from './sendIcon.svg';
 import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
@@ -54,8 +65,6 @@ export type CreatePostScreenNavParams =
   | CreatePostNavParams
   | UpdatePostNavParams;
 
-const EMPTY_IMAGE_URI = '/media/original/missing.png';
-
 export const CreatePostScreen = () => {
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
@@ -70,15 +79,22 @@ export const CreatePostScreen = () => {
     post?.postType || navPostType || PostTypeEnum.story,
   );
   const [text, changeText] = useState<string>(post?.content || '');
-  const [imageData, changeImageData] = useState<string | null>(
+  const [mediaType, changeMediaType] = useState<string | null>(
+    post?.mediaContentType || null,
+  );
+  const [mediaData, changeMediaData] = useState<string | null>(
     post?.mediaExpiringUrl || null,
   );
-  const [imageHeight, changeImageHeight] = useState<number>(0);
+  const imageAspectRatio = useAspectRatio(
+    mediaType === 'image' ? mediaData : null,
+  );
 
   useAnalytics(['post', getPostTypeAnalytics(postType)], {
     permissionType: { communityId },
     editMode: { isEdit: !!post },
   });
+
+  const { video: videoEnabled } = useFeatureFlags();
 
   const [createPost, { error: errorCreatePost }] = useMutation<
     CreatePost,
@@ -151,6 +167,9 @@ export const CreatePostScreen = () => {
     UpdatePostVariables
   >(UPDATE_POST);
 
+  const hasImage = mediaType?.includes('image');
+  const hasVideo = videoEnabled && mediaType?.includes('video');
+
   const savePost = async () => {
     if (!text) {
       return;
@@ -158,42 +177,71 @@ export const CreatePostScreen = () => {
 
     Keyboard.dismiss();
 
+    const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
+
+    const media: string | ReactNativeFile | undefined =
+      mediaData && mediaType && hasImage && mediaHasChanged
+        ? mediaData
+        : mediaData && mediaType && hasVideo && mediaHasChanged
+        ? new ReactNativeFile({
+            name: 'upload',
+            uri: mediaData,
+            type: mediaType,
+          })
+        : undefined;
+
     if (post) {
       await updatePost({
         variables: {
           input: {
             id: post.id,
             content: text,
-            media: imageData === post.mediaExpiringUrl ? undefined : imageData,
+            media,
           },
         },
       });
     } else {
       await createPost({
         variables: {
-          input: { content: text, communityId, postType, media: imageData },
+          input: {
+            content: text,
+            communityId,
+            postType,
+            media,
+          },
         },
       });
       dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
     }
 
+    media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
+    media && hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
+
     dispatch(navigateBack());
   };
 
-  const handleSavePhoto = ({ data }: SelectImageParams) =>
-    changeImageData(data);
+  const handleSavePhoto = (image: SelectImageParams) => {
+    const { data, fileType } = image;
+    changeMediaType(`image/${fileType}`);
+    changeMediaData(data);
+  };
 
-  useMemo(() => {
-    if (!imageData) {
-      return changeImageHeight(0);
-    }
+  const handleSaveVideo = (response: RecordResponse) => {
+    const { uri, codec = 'mp4' } = response;
+    changeMediaType(`video/${String(codec)}`);
+    changeMediaData(uri);
+  };
 
-    Image.getSize(
-      imageData,
-      (width, height) => changeImageHeight((height * theme.fullWidth) / width),
-      () => {},
+  const navigateToRecordVideo = () => {
+    dispatch(
+      navigatePush(RECORD_VIDEO_SCREEN, { onEndRecord: handleSaveVideo }),
     );
-  }, [imageData]);
+  };
+
+  const handleDeleteVideo = () => {
+    changeMediaType(null);
+    changeMediaData(null);
+  };
 
   const renderSendButton = () =>
     text ? (
@@ -232,31 +280,53 @@ export const CreatePostScreen = () => {
     />
   );
 
-  const renderAddPhotoButton = () => (
-    <ImagePicker
-      //@ts-ignore
-      testID="ImagePicker"
-      onSelectImage={handleSavePhoto}
-      showCropper={false}
-    >
-      {imageData && !(imageData === EMPTY_IMAGE_URI) ? (
-        <Image
-          resizeMode="contain"
-          source={{ uri: imageData }}
-          style={{ width: theme.fullWidth, height: imageHeight }}
-        />
-      ) : (
+  const renderVideoPhotoButtons = () => (
+    <>
+      {videoEnabled ? (
         <>
           <View style={styles.lineBreak} />
-          <View style={styles.addPhotoButton}>
-            <CameraIcon style={styles.icon} />
-            <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
-          </View>
-          <View style={styles.lineBreak} />
+          <Touchable
+            testID="VideoButton"
+            style={styles.addPhotoButton}
+            onPress={navigateToRecordVideo}
+          >
+            <VideoIcon style={styles.icon} />
+            <Text style={styles.addPhotoText}>{t('recordVideo')}</Text>
+          </Touchable>
         </>
-      )}
-    </ImagePicker>
+      ) : null}
+      <View style={styles.lineBreak} />
+      <ImagePicker onSelectImage={handleSavePhoto}>
+        <View style={styles.addPhotoButton}>
+          <PhotoIcon style={styles.icon} />
+          <Text style={styles.addPhotoText}>{t('addAPhoto')}</Text>
+        </View>
+      </ImagePicker>
+      <View style={styles.lineBreak} />
+    </>
   );
+
+  const renderMedia = () =>
+    mediaData && hasImage ? (
+      <ImagePicker onSelectImage={handleSavePhoto}>
+        <Image
+          resizeMode="contain"
+          source={{ uri: mediaData }}
+          style={{
+            width: theme.fullWidth,
+            aspectRatio: imageAspectRatio,
+          }}
+        />
+      </ImagePicker>
+    ) : mediaData && hasVideo ? (
+      <VideoPlayer
+        uri={mediaData}
+        onDelete={handleDeleteVideo}
+        width={theme.fullWidth}
+      />
+    ) : (
+      renderVideoPhotoButtons()
+    );
 
   return (
     <View style={styles.container}>
@@ -294,7 +364,7 @@ export const CreatePostScreen = () => {
           placeholderTextColor={theme.lightGrey}
           style={styles.textInput}
         />
-        {renderAddPhotoButton()}
+        {renderMedia()}
       </ScrollView>
     </View>
   );

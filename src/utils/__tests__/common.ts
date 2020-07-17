@@ -707,6 +707,7 @@ describe('getFeedItemType', () => {
     __typename: 'Post',
     id: '1',
     content: 'asdf',
+    mediaContentType: '',
     mediaExpiringUrl: '',
     postType: PostTypeEnum.story,
     stepStatus: PostStepStatusEnum.INCOMPLETE,
