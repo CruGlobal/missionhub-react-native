@@ -28,6 +28,7 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
   trackActionWithoutData,
   TrackStateContext,
+  trackAction,
 } from '../../../actions/analytics';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
@@ -209,7 +210,11 @@ export const CreatePostScreen = () => {
           },
         },
       });
-      dispatch(trackActionWithoutData(ACTIONS.SHARE_STORY)); //TODO: new track action
+      dispatch(
+        trackAction(ACTIONS.CREATE_POST.name, {
+          [ACTIONS.CREATE_POST.key]: postType,
+        }),
+      );
     }
 
     media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));

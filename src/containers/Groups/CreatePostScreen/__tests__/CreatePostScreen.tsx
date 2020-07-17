@@ -6,7 +6,10 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { ACTIONS, ORG_PERMISSIONS } from '../../../../constants';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
-import { trackActionWithoutData } from '../../../../actions/analytics';
+import {
+  trackActionWithoutData,
+  trackAction,
+} from '../../../../actions/analytics';
 import { renderWithContext } from '../../../../../testUtils';
 import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
@@ -69,6 +72,7 @@ beforeEach(() => {
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
+  (trackAction as jest.Mock).mockReturnValue(() => Promise.resolve());
   (useFeatureFlags as jest.Mock).mockReturnValue({ video: true });
 });
 
@@ -335,7 +339,9 @@ describe('Creating a post', () => {
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
     expect(trackActionWithoutData).not.toHaveBeenCalledWith(
       ACTIONS.PHOTO_ADDED,
     );
@@ -369,7 +375,9 @@ describe('Creating a post', () => {
     });
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
     expect(trackActionWithoutData).not.toHaveBeenCalledWith(
       ACTIONS.VIDEO_ADDED,
@@ -401,7 +409,9 @@ describe('Creating a post', () => {
 
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
     expect(trackActionWithoutData).not.toHaveBeenCalledWith(
       ACTIONS.PHOTO_ADDED,
     );
@@ -453,9 +463,7 @@ describe('Updating a post', () => {
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.SHARE_STORY,
-    );
+    expect(trackAction).not.toHaveBeenCalled();
     expect(trackActionWithoutData).not.toHaveBeenCalledWith(
       ACTIONS.PHOTO_ADDED,
     );
@@ -488,9 +496,7 @@ describe('Updating a post', () => {
     });
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.SHARE_STORY,
-    );
+    expect(trackAction).not.toHaveBeenCalled();
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
     expect(trackActionWithoutData).not.toHaveBeenCalledWith(
       ACTIONS.VIDEO_ADDED,
@@ -521,9 +527,7 @@ describe('Updating a post', () => {
 
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.SHARE_STORY,
-    );
+    expect(trackAction).not.toHaveBeenCalled();
     expect(trackActionWithoutData).not.toHaveBeenCalledWith(
       ACTIONS.PHOTO_ADDED,
     );

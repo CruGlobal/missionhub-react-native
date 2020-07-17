@@ -6,6 +6,7 @@ export const COMMUNITY_FEED_ITEM_CONTENT_FRAGMENT = gql`
   fragment CommunityFeedItemContent on FeedItem {
     id
     createdAt
+    subjectEvent
     subject {
       __typename
       ... on AcceptedCommunityChallenge {
