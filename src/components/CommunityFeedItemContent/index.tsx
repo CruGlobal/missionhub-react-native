@@ -30,9 +30,12 @@ import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { TouchablePress } from '../Touchable/index.ios';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 import PopupMenu from '../PopupMenu';
+import VideoPlayer from '../VideoPlayer';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
+import { CardHorizontalMargin } from '../Card/styles';
+import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -64,6 +67,7 @@ export const CommunityFeedItemContent = ({
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
+  const { video: videoEnabled } = useFeatureFlags();
 
   const { subject, subjectPerson, subjectPersonName, community } = feedItem;
   if (
@@ -76,12 +80,14 @@ export const CommunityFeedItemContent = ({
     );
   }
 
-  const imageData =
+  const mediaData =
     (subject.__typename === 'Post' && subject.mediaExpiringUrl) || null;
+  const mediaType =
+    (subject.__typename === 'Post' && subject.mediaContentType) || null;
   const stepStatus =
     (subject.__typename === 'Post' && subject.stepStatus) ||
     PostStepStatusEnum.NOT_SUPPORTED;
-  const imageAspectRatio = useAspectRatio(imageData);
+  const aspectRatio = useAspectRatio(mediaData);
 
   const isGlobal = !community;
 
@@ -260,13 +266,25 @@ export const CommunityFeedItemContent = ({
     </View>
   );
 
-  const renderImage = () =>
-    imageData ? (
+  const renderMedia = () =>
+    mediaData && mediaType?.includes('image') ? (
       <Image
-        source={{ uri: imageData }}
-        style={{ aspectRatio: imageAspectRatio }}
+        source={{ uri: mediaData }}
+        style={{ aspectRatio }}
         resizeMode="cover"
       />
+    ) : mediaData && videoEnabled && mediaType?.includes('video') ? (
+      <Touchable
+        isAndroidOpacity={true}
+        activeOpacity={1}
+        onPress={() => {}}
+        testID="VideoTouchable"
+      >
+        <VideoPlayer
+          uri={mediaData}
+          width={theme.fullWidth - CardHorizontalMargin * 2.0}
+        />
+      </Touchable>
     ) : null;
 
   const renderFooter = () => (
@@ -327,7 +345,7 @@ export const CommunityFeedItemContent = ({
         )}
         {renderMessage()}
       </View>
-      {renderImage()}
+      {renderMedia()}
       {showLikeAndComment ? (
         <>
           <Separator />
