@@ -126,8 +126,8 @@ export default StyleSheet.create({
 
 export const markdown = StyleSheet.create({
   ...markdownStyles,
-  text: {
-    ...markdownStyles.text,
+  body: {
+    ...markdownStyles.body,
     fontSize: 14,
     lineHeight: 18,
   },

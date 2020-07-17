@@ -101,8 +101,8 @@ const StepDetailScreen = ({
               <Markdown
                 style={{
                   ...markdownStyles,
-                  text: {
-                    ...markdownStyles.text,
+                  body: {
+                    ...markdownStyles.body,
                     fontSize: 16,
                     color: theme.grey,
                     paddingBottom: 20,
