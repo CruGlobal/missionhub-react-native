@@ -1368,7 +1368,11 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -1623,7 +1627,11 @@ exports[`different notification types renders correctly | Community Need 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -1863,7 +1871,11 @@ exports[`different notification types renders correctly | God Story 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -2103,7 +2115,11 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -2343,7 +2359,11 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -2583,7 +2603,11 @@ exports[`different notification types renders correctly | Thought 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -2777,7 +2801,11 @@ exports[`renders correctly | Comment 2 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -3018,7 +3046,11 @@ exports[`renders correctly | Comment 3 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -3227,7 +3259,11 @@ exports[`renders correctly | Comment 4 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -3436,7 +3472,11 @@ exports[`renders correctly | Comment 5 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#505256",
+                "fontSize": 16,
+                "lineHeight": 20,
+              },
             ]
           }
         >
@@ -3679,9 +3719,7 @@ exports[`renders correctly 1`] = `
               },
             ]
           }
-        >
-          
-        </Text>
+        />
       </Text>
       <Text
         style={
