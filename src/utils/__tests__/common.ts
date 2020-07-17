@@ -30,6 +30,7 @@ import {
   mapPostTypeToFeedType,
   mapFeedTypeToPostType,
   getFeedItemType,
+  canModifyFeedItemSubject,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
@@ -774,5 +775,69 @@ describe('getFeedItemType', () => {
     expect(
       getFeedItemType({ ...post, postType: PostTypeEnum.announcement }),
     ).toEqual(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+  });
+});
+
+describe('canModifyFeedItemSubject', () => {
+  const post: CommunityFeedItem_subject_Post = {
+    __typename: 'Post',
+    id: '1',
+    content: 'asdf',
+    mediaContentType: '',
+    mediaExpiringUrl: '',
+    postType: PostTypeEnum.story,
+    stepStatus: PostStepStatusEnum.INCOMPLETE,
+  };
+  function check(postType: PostTypeEnum) {
+    return canModifyFeedItemSubject({ ...post, postType });
+  }
+
+  it('returns STEP', () => {
+    const step: CommunityFeedItem_subject_Step = {
+      __typename: 'Step',
+      id: '1',
+      receiverStageAtCompletion: null,
+    };
+
+    expect(canModifyFeedItemSubject(step)).toEqual(false);
+  });
+
+  it('returns ACCEPTED_COMMUNITY_CHALLENGE', () => {
+    const challenge: CommunityFeedItem_subject_AcceptedCommunityChallenge = {
+      __typename: 'AcceptedCommunityChallenge',
+      id: '1',
+      completedAt: 'some time',
+      communityChallenge: {
+        __typename: 'CommunityChallenge',
+        id: '1',
+        title: 'asdf',
+      },
+    };
+
+    expect(canModifyFeedItemSubject(challenge)).toEqual(false);
+  });
+
+  it('returns STORY', () => {
+    expect(check(PostTypeEnum.story)).toEqual(true);
+  });
+
+  it('returns PRAYER_REQUEST', () => {
+    expect(check(PostTypeEnum.prayer_request)).toEqual(true);
+  });
+
+  it('returns QUESTION', () => {
+    expect(check(PostTypeEnum.question)).toEqual(true);
+  });
+
+  it('returns HELP_REQUEST', () => {
+    expect(check(PostTypeEnum.help_request)).toEqual(true);
+  });
+
+  it('returns THOUGHT', () => {
+    expect(check(PostTypeEnum.thought)).toEqual(true);
+  });
+
+  it('returns ANNOUNCEMENT', () => {
+    expect(check(PostTypeEnum.announcement)).toEqual(true);
   });
 });
