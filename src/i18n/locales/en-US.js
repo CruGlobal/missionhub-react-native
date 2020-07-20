@@ -565,6 +565,7 @@ export default {
     challengeAcceptedHeader: 'Joined a Challenge!',
     challengeCompletedHeader: 'Completed a Challenge!',
     newMemberHeader: 'We have a new member!',
+    newMemberMessage: 'Help welcome {{personFirstName}}.',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     stepOfFaithUnknownStage:
