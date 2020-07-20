@@ -186,7 +186,8 @@
     "setupFilesAfterEnv": [
       "<rootDir>/__mock__/hideWarnings.ts",
       "<rootDir>/__mock__/resetGlobalMockSeeds.ts",
-      "<rootDir>/__mock__/apolloHooks.ts"
+      "<rootDir>/__mock__/apolloHooks.ts",
+      "<rootDir>/__mock__/cleanup.ts"
     ],
     "globalSetup": "<rootDir>/__mock__/globalSetup.ts",
     "snapshotSerializers": [
