@@ -6,17 +6,31 @@ import { renderWithContext } from '../../../../testUtils';
 
 import SideMenu from '..';
 
+jest.mock('../../../utils/hooks/useIsMe');
+
 const action = jest.fn();
 
 const mockMenuItems = [
-  { label: 'About', action, selected: false },
-  { label: 'Help', action },
-  { label: 'Share a Story With Us', action },
-  { label: 'Write a Review', action },
-  { label: 'Privacy Policy', action },
-  { label: 'Terms of Service', action },
-  { label: 'Sign In', action },
-  { label: 'Sign Up', action },
+  {
+    id: '1',
+    title: 'Feedback',
+    data: [
+      { label: 'About', action, selected: false },
+      { label: 'Help', action },
+      { label: 'Share a Story With Us', action },
+    ],
+  },
+  {
+    id: '2',
+    title: 'About',
+    data: [
+      { label: 'Write a Review', action },
+      { label: 'Privacy Policy', action },
+      { label: 'Terms of Service', action },
+      { label: 'Sign In', action },
+      { label: 'Sign Up', action },
+    ],
+  },
 ];
 jest.mock('../../IconButton', () => 'IconButton');
 jest.mock('react-navigation-drawer', () => ({

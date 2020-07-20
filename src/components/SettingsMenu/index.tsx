@@ -1,28 +1,16 @@
 import React from 'react';
 import { Alert, Linking } from 'react-native';
-import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
 
 import { LINKS } from '../../constants';
 import { isAndroid } from '../../utils/common';
 import SideMenu from '../../components/SideMenu';
-import { logout } from '../../actions/auth/auth';
-import { SIGN_IN_FLOW, SIGN_UP_FLOW } from '../../routes/constants';
-import { navigatePush } from '../../actions/navigation';
-import { AuthState } from '../../reducers/auth';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
 
-interface SettingsMenuProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
-  isAnonymousUser: boolean;
-}
-
-const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
+const SettingsMenu = () => {
   const { t } = useTranslation('settingsMenu');
   useAnalytics('menu', { screenType: ANALYTICS_SCREEN_TYPES.drawer });
 
@@ -37,51 +25,53 @@ const SettingsMenu = ({ dispatch, isAnonymousUser }: SettingsMenuProps) => {
   };
   const menuItems = [
     {
-      label: t('about'),
-      action: () => openUrl(LINKS.about),
+      id: '1',
+      title: t('feedBack'),
+      data: [
+        {
+          label: t('shareStory'),
+          action: () => openUrl(LINKS.shareStory),
+        },
+        {
+          label: t('suggestStep'),
+          action: () => openUrl(LINKS.shareStory),
+        },
+        {
+          label: t('review'),
+          action: () => openUrl(isAndroid ? LINKS.playStore : LINKS.appleStore),
+        },
+      ],
     },
+
     {
-      label: t('help'),
-      action: () => openUrl(LINKS.help),
+      id: '2',
+      title: t('about'),
+      data: [
+        {
+          label: t('blog'),
+          action: () => openUrl(LINKS.blog),
+        },
+        {
+          label: t('website'),
+          action: () => openUrl(LINKS.about),
+        },
+        {
+          label: t('help'),
+          action: () => openUrl(LINKS.help),
+        },
+
+        {
+          label: t('privacy'),
+          action: () => openUrl(LINKS.privacy),
+        },
+        {
+          label: t('tos'),
+          action: () => openUrl(LINKS.terms),
+        },
+      ],
     },
-    {
-      label: t('shareStory'),
-      action: () => openUrl(LINKS.shareStory),
-    },
-    {
-      label: t('review'),
-      action: () => openUrl(isAndroid ? LINKS.playStore : LINKS.appleStore),
-    },
-    {
-      label: t('privacy'),
-      action: () => openUrl(LINKS.privacy),
-    },
-    {
-      label: t('tos'),
-      action: () => openUrl(LINKS.terms),
-    },
-    ...(isAnonymousUser
-      ? [
-          {
-            label: t('signIn'),
-            action: () => dispatch(navigatePush(SIGN_IN_FLOW)),
-          },
-          {
-            label: t('signUp'),
-            action: () => dispatch(navigatePush(SIGN_UP_FLOW)),
-          },
-        ]
-      : [
-          {
-            label: t('signOut'),
-            action: () => dispatch(logout()),
-          },
-        ]),
   ];
   return <SideMenu testID="Menu" menuItems={menuItems} />;
 };
 
-const mapStateToProps = ({ auth }: { auth: AuthState }) => ({
-  isAnonymousUser: !!auth.upgradeToken,
-});
-export default connect(mapStateToProps)(SettingsMenu);
+export default SettingsMenu;
