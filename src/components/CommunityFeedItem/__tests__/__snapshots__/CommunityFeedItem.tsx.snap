@@ -1050,13 +1050,13 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -1604,13 +1604,13 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -2094,13 +2094,13 @@ exports[`Community renders post correctly without image 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -2616,13 +2616,13 @@ exports[`Community renders post created by me correctly without add to steps but
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -3556,13 +3556,13 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -4445,13 +4445,13 @@ exports[`global community renders post item correctly 1`] = `
             <Text
               style={
                 Array [
-                  Object {},
                   Object {
                     "color": "#505256",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "lineHeight": 18,
                   },
+                  Object {},
                 ]
               }
             >
@@ -5324,13 +5324,13 @@ exports[`renders with name pressable correctly 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
