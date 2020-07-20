@@ -25,7 +25,7 @@ import {
   GetCommunityFeedVariables,
 } from '../../containers/CommunityFeed/__generated__/GetCommunityFeed';
 import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
-import { getFeedItemType } from '../../utils/common';
+import { getFeedItemType, canModifyFeedItemSubject } from '../../utils/common';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
@@ -199,9 +199,10 @@ export const CommunityFeedItem = ({
       },
     ]);
 
+  const canModify = canModifyFeedItemSubject(subject);
   const menuActions =
     !isGlobal && isPost(subject)
-      ? isMe
+      ? isMe && canModify
         ? [
             {
               text: t('edit.buttonText'),
