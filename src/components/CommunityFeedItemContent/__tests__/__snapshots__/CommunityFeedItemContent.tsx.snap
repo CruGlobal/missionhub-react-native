@@ -947,7 +947,7 @@ Array [
         ]
       }
     >
-      Completed a Challenge!
+      Joined a Challenge!
     </Text>
     <Text
       style={
@@ -1342,7 +1342,7 @@ Array [
         ]
       }
     >
-      Completed a Challenge!
+      Joined a Challenge!
     </Text>
     <Text
       style={
@@ -2111,7 +2111,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "repellat ratione ut",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -2122,7 +2122,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(110, 167, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -2167,7 +2167,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -2239,7 +2239,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -2400,7 +2400,7 @@ Array [
               ]
             }
           >
-            84631
+            41919
           </Text>
           <View
             accessible={true}
@@ -2574,7 +2574,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "repellat ratione ut",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -2585,7 +2585,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(110, 167, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -2630,7 +2630,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -2702,7 +2702,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -2927,7 +2927,7 @@ Array [
               ]
             }
           >
-            84631
+            41919
           </Text>
           <View
             accessible={true}
@@ -3101,7 +3101,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "repellat ratione ut",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -3112,7 +3112,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(110, 167, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -3157,7 +3157,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -3229,7 +3229,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -3390,7 +3390,7 @@ Array [
               ]
             }
           >
-            84631
+            41919
           </Text>
           <View
             accessible={true}
@@ -3564,7 +3564,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "repellat ratione ut",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -3575,7 +3575,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(110, 167, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -3620,7 +3620,7 @@ Array [
             ]
           }
         >
-          qui recusandae ut
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -3692,7 +3692,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -3825,7 +3825,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -3836,7 +3836,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -3881,7 +3881,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -3938,7 +3938,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Uninterested person.
+      Torey A. completed a Step of Faith with a Uninterested person.
     </Text>
   </View>,
   <View
@@ -4097,7 +4097,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -4271,7 +4271,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -4282,7 +4282,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -4327,7 +4327,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -4384,7 +4384,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Curious person.
+      Torey A. completed a Step of Faith with a Curious person.
     </Text>
   </View>,
   <View
@@ -4543,7 +4543,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -4717,7 +4717,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -4728,7 +4728,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -4773,7 +4773,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -4830,7 +4830,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Forgiven person.
+      Torey A. completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -4989,7 +4989,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -5163,7 +5163,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -5174,7 +5174,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -5219,7 +5219,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -5276,7 +5276,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Growing person.
+      Torey A. completed a Step of Faith with a Growing person.
     </Text>
   </View>,
   <View
@@ -5435,7 +5435,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -5609,7 +5609,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -5620,7 +5620,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -5665,7 +5665,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -5722,7 +5722,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Guiding person.
+      Torey A. completed a Step of Faith with a Guiding person.
     </Text>
   </View>,
   <View
@@ -5881,7 +5881,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -6055,7 +6055,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -6066,7 +6066,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -6111,7 +6111,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -6168,7 +6168,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith.
+      Torey A. completed a Step of Faith.
     </Text>
   </View>,
   <View
@@ -6327,7 +6327,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -6501,7 +6501,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -6512,7 +6512,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -6557,7 +6557,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -6614,7 +6614,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with someone.
+      Torey A. completed a Step of Faith with someone.
     </Text>
   </View>,
   <View
@@ -6773,7 +6773,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -7197,7 +7197,7 @@ Array [
               ]
             }
           >
-            14675
+            23608
           </Text>
           <View
             accessible={true}
@@ -7406,7 +7406,7 @@ Array [
             ]
           }
         >
-          ratione ut sunt
+          ut sunt qui
         </Text>
         <Text
           style={
@@ -7463,7 +7463,7 @@ Array [
         ]
       }
     >
-      ratione ut sunt completed a Step of Faith with a Forgiven person.
+      ut sunt qui completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -7621,7 +7621,7 @@ Array [
               ]
             }
           >
-            39658
+            18626
           </Text>
           <View
             accessible={true}
@@ -7795,7 +7795,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "iure ut libero",
+            "uri": "ut libero qui",
           }
         }
         style={
@@ -7836,7 +7836,7 @@ Array [
             ]
           }
         >
-          Compatible foreground collaboration
+          Integrated client-server functionalities
         </Text>
         <Text
           style={
@@ -7908,7 +7908,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -8069,7 +8069,7 @@ Array [
               ]
             }
           >
-            84631
+            41919
           </Text>
           <View
             accessible={true}
@@ -8270,7 +8270,7 @@ Array [
             ]
           }
         >
-          Compatible foreground collaboration
+          Integrated client-server functionalities
         </Text>
         <Text
           style={
@@ -8342,7 +8342,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -8504,7 +8504,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -8678,7 +8678,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "qui amet iure",
           }
         }
         style={
@@ -8689,7 +8689,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(154, 99, 125)",
             },
             undefined,
           ]
@@ -8734,7 +8734,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          quam ipsam nobis
         </Text>
         <Text
           style={
@@ -8806,7 +8806,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -8816,7 +8816,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "corporis repellat ratione",
       }
     }
     style={
@@ -8945,8 +8945,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -8981,7 +8980,7 @@ Array [
               ]
             }
           >
-            68521
+            52454
           </Text>
           <View
             accessible={true}
@@ -9190,7 +9189,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -9201,7 +9200,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(135, 19, 115)",
+              "backgroundColor": "rgb(167, 154, 67)",
             },
             undefined,
           ]
@@ -9246,7 +9245,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -9303,7 +9302,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Forgiven person.
+      Torey A. completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -9462,7 +9461,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -9636,7 +9635,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "qui amet iure",
           }
         }
         style={
@@ -9647,7 +9646,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(154, 99, 125)",
             },
             undefined,
           ]
@@ -9692,7 +9691,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          quam ipsam nobis
         </Text>
         <Text
           style={
@@ -9764,7 +9763,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -9806,7 +9805,7 @@ Array [
         paused={true}
         source={
           Object {
-            "uri": "consequuntur corporis repellat",
+            "uri": "corporis repellat ratione",
           }
         }
         style={
@@ -9941,8 +9940,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -9977,7 +9975,7 @@ Array [
               ]
             }
           >
-            68521
+            52454
           </Text>
           <View
             accessible={true}
@@ -10151,7 +10149,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -10162,7 +10160,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(135, 19, 115)",
+              "backgroundColor": "rgb(167, 154, 67)",
             },
             undefined,
           ]
@@ -10207,7 +10205,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -10264,7 +10262,7 @@ Array [
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Forgiven person.
+      Torey A. completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -10423,7 +10421,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -10597,7 +10595,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "qui amet iure",
           }
         }
         style={
@@ -10608,7 +10606,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(154, 99, 125)",
             },
             undefined,
           ]
@@ -10653,7 +10651,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          quam ipsam nobis
         </Text>
         <Text
           style={
@@ -10725,7 +10723,7 @@ Array [
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -10851,8 +10849,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -10887,7 +10884,7 @@ Array [
               ]
             }
           >
-            68521
+            52454
           </Text>
           <View
             accessible={true}

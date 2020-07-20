@@ -42,11 +42,11 @@ exports[`Reported Post call handleDelete 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
--       }
 +       \\"justifyContent\\": \\"center\\",
 +       \\"marginTop\\": \\"50%\\",
       }
--   >
+    }
+  >
 -     <View
 -       style={
 -         Array [
@@ -70,10 +70,33 @@ exports[`Reported Post call handleDelete 1`] = `
 -               \\"color\\": \\"#A0A2A6\\",
 -             },
 -           ]
-    }
-  >
+-         }
+-       >
 -         Reported By
 -         :
+-       </Text>
++   <SvgMock />
+    <Text
+-         numberOfLines={1}
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          },
+          Object {
+            \\"color\\": \\"#505256\\",
++           \\"fontSize\\": 24,
++           \\"fontWeight\\": \\"300\\",
++           \\"lineHeight\\": 30,
++           \\"paddingVertical\\": 20,
+          },
+        ]
+      }
+    >
+-         Roscoe Johnson
 -       </Text>
 -       <Text
 -         numberOfLines={1}
@@ -91,26 +114,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -           ]
 -         }
 -       >
--         Roscoe Johnson
--       </Text>
-+   <SvgMock />
-    <Text
--         numberOfLines={1}
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-          },
-          Object {
-            \\"color\\": \\"#505256\\",
--             },
--           ]
--         }
--       >
--         Assimilated didactic challenge
+-         Synergistic tertiary service-desk
 -       </Text>
 -     </View>
 -     <Text
@@ -131,7 +135,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -       testID=\\"openPostButton\\"
 -     >
 -       Open Post
--     </Text>
++     Hurray
+    </Text>
 -   </View>
 -   <View
 -     style={
@@ -150,82 +155,11 @@ exports[`Reported Post call handleDelete 1`] = `
 -         }
 -       }
 -     >
--       <View
--         style={
--           Array [
--             Object {
--               \\"alignItems\\": \\"center\\",
--               \\"borderRadius\\": 18,
--               \\"flexDirection\\": \\"row\\",
--               \\"height\\": 36,
--               \\"justifyContent\\": \\"space-between\\",
--               \\"paddingLeft\\": 20,
--               \\"paddingRight\\": 16,
--               \\"paddingVertical\\": 0,
--             },
--             Object {
--               \\"backgroundColor\\": \\"#FD726D\\",
--             },
--             null,
--             null,
--           ]
--         }
--         testID=\\"HELP_REQUESTLabel\\"
--       >
--         <SvgMock
--           color=\\"#ffffff\\"
--           height={20}
--           style={
--             Array [
--               Object {
--                 \\"marginLeft\\": -10,
--                 \\"marginRight\\": 10,
--               },
--               undefined,
--             ]
--           }
--           width={20}
--         />
--         <Text
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"lineHeight\\": 20,
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
-          },
-        ]
-      }
-    >
--           Community Need
-+     Hurray
-    </Text>
--       </View>
--     </View>
--     <View
--       style={
--         Object {
--           \\"flexDirection\\": \\"row\\",
--           \\"justifyContent\\": \\"flex-start\\",
--           \\"paddingVertical\\": 8,
--         }
--       }
--     >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
 -           Object {
--             \\"uri\\": \\"eum dicta eum\\",
+-             \\"uri\\": \\"eligendi occaecati debitis\\",
 -           }
 -         }
 -         style={
@@ -236,7 +170,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -               \\"width\\": 48,
 -             },
 -             Object {
--               \\"backgroundColor\\": \\"rgb(123, 167, 67)\\",
+-               \\"backgroundColor\\": \\"rgb(135, 121, 125)\\",
 -             },
 -             undefined,
 -           ]
@@ -256,35 +190,8 @@ exports[`Reported Post call handleDelete 1`] = `
 -           ]
 -         }
 -       >
-    <Text
--           numberOfLines={2}
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Array [
--                 Object {
--                   \\"color\\": \\"#007398\\",
--                   \\"fontSize\\": 16,
-          },
-          Object {
-            \\"color\\": \\"#505256\\",
-            \\"fontSize\\": 16,
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"lineHeight\\": 20,
-+           \\"lineHeight\\": 24,
-          },
--               ],
-        ]
-      }
-    >
--           Keaton Keeling
--         </Text>
 -         <Text
+-           numberOfLines={2}
 -           style={
 -             Array [
 -               Object {
@@ -295,6 +202,32 @@ exports[`Reported Post call handleDelete 1`] = `
 -               },
 -               Array [
 -                 Object {
+-                   \\"color\\": \\"#007398\\",
+-                   \\"fontSize\\": 16,
+-                 },
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                   \\"fontSize\\": 16,
+-                   \\"fontWeight\\": \\"bold\\",
+-                   \\"lineHeight\\": 20,
+-                 },
+-               ],
+-             ]
+-           }
+-         >
+-           Keaton Keeling
+-         </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               },
+-               Array [
+-                 Object {
 -                   \\"color\\": \\"#B2B0B2\\",
 -                   \\"fontSize\\": 12,
 -                 },
@@ -302,7 +235,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -                   \\"color\\": \\"#B4B6BA\\",
 -                   \\"fontSize\\": 12,
 -                   \\"lineHeight\\": 16,
--                 },
+          },
 -               ],
 -             ]
 -           }
@@ -315,50 +248,32 @@ exports[`Reported Post call handleDelete 1`] = `
 -   </View>
 -   <View
 -     style={
--       Object {
+          Object {
 -         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <View
--       style={Object {}}
--     >
--       <View
--         style={
+-     <Text
+-       style={
+-         Array [
 -           Object {
--             \\"alignItems\\": \\"flex-start\\",
--             \\"flexDirection\\": \\"row\\",
--             \\"flexWrap\\": \\"wrap\\",
+            \\"color\\": \\"#505256\\",
+-           },
+-           Object {
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           },
+-           Object {
+            \\"fontSize\\": 16,
 -             \\"justifyContent\\": \\"flex-start\\",
--             \\"marginBottom\\": 10,
--             \\"marginTop\\": 10,
--             \\"marginVertical\\": 10,
--             \\"width\\": \\"100%\\",
--           }
--         }
--       >
--         <Text
--           style={Object {}}
--         >
--           <Text
--             style={
--               Array [
--                 Object {},
--                 Object {
--                   \\"color\\": \\"#505256\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"lineHeight\\": 18,
--                 },
--               ]
--             }
--           >
--             et porro ut
--           </Text>
--         </Text>
--       </View>
--     </View>
+            \\"lineHeight\\": 24,
+-             \\"paddingBottom\\": 8,
+          },
+        ]
+      }
+    >
+-       porro ut et
+-     </Text>
 -   </View>
 -   <View
 -     style={
@@ -569,11 +484,11 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
--       }
 +       \\"justifyContent\\": \\"center\\",
 +       \\"marginTop\\": \\"50%\\",
       }
--   >
+    }
+  >
 -     <View
 -       style={
 -         Array [
@@ -597,10 +512,33 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               \\"color\\": \\"#A0A2A6\\",
 -             },
 -           ]
-    }
-  >
+-         }
+-       >
 -         Reported By
 -         :
+-       </Text>
++   <SvgMock />
+    <Text
+-         numberOfLines={1}
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          },
+          Object {
+            \\"color\\": \\"#505256\\",
++           \\"fontSize\\": 24,
++           \\"fontWeight\\": \\"300\\",
++           \\"lineHeight\\": 30,
++           \\"paddingVertical\\": 20,
+          },
+        ]
+      }
+    >
+-         Roscoe Johnson
 -       </Text>
 -       <Text
 -         numberOfLines={1}
@@ -618,26 +556,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           ]
 -         }
 -       >
--         Roscoe Johnson
--       </Text>
-+   <SvgMock />
-    <Text
--         numberOfLines={1}
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-          },
-          Object {
-            \\"color\\": \\"#505256\\",
--             },
--           ]
--         }
--       >
--         Assimilated didactic challenge
+-         Synergistic tertiary service-desk
 -       </Text>
 -     </View>
 -     <Text
@@ -658,7 +577,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       testID=\\"openPostButton\\"
 -     >
 -       Open Post
--     </Text>
++     Hurray
+    </Text>
 -   </View>
 -   <View
 -     style={
@@ -677,82 +597,11 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         }
 -       }
 -     >
--       <View
--         style={
--           Array [
--             Object {
--               \\"alignItems\\": \\"center\\",
--               \\"borderRadius\\": 18,
--               \\"flexDirection\\": \\"row\\",
--               \\"height\\": 36,
--               \\"justifyContent\\": \\"space-between\\",
--               \\"paddingLeft\\": 20,
--               \\"paddingRight\\": 16,
--               \\"paddingVertical\\": 0,
--             },
--             Object {
--               \\"backgroundColor\\": \\"#FD726D\\",
--             },
--             null,
--             null,
--           ]
--         }
--         testID=\\"HELP_REQUESTLabel\\"
--       >
--         <SvgMock
--           color=\\"#ffffff\\"
--           height={20}
--           style={
--             Array [
--               Object {
--                 \\"marginLeft\\": -10,
--                 \\"marginRight\\": 10,
--               },
--               undefined,
--             ]
--           }
--           width={20}
--         />
--         <Text
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Object {
--                 \\"color\\": \\"#ffffff\\",
--                 \\"fontSize\\": 14,
--                 \\"lineHeight\\": 20,
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
-          },
-        ]
-      }
-    >
--           Community Need
-+     Hurray
-    </Text>
--       </View>
--     </View>
--     <View
--       style={
--         Object {
--           \\"flexDirection\\": \\"row\\",
--           \\"justifyContent\\": \\"flex-start\\",
--           \\"paddingVertical\\": 8,
--         }
--       }
--     >
 -       <Image
 -         resizeMode=\\"cover\\"
 -         source={
 -           Object {
--             \\"uri\\": \\"eum dicta eum\\",
+-             \\"uri\\": \\"eligendi occaecati debitis\\",
 -           }
 -         }
 -         style={
@@ -763,7 +612,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               \\"width\\": 48,
 -             },
 -             Object {
--               \\"backgroundColor\\": \\"rgb(123, 167, 67)\\",
+-               \\"backgroundColor\\": \\"rgb(135, 121, 125)\\",
 -             },
 -             undefined,
 -           ]
@@ -783,35 +632,8 @@ exports[`Reported Post call handleIgnore 1`] = `
 -           ]
 -         }
 -       >
-    <Text
--           numberOfLines={2}
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Array [
--                 Object {
--                   \\"color\\": \\"#007398\\",
--                   \\"fontSize\\": 16,
-          },
-          Object {
-            \\"color\\": \\"#505256\\",
-            \\"fontSize\\": 16,
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"lineHeight\\": 20,
-+           \\"lineHeight\\": 24,
-          },
--               ],
-        ]
-      }
-    >
--           Keaton Keeling
--         </Text>
 -         <Text
+-           numberOfLines={2}
 -           style={
 -             Array [
 -               Object {
@@ -822,6 +644,32 @@ exports[`Reported Post call handleIgnore 1`] = `
 -               },
 -               Array [
 -                 Object {
+-                   \\"color\\": \\"#007398\\",
+-                   \\"fontSize\\": 16,
+-                 },
+-                 Object {
+-                   \\"color\\": \\"#505256\\",
+-                   \\"fontSize\\": 16,
+-                   \\"fontWeight\\": \\"bold\\",
+-                   \\"lineHeight\\": 20,
+-                 },
+-               ],
+-             ]
+-           }
+-         >
+-           Keaton Keeling
+-         </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               },
+-               Array [
+-                 Object {
 -                   \\"color\\": \\"#B2B0B2\\",
 -                   \\"fontSize\\": 12,
 -                 },
@@ -829,7 +677,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -                   \\"color\\": \\"#B4B6BA\\",
 -                   \\"fontSize\\": 12,
 -                   \\"lineHeight\\": 16,
--                 },
+          },
 -               ],
 -             ]
 -           }
@@ -842,50 +690,32 @@ exports[`Reported Post call handleIgnore 1`] = `
 -   </View>
 -   <View
 -     style={
--       Object {
+          Object {
 -         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <View
--       style={Object {}}
--     >
--       <View
--         style={
+-     <Text
+-       style={
+-         Array [
 -           Object {
--             \\"alignItems\\": \\"flex-start\\",
--             \\"flexDirection\\": \\"row\\",
--             \\"flexWrap\\": \\"wrap\\",
+            \\"color\\": \\"#505256\\",
+-           },
+-           Object {
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-           },
+-           Object {
+            \\"fontSize\\": 16,
 -             \\"justifyContent\\": \\"flex-start\\",
--             \\"marginBottom\\": 10,
--             \\"marginTop\\": 10,
--             \\"marginVertical\\": 10,
--             \\"width\\": \\"100%\\",
--           }
--         }
--       >
--         <Text
--           style={Object {}}
--         >
--           <Text
--             style={
--               Array [
--                 Object {},
--                 Object {
--                   \\"color\\": \\"#505256\\",
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                   \\"fontSize\\": 14,
--                   \\"lineHeight\\": 18,
--                 },
--               ]
--             }
--           >
--             et porro ut
--           </Text>
--         </Text>
--       </View>
--     </View>
+            \\"lineHeight\\": 24,
+-             \\"paddingBottom\\": 8,
+          },
+        ]
+      }
+    >
+-       porro ut et
+-     </Text>
 -   </View>
 -   <View
 -     style={
