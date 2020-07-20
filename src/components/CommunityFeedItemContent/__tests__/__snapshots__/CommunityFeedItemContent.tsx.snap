@@ -1645,7 +1645,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -1656,7 +1656,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -1701,7 +1701,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -1778,7 +1778,7 @@ Array [
         ]
       }
     >
-      Help welcome Mina.
+      Help welcome Torey.
     </Text>
   </View>,
   <View
@@ -1937,7 +1937,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}

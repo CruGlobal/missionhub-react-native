@@ -450,11 +450,11 @@ exports[`Community renders new member item correctly 1`] = `
         <Avatar
           person={
             Object {
-              "firstName": "Amaya",
-              "fullName": "Amaya Runolfsdottir",
+              "firstName": "Malcolm",
+              "fullName": "Malcolm Connelly",
               "id": "19",
-              "lastName": "Runolfsdottir",
-              "picture": "sed quae nam",
+              "lastName": "Connelly",
+              "picture": "sint autem rerum",
             }
           }
           size="medium"
@@ -498,7 +498,7 @@ exports[`Community renders new member item correctly 1`] = `
               ]
             }
           >
-            aut ut ut
+            eos saepe consequatur
           </Text>
           <Text
             style={
@@ -524,7 +524,7 @@ exports[`Community renders new member item correctly 1`] = `
             }
             testID="Text"
           >
-            November 24, 2015 @ 5:53 AM
+            September 5, 2014 @ 11:28 PM
           </Text>
         </View>
       </View>
@@ -575,7 +575,7 @@ exports[`Community renders new member item correctly 1`] = `
           ]
         }
       >
-        Help welcome Amaya.
+        Help welcome Malcolm.
       </Text>
     </View>
     <View
@@ -733,7 +733,7 @@ exports[`Community renders new member item correctly 1`] = `
                 ]
               }
             >
-              13747
+              37758
             </Text>
             <View
               accessible={true}
