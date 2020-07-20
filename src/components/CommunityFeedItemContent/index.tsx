@@ -367,9 +367,7 @@ export const CommunityFeedItemContent = ({
           </Text>
         ) : null}
         {subject.__typename === 'CommunityPermission' ? (
-          <>
-            <Text style={styles.headerTextOnly}>{t('newMemberHeader')}</Text>
-          </>
+          <Text style={styles.headerTextOnly}>{t('newMemberHeader')}</Text>
         ) : null}
         {renderMessage()}
       </View>
