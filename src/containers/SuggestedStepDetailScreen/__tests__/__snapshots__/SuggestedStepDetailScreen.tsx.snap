@@ -233,13 +233,13 @@ exports[`renders correctly 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -569,13 +569,13 @@ exports[`renders correctly for me 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -905,13 +905,13 @@ exports[`renders correctly in onboarding 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >

@@ -108,6 +108,19 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
     },
   },
 );
+const newMemberItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'CommunityPermission',
+        }),
+      }),
+    },
+  },
+);
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
@@ -246,6 +259,17 @@ describe('Community', () => {
   it('renders challenge correctly', async () => {
     const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+
+  it('renders new member item correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={newMemberItem} namePressable={false} />,
       {
         initialState,
       },

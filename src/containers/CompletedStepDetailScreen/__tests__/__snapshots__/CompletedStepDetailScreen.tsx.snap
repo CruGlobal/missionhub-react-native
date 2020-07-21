@@ -299,13 +299,13 @@ exports[`post renders with post 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -451,7 +451,11 @@ exports[`post renders with post 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -473,14 +477,13 @@ exports[`post renders with post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -817,13 +820,13 @@ exports[`post renders without post 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -1404,13 +1407,13 @@ exports[`with challenge suggestion renders correctly 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -1724,13 +1727,13 @@ exports[`without challenge suggestion renders correctly 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
