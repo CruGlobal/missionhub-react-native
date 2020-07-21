@@ -207,6 +207,7 @@ describe('CommunityFeedItemContent', () => {
           }),
         }),
       );
+      expect.hasAssertions();
     });
   });
 
@@ -329,6 +330,7 @@ describe('CommunityFeedItemContent', () => {
         }),
       }),
     );
+    expect.hasAssertions();
   });
   it('renders with video', () => {
     testEvent(
@@ -342,6 +344,7 @@ describe('CommunityFeedItemContent', () => {
         }),
       }),
     );
+    expect.hasAssertions();
   });
   it('renders without video if feature flag is false', () => {
     (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
@@ -357,6 +360,7 @@ describe('CommunityFeedItemContent', () => {
         }),
       }),
     );
+    expect.hasAssertions();
   });
   it('renders with menu options', () => {
     testEvent(

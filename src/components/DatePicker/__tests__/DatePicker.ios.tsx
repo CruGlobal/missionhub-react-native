@@ -125,6 +125,8 @@ describe('DatePicker methods', () => {
     });
 
     it('date change pressed', () => {
+      jest.useFakeTimers();
+
       const newDate = new Date('2019-09-01');
       // @ts-ignore
       component
@@ -133,6 +135,8 @@ describe('DatePicker methods', () => {
         .childAt(0)
         .props()
         .onDateChange(newDate);
+
+      jest.runAllTimers();
 
       // @ts-ignore
       expect(instance.state.date).toEqual(newDate);
