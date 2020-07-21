@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from 'react-native';
 
 import theme from './theme';
 
@@ -9,7 +9,6 @@ const textStyle = {
   lineHeight: 24,
 };
 const heading1Style = {
-  ...textStyle,
   fontFamily: 'SourceSansPro-Light',
   fontSize: 32,
   lineHeight: 38,
@@ -28,32 +27,28 @@ const heading3Style = {
   marginVertical: 16,
 };
 const strongStyle = {
-  ...textStyle,
   fontFamily: 'SourceSansPro-Bold',
 };
 const emphasisStyle = {
-  ...textStyle,
   fontFamily: 'SourceSansPro-Italic',
 };
 const paragraph = {
   marginVertical: 10,
 };
-const listItemOrderedIconStyle = {
-  ...textStyle,
-  marginRight: 16,
-  alignSelf: 'center',
-  lineHeight: 36,
-};
 const listItemUnorderedIconStyle = {
-  ...listItemOrderedIconStyle,
-  fontSize: 30,
+  ...Platform.select({
+    ios: {
+      // Make bullet bigger
+      fontSize: 30,
+      // Make bullet aligned vertically with first line instead of shifted above it
+      lineHeight: 42,
+    },
+  }),
 };
 const linkStyle = {
-  ...textStyle,
   lineHeight: 22,
   color: theme.secondaryColor,
   textDecorationColor: theme.secondaryColor,
-  textDecorationLine: 'underline',
 };
 const blockQuoteStyle = {
   left: -32,
@@ -77,18 +72,14 @@ const imageStyle = {
 };
 
 export default StyleSheet.create({
-  text: textStyle,
+  body: textStyle,
   heading1: heading1Style,
   heading2: heading2Style,
   heading3: heading3Style,
   strong: strongStyle,
   em: emphasisStyle,
   paragraph: paragraph,
-  // @ts-ignore
-  listUnorderedItemIcon: listItemUnorderedIconStyle,
-  // @ts-ignore
-  listOrderedItemIcon: listItemOrderedIconStyle,
-  // @ts-ignore
+  bullet_list_icon: listItemUnorderedIconStyle,
   link: linkStyle,
   blockquote: blockQuoteStyle,
   hr: horizontalLineStyle,
