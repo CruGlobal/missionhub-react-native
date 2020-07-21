@@ -1,10 +1,15 @@
+/* eslint max-lines: 0 */
+
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
 import { ACTIONS, ORG_PERMISSIONS } from '../../../../constants';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
-import { trackActionWithoutData } from '../../../../actions/analytics';
+import {
+  trackActionWithoutData,
+  trackAction,
+} from '../../../../actions/analytics';
 import { renderWithContext } from '../../../../../testUtils';
 import { mockFragment } from '../../../../../testUtils/apolloMockClient';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
@@ -16,11 +21,14 @@ import {
   CommunityFeedItem,
   CommunityFeedItem_subject_Post,
 } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
+import { useFeatureFlags } from '../../../../utils/hooks/useFeatureFlags';
 import { CreatePostScreen } from '..';
 
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');
+jest.mock('../../../../utils/hooks/useFeatureFlags');
+jest.mock('react-native-video', () => 'Video');
 
 const myId = '5';
 const navigatePushResult = { type: 'navigated push' };
@@ -37,6 +45,8 @@ const post = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT, {
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
 const MOCK_IMAGE = 'data:image/jpeg;base64,base64image.jpeg';
+const MOCK_VIDEO = 'file:/video.mov';
+const videoType = 'video/mp4';
 
 const initialState = {
   auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
@@ -44,11 +54,25 @@ const initialState = {
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
-  (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
+  (navigatePush as jest.Mock).mockImplementation(
+    (
+      _,
+      {
+        onEndRecord,
+      }: {
+        onEndRecord: ({ codec, uri }: { codec: string; uri: string }) => void;
+      },
+    ) => {
+      onEndRecord({ codec: 'mp4', uri: MOCK_VIDEO });
+      return navigatePushResult;
+    },
+  );
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
   (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
     Promise.resolve(),
   );
+  (trackAction as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: true });
 });
 
 it('renders correctly for new post', () => {
@@ -63,12 +87,31 @@ it('renders correctly for new post', () => {
   });
 });
 
-it('renders correctly for update post', () => {
+it('renders correctly for new post and feature flag false', () => {
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: { communityId, postType },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: false },
+  });
+});
+
+it('renders correctly for update post without media', () => {
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
       communityId,
-      post: { ...post, postType: PostTypeEnum.prayer_request },
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: undefined,
+        mediaExpiringUrl: undefined,
+      },
     },
   }).snapshot();
 
@@ -78,15 +121,88 @@ it('renders correctly for update post', () => {
   });
 });
 
-it('renders correctly on android', () => {
-  ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+it('renders correctly for update post without media and feature flag false', () => {
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
   renderWithContext(<CreatePostScreen />, {
     initialState,
     navParams: {
       communityId,
-      post: { ...post, postType: PostTypeEnum.prayer_request },
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: undefined,
+        mediaExpiringUrl: undefined,
+      },
     },
   }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: true },
+  });
+});
+
+it('renders correctly for update post with image', () => {
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: {
+      communityId,
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: 'image/jpeg',
+        mediaExpiringUrl: MOCK_IMAGE,
+      },
+    },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: true },
+  });
+});
+
+it('renders correctly for update post with video', () => {
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: {
+      communityId,
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: 'video',
+        mediaExpiringUrl: MOCK_VIDEO,
+      },
+    },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: true },
+  });
+});
+
+it('renders correctly for update post without video if feature flag is false', () => {
+  (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
+
+  renderWithContext(<CreatePostScreen />, {
+    initialState,
+    navParams: {
+      communityId,
+      post: {
+        ...post,
+        postType: PostTypeEnum.prayer_request,
+        mediaContentType: 'video',
+        mediaExpiringUrl: MOCK_VIDEO,
+      },
+    },
+  }).snapshot();
+
+  expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
+    permissionType: { communityId },
+    editMode: { isEdit: true },
+  });
 });
 
 describe('renders for post types', () => {
@@ -157,8 +273,36 @@ describe('Select image', () => {
     recordSnapshot();
 
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+      fileType: 'jpg',
       data: MOCK_IMAGE,
     });
+
+    await flushMicrotasksQueue();
+
+    diffSnapshot();
+  });
+});
+
+describe('Select video', () => {
+  const onComplete = jest.fn();
+
+  it('should select a video', async () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <CreatePostScreen />,
+      {
+        initialState,
+        navParams: {
+          onComplete,
+          communityId,
+          postType: PostTypeEnum.story,
+        },
+      },
+    );
+    recordSnapshot();
+
+    await fireEvent.press(getByTestId('VideoButton'));
+
+    await flushMicrotasksQueue();
 
     diffSnapshot();
   });
@@ -194,14 +338,22 @@ describe('Creating a post', () => {
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
           content: MOCK_POST,
           communityId,
           postType: PostTypeEnum.prayer_request,
-          media: null,
+          media: undefined,
         },
       },
     });
@@ -222,7 +374,13 @@ describe('Creating a post', () => {
     });
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.SHARE_STORY);
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -230,6 +388,44 @@ describe('Creating a post', () => {
           communityId,
           postType: PostTypeEnum.prayer_request,
           media: MOCK_IMAGE,
+        },
+      },
+    });
+  });
+
+  it('calls savePost function with video', async () => {
+    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        communityId,
+        postType,
+      },
+    });
+
+    await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
+    await fireEvent.press(getByTestId('VideoButton'));
+    await flushMicrotasksQueue();
+
+    await fireEvent.press(getByTestId('CreatePostButton'));
+
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
+      variables: {
+        input: {
+          content: MOCK_POST,
+          communityId,
+          postType: PostTypeEnum.prayer_request,
+          media: {
+            name: 'upload',
+            type: videoType,
+            uri: MOCK_VIDEO,
+          },
         },
       },
     });
@@ -266,7 +462,13 @@ describe('Updating a post', () => {
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).not.toHaveBeenCalled();
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
@@ -293,13 +495,52 @@ describe('Updating a post', () => {
     });
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackActionWithoutData).not.toHaveBeenCalled();
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
           content: MOCK_POST,
           id: post.id,
           media: MOCK_IMAGE,
+        },
+      },
+    });
+  });
+
+  it('calls savePost function with video', async () => {
+    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+      initialState,
+      navParams: {
+        communityId,
+        post,
+      },
+    });
+
+    await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
+    await fireEvent.press(getByTestId('VideoButton'));
+    await flushMicrotasksQueue();
+
+    await fireEvent.press(getByTestId('CreatePostButton'));
+
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
+      variables: {
+        input: {
+          content: MOCK_POST,
+          id: post.id,
+          media: {
+            name: 'upload',
+            type: videoType,
+            uri: MOCK_VIDEO,
+          },
         },
       },
     });

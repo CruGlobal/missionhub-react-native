@@ -413,3 +413,17 @@ export const getFeedItemType = (subject: CommunityFeedItem_subject) => {
       return FeedItemSubjectTypeEnum.STORY;
   }
 };
+export const canModifyFeedItemSubject = (
+  subject?: CommunityFeedItem_subject,
+) => {
+  const itemType = subject && getFeedItemType(subject);
+  return [
+    FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+    FeedItemSubjectTypeEnum.HELP_REQUEST,
+    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    FeedItemSubjectTypeEnum.QUESTION,
+    FeedItemSubjectTypeEnum.STORY,
+    FeedItemSubjectTypeEnum.THOUGHT,
+    FeedItemSubjectTypeEnum.THOUGHT,
+  ].includes(itemType as FeedItemSubjectTypeEnum);
+};

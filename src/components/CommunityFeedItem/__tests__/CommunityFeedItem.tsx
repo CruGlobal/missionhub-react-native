@@ -28,6 +28,7 @@ import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem } from '..';
 
@@ -103,8 +104,20 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
     mocks: {
       FeedItem: () => ({
         community: () => ({ id: communityId }),
+        subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
+      }),
+    },
+  },
+);
+const newMemberItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
         subject: () => ({
-          __typename: 'AcceptedCommunityChallenge',
+          __typename: 'CommunityPermission',
         }),
       }),
     },
@@ -248,6 +261,17 @@ describe('Community', () => {
   it('renders challenge correctly', async () => {
     const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+
+  it('renders new member item correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={newMemberItem} namePressable={false} />,
       {
         initialState,
       },

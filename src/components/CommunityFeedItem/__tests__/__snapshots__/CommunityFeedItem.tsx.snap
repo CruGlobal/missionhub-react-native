@@ -32,11 +32,11 @@ exports[`Community renders challenge correctly 1`] = `
         <Avatar
           person={
             Object {
-              "firstName": "Aimee",
-              "fullName": "Aimee Boehm",
+              "firstName": "Lessie",
+              "fullName": "Lessie Corkery",
               "id": "16",
-              "lastName": "Boehm",
-              "picture": "soluta sint non",
+              "lastName": "Corkery",
+              "picture": "a officia quaerat",
             }
           }
           size="medium"
@@ -80,7 +80,7 @@ exports[`Community renders challenge correctly 1`] = `
               ]
             }
           >
-            error sunt laborum
+            eligendi quos esse
           </Text>
           <Text
             style={
@@ -106,7 +106,7 @@ exports[`Community renders challenge correctly 1`] = `
             }
             testID="Text"
           >
-            February 6, 2017 @ 7:24 AM
+            January 17, 2017 @ 9:43 PM
           </Text>
         </View>
       </View>
@@ -137,7 +137,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        Completed a Challenge!
+        Joined a Challenge!
       </Text>
       <Text
         style={
@@ -157,7 +157,7 @@ exports[`Community renders challenge correctly 1`] = `
           ]
         }
       >
-        quis sed magni
+        qui illo error
       </Text>
     </View>
     <View
@@ -332,8 +332,7 @@ exports[`Community renders challenge correctly 1`] = `
                 }
               >
                 <SvgMock
-                  color="#FF5532"
-                  fill="#FF5532"
+                  color="#505256"
                 />
               </View>
             </View>
@@ -368,7 +367,373 @@ exports[`Community renders challenge correctly 1`] = `
                 ]
               }
             >
-              14672
+              54060
+            </Text>
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="CommentIconButton"
+            >
+              <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {},
+                    null,
+                  ]
+                }
+              >
+                <SvgMock />
+              </View>
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>
+</Card>
+`;
+
+exports[`Community renders new member item correctly 1`] = `
+<Card
+  onPress={[Function]}
+  testID="CommunityFeedItem"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingTop": 12,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "justifyContent": "flex-start",
+            "paddingVertical": 8,
+          }
+        }
+      >
+        <Avatar
+          person={
+            Object {
+              "firstName": "Malcolm",
+              "fullName": "Malcolm Connelly",
+              "id": "19",
+              "lastName": "Connelly",
+              "picture": "sint autem rerum",
+            }
+          }
+          size="medium"
+        />
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "flexDirection": "column",
+                "justifyContent": "center",
+                "paddingHorizontal": 8,
+              },
+              undefined,
+            ]
+          }
+        >
+          <Text
+            numberOfLines={2}
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#007398",
+                    "fontSize": 16,
+                  },
+                  Object {
+                    "color": "#505256",
+                    "fontSize": 16,
+                    "fontWeight": "bold",
+                    "lineHeight": 20,
+                  },
+                ],
+              ]
+            }
+          >
+            eos saepe consequatur
+          </Text>
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Array [
+                  Object {
+                    "color": "#B2B0B2",
+                    "fontSize": 12,
+                  },
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontSize": 12,
+                    "lineHeight": 16,
+                  },
+                ],
+              ]
+            }
+            testID="Text"
+          >
+            September 5, 2014 @ 11:28 PM
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#3CC8E6",
+              "fontSize": 16,
+              "fontWeight": "bold",
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        We have a new member!
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "fontSize": 16,
+              "justifyContent": "flex-start",
+              "lineHeight": 24,
+              "paddingBottom": 8,
+            },
+          ]
+        }
+      >
+        Help welcome Malcolm.
+      </Text>
+    </View>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "flexDirection": "row",
+          "opacity": 1,
+          "paddingHorizontal": 20,
+          "paddingVertical": 16,
+        }
+      }
+      testID="FooterTouchable"
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "width": 80,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                    "paddingRight": 10,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
+                ]
+              }
+            />
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
+              style={
+                Object {
+                  "opacity": 1,
+                }
+              }
+              testID="LikeIconButton"
+            >
+              <View
+                hitSlop={
+                  Object {
+                    "bottom": 25,
+                    "left": 25,
+                    "right": 25,
+                    "top": 25,
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    null,
+                    Object {
+                      "height": 24,
+                      "width": 24,
+                    },
+                    null,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#505256"
+                />
+              </View>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+                "marginLeft": 20,
+                "width": 40,
+              }
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                    "paddingRight": 10,
+                    "textAlign": "right",
+                    "width": 30,
+                  },
+                ]
+              }
+            >
+              37758
             </Text>
             <View
               accessible={true}
@@ -575,11 +940,11 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Caesar",
-                  "fullName": "Caesar Feest",
+                  "firstName": "Grace",
+                  "fullName": "Grace Dibbert",
                   "id": "3",
-                  "lastName": "Feest",
-                  "picture": "sunt qui amet",
+                  "lastName": "Dibbert",
+                  "picture": "iure ut libero",
                 }
               }
               size="medium"
@@ -623,7 +988,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                   ]
                 }
               >
-                nulla quam ipsam
+                cupiditate sed dignissimos
               </Text>
               <Text
                 style={
@@ -685,13 +1050,13 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -701,19 +1066,6 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "consequuntur corporis repellat",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -898,7 +1250,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#A97398"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -933,7 +1285,7 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                     ]
                   }
                 >
-                  68521
+                  87811
                 </Text>
                 <View
                   accessible={true}
@@ -1142,11 +1494,11 @@ exports[`Community renders post correctly without add to steps button  1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Shad",
-                  "fullName": "Shad Ortiz",
+                  "firstName": "Edythe",
+                  "fullName": "Edythe Haley",
                   "id": "8",
-                  "lastName": "Ortiz",
-                  "picture": "aspernatur deserunt quam",
+                  "lastName": "Haley",
+                  "picture": "qui nobis repellendus",
                 }
               }
               size="medium"
@@ -1190,7 +1542,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                   ]
                 }
               >
-                nostrum ipsam qui
+                distinctio placeat ullam
               </Text>
               <Text
                 style={
@@ -1216,7 +1568,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 }
                 testID="Text"
               >
-                February 4, 2011 @ 4:27 PM
+                April 5, 2011 @ 6:42 PM
               </Text>
             </View>
           </View>
@@ -1252,35 +1604,22 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  dicta eum eaque
+                  aspernatur deserunt quam
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "enim ipsum inventore",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -1401,8 +1740,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     }
                   >
                     <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -1437,7 +1775,7 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                     ]
                   }
                 >
-                  68650
+                  28044
                 </Text>
                 <View
                   accessible={true}
@@ -1646,11 +1984,11 @@ exports[`Community renders post correctly without image 1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Shad",
-                  "fullName": "Shad Ortiz",
+                  "firstName": "Edythe",
+                  "fullName": "Edythe Haley",
                   "id": "8",
-                  "lastName": "Ortiz",
-                  "picture": "aspernatur deserunt quam",
+                  "lastName": "Haley",
+                  "picture": "qui nobis repellendus",
                 }
               }
               size="medium"
@@ -1694,7 +2032,7 @@ exports[`Community renders post correctly without image 1`] = `
                   ]
                 }
               >
-                nostrum ipsam qui
+                distinctio placeat ullam
               </Text>
               <Text
                 style={
@@ -1720,7 +2058,7 @@ exports[`Community renders post correctly without image 1`] = `
                 }
                 testID="Text"
               >
-                February 4, 2011 @ 4:27 PM
+                April 5, 2011 @ 6:42 PM
               </Text>
             </View>
           </View>
@@ -1756,17 +2094,17 @@ exports[`Community renders post correctly without image 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  dicta eum eaque
+                  aspernatur deserunt quam
                 </Text>
               </Text>
             </View>
@@ -1892,8 +2230,7 @@ exports[`Community renders post correctly without image 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -1928,7 +2265,7 @@ exports[`Community renders post correctly without image 1`] = `
                     ]
                   }
                 >
-                  68650
+                  28044
                 </Text>
                 <View
                   accessible={true}
@@ -2137,11 +2474,11 @@ exports[`Community renders post created by me correctly without add to steps but
             <Avatar
               person={
                 Object {
-                  "firstName": "Jacquelyn",
-                  "fullName": "Jacquelyn Lynch",
+                  "firstName": "Precious",
+                  "fullName": "Precious Rau",
                   "id": "1",
-                  "lastName": "Lynch",
-                  "picture": "et eos itaque",
+                  "lastName": "Rau",
+                  "picture": "ut et ipsam",
                 }
               }
               size="medium"
@@ -2215,7 +2552,7 @@ exports[`Community renders post created by me correctly without add to steps but
                       ]
                     }
                   >
-                    ipsam explicabo eligendi
+                    dicta eum eaque
                   </Text>
                 </View>
               </View>
@@ -2243,7 +2580,7 @@ exports[`Community renders post created by me correctly without add to steps but
                 }
                 testID="Text"
               >
-                August 9, 2015 @ 9:31 AM
+                September 11, 2014 @ 9:20 AM
               </Text>
             </View>
           </View>
@@ -2279,35 +2616,22 @@ exports[`Community renders post created by me correctly without add to steps but
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  incidunt accusantium sed
+                  repudiandae esse blanditiis
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "libero repudiandae esse",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -2386,7 +2710,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  86502
+                  5924
                 </Text>
                 <View
                   accessible={true}
@@ -2430,7 +2754,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     }
                   >
                     <SvgMock
-                      color="#A97398"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -2465,7 +2789,7 @@ exports[`Community renders post created by me correctly without add to steps but
                     ]
                   }
                 >
-                  51815
+                  27304
                 </Text>
                 <View
                   accessible={true}
@@ -2651,11 +2975,11 @@ exports[`Community renders step correctly 1`] = `
         <Avatar
           person={
             Object {
-              "firstName": "Alexys",
-              "fullName": "Alexys Rohan",
+              "firstName": "Antwon",
+              "fullName": "Antwon King",
               "id": "12",
-              "lastName": "Rohan",
-              "picture": "fuga doloribus distinctio",
+              "lastName": "King",
+              "picture": "totam voluptates explicabo",
             }
           }
           size="medium"
@@ -2699,7 +3023,7 @@ exports[`Community renders step correctly 1`] = `
               ]
             }
           >
-            aut architecto ducimus
+            vitae soluta sint
           </Text>
           <Text
             style={
@@ -2725,7 +3049,7 @@ exports[`Community renders step correctly 1`] = `
             }
             testID="Text"
           >
-            November 30, 2015 @ 5:35 AM
+            October 25, 2017 @ 5:53 AM
           </Text>
         </View>
       </View>
@@ -2756,7 +3080,7 @@ exports[`Community renders step correctly 1`] = `
           ]
         }
       >
-        Alexys R. completed a Step of Faith with a  person.
+        Antwon K. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -2915,7 +3239,7 @@ exports[`Community renders step correctly 1`] = `
                 ]
               }
             >
-              46923
+              21162
             </Text>
             <View
               accessible={true}
@@ -3122,11 +3446,11 @@ exports[`Community renders with clear notification button correctly 1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Shad",
-                  "fullName": "Shad Ortiz",
+                  "firstName": "Edythe",
+                  "fullName": "Edythe Haley",
                   "id": "8",
-                  "lastName": "Ortiz",
-                  "picture": "aspernatur deserunt quam",
+                  "lastName": "Haley",
+                  "picture": "qui nobis repellendus",
                 }
               }
               size="medium"
@@ -3170,7 +3494,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                   ]
                 }
               >
-                nostrum ipsam qui
+                distinctio placeat ullam
               </Text>
               <Text
                 style={
@@ -3196,7 +3520,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 }
                 testID="Text"
               >
-                February 4, 2011 @ 4:27 PM
+                April 5, 2011 @ 6:42 PM
               </Text>
             </View>
           </View>
@@ -3232,35 +3556,22 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  dicta eum eaque
+                  aspernatur deserunt quam
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "enim ipsum inventore",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -3381,8 +3692,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -3417,7 +3727,7 @@ exports[`Community renders with clear notification button correctly 1`] = `
                     ]
                   }
                 >
-                  68650
+                  28044
                 </Text>
                 <View
                   accessible={true}
@@ -3710,7 +4020,7 @@ exports[`global community renders correctly 1`] = `
               ]
             }
           >
-            aut architecto ducimus
+            vitae soluta sint
           </Text>
           <Text
             style={
@@ -3736,7 +4046,7 @@ exports[`global community renders correctly 1`] = `
             }
             testID="Text"
           >
-            November 30, 2015 @ 5:35 AM
+            October 25, 2017 @ 5:53 AM
           </Text>
         </View>
       </View>
@@ -3767,7 +4077,7 @@ exports[`global community renders correctly 1`] = `
           ]
         }
       >
-        Alexys R. completed a Step of Faith with a  person.
+        Antwon K. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -4073,7 +4383,7 @@ exports[`global community renders post item correctly 1`] = `
               ]
             }
           >
-            nostrum ipsam qui
+            distinctio placeat ullam
           </Text>
           <Text
             style={
@@ -4099,7 +4409,7 @@ exports[`global community renders post item correctly 1`] = `
             }
             testID="Text"
           >
-            February 4, 2011 @ 4:27 PM
+            April 5, 2011 @ 6:42 PM
           </Text>
         </View>
       </View>
@@ -4135,35 +4445,22 @@ exports[`global community renders post item correctly 1`] = `
             <Text
               style={
                 Array [
-                  Object {},
                   Object {
                     "color": "#505256",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
                     "lineHeight": 18,
                   },
+                  Object {},
                 ]
               }
             >
-              dicta eum eaque
+              aspernatur deserunt quam
             </Text>
           </Text>
         </View>
       </View>
     </View>
-    <Image
-      resizeMode="cover"
-      source={
-        Object {
-          "uri": "enim ipsum inventore",
-        }
-      }
-      style={
-        Object {
-          "aspectRatio": 2,
-        }
-      }
-    />
     <View
       style={
         Array [
@@ -4284,8 +4581,7 @@ exports[`global community renders post item correctly 1`] = `
                 }
               >
                 <SvgMock
-                  color="#FF5532"
-                  fill="#FF5532"
+                  color="#505256"
                 />
               </View>
             </View>
@@ -4467,7 +4763,7 @@ exports[`global community renders with clear notification button correctly 1`] =
               ]
             }
           >
-            aut architecto ducimus
+            vitae soluta sint
           </Text>
           <Text
             style={
@@ -4493,7 +4789,7 @@ exports[`global community renders with clear notification button correctly 1`] =
             }
             testID="Text"
           >
-            November 30, 2015 @ 5:35 AM
+            October 25, 2017 @ 5:53 AM
           </Text>
         </View>
       </View>
@@ -4524,7 +4820,7 @@ exports[`global community renders with clear notification button correctly 1`] =
           ]
         }
       >
-        Alexys R. completed a Step of Faith with a  person.
+        Antwon K. completed a Step of Faith with a  person.
       </Text>
     </View>
     <View
@@ -4886,11 +5182,11 @@ exports[`renders with name pressable correctly 1`] = `
             <Avatar
               person={
                 Object {
-                  "firstName": "Shad",
-                  "fullName": "Shad Ortiz",
+                  "firstName": "Edythe",
+                  "fullName": "Edythe Haley",
                   "id": "8",
-                  "lastName": "Ortiz",
-                  "picture": "aspernatur deserunt quam",
+                  "lastName": "Haley",
+                  "picture": "qui nobis repellendus",
                 }
               }
               size="medium"
@@ -4964,7 +5260,7 @@ exports[`renders with name pressable correctly 1`] = `
                       ]
                     }
                   >
-                    nostrum ipsam qui
+                    distinctio placeat ullam
                   </Text>
                 </View>
               </View>
@@ -4992,7 +5288,7 @@ exports[`renders with name pressable correctly 1`] = `
                 }
                 testID="Text"
               >
-                February 4, 2011 @ 4:27 PM
+                April 5, 2011 @ 6:42 PM
               </Text>
             </View>
           </View>
@@ -5028,35 +5324,22 @@ exports[`renders with name pressable correctly 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  dicta eum eaque
+                  aspernatur deserunt quam
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "enim ipsum inventore",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -5177,8 +5460,7 @@ exports[`renders with name pressable correctly 1`] = `
                     }
                   >
                     <SvgMock
-                      color="#FF5532"
-                      fill="#FF5532"
+                      color="#505256"
                     />
                   </View>
                 </View>
@@ -5213,7 +5495,7 @@ exports[`renders with name pressable correctly 1`] = `
                     ]
                   }
                 >
-                  68650
+                  28044
                 </Text>
                 <View
                   accessible={true}

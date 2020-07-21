@@ -356,7 +356,11 @@ exports[`Post is not null renders correctly with post 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -378,14 +382,13 @@ exports[`Post is not null renders correctly with post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -779,7 +782,11 @@ exports[`Post is not null renders correctly with post with image 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -801,14 +808,13 @@ exports[`Post is not null renders correctly with post with image 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -1202,7 +1208,11 @@ exports[`Post is not null renders post without image 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -1224,14 +1234,13 @@ exports[`Post is not null renders post without image 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -1584,7 +1593,11 @@ exports[`Post is not null renders with an input 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -1606,14 +1619,13 @@ exports[`Post is not null renders with an input 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -2107,13 +2119,13 @@ exports[`markdown is not null renders correctly 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -2371,13 +2383,13 @@ exports[`markdown is not null renders correctly on android 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -2635,13 +2647,13 @@ exports[`markdown is not null renders correctly on android with bottom button pr
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -2981,13 +2993,13 @@ exports[`markdown is not null renders correctly with bottom button props 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >
@@ -3835,13 +3847,13 @@ exports[`markdown with <<name>> to change renders correctly 1`] = `
               <Text
                 style={
                   Array [
-                    Object {},
                     Object {
                       "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 16,
                       "lineHeight": 24,
                     },
+                    Object {},
                   ]
                 }
               >

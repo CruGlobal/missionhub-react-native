@@ -74,7 +74,7 @@ interface PostTypeIconProps {
 function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
   const iconSize =
     size === PostLabelSizeEnum.extraLarge
-      ? 225
+      ? 200
       : size === PostLabelSizeEnum.large
       ? 24
       : size === PostLabelSizeEnum.small
@@ -135,6 +135,7 @@ const PostTypeLabel = ({
             left={<DeprecatedBackButton />}
             title={communityName}
             style={styles.header}
+            titleStyle={styles.headerTitle}
           />
           <View style={styles.headerContainer}>
             <PostTypeIcon type={type} size={size} style={styles.headerIcon} />

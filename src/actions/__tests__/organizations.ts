@@ -55,7 +55,7 @@ let store: MockStore;
 
 const globalCommunity = {
   id: GLOBAL_COMMUNITY_ID,
-  name: 'MissionHub Community',
+  name: 'MissionHub',
 };
 const organizations = { all: [globalCommunity] };
 const auth = { person: { user: {}, id: myId }, token: 'something' };

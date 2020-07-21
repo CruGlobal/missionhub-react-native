@@ -18,6 +18,7 @@ import {
   CREATE_PERSON,
   UPDATE_PERSON,
 } from '../../../containers/SetupScreen/queries';
+import ImagePicker from '../../../components/ImagePicker';
 import { ACTIONS, LOAD_PERSON_DETAILS } from '../../../constants';
 import { GET_PERSON } from '../queries';
 import { getPersonDetails } from '../../../actions/person';
@@ -396,7 +397,7 @@ describe('savePerson', () => {
 
       it('updates users profile picture', async () => {
         (useIsMe as jest.Mock).mockReturnValue(true);
-        const { getByTestId, snapshot, store } = renderWithContext(
+        const { getByType, getByTestId, snapshot, store } = renderWithContext(
           <AddContactScreen next={next} />,
           {
             initialState,
@@ -422,7 +423,7 @@ describe('savePerson', () => {
         );
         await flushMicrotasksQueue();
         snapshot();
-        await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
+        await fireEvent(getByType(ImagePicker), 'onSelectImage', {
           data: `data:image/jpeg;base64,${mockImage}`,
         });
         fireEvent(getByTestId('contactFields'), 'onUpdateData');

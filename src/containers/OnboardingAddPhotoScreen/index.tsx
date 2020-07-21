@@ -88,12 +88,7 @@ export const OnboardingAddPhotoScreen = ({
         <Text style={styles.descriptionText}>{t('description')}</Text>
       </View>
       <SafeAreaView style={{ position: 'absolute', bottom: 20, left: 50 }}>
-        <ImagePicker
-          //@ts-ignore
-          testID="ImagePicker"
-          onSelectImage={handleSelectImage}
-          circleOverlay={true}
-        >
+        <ImagePicker onSelectImage={handleSelectImage} circleOverlay={true}>
           <View style={styles.nullBottomButtonWrapper}>
             <Text style={styles.bottomButtonText}>
               {t('nullButtonText').toUpperCase()}
@@ -115,11 +110,7 @@ export const OnboardingAddPhotoScreen = ({
             resizeMode="cover"
           />
           <Text style={styles.imageHeaderText}>{t('imageHeader')}</Text>
-          <ImagePicker
-            //@ts-ignore
-            testID="ImagePicker"
-            onSelectImage={handleSelectImage}
-          >
+          <ImagePicker onSelectImage={handleSelectImage}>
             <View style={styles.changePhotoButton}>
               <Text style={styles.changePhotoText}>{t('changePhoto')}</Text>
             </View>
