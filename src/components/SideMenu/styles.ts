@@ -92,12 +92,14 @@ export default StyleSheet.create({
   updateButton: {
     color: theme.white,
     backgroundColor: theme.parakeetBlue,
-    height: 40,
+    height: 30,
   },
   updateText: {
     color: theme.white,
     fontSize: 16,
     fontWeight: '400',
     letterSpacing: 0.2,
+    textAlign: 'center',
+    height: 25,
   },
 });

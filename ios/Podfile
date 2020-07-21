@@ -40,6 +40,8 @@ target 'MissionHub' do
 
   pod 'AdobeMobileLibrary', :path => 'AdobeMobileLibrary'
 
+  pod 'react-native-version-check', :path => '../node_modules/react-native-version-check'
+
   target 'MissionHubTests' do
     inherit! :search_paths
     # Pods for testing

@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { DrawerActions } from 'react-navigation-drawer';
 import { SafeAreaView, BackHandler, View } from 'react-native';
+// eslint-disable-next-line import/default
+import VersionCheck from 'react-native-version-check';
 
 import { useGetAppVersion } from '../../utils/hooks/useGetAppVersion';
 import { useMyId } from '../../utils/hooks/useIsMe';
@@ -41,6 +43,7 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
   const { t } = useTranslation('settingsMenu');
   const dispatch = useDispatch();
   const myId = useMyId();
+  const [needsToUpdate, setNeedsToUpdate] = useState(false);
 
   const isSignedIn = useSelector(
     ({ auth }: { auth: AuthState }) => !auth.upgradeToken,
@@ -49,9 +52,15 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
   const appVersion = useGetAppVersion();
   const isOpen = useIsDrawerOpen();
 
+  const checkForUpdate = async () => {
+    const latestVersion = await VersionCheck.getLatestVersion();
+
+    setNeedsToUpdate(latestVersion !== appVersion);
+  };
+
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', onBackPress);
-
+    checkForUpdate();
     return () => {
       BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     };
@@ -81,8 +90,11 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
     );
 
   const onHandleAppUpdate = () => {
-    return;
+    // Open link to app or play store
+    return menuItems[0].data[2].action();
   };
+
+  const closeDrawer = () => dispatch(DrawerActions.closeDrawer());
 
   const handleSignOut = () => dispatch(logout());
 
@@ -93,8 +105,8 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
   return (
     <SafeAreaView style={styles.background}>
       <View style={styles.closeContainer}>
-        <CloseButton />
-        <Button onPress={onEditProfile}>
+        <CloseButton customNavigate={closeDrawer} />
+        <Button onPress={onEditProfile} testID="editButton">
           <EditIcon color={theme.lightGrey} />
         </Button>
       </View>
@@ -137,6 +149,7 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
               ]}
               text={label}
               onPress={action}
+              key={label}
             />
           ))}
         </View>
@@ -150,14 +163,15 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
         <Text style={styles.versionText}>{`${t(
           'version',
         )} ${appVersion}`}</Text>
-        {false ? (
+        {needsToUpdate ? (
           <Button
+            testID="updateButton"
             style={styles.updateButton}
             buttonTextStyle={[styles.updateText]}
             text={t('update')}
             onPress={onHandleAppUpdate}
             pill={true}
-          ></Button>
+          />
         ) : null}
       </View>
     </SafeAreaView>
