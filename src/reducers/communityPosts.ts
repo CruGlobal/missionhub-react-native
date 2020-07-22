@@ -125,7 +125,7 @@ const communityPostsReducer = (
           return { ...acc, [postId]: state.pendingUpdatePosts[postId] };
         }, {}),
       };
-    case DELETE_PENDING_CREATE_POST:
+    case PENDING_CREATE_POST_FAILED:
       return {
         ...state,
         pendingCreatePosts: {
@@ -133,7 +133,7 @@ const communityPostsReducer = (
           [action.id]: { ...state.pendingCreatePosts[action.id], failed: true },
         },
       };
-    case DELETE_PENDING_UPDATE_POST:
+    case PENDING_UPDATE_POST_FAILED:
       return {
         ...state,
         pendingUpdatePosts: {
