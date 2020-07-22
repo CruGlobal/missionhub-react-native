@@ -64,6 +64,13 @@ export const PERSON_MENU_DRAWER = 'nav/drawer/person';
 export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
 export const CLEAR_UPGRADE_TOKEN = 'app/CLEAR_UPGRADE_TOKEN';
 
+export const SAVE_PENDING_CREATE_POST = 'app/SAVE_PENDING_CREATE_POST';
+export const SAVE_PENDING_UPDATE_POST = 'app/SAVE_PENDING_UPDATE_POST';
+export const DELETE_PENDING_CREATE_POST = 'app/DELETE_PENDING_CREATE_POST';
+export const DELETE_PENDING_UPDATE_POST = 'app/DELETE_PENDING_UPDATE_POST';
+export const PENDING_CREATE_POST_FAILED = 'app/PENDING_POST_FAILED';
+export const PENDING_UPDATE_POST_FAILED = 'app/PENDING_POST_FAILED';
+
 // Errors
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 export const INVALID_ACCESS_TOKEN = 'Invalid access token';
