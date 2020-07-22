@@ -60,7 +60,7 @@ exports[`renders empty screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuIcon"
         >
           <View
             style={
@@ -82,39 +82,27 @@ exports[`renders empty screen correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "ratione ut sunt",
+                }
+              }
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
                   Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
+                    "backgroundColor": "rgb(167, 154, 115)",
                   },
-                  Object {},
+                  undefined,
                 ]
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -407,7 +395,7 @@ exports[`renders loading screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuIcon"
         >
           <View
             style={
@@ -429,39 +417,51 @@ exports[`renders loading screen correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <View
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "alignItems": "center",
+                    "justifyContent": "center",
                   },
                   Array [
                     Object {
-                      "color": "#ffffff",
+                      "borderRadius": 24,
+                      "height": 48,
+                      "width": 48,
                     },
                     Object {
-                      "fontSize": 18,
+                      "backgroundColor": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
+                    undefined,
                   ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
                 ]
               }
             >
-              
-            </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 26,
+                        "fontWeight": "300",
+                      },
+                    ],
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -682,7 +682,7 @@ exports[`renders screen with steps correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuIcon"
         >
           <View
             style={
@@ -704,39 +704,27 @@ exports[`renders screen with steps correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "ratione ut sunt",
+                }
+              }
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
                   Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
+                    "backgroundColor": "rgb(167, 154, 115)",
                   },
-                  Object {},
+                  undefined,
                 ]
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -944,28 +932,6 @@ exports[`renders screen with steps correctly 1`] = `
             "__typename": "Step",
             "community": Object {
               "__typename": "Community",
-              "id": "3",
-            },
-            "completedAt": "2014-08-26T07:39:14.970Z",
-            "id": "1",
-            "receiver": Object {
-              "__typename": "Person",
-              "fullName": "Heather Hahn",
-              "id": "2",
-            },
-            "reminder": Object {
-              "__typename": "StepReminder",
-              "id": "4",
-              "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
-              "reminderType": "once",
-            },
-            "stepType": "relate",
-            "title": "Repellat quisquam recusandae alias consequuntur corporis.",
-          },
-          Object {
-            "__typename": "Step",
-            "community": Object {
-              "__typename": "Community",
               "id": "7",
             },
             "completedAt": "2011-04-05T20:54:44.943Z",
@@ -982,7 +948,29 @@ exports[`renders screen with steps correctly 1`] = `
               "reminderType": "once",
             },
             "stepType": "bond",
-            "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
+            "title": "Amet iure ut libero qui recusandae.",
+          },
+          Object {
+            "__typename": "Step",
+            "community": Object {
+              "__typename": "Community",
+              "id": "11",
+            },
+            "completedAt": "2014-06-14T18:46:15.611Z",
+            "id": "9",
+            "receiver": Object {
+              "__typename": "Person",
+              "fullName": "Brooklyn Weimann",
+              "id": "10",
+            },
+            "reminder": Object {
+              "__typename": "StepReminder",
+              "id": "12",
+              "nextOccurrenceAt": "2012-11-17T16:58:59.414Z",
+              "reminderType": "once",
+            },
+            "stepType": "learn",
+            "title": "Nulla quam ipsam nobis cupiditate sed dignissimos.",
           },
         ]
       }
@@ -1033,39 +1021,6 @@ exports[`renders screen with steps correctly 1`] = `
                 "__typename": "Step",
                 "community": Object {
                   "__typename": "Community",
-                  "id": "3",
-                },
-                "completedAt": "2014-08-26T07:39:14.970Z",
-                "id": "1",
-                "receiver": Object {
-                  "__typename": "Person",
-                  "fullName": "Heather Hahn",
-                  "id": "2",
-                },
-                "reminder": Object {
-                  "__typename": "StepReminder",
-                  "id": "4",
-                  "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
-                  "reminderType": "once",
-                },
-                "stepType": "relate",
-                "title": "Repellat quisquam recusandae alias consequuntur corporis.",
-              }
-            }
-            testID="stepItem"
-          />
-        </View>
-        <View
-          onLayout={[Function]}
-          style={null}
-        >
-          <StepItem
-            showCheckbox={false}
-            step={
-              Object {
-                "__typename": "Step",
-                "community": Object {
-                  "__typename": "Community",
                   "id": "7",
                 },
                 "completedAt": "2011-04-05T20:54:44.943Z",
@@ -1082,7 +1037,40 @@ exports[`renders screen with steps correctly 1`] = `
                   "reminderType": "once",
                 },
                 "stepType": "bond",
-                "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
+                "title": "Amet iure ut libero qui recusandae.",
+              }
+            }
+            testID="stepItem"
+          />
+        </View>
+        <View
+          onLayout={[Function]}
+          style={null}
+        >
+          <StepItem
+            showCheckbox={false}
+            step={
+              Object {
+                "__typename": "Step",
+                "community": Object {
+                  "__typename": "Community",
+                  "id": "11",
+                },
+                "completedAt": "2014-06-14T18:46:15.611Z",
+                "id": "9",
+                "receiver": Object {
+                  "__typename": "Person",
+                  "fullName": "Brooklyn Weimann",
+                  "id": "10",
+                },
+                "reminder": Object {
+                  "__typename": "StepReminder",
+                  "id": "12",
+                  "nextOccurrenceAt": "2012-11-17T16:58:59.414Z",
+                  "reminderType": "once",
+                },
+                "stepType": "learn",
+                "title": "Nulla quam ipsam nobis cupiditate sed dignissimos.",
               }
             }
             testID="stepItem"
@@ -1099,62 +1087,62 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -357,10 +357,54 @@
+@@ -345,10 +345,54 @@
                 \\"reminderType\\": \\"once\\",
               },
-              \\"stepType\\": \\"bond\\",
-              \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
+              \\"stepType\\": \\"learn\\",
+              \\"title\\": \\"Nulla quam ipsam nobis cupiditate sed dignissimos.\\",
             },
-+           Object {
-+             \\"__typename\\": \\"Step\\",
-+             \\"community\\": Object {
-+               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"11\\",
-+             },
-+             \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
-+             \\"id\\": \\"9\\",
-+             \\"receiver\\": Object {
-+               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Dorcas Dach\\",
-+               \\"id\\": \\"10\\",
-+             },
-+             \\"reminder\\": Object {
-+               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"12\\",
-+               \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
-+               \\"reminderType\\": \\"once\\",
-+             },
-+             \\"stepType\\": \\"affirm\\",
-+             \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
-+           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
 +               \\"id\\": \\"15\\",
 +             },
-+             \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
++             \\"completedAt\\": \\"2013-04-28T11:06:05.319Z\\",
 +             \\"id\\": \\"13\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Margaret Williamson\\",
++               \\"fullName\\": \\"Hannah Lemke\\",
 +               \\"id\\": \\"14\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
 +               \\"id\\": \\"16\\",
-+               \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
++               \\"nextOccurrenceAt\\": \\"2016-11-18T08:49:49.007Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"stepType\\": \\"care\\",
++             \\"stepType\\": \\"share\\",
 +             \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
++           },
++           Object {
++             \\"__typename\\": \\"Step\\",
++             \\"community\\": Object {
++               \\"__typename\\": \\"Community\\",
++               \\"id\\": \\"19\\",
++             },
++             \\"completedAt\\": \\"2018-08-13T06:16:34.024Z\\",
++             \\"id\\": \\"17\\",
++             \\"receiver\\": Object {
++               \\"__typename\\": \\"Person\\",
++               \\"fullName\\": \\"Otis Skiles\\",
++               \\"id\\": \\"18\\",
++             },
++             \\"reminder\\": Object {
++               \\"__typename\\": \\"StepReminder\\",
++               \\"id\\": \\"20\\",
++               \\"nextOccurrenceAt\\": \\"2012-07-15T23:21:29.394Z\\",
++               \\"reminderType\\": \\"once\\",
++             },
++             \\"stepType\\": \\"pray\\",
++             \\"title\\": \\"Eaque enim ipsum inventore debitis libero aspernatur deserunt quam.\\",
 +           },
           ]
         }
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -461,9 +505,82 @@
+@@ -449,9 +493,82 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1171,23 +1159,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"11\\",
++                   \\"id\\": \\"15\\",
 +                 },
-+                 \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
-+                 \\"id\\": \\"9\\",
++                 \\"completedAt\\": \\"2013-04-28T11:06:05.319Z\\",
++                 \\"id\\": \\"13\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Dorcas Dach\\",
-+                   \\"id\\": \\"10\\",
++                   \\"fullName\\": \\"Hannah Lemke\\",
++                   \\"id\\": \\"14\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"12\\",
-+                   \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
++                   \\"id\\": \\"16\\",
++                   \\"nextOccurrenceAt\\": \\"2016-11-18T08:49:49.007Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepType\\": \\"affirm\\",
-+                 \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
++                 \\"stepType\\": \\"share\\",
++                 \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1204,23 +1192,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"15\\",
++                   \\"id\\": \\"19\\",
 +                 },
-+                 \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
-+                 \\"id\\": \\"13\\",
++                 \\"completedAt\\": \\"2018-08-13T06:16:34.024Z\\",
++                 \\"id\\": \\"17\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Margaret Williamson\\",
-+                   \\"id\\": \\"14\\",
++                   \\"fullName\\": \\"Otis Skiles\\",
++                   \\"id\\": \\"18\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"16\\",
-+                   \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
++                   \\"id\\": \\"20\\",
++                   \\"nextOccurrenceAt\\": \\"2012-07-15T23:21:29.394Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepType\\": \\"care\\",
-+                 \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
++                 \\"stepType\\": \\"pray\\",
++                 \\"title\\": \\"Eaque enim ipsum inventore debitis libero aspernatur deserunt quam.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"

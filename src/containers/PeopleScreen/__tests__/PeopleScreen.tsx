@@ -1,6 +1,7 @@
 import 'react-native';
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { useQuery } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
@@ -11,17 +12,13 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
+import { GET_MY_AVATAR_AND_EMAIL } from '../../../components/SideMenu/queries';
 
 import { PeopleScreen } from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('react-navigation-hooks');
-jest.mock('../../../components/common', () => ({
-  IconButton: 'IconButton',
-  Button: 'Button',
-}));
 jest.mock('../../../components/PeopleList', () => 'PeopleList');
-jest.mock('../../../components/Header', () => 'Header');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/people');
 jest.mock('../../../actions/person');
@@ -31,12 +28,7 @@ jest.mock('../../../actions/people', () => ({
   getMyPeople: jest.fn(),
 }));
 jest.mock('../../../utils/hooks/useAnalytics');
-
-const person = {
-  first_name: 'Christian',
-  last_name: 'Huffman',
-  id: '4224323',
-};
+jest.mock('../../../utils/common');
 
 const orgs = [
   {
@@ -99,12 +91,17 @@ const people = [
 const props = {
   hasNoContacts: false,
   items: orgs,
-  dispatch: jest.fn(response => Promise.resolve(response)),
-  person: person,
 };
 
-it('renders empty correctly', () => {
-  renderWithContext(
+beforeEach(() => {
+  (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
+  (common.openMainMenu as jest.Mock).mockReturnValue({
+    type: 'open main menu',
+  });
+});
+
+it('renders empty correctly', async () => {
+  const { snapshot } = renderWithContext(
     <PeopleScreen
       {...props}
       items={[{ id: 'me person' }]}
@@ -113,24 +110,33 @@ it('renders empty correctly', () => {
     {
       initialState: { auth: { person: {} }, stages: {} },
     },
-  ).snapshot();
-
+  );
+  await flushMicrotasksQueue();
+  snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL, {
+    fetchPolicy: 'cache-first',
+  });
   expect(useAnalytics).toHaveBeenCalledWith('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
 });
 
-it('renders correctly as Casey', () => {
-  renderWithContext(<PeopleScreen {...props} items={people} />).snapshot();
+it('renders correctly as Casey', async () => {
+  const { snapshot } = renderWithContext(
+    <PeopleScreen {...props} items={people} />,
+  );
+  await flushMicrotasksQueue();
+  snapshot();
 
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL, {
+    fetchPolicy: 'cache-first',
+  });
   expect(useAnalytics).toHaveBeenCalledWith('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
 });
 
 it('should open main menu', () => {
-  (common.openMainMenu as jest.Mock) = jest.fn();
-
   const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
   fireEvent.press(getByTestId('header').props.left);
   expect(common.openMainMenu).toHaveBeenCalled();

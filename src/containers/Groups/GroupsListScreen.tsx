@@ -7,10 +7,8 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from 'react-native';
-import { connect } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import { TFunction } from 'i18next';
 
@@ -18,7 +16,7 @@ import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
 import { GroupCardHeight } from '../../components/GroupCardItem/styles';
 import { CardVerticalMargin } from '../../components/Card/styles';
-import { IconButton, Button } from '../../components/common';
+import { Button } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { openMainMenu, keyExtractorId } from '../../utils/common';
@@ -31,13 +29,16 @@ import {
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
-import { OrganizationsState, Organization } from '../../reducers/organizations';
+import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { COMMUNITY_TABS } from '../Communities/Community/constants';
+import Avatar from '../../components/Avatar';
+import { GET_MY_AVATAR_AND_EMAIL } from '../../components/SideMenu/queries';
+import { GetMyAvatarAndEmail } from '../../components/SideMenu/__generated__/GetMyAvatarAndEmail';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -48,11 +49,6 @@ import {
 import { GET_COMMUNITIES_QUERY } from './queries';
 
 interface GroupsListScreenProps {
-  dispatch: ThunkDispatch<
-    { organizations: OrganizationsState },
-    null,
-    AnyAction
-  >;
   isAnonymousUser: boolean;
   scrollToId: string | null;
 }
@@ -92,13 +88,13 @@ const getItemLayout = (_: any, index: number) => {
 };
 
 const GroupsListScreen = ({
-  dispatch,
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
   useAnalytics('communities', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
+  const dispatch = useDispatch();
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -118,6 +114,11 @@ const GroupsListScreen = ({
     refetch,
     error,
   } = useQuery<GetCommunities>(GET_COMMUNITIES_QUERY);
+
+  const { data: { currentUser } = {} } = useQuery<GetMyAvatarAndEmail>(
+    GET_MY_AVATAR_AND_EMAIL,
+    { fetchPolicy: 'cache-first' },
+  );
 
   const globalCommunity = createGlobalCommunity(t, usersCount);
   const communities: GetCommunities_communities_nodes[] = [
@@ -231,12 +232,9 @@ const GroupsListScreen = ({
       <Header
         titleStyle={styles.headerTitle}
         left={
-          <IconButton
-            testID="IconButton"
-            name="menuIcon"
-            type="MissionHub"
-            onPress={handleOpenMainMenu}
-          />
+          <Button onPress={handleOpenMainMenu} testID="menuButton">
+            <Avatar size={'medium'} person={currentUser?.person} />
+          </Button>
         }
         title={t('header')}
       />

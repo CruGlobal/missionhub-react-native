@@ -7,7 +7,7 @@ import { useNavigationEvents } from 'react-navigation-hooks';
 
 import theme from '../../theme';
 import Header from '../../components/Header';
-import { IconButton, Flex } from '../../components/common';
+import { Flex, Button } from '../../components/common';
 import {
   NotificationCenterItem,
   ReportedNotificationCenterItem,
@@ -19,14 +19,17 @@ import { NotificationItem } from '../../components/NotificationCenterItem/__gene
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
+import Avatar from '../../components/Avatar';
+import { GetMyAvatarAndEmail } from '../../components/SideMenu/__generated__/GetMyAvatarAndEmail';
+import { GET_MY_AVATAR_AND_EMAIL } from '../../components/SideMenu/queries';
 
+import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
 import {
   UpdateLatestNotification,
   UpdateLatestNotificationVariables,
 } from './__generated__/UpdateLatestNotification';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
 import { GetNotifications } from './__generated__/GetNotifications';
-import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
 import styles from './styles';
 
 const NotificationCenterScreen = () => {
@@ -34,6 +37,11 @@ const NotificationCenterScreen = () => {
   const { t } = useTranslation('notificationsCenter');
 
   useAnalytics('notification center');
+
+  const { data: { currentUser } = {} } = useQuery<GetMyAvatarAndEmail>(
+    GET_MY_AVATAR_AND_EMAIL,
+    { fetchPolicy: 'cache-first' },
+  );
 
   const {
     data: {
@@ -165,11 +173,9 @@ const NotificationCenterScreen = () => {
       <Header
         testID="header"
         left={
-          <IconButton
-            name="menuIcon"
-            type="MissionHub"
-            onPress={onOpenMainMenu}
-          />
+          <Button onPress={onOpenMainMenu} testID="menuButton">
+            <Avatar size={'medium'} person={currentUser?.person} />
+          </Button>
         }
         title={t('title')}
         titleStyle={styles.title}

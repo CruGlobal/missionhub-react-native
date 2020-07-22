@@ -7,6 +7,8 @@ export const GET_MY_AVATAR_AND_EMAIL = gql`
     currentUser {
       id
       person {
+        id
+        fullName
         emailAddressesList {
           id
           email

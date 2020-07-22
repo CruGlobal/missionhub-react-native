@@ -1,4 +1,5 @@
 import React from 'react';
+import { useQuery } from '@apollo/react-hooks';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
@@ -11,6 +12,7 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
+import { GET_MY_AVATAR_AND_EMAIL } from '../../../components/SideMenu/queries';
 
 import StepsScreen from '..';
 
@@ -68,6 +70,9 @@ it('renders screen with steps correctly', async () => {
   await flushMicrotasksQueue();
 
   snapshot();
+  expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL, {
+    fetchPolicy: 'cache-first',
+  });
 });
 
 it('tracks screen change on mount', () => {

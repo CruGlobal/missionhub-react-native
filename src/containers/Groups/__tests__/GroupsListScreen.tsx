@@ -22,6 +22,7 @@ import {
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
 import { COMMUNITY_TABS } from '../../Communities/Community/constants';
+import { GET_MY_AVATAR_AND_EMAIL } from '../../../components/SideMenu/queries';
 
 jest.mock('react-navigation-hooks');
 jest.mock('../../../components/GroupCardItem', () => 'GroupCardItem');
@@ -74,6 +75,9 @@ describe('GroupsListScreen', () => {
 
     await flushMicrotasksQueue();
     snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL, {
+      fetchPolicy: 'cache-first',
+    });
     expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITIES_QUERY);
 
     expect(useAnalytics).toHaveBeenCalledWith('communities', {
@@ -121,7 +125,7 @@ describe('GroupsListScreen', () => {
         },
       });
 
-      fireEvent.press(getByTestId('IconButton'));
+      fireEvent.press(getByTestId('menuButton'));
       expect(openMainMenu).toHaveBeenCalled();
       expect(store.getActions()).toEqual([openMainMenuResponse]);
     });
