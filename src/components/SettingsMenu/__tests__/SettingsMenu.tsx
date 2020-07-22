@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactNative from 'react-native';
 import i18n from 'i18next';
+import DeviceInfo from 'react-native-device-info';
 
 import { renderWithContext } from '../../../../testUtils';
 import { LINKS } from '../../../constants';
@@ -8,16 +9,18 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
-import { useGetAppVersion } from '../../../utils/hooks/useGetAppVersion';
+import { useCheckForUpdate } from '../../../utils/hooks/useCheckForUpdate';
 
 import SettingsMenu from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/hooks/useIsMe');
-jest.mock('../../../utils/hooks/useGetAppVersion');
+jest.mock('../../../utils/hooks/useCheckForUpdate');
+jest.mock('react-native-device-info');
 
 beforeEach(() => {
-  (useGetAppVersion as jest.Mock).mockReturnValue('5.4.1');
+  (useCheckForUpdate as jest.Mock).mockReturnValue(false);
+  (DeviceInfo.getVersion as jest.Mock).mockReturnValue('5.4.1');
 });
 
 function getState(isAnonymousUser: boolean) {

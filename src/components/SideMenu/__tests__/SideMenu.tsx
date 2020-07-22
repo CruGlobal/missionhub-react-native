@@ -2,22 +2,21 @@ import React from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { BackHandler } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
-// eslint-disable-next-line import/default
-import VersionCheck from 'react-native-version-check';
+import DeviceInfo from 'react-native-device-info';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useMyId } from '../../../utils/hooks/useIsMe';
 import { GET_MY_AVATAR_AND_EMAIL } from '../queries';
 import { EDIT_PERSON_FLOW } from '../../../routes/constants';
 import { navigatePush } from '../../../actions/navigation';
-import { useGetAppVersion } from '../../../utils/hooks/useGetAppVersion';
+import { useCheckForUpdate } from '../../../utils/hooks/useCheckForUpdate';
 
 import SideMenu from '..';
 
 jest.mock('../../../utils/hooks/useIsMe');
-jest.mock('../../../utils/hooks/useGetAppVersion');
-jest.mock('react-native-version-check');
+jest.mock('../../../utils/hooks/useCheckForUpdate');
 jest.mock('../../../actions/navigation');
+jest.mock('react-native-device-info');
 
 const action = jest.fn();
 
@@ -53,10 +52,10 @@ jest.mock('react-navigation-drawer', () => ({
 const mockMyId = '1234';
 
 beforeEach(() => {
-  (useGetAppVersion as jest.Mock).mockReturnValue('5.4.1');
+  (useCheckForUpdate as jest.Mock).mockReturnValue(false);
+  (DeviceInfo.getVersion as jest.Mock).mockReturnValue('5.4.1');
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
   (useMyId as jest.Mock).mockReturnValue(mockMyId);
-  (VersionCheck.getLatestVersion as jest.Mock).mockReturnValue('5.4.1');
 });
 
 it('renders correctly | Authenticated User', () => {
@@ -84,7 +83,8 @@ it('renders correctly | UnAuthed User', () => {
 });
 
 it('render update button', async () => {
-  (useGetAppVersion as jest.Mock).mockReturnValue('5.4.0');
+  (useCheckForUpdate as jest.Mock).mockReturnValue(true);
+  (DeviceInfo.getVersion as jest.Mock).mockReturnValue('5.4.0');
 
   const { snapshot } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,
@@ -128,7 +128,7 @@ it('should navigate to edit profile', async () => {
 });
 
 it('should open link to play or app store when user presses update button', async () => {
-  (useGetAppVersion as jest.Mock).mockReturnValue('5.4.0');
+  (useCheckForUpdate as jest.Mock).mockReturnValue(true);
 
   const { getByTestId } = renderWithContext(
     <SideMenu menuItems={mockMenuItems} />,

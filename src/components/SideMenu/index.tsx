@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { DrawerActions } from 'react-navigation-drawer';
 import { SafeAreaView, BackHandler, View } from 'react-native';
-// eslint-disable-next-line import/default
-import VersionCheck from 'react-native-version-check';
+import DeviceInfo from 'react-native-device-info';
 
-import { useGetAppVersion } from '../../utils/hooks/useGetAppVersion';
+import { useCheckForUpdate } from '../../utils/hooks/useCheckForUpdate';
 import { useMyId } from '../../utils/hooks/useIsMe';
 import { useIsDrawerOpen } from '../../utils/hooks/useIsDrawerOpen';
 import Avatar from '../Avatar';
@@ -43,24 +42,17 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
   const { t } = useTranslation('settingsMenu');
   const dispatch = useDispatch();
   const myId = useMyId();
-  const [needsToUpdate, setNeedsToUpdate] = useState(false);
 
   const isSignedIn = useSelector(
     ({ auth }: { auth: AuthState }) => !auth.upgradeToken,
   );
 
-  const appVersion = useGetAppVersion();
+  const needsToUpdate = useCheckForUpdate();
   const isOpen = useIsDrawerOpen();
-
-  const checkForUpdate = async () => {
-    const latestVersion = await VersionCheck.getLatestVersion();
-
-    setNeedsToUpdate(latestVersion !== appVersion);
-  };
 
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress', onBackPress);
-    checkForUpdate();
+
     return () => {
       BackHandler.removeEventListener('hardwareBackPress', onBackPress);
     };
@@ -162,7 +154,7 @@ const SideMenu = ({ menuItems }: SideMenuProps) => {
       <View style={styles.versionContainer}>
         <Text style={styles.versionText}>{`${t(
           'version',
-        )} ${appVersion}`}</Text>
+        )} ${DeviceInfo.getVersion()}`}</Text>
         {needsToUpdate ? (
           <Button
             testID="updateButton"
