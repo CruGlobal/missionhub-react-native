@@ -5,12 +5,12 @@ import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
 import { navigateToMainTabs } from '../../actions/navigation';
-import { Text, LoadingGuy, Button } from '../../components/common';
+import { Text, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
 import { FooterLoading } from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
-import { openMainMenu, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
@@ -22,9 +22,7 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
-import Avatar from '../../components/Avatar';
-import { GET_MY_AVATAR_AND_EMAIL } from '../../components/SideMenu/queries';
-import { GetMyAvatarAndEmail } from '../../components/SideMenu/__generated__/GetMyAvatarAndEmail';
+import AvatarMenuButton from '../../components/AvatarMenuButton';
 
 import styles from './styles';
 import {
@@ -39,11 +37,6 @@ const StepsScreen = () => {
   useAnalytics('steps', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
-
-  const { data: { currentUser } = {} } = useQuery<GetMyAvatarAndEmail>(
-    GET_MY_AVATAR_AND_EMAIL,
-    { fetchPolicy: 'cache-first' },
-  );
 
   const {
     data: {
@@ -136,11 +129,7 @@ const StepsScreen = () => {
       <Header
         titleStyle={styles.headerTitle}
         testID="header"
-        left={
-          <Button onPress={() => dispatch(openMainMenu())} testID="menuIcon">
-            <Avatar size={'medium'} person={currentUser?.person} />
-          </Button>
-        }
+        left={<AvatarMenuButton />}
         title={t('title')}
       />
       <ErrorNotice

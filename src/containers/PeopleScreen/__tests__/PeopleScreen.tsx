@@ -1,7 +1,6 @@
 import 'react-native';
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
-import { useQuery } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
@@ -12,7 +11,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
-import { GET_MY_AVATAR_AND_EMAIL } from '../../../components/SideMenu/queries';
 
 import { PeopleScreen } from '..';
 
@@ -91,6 +89,7 @@ const people = [
 const props = {
   hasNoContacts: false,
   items: orgs,
+  personId: '1234',
 };
 
 beforeEach(() => {
@@ -113,9 +112,6 @@ it('renders empty correctly', async () => {
   );
   await flushMicrotasksQueue();
   snapshot();
-  expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL, {
-    fetchPolicy: 'cache-first',
-  });
   expect(useAnalytics).toHaveBeenCalledWith('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
@@ -128,9 +124,6 @@ it('renders correctly as Casey', async () => {
   await flushMicrotasksQueue();
   snapshot();
 
-  expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL, {
-    fetchPolicy: 'cache-first',
-  });
   expect(useAnalytics).toHaveBeenCalledWith('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
@@ -138,7 +131,7 @@ it('renders correctly as Casey', async () => {
 
 it('should open main menu', () => {
   const { getByTestId } = renderWithContext(<PeopleScreen {...props} />);
-  fireEvent.press(getByTestId('header').props.left);
+  fireEvent.press(getByTestId('menuButton'));
   expect(common.openMainMenu).toHaveBeenCalled();
 });
 

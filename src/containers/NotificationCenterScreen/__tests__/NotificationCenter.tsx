@@ -11,7 +11,6 @@ import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from '../queries';
 import { openMainMenu } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
-import { GET_MY_AVATAR_AND_EMAIL } from '../../../components/SideMenu/queries';
 
 import NotificationCenterScreen from '..';
 
@@ -71,9 +70,6 @@ it('renders correctly', async () => {
   await flushMicrotasksQueue();
   expect(useQuery).toHaveBeenCalledWith(GET_NOTIFICATIONS, {
     onCompleted: expect.any(Function),
-  });
-  expect(useQuery).toHaveBeenCalledWith(GET_MY_AVATAR_AND_EMAIL, {
-    fetchPolicy: 'cache-first',
   });
 
   snapshot();

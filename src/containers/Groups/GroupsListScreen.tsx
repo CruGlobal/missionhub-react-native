@@ -19,7 +19,7 @@ import { CardVerticalMargin } from '../../components/Card/styles';
 import { Button } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { openMainMenu, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
@@ -36,9 +36,7 @@ import {
 } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { COMMUNITY_TABS } from '../Communities/Community/constants';
-import Avatar from '../../components/Avatar';
-import { GET_MY_AVATAR_AND_EMAIL } from '../../components/SideMenu/queries';
-import { GetMyAvatarAndEmail } from '../../components/SideMenu/__generated__/GetMyAvatarAndEmail';
+import AvatarMenuButton from '../../components/AvatarMenuButton';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -115,11 +113,6 @@ const GroupsListScreen = ({
     error,
   } = useQuery<GetCommunities>(GET_COMMUNITIES_QUERY);
 
-  const { data: { currentUser } = {} } = useQuery<GetMyAvatarAndEmail>(
-    GET_MY_AVATAR_AND_EMAIL,
-    { fetchPolicy: 'cache-first' },
-  );
-
   const globalCommunity = createGlobalCommunity(t, usersCount);
   const communities: GetCommunities_communities_nodes[] = [
     globalCommunity,
@@ -191,8 +184,6 @@ const GroupsListScreen = ({
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
-  const handleOpenMainMenu = () => dispatch(openMainMenu());
-
   const handleScroll = ({
     nativeEvent,
   }: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -231,11 +222,7 @@ const GroupsListScreen = ({
     <View style={styles.container}>
       <Header
         titleStyle={styles.headerTitle}
-        left={
-          <Button onPress={handleOpenMainMenu} testID="menuButton">
-            <Avatar size={'medium'} person={currentUser?.person} />
-          </Button>
-        }
+        left={<AvatarMenuButton />}
         title={t('header')}
       />
       <View style={{ flexDirection: 'row' }}>

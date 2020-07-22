@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
-import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
 import { getMyPeople } from '../../actions/people';
@@ -11,7 +10,6 @@ import { navigatePush } from '../../actions/navigation';
 import { Button } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
-import { openMainMenu } from '../../utils/common';
 import BottomButton from '../../components/BottomButton';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
@@ -23,9 +21,7 @@ import {
 import { RootState } from '../../reducers';
 import AddPersonIcon from '../../../assets/images/addPersonIcon.svg';
 import AnnouncementsModal from '../../components/AnnouncementsModal';
-import Avatar from '../../components/Avatar';
-import { GET_MY_AVATAR_AND_EMAIL } from '../../components/SideMenu/queries';
-import { GetMyAvatarAndEmail } from '../../components/SideMenu/__generated__/GetMyAvatarAndEmail';
+import AvatarMenuButton from '../../components/AvatarMenuButton';
 
 import styles from './styles';
 
@@ -33,22 +29,20 @@ interface PeopleScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items: any;
   hasNoContacts: boolean;
+  personId: string;
 }
 
-export const PeopleScreen = ({ items, hasNoContacts }: PeopleScreenProps) => {
+export const PeopleScreen = ({
+  items,
+  hasNoContacts,
+  personId,
+}: PeopleScreenProps) => {
   useAnalytics('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   const { t } = useTranslation('peopleScreen');
 
   const dispatch = useDispatch();
-
-  const { data: { currentUser } = {} } = useQuery<GetMyAvatarAndEmail>(
-    GET_MY_AVATAR_AND_EMAIL,
-    { fetchPolicy: 'cache-first' },
-  );
-
-  const onOpenMainMenu = () => dispatch(openMainMenu());
 
   const handleAddContact = (org: Organization) => {
     dispatch(
@@ -57,8 +51,6 @@ export const PeopleScreen = ({ items, hasNoContacts }: PeopleScreenProps) => {
       }),
     );
   };
-  const person = currentUser?.person;
-  const personId = person?.id || '';
 
   const handleRefresh = () => {
     return dispatch(getMyPeople());
@@ -72,11 +64,7 @@ export const PeopleScreen = ({ items, hasNoContacts }: PeopleScreenProps) => {
       <Header
         titleStyle={styles.headerTitle}
         testID="header"
-        left={
-          <Button onPress={onOpenMainMenu}>
-            <Avatar size={'medium'} person={currentUser?.person} />
-          </Button>
-        }
+        left={<AvatarMenuButton />}
         right={
           <Button onPress={handleAddContact}>
             <AddPersonIcon />
@@ -104,6 +92,7 @@ export const PeopleScreen = ({ items, hasNoContacts }: PeopleScreenProps) => {
 };
 
 const mapStateToProps = ({ auth, people, organizations }: RootState) => {
+  const { person } = auth;
   const items = allAssignedPeopleSelector({
     people,
     organizations,
@@ -115,6 +104,7 @@ const mapStateToProps = ({ auth, people, organizations }: RootState) => {
   return {
     items,
     hasNoContacts,
+    personId: person.id,
   };
 };
 

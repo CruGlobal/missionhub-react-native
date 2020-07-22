@@ -60,7 +60,7 @@ exports[`renders empty screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="menuIcon"
+          testID="menuButton"
         >
           <View
             style={
@@ -86,7 +86,7 @@ exports[`renders empty screen correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "ratione ut sunt",
+                  "uri": "quisquam recusandae alias",
                 }
               }
               style={
@@ -395,7 +395,7 @@ exports[`renders loading screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="menuIcon"
+          testID="menuButton"
         >
           <View
             style={
@@ -682,7 +682,7 @@ exports[`renders screen with steps correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="menuIcon"
+          testID="menuButton"
         >
           <View
             style={
@@ -708,7 +708,7 @@ exports[`renders screen with steps correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "ratione ut sunt",
+                  "uri": "eos itaque velit",
                 }
               }
               style={
@@ -719,7 +719,7 @@ exports[`renders screen with steps correctly 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(167, 154, 115)",
+                    "backgroundColor": "rgb(160, 123, 115)",
                   },
                   undefined,
                 ]
@@ -932,6 +932,28 @@ exports[`renders screen with steps correctly 1`] = `
             "__typename": "Step",
             "community": Object {
               "__typename": "Community",
+              "id": "3",
+            },
+            "completedAt": "2014-08-26T07:39:14.970Z",
+            "id": "1",
+            "receiver": Object {
+              "__typename": "Person",
+              "fullName": "Heather Hahn",
+              "id": "2",
+            },
+            "reminder": Object {
+              "__typename": "StepReminder",
+              "id": "4",
+              "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
+              "reminderType": "once",
+            },
+            "stepType": "relate",
+            "title": "Repellat quisquam recusandae alias consequuntur corporis.",
+          },
+          Object {
+            "__typename": "Step",
+            "community": Object {
+              "__typename": "Community",
               "id": "7",
             },
             "completedAt": "2011-04-05T20:54:44.943Z",
@@ -948,29 +970,7 @@ exports[`renders screen with steps correctly 1`] = `
               "reminderType": "once",
             },
             "stepType": "bond",
-            "title": "Amet iure ut libero qui recusandae.",
-          },
-          Object {
-            "__typename": "Step",
-            "community": Object {
-              "__typename": "Community",
-              "id": "11",
-            },
-            "completedAt": "2014-06-14T18:46:15.611Z",
-            "id": "9",
-            "receiver": Object {
-              "__typename": "Person",
-              "fullName": "Brooklyn Weimann",
-              "id": "10",
-            },
-            "reminder": Object {
-              "__typename": "StepReminder",
-              "id": "12",
-              "nextOccurrenceAt": "2012-11-17T16:58:59.414Z",
-              "reminderType": "once",
-            },
-            "stepType": "learn",
-            "title": "Nulla quam ipsam nobis cupiditate sed dignissimos.",
+            "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
           },
         ]
       }
@@ -1021,23 +1021,23 @@ exports[`renders screen with steps correctly 1`] = `
                 "__typename": "Step",
                 "community": Object {
                   "__typename": "Community",
-                  "id": "7",
+                  "id": "3",
                 },
-                "completedAt": "2011-04-05T20:54:44.943Z",
-                "id": "5",
+                "completedAt": "2014-08-26T07:39:14.970Z",
+                "id": "1",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Alek Lesch",
-                  "id": "6",
+                  "fullName": "Heather Hahn",
+                  "id": "2",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
-                  "id": "8",
-                  "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
+                  "id": "4",
+                  "nextOccurrenceAt": "2015-08-09T09:31:34.869Z",
                   "reminderType": "once",
                 },
-                "stepType": "bond",
-                "title": "Amet iure ut libero qui recusandae.",
+                "stepType": "relate",
+                "title": "Repellat quisquam recusandae alias consequuntur corporis.",
               }
             }
             testID="stepItem"
@@ -1054,23 +1054,23 @@ exports[`renders screen with steps correctly 1`] = `
                 "__typename": "Step",
                 "community": Object {
                   "__typename": "Community",
-                  "id": "11",
+                  "id": "7",
                 },
-                "completedAt": "2014-06-14T18:46:15.611Z",
-                "id": "9",
+                "completedAt": "2011-04-05T20:54:44.943Z",
+                "id": "5",
                 "receiver": Object {
                   "__typename": "Person",
-                  "fullName": "Brooklyn Weimann",
-                  "id": "10",
+                  "fullName": "Alek Lesch",
+                  "id": "6",
                 },
                 "reminder": Object {
                   "__typename": "StepReminder",
-                  "id": "12",
-                  "nextOccurrenceAt": "2012-11-17T16:58:59.414Z",
+                  "id": "8",
+                  "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
                   "reminderType": "once",
                 },
-                "stepType": "learn",
-                "title": "Nulla quam ipsam nobis cupiditate sed dignissimos.",
+                "stepType": "bond",
+                "title": "Ratione ut sunt qui amet iure ut libero qui recusandae.",
               }
             }
             testID="stepItem"
@@ -1090,52 +1090,52 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 @@ -345,10 +345,54 @@
                 \\"reminderType\\": \\"once\\",
               },
-              \\"stepType\\": \\"learn\\",
-              \\"title\\": \\"Nulla quam ipsam nobis cupiditate sed dignissimos.\\",
+              \\"stepType\\": \\"bond\\",
+              \\"title\\": \\"Ratione ut sunt qui amet iure ut libero qui recusandae.\\",
             },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"15\\",
++               \\"id\\": \\"13\\",
 +             },
-+             \\"completedAt\\": \\"2013-04-28T11:06:05.319Z\\",
-+             \\"id\\": \\"13\\",
++             \\"completedAt\\": \\"2013-05-02T13:44:36.598Z\\",
++             \\"id\\": \\"11\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Hannah Lemke\\",
-+               \\"id\\": \\"14\\",
++               \\"fullName\\": \\"Larue Johnston\\",
++               \\"id\\": \\"12\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"16\\",
-+               \\"nextOccurrenceAt\\": \\"2016-11-18T08:49:49.007Z\\",
++               \\"id\\": \\"14\\",
++               \\"nextOccurrenceAt\\": \\"2014-09-15T22:43:13.893Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"stepType\\": \\"share\\",
-+             \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
++             \\"stepType\\": \\"affirm\\",
++             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"19\\",
++               \\"id\\": \\"17\\",
 +             },
-+             \\"completedAt\\": \\"2018-08-13T06:16:34.024Z\\",
-+             \\"id\\": \\"17\\",
++             \\"completedAt\\": \\"2018-01-22T22:32:29.415Z\\",
++             \\"id\\": \\"15\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Otis Skiles\\",
-+               \\"id\\": \\"18\\",
++               \\"fullName\\": \\"Edythe Haley\\",
++               \\"id\\": \\"16\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"20\\",
-+               \\"nextOccurrenceAt\\": \\"2012-07-15T23:21:29.394Z\\",
++               \\"id\\": \\"18\\",
++               \\"nextOccurrenceAt\\": \\"2011-09-11T14:47:27.446Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
 +             \\"stepType\\": \\"pray\\",
-+             \\"title\\": \\"Eaque enim ipsum inventore debitis libero aspernatur deserunt quam.\\",
++             \\"title\\": \\"Saepe eum dicta eum eaque enim ipsum inventore debitis.\\",
 +           },
           ]
         }
@@ -1159,23 +1159,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"15\\",
++                   \\"id\\": \\"13\\",
 +                 },
-+                 \\"completedAt\\": \\"2013-04-28T11:06:05.319Z\\",
-+                 \\"id\\": \\"13\\",
++                 \\"completedAt\\": \\"2013-05-02T13:44:36.598Z\\",
++                 \\"id\\": \\"11\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Hannah Lemke\\",
-+                   \\"id\\": \\"14\\",
++                   \\"fullName\\": \\"Larue Johnston\\",
++                   \\"id\\": \\"12\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"16\\",
-+                   \\"nextOccurrenceAt\\": \\"2016-11-18T08:49:49.007Z\\",
++                   \\"id\\": \\"14\\",
++                   \\"nextOccurrenceAt\\": \\"2014-09-15T22:43:13.893Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepType\\": \\"share\\",
-+                 \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
++                 \\"stepType\\": \\"affirm\\",
++                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1192,23 +1192,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"19\\",
++                   \\"id\\": \\"17\\",
 +                 },
-+                 \\"completedAt\\": \\"2018-08-13T06:16:34.024Z\\",
-+                 \\"id\\": \\"17\\",
++                 \\"completedAt\\": \\"2018-01-22T22:32:29.415Z\\",
++                 \\"id\\": \\"15\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Otis Skiles\\",
-+                   \\"id\\": \\"18\\",
++                   \\"fullName\\": \\"Edythe Haley\\",
++                   \\"id\\": \\"16\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"20\\",
-+                   \\"nextOccurrenceAt\\": \\"2012-07-15T23:21:29.394Z\\",
++                   \\"id\\": \\"18\\",
++                   \\"nextOccurrenceAt\\": \\"2011-09-11T14:47:27.446Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
 +                 \\"stepType\\": \\"pray\\",
-+                 \\"title\\": \\"Eaque enim ipsum inventore debitis libero aspernatur deserunt quam.\\",
++                 \\"title\\": \\"Saepe eum dicta eum eaque enim ipsum inventore debitis.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
