@@ -108,6 +108,7 @@ const ChallengeFeed = ({
   const handleSelectRow = (challenge: ChallengeItemInterface) => {
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        communityName: organization.name,
         challengeId: challenge.id,
         orgId: organization.id,
         isAdmin: adminOrOwner,
