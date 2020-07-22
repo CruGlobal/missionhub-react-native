@@ -41,6 +41,7 @@ export const GET_COMMUNITY_FEED = gql`
       THOUGHT
       STEP
       ACCEPTED_COMMUNITY_CHALLENGE
+      COMMUNITY_PERMISSION
     ]
     $personIds: [ID!]
     $feedItemsCursor: String

@@ -495,13 +495,13 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -1397,13 +1397,13 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -2266,13 +2266,13 @@ exports[`edit/delete post no options for not my post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -3420,13 +3420,13 @@ exports[`renders correctly 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -4287,13 +4287,13 @@ exports[`renders correctly with communityId passed in 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >

@@ -167,10 +167,11 @@ export const CommunityFeedItem = ({
   if (
     subject.__typename !== 'Post' &&
     subject.__typename !== 'AcceptedCommunityChallenge' &&
-    subject.__typename !== 'Step'
+    subject.__typename !== 'Step' &&
+    subject.__typename !== 'CommunityPermission'
   ) {
     throw new Error(
-      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, CommunityPermission, or Step',
     );
   }
   const deleteFeedItem = useDeleteFeedItem(feedItem);
