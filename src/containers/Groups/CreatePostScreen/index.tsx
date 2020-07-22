@@ -1,11 +1,11 @@
 /* eslint max-lines: 0 */
 
-import React, { useState, useMemo } from 'react';
+import React, { useState } from 'react';
 import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 //eslint-disable-next-line import/named
 import { RecordResponse } from 'react-native-camera';
 //eslint-disable-next-line import/named
@@ -16,12 +16,9 @@ import { AnyAction } from 'redux';
 import {
   ACTIONS,
   ANALYTICS_PERMISSION_TYPE,
-  SAVE_PENDING_CREATE_POST,
-  SAVE_PENDING_UPDATE_POST,
-  DELETE_PENDING_CREATE_POST,
-  DELETE_PENDING_UPDATE_POST,
-  PENDING_CREATE_POST_FAILED,
-  PENDING_UPDATE_POST_FAILED,
+  SAVE_PENDING_POST,
+  DELETE_PENDING_POST,
+  PENDING_POST_FAILED,
 } from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getPostTypeAnalytics } from '../../../utils/analytics';
@@ -55,6 +52,12 @@ import {
 } from '../../CommunityFeed/__generated__/GetCommunityFeed';
 import { useAspectRatio } from '../../../utils/hooks/useAspectRatio';
 import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
+import { RootState } from '../../../reducers';
+import {
+  SavePendingPostAction,
+  DeletePendingPostAction,
+  PendingPostFailedAction,
+} from '../../../reducers/communityPosts';
 
 import PhotoIcon from './photoIcon.svg';
 import VideoIcon from './videoIcon.svg';
@@ -80,122 +83,122 @@ export type CreatePostScreenNavParams =
   | CreatePostNavParams
   | UpdatePostNavParams;
 
-const savePendingCreatePost = (post: CreatePostInput) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-) => dispatch({ type: SAVE_PENDING_CREATE_POST, post });
+const savePendingPost = (
+  post: CreatePostInput | UpdatePostInput,
+  storageId: number,
+) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) =>
+  dispatch({
+    type: SAVE_PENDING_POST,
+    post,
+    storageId,
+  } as SavePendingPostAction);
 
-const savePendingUpdatePost = (post: UpdatePostInput) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
-) => dispatch({ type: SAVE_PENDING_UPDATE_POST, post });
-
-const deletePendingPost = (postId: string, update: boolean) => (
+const deletePendingPost = (storageId: number) => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) =>
   dispatch({
-    type: update ? DELETE_PENDING_UPDATE_POST : DELETE_PENDING_CREATE_POST,
-    postId,
-  });
+    type: DELETE_PENDING_POST,
+    storageId,
+  } as DeletePendingPostAction);
 
-const PendingPostFailed = (postId: string, update: boolean) => (
+const PendingPostFailed = (storageId: number) => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) =>
   dispatch({
-    type: update ? PENDING_UPDATE_POST_FAILED : PENDING_CREATE_POST_FAILED,
-    postId,
-  });
+    type: PENDING_POST_FAILED,
+    storageId,
+  } as PendingPostFailedAction);
 
 const useCreatePost = (
   post: CreatePostInput,
   onComplete: (update: boolean, includesMedia: boolean) => void,
 ) => {
   const { communityId, postType, media } = post;
+  const includesMedia = !!media;
 
   const dispatch = useDispatch();
-  const [createPost, { error, data }] = useMutation<
-    CreatePost,
-    CreatePostVariables
-  >(CREATE_POST, {
-    update: (cache, { data }) => {
-      try {
-        const originalData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId },
-          data: {
-            ...originalData,
-            community: {
-              ...originalData?.community,
-              feedItems: {
-                ...originalData?.community.feedItems,
-                nodes: [
-                  data?.createPost?.post?.feedItem,
-                  ...(originalData?.community.feedItems.nodes || []),
-                ],
-              },
-            },
-          },
-        });
-      } catch {}
+  const nextId = useSelector(
+    ({ communityPosts }: RootState) => communityPosts.nextId,
+  );
+  const [storageId] = useState(nextId);
 
-      try {
-        const originalFilteredData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId,
-            subjectType: [mapPostTypeToFeedType(postType)],
-          },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId,
-            subjectType: mapPostTypeToFeedType(postType),
-          },
-          data: {
-            ...originalFilteredData,
-            community: {
-              ...originalFilteredData?.community,
-              feedItems: {
-                ...originalFilteredData?.community.feedItems,
-                nodes: [
-                  data?.createPost?.post?.feedItem,
-                  ...(originalFilteredData?.community.feedItems.nodes || []),
-                ],
+  const [createPost] = useMutation<CreatePost, CreatePostVariables>(
+    CREATE_POST,
+    {
+      update: (cache, { data }) => {
+        try {
+          const originalData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId },
+            data: {
+              ...originalData,
+              community: {
+                ...originalData?.community,
+                feedItems: {
+                  ...originalData?.community.feedItems,
+                  nodes: [
+                    data?.createPost?.post?.feedItem,
+                    ...(originalData?.community.feedItems.nodes || []),
+                  ],
+                },
               },
             },
-          },
-        });
-      } catch {}
+          });
+        } catch {}
+
+        try {
+          const originalFilteredData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId,
+              subjectType: [mapPostTypeToFeedType(postType)],
+            },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId,
+              subjectType: mapPostTypeToFeedType(postType),
+            },
+            data: {
+              ...originalFilteredData,
+              community: {
+                ...originalFilteredData?.community,
+                feedItems: {
+                  ...originalFilteredData?.community.feedItems,
+                  nodes: [
+                    data?.createPost?.post?.feedItem,
+                    ...(originalFilteredData?.community.feedItems.nodes || []),
+                  ],
+                },
+              },
+            },
+          });
+        } catch {}
+      },
     },
-  });
+  );
 
-  useMemo(() => {
-    if (data) {
-      media && dispatch(deletePendingPost(media, false));
+  const createFeedItem = async (postInput: CreatePostInput) => {
+    includesMedia && dispatch(savePendingPost(postInput, storageId));
 
-      onComplete(false, !!media);
+    try {
+      await createPost({ variables: { input: postInput } });
+      includesMedia && dispatch(deletePendingPost(storageId));
+      onComplete(false, includesMedia);
+    } catch {
+      includesMedia && dispatch(PendingPostFailed(storageId));
     }
-  }, [data]);
-
-  useMemo(() => {
-    if (error) {
-      media && dispatch(PendingPostFailed(media, false));
-    }
-  }, [error]);
-
-  const createFeedItem = (postInput: CreatePostInput) => {
-    media && dispatch(savePendingCreatePost(postInput));
-
-    createPost({ variables: { input: postInput } });
   };
 
   return createFeedItem;
@@ -206,31 +209,28 @@ export const useUpdatePost = (
   onComplete: (update: boolean, includesMedia: boolean) => void,
 ) => {
   const { media } = post;
+  const includesMedia = !!media;
 
   const dispatch = useDispatch();
-  const [updatePost, { error, data }] = useMutation<
-    UpdatePost,
-    UpdatePostVariables
-  >(UPDATE_POST);
+  const nextId = useSelector(
+    ({ communityPosts }: RootState) => communityPosts.nextId,
+  );
+  const [storageId] = useState(nextId);
 
-  useMemo(() => {
-    if (data) {
-      media && dispatch(deletePendingPost(media, true));
+  const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
+    UPDATE_POST,
+  );
 
-      onComplete(true, !!media);
+  const updateFeedItem = async (postInput: UpdatePostInput) => {
+    includesMedia && dispatch(savePendingPost(postInput, storageId));
+
+    try {
+      await updatePost({ variables: { input: postInput } });
+      includesMedia && dispatch(deletePendingPost(storageId));
+      onComplete(true, includesMedia);
+    } catch {
+      includesMedia && dispatch(PendingPostFailed(storageId));
     }
-  }, [data]);
-
-  useMemo(() => {
-    if (error) {
-      media && dispatch(PendingPostFailed(media, true));
-    }
-  }, [error]);
-
-  const updateFeedItem = (postInput: UpdatePostInput) => {
-    media && dispatch(savePendingUpdatePost(postInput));
-
-    updatePost({ variables: { input: postInput } });
   };
 
   return updateFeedItem;
@@ -261,6 +261,7 @@ export const CreatePostScreen = () => {
 
   const hasImage = mediaType?.includes('image');
   const hasVideo = videoEnabled && mediaType?.includes('video');
+  const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
 
   const imageAspectRatio = useAspectRatio(hasImage ? mediaData : null);
 
@@ -304,15 +305,13 @@ export const CreatePostScreen = () => {
 
     dispatch(navigateBack());
 
-    const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
-
     const media: string | ReactNativeFile | undefined =
       mediaData && mediaType && hasImage && mediaHasChanged
         ? mediaData
         : mediaData && mediaType && hasVideo && mediaHasChanged
         ? new ReactNativeFile({
             name: 'upload',
-            uri: mediaData,
+            uri: 'asdfasdfasdfasdfsdd.mov',
             type: mediaType,
           })
         : undefined;

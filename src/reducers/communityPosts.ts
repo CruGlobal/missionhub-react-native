@@ -5,13 +5,10 @@ import {
 } from '../../__generated__/globalTypes';
 import {
   LOGOUT,
-  SAVE_PENDING_CREATE_POST,
-  SAVE_PENDING_UPDATE_POST,
-  DELETE_PENDING_CREATE_POST,
-  DELETE_PENDING_UPDATE_POST,
+  SAVE_PENDING_POST,
+  DELETE_PENDING_POST,
+  PENDING_POST_FAILED,
   LogoutAction,
-  PENDING_CREATE_POST_FAILED,
-  PENDING_UPDATE_POST_FAILED,
 } from '../constants';
 
 export interface PendingCreatePost {
@@ -30,115 +27,74 @@ export interface PendingUpdatePost {
 }
 
 export interface CommunityPostsState {
-  pendingCreatePosts: { [key: string]: PendingCreatePost };
-  pendingUpdatePosts: { [key: string]: PendingUpdatePost };
+  nextId: number;
+  pendingPosts: { [key: string]: PendingCreatePost | PendingUpdatePost };
 }
 
 export const initialState: CommunityPostsState = {
-  pendingCreatePosts: {},
-  pendingUpdatePosts: {},
+  nextId: 0,
+  pendingPosts: {},
 };
 
-export interface SavePendingCreatePostAction {
-  type: typeof SAVE_PENDING_CREATE_POST;
-  post: CreatePostInput;
+export interface SavePendingPostAction {
+  type: typeof SAVE_PENDING_POST;
+  post: CreatePostInput | UpdatePostInput;
+  storageId: number;
 }
 
-export interface SavePendingUpdatePostAction {
-  type: typeof SAVE_PENDING_UPDATE_POST;
-  post: UpdatePostInput;
+export interface DeletePendingPostAction {
+  type: typeof DELETE_PENDING_POST;
+  storageId: number;
 }
 
-export interface DeletePendingCreatePostAction {
-  type: typeof DELETE_PENDING_CREATE_POST;
-  id: string;
-}
-
-export interface DeletePendingUpdatePostAction {
-  type: typeof DELETE_PENDING_UPDATE_POST;
-  id: string;
-}
-
-export interface PendingCreatePostFailedAction {
-  type: typeof PENDING_CREATE_POST_FAILED;
-  id: string;
-}
-
-export interface PendingUpdatePostFailedAction {
-  type: typeof PENDING_UPDATE_POST_FAILED;
-  id: string;
+export interface PendingPostFailedAction {
+  type: typeof PENDING_POST_FAILED;
+  storageId: number;
 }
 
 const communityPostsReducer = (
   state: CommunityPostsState = initialState,
   action:
-    | SavePendingCreatePostAction
-    | SavePendingUpdatePostAction
-    | DeletePendingCreatePostAction
-    | DeletePendingUpdatePostAction
-    | PendingCreatePostFailedAction
-    | PendingUpdatePostFailedAction
+    | SavePendingPostAction
+    | DeletePendingPostAction
+    | PendingPostFailedAction
     | LogoutAction,
 ) => {
   switch (action.type) {
-    case SAVE_PENDING_CREATE_POST:
-      const newId = action.post.media || '';
+    case SAVE_PENDING_POST:
+      console.log('save');
       return {
         ...state,
-        pendingCreatePosts: {
-          [newId]: {
+        nextId: state.nextId + 1,
+        pendingPosts: {
+          [`${state.nextId}`]: {
             ...action.post,
             failed: false,
           },
         },
       };
-    case SAVE_PENDING_UPDATE_POST:
-      const newestId = action.post.media || '';
+    case DELETE_PENDING_POST:
+      console.log('delete');
       return {
         ...state,
-        pendingUpdatePosts: {
-          [newestId]: {
-            ...action.post,
-            failed: false,
+        pendingPosts: Object.keys(state).reduce((acc, postId) => {
+          if (`${action.storageId}` === postId) {
+            return acc;
+          }
+
+          return { ...acc, [postId]: state.pendingPosts[postId] };
+        }, {}),
+      };
+    case PENDING_POST_FAILED:
+      console.log('post failed');
+      return {
+        ...state,
+        pendingPosts: {
+          ...state.pendingPosts,
+          [action.storageId]: {
+            ...state.pendingPosts[action.storageId],
+            failed: true,
           },
-        },
-      };
-    case DELETE_PENDING_CREATE_POST:
-      return {
-        ...state,
-        pendingCreatePosts: Object.keys(state).reduce((acc, postId) => {
-          if (action.id === postId) {
-            return acc;
-          }
-
-          return { ...acc, [postId]: state.pendingCreatePosts[postId] };
-        }, {}),
-      };
-    case DELETE_PENDING_UPDATE_POST:
-      return {
-        ...state,
-        pendingUpdatePosts: Object.keys(state).reduce((acc, postId) => {
-          if (action.id === postId) {
-            return acc;
-          }
-
-          return { ...acc, [postId]: state.pendingUpdatePosts[postId] };
-        }, {}),
-      };
-    case PENDING_CREATE_POST_FAILED:
-      return {
-        ...state,
-        pendingCreatePosts: {
-          ...state.pendingCreatePosts,
-          [action.id]: { ...state.pendingCreatePosts[action.id], failed: true },
-        },
-      };
-    case PENDING_UPDATE_POST_FAILED:
-      return {
-        ...state,
-        pendingUpdatePosts: {
-          ...state.pendingUpdatePosts,
-          [action.id]: { ...state.pendingUpdatePosts[action.id], failed: true },
         },
       };
     case LOGOUT:
