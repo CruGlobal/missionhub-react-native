@@ -67,20 +67,25 @@ it('renders other person version correctly', () => {
 });
 
 describe('setup screen methods', () => {
-  const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-    <SetupScreen next={next} isMe={false} />,
-    {
-      initialState: mockState,
-    },
-  );
-
   it('should update first name', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: mockState,
+      },
+    );
     recordSnapshot();
     fireEvent(getByTestId('InputFirstName'), 'onChangeText', firstName);
     diffSnapshot();
   });
 
   it('should update last name', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: mockState,
+      },
+    );
     recordSnapshot();
     fireEvent(getByTestId('InputLastName'), 'onChangeText', lastName);
     diffSnapshot();

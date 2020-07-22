@@ -309,13 +309,13 @@ exports[`render for active challenge 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -640,13 +640,13 @@ exports[`render for past challenge 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -1267,13 +1267,13 @@ exports[`renders with details 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
                       },
+                      Object {},
                     ]
                   }
                 >

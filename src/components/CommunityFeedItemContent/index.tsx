@@ -80,10 +80,11 @@ export const CommunityFeedItemContent = ({
   if (
     subject.__typename !== 'Post' &&
     subject.__typename !== 'AcceptedCommunityChallenge' &&
-    subject.__typename !== 'Step'
+    subject.__typename !== 'Step' &&
+    subject.__typename !== 'CommunityPermission'
   ) {
     throw new Error(
-      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, CommunityPermission or Step',
     );
   }
 
@@ -173,6 +174,16 @@ export const CommunityFeedItemContent = ({
     );
   };
 
+  const renderNewMemberMessage = () => {
+    return (
+      <Text style={styles.messageText}>
+        {t('newMemberMessage', {
+          personFirstName: subjectPerson?.firstName,
+        })}
+      </Text>
+    );
+  };
+
   const renderStage = (
     stage: CommunityFeedItemContent_subject_Step_receiverStageAtCompletion | null,
   ) => {
@@ -200,6 +211,8 @@ export const CommunityFeedItemContent = ({
         return renderText(renderChallengeMessage(subject));
       case 'Post':
         return renderPostMessage(subject);
+      case 'CommunityPermission':
+        return renderNewMemberMessage();
     }
   };
 
@@ -232,7 +245,8 @@ export const CommunityFeedItemContent = ({
 
   const renderHeader = () => (
     <View style={styles.headerWrap}>
-      {subject.__typename === 'AcceptedCommunityChallenge' ? null : (
+      {subject.__typename === 'AcceptedCommunityChallenge' ||
+      subject.__typename === 'CommunityPermission' ? null : (
         <View style={styles.headerRow}>
           <PostTypeLabel
             type={itemType}
@@ -352,6 +366,9 @@ export const CommunityFeedItemContent = ({
               ? t('challengeCompletedHeader')
               : t('challengeAcceptedHeader')}
           </Text>
+        ) : null}
+        {subject.__typename === 'CommunityPermission' ? (
+          <Text style={styles.headerTextOnly}>{t('newMemberHeader')}</Text>
         ) : null}
         {renderMessage()}
       </View>

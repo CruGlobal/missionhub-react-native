@@ -25,7 +25,7 @@ import {
   GetCommunityFeedVariables,
 } from '../../containers/CommunityFeed/__generated__/GetCommunityFeed';
 import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
-import { getFeedItemType } from '../../utils/common';
+import { getFeedItemType, canModifyFeedItemSubject } from '../../utils/common';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
@@ -167,10 +167,11 @@ export const CommunityFeedItem = ({
   if (
     subject.__typename !== 'Post' &&
     subject.__typename !== 'AcceptedCommunityChallenge' &&
-    subject.__typename !== 'Step'
+    subject.__typename !== 'Step' &&
+    subject.__typename !== 'CommunityPermission'
   ) {
     throw new Error(
-      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, CommunityPermission, or Step',
     );
   }
   const deleteFeedItem = useDeleteFeedItem(feedItem);
@@ -199,9 +200,10 @@ export const CommunityFeedItem = ({
       },
     ]);
 
+  const canModify = canModifyFeedItemSubject(subject);
   const menuActions =
     !isGlobal && isPost(subject)
-      ? isMe
+      ? isMe && canModify
         ? [
             {
               text: t('edit.buttonText'),

@@ -166,6 +166,20 @@ describe('CommunityFeedItemContent', () => {
       ));
   });
 
+  describe('New Member Items', () => {
+    it('renders new member item', () => {
+      testEvent(
+        mockFrag({
+          FeedItem: () => ({
+            subject: () => ({
+              __typename: 'CommunityPermission',
+            }),
+          }),
+        }),
+      );
+    });
+  });
+
   describe('Post Items', () => {
     it('renders post', () => {
       testEvent(

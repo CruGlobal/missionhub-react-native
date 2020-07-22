@@ -32,7 +32,11 @@ import {
   useDeleteFeedItem,
   useEditFeedItem,
 } from '../../../../../components/CommunityFeedItem';
-import { isOwner, isAdminOrOwner } from '../../../../../utils/common';
+import {
+  isOwner,
+  isAdminOrOwner,
+  canModifyFeedItemSubject,
+} from '../../../../../utils/common';
 import theme from '../../../../../theme';
 
 import FeedCommentBox from './FeedCommentBox';
@@ -167,25 +171,28 @@ const FeedItemDetailScreen = () => {
     </SafeAreaView>
   );
 
-  const menuActions = [
-    ...(isMe
-      ? [
-          {
-            text: t('communityFeedItems:edit.buttonText'),
-            onPress: editFeedItem,
-          },
-        ]
-      : []),
-    ...(isMe || isAdminOrOwner(communityPermission)
-      ? [
-          {
-            text: t('communityFeedItems:delete.buttonText'),
-            onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
-            destructive: true,
-          },
-        ]
-      : []),
-  ];
+  const canModify = canModifyFeedItemSubject(data?.feedItem.subject);
+  const menuActions = !canModify
+    ? []
+    : [
+        ...(isMe
+          ? [
+              {
+                text: t('communityFeedItems:edit.buttonText'),
+                onPress: editFeedItem,
+              },
+            ]
+          : []),
+        ...(isMe || isAdminOrOwner(communityPermission)
+          ? [
+              {
+                text: t('communityFeedItems:delete.buttonText'),
+                onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
+                destructive: true,
+              },
+            ]
+          : []),
+      ];
 
   const renderCommentsList = () =>
     data ? (

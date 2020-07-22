@@ -9,30 +9,31 @@ const onPress = jest.fn();
 const text = 'Button Text';
 
 describe('BottomButton', () => {
-  const { getByTestId, snapshot } = renderWithContext(
-    <BottomButton text={text} onPress={onPress} />,
-    {
-      noWrappers: true,
-    },
-  );
   it('renders correctly', () => {
-    snapshot();
+    renderWithContext(<BottomButton text={text} onPress={onPress} />, {
+      noWrappers: true,
+    }).snapshot();
   });
 
   it('presses button', () => {
+    const { getByTestId } = renderWithContext(
+      <BottomButton text={text} onPress={onPress} />,
+      {
+        noWrappers: true,
+      },
+    );
     fireEvent.press(getByTestId('bottomButton'));
     expect(onPress).toHaveBeenCalled();
   });
 });
 
 describe('BottomButton disabled', () => {
-  const { snapshot } = renderWithContext(
-    <BottomButton text={text} onPress={onPress} disabled={true} />,
-    {
-      noWrappers: true,
-    },
-  );
   it('renders disabled correctly', () => {
-    snapshot();
+    renderWithContext(
+      <BottomButton text={text} onPress={onPress} disabled={true} />,
+      {
+        noWrappers: true,
+      },
+    ).snapshot();
   });
 });

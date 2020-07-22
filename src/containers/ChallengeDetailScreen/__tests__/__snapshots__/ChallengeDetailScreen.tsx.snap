@@ -1218,13 +1218,13 @@ exports[`should call navigateBack from press 1`] = `
                   <Text
                     style={
                       Array [
-                        Object {},
                         Object {
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
                           "lineHeight": 24,
                         },
+                        Object {},
                       ]
                     }
                   >
@@ -2581,13 +2581,13 @@ exports[`should render completed challenge correctly 1`] = `
                   <Text
                     style={
                       Array [
-                        Object {},
                         Object {
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
                           "lineHeight": 24,
                         },
+                        Object {},
                       ]
                     }
                   >
@@ -3131,13 +3131,13 @@ exports[`should render joined challenge correctly 1`] = `
                   <Text
                     style={
                       Array [
-                        Object {},
                         Object {
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
                           "lineHeight": 24,
                         },
+                        Object {},
                       ]
                     }
                   >
@@ -3788,13 +3788,13 @@ exports[`should render unjoined challenge correctly 1`] = `
                   <Text
                     style={
                       Array [
-                        Object {},
                         Object {
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
                           "lineHeight": 24,
                         },
+                        Object {},
                       ]
                     }
                   >
