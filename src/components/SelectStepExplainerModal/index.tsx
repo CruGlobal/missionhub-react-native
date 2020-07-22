@@ -113,7 +113,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
           data={AddStepExplainer}
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}
-          renderItem={({ item }) => {
+          renderItem={({ item }: { item: typeof AddStepExplainer[0] }) => {
             const { source, text, stepType } = item;
             return (
               <>

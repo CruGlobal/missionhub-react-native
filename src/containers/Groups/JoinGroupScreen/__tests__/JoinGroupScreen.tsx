@@ -31,6 +31,7 @@ jest.mock('../../../../actions/analytics', () => ({
 }));
 jest.mock('../../../../utils/hooks/useAnalytics');
 
+// @ts-ignore
 global.setTimeout = jest.fn();
 
 const mockStore = configureStore([thunk]);
