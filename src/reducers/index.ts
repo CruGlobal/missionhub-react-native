@@ -2,6 +2,7 @@
 import { combineReducers } from 'redux';
 
 import auth, { AuthState } from './auth';
+import communityPosts, { CommunityPostsState } from './communityPosts';
 import nav from './nav';
 import stages, { StagesState } from './stages';
 import { onboardingReducer as onboarding, OnboardingState } from './onboarding';
@@ -20,6 +21,7 @@ import stepReminders, { StepReminderState } from './stepReminders';
 export type RootState = {
   analytics: AnalyticsState;
   auth: AuthState;
+  communityPosts: CommunityPostsState;
   drawer: DrawerState;
   groups: any; // TODO: Fill out these reducer type states
   impact: ImpactState;
@@ -38,6 +40,7 @@ export type RootState = {
 export default combineReducers({
   analytics,
   auth,
+  communityPosts,
   drawer,
   groups,
   impact,
