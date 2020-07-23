@@ -1,8 +1,4 @@
-import {
-  CreatePostInput,
-  PostTypeEnum,
-  UpdatePostInput,
-} from '../../__generated__/globalTypes';
+import { PostTypeEnum } from '../../__generated__/globalTypes';
 import {
   LOGOUT,
   SAVE_PENDING_POST,
@@ -13,22 +9,31 @@ import {
 
 export interface PendingCreatePost {
   content: string;
-  postType: PostTypeEnum;
-  communityId: string;
   media: Upload;
-  failed: boolean;
+  communityId: string;
+  postTypeEnum: PostTypeEnum;
 }
 
 export interface PendingUpdatePost {
   id: string;
   content: string;
   media: Upload;
+  communityId: string;
+}
+
+export interface StoredPost {
+  id?: string;
+  storageId: string;
+  content: string;
+  postType?: PostTypeEnum;
+  media: Upload;
+  communityId: string;
   failed: boolean;
 }
 
 export interface CommunityPostsState {
   nextId: number;
-  pendingPosts: { [key: string]: PendingCreatePost | PendingUpdatePost };
+  pendingPosts: { [key: string]: StoredPost };
 }
 
 export const initialState: CommunityPostsState = {
@@ -38,18 +43,18 @@ export const initialState: CommunityPostsState = {
 
 export interface SavePendingPostAction {
   type: typeof SAVE_PENDING_POST;
-  post: CreatePostInput | UpdatePostInput;
-  storageId: number;
+  post: PendingCreatePost | PendingUpdatePost;
+  storageId: string;
 }
 
 export interface DeletePendingPostAction {
   type: typeof DELETE_PENDING_POST;
-  storageId: number;
+  storageId: string;
 }
 
 export interface PendingPostFailedAction {
   type: typeof PENDING_POST_FAILED;
-  storageId: number;
+  storageId: string;
 }
 
 const communityPostsReducer = (
@@ -63,27 +68,33 @@ const communityPostsReducer = (
   switch (action.type) {
     case SAVE_PENDING_POST:
       console.log('save');
+      const newItem: StoredPost = {
+        ...action.post,
+        storageId: action.storageId,
+        failed: false,
+      };
+
       return {
         ...state,
         nextId: state.nextId + 1,
         pendingPosts: {
-          [`${state.nextId}`]: {
-            ...action.post,
-            failed: false,
-          },
+          [newItem.storageId]: newItem,
         },
       };
     case DELETE_PENDING_POST:
       console.log('delete');
       return {
         ...state,
-        pendingPosts: Object.keys(state).reduce((acc, postId) => {
-          if (`${action.storageId}` === postId) {
-            return acc;
-          }
-
-          return { ...acc, [postId]: state.pendingPosts[postId] };
-        }, {}),
+        pendingPosts: Object.values(state.pendingPosts).reduce(
+          (acc, post) =>
+            post.storageId === action.storageId
+              ? acc
+              : {
+                  ...acc,
+                  [post.storageId]: post,
+                },
+          {},
+        ),
       };
     case PENDING_POST_FAILED:
       console.log('post failed');

@@ -57,6 +57,7 @@ import {
   SavePendingPostAction,
   DeletePendingPostAction,
   PendingPostFailedAction,
+  PendingUpdatePost,
 } from '../../../reducers/communityPosts';
 
 import PhotoIcon from './photoIcon.svg';
@@ -84,8 +85,8 @@ export type CreatePostScreenNavParams =
   | UpdatePostNavParams;
 
 const savePendingPost = (
-  post: CreatePostInput | UpdatePostInput,
-  storageId: number,
+  post: CreatePostInput | PendingUpdatePost,
+  storageId: string,
 ) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) =>
   dispatch({
     type: SAVE_PENDING_POST,
@@ -93,7 +94,7 @@ const savePendingPost = (
     storageId,
   } as SavePendingPostAction);
 
-const deletePendingPost = (storageId: number) => (
+const deletePendingPost = (storageId: string) => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) =>
   dispatch({
@@ -101,7 +102,7 @@ const deletePendingPost = (storageId: number) => (
     storageId,
   } as DeletePendingPostAction);
 
-const PendingPostFailed = (storageId: number) => (
+const PendingPostFailed = (storageId: string) => (
   dispatch: ThunkDispatch<{}, {}, AnyAction>,
 ) =>
   dispatch({
@@ -120,7 +121,7 @@ const useCreatePost = (
   const nextId = useSelector(
     ({ communityPosts }: RootState) => communityPosts.nextId,
   );
-  const [storageId] = useState(nextId);
+  const [storageId] = useState(`${nextId}`);
 
   const [createPost] = useMutation<CreatePost, CreatePostVariables>(
     CREATE_POST,
@@ -206,6 +207,7 @@ const useCreatePost = (
 
 export const useUpdatePost = (
   post: UpdatePostInput,
+  communityId: string,
   onComplete: (update: boolean, includesMedia: boolean) => void,
 ) => {
   const { media } = post;
@@ -222,7 +224,8 @@ export const useUpdatePost = (
   );
 
   const updateFeedItem = async (postInput: UpdatePostInput) => {
-    includesMedia && dispatch(savePendingPost(postInput, storageId));
+    includesMedia &&
+      dispatch(savePendingPost({ ...postInput, communityId }, storageId));
 
     try {
       await updatePost({ variables: { input: postInput } });
@@ -293,6 +296,7 @@ export const CreatePostScreen = () => {
   );
   const updatePost = useUpdatePost(
     { id: '', content: text, media: mediaData },
+    communityId,
     handleComplete,
   );
 
