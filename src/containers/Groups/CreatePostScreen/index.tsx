@@ -58,6 +58,7 @@ import {
   DeletePendingPostAction,
   PendingPostFailedAction,
   PendingUpdatePost,
+  PendingCreatePost,
 } from '../../../reducers/communityPosts';
 
 import PhotoIcon from './photoIcon.svg';
@@ -85,7 +86,7 @@ export type CreatePostScreenNavParams =
   | UpdatePostNavParams;
 
 const savePendingPost = (
-  post: CreatePostInput | PendingUpdatePost,
+  post: PendingCreatePost | PendingUpdatePost,
   storageId: string,
 ) => (dispatch: ThunkDispatch<{}, {}, AnyAction>) =>
   dispatch({
@@ -315,7 +316,7 @@ export const CreatePostScreen = () => {
         : mediaData && mediaType && hasVideo && mediaHasChanged
         ? new ReactNativeFile({
             name: 'upload',
-            uri: 'asdfasdfasdfasdfsdd.mov',
+            uri: mediaData,
             type: mediaType,
           })
         : undefined;
