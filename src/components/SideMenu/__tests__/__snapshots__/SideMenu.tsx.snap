@@ -300,13 +300,12 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  false,
                 ],
               ],
             ]
           }
         >
-          Share a God Story
+          Share a God Story with us
         </Text>
       </View>
     </View>
@@ -377,7 +376,6 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -454,7 +452,6 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -564,7 +561,6 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -641,7 +637,6 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -718,7 +713,6 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -795,7 +789,6 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -872,7 +865,6 @@ exports[`render update button 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -1502,13 +1494,12 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  false,
                 ],
               ],
             ]
           }
         >
-          Share a God Story
+          Share a God Story with us
         </Text>
       </View>
     </View>
@@ -1579,7 +1570,6 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -1656,7 +1646,6 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -1766,7 +1755,6 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -1843,7 +1831,6 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -1920,7 +1907,6 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -1997,7 +1983,6 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -2074,7 +2059,6 @@ exports[`renders correctly | Authenticated User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -2438,13 +2422,12 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  false,
                 ],
               ],
             ]
           }
         >
-          Share a God Story
+          Share a God Story with us
         </Text>
       </View>
     </View>
@@ -2515,7 +2498,6 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -2592,7 +2574,6 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -2702,7 +2683,6 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -2779,7 +2759,6 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -2856,7 +2835,6 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -2933,7 +2911,6 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]
@@ -3010,7 +2987,6 @@ exports[`renders correctly | UnAuthed User 1`] = `
                     "fontWeight": "normal",
                     "letterSpacing": 0.2,
                   },
-                  undefined,
                 ],
               ],
             ]

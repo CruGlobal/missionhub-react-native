@@ -47,7 +47,7 @@ import CelebrationScreen, {
 import NotificationOffScreen, {
   NOTIFICATION_OFF_SCREEN,
 } from './containers/NotificationOffScreen';
-import SettingsMenu from './components/SettingsMenu';
+import SideMenu from './components/SideMenu';
 import theme from './theme';
 import {
   MAIN_TABS,
@@ -210,7 +210,7 @@ const MAIN_TABS_SCREEN = createDrawerNavigator(
     Main: MainTabBar,
   },
   {
-    contentComponent: SettingsMenu,
+    contentComponent: SideMenu,
     backBehavior: 'none', // We're handling it on our own
   },
 );

@@ -135,7 +135,7 @@ export default {
     description: 'You will lose any info you have entered and be logged out',
     action: 'Go Back',
   },
-  settingsMenu: {
+  sideMenu: {
     about: 'About',
     feedBack: 'Feedback',
     version: 'Version',
