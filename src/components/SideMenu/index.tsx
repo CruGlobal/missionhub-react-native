@@ -116,7 +116,7 @@ const SideMenu = () => {
         },
         {
           label: t('review'),
-          action: () => onHandleOpenStore(),
+          action: onHandleOpenStore,
         },
       ],
     },
