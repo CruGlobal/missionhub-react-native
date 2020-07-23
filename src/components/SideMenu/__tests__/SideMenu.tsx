@@ -177,27 +177,35 @@ describe('menu items and links', () => {
 
   it('should test link, then open it | shareStory', async () => {
     await testUrl(i18n.t('sideMenu:shareStory'), LINKS.shareStory);
+    expect.hasAssertions();
   });
   it('should test link, then open it | suggestStep', async () => {
     await testUrl(i18n.t('sideMenu:suggestStep'), LINKS.shareStory);
+    expect.hasAssertions();
   });
   it('should test link, then open it | shareStory', async () => {
     await testUrl(i18n.t('sideMenu:review'), LINKS.appleStore);
+    expect.hasAssertions();
   });
   it('should test link, then open it | blog', async () => {
     await testUrl(i18n.t('sideMenu:blog'), LINKS.blog);
+    expect.hasAssertions();
   });
   it('should test link, then open it | about', async () => {
     await testUrl(i18n.t('sideMenu:website'), LINKS.about);
+    expect.hasAssertions();
   });
   it('should test link, then open it | help', async () => {
     await testUrl(i18n.t('sideMenu:help'), LINKS.help);
+    expect.hasAssertions();
   });
   it('should test link, then open it | privacy', async () => {
     await testUrl(i18n.t('sideMenu:privacy'), LINKS.privacy);
+    expect.hasAssertions();
   });
   it('should test link, then open it | tos', async () => {
     await testUrl(i18n.t('sideMenu:tos'), LINKS.terms);
+    expect.hasAssertions();
   });
 
   it('should not open link if it is not supported', async () => {
