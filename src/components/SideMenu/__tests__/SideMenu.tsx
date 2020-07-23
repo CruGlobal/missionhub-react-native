@@ -169,7 +169,7 @@ describe('menu items and links', () => {
   it('should test link, then open it', async () => {
     const testUrl = async (text: string, url: string) => {
       jest.useFakeTimers();
-      await fireEvent.press(getMenuButton(text));
+      fireEvent.press(getMenuButton(text));
       // To fix issue with debounce on button press
       jest.runAllTimers();
       await flushMicrotasksQueue();
