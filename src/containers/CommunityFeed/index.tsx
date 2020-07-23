@@ -3,6 +3,7 @@ import React, { useCallback } from 'react';
 import { Animated, View, SectionListData, Text } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
+import { useSelector } from 'react-redux';
 
 import { CommunityFeedItem } from '../../components/CommunityFeedItem';
 import { keyExtractorId, orgIsGlobal, isAndroid } from '../../utils/common';
@@ -14,7 +15,9 @@ import { momentUtc, isLastTwentyFourHours } from '../../utils/date';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { CommunityFeedPostCards } from '../CommunityFeedPostCards';
 import { PostTypeNullState } from '../../components/PostTypeLabel';
+import { PendingFeedItem } from '../../components/PendingFeedItem';
 import { getStatusBarHeight } from '../../utils/statusbar';
+import { RootState } from '../../reducers';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import {
@@ -94,6 +97,12 @@ export const CommunityFeed = ({
     hasUnreadComments: showUnreadOnly,
     subjectType: filteredFeedType ? [filteredFeedType] : undefined,
   };
+
+  const pendingPosts = useSelector(({ communityPosts }: RootState) =>
+    Object.values(communityPosts.pendingPosts).filter(
+      post => post.communityId === communityId,
+    ),
+  );
 
   const {
     data: {
@@ -216,7 +225,7 @@ export const CommunityFeed = ({
 
   const renderSectionHeader = useCallback(
     ({
-      section: { title },
+      section: { id, title },
     }: {
       section: SectionListData<CommunityFeedSection>;
     }) => (
@@ -231,9 +240,12 @@ export const CommunityFeed = ({
         ]}
       >
         <Text style={styles.title}>{t(`${title}`)}</Text>
+        {id === 1 && pendingPosts.length > 0 ? (
+          <PendingFeedItem pendingItemId={pendingPosts[0].storageId} />
+        ) : null}
       </View>
     ),
-    [],
+    [pendingPosts],
   );
 
   const renderItem = ({ item }: { item: FeedItemFragment }) => (
