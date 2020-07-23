@@ -5,9 +5,9 @@ import { useDispatch } from 'react-redux';
 import Avatar from '../Avatar';
 import Button from '../Button';
 import { openMainMenu } from '../../utils/common';
-import { GetCurrentUserAvatar } from '../Avatar/__generated__/GetCurrentUserAvatar';
 
 import { GET_CURRENT_USER_AVATAR } from './queries';
+import { GetCurrentUserAvatar } from './__generated__/GetCurrentUserAvatar';
 
 const AvatarMenuButton = () => {
   const dispatch = useDispatch();
