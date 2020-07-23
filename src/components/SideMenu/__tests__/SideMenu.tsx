@@ -150,6 +150,15 @@ describe('menu items and links', () => {
     });
     return getByText(text);
   }
+  const testUrl = (text: string, url: string) => {
+    jest.useFakeTimers();
+    fireEvent.press(getMenuButton(text));
+    // To fix issue with debounce on button press
+    jest.runAllTimers();
+
+    expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
+    expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
+  };
 
   it('links are ordered correctly', () => {
     // Section 1
@@ -166,24 +175,28 @@ describe('menu items and links', () => {
     expect(getMenuButton(i18n.t('sideMenu:tos'))).toBeTruthy;
   });
 
-  it('should test link, then open it', async () => {
-    const testUrl = async (text: string, url: string) => {
-      jest.useFakeTimers();
-      fireEvent.press(getMenuButton(text));
-      // To fix issue with debounce on button press
-      jest.runAllTimers();
-      await flushMicrotasksQueue();
-      expect(ReactNative.Linking.canOpenURL).toHaveBeenCalledWith(url);
-      expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
-    };
-
+  it('should test link, then open it | shareStory', async () => {
     await testUrl(i18n.t('sideMenu:shareStory'), LINKS.shareStory);
+  });
+  it('should test link, then open it | suggestStep', async () => {
     await testUrl(i18n.t('sideMenu:suggestStep'), LINKS.shareStory);
+  });
+  it('should test link, then open it | shareStory', async () => {
     await testUrl(i18n.t('sideMenu:review'), LINKS.appleStore);
+  });
+  it('should test link, then open it | blog', async () => {
     await testUrl(i18n.t('sideMenu:blog'), LINKS.blog);
+  });
+  it('should test link, then open it | about', async () => {
     await testUrl(i18n.t('sideMenu:website'), LINKS.about);
+  });
+  it('should test link, then open it | help', async () => {
     await testUrl(i18n.t('sideMenu:help'), LINKS.help);
+  });
+  it('should test link, then open it | privacy', async () => {
     await testUrl(i18n.t('sideMenu:privacy'), LINKS.privacy);
+  });
+  it('should test link, then open it | tos', async () => {
     await testUrl(i18n.t('sideMenu:tos'), LINKS.terms);
   });
 
