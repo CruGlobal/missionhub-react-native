@@ -1,6 +1,8 @@
 import PushNotification from 'react-native-push-notification';
 // @ts-ignore
 import { AccessToken } from 'react-native-fbsdk';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { CLEAR_UPGRADE_TOKEN, LOGOUT } from '../../constants';
 import { LANDING_SCREEN } from '../../containers/LandingScreen';
@@ -10,14 +12,14 @@ import { deletePushToken } from '../notifications';
 import { SIGN_IN_FLOW } from '../../routes/constants';
 import { getFeatureFlags } from '../misc';
 import { apolloClient } from '../../apolloClient';
+import { RootState } from '../../reducers';
 
 import { refreshAccessToken } from './key';
 import { refreshAnonymousLogin } from './anonymous';
 import { refreshMissionHubFacebookAccess } from './facebook';
 
 export function logout(forcedLogout = false) {
-  // @ts-ignore
-  return async dispatch => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     try {
       await dispatch(deletePushToken());
     } finally {
@@ -40,8 +42,7 @@ export const retryIfInvalidatedClientToken = (
   firstAction,
   // @ts-ignore
   secondAction,
-  // @ts-ignore
-) => async dispatch => {
+) => async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
   // Historically we haven't cleared the client_token from redux after use,
   // so if the API throws a client_token invalidated error we retry this request
   // again without the client_token
@@ -62,8 +63,10 @@ export const retryIfInvalidatedClientToken = (
 };
 
 export const handleInvalidAccessToken = () => {
-  // @ts-ignore
-  return async (dispatch, getState) => {
+  return async (
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
+    getState: () => RootState,
+  ) => {
     const { auth } = getState();
 
     if (auth.refreshToken) {
