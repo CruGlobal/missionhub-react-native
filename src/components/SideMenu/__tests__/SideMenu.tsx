@@ -160,21 +160,6 @@ describe('menu items and links', () => {
     expect(ReactNative.Linking.openURL).toHaveBeenCalledWith(url);
   };
 
-  it('links are ordered correctly', () => {
-    // Section 1
-    expect(getMenuButton(i18n.t('sideMenu:feedBack'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:shareStory'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:suggestStep'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:review'))).toBeTruthy;
-    // Section 2
-    expect(getMenuButton(i18n.t('sideMenu:about'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:blog'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:website'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:help'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:privacy'))).toBeTruthy;
-    expect(getMenuButton(i18n.t('sideMenu:tos'))).toBeTruthy;
-  });
-
   it('should test link, then open it | shareStory', async () => {
     await testUrl(i18n.t('sideMenu:shareStory'), LINKS.shareStory);
     expect.hasAssertions();

@@ -70,26 +70,6 @@ const SideMenu = () => {
     return false;
   };
 
-  const onEditProfile = () =>
-    dispatch(
-      navigatePush(EDIT_PERSON_FLOW, {
-        person: { id: myId },
-      }),
-    );
-
-  const onHandleAppUpdate = () => {
-    // Open link to app or play store
-    return menuItems[0].data[2].action();
-  };
-
-  const closeDrawer = () => dispatch(DrawerActions.closeDrawer());
-
-  const handleSignOut = () => dispatch(logout());
-
-  const handleSignIn = () => dispatch(navigatePush(SIGN_IN_FLOW));
-
-  const handleSignUp = () => dispatch(navigatePush(SIGN_UP_FLOW));
-
   const openUrl = async (url: string) => {
     const supported = await Linking.canOpenURL(url);
     if (!supported) {
@@ -100,6 +80,27 @@ const SideMenu = () => {
 
     Linking.openURL(url);
   };
+
+  const onEditProfile = () =>
+    dispatch(
+      navigatePush(EDIT_PERSON_FLOW, {
+        person: { id: myId },
+      }),
+    );
+
+  const onHandleOpenStore = () => {
+    // Open link to app or play store
+    return openUrl(isAndroid ? LINKS.playStore : LINKS.appleStore);
+  };
+
+  const closeDrawer = () => dispatch(DrawerActions.closeDrawer());
+
+  const handleSignOut = () => dispatch(logout());
+
+  const handleSignIn = () => dispatch(navigatePush(SIGN_IN_FLOW));
+
+  const handleSignUp = () => dispatch(navigatePush(SIGN_UP_FLOW));
+
   const menuItems = [
     {
       id: '1',
@@ -115,7 +116,7 @@ const SideMenu = () => {
         },
         {
           label: t('review'),
-          action: () => openUrl(isAndroid ? LINKS.playStore : LINKS.appleStore),
+          action: () => onHandleOpenStore(),
         },
       ],
     },
@@ -213,7 +214,7 @@ const SideMenu = () => {
             style={styles.updateButton}
             buttonTextStyle={[styles.updateText]}
             text={t('update')}
-            onPress={onHandleAppUpdate}
+            onPress={onHandleOpenStore}
             pill={true}
           />
         ) : null}

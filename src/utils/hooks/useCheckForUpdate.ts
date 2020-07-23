@@ -5,14 +5,13 @@ import { useEffect, useState } from 'react';
 
 export const useCheckForUpdate = () => {
   const [needsToUpdate, setNeedsToUpdate] = useState(false);
-  const currentAppVersion = DeviceInfo.getVersion();
   useEffect(() => {
+    const currentAppVersion = DeviceInfo.getVersion();
     async function getLatestVersion() {
       const latesAppVersion = await VersionCheck.getLatestVersion();
       setNeedsToUpdate(latesAppVersion !== currentAppVersion);
     }
     getLatestVersion();
   }, []);
-
   return needsToUpdate;
 };
