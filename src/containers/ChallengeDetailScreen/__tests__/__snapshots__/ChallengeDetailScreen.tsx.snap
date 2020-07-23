@@ -561,13 +561,13 @@ exports[`should call navigateBack from community name press 1`] = `
                   <Text
                     style={
                       Array [
-                        Object {},
                         Object {
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
                           "lineHeight": 24,
                         },
+                        Object {},
                       ]
                     }
                   >
@@ -1924,13 +1924,13 @@ exports[`should call navigateToCommunityFeed from community name press 1`] = `
                   <Text
                     style={
                       Array [
-                        Object {},
                         Object {
                           "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
                           "fontSize": 16,
                           "lineHeight": 24,
                         },
+                        Object {},
                       ]
                     }
                   >
