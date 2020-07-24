@@ -84,7 +84,7 @@ exports[`renders empty screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuButton"
         >
           <View
             style={
@@ -106,39 +106,27 @@ exports[`renders empty screen correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "quisquam recusandae alias",
+                }
+              }
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
                   Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
+                    "backgroundColor": "rgb(167, 154, 115)",
                   },
-                  Object {},
+                  undefined,
                 ]
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -431,7 +419,7 @@ exports[`renders loading screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuButton"
         >
           <View
             style={
@@ -453,39 +441,51 @@ exports[`renders loading screen correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <View
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "alignItems": "center",
+                    "justifyContent": "center",
                   },
                   Array [
                     Object {
-                      "color": "#ffffff",
+                      "borderRadius": 24,
+                      "height": 48,
+                      "width": 48,
                     },
                     Object {
-                      "fontSize": 18,
+                      "backgroundColor": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
+                    undefined,
                   ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
                 ]
               }
             >
-              
-            </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 26,
+                        "fontWeight": "300",
+                      },
+                    ],
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -706,7 +706,7 @@ exports[`renders screen with steps correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuButton"
         >
           <View
             style={
@@ -728,39 +728,27 @@ exports[`renders screen with steps correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "eos itaque velit",
+                }
+              }
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
                   Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
+                    "backgroundColor": "rgb(160, 123, 115)",
                   },
-                  Object {},
+                  undefined,
                 ]
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -1123,7 +1111,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -357,10 +357,54 @@
+@@ -345,10 +345,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1133,52 +1121,52 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"11\\",
++               \\"id\\": \\"13\\",
 +             },
-+             \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
-+             \\"id\\": \\"9\\",
++             \\"completedAt\\": \\"2013-05-02T13:44:36.598Z\\",
++             \\"id\\": \\"11\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Dorcas Dach\\",
-+               \\"id\\": \\"10\\",
++               \\"fullName\\": \\"Larue Johnston\\",
++               \\"id\\": \\"12\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"12\\",
-+               \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
++               \\"id\\": \\"14\\",
++               \\"nextOccurrenceAt\\": \\"2014-09-15T22:43:13.893Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
 +             \\"stepType\\": \\"affirm\\",
-+             \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
++             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"15\\",
++               \\"id\\": \\"17\\",
 +             },
-+             \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
-+             \\"id\\": \\"13\\",
++             \\"completedAt\\": \\"2018-01-22T22:32:29.415Z\\",
++             \\"id\\": \\"15\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Margaret Williamson\\",
-+               \\"id\\": \\"14\\",
++               \\"fullName\\": \\"Edythe Haley\\",
++               \\"id\\": \\"16\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"16\\",
-+               \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
++               \\"id\\": \\"18\\",
++               \\"nextOccurrenceAt\\": \\"2011-09-11T14:47:27.446Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"stepType\\": \\"care\\",
-+             \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
++             \\"stepType\\": \\"pray\\",
++             \\"title\\": \\"Saepe eum dicta eum eaque enim ipsum inventore debitis.\\",
 +           },
           ]
         }
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -461,9 +505,82 @@
+@@ -449,9 +493,82 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1195,23 +1183,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"11\\",
++                   \\"id\\": \\"13\\",
 +                 },
-+                 \\"completedAt\\": \\"2011-09-29T22:44:42.740Z\\",
-+                 \\"id\\": \\"9\\",
++                 \\"completedAt\\": \\"2013-05-02T13:44:36.598Z\\",
++                 \\"id\\": \\"11\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Dorcas Dach\\",
-+                   \\"id\\": \\"10\\",
++                   \\"fullName\\": \\"Larue Johnston\\",
++                   \\"id\\": \\"12\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"12\\",
-+                   \\"nextOccurrenceAt\\": \\"2019-01-20T00:49:00.772Z\\",
++                   \\"id\\": \\"14\\",
++                   \\"nextOccurrenceAt\\": \\"2014-09-15T22:43:13.893Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
 +                 \\"stepType\\": \\"affirm\\",
-+                 \\"title\\": \\"Et eos itaque velit omnis et porro.\\",
++                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1228,23 +1216,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"15\\",
++                   \\"id\\": \\"17\\",
 +                 },
-+                 \\"completedAt\\": \\"2014-02-09T07:27:38.218Z\\",
-+                 \\"id\\": \\"13\\",
++                 \\"completedAt\\": \\"2018-01-22T22:32:29.415Z\\",
++                 \\"id\\": \\"15\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Margaret Williamson\\",
-+                   \\"id\\": \\"14\\",
++                   \\"fullName\\": \\"Edythe Haley\\",
++                   \\"id\\": \\"16\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"16\\",
-+                   \\"nextOccurrenceAt\\": \\"2013-02-13T15:33:53.423Z\\",
++                   \\"id\\": \\"18\\",
++                   \\"nextOccurrenceAt\\": \\"2011-09-11T14:47:27.446Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepType\\": \\"care\\",
-+                 \\"title\\": \\"Et ipsam explicabo eligendi occaecati debitis et saepe eum dicta.\\",
++                 \\"stepType\\": \\"pray\\",
++                 \\"title\\": \\"Saepe eum dicta eum eaque enim ipsum inventore debitis.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"

@@ -14,10 +14,8 @@ import { REQUESTS } from '../../api/routes';
 import { getMyCommunities } from '../organizations';
 import { logInAnalytics } from '../analytics';
 import { rollbar } from '../../utils/rollbar.config';
-import { AuthState } from '../../reducers/auth';
 import { requestNativePermissions } from '../notifications';
 import { isAndroid } from '../../utils/common';
-import { AnalyticsState } from '../../reducers/analytics';
 import { RootState } from '../../reducers';
 
 function getTimezoneString() {
@@ -25,8 +23,10 @@ function getTimezoneString() {
 }
 
 export function updateLocaleAndTimezone() {
-  // @ts-ignore
-  return (dispatch, getState) => {
+  return (
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
+    getState: () => RootState,
+  ) => {
     const {
       person: { user },
     } = getState().auth;
@@ -48,12 +48,8 @@ export function updateLocaleAndTimezone() {
 
 export function authSuccess() {
   return async (
-    dispatch: ThunkDispatch<
-      { auth: AuthState; analytics: AnalyticsState },
-      null,
-      AnyAction
-    >,
-    getState: () => { auth: AuthState },
+    dispatch: ThunkDispatch<RootState, null, AnyAction>,
+    getState: () => RootState,
   ) => {
     dispatch(logInAnalytics());
 
@@ -79,7 +75,7 @@ export function authSuccess() {
 export function loadHome() {
   return (
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => { auth: AuthState },
+    getState: () => RootState,
   ) => {
     // Don't try to run all these things if there is no token
     if (!getState().auth.token) {

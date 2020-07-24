@@ -403,6 +403,7 @@ describe('onPressChallengeLink', () => {
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      communityName: challengeFeedItem.community?.name,
       challengeId: challengeFeedItem.subject.communityChallenge.id,
       orgId: challengeFeedItem.community?.id,
     });
@@ -436,6 +437,7 @@ describe('onPressChallengeLink', () => {
     await fireEvent.press(getByTestId('ChallengeLinkButton'));
 
     expect(navigatePush).toHaveBeenCalledWith(CHALLENGE_DETAIL_SCREEN, {
+      communityName: challengeFeedItem.community?.name,
       challengeId: challengeFeedItem.subject.communityChallenge.id,
       orgId: GLOBAL_COMMUNITY_ID,
     });

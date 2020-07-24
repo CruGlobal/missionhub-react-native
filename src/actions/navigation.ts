@@ -110,7 +110,7 @@ export const navigateToFeedItemComments = (
       },
       {
         routeName: FEED_ITEM_DETAIL_SCREEN,
-        params: { feedItemId },
+        params: { feedItemId, fromNotificationCenterItem: true },
       },
     ]),
   );

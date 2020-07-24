@@ -84,6 +84,7 @@ export const CASEY = 'casey';
 export const JEAN = 'jean';
 
 export const LINKS = {
+  blog: 'https://get.missionhub.com/blog/',
   about: 'https://get.missionhub.com',
   help: 'http://help.missionhub.com',
   shareStory: 'mailto:stories@missionhub.com',

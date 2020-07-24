@@ -3,7 +3,11 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { ADD_CHALLENGE_SCREEN } from '../../AddChallengeScreen';
 import { renderWithContext } from '../../../../testUtils';
-import { navigateBack, navigatePush } from '../../../actions/navigation';
+import {
+  navigateBack,
+  navigatePush,
+  navigateToCommunityFeed,
+} from '../../../actions/navigation';
 import { AuthState } from '../../../reducers/auth';
 import { OrganizationsState } from '../../../reducers/organizations';
 import {
@@ -82,6 +86,9 @@ beforeEach(() => {
     type: 'complete challenge',
   });
   (navigateBack as jest.Mock).mockReturnValue({ type: 'navigate back' });
+  (navigateToCommunityFeed as jest.Mock).mockReturnValue({
+    type: 'navigateToCommunityFeed',
+  });
   (navigatePush as jest.Mock).mockReturnValue({ type: 'navigate push' });
   ((communityChallengeSelector as unknown) as jest.Mock).mockReturnValue(
     challenge,
@@ -257,4 +264,41 @@ it('should call navigateBack from press', async () => {
   expect(getChallenge).toHaveBeenCalledWith(challengeId);
   await fireEvent.press(getByTestId('DeprecatedBackButton'));
   expect(navigateBack).toHaveBeenCalled();
+});
+
+it('should call navigateBack from community name press', async () => {
+  const { snapshot, getByTestId } = renderWithContext(
+    <ChallengeDetailScreen />,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+        isAdmin: true,
+        communityName: 'Test',
+      },
+    },
+  );
+  snapshot();
+  await fireEvent.press(getByTestId('CommunityNameHeader'));
+  expect(navigateBack).toHaveBeenCalled();
+});
+
+it('should call navigateToCommunityFeed from community name press', async () => {
+  const { snapshot, getByTestId } = renderWithContext(
+    <ChallengeDetailScreen />,
+    {
+      initialState: store,
+      navParams: {
+        orgId,
+        challengeId,
+        isAdmin: true,
+        communityName: 'Test',
+        fromNotificationCenterItem: true,
+      },
+    },
+  );
+  snapshot();
+  await fireEvent.press(getByTestId('CommunityNameHeader'));
+  expect(navigateToCommunityFeed).toHaveBeenCalled();
 });

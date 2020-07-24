@@ -86,7 +86,7 @@ describe('handleOpenMainMenu', () => {
       initialState,
     });
 
-    fireEvent.press(getByTestId('menuIcon'));
+    fireEvent.press(getByTestId('menuButton'));
 
     expect(openMainMenu).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([openMainMenuResult]);

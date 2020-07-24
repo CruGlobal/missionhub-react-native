@@ -124,6 +124,7 @@ export const CommunityFeedItemContent = ({
     await dispatch(reloadGroupChallengeFeed(communityId));
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        communityName: community?.name,
         challengeId,
         orgId: communityId,
       }),

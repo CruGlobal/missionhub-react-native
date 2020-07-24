@@ -193,6 +193,19 @@ it('renders Earlier section correctly ', async () => {
   snapshot();
 });
 
+it('should open main menu', async () => {
+  const { getByTestId, store } = renderWithContext(
+    <NotificationCenterScreen />,
+    {
+      initialApolloState,
+    },
+  );
+  await flushMicrotasksQueue();
+  fireEvent.press(getByTestId('menuButton'));
+  expect(openMainMenu).toHaveBeenCalledWith();
+  expect(store.getActions()).toEqual([openMainMenuResponse]);
+});
+
 describe('handle pagination', () => {
   const testScroll = async (mocks = {}) => {
     const { recordSnapshot, diffSnapshot, getByTestId } = renderWithContext(

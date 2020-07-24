@@ -5,10 +5,8 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
 } from 'react-native';
-import { connect } from 'react-redux-legacy';
+import { connect, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 import { useQuery } from '@apollo/react-hooks';
 import { TFunction } from 'i18next';
 
@@ -16,10 +14,10 @@ import Header from '../../components/Header';
 import GroupCardItem from '../../components/GroupCardItem';
 import { GroupCardHeight } from '../../components/GroupCardItem/styles';
 import { CardVerticalMargin } from '../../components/Card/styles';
-import { IconButton, Button } from '../../components/common';
+import { Button } from '../../components/common';
 import { navigatePush } from '../../actions/navigation';
 import { trackActionWithoutData } from '../../actions/analytics';
-import { openMainMenu, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import { resetScrollGroups } from '../../actions/swipe';
 import { ACTIONS, GLOBAL_COMMUNITY_ID } from '../../constants';
 import {
@@ -29,13 +27,14 @@ import {
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
-import { OrganizationsState, Organization } from '../../reducers/organizations';
+import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { COMMUNITY_TABS } from '../Communities/Community/constants';
+import AvatarMenuButton from '../../components/AvatarMenuButton';
 
 import styles from './styles';
 import { CREATE_GROUP_SCREEN } from './CreateGroupScreen';
@@ -46,11 +45,6 @@ import {
 import { GET_COMMUNITIES_QUERY } from './queries';
 
 interface GroupsListScreenProps {
-  dispatch: ThunkDispatch<
-    { organizations: OrganizationsState },
-    null,
-    AnyAction
-  >;
   isAnonymousUser: boolean;
   scrollToId: string | null;
 }
@@ -89,13 +83,13 @@ const getItemLayout = (_: unknown, index: number) => {
 };
 
 const GroupsListScreen = ({
-  dispatch,
   isAnonymousUser,
   scrollToId,
 }: GroupsListScreenProps) => {
   useAnalytics('communities', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
+  const dispatch = useDispatch();
   const { t } = useTranslation('groupsList');
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const flatList = useRef<FlatList<any>>(null);
@@ -187,8 +181,6 @@ const GroupsListScreen = ({
     dispatch(trackActionWithoutData(ACTIONS.SELECT_COMMUNITY));
   };
 
-  const handleOpenMainMenu = () => dispatch(openMainMenu());
-
   const handleScroll = ({
     nativeEvent,
   }: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -227,14 +219,7 @@ const GroupsListScreen = ({
     <View style={styles.container}>
       <Header
         titleStyle={styles.headerTitle}
-        left={
-          <IconButton
-            testID="IconButton"
-            name="menuIcon"
-            type="MissionHub"
-            onPress={handleOpenMainMenu}
-          />
-        }
+        left={<AvatarMenuButton />}
         title={t('header')}
       />
       <View style={{ flexDirection: 'row' }}>

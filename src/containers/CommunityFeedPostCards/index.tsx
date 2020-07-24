@@ -4,7 +4,7 @@ import { View } from 'react-native';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 
-import { mapPostTypeToFeedType } from '../../utils/common';
+import { mapPostTypeToFeedType, orgIsGlobal } from '../../utils/common';
 import { CommunityFeedItem as FeedItemFragment } from '../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../CommunityFeedWithType';
@@ -38,17 +38,19 @@ interface CommunityFeedSection {
   data: FeedItemFragment[];
 }
 
+type LimitedPostCardTypes =
+  | FeedItemSubjectTypeEnum.PRAYER_REQUEST
+  | FeedItemSubjectTypeEnum.STEP
+  | FeedItemSubjectTypeEnum.QUESTION
+  | FeedItemSubjectTypeEnum.STORY
+  | FeedItemSubjectTypeEnum.HELP_REQUEST
+  | FeedItemSubjectTypeEnum.ANNOUNCEMENT;
+
 const getGroupPostCards = (
   nodes: GetCommunityPostCards_community_feedItems_nodes[],
 ) => {
   const groups: {
-    [key in
-      | FeedItemSubjectTypeEnum.PRAYER_REQUEST
-      | FeedItemSubjectTypeEnum.STEP
-      | FeedItemSubjectTypeEnum.QUESTION
-      | FeedItemSubjectTypeEnum.STORY
-      | FeedItemSubjectTypeEnum.HELP_REQUEST
-      | FeedItemSubjectTypeEnum.ANNOUNCEMENT]:
+    [key in LimitedPostCardTypes]:
       | FeedItemPostCard_author[]
       | FeedItemStepCard_owner[];
   } = {
@@ -84,6 +86,7 @@ export const CommunityFeedPostCards = ({
   feedRefetch,
 }: CommunityFeedPostCardsProps) => {
   const dispatch = useDispatch();
+  const isGlobal = orgIsGlobal({ id: communityId });
 
   const { data } = useQuery<
     GetCommunityPostCards,
@@ -117,51 +120,44 @@ export const CommunityFeedPostCards = ({
     feedRefetch();
   };
 
+  const renderCard = (type: LimitedPostCardTypes) => (
+    <PostTypeCardWithPeople
+      testID={`PostCard_${type}`}
+      type={type}
+      onPress={() => navToFeedType(type)}
+      people={groups[type]}
+    />
+  );
+
   return (
     <View>
-      <View style={{ flexDirection: 'row' }}>
-        <PostTypeCardWithPeople
-          testID="PostCard_PRAYER_REQUEST"
-          type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
-          onPress={() => navToFeedType(FeedItemSubjectTypeEnum.PRAYER_REQUEST)}
-          people={groups[FeedItemSubjectTypeEnum.PRAYER_REQUEST]}
-        />
-        <PostTypeCardWithPeople
-          testID="PostCard_STEP"
-          type={FeedItemSubjectTypeEnum.STEP}
-          onPress={() => navToFeedType(FeedItemSubjectTypeEnum.STEP)}
-          people={groups[FeedItemSubjectTypeEnum.STEP]}
-        />
-      </View>
-      <View style={{ flexDirection: 'row' }}>
-        <PostTypeCardWithPeople
-          testID="PostCard_QUESTION"
-          type={FeedItemSubjectTypeEnum.QUESTION}
-          onPress={() => navToFeedType(FeedItemSubjectTypeEnum.QUESTION)}
-          people={groups[FeedItemSubjectTypeEnum.QUESTION]}
-        />
-        <PostTypeCardWithPeople
-          testID="PostCard_STORY"
-          type={FeedItemSubjectTypeEnum.STORY}
-          onPress={() => navToFeedType(FeedItemSubjectTypeEnum.STORY)}
-          people={groups[FeedItemSubjectTypeEnum.STORY]}
-        />
-      </View>
-      <View style={{ flexDirection: 'row' }}>
-        <PostTypeCardWithPeople
-          testID="PostCard_HELP_REQUEST"
-          type={FeedItemSubjectTypeEnum.HELP_REQUEST}
-          onPress={() => navToFeedType(FeedItemSubjectTypeEnum.HELP_REQUEST)}
-          people={groups[FeedItemSubjectTypeEnum.HELP_REQUEST]}
-        />
-        <PostTypeCardWithPeople
-          testID="PostCard_ANNOUNCEMENT"
-          type={FeedItemSubjectTypeEnum.ANNOUNCEMENT}
-          onPress={() => navToFeedType(FeedItemSubjectTypeEnum.ANNOUNCEMENT)}
-          people={groups[FeedItemSubjectTypeEnum.ANNOUNCEMENT]}
-          countOnly={true}
-        />
-      </View>
+      {isGlobal ? (
+        <>
+          <View style={{ flexDirection: 'row' }}>
+            {renderCard(FeedItemSubjectTypeEnum.PRAYER_REQUEST)}
+            {renderCard(FeedItemSubjectTypeEnum.STEP)}
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            {renderCard(FeedItemSubjectTypeEnum.STORY)}
+            {renderCard(FeedItemSubjectTypeEnum.ANNOUNCEMENT)}
+          </View>
+        </>
+      ) : (
+        <>
+          <View style={{ flexDirection: 'row' }}>
+            {renderCard(FeedItemSubjectTypeEnum.PRAYER_REQUEST)}
+            {renderCard(FeedItemSubjectTypeEnum.STEP)}
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            {renderCard(FeedItemSubjectTypeEnum.QUESTION)}
+            {renderCard(FeedItemSubjectTypeEnum.STORY)}
+          </View>
+          <View style={{ flexDirection: 'row' }}>
+            {renderCard(FeedItemSubjectTypeEnum.HELP_REQUEST)}
+            {renderCard(FeedItemSubjectTypeEnum.ANNOUNCEMENT)}
+          </View>
+        </>
+      )}
     </View>
   );
 };
