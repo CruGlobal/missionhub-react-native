@@ -26,9 +26,9 @@ export default function callApi(
   query: { [key: string]: any } = {},
   data: { [key: string]: any } = {},
 ): ThunkAction<
-  any,
-  any,
-  null,
+  any, // TODO: change to void after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
+  any, // TODO: change to RootState after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
+  null, // TODO: change to never after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
   | {
       query: any;
       data: any;
@@ -97,25 +97,18 @@ export default function callApi(
       APILOG('REQUEST ERROR', action.name, err);
       const { apiError } = err;
 
-      if (apiError) {
-        if (
-          apiError.errors &&
-          apiError.errors[0] &&
-          apiError.errors[0].detail
-        ) {
-          const errorDetail = apiError.errors[0].detail;
-          if (
-            errorDetail === EXPIRED_ACCESS_TOKEN ||
-            errorDetail === INVALID_ACCESS_TOKEN
-          ) {
-            dispatch(handleInvalidAccessToken());
-          }
-        } else if (
-          apiError.error === INVALID_GRANT &&
-          action.name === REQUESTS.KEY_REFRESH_TOKEN.name
-        ) {
-          dispatch(logout(true));
-        }
+      const errorDetail = apiError?.errors?.[0]?.detail;
+      if (
+        errorDetail === EXPIRED_ACCESS_TOKEN ||
+        errorDetail === INVALID_ACCESS_TOKEN
+      ) {
+        return dispatch(handleInvalidAccessToken());
+      } else if (
+        apiError?.error === INVALID_GRANT &&
+        action.name === REQUESTS.KEY_REFRESH_TOKEN.name
+      ) {
+        dispatch(logout(true));
+        return;
       }
       throw err;
     };
