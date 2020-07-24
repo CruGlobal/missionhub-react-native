@@ -2613,7 +2613,15 @@ exports[`renders for Global Community renders correctly 1`] = `
   <View>
     <View
       onLayout={[Function]}
-    />
+    >
+      <CreatePostButton
+        communityId="_global_community_id"
+      />
+      <CommunityFeedPostCards
+        communityId="_global_community_id"
+        feedRefetch={[Function]}
+      />
+    </View>
     <View
       onLayout={[Function]}
       style={null}
