@@ -180,3 +180,89 @@ exports[`renders with feed items correctly 1`] = `
   </View>
 </View>
 `;
+
+exports[`renders with global feed items correctly 1`] = `
+<View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_PRAYER_REQUEST"
+      type="PRAYER_REQUEST"
+    />
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Janelle",
+            "fullName": "Janelle Upton",
+            "id": "11",
+            "picture": "explicabo exercitationem ut",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Coty",
+            "fullName": "Coty Vandervort",
+            "id": "13",
+            "picture": "ut ullam quos",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Caesar",
+            "fullName": "Caesar Will",
+            "id": "15",
+            "picture": "officia quaerat cumque",
+          },
+        ]
+      }
+      testID="PostCard_STEP"
+      type="STEP"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+      }
+    }
+  >
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={Array []}
+      testID="PostCard_STORY"
+      type="STORY"
+    />
+    <PostTypeCardWithPeople
+      onPress={[Function]}
+      people={
+        Array [
+          Object {
+            "__typename": "Person",
+            "firstName": "Alison",
+            "fullName": "Alison Goldner",
+            "id": "5",
+            "picture": "ipsum inventore debitis",
+          },
+          Object {
+            "__typename": "Person",
+            "firstName": "Helena",
+            "fullName": "Helena Osinski",
+            "id": "7",
+            "picture": "a velit provident",
+          },
+        ]
+      }
+      testID="PostCard_ANNOUNCEMENT"
+      type="ANNOUNCEMENT"
+    />
+  </View>
+</View>
+`;
