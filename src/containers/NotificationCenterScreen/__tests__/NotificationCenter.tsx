@@ -122,23 +122,25 @@ it('renders with refresh button', async () => {
 });
 
 it('handles refresh', async () => {
-  const { getByType } = renderWithContext(<NotificationCenterScreen />, {
-    mocks: {
-      NotificationConnection: () => ({
-        nodes: () => new MockList(10),
-      }),
+  const { getByType, recordSnapshot, diffSnapshot } = renderWithContext(
+    <NotificationCenterScreen />,
+    {
+      mocks: {
+        NotificationConnection: () => ({
+          nodes: () => new MockList(10),
+        }),
+      },
+      initialApolloState,
     },
-    initialApolloState,
-  });
+  );
 
   await flushMicrotasksQueue();
-  (useQuery as jest.Mock).mockClear();
-  expect((useQuery as jest.Mock).mock.results.length).toEqual(0);
+  recordSnapshot();
 
   fireEvent(getByType(SectionList), 'onRefresh');
 
   await flushMicrotasksQueue();
-  expect((useQuery as jest.Mock).mock.results.length).toBeGreaterThan(0);
+  diffSnapshot();
 });
 
 it('renders Today section correctly ', async () => {
