@@ -2,19 +2,17 @@ import React from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
-import { ThunkDispatch } from 'redux-thunk';
+import { useDispatch } from 'react-redux';
 
 import { getMyPeople } from '../../actions/people';
 import { allAssignedPeopleSelector } from '../../selectors/people';
 import { navigatePush } from '../../actions/navigation';
-import { IconButton, Button } from '../../components/common';
+import { Button } from '../../components/common';
 import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
-import { openMainMenu } from '../../utils/common';
 import BottomButton from '../../components/BottomButton';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
-import { Person } from '../../reducers/people';
 import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
@@ -23,30 +21,28 @@ import {
 import { RootState } from '../../reducers';
 import AddPersonIcon from '../../../assets/images/addPersonIcon.svg';
 import AnnouncementsModal from '../../components/AnnouncementsModal';
+import AvatarMenuButton from '../../components/AvatarMenuButton';
 
 import styles from './styles';
 
 interface PeopleScreenProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   items: any;
   hasNoContacts: boolean;
-  person: Person;
+  personId: string;
 }
 
 export const PeopleScreen = ({
-  dispatch,
   items,
   hasNoContacts,
-  person,
+  personId,
 }: PeopleScreenProps) => {
   useAnalytics('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   const { t } = useTranslation('peopleScreen');
 
-  const onOpenMainMenu = () => dispatch(openMainMenu());
+  const dispatch = useDispatch();
 
   const handleAddContact = (org: Organization) => {
     dispatch(
@@ -68,13 +64,7 @@ export const PeopleScreen = ({
       <Header
         titleStyle={styles.headerTitle}
         testID="header"
-        left={
-          <IconButton
-            name="menuIcon"
-            type="MissionHub"
-            onPress={onOpenMainMenu}
-          />
-        }
+        left={<AvatarMenuButton />}
         right={
           <Button onPress={handleAddContact}>
             <AddPersonIcon />
@@ -89,7 +79,7 @@ export const PeopleScreen = ({
         items={items}
         onRefresh={refresh}
         refreshing={isRefreshing}
-        personId={person.id}
+        personId={personId}
       />
       {hasNoContacts ? (
         <BottomButton
@@ -114,7 +104,7 @@ const mapStateToProps = ({ auth, people, organizations }: RootState) => {
   return {
     items,
     hasNoContacts,
-    person,
+    personId: person.id,
   };
 };
 
