@@ -56,7 +56,6 @@ exports[`renders empty correctly 1`] = `
       type="HELP_REQUEST"
     />
     <PostTypeCardWithPeople
-      countOnly={true}
       onPress={[Function]}
       people={Array []}
       testID="PostCard_ANNOUNCEMENT"
@@ -156,7 +155,6 @@ exports[`renders with feed items correctly 1`] = `
       type="HELP_REQUEST"
     />
     <PostTypeCardWithPeople
-      countOnly={true}
       onPress={[Function]}
       people={
         Array [
