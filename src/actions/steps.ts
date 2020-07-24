@@ -57,7 +57,6 @@ function completeChallengeAPI(step: {
   receiver: { id: string };
   organization?: { id: string };
 }) {
-  //eslint-disable-next-line @typescript-eslint/no-explicit-any
   return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = receiver && receiver.id;

@@ -122,23 +122,23 @@ it('renders with refresh button', async () => {
 });
 
 it('handles refresh', async () => {
-  const { getByType, recordSnapshot, diffSnapshot } = renderWithContext(
-    <NotificationCenterScreen />,
-    {
-      mocks: {
-        NotificationConnection: () => ({
-          nodes: () => new MockList(10),
-        }),
-      },
-      initialApolloState,
+  const { getByType } = renderWithContext(<NotificationCenterScreen />, {
+    mocks: {
+      NotificationConnection: () => ({
+        nodes: () => new MockList(10),
+      }),
     },
-  );
+    initialApolloState,
+  });
 
   await flushMicrotasksQueue();
+  (useQuery as jest.Mock).mockClear();
+  expect((useQuery as jest.Mock).mock.results.length).toEqual(0);
 
-  recordSnapshot();
   fireEvent(getByType(SectionList), 'onRefresh');
-  diffSnapshot();
+
+  await flushMicrotasksQueue();
+  expect((useQuery as jest.Mock).mock.results.length).toEqual(12); // I hope this isn't too brittle, seems like a magic number. Could mock useQuery to return a mock refetch function if needed
 });
 
 it('renders Today section correctly ', async () => {
