@@ -24,10 +24,11 @@ export const NOTIFICATION_ITEM_FRAGMENT = gql`
   }
 `;
 
-export const GET_COMMUNITY_PHOTO = gql`
-  query GetCommunityPhoto($communityId: ID!) {
+export const GET_COMMUNITY_INFO = gql`
+  query GetCommunityInfo($communityId: ID!) {
     community(id: $communityId) {
       id
+      name
       communityPhotoUrl
     }
   }

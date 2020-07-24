@@ -12,6 +12,7 @@ import {
 } from '../queries';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../../containers/CommunityFeedWithType';
+import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 
 import { CommunityFeedPostCards } from '..';
 
@@ -61,6 +62,26 @@ it('renders with feed items correctly', async () => {
 
   expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_POST_CARDS, {
     variables: { communityId },
+  });
+});
+
+it('renders with global feed items correctly', async () => {
+  const { snapshot } = renderWithContext(
+    <CommunityFeedPostCards
+      communityId={GLOBAL_COMMUNITY_ID}
+      feedRefetch={mockFeedRefetch}
+    />,
+    {
+      initialState,
+      mocks: { FeedItemConnection: () => ({ nodes: () => new MockList(10) }) },
+    },
+  );
+
+  await flushMicrotasksQueue();
+  snapshot();
+
+  expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_POST_CARDS, {
+    variables: { communityId: GLOBAL_COMMUNITY_ID },
   });
 });
 

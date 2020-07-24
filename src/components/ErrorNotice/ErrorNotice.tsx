@@ -40,7 +40,8 @@ export const ErrorNotice = ({
     }, []);
 
   return error ? (
-    <Touchable style={styles.errorContainer} onPress={refetch}>
+    // Wrapped refetch in function to avoid passing native event to variables argument
+    <Touchable style={styles.errorContainer} onPress={() => refetch()}>
       {error.networkError ? (
         <Text style={styles.white}>{t('offline')}</Text>
       ) : matchedErrors && matchedErrors.length > 0 ? (

@@ -7,6 +7,10 @@ export default StyleSheet.create({
     backgroundColor: theme.white,
     height: '100%',
   },
+  headerText: {
+    fontSize: 14,
+    lineHeight: 20,
+  },
   button: {
     paddingRight: 10,
   },
