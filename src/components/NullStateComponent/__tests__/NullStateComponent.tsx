@@ -2,7 +2,6 @@ import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
 import { Text } from '../../common';
-
 import NullStateComponent from '..';
 
 it('render assigned contact', () => {

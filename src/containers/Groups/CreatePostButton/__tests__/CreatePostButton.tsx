@@ -12,7 +12,6 @@ import {
 import { GET_MY_COMMUNITY_PERMISSION_QUERY } from '../queries';
 import { navigatePush } from '../../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../../CreatePostScreen';
-
 import { CreatePostButton } from '..';
 
 jest.mock('../../../../actions/navigation', () => ({

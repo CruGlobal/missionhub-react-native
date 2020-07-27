@@ -1187,9 +1187,9 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <ForwardRef(_SafeAreaView)>
+      <SafeAreaView>
         <FooterLoading />
-      </ForwardRef(_SafeAreaView)>
+      </SafeAreaView>
     }
     ListHeaderComponent={
       <ErrorNotice

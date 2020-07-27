@@ -1,11 +1,9 @@
-import { Animated } from 'react-native';
+import { Animated, View } from 'react-native';
 import React from 'react';
-import { View } from 'react-native';
 import Enzyme, { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
 import { testSnapshot } from '../../../../testUtils';
-
 import RowSwipeable from '..';
 
 const mockStart = jest.fn();
@@ -162,18 +160,18 @@ describe('swipe gestures', () => {
   it('handles delete', () => {
     // @ts-ignore
     swipeComponent.handleDelete();
-    expect(props.onDelete).toHaveBeenCalledWith(pressProps[0]);
+    expect(props.onDelete).toHaveBeenCalled();
   });
 
   it('handles complete', () => {
     // @ts-ignore
     swipeComponent.handleComplete();
-    expect(props.onComplete).toHaveBeenCalledWith(pressProps[0]);
+    expect(props.onComplete).toHaveBeenCalled();
   });
 
   it('handles edit', () => {
     // @ts-ignore
     swipeComponent.handleEdit();
-    expect(props.onEdit).toHaveBeenCalledWith(pressProps[0]);
+    expect(props.onEdit).toHaveBeenCalled();
   });
 });

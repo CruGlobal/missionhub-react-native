@@ -1,6 +1,5 @@
 import { BackHandler } from 'react-native';
 import { useEffect } from 'react';
-// eslint-disable-next-line import/named
 import { NavigationEventSubscription } from 'react-navigation';
 import { useNavigation } from 'react-navigation-hooks';
 

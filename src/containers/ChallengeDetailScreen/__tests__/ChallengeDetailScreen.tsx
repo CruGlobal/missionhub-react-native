@@ -1,4 +1,3 @@
-/* eslint complexity: 0, max-lines: 0, max-params: 0 */
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
@@ -20,7 +19,6 @@ import {
 import { communityChallengeSelector } from '../../../selectors/challenges';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import ChallengeDetailScreen from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');

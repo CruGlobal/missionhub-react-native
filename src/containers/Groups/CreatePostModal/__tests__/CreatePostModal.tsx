@@ -9,7 +9,6 @@ import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import { trackAction } from '../../../../actions/analytics';
 import { navigatePush } from '../../../../actions/navigation';
 import { CREATE_POST_SCREEN } from '../../CreatePostScreen';
-
 import CreatePostModal from '..';
 
 jest.mock('../../../../actions/analytics');

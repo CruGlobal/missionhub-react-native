@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { GestureResponderEvent, View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 
@@ -11,7 +11,6 @@ import { PostTypeEnum } from '../../../__generated__/globalTypes';
 import theme from '../../theme';
 import { navigatePush } from '../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
-import { TouchablePress } from '../Touchable/index.ios';
 
 import CommentIcon from './commentIcon.svg';
 import HeartIcon from './heartIcon.svg';
@@ -28,7 +27,7 @@ import {
 interface CommentLikeComponentProps {
   feedItem: CommunityFeedItemCommentLike;
   hideComment?: boolean;
-  onCommentPress?: TouchablePress;
+  onCommentPress?: (event: GestureResponderEvent) => void;
   testID?: string;
 }
 

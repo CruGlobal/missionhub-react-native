@@ -1,11 +1,10 @@
-/* eslint max-lines-per-function: 0 */
-
 import React, { useState } from 'react';
 import { SafeAreaView, View, Image, ImageSourcePropType } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18Next from 'i18next';
 import { connect } from 'react-redux-legacy';
 import { ThunkAction, ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   keyLoginWithAuthorizationCode,
@@ -28,6 +27,7 @@ import {
 import TosPrivacy from '../../../components/TosPrivacy';
 import Header from '../../../components/Header';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { RootState } from '../../../reducers';
 
 import styles from './styles';
 
@@ -57,13 +57,11 @@ const SignUpScreen = ({
   signUpType,
   next,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   signUpType?: string;
   next: (params?: {
     signIn: boolean;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, null, never>;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
 }) => {
   useAnalytics([
     signUpType === SIGNUP_TYPES.CREATE_COMMUNITY ? 'communities' : 'menu',

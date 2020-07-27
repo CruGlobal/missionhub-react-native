@@ -1,10 +1,9 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { GestureResponderEvent, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text, Flex, Card, Button } from '../common';
 import { getFirstNameAndLastInitial } from '../../utils/common';
-import { TouchablePress } from '../Touchable/index.ios';
 import { GetCommunities_communities_nodes } from '../../containers/Groups/__generated__/GetCommunities';
 import { useCommunityPhoto } from '../../containers/Communities/hooks/useCommunityPhoto';
 
@@ -12,8 +11,8 @@ import styles from './styles';
 
 export interface GroupCardItemProps {
   group: GetCommunities_communities_nodes;
-  onPress?: TouchablePress;
-  onJoin?: TouchablePress;
+  onPress?: (event: GestureResponderEvent) => void;
+  onJoin?: (event: GestureResponderEvent) => void;
   testID?: string;
 }
 
@@ -29,14 +28,6 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
     },
     report: { memberCount },
   } = group;
-
-  const handlePress = () => {
-    onPress && onPress(group);
-  };
-
-  const handleJoin = () => {
-    onJoin && onJoin(group);
-  };
 
   function renderInfo() {
     if (onJoin) {
@@ -68,11 +59,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   //In some cases we want to prevent clicking on GroupCardItem.
 
   return (
-    <Card
-      testID="CardButton"
-      onPress={onPress ? handlePress : undefined}
-      style={styles.card}
-    >
+    <Card testID="CardButton" onPress={onPress} style={styles.card}>
       <Flex value={1} style={styles.content}>
         <Image
           source={communityPhotoSource}
@@ -92,7 +79,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
                 style={[styles.joinButton]}
                 buttonTextStyle={styles.joinButtonText}
                 text={t('join').toUpperCase()}
-                onPress={handleJoin}
+                onPress={onJoin}
               />
             </Flex>
           ) : null}

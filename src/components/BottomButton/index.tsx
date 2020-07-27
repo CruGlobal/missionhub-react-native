@@ -4,16 +4,16 @@ import {
   StyleProp,
   TextStyle,
   ImageSourcePropType,
+  GestureResponderEvent,
 } from 'react-native';
 
 import { Button } from '../../components/common';
 import theme from '../../theme';
-import { TouchablePress } from '../Touchable/index.ios';
 
 export interface BottomButtonProps {
   text: string;
   image?: ImageSourcePropType;
-  onPress: TouchablePress;
+  onPress: (event: GestureResponderEvent) => void;
   disabled?: boolean;
   style?: StyleProp<TextStyle>;
   testID?: string;
@@ -26,8 +26,8 @@ const BottomButton = ({
   style,
   image,
 }: BottomButtonProps) => {
-  const handlePress = () => {
-    onPress();
+  const handlePress = (event: GestureResponderEvent) => {
+    onPress(event);
   };
 
   return (

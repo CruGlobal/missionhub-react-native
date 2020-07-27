@@ -1,5 +1,3 @@
-/* eslint complexity: 0 */
-
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
@@ -22,7 +20,7 @@ interface CommunityMemberItemProps {
   organization: Organization;
   myCommunityPermission?: CommunityMembers_community_people_edges_communityPermission;
   personOrgPermission: CommunityMembers_community_people_edges_communityPermission;
-  onRefreshMembers: Function;
+  onRefreshMembers: () => void;
 }
 
 const CommunityMemberItem = ({

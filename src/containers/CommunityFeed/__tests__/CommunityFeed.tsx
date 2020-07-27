@@ -11,7 +11,6 @@ import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
-
 import { CommunityFeed } from '..';
 
 jest.mock('../../../actions/navigation');

@@ -1,9 +1,6 @@
-/* eslint complexity: 0, max-lines-per-function: 0 */
-import React, { forwardRef } from 'react';
+import React, { forwardRef, ReactNode, Ref } from 'react';
 import { View, StyleProp, ViewStyle } from 'react-native';
 import * as Animatable from 'react-native-animatable';
-import { ReactNode } from 'react';
-import { Ref } from 'react';
 
 export interface FlexProps {
   style?: StyleProp<ViewStyle>;

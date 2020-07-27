@@ -16,7 +16,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
-
 import SideMenu from '..';
 
 jest.mock('../../../utils/hooks/useIsMe');

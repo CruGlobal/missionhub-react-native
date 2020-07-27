@@ -1,4 +1,5 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import React from 'react';
 import { Alert, View, AlertButton } from 'react-native';
 import i18n from 'i18next';
@@ -17,7 +18,6 @@ import {
   REPORT_FEED_ITEM_COMMENT_MUTATION,
   DELETE_FEED_ITEM_COMMENT_MUTATION,
 } from '../queries';
-
 import CommentsList from '..';
 
 jest.mock('../../../actions/navigation');

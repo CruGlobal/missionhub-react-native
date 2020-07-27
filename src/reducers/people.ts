@@ -1,5 +1,3 @@
-/* eslint complexity: 0 */
-
 import {
   DELETE_PERSON,
   LOGOUT,

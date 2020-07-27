@@ -12,7 +12,6 @@ import {
   UPDATE_FEED_ITEM_COMMENT_MUTATION,
 } from '../queries';
 import { FeedItemEditingComment } from '../__generated__/FeedItemEditingComment';
-
 import FeedCommentBox from '..';
 
 const feedItemId = '1';

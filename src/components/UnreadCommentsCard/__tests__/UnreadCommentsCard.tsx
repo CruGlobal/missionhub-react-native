@@ -2,17 +2,18 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import UnreadCommentCard from '..';
 
 const props = { count: 12, onPress: jest.fn(), onClose: jest.fn() };
 it('renders correctly', () => {
-  renderWithContext(<UnreadCommentCard {...props} />, { noWrappers: true });
+  renderWithContext(<UnreadCommentCard {...props} />, {
+    noWrappers: true,
+  }).snapshot();
 });
 it('renders correctly singular', () => {
   renderWithContext(<UnreadCommentCard {...props} count={1} />, {
     noWrappers: true,
-  });
+  }).snapshot();
 });
 
 describe('press events', () => {

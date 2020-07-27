@@ -1,5 +1,3 @@
-/* eslint max-lines-per-function: 0 */
-
 import React, { useState, useRef } from 'react';
 import { connect } from 'react-redux-legacy';
 import { SafeAreaView, Keyboard, View, TextInput } from 'react-native';
@@ -7,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
+import { AnyAction } from 'redux';
 
 import {
   Button,
@@ -32,6 +31,7 @@ import {
 } from '../../../actions/auth/facebook';
 import { useKeyboardListeners } from '../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { RootState } from '../../../reducers';
 
 import styles from './styles';
 
@@ -39,14 +39,12 @@ const SignInScreen = ({
   dispatch,
   next,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   next: (params?: {
     requires2FA: boolean;
     email: string;
     password: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, null, never>;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
 }) => {
   useAnalytics('sign in');
   const { t } = useTranslation('keyLogin');

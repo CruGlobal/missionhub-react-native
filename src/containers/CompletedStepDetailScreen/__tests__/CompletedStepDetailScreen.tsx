@@ -3,7 +3,6 @@ import { flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import CompletedStepDetailScreen from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');

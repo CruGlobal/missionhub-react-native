@@ -13,7 +13,6 @@ import {
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../../containers/CommunityFeedWithType';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
-
 import { CommunityFeedPostCards } from '..';
 
 jest.mock('../../../actions/navigation', () => ({
@@ -122,20 +121,26 @@ describe('navs to screens', () => {
   }
   it('navs to PRAYER_REQUEST', async () => {
     await check(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+    expect.hasAssertions();
   });
   it('navs to STEP', async () => {
     await check(FeedItemSubjectTypeEnum.STEP);
+    expect.hasAssertions();
   });
   it('navs to QUESTION', async () => {
     await check(FeedItemSubjectTypeEnum.QUESTION);
+    expect.hasAssertions();
   });
   it('navs to STORY', async () => {
     await check(FeedItemSubjectTypeEnum.STORY);
+    expect.hasAssertions();
   });
   it('navs to HELP_REQUEST', async () => {
     await check(FeedItemSubjectTypeEnum.HELP_REQUEST);
+    expect.hasAssertions();
   });
   it('navs to ANNOUNCEMENT', async () => {
     await check(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+    expect.hasAssertions();
   });
 });

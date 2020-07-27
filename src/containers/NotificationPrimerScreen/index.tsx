@@ -15,6 +15,7 @@ import {
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
@@ -26,8 +27,8 @@ const {
 } = NOTIFICATION_PROMPT_TYPES;
 
 interface NotificationPrimerScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-  next?: () => ThunkAction<void, {}, {}, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
+  next?: () => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 const NotificationPrimerScreen = ({

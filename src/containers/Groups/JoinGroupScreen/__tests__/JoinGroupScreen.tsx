@@ -10,7 +10,6 @@ import {
   renderWithContext,
 } from '../../../../../testUtils';
 import { lookupOrgCommunityCode } from '../../../../actions/organizations';
-
 import JoinGroupScreen from '..';
 
 jest.mock('../../../../actions/navigation', () => ({
@@ -32,6 +31,7 @@ jest.mock('../../../../actions/analytics', () => ({
 }));
 jest.mock('../../../../utils/hooks/useAnalytics');
 
+// @ts-ignore
 global.setTimeout = jest.fn();
 
 const mockStore = configureStore([thunk]);
