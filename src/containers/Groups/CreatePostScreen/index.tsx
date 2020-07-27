@@ -190,7 +190,12 @@ const useCreatePost = (
       },
     },
   );
-  console.log(error);
+
+  if (error) {
+    console.log('gql error');
+    console.log(error);
+  }
+
   const createFeedItem = async (postInput: CreatePostInput) => {
     postInput.media &&
       hasVideo &&
