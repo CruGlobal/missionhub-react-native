@@ -271,7 +271,7 @@ export const CommunityFeed = ({
           error={globalError}
           refetch={globalRefetch}
         />
-        {noHeader || isGlobal ? null : (
+        {noHeader ? null : (
           <>
             <CreatePostButton
               communityId={communityId}

@@ -4,7 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import { navigateBack, navigatePush } from '../../actions/navigation';
+import {
+  navigateBack,
+  navigatePush,
+  navigateToCommunityFeed,
+} from '../../actions/navigation';
 import {
   getChallenge,
   completeChallenge,
@@ -14,7 +18,7 @@ import {
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
 import DeprecatedBackButton from '../DeprecatedBackButton';
-import { Button } from '../../components/common';
+import { Button, Touchable, Text } from '../../components/common';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
 import ChallengeDetailHeader from '../../components/ChallengeDetailHeader';
@@ -34,8 +38,11 @@ const ChallengeDetailScreen = () => {
   const { t } = useTranslation('challengeFeeds');
   const orgId: string = useNavigationParam('orgId');
   const challengeId: string = useNavigationParam('challengeId');
+  const communityName: string = useNavigationParam('communityName');
   const isAdmin: boolean = useNavigationParam('isAdmin');
-
+  const fromNotificationCenterItem: boolean = useNavigationParam(
+    'fromNotificationCenterItem',
+  );
   const auth = useSelector(({ auth }: { auth: AuthState }) => auth);
   const myId = auth.person.id;
 
@@ -98,11 +105,29 @@ const ChallengeDetailScreen = () => {
   const joined = !!acceptedChallenge;
   const completed = !!(acceptedChallenge && acceptedChallenge.completed_at);
 
+  const handleCommunityNamePress = () => {
+    fromNotificationCenterItem
+      ? dispatch(navigateToCommunityFeed(orgId))
+      : dispatch(navigateBack());
+  };
+
   return (
     <View style={styles.pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={<DeprecatedBackButton iconStyle={{ color: theme.lightGrey }} />}
+        center={
+          !communityName ? (
+            undefined
+          ) : (
+            <Touchable
+              testID="CommunityNameHeader"
+              onPress={handleCommunityNamePress}
+            >
+              <Text style={styles.headerText}>{communityName}</Text>
+            </Touchable>
+          )
+        }
         right={
           !isPast && canEditChallenges ? (
             <Button

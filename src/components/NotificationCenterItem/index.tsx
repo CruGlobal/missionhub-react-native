@@ -27,11 +27,11 @@ import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroup
 import ReportedIcon from './reportedIcon.svg';
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
-import { GET_COMMUNITY_PHOTO } from './queries';
+import { GET_COMMUNITY_INFO } from './queries';
 import {
-  GetCommunityPhoto,
-  GetCommunityPhotoVariables,
-} from './__generated__/GetCommunityPhoto';
+  GetCommunityInfo,
+  GetCommunityInfoVariables,
+} from './__generated__/GetCommunityInfo';
 
 export const NotificationCenterItem = ({
   event,
@@ -91,9 +91,11 @@ export const NotificationCenterItem = ({
   );
 
   const {
-    data: { community: { communityPhotoUrl = null } = {} } = {},
-  } = useQuery<GetCommunityPhoto, GetCommunityPhotoVariables>(
-    GET_COMMUNITY_PHOTO,
+    data: {
+      community: { name: communityName = '', communityPhotoUrl = null } = {},
+    } = {},
+  } = useQuery<GetCommunityInfo, GetCommunityInfoVariables>(
+    GET_COMMUNITY_INFO,
     {
       fetchPolicy: 'cache-first',
       variables: {
@@ -142,6 +144,8 @@ export const NotificationCenterItem = ({
         await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
           navigatePush(CHALLENGE_DETAIL_SCREEN, {
+            communityName,
+            fromNotificationCenterItem: true,
             // If no communityId, than it is a global challenge
             orgId: communityId,
             challengeId: screenData.challengeId,
