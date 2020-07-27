@@ -42,7 +42,7 @@ import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
-import { getCelebrateFeed } from '../celebration';
+import { getCelebrateFeed, getGlobalCommunityFeed } from '../celebration';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../../containers/Groups/GroupChallenges';
 
@@ -727,7 +727,7 @@ describe('askNotificationPermissions', () => {
           organization.id,
         );
       });
-      it('should not navigate if no organization_id', async () => {
+      it('should navigate to global community of no organization_id', async () => {
         await testNotification(({
           ...baseNotification,
           screen: 'celebrate_item',
@@ -735,9 +735,12 @@ describe('askNotificationPermissions', () => {
           screen_extra_data,
         } as unknown) as PushNotificationPayloadData);
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(getCelebrateFeed).not.toHaveBeenCalledWith();
-        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+        expect(refreshCommunity).toHaveBeenCalled();
+        expect(getGlobalCommunityFeed).toHaveBeenCalledWith();
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
+          celebration_item_id,
+          GLOBAL_COMMUNITY_ID,
+        );
       });
       it('should navigate to COMMUNITY_TABS if no celebrate_item_id', async () => {
         await testNotification(({
@@ -773,7 +776,7 @@ describe('askNotificationPermissions', () => {
         );
       });
 
-      it('should not navigate to org if no id passed', async () => {
+      it('should navigate to global community if no organization_id', async () => {
         await testNotification(({
           ...baseNotification,
           screen: 'celebrate',
@@ -781,9 +784,12 @@ describe('askNotificationPermissions', () => {
           screen_extra_data,
         } as unknown) as PushNotificationPayloadData);
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(getCelebrateFeed).not.toHaveBeenCalled();
-        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+        expect(refreshCommunity).toHaveBeenCalled();
+        expect(getGlobalCommunityFeed).toHaveBeenCalled();
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
+          celebration_item_id,
+          GLOBAL_COMMUNITY_ID,
+        );
       });
     });
 

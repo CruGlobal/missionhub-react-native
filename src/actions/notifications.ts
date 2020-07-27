@@ -33,7 +33,7 @@ import {
   navigateToFeedItemComments,
 } from './navigation';
 import callApi from './api';
-import { getCelebrateFeed } from './celebration';
+import { getCelebrateFeed, getGlobalCommunityFeed } from './celebration';
 
 export const SET_NOTIFICATION_ANALYTICS = 'app/SET_NOTIFICATION_ANALYTICS';
 
@@ -283,13 +283,12 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       case 'celebrate_item': {
         const { organization_id, celebration_item_id } = notificationData;
 
-        if (!organization_id) {
-          return;
-        }
+        const communityId =
+          organization_id === undefined ? GLOBAL_COMMUNITY_ID : organization_id;
         if (!celebration_item_id) {
           return dispatch(
             navigatePush(COMMUNITY_TABS, {
-              communityId: organization_id,
+              communityId,
             }),
           );
         }
@@ -297,9 +296,12 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         dispatch(navigatePush(LOADING_SCREEN));
         try {
           dispatch(refreshCommunity(organization_id));
-          await getCelebrateFeed(organization_id);
+          communityId === GLOBAL_COMMUNITY_ID
+            ? await getGlobalCommunityFeed()
+            : await getCelebrateFeed(communityId);
+
           return dispatch(
-            navigateToFeedItemComments(celebration_item_id, organization_id),
+            navigateToFeedItemComments(celebration_item_id, communityId),
           );
         } catch (error) {
           dispatch(navigateToMainTabs());
