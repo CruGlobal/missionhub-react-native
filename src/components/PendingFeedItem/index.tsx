@@ -6,7 +6,7 @@ import { ReactNativeFile } from 'apollo-upload-client';
 import RNThumbnail from 'react-native-thumbnail';
 
 import CloseIcon from '../../../assets/images/closeIcon.svg';
-import { Card, Touchable, Icon, Text } from '../common';
+import { Card, Touchable, Text } from '../common';
 import { RootState } from '../../reducers';
 import { StoredPost } from '../../reducers/communityPosts';
 
@@ -28,7 +28,7 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
 
   useEffect(() => {
     const { uri } = media instanceof ReactNativeFile ? media : { uri: '' };
-    RNThumbnail.get(uri).then((result: any) => {
+    RNThumbnail.get(uri).then(result => {
       console.log('thumbnail');
       console.log(result.path);
       setThumbnailUri(result.path);
@@ -44,7 +44,7 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
       {failed ? (
         <View>
           <Text style={styles.text}>{t('failed')}</Text>
-          <Touchable onPress={() => {}}>
+          <Touchable onPress={handleRetry}>
             <Text>{t('tryAgain')}</Text>
           </Touchable>
         </View>
@@ -56,7 +56,7 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
 
   const renderEnd = () =>
     failed ? (
-      <Touchable>
+      <Touchable onPress={handleCancel}>
         <CloseIcon />
       </Touchable>
     ) : (
@@ -65,7 +65,11 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
 
   return (
     <Card testID="PendingFeedItem" style={styles.container}>
-      <View style={{ height: 48, width: 48, backgroundColor: 'red' }} />
+      <Image
+        style={{ height: 48, width: 48 }}
+        source={thumbnailUri}
+        resizeMode={'cover'}
+      />
       {renderText()}
       {renderEnd()}
     </Card>
