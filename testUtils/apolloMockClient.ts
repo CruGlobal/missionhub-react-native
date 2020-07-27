@@ -20,18 +20,18 @@ import {
 
 import { globalMocks } from './globalMocks';
 
+const schema = buildClientSchema(
+  (introspectionQuery as unknown) as IntrospectionQuery,
+);
+
+const fragmentMatcher = new IntrospectionFragmentMatcher({
+  introspectionQueryResultData: introspectionQuery as IntrospectionResultData,
+});
+
 export const createApolloMockClient = (
   mocks: IMocks = {},
   initialApolloState?: unknown,
 ) => {
-  const schema = buildClientSchema(
-    (introspectionQuery as unknown) as IntrospectionQuery,
-  );
-
-  const fragmentMatcher = new IntrospectionFragmentMatcher({
-    introspectionQueryResultData: introspectionQuery as IntrospectionResultData,
-  });
-
   addMockFunctionsToSchema({
     schema,
     mocks: { ...globalMocks, ...mocks },

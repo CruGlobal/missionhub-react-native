@@ -2,6 +2,7 @@ import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { REQUESTS } from '../api/routes';
+import { RootState } from '../reducers';
 import { OrganizationsState } from '../reducers/organizations';
 
 import callApi from './api';
@@ -9,7 +10,7 @@ import { getCelebrateFeed } from './celebration';
 import { refreshCommunity } from './organizations';
 
 export function markCommentsRead(orgId: string) {
-  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     await dispatch(
       callApi(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
         organization_id: orgId,
@@ -20,7 +21,7 @@ export function markCommentsRead(orgId: string) {
 }
 
 export function markCommentRead(eventId: string, orgId: string) {
-  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     await dispatch(
       callApi(REQUESTS.MARK_ORG_COMMENTS_AS_READ, {
         organization_celebration_item_id: eventId,

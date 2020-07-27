@@ -5,7 +5,6 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { navigatePush } from '../../../actions/navigation';
 import { CHALLENGE_MEMBERS_SCREEN } from '../../../containers/ChallengeMembers';
-
 import ChallengeStats from '..';
 
 jest.mock('../../../actions/celebration');

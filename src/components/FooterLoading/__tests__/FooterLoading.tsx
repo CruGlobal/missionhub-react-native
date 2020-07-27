@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { testSnapshot } from '../../../../testUtils';
-
 import { FooterLoading } from '..';
 
 it('renders correctly', () => {

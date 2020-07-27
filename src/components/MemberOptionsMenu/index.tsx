@@ -1,11 +1,10 @@
-/* eslint complexity: 0 */
-
 import React, { Component } from 'react';
 import { connect } from 'react-redux-legacy';
 import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   transferOrgOwnership,
@@ -20,6 +19,7 @@ import {
 import { navigateToMainTabs } from '../../actions/navigation';
 import { Person } from '../../reducers/people';
 import { COMMUNITIES_TAB } from '../../constants';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
@@ -29,14 +29,13 @@ export const API_TRY_IT_NOW_ADMIN_OWNER_ERROR_MESSAGE =
 // @ts-ignore
 @withTranslation('groupMemberOptions')
 class MemberOptionsMenu extends Component<{
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, any>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   t: any;
   person: Person;
   organization: { id: string; name: string };
   personOrgPermission: { id: string; permission: string };
-  onActionTaken: Function;
+  onActionTaken: () => void;
 }> {
   leaveCommunityOnUnmount = false;
 

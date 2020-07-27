@@ -8,7 +8,6 @@ import { organizationSelector } from '../../../selectors/organizations';
 import { acceptedChallengesSelector } from '../../../selectors/challenges';
 import { navigatePush } from '../../../actions/navigation';
 import { COMMUNITY_MEMBER_TABS } from '../../Communities/Community/CommunityMembers/CommunityMember/CommunityMemberTabs';
-
 import ChallengeMembers from '..';
 
 jest.mock('../../../actions/navigation');

@@ -8,6 +8,7 @@ import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
+import { AnyAction } from 'redux';
 
 import {
   Text,
@@ -30,6 +31,7 @@ import { TriangleIndicator } from '../../components/TriangleIndicator/TriangleIn
 import { insertName } from '../../utils/steps';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { FooterLoading } from '../../components/FooterLoading';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 import Checkmark from './checkmark.svg';
@@ -60,8 +62,7 @@ export interface SelectStepScreenNextProps {
 interface SelectStepScreenProps {
   next: (
     nextProps: SelectStepScreenNextProps,
-  ) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ThunkAction<void, any, null, never>;
+  ) => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 const SelectStepScreen = ({ next }: SelectStepScreenProps) => {

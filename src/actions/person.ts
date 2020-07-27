@@ -1,4 +1,5 @@
-/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0, max-params: 0 */
+/* eslint-disable max-lines */
+
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
@@ -13,7 +14,6 @@ import { exists } from '../utils/common';
 import { REQUESTS } from '../api/routes';
 import { apolloClient } from '../apolloClient';
 import { STEPS_QUERY } from '../containers/StepsScreen/queries';
-import { AuthState } from '../reducers/auth';
 import { RootState } from '../reducers';
 import {
   ME_PERSON_TABS,
@@ -27,7 +27,7 @@ import { navigatePush } from './navigation';
 import { getMyCommunities } from './organizations';
 
 export const getMe = (extraInclude?: string) => async (
-  dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   const personInclude =
     'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
@@ -71,10 +71,14 @@ export function getPersonDetails(id) {
   };
 }
 
-// @ts-ignore
-export function savePersonNote(personId, notes, noteId, myId) {
-  // @ts-ignore
-  return dispatch => {
+// eslint-disable-next-line max-params
+export function savePersonNote(
+  personId: string,
+  notes: string | undefined,
+  noteId: string | null,
+  myId: string,
+) {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     if (!personId) {
       return Promise.reject(
         'Invalid Data from savePersonNote: no personId passed in',
@@ -105,9 +109,9 @@ export function savePersonNote(personId, notes, noteId, myId) {
     };
 
     if (!noteId) {
-      return dispatch(callApi(REQUESTS.ADD_PERSON_NOTE, {}, bodyData));
+      dispatch(callApi(REQUESTS.ADD_PERSON_NOTE, {}, bodyData));
     }
-    return dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTE, { noteId }, bodyData));
+    dispatch(callApi(REQUESTS.UPDATE_PERSON_NOTE, { noteId }, bodyData));
   };
 }
 

@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`should refresh items properly 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -75,14 +75,14 @@
+      onScrollBeginDrag={[Function anonymous]}
+      onScrollEndDrag={[Function anonymous]}
+      refreshControl={
+        <RefreshControlMock
+          onRefresh={[Function handleRefreshing]}
+-         refreshing={false}
++         refreshing={true}
+        />
+      }
+-     refreshing={false}
++     refreshing={true}
+      renderItem={[Function anonymous]}
+      renderSectionHeader={[Function renderSectionHeader]}
+      scrollEventThrottle={0.0001}
+      sections={
+        Array ["
+`;
+
 exports[`should render correctly for basic member 1`] = `
 <View
   style={

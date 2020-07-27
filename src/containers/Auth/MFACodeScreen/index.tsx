@@ -4,20 +4,20 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
+import { AnyAction } from 'redux';
 
 import { keyLogin } from '../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../constants';
 import { MFACodeComponent } from '../../../components/MFACodeComponent';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
+import { RootState } from '../../../reducers';
 
 const MFACodeScreen = ({
   dispatch,
   next,
 }: {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: () => ThunkAction<void, any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
+  next: () => ThunkAction<void, RootState, never, AnyAction>;
 }) => {
   useAnalytics(['sign in', 'verification']);
   const { t } = useTranslation('mfaLogin');

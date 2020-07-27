@@ -4,9 +4,9 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { openMainMenu } from '../../../utils/common';
 import { GET_CURRENT_USER_AVATAR } from '../queries';
+import AvatarMenuButton from '..';
 
 import { renderWithContext } from '.../../../testUtils';
-import AvatarMenuButton from '..';
 
 jest.mock('../../../utils/common');
 

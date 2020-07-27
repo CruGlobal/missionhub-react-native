@@ -17,7 +17,6 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { ReminderButton as Reminder } from '../__generated__/ReminderButton';
 import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
 import { REMINDER_BUTTON_FRAGMENT } from '../queries';
-
 import ReminderButton from '..';
 
 jest.mock('../../../actions/notifications');

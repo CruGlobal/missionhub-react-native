@@ -4,12 +4,13 @@ import { ThunkDispatch } from 'redux-thunk';
 import { UPDATE_STAGES } from '../constants';
 import { REQUESTS } from '../api/routes';
 import { StagesState, Stage } from '../reducers/stages';
+import { RootState } from '../reducers';
 
 import callApi from './api';
 
 export function getStagesIfNotExists() {
   return (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { stages: StagesState },
   ) => {
     const { stages } = getState().stages;
@@ -26,8 +27,7 @@ export function getStagesIfNotExists() {
 }
 
 export function getStages() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return async (dispatch: ThunkDispatch<{}, {}, any>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     return ((await dispatch(
       callApi(REQUESTS.GET_STAGES, {
         include: 'localized_pathway_stages',

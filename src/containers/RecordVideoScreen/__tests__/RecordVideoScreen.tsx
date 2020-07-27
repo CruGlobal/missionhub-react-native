@@ -5,7 +5,6 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
-
 import { RecordVideoScreen } from '..';
 
 jest.mock('../../../actions/navigation');

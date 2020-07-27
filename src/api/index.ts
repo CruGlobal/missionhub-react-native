@@ -1,5 +1,3 @@
-/* eslint complexity: off, max-lines-per-function: off */
-
 import { JsonApiDataStore } from 'jsonapi-datastore';
 
 import { LOG, APILOG } from '../utils/logging';
@@ -13,12 +11,12 @@ const VALID_METHODS = ['get', 'put', 'post', 'delete'];
 const API_CALLS: {
   [key: string]: (
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
-    queryParams: { [key: string]: string | { [key: string]: any } },
-    data: {},
+    queryParams: Record<string, string | unknown>,
+    data: Record<string, unknown>,
   ) => Promise<{
-    meta?: {};
-    results?: {};
-    response?: {};
+    meta?: Record<string, unknown>;
+    results?: Record<string, unknown>;
+    response?: Record<string, unknown>;
     sessionHeader: string;
   }>;
 } = Object.entries(REQUESTS as ApiRouteConfig).reduce(
@@ -26,7 +24,7 @@ const API_CALLS: {
     ...acc,
     [key]: async (
       { access_token, ...q }: { access_token: string; [key: string]: string },
-      data: {},
+      data: Record<string, unknown>,
     ) => {
       const method = routeData.method || 'get';
 

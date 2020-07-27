@@ -1,7 +1,5 @@
-/* eslint max-lines: 0 */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable max-lines, @typescript-eslint/no-explicit-any */
 
-// eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 import { MockStore } from 'redux-mock-store';
 
@@ -32,7 +30,7 @@ const loadHomeResponse = { type: 'loadHome' };
 
 beforeEach(() => {
   store = createThunkStore();
-  (loadHome as any).mockReturnValue(loadHomeResponse);
+  (loadHome as jest.Mock).mockReturnValue(loadHomeResponse);
 });
 
 describe('navigatePush', () => {

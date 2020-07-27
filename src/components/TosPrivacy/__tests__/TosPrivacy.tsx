@@ -4,15 +4,16 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { LINKS } from '../../../constants';
-
 import TosPrivacy from '..';
 
 it('renders tos and privacy', () => {
-  renderWithContext(<TosPrivacy />, { noWrappers: true });
+  renderWithContext(<TosPrivacy />, { noWrappers: true }).snapshot();
 });
 
 it('renders trial tos and privacy', () => {
-  renderWithContext(<TosPrivacy trial={true} />, { noWrappers: true });
+  renderWithContext(<TosPrivacy trial={true} />, {
+    noWrappers: true,
+  }).snapshot();
 });
 
 describe('test links', () => {

@@ -1,10 +1,11 @@
+/* eslint-disable import/export, @typescript-eslint/no-explicit-any */
 declare module 'fraql' {
   export default function gql(literals: any, ...placeholders: any[]): any;
 
   export function toInlineFragment(doc: any): any;
 
   export namespace toInlineFragment {
-    const prototype: {};
+    const prototype: Record<string, unknown>;
   }
 }
 

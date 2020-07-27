@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux-legacy';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-// eslint-disable-next-line import/named
 import { StackActions, NavigationScreenComponent } from 'react-navigation';
 
 import {
@@ -20,7 +19,6 @@ const nextScreenName = 'testNextScreenName';
 const routeParams = { testKey: 'testValue' };
 
 const TestComponent = connect()(({ next, dispatch }) =>
-  // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
   // @ts-ignore
   dispatch(next(routeParams)),
 );

@@ -2,7 +2,12 @@ import React, { useState, useCallback } from 'react';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
-import { View, Image } from 'react-native';
+import {
+  View,
+  Image,
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+} from 'react-native';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
@@ -30,7 +35,6 @@ import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
 import { Stage, StagesState } from '../../reducers/stages';
 import { PeopleState } from '../../reducers/people';
-import { AnalyticsState } from '../../reducers/analytics';
 import {
   personSelector,
   contactAssignmentSelector,
@@ -38,6 +42,7 @@ import {
 import { localizedStageSelector } from '../../selectors/stages';
 import Header from '../../components/Header';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 
 import styles, {
   sliderWidth,
@@ -56,8 +61,7 @@ interface SelectStageScreenProps {
     stage: Stage;
     isAlreadySelected: boolean;
     orgId?: string;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, {}, never>;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
   myId: string;
   firstName: string;
   contactAssignmentId?: string;
@@ -91,9 +95,7 @@ const SelectStageScreen = ({
     questionText,
     onComplete,
   } = useNavigationState().params as SelectStageNavParams;
-  const dispatch = useDispatch<
-    ThunkDispatch<{ analytics: AnalyticsState }, {}, AnyAction>
-  >();
+  const dispatch = useDispatch<ThunkDispatch<RootState, never, AnyAction>>();
   useAndroidBackButton(enableBackButton);
   const { t } = useTranslation('selectStage');
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -143,8 +145,7 @@ const SelectStageScreen = ({
       }),
     );
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const action: any = isMe
+    const action = isMe
       ? ACTIONS.SELF_STAGE_SELECTED
       : ACTIONS.PERSON_STAGE_SELECTED;
 
@@ -156,8 +157,7 @@ const SelectStageScreen = ({
     );
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleScroll = (e: any) =>
+  const handleScroll = (e: NativeSyntheticEvent<NativeScrollEvent>) =>
     setScrollPosition(e.nativeEvent.contentOffset.x);
 
   const renderStage = ({ item, index }: { item: Stage; index: number }) => {

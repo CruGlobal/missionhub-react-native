@@ -19,7 +19,6 @@ import { organizationSelector } from '../../../../selectors/organizations';
 import { ACTIONS, COMMUNITIES_TAB, MAIN_TABS } from '../../../../constants';
 import { COMMUNITY_TABS } from '../../../Communities/Community/constants';
 import { COMMUNITY_MEMBERS } from '../../../Communities/Community/CommunityMembers/CommunityMembers';
-
 import CreateGroupScreen from '..';
 
 const mockNewId = '123';

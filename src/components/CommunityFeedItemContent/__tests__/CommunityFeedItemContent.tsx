@@ -1,5 +1,4 @@
-/* eslint max-lines: 0 */
-
+/* eslint-disable max-lines */
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 import { IMocks } from 'graphql-tools';
@@ -19,7 +18,6 @@ import {
   FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
 import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
-
 import { CommunityFeedItemContent, CommunityFeedItemContentProps } from '..';
 
 jest.mock('../../../actions/analytics');
@@ -63,7 +61,7 @@ describe('CommunityFeedItemContent', () => {
   };
 
   describe('Challenge Items', () => {
-    it('renders for accepted challenge', () =>
+    it('renders for accepted challenge', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
@@ -74,9 +72,11 @@ describe('CommunityFeedItemContent', () => {
             }),
           }),
         }),
-      ));
+      );
+      expect.hasAssertions();
+    });
 
-    it('renders for completed challenge', () =>
+    it('renders for completed challenge', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
@@ -84,9 +84,11 @@ describe('CommunityFeedItemContent', () => {
             subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
           }),
         }),
-      ));
+      );
+      expect.hasAssertions();
+    });
 
-    it('renders with no subjectPerson, defaults to subjectPersonName', () =>
+    it('renders with no subjectPerson, defaults to subjectPersonName', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
@@ -95,9 +97,11 @@ describe('CommunityFeedItemContent', () => {
             subjectPerson: () => null,
           }),
         }),
-      ));
+      );
+      expect.hasAssertions();
+    });
 
-    it('renders with no subjectPerson and no subjectPersonName', () =>
+    it('renders with no subjectPerson and no subjectPersonName', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
@@ -107,7 +111,9 @@ describe('CommunityFeedItemContent', () => {
             subjectPersonName: () => null,
           }),
         }),
-      ));
+      );
+      expect.hasAssertions();
+    });
   });
 
   describe('Step Item', () => {
@@ -124,15 +130,33 @@ describe('CommunityFeedItemContent', () => {
           }),
         );
 
-      it('1', () => testEventStage('1'));
-      it('2', () => testEventStage('2'));
-      it('3', () => testEventStage('3'));
-      it('4', () => testEventStage('4'));
-      it('5', () => testEventStage('5'));
-      it('Not Sure', () => testEventStage('6'));
+      it('1', () => {
+        testEventStage('1');
+        expect.hasAssertions();
+      });
+      it('2', () => {
+        testEventStage('2');
+        expect.hasAssertions();
+      });
+      it('3', () => {
+        testEventStage('3');
+        expect.hasAssertions();
+      });
+      it('4', () => {
+        testEventStage('4');
+        expect.hasAssertions();
+      });
+      it('5', () => {
+        testEventStage('5');
+        expect.hasAssertions();
+      });
+      it('Not Sure', () => {
+        testEventStage('6');
+        expect.hasAssertions();
+      });
     });
 
-    it('renders step of faith event without stage', () =>
+    it('renders step of faith event without stage', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
@@ -142,9 +166,11 @@ describe('CommunityFeedItemContent', () => {
             }),
           }),
         }),
-      ));
+      );
+      expect.hasAssertions();
+    });
 
-    it('renders with no subjectPerson, defaults to subjectPersonName', () =>
+    it('renders with no subjectPerson, defaults to subjectPersonName', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
@@ -152,9 +178,11 @@ describe('CommunityFeedItemContent', () => {
             subjectPerson: () => null,
           }),
         }),
-      ));
+      );
+      expect.hasAssertions();
+    });
 
-    it('renders with no subjectPerson and no subjectPersonName', () =>
+    it('renders with no subjectPerson and no subjectPersonName', () => {
       testEvent(
         mockFrag({
           FeedItem: () => ({
@@ -163,7 +191,9 @@ describe('CommunityFeedItemContent', () => {
             subjectPersonName: () => null,
           }),
         }),
-      ));
+      );
+      expect.hasAssertions();
+    });
   });
 
   describe('New Member Items', () => {
@@ -177,6 +207,7 @@ describe('CommunityFeedItemContent', () => {
           }),
         }),
       );
+      expect.hasAssertions();
     });
   });
 
@@ -194,6 +225,7 @@ describe('CommunityFeedItemContent', () => {
           }),
         }),
       );
+      expect.hasAssertions();
     });
     it('renders post with AddToMySteps', () => {
       testEvent(
@@ -209,6 +241,7 @@ describe('CommunityFeedItemContent', () => {
           }),
         }),
       );
+      expect.hasAssertions();
     });
     it('renders post without AddToMyStepsButton', () => {
       testEvent(
@@ -224,6 +257,7 @@ describe('CommunityFeedItemContent', () => {
           }),
         }),
       );
+      expect.hasAssertions();
     });
     it('renders post without likeAndComment section', () => {
       testEvent(
@@ -242,6 +276,7 @@ describe('CommunityFeedItemContent', () => {
         }),
         { showLikeAndComment: false },
       );
+      expect.hasAssertions();
     });
   });
   it('renders community name and community photo when postType is announcement', () => {
@@ -260,6 +295,7 @@ describe('CommunityFeedItemContent', () => {
         },
       }),
     );
+    expect.hasAssertions();
   });
   it('renders default community avatar when communityPhotoUrl is null', () => {
     testEvent(
@@ -280,6 +316,7 @@ describe('CommunityFeedItemContent', () => {
         },
       }),
     );
+    expect.hasAssertions();
   });
   it('renders with image', () => {
     testEvent(
@@ -293,6 +330,7 @@ describe('CommunityFeedItemContent', () => {
         }),
       }),
     );
+    expect.hasAssertions();
   });
   it('renders with video', () => {
     testEvent(
@@ -306,6 +344,7 @@ describe('CommunityFeedItemContent', () => {
         }),
       }),
     );
+    expect.hasAssertions();
   });
   it('renders without video if feature flag is false', () => {
     (useFeatureFlags as jest.Mock).mockReturnValue({ video: false });
@@ -321,6 +360,7 @@ describe('CommunityFeedItemContent', () => {
         }),
       }),
     );
+    expect.hasAssertions();
   });
   it('renders with menu options', () => {
     testEvent(
@@ -329,6 +369,7 @@ describe('CommunityFeedItemContent', () => {
       }),
       { menuActions: [{ text: 'Hi!', onPress: () => {} }] },
     );
+    expect.hasAssertions();
   });
   it('renders without menu options', () => {
     testEvent(
@@ -337,6 +378,7 @@ describe('CommunityFeedItemContent', () => {
       }),
       { menuActions: [] },
     );
+    expect.hasAssertions();
   });
 });
 

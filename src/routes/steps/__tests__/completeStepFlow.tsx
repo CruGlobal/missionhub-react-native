@@ -1,6 +1,6 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import React from 'react';
-// eslint-disable-next-line import/named
 import { StackActions } from 'react-navigation';
 import { AnyAction } from 'redux';
 import { MockStore } from 'redux-mock-store';

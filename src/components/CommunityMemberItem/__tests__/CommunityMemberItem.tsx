@@ -8,7 +8,6 @@ import { COMMUNITY_MEMBER_PERSON_FRAGMENT } from '../queries';
 import { PermissionEnum } from '../../../../__generated__/globalTypes';
 import { navigatePush } from '../../../actions/navigation';
 import { CommunityMembers_community_people_edges_communityPermission } from '../../../containers/Communities/Community/CommunityMembers/__generated__/CommunityMembers';
-
 import CommunityMemberItem from '..';
 
 jest.mock('../../../selectors/people');
@@ -53,10 +52,12 @@ const props = {
 
 describe('render contacts count', () => {
   it('should not crash without my org permission', () => {
-    renderWithContext(
-      <CommunityMemberItem {...props} organization={organization} />,
-      { initialState },
-    );
+    expect(() =>
+      renderWithContext(
+        <CommunityMemberItem {...props} organization={organization} />,
+        { initialState },
+      ),
+    ).not.toThrow();
   });
 
   it('should render member permissions', () => {

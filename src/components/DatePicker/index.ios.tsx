@@ -1,4 +1,3 @@
-/* eslint max-lines-per-function: 0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Modal, DatePickerIOS, Animated, Keyboard } from 'react-native';

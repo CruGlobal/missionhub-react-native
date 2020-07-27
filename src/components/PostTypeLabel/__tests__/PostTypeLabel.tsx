@@ -6,7 +6,6 @@ import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
 import { FeedItemPostCard } from '../../../containers/CommunityFeedPostCards/__generated__/FeedItemPostCard';
 import { FEED_ITEM_POST_CARD_FRAGMENT } from '../../../containers/CommunityFeedPostCards/queries';
-
 import PostTypeLabel, {
   PostLabelSizeEnum,
   PostTypeCardWithPeople,
@@ -35,24 +34,31 @@ describe('post types', () => {
   }
   it('renders God Story Label', () => {
     postType(FeedItemSubjectTypeEnum.STORY);
+    expect.hasAssertions();
   });
   it('renders Prayer Request Label', () => {
     postType(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+    expect.hasAssertions();
   });
   it('renders Spiritual Question Label', () => {
     postType(FeedItemSubjectTypeEnum.QUESTION);
+    expect.hasAssertions();
   });
   it('renders Community Need Label', () => {
     postType(FeedItemSubjectTypeEnum.HELP_REQUEST);
+    expect.hasAssertions();
   });
   it('renders On Your Mind Label', () => {
     postType(FeedItemSubjectTypeEnum.THOUGHT);
+    expect.hasAssertions();
   });
   it('renders Announcement Label', () => {
     postType(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+    expect.hasAssertions();
   });
   it('renders Step Of Faith Label', () => {
     postType(FeedItemSubjectTypeEnum.STEP);
+    expect.hasAssertions();
   });
 });
 
@@ -126,24 +132,31 @@ describe('post types cards', () => {
   }
   it('renders God Story Label', () => {
     card(FeedItemSubjectTypeEnum.STORY);
+    expect.hasAssertions();
   });
   it('renders Prayer Request Label', () => {
     card(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+    expect.hasAssertions();
   });
   it('renders Spiritual Question Label', () => {
     card(FeedItemSubjectTypeEnum.QUESTION);
+    expect.hasAssertions();
   });
   it('renders Community Need Label', () => {
     card(FeedItemSubjectTypeEnum.HELP_REQUEST);
+    expect.hasAssertions();
   });
   it('renders On Your Mind Label', () => {
     card(FeedItemSubjectTypeEnum.THOUGHT);
+    expect.hasAssertions();
   });
   it('renders Announcement Label', () => {
     card(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+    expect.hasAssertions();
   });
   it('renders Step Of Faith Label', () => {
     card(FeedItemSubjectTypeEnum.STEP);
+    expect.hasAssertions();
   });
 
   const people = [
@@ -202,23 +215,30 @@ describe('post types null states', () => {
   }
   it('renders God Story Null State', () => {
     nullState(FeedItemSubjectTypeEnum.STORY);
+    expect.hasAssertions();
   });
   it('renders Prayer Request Null State', () => {
     nullState(FeedItemSubjectTypeEnum.PRAYER_REQUEST);
+    expect.hasAssertions();
   });
   it('renders Spiritual Question Null State', () => {
     nullState(FeedItemSubjectTypeEnum.QUESTION);
+    expect.hasAssertions();
   });
   it('renders Community Need Null State', () => {
     nullState(FeedItemSubjectTypeEnum.HELP_REQUEST);
+    expect.hasAssertions();
   });
   it('renders On Your Mind Null State', () => {
     nullState(FeedItemSubjectTypeEnum.THOUGHT);
+    expect.hasAssertions();
   });
   it('renders Announcement Null State', () => {
     nullState(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+    expect.hasAssertions();
   });
   it('renders Step Of Faith Null State', () => {
     nullState(FeedItemSubjectTypeEnum.STEP);
+    expect.hasAssertions();
   });
 });

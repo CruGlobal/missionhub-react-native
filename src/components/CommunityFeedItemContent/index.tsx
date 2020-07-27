@@ -1,6 +1,6 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, GestureResponderEvent } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Markdown from 'react-native-markdown-display';
@@ -28,7 +28,6 @@ import Separator from '../Separator';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../containers/CommunityFeedWithType';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
-import { TouchablePress } from '../Touchable/index.ios';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 import PopupMenu from '../PopupMenu';
 import VideoPlayer from '../VideoPlayer';
@@ -54,7 +53,7 @@ export interface CommunityFeedItemContentProps {
   namePressable?: boolean;
   postLabelPressable?: boolean;
   showLikeAndComment?: boolean;
-  onCommentPress?: TouchablePress;
+  onCommentPress?: (event: GestureResponderEvent) => void;
   menuActions?: { text: string; onPress: () => void; destructive?: boolean }[];
 }
 

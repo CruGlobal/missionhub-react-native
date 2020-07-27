@@ -17,7 +17,7 @@ export default function impactReducer(
   action: AnyAction,
 ) {
   switch (action.type) {
-    case REQUESTS.GET_IMPACT_SUMMARY.SUCCESS:
+    case REQUESTS.GET_IMPACT_SUMMARY.SUCCESS: {
       const impact = action.results.response;
       return {
         ...state,
@@ -26,6 +26,7 @@ export default function impactReducer(
           [storageKey(impact.person_id, impact.organization_id)]: impact,
         },
       };
+    }
     case LOGOUT:
       return initialState;
     default:

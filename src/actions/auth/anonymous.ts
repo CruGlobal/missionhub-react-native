@@ -1,24 +1,20 @@
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
-
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { RootState } from '../../reducers';
 
 import { authSuccess } from './userData';
 
-export function codeLogin(code: string) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+// @ts-ignore
+export function codeLogin(code) {
+  // @ts-ignore
+  return async dispatch => {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, { code }));
     dispatch(authSuccess());
   };
 }
 
 export function refreshAnonymousLogin() {
-  return (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => RootState,
-  ) => {
+  // @ts-ignore
+  return (dispatch, getState) => {
     const { upgradeToken } = getState().auth;
 
     return dispatch(
