@@ -113,10 +113,10 @@ const PendingPostFailed = (storageId: string) => (
 
 const useCreatePost = (
   post: CreatePostInput,
-  onComplete: (update: boolean, includesMedia: boolean) => void,
+  hasVideo: boolean,
+  onComplete: () => void,
 ) => {
-  const { communityId, postType, media } = post;
-  const includesMedia = !!media;
+  const { communityId, postType } = post;
 
   const dispatch = useDispatch();
   const nextId = useSelector(
@@ -124,7 +124,7 @@ const useCreatePost = (
   );
   const [storageId] = useState(`${nextId}`);
 
-  const [createPost] = useMutation<CreatePost, CreatePostVariables>(
+  const [createPost, { error }] = useMutation<CreatePost, CreatePostVariables>(
     CREATE_POST,
     {
       update: (cache, { data }) => {
@@ -190,16 +190,18 @@ const useCreatePost = (
       },
     },
   );
-
+  console.log(error);
   const createFeedItem = async (postInput: CreatePostInput) => {
-    includesMedia && dispatch(savePendingPost(postInput, storageId));
+    postInput.media &&
+      hasVideo &&
+      dispatch(savePendingPost(postInput, storageId));
 
     try {
       await createPost({ variables: { input: postInput } });
-      includesMedia && dispatch(deletePendingPost(storageId));
-      onComplete(false, includesMedia);
+      hasVideo && dispatch(deletePendingPost(storageId));
+      onComplete();
     } catch {
-      includesMedia && dispatch(PendingPostFailed(storageId));
+      hasVideo && dispatch(PendingPostFailed(storageId));
     }
   };
 
@@ -207,33 +209,31 @@ const useCreatePost = (
 };
 
 export const useUpdatePost = (
-  post: UpdatePostInput,
   communityId: string,
-  onComplete: (update: boolean, includesMedia: boolean) => void,
+  hasVideo: boolean,
+  onComplete: () => void,
 ) => {
-  const { media } = post;
-  const includesMedia = !!media;
-
   const dispatch = useDispatch();
   const nextId = useSelector(
     ({ communityPosts }: RootState) => communityPosts.nextId,
   );
-  const [storageId] = useState(nextId);
+  const [storageId] = useState(`${nextId}`);
 
   const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
     UPDATE_POST,
   );
 
   const updateFeedItem = async (postInput: UpdatePostInput) => {
-    includesMedia &&
+    postInput.media &&
+      hasVideo &&
       dispatch(savePendingPost({ ...postInput, communityId }, storageId));
 
     try {
       await updatePost({ variables: { input: postInput } });
-      includesMedia && dispatch(deletePendingPost(storageId));
-      onComplete(true, includesMedia);
+      hasVideo && dispatch(deletePendingPost(storageId));
+      onComplete();
     } catch {
-      includesMedia && dispatch(PendingPostFailed(storageId));
+      hasVideo && dispatch(PendingPostFailed(storageId));
     }
   };
 
@@ -263,8 +263,8 @@ export const CreatePostScreen = () => {
   );
   const { video: videoEnabled } = useFeatureFlags();
 
-  const hasImage = mediaType?.includes('image');
-  const hasVideo = videoEnabled && mediaType?.includes('video');
+  const hasImage = !!mediaType?.includes('image');
+  const hasVideo = !!(videoEnabled && mediaType?.includes('video'));
   const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
 
   const imageAspectRatio = useAspectRatio(hasImage ? mediaData : null);
@@ -274,17 +274,17 @@ export const CreatePostScreen = () => {
     editMode: { isEdit: !!post },
   });
 
-  const handleComplete = (update: boolean, includesMedia: boolean) => {
-    !update &&
+  const handleComplete = () => {
+    !post &&
       dispatch(
         trackAction(ACTIONS.CREATE_POST.name, {
           [ACTIONS.CREATE_POST.key]: postType,
         }),
       );
-    includesMedia &&
+    mediaHasChanged &&
       hasImage &&
       dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
-    includesMedia &&
+    mediaHasChanged &&
       hasVideo &&
       dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
 
@@ -293,13 +293,10 @@ export const CreatePostScreen = () => {
 
   const createPost = useCreatePost(
     { content: text, communityId, postType, media: mediaData },
+    hasVideo,
     handleComplete,
   );
-  const updatePost = useUpdatePost(
-    { id: '', content: text, media: mediaData },
-    communityId,
-    handleComplete,
-  );
+  const updatePost = useUpdatePost(communityId, hasVideo, handleComplete);
 
   const savePost = () => {
     if (!text) {

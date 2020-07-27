@@ -1,10 +1,12 @@
-import React from 'react';
-import { View, Image } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Image, ActivityIndicator } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import i18n from 'i18next';
+import { ReactNativeFile } from 'apollo-upload-client';
+//import RNThumbnail from 'react-native-thumbnail';
 
-import { Card, Touchable, Icon } from '../common';
+import CloseIcon from '../../../assets/images/closeIcon.svg';
+import { Card, Touchable, Icon, Text } from '../common';
 import { RootState } from '../../reducers';
 import { StoredPost } from '../../reducers/communityPosts';
 
@@ -15,18 +17,56 @@ interface PendingFeedItemProps {
 }
 
 export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
-  const { media }: StoredPost = useSelector(
+  const { t } = useTranslation('pendingPost');
+
+  const { media, failed }: StoredPost = useSelector(
     ({ communityPosts }: RootState) =>
       communityPosts.pendingPosts[pendingItemId],
   );
+
+  /*const [thumbnailUri, setThumbnailUri] = useState<string>('');
+
+  useEffect(() => {
+    const { uri } = media instanceof ReactNativeFile ? media : { uri: '' };
+    RNThumbnail.get(uri).then((result: any) => {
+      console.log(result);
+      setThumbnailUri(result.path);
+    });
+  }, []);*/
 
   const handleRetry = () => {};
 
   const handleCancel = () => {};
 
+  const renderText = () => (
+    <View style={styles.textWrapper}>
+      {failed ? (
+        <View>
+          <Text style={styles.text}>{t('failed')}</Text>
+          <Touchable onPress={() => {}}>
+            <Text>{t('tryAgain')}</Text>
+          </Touchable>
+        </View>
+      ) : (
+        <Text style={styles.text}>{t('posting')}</Text>
+      )}
+    </View>
+  );
+
+  const renderEnd = () =>
+    failed ? (
+      <Touchable>
+        <CloseIcon />
+      </Touchable>
+    ) : (
+      <ActivityIndicator size="small" color="rgba(0, 0, 0, 1)" />
+    );
+
   return (
     <Card testID="PendingFeedItem" style={styles.container}>
-      <Image style={{ height: 48, width: 48 }} source={{ uri: media }} />
+      <View style={{ height: 48, width: 48, backgroundColor: 'red' }} />
+      {renderText()}
+      {renderEnd()}
     </Card>
   );
 };
