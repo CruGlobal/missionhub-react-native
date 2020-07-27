@@ -9,309 +9,6 @@ exports[`renders empty screen correctly 1`] = `
     }
   }
 >
-  <Modal
-    animationType="slide"
-    hardwareAccelerated={false}
-    transparent={true}
-    visible={true}
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "rgba(0,0,0,0.5)",
-          "flex": 1,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 14,
-            "flex": 0.4,
-            "justifyContent": "space-around",
-            "padding": 14,
-            "paddingVertical": 40,
-            "width": "80%",
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "width": "100%",
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-              },
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 32,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "justifyContent": "flex-end",
-                          "margin": 0,
-                          "position": "absolute",
-                          "right": -5,
-                          "top": -40,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <Text
-          style={
-            Object {
-              "color": "#333333",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            }
-          }
-        >
-          recusandae alias consequuntur
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 22,
-              "textAlign": "center",
-            }
-          }
-        >
-          esse repellat quisquam
-        </Text>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              CORPORIS REPELLAT RATIONE
-            </Text>
-          </View>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              LIBERO QUI RECUSANDAE
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </Modal>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -363,7 +60,7 @@ exports[`renders empty screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuButton"
         >
           <View
             style={
@@ -385,39 +82,27 @@ exports[`renders empty screen correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "quisquam recusandae alias",
+                }
+              }
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
                   Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
+                    "backgroundColor": "rgb(167, 154, 115)",
                   },
-                  Object {},
+                  undefined,
                 ]
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -710,7 +395,7 @@ exports[`renders loading screen correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuButton"
         >
           <View
             style={
@@ -732,39 +417,51 @@ exports[`renders loading screen correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <View
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "alignItems": "center",
+                    "justifyContent": "center",
                   },
                   Array [
                     Object {
-                      "color": "#ffffff",
+                      "borderRadius": 24,
+                      "height": 48,
+                      "width": 48,
                     },
                     Object {
-                      "fontSize": 18,
+                      "backgroundColor": "#B4B6BA",
                     },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
+                    undefined,
                   ],
-                  Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
                 ]
               }
             >
-              
-            </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 26,
+                        "fontWeight": "300",
+                      },
+                    ],
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
           </View>
         </View>
       </View>
@@ -934,309 +631,6 @@ exports[`renders screen with steps correctly 1`] = `
     }
   }
 >
-  <Modal
-    animationType="slide"
-    hardwareAccelerated={false}
-    transparent={true}
-    visible={true}
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "rgba(0,0,0,0.5)",
-          "flex": 1,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 14,
-            "flex": 0.4,
-            "justifyContent": "space-around",
-            "padding": 14,
-            "paddingVertical": 40,
-            "width": "80%",
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "width": "100%",
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-              },
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 32,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "justifyContent": "flex-end",
-                          "margin": 0,
-                          "position": "absolute",
-                          "right": -5,
-                          "top": -40,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <Text
-          style={
-            Object {
-              "color": "#333333",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            }
-          }
-        >
-          itaque velit omnis
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 22,
-              "textAlign": "center",
-            }
-          }
-        >
-          natus et eos
-        </Text>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              ET PORRO UT
-            </Text>
-          </View>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              ET SAEPE EUM
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </Modal>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1288,7 +682,7 @@ exports[`renders screen with steps correctly 1`] = `
               "opacity": 1,
             }
           }
-          testID="IconButton"
+          testID="menuButton"
         >
           <View
             style={
@@ -1310,39 +704,27 @@ exports[`renders screen with steps correctly 1`] = `
               ]
             }
           >
-            <Text
-              allowFontScaling={false}
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "eos itaque velit",
+                }
+              }
               style={
                 Array [
                   Object {
-                    "color": undefined,
-                    "fontSize": 12,
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 18,
-                    },
-                    Array [
-                      Object {
-                        "margin": 10,
-                      },
-                      Object {},
-                    ],
-                  ],
                   Object {
-                    "fontFamily": "icomoon",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
+                    "backgroundColor": "rgb(160, 123, 115)",
                   },
-                  Object {},
+                  undefined,
                 ]
               }
-            >
-              
-            </Text>
+            />
           </View>
         </View>
       </View>
@@ -1705,7 +1087,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -660,10 +660,54 @@
+@@ -345,10 +345,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1715,52 +1097,52 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"14\\",
++               \\"id\\": \\"13\\",
 +             },
-+             \\"completedAt\\": \\"2015-11-30T05:35:49.224Z\\",
-+             \\"id\\": \\"12\\",
++             \\"completedAt\\": \\"2013-05-02T13:44:36.598Z\\",
++             \\"id\\": \\"11\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Alexys Rohan\\",
-+               \\"id\\": \\"13\\",
++               \\"fullName\\": \\"Larue Johnston\\",
++               \\"id\\": \\"12\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"15\\",
-+               \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
++               \\"id\\": \\"14\\",
++               \\"nextOccurrenceAt\\": \\"2014-09-15T22:43:13.893Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
 +             \\"stepType\\": \\"affirm\\",
-+             \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
++             \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +           },
 +           Object {
 +             \\"__typename\\": \\"Step\\",
 +             \\"community\\": Object {
 +               \\"__typename\\": \\"Community\\",
-+               \\"id\\": \\"18\\",
++               \\"id\\": \\"17\\",
 +             },
-+             \\"completedAt\\": \\"2017-01-19T11:48:41.969Z\\",
-+             \\"id\\": \\"16\\",
++             \\"completedAt\\": \\"2018-01-22T22:32:29.415Z\\",
++             \\"id\\": \\"15\\",
 +             \\"receiver\\": Object {
 +               \\"__typename\\": \\"Person\\",
-+               \\"fullName\\": \\"Isabell Schamberger\\",
-+               \\"id\\": \\"17\\",
++               \\"fullName\\": \\"Edythe Haley\\",
++               \\"id\\": \\"16\\",
 +             },
 +             \\"reminder\\": Object {
 +               \\"__typename\\": \\"StepReminder\\",
-+               \\"id\\": \\"19\\",
-+               \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
++               \\"id\\": \\"18\\",
++               \\"nextOccurrenceAt\\": \\"2011-09-11T14:47:27.446Z\\",
 +               \\"reminderType\\": \\"once\\",
 +             },
-+             \\"stepType\\": \\"bond\\",
-+             \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
++             \\"stepType\\": \\"pray\\",
++             \\"title\\": \\"Saepe eum dicta eum eaque enim ipsum inventore debitis.\\",
 +           },
           ]
         }
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -764,9 +808,82 @@
+@@ -449,9 +493,82 @@
                 }
               }
               testID=\\"stepItem\\"
@@ -1777,23 +1159,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"14\\",
++                   \\"id\\": \\"13\\",
 +                 },
-+                 \\"completedAt\\": \\"2015-11-30T05:35:49.224Z\\",
-+                 \\"id\\": \\"12\\",
++                 \\"completedAt\\": \\"2013-05-02T13:44:36.598Z\\",
++                 \\"id\\": \\"11\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Alexys Rohan\\",
-+                   \\"id\\": \\"13\\",
++                   \\"fullName\\": \\"Larue Johnston\\",
++                   \\"id\\": \\"12\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"15\\",
-+                   \\"nextOccurrenceAt\\": \\"2012-07-23T04:41:19.390Z\\",
++                   \\"id\\": \\"14\\",
++                   \\"nextOccurrenceAt\\": \\"2014-09-15T22:43:13.893Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
 +                 \\"stepType\\": \\"affirm\\",
-+                 \\"title\\": \\"Libero aspernatur deserunt quam tempore a velit provident velit eligendi.\\",
++                 \\"title\\": \\"Et porro ut et ipsam explicabo eligendi occaecati debitis.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"
@@ -1810,23 +1192,23 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 +                 \\"__typename\\": \\"Step\\",
 +                 \\"community\\": Object {
 +                   \\"__typename\\": \\"Community\\",
-+                   \\"id\\": \\"18\\",
++                   \\"id\\": \\"17\\",
 +                 },
-+                 \\"completedAt\\": \\"2017-01-19T11:48:41.969Z\\",
-+                 \\"id\\": \\"16\\",
++                 \\"completedAt\\": \\"2018-01-22T22:32:29.415Z\\",
++                 \\"id\\": \\"15\\",
 +                 \\"receiver\\": Object {
 +                   \\"__typename\\": \\"Person\\",
-+                   \\"fullName\\": \\"Isabell Schamberger\\",
-+                   \\"id\\": \\"17\\",
++                   \\"fullName\\": \\"Edythe Haley\\",
++                   \\"id\\": \\"16\\",
 +                 },
 +                 \\"reminder\\": Object {
 +                   \\"__typename\\": \\"StepReminder\\",
-+                   \\"id\\": \\"19\\",
-+                   \\"nextOccurrenceAt\\": \\"2015-07-24T04:31:37.548Z\\",
++                   \\"id\\": \\"18\\",
++                   \\"nextOccurrenceAt\\": \\"2011-09-11T14:47:27.446Z\\",
 +                   \\"reminderType\\": \\"once\\",
 +                 },
-+                 \\"stepType\\": \\"bond\\",
-+                 \\"title\\": \\"Ipsam qui nobis repellendus fugiat.\\",
++                 \\"stepType\\": \\"pray\\",
++                 \\"title\\": \\"Saepe eum dicta eum eaque enim ipsum inventore debitis.\\",
 +               }
 +             }
 +             testID=\\"stepItem\\"

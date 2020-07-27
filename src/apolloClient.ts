@@ -1,7 +1,7 @@
 import { AsyncStorage } from 'react-native';
 import { ApolloClient } from 'apollo-client';
 import { ApolloLink } from 'apollo-link';
-import { HttpLink } from 'apollo-link-http';
+import { createUploadLink } from 'apollo-upload-client';
 import { onError } from 'apollo-link-error';
 import {
   InMemoryCache,
@@ -16,58 +16,75 @@ import introspectionQueryResultData from '../schema.json';
 
 import { BASE_URL } from './api/utils';
 import { store } from './store';
-import { UPDATE_TOKEN } from './constants';
+import {
+  EXPIRED_ACCESS_TOKEN,
+  INVALID_ACCESS_TOKEN,
+  UPDATE_TOKEN,
+} from './constants';
 import { rollbar } from './utils/rollbar.config';
 import { typeDefs, resolvers, initializeLocalState } from './apolloLocalState';
+import { handleInvalidAccessToken } from './actions/auth/auth';
 
 export let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 export const createApolloClient = async () => {
-  const rollbarLink = onError(({ graphQLErrors, networkError }) => {
-    if (graphQLErrors) {
-      graphQLErrors.forEach(error => {
-        const errorMessage = `[Apollo GraphQL error]: ${error.message}`;
-        rollbar.error(errorMessage, error);
+  const rollbarLink = onError(
+    ({ graphQLErrors, networkError, forward, operation }) => {
+      if (graphQLErrors) {
+        graphQLErrors.forEach(error => {
+          if (
+            graphQLErrors.some(
+              ({ message }) =>
+                message === EXPIRED_ACCESS_TOKEN ||
+                message === INVALID_ACCESS_TOKEN,
+            )
+          ) {
+            (async () => {
+              // @ts-ignore TODO: Remove after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
+              await store.dispatch(handleInvalidAccessToken());
+              forward(operation);
+            })();
+          } else {
+            const errorMessage = `[Apollo GraphQL error]: ${error.message}`;
+            rollbar.error(errorMessage, error);
+            // eslint-disable-next-line no-console
+            console.log(errorMessage, error);
+          }
+        });
+      }
+      if (networkError) {
+        const errorMessage = `[Apollo Network error]: ${networkError.message}`;
+        rollbar.error(errorMessage, networkError);
         // eslint-disable-next-line no-console
-        console.log(errorMessage, error);
-      });
-    }
-    if (networkError) {
-      const errorMessage = `[Apollo Network error]: ${networkError.message}`;
-      rollbar.error(errorMessage, networkError);
-      // eslint-disable-next-line no-console
-      console.log(errorMessage, networkError);
-    }
-  });
+        console.log(errorMessage, networkError);
+      }
+    },
+  );
 
   const authLink = new ApolloLink((operation, forward) => {
     operation.setContext({
       headers: { authorization: `Bearer ${store.getState().auth.token}` },
     });
-    return (
-      (forward &&
-        forward(operation).map(data => {
-          const sessionHeader = operation
-            .getContext()
-            .response.headers.get('X-MH-Session');
+    return forward(operation).map(data => {
+      const sessionHeader = operation
+        .getContext()
+        .response.headers.get('X-MH-Session');
 
-          sessionHeader &&
-            store.dispatch({
-              type: UPDATE_TOKEN,
-              token: sessionHeader,
-            });
-          return data;
-        })) ||
-      null
-    );
+      sessionHeader &&
+        store.dispatch({
+          type: UPDATE_TOKEN,
+          token: sessionHeader,
+        });
+      return data;
+    });
   });
 
-  const httpLink = new HttpLink({
+  const uploadLink = createUploadLink({
     uri: `${BASE_URL}/apis/graphql`,
     credentials: 'same-origin',
   });
 
-  const link = ApolloLink.from([rollbarLink, authLink, httpLink]);
+  const link = ApolloLink.from([rollbarLink, authLink, uploadLink]);
 
   const fragmentMatcher = new IntrospectionFragmentMatcher({
     introspectionQueryResultData: introspectionQueryResultData as IntrospectionResultData,

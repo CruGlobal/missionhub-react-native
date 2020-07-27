@@ -14,15 +14,14 @@ export default StyleSheet.create({
     paddingVertical: 8,
   },
   headerNameWrapper: {
+    flex: 1,
     flexDirection: 'column',
     paddingHorizontal: 8,
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
   globalHeaderNameWrapper: {
-    flexDirection: 'column',
-    alignItems: 'flex-start',
-    justifyContent: 'center',
+    paddingHorizontal: 0,
   },
   communityName: {
     fontWeight: 'bold',
@@ -55,6 +54,7 @@ export default StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     justifyContent: 'flex-start',
+    paddingBottom: 8,
   },
   challengeLinkButton: {
     flex: 1,
@@ -126,8 +126,8 @@ export default StyleSheet.create({
 
 export const markdown = StyleSheet.create({
   ...markdownStyles,
-  text: {
-    ...markdownStyles.text,
+  body: {
+    ...markdownStyles.body,
     fontSize: 14,
     lineHeight: 18,
   },

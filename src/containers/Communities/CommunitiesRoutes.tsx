@@ -1,3 +1,5 @@
+import { RecordVideoScreen, RECORD_VIDEO_SCREEN } from '../RecordVideoScreen';
+
 import {
   CommunityMembers,
   COMMUNITY_MEMBERS,
@@ -26,4 +28,5 @@ export const CommunitiesRoutes = {
   [COMMUNITY_MEMBER_TABS]: CommunityMemberTabs,
   [COMMUNITY_REPORTED]: CommunityReported,
   [FEED_ITEM_DETAIL_SCREEN]: FeedItemDetailScreen,
+  [RECORD_VIDEO_SCREEN]: RecordVideoScreen,
 };

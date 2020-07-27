@@ -74,54 +74,31 @@ exports[`does render announcement for owner 1`] = `
         ]
       }
     >
-      <View
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "repellat ratione ut",
+          }
+        }
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "#B4B6BA",
-              },
-              Object {
-                "marginLeft": -15,
-              },
-            ],
+            Object {
+              "backgroundColor": "rgb(72, 144, 67)",
+            },
+            Object {
+              "marginLeft": -15,
+            },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+      />
       <Text
         style={
           Array [
@@ -856,54 +833,31 @@ exports[`renders correctly 1`] = `
         ]
       }
     >
-      <View
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "ut sunt qui",
+          }
+        }
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "#B4B6BA",
-              },
-              Object {
-                "marginLeft": -15,
-              },
-            ],
+            Object {
+              "backgroundColor": "rgb(161, 161, 152)",
+            },
+            Object {
+              "marginLeft": -15,
+            },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+      />
       <Text
         style={
           Array [
@@ -996,54 +950,31 @@ exports[`renders correctly for admin 1`] = `
         ]
       }
     >
-      <View
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "repellat ratione ut",
+          }
+        }
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "#B4B6BA",
-              },
-              Object {
-                "marginLeft": -15,
-              },
-            ],
+            Object {
+              "backgroundColor": "rgb(72, 144, 67)",
+            },
+            Object {
+              "marginLeft": -15,
+            },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+      />
       <Text
         style={
           Array [
@@ -1136,54 +1067,31 @@ exports[`renders correctly for owner 1`] = `
         ]
       }
     >
-      <View
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "repellat ratione ut",
+          }
+        }
         style={
           Array [
             Object {
-              "alignItems": "center",
-              "justifyContent": "center",
+              "borderColor": "#ffffff",
+              "borderRadius": 12,
+              "borderWidth": 1,
+              "height": 24,
+              "width": 24,
             },
-            Array [
-              Object {
-                "borderColor": "#ffffff",
-                "borderRadius": 12,
-                "borderWidth": 1,
-                "height": 24,
-                "width": 24,
-              },
-              Object {
-                "backgroundColor": "#B4B6BA",
-              },
-              Object {
-                "marginLeft": -15,
-              },
-            ],
+            Object {
+              "backgroundColor": "rgb(72, 144, 67)",
+            },
+            Object {
+              "marginLeft": -15,
+            },
           ]
         }
-      >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
-            ]
-          }
-        >
-          
-        </Text>
-      </View>
+      />
       <Text
         style={
           Array [

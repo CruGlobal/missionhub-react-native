@@ -5,10 +5,6 @@ import i18next from 'i18next';
 import { useQuery } from '@apollo/react-hooks';
 
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-import {
-  ANALYTICS_SECTION_TYPE,
-  ANALYTICS_ASSIGNMENT_TYPE,
-} from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { STEP_SUGGESTIONS_QUERY } from '../queries';
 import { StepTypeEnum } from '../../../../__generated__/globalTypes';
@@ -53,10 +49,8 @@ describe('loading', () => {
     screen.snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      },
+      sectionType: true,
+      assignmentType: { personId },
     });
   });
 
@@ -67,10 +61,8 @@ describe('loading', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      },
+      sectionType: true,
+      assignmentType: { personId: me.id },
     });
   });
 
@@ -83,10 +75,8 @@ describe('loading', () => {
       screen.snapshot();
 
       expect(useAnalytics).toHaveBeenCalledWith('add step', {
-        screenContext: {
-          [ANALYTICS_SECTION_TYPE]: '',
-          [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-        },
+        sectionType: true,
+        assignmentType: { personId },
       });
     });
 
@@ -111,10 +101,8 @@ describe('loading', () => {
     screen.diffSnapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      },
+      sectionType: true,
+      assignmentType: { personId },
     });
 
     i18next.language = originalLanguage;
@@ -128,10 +116,8 @@ describe('loading', () => {
     screen.diffSnapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      },
+      sectionType: true,
+      assignmentType: { personId },
     });
 
     i18next.language = originalLanguage;
@@ -145,10 +131,8 @@ describe('loading', () => {
     screen.diffSnapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: '',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      },
+      sectionType: true,
+      assignmentType: { personId },
     });
 
     i18next.language = originalLanguage;
@@ -171,10 +155,8 @@ describe('in onboarding', () => {
     }).snapshot();
 
     expect(useAnalytics).toHaveBeenCalledWith('add step', {
-      screenContext: {
-        [ANALYTICS_SECTION_TYPE]: 'onboarding',
-        [ANALYTICS_ASSIGNMENT_TYPE]: 'contact',
-      },
+      sectionType: true,
+      assignmentType: { personId },
     });
   });
 });

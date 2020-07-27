@@ -1,19 +1,16 @@
 import React from 'react';
 import { View, Image, FlatList } from 'react-native';
-import { AnyAction } from 'redux';
-import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
+import { useDispatch } from 'react-redux';
 
 import { navigateToMainTabs } from '../../actions/navigation';
-import { Text, IconButton, LoadingGuy } from '../../components/common';
+import { Text, LoadingGuy } from '../../components/common';
 import StepItem from '../../components/StepItem';
-import AnnouncementsModal from '../../components/AnnouncementsModal';
 import { FooterLoading } from '../../components/FooterLoading';
 import Header from '../../components/Header';
 import NULL from '../../../assets/images/footprints.png';
-import { openMainMenu, keyExtractorId } from '../../utils/common';
+import { keyExtractorId } from '../../utils/common';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { PEOPLE_TAB } from '../../constants';
 import BottomButton from '../../components/BottomButton';
@@ -25,6 +22,7 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
+import AvatarMenuButton from '../../components/AvatarMenuButton';
 
 import styles from './styles';
 import {
@@ -33,12 +31,9 @@ import {
 } from './__generated__/StepsList';
 import { STEPS_QUERY } from './queries';
 
-interface StepsScreenProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
-}
-
-const StepsScreen = ({ dispatch }: StepsScreenProps) => {
+const StepsScreen = () => {
   const { t } = useTranslation('stepsTab');
+  const dispatch = useDispatch();
   useAnalytics('steps', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
@@ -131,18 +126,10 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
 
   return (
     <View style={styles.container}>
-      <AnnouncementsModal />
       <Header
         titleStyle={styles.headerTitle}
         testID="header"
-        left={
-          <IconButton
-            testID="menuIcon"
-            name="menuIcon"
-            type="MissionHub"
-            onPress={() => dispatch(openMainMenu())}
-          />
-        }
+        left={<AvatarMenuButton />}
         title={t('title')}
       />
       <ErrorNotice
@@ -160,4 +147,4 @@ const StepsScreen = ({ dispatch }: StepsScreenProps) => {
   );
 };
 
-export default connect()(StepsScreen);
+export default StepsScreen;

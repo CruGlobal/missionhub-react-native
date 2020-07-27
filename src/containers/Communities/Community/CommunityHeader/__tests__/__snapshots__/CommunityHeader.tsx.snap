@@ -306,7 +306,7 @@ exports[`CommunityHeader should render global community loading 1`] = `
             ]
           }
         >
-          MissionHub Community
+          MissionHub
         </Text>
         <View
           style={

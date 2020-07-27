@@ -84,6 +84,7 @@ export const CASEY = 'casey';
 export const JEAN = 'jean';
 
 export const LINKS = {
+  blog: 'https://get.missionhub.com/blog/',
   about: 'https://get.missionhub.com',
   help: 'http://help.missionhub.com',
   shareStory: 'mailto:stories@missionhub.com',
@@ -189,6 +190,13 @@ export const ACTIONS = {
   STEP_CREATED: {
     name: 'Step of Faith Created',
     key: 'cru.stepoffaithcreated',
+  },
+  POST_STEP_ADDED: {
+    name: 'Add to My Steps',
+    key: 'cru.addtomysteps',
+  },
+  STEP_POST_TYPE: {
+    key: 'cru.stepposttype',
   },
   ALLOW: {
     name: 'Notification Permissions',
@@ -348,9 +356,17 @@ export const ACTIONS = {
     name: 'Delete Community',
     key: 'cru.communitydelete',
   },
-  SHARE_STORY: {
-    name: 'Share Story',
-    key: 'cru.sharestory',
+  CREATE_POST: {
+    name: 'Create Post',
+    key: 'cru.posttype',
+  },
+  PHOTO_ADDED: {
+    name: 'Add Photo to Post',
+    key: 'cru.addphototopost',
+  },
+  VIDEO_ADDED: {
+    name: 'Add Video to Post',
+    key: 'cru.addvideotopost',
   },
   POST_TYPE_SELECTED: {
     name: 'Post Type Selected',

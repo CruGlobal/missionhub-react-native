@@ -5,7 +5,6 @@ import { CommunityFeedTab } from '../CommunityFeedTab';
 import { CommunitiesCollapsibleHeaderContext } from '../../CommunityHeader/CommunityHeader';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import { PermissionEnum } from '../../../../../../__generated__/globalTypes';
-import { ANALYTICS_PERMISSION_TYPE } from '../../../../../constants';
 import { getAnalyticsPermissionType } from '../../../../../utils/analytics';
 
 jest.mock('../../../../CommunityFeed', () => ({
@@ -34,6 +33,6 @@ it('should render correctly', () => {
   ).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith('community feed', {
-    screenContext: { [ANALYTICS_PERMISSION_TYPE]: permissionType },
+    permissionType: { communityId },
   });
 });

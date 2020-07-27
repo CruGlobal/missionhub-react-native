@@ -19,36 +19,6 @@ Array [
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
       <Image
         resizeMode="cover"
         source={
@@ -72,15 +42,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -153,48 +128,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      Branson G. accepted a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -361,7 +324,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -380,6 +342,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -472,36 +435,6 @@ Array [
         }
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
-        }
-      >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
       <Image
         resizeMode="cover"
         source={
@@ -525,15 +458,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -606,48 +544,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      Elizabeth Z. completed a Challenge:
+      Completed a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -814,7 +740,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -833,6 +758,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -925,47 +851,22 @@ Array [
         }
       }
     >
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
+            undefined,
           ]
         }
       >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
-        }
-      >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -1038,48 +939,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      A MissionHub user completed a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -1246,7 +1135,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -1265,6 +1153,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -1357,47 +1246,22 @@ Array [
         }
       }
     >
-      <Text
+      <View
         style={
           Array [
             Object {
-              "color": "#505256",
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
+            undefined,
           ]
         }
       >
-        Challenge Accepted!
-      </Text>
-    </View>
-    <View
-      style={
-        Object {
-          "flexDirection": "row",
-          "justifyContent": "flex-start",
-          "paddingVertical": 8,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
-        }
-      >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -1470,48 +1334,36 @@ Array [
             "fontFamily": "SourceSansPro-Regular",
           },
           Object {
+            "color": "#3CC8E6",
             "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
+            "fontWeight": "bold",
+            "lineHeight": 20,
           },
         ]
       }
     >
-      amet iure ut completed a Challenge:
+      Joined a Challenge!
     </Text>
-    <View
+    <Text
       style={
-        Object {
-          "flexDirection": "row",
-        }
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
       }
     >
-      <Text
-        numberOfLines={2}
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "fontWeight": "400",
-              "letterSpacing": 0,
-              "lineHeight": 24,
-              "marginBottom": 10,
-              "textAlign": "left",
-              "textDecorationColor": "#3CC8E6",
-              "textDecorationLine": "underline",
-            },
-          ]
-        }
-      >
-        quisquam recusandae alias
-      </Text>
-    </View>
+      quisquam recusandae alias
+    </Text>
   </View>,
   <View
     style={
@@ -1678,7 +1530,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -1697,6 +1548,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -1721,6 +1573,371 @@ Array [
             }
           >
             66974
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent New Member Items renders new member item 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "consequuntur corporis repellat",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(155, 78, 152)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          ut libero qui
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "color": "#3CC8E6",
+            "fontSize": 16,
+            "fontWeight": "bold",
+            "lineHeight": 20,
+          },
+        ]
+      }
+    >
+      We have a new member!
+    </Text>
+    <Text
+      style={
+        Array [
+          Object {
+            "color": "#505256",
+          },
+          Object {
+            "fontFamily": "SourceSansPro-Regular",
+          },
+          Object {
+            "fontSize": 16,
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          },
+        ]
+      }
+    >
+      Help welcome Torey.
+    </Text>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#FF5532"
+                fill="#FF5532"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginLeft": 20,
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            93553
           </Text>
           <View
             accessible={true}
@@ -1894,7 +2111,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -1905,7 +2122,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -1913,15 +2130,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -1945,7 +2167,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -2007,35 +2229,22 @@ Array [
           <Text
             style={
               Array [
-                Object {},
                 Object {
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "lineHeight": 18,
                 },
+                Object {},
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "consequuntur corporis repellat",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -2149,7 +2358,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -2157,8 +2365,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -2169,6 +2376,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -2192,7 +2400,7 @@ Array [
               ]
             }
           >
-            68521
+            41919
           </Text>
           <View
             accessible={true}
@@ -2366,7 +2574,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -2377,7 +2585,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -2385,15 +2593,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -2417,7 +2630,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -2479,35 +2692,22 @@ Array [
           <Text
             style={
               Array [
-                Object {},
                 Object {
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "lineHeight": 18,
                 },
+                Object {},
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "consequuntur corporis repellat",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -2685,7 +2885,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -2693,7 +2892,7 @@ Array [
               }
             >
               <SvgMock
-                color="#A97398"
+                color="#505256"
               />
             </View>
           </View>
@@ -2704,6 +2903,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -2727,7 +2927,7 @@ Array [
               ]
             }
           >
-            68521
+            41919
           </Text>
           <View
             accessible={true}
@@ -2901,7 +3101,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -2912,7 +3112,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -2920,15 +3120,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -2952,7 +3157,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -3014,35 +3219,22 @@ Array [
           <Text
             style={
               Array [
-                Object {},
                 Object {
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "lineHeight": 18,
                 },
+                Object {},
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "consequuntur corporis repellat",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -3156,7 +3348,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -3164,7 +3355,7 @@ Array [
               }
             >
               <SvgMock
-                color="#A97398"
+                color="#505256"
               />
             </View>
           </View>
@@ -3175,6 +3366,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -3198,7 +3390,7 @@ Array [
               ]
             }
           >
-            68521
+            41919
           </Text>
           <View
             accessible={true}
@@ -3372,7 +3564,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "sunt qui amet",
+            "uri": "ratione ut sunt",
           }
         }
         style={
@@ -3383,7 +3575,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(136, 162, 125)",
+              "backgroundColor": "rgb(123, 122, 125)",
             },
             undefined,
           ]
@@ -3391,15 +3583,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -3423,7 +3620,7 @@ Array [
             ]
           }
         >
-          nulla quam ipsam
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -3485,35 +3682,22 @@ Array [
           <Text
             style={
               Array [
-                Object {},
                 Object {
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "lineHeight": 18,
                 },
+                Object {},
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "consequuntur corporis repellat",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
 ]
 `;
 
@@ -3641,7 +3825,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -3652,7 +3836,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -3660,15 +3844,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -3692,7 +3881,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -3744,11 +3933,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Uninterested person.
+      Torey A. completed a Step of Faith with a Uninterested person.
     </Text>
   </View>,
   <View
@@ -3864,7 +4054,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -3884,6 +4073,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -3907,7 +4097,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -4081,7 +4271,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -4092,7 +4282,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -4100,15 +4290,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -4132,7 +4327,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -4184,11 +4379,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Curious person.
+      Torey A. completed a Step of Faith with a Curious person.
     </Text>
   </View>,
   <View
@@ -4304,7 +4500,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -4324,6 +4519,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -4347,7 +4543,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -4521,7 +4717,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -4532,7 +4728,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -4540,15 +4736,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -4572,7 +4773,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -4624,11 +4825,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Forgiven person.
+      Torey A. completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -4744,7 +4946,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -4764,6 +4965,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -4787,7 +4989,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -4961,7 +5163,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -4972,7 +5174,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -4980,15 +5182,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -5012,7 +5219,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -5064,11 +5271,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Growing person.
+      Torey A. completed a Step of Faith with a Growing person.
     </Text>
   </View>,
   <View
@@ -5184,7 +5392,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -5204,6 +5411,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -5227,7 +5435,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -5401,7 +5609,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -5412,7 +5620,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -5420,15 +5628,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -5452,7 +5665,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -5504,11 +5717,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Guiding person.
+      Torey A. completed a Step of Faith with a Guiding person.
     </Text>
   </View>,
   <View
@@ -5624,7 +5838,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -5644,6 +5857,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -5667,7 +5881,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -5841,7 +6055,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -5852,7 +6066,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -5860,15 +6074,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -5892,7 +6111,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -5944,11 +6163,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith.
+      Torey A. completed a Step of Faith.
     </Text>
   </View>,
   <View
@@ -6064,7 +6284,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -6084,6 +6303,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -6107,7 +6327,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -6281,7 +6501,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -6292,7 +6512,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(155, 19, 115)",
+              "backgroundColor": "rgb(155, 78, 152)",
             },
             undefined,
           ]
@@ -6300,15 +6520,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -6332,7 +6557,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -6384,11 +6609,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with someone.
+      Torey A. completed a Step of Faith with someone.
     </Text>
   </View>,
   <View
@@ -6504,7 +6730,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -6524,6 +6749,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -6547,7 +6773,7 @@ Array [
               ]
             }
           >
-            39676
+            93553
           </Text>
           <View
             accessible={true}
@@ -6719,15 +6945,20 @@ Array [
     >
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -6803,6 +7034,7 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
@@ -6923,7 +7155,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -6942,6 +7173,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -6965,7 +7197,7 @@ Array [
               ]
             }
           >
-            14675
+            23608
           </Text>
           <View
             accessible={true}
@@ -7137,15 +7369,20 @@ Array [
     >
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -7169,7 +7406,7 @@ Array [
             ]
           }
         >
-          ratione ut sunt
+          ut sunt qui
         </Text>
         <Text
           style={
@@ -7221,11 +7458,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      ratione ut sunt completed a Step of Faith with a Forgiven person.
+      ut sunt qui completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -7341,7 +7579,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -7360,6 +7597,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -7383,7 +7621,7 @@ Array [
               ]
             }
           >
-            39658
+            18626
           </Text>
           <View
             accessible={true}
@@ -7557,7 +7795,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "qui recusandae ut",
+            "uri": "ut libero qui",
           }
         }
         style={
@@ -7570,12 +7808,16 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
@@ -7594,7 +7836,7 @@ Array [
             ]
           }
         >
-          Innovative encompassing moratorium
+          Integrated client-server functionalities
         </Text>
         <Text
           style={
@@ -7656,35 +7898,22 @@ Array [
           <Text
             style={
               Array [
-                Object {},
                 Object {
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "lineHeight": 18,
                 },
+                Object {},
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
     </View>
   </View>,
-  <Image
-    resizeMode="cover"
-    source={
-      Object {
-        "uri": "consequuntur corporis repellat",
-      }
-    }
-    style={
-      Object {
-        "aspectRatio": 2,
-      }
-    }
-  />,
   <View
     style={
       Array [
@@ -7798,7 +8027,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -7806,8 +8034,7 @@ Array [
               }
             >
               <SvgMock
-                color="#FF5532"
-                fill="#FF5532"
+                color="#505256"
               />
             </View>
           </View>
@@ -7818,6 +8045,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -7841,7 +8069,7 @@ Array [
               ]
             }
           >
-            68521
+            41919
           </Text>
           <View
             accessible={true}
@@ -8014,12 +8242,16 @@ Array [
       <SvgMock />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
@@ -8038,7 +8270,7 @@ Array [
             ]
           }
         >
-          Innovative encompassing moratorium
+          Integrated client-server functionalities
         </Text>
         <Text
           style={
@@ -8100,17 +8332,481 @@ Array [
           <Text
             style={
               Array [
-                Object {},
                 Object {
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
                   "lineHeight": 18,
                 },
+                Object {},
               ]
             }
           >
-            quisquam recusandae alias
+            recusandae alias consequuntur
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#FF5532"
+                fill="#FF5532"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginLeft": 20,
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            93553
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent renders with image 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
+                  "paddingVertical": 0,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "qui amet iure",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(154, 99, 125)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          quam ipsam nobis
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={Object {}}
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+                Object {},
+              ]
+            }
+          >
+            recusandae alias consequuntur
           </Text>
         </Text>
       </View>
@@ -8120,7 +8816,7 @@ Array [
     resizeMode="cover"
     source={
       Object {
-        "uri": "consequuntur corporis repellat",
+        "uri": "corporis repellat ratione",
       }
     }
     style={
@@ -8242,7 +8938,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -8261,6 +8956,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -8284,7 +8980,7 @@ Array [
               ]
             }
           >
-            84631
+            52454
           </Text>
           <View
             accessible={true}
@@ -8493,7 +9189,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -8504,7 +9200,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(135, 19, 115)",
+              "backgroundColor": "rgb(167, 154, 67)",
             },
             undefined,
           ]
@@ -8512,15 +9208,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -8544,7 +9245,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -8596,11 +9297,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Forgiven person.
+      Torey A. completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -8716,7 +9418,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -8736,6 +9437,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -8759,7 +9461,521 @@ Array [
               ]
             }
           >
-            39676
+            93553
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent renders with video 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
+                  "paddingVertical": 0,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "qui amet iure",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(154, 99, 125)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          quam ipsam nobis
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={Object {}}
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+                Object {},
+              ]
+            }
+          >
+            recusandae alias consequuntur
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+    testID="VideoTouchable"
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flex": 1,
+          },
+          Object {
+            "height": 1276.4444444444443,
+          },
+          undefined,
+        ]
+      }
+    >
+      <Video
+        controls={true}
+        paused={true}
+        source={
+          Object {
+            "uri": "corporis repellat ratione",
+          }
+        }
+        style={
+          Object {
+            "bottom": 0,
+            "left": 0,
+            "position": "absolute",
+            "right": 0,
+            "top": 0,
+          }
+        }
+      />
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginLeft": 20,
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            52454
           </Text>
           <View
             accessible={true}
@@ -8933,7 +10149,7 @@ Array [
         resizeMode="cover"
         source={
           Object {
-            "uri": "alias consequuntur corporis",
+            "uri": "consequuntur corporis repellat",
           }
         }
         style={
@@ -8944,7 +10160,7 @@ Array [
               "width": 48,
             },
             Object {
-              "backgroundColor": "rgb(135, 19, 115)",
+              "backgroundColor": "rgb(167, 154, 67)",
             },
             undefined,
           ]
@@ -8952,15 +10168,20 @@ Array [
       />
       <View
         style={
-          Object {
-            "alignItems": "flex-start",
-            "flexDirection": "column",
-            "justifyContent": "center",
-            "paddingHorizontal": 8,
-          }
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
         }
       >
         <Text
+          numberOfLines={2}
           style={
             Array [
               Object {
@@ -8984,7 +10205,7 @@ Array [
             ]
           }
         >
-          iure ut libero
+          ut libero qui
         </Text>
         <Text
           style={
@@ -9036,11 +10257,12 @@ Array [
             "fontSize": 16,
             "justifyContent": "flex-start",
             "lineHeight": 24,
+            "paddingBottom": 8,
           },
         ]
       }
     >
-      Mina W. completed a Step of Faith with a Forgiven person.
+      Torey A. completed a Step of Faith with a Forgiven person.
     </Text>
   </View>,
   <View
@@ -9156,7 +10378,6 @@ Array [
                   null,
                   Object {
                     "height": 24,
-                    "marginRight": 20,
                     "width": 24,
                   },
                   null,
@@ -9176,6 +10397,7 @@ Array [
               "alignItems": "center",
               "flexDirection": "row",
               "justifyContent": "flex-end",
+              "marginLeft": 20,
               "width": 40,
             }
           }
@@ -9199,7 +10421,470 @@ Array [
               ]
             }
           >
-            39676
+            93553
+          </Text>
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommentIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <SvgMock />
+            </View>
+          </View>
+        </View>
+      </View>
+    </View>
+  </View>,
+]
+`;
+
+exports[`CommunityFeedItemContent renders without video if feature flag is false 1`] = `
+Array [
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingTop": 12,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+        testID="STORYButton"
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "alignItems": "center",
+                "backgroundColor": "transparent",
+                "borderRadius": 0,
+                "borderWidth": 0,
+                "height": 60,
+                "justifyContent": "center",
+                "margin": 0,
+                "paddingHorizontal": 20,
+                "paddingVertical": 10,
+              },
+              null,
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "borderRadius": 18,
+                  "flexDirection": "row",
+                  "height": 36,
+                  "justifyContent": "space-between",
+                  "paddingLeft": 20,
+                  "paddingRight": 16,
+                  "paddingVertical": 0,
+                },
+                Object {
+                  "backgroundColor": "#7076B5",
+                },
+                null,
+                null,
+              ],
+              Object {
+                "borderRadius": 50,
+              },
+            ]
+          }
+        >
+          <SvgMock
+            color="#ffffff"
+            height={20}
+            style={
+              Array [
+                Object {
+                  "marginLeft": -10,
+                  "marginRight": 10,
+                },
+                undefined,
+              ]
+            }
+            width={20}
+          />
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "color": "#ffffff",
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                },
+              ]
+            }
+          >
+            God Story
+          </Text>
+        </View>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-start",
+          "paddingVertical": 8,
+        }
+      }
+    >
+      <Image
+        resizeMode="cover"
+        source={
+          Object {
+            "uri": "qui amet iure",
+          }
+        }
+        style={
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "rgb(154, 99, 125)",
+            },
+            undefined,
+          ]
+        }
+      />
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "flexDirection": "column",
+              "justifyContent": "center",
+              "paddingHorizontal": 8,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Text
+          numberOfLines={2}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#007398",
+                  "fontSize": 16,
+                },
+                Object {
+                  "color": "#505256",
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "lineHeight": 20,
+                },
+              ],
+            ]
+          }
+        >
+          quam ipsam nobis
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "#B2B0B2",
+                  "fontSize": 12,
+                },
+                Object {
+                  "color": "#B4B6BA",
+                  "fontSize": 12,
+                  "lineHeight": 16,
+                },
+              ],
+            ]
+          }
+          testID="Text"
+        >
+          November 13, 2015 @ 8:52 PM
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "paddingHorizontal": 20,
+        "paddingVertical": 8,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "flex-start",
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+            "justifyContent": "flex-start",
+            "marginBottom": 10,
+            "marginTop": 10,
+            "marginVertical": 10,
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={Object {}}
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "lineHeight": 18,
+                },
+                Object {},
+              ]
+            }
+          >
+            recusandae alias consequuntur
+          </Text>
+        </Text>
+      </View>
+    </View>
+  </View>,
+  <View
+    style={
+      Array [
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "height": 1,
+        },
+        undefined,
+      ]
+    }
+  />,
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "flexDirection": "row",
+        "opacity": 1,
+        "paddingHorizontal": 20,
+        "paddingVertical": 16,
+      }
+    }
+    testID="FooterTouchable"
+  >
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "justifyContent": "flex-end",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "flex-end",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "width": 80,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          />
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="LikeIconButton"
+          >
+            <View
+              hitSlop={
+                Object {
+                  "bottom": 25,
+                  "left": 25,
+                  "right": 25,
+                  "top": 25,
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "backgroundColor": "transparent",
+                  },
+                  null,
+                  Object {
+                    "height": 24,
+                    "width": 24,
+                  },
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#505256"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "justifyContent": "flex-end",
+              "marginLeft": 20,
+              "width": 40,
+            }
+          }
+        >
+          <Text
+            style={
+              Array [
+                Object {
+                  "color": "#505256",
+                },
+                Object {
+                  "fontFamily": "SourceSansPro-Regular",
+                },
+                Object {
+                  "fontSize": 14,
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                },
+              ]
+            }
+          >
+            52454
           </Text>
           <View
             accessible={true}

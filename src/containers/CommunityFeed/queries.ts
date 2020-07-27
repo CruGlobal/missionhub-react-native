@@ -1,7 +1,6 @@
 import gql from 'graphql-tag';
 
 import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../components/CommunityFeedItem/queries';
-import { CURRENT_USER_AVATAR_FRAGMENT } from '../../components/Avatar/queries';
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
   query GetGlobalCommunityFeed(
@@ -26,10 +25,8 @@ export const GET_GLOBAL_COMMUNITY_FEED = gql`
         }
       }
     }
-    ...CurrentUserAvatar
   }
   ${COMMUNITY_FEED_ITEM_FRAGMENT}
-  ${CURRENT_USER_AVATAR_FRAGMENT}
 `;
 
 export const GET_COMMUNITY_FEED = gql`
@@ -44,6 +41,7 @@ export const GET_COMMUNITY_FEED = gql`
       THOUGHT
       STEP
       ACCEPTED_COMMUNITY_CHALLENGE
+      COMMUNITY_PERMISSION
     ]
     $personIds: [ID!]
     $feedItemsCursor: String
@@ -69,8 +67,6 @@ export const GET_COMMUNITY_FEED = gql`
         }
       }
     }
-    ...CurrentUserAvatar
   }
   ${COMMUNITY_FEED_ITEM_FRAGMENT}
-  ${CURRENT_USER_AVATAR_FRAGMENT}
 `;

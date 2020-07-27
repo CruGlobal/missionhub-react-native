@@ -5,7 +5,6 @@ import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
 import { updatePerson } from '../../../actions/person';
-import { ANALYTICS_SECTION_TYPE } from '../../../constants';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { createMyPerson, createPerson } from '../../../actions/onboarding';
@@ -53,7 +52,7 @@ it('renders isMe version correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'self name'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
+    sectionType: true,
   });
 });
 
@@ -63,25 +62,30 @@ it('renders other person version correctly', () => {
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['onboarding', 'contact name'], {
-    screenContext: { [ANALYTICS_SECTION_TYPE]: 'onboarding' },
+    sectionType: true,
   });
 });
 
 describe('setup screen methods', () => {
-  const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-    <SetupScreen next={next} isMe={false} />,
-    {
-      initialState: mockState,
-    },
-  );
-
   it('should update first name', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: mockState,
+      },
+    );
     recordSnapshot();
     fireEvent(getByTestId('InputFirstName'), 'onChangeText', firstName);
     diffSnapshot();
   });
 
   it('should update last name', () => {
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <SetupScreen next={next} isMe={false} />,
+      {
+        initialState: mockState,
+      },
+    );
     recordSnapshot();
     fireEvent(getByTestId('InputLastName'), 'onChangeText', lastName);
     diffSnapshot();

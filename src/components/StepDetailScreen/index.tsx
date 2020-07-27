@@ -68,7 +68,6 @@ const StepDetailScreen = ({
     dispatch(
       navigatePush(FEED_ITEM_DETAIL_SCREEN, {
         feedItemId: post?.feedItem.id,
-        communityId: post?.feedItem.community?.id,
       }),
     );
   };
@@ -102,8 +101,8 @@ const StepDetailScreen = ({
               <Markdown
                 style={{
                   ...markdownStyles,
-                  text: {
-                    ...markdownStyles.text,
+                  body: {
+                    ...markdownStyles.body,
                     fontSize: 16,
                     color: theme.grey,
                     paddingBottom: 20,

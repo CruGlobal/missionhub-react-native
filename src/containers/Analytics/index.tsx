@@ -1,13 +1,15 @@
-import { useAnalytics } from '../../utils/hooks/useAnalytics';
-import { ScreenContext } from '../../actions/analytics';
+import {
+  useAnalytics,
+  UseAnalyticsOptions,
+} from '../../utils/hooks/useAnalytics';
 
 interface TrackOnFocusProps {
   screenName: string | string[];
-  screenContext?: Partial<ScreenContext>;
+  screenContext?: UseAnalyticsOptions;
 }
 
 const Analytics = ({ screenName, screenContext }: TrackOnFocusProps) => {
-  useAnalytics(screenName, screenContext ? { screenContext } : undefined);
+  useAnalytics(screenName, screenContext);
 
   return null;
 };

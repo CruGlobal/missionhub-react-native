@@ -4,8 +4,9 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import debounce from 'lodash.debounce';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
+import { GLOBAL_COMMUNITY_ID } from '../../../../../constants';
 import CommentsList from '../../../../CommentsList';
 import { CommunityFeedItemContent } from '../../../../../components/CommunityFeedItemContent';
 import {
@@ -14,14 +15,11 @@ import {
   Separator,
   Touchable,
 } from '../../../../../components/common';
-import { ANALYTICS_PERMISSION_TYPE } from '../../../../../constants';
-import { getAnalyticsPermissionType } from '../../../../../utils/analytics';
 import { useKeyboardListeners } from '../../../../../utils/hooks/useKeyboardListeners';
 import { useAnalytics } from '../../../../../utils/hooks/useAnalytics';
 import BackButton from '../../../../../components/BackButton';
 import Header from '../../../../../components/Header';
 import { ErrorNotice } from '../../../../../components/ErrorNotice/ErrorNotice';
-import { RootState } from '../../../../../reducers';
 import { useMyId, useIsMe } from '../../../../../utils/hooks/useIsMe';
 import { FooterLoading } from '../../../../../components/FooterLoading';
 import { FeedItemCommentItem } from '../../../../CommentItem/__generated__/FeedItemCommentItem';
@@ -34,7 +32,11 @@ import {
   useDeleteFeedItem,
   useEditFeedItem,
 } from '../../../../../components/CommunityFeedItem';
-import { isOwner, isAdminOrOwner } from '../../../../../utils/common';
+import {
+  isOwner,
+  isAdminOrOwner,
+  canModifyFeedItemSubject,
+} from '../../../../../utils/common';
 import theme from '../../../../../theme';
 
 import FeedCommentBox from './FeedCommentBox';
@@ -48,8 +50,9 @@ import {
 const FeedItemDetailScreen = () => {
   const feedCommentBox = useRef<CommentBoxHandles>(null);
   const { t } = useTranslation('feedItemDetail');
+
   const feedItemId: string = useNavigationParam('feedItemId');
-  const communityId: string = useNavigationParam('communityId');
+  const navCommunityId: string | undefined = useNavigationParam('communityId');
   const fromNotificationCenterItem: boolean = useNavigationParam(
     'fromNotificationCenterItem',
   );
@@ -68,13 +71,13 @@ const FeedItemDetailScreen = () => {
     data?.feedItem.community?.id,
   );
 
-  const analyticsPermissionType = useSelector(({ auth }: RootState) =>
-    getAnalyticsPermissionType(auth, { id: communityId }),
-  );
+  const personId = data?.feedItem.subjectPerson?.id;
+  const communityId = navCommunityId || data?.feedItem.community?.id;
+  const readyToTrack = !!(personId && communityId);
   useAnalytics(['post', 'detail'], {
-    screenContext: {
-      [ANALYTICS_PERMISSION_TYPE]: analyticsPermissionType,
-    },
+    assignmentType: { personId, communityId },
+    permissionType: { communityId },
+    triggerTracking: readyToTrack,
   });
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
@@ -140,7 +143,7 @@ const FeedItemDetailScreen = () => {
 
   const handleCommunityNamePress = () => {
     fromNotificationCenterItem
-      ? dispatch(navigateToCommunityFeed(communityId))
+      ? dispatch(navigateToCommunityFeed(communityId || GLOBAL_COMMUNITY_ID))
       : dispatch(navigateBack());
   };
 
@@ -168,25 +171,28 @@ const FeedItemDetailScreen = () => {
     </SafeAreaView>
   );
 
-  const menuActions = [
-    ...(isMe
-      ? [
-          {
-            text: t('communityFeedItems:edit.buttonText'),
-            onPress: editFeedItem,
-          },
-        ]
-      : []),
-    ...(isMe || isAdminOrOwner(communityPermission)
-      ? [
-          {
-            text: t('communityFeedItems:delete.buttonText'),
-            onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
-            destructive: true,
-          },
-        ]
-      : []),
-  ];
+  const canModify = canModifyFeedItemSubject(data?.feedItem.subject);
+  const menuActions = !canModify
+    ? []
+    : [
+        ...(isMe
+          ? [
+              {
+                text: t('communityFeedItems:edit.buttonText'),
+                onPress: editFeedItem,
+              },
+            ]
+          : []),
+        ...(isMe || isAdminOrOwner(communityPermission)
+          ? [
+              {
+                text: t('communityFeedItems:delete.buttonText'),
+                onPress: () => deleteFeedItem(() => dispatch(navigateBack())),
+                destructive: true,
+              },
+            ]
+          : []),
+      ];
 
   const renderCommentsList = () =>
     data ? (

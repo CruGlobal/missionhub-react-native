@@ -655,7 +655,7 @@ describe('GET_USERS_REPORT.SUCCESS', () => {
           all: [
             {
               id: GLOBAL_COMMUNITY_ID,
-              name: 'MissionHub Community',
+              name: 'MissionHub',
               community: true,
               contactReport: {
                 some_prop: 'Roge',

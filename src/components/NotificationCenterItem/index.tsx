@@ -27,11 +27,11 @@ import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroup
 import ReportedIcon from './reportedIcon.svg';
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
-import { GET_COMMUNITY_PHOTO } from './queries';
+import { GET_COMMUNITY_INFO } from './queries';
 import {
-  GetCommunityPhoto,
-  GetCommunityPhotoVariables,
-} from './__generated__/GetCommunityPhoto';
+  GetCommunityInfo,
+  GetCommunityInfoVariables,
+} from './__generated__/GetCommunityInfo';
 
 export const NotificationCenterItem = ({
   event,
@@ -53,40 +53,28 @@ export const NotificationCenterItem = ({
   };
 
   const renderNotificationTemplateMessage = () => {
+    enum BoldedMessageVariableEnum {
+      'subject_person',
+      'person_name',
+      'community_name',
+      'original_poster',
+    }
     const templateArray = messageTemplate.split(/(<<.*?>>)/).filter(Boolean);
     return templateArray.map((word: string) => {
-      switch (word) {
-        case '<<subject_person>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('subject_person') || ''}
-            </Text>
-          );
-        case '<<person_name>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('person_name') || ''}
-            </Text>
-          );
-        case '<<localized_post_type>>':
-          return (
-            <Text key={word}>{getMessageVariable('localized_post_type')}</Text>
-          );
-        case '<<community_name>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('community_name') || ''}
-            </Text>
-          );
-        case '<<original_poster>>':
-          return (
-            <Text key={word} style={styles.boldedItemText}>
-              {getMessageVariable('original_poster') || ''}
-            </Text>
-          );
-        default:
-          return <Text key={word}>{word}</Text>;
-      }
+      const filteredWord = word.replace(/[^a-zA-Z _]/g, '');
+      return word.match(/[<>]+/g) ? (
+        Object.values(BoldedMessageVariableEnum).includes(filteredWord) ? (
+          <Text style={styles.boldedItemText}>
+            {getMessageVariable(filteredWord)}
+          </Text>
+        ) : (
+          <Text style={styles.itemText}>
+            {getMessageVariable(filteredWord)}
+          </Text>
+        )
+      ) : (
+        <Text key={word}>{word}</Text>
+      );
     });
   };
 
@@ -103,9 +91,11 @@ export const NotificationCenterItem = ({
   );
 
   const {
-    data: { community: { communityPhotoUrl = null } = {} } = {},
-  } = useQuery<GetCommunityPhoto, GetCommunityPhotoVariables>(
-    GET_COMMUNITY_PHOTO,
+    data: {
+      community: { name: communityName = '', communityPhotoUrl = null } = {},
+    } = {},
+  } = useQuery<GetCommunityInfo, GetCommunityInfoVariables>(
+    GET_COMMUNITY_INFO,
     {
       fetchPolicy: 'cache-first',
       variables: {
@@ -154,6 +144,8 @@ export const NotificationCenterItem = ({
         await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
           navigatePush(CHALLENGE_DETAIL_SCREEN, {
+            communityName,
+            fromNotificationCenterItem: true,
             // If no communityId, than it is a global challenge
             orgId: communityId,
             challengeId: screenData.challengeId,
@@ -164,7 +156,6 @@ export const NotificationCenterItem = ({
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {
             fromNotificationCenterItem: true,
             feedItemId: screenData.feedItemId,
-            communityId: screenData.communityId,
           }),
         );
     }

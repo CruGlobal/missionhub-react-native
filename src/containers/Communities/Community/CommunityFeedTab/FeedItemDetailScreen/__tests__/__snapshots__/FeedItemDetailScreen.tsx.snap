@@ -143,7 +143,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 ]
               }
             >
-              Programmable foreground task-force
+              Switchable full-range extranet
             </Text>
           </View>
         </View>
@@ -188,28 +188,28 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
       Array [
         Object {
           "__typename": "FeedItemComment",
-          "content": "debitis incidunt accusantium",
-          "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-          "createdAt": "2014-09-11T09:20:29.756Z",
+          "content": "libero repudiandae esse",
+          "contentUpdatedAt": "2014-06-14T18:46:15.611Z",
+          "createdAt": "2015-06-20T04:51:30.834Z",
           "id": "3",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tatyana Johns",
+            "fullName": "Hipolito Connelly",
             "id": "4",
-            "picture": "blanditiis natus et",
+            "picture": "itaque velit omnis",
           },
         },
         Object {
           "__typename": "FeedItemComment",
-          "content": "eos itaque velit",
-          "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-          "createdAt": "2012-04-03T21:06:10.473Z",
+          "content": "et porro ut",
+          "contentUpdatedAt": "2016-11-26T00:02:28.431Z",
+          "createdAt": "2012-01-05T22:26:33.583Z",
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Michel Wisoky",
+            "fullName": "Augusta Pouros",
             "id": "6",
-            "picture": "et ipsam explicabo",
+            "picture": "occaecati debitis et",
           },
         },
       ]
@@ -286,13 +286,13 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                     "paddingVertical": 0,
                   },
                   Object {
-                    "backgroundColor": "#7076B5",
+                    "backgroundColor": "#B4B6BA",
                   },
                   null,
                   null,
                 ]
               }
-              testID="STORYLabel"
+              testID="THOUGHTLabel"
             >
               <SvgMock
                 color="#ffffff"
@@ -325,7 +325,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   ]
                 }
               >
-                God Story
+                What's on Your Mind
               </Text>
             </View>
             <View
@@ -377,7 +377,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "amet iure ut",
+                  "uri": "qui recusandae ut",
                 }
               }
               style={
@@ -388,7 +388,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(135, 199, 125)",
+                    "backgroundColor": "rgb(123, 98, 152)",
                   },
                   undefined,
                 ]
@@ -396,15 +396,20 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -428,7 +433,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                   ]
                 }
               >
-                nobis cupiditate sed
+                debitis incidunt accusantium
               </Text>
               <Text
                 style={
@@ -490,35 +495,22 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  alias consequuntur corporis
+                  consequuntur corporis repellat
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "repellat ratione ut",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -632,7 +624,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -652,6 +643,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -675,7 +667,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                     ]
                   }
                 >
-                  44345
+                  53441
                 </Text>
                 <View
                   accessible={true}
@@ -744,15 +736,15 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "debitis incidunt accusantium",
-              "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-              "createdAt": "2014-09-11T09:20:29.756Z",
+              "content": "libero repudiandae esse",
+              "contentUpdatedAt": "2014-06-14T18:46:15.611Z",
+              "createdAt": "2015-06-20T04:51:30.834Z",
               "id": "3",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Tatyana Johns",
+                "fullName": "Hipolito Connelly",
                 "id": "4",
-                "picture": "blanditiis natus et",
+                "picture": "itaque velit omnis",
               },
             }
           }
@@ -776,15 +768,15 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "eos itaque velit",
-              "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-              "createdAt": "2012-04-03T21:06:10.473Z",
+              "content": "et porro ut",
+              "contentUpdatedAt": "2016-11-26T00:02:28.431Z",
+              "createdAt": "2012-01-05T22:26:33.583Z",
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Michel Wisoky",
+                "fullName": "Augusta Pouros",
                 "id": "6",
-                "picture": "et ipsam explicabo",
+                "picture": "occaecati debitis et",
               },
             }
           }
@@ -817,7 +809,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "saepe eum dicta",
+          "uri": "eaque enim ipsum",
         }
       }
       style={
@@ -828,7 +820,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(156, 123, 67)",
+            "backgroundColor": "rgb(161, 136, 125)",
           },
           undefined,
         ]
@@ -1053,7 +1045,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 ]
               }
             >
-              Programmable foreground task-force
+              Switchable full-range extranet
             </Text>
           </View>
         </View>
@@ -1098,28 +1090,28 @@ exports[`edit/delete post edit and delete for my post 1`] = `
       Array [
         Object {
           "__typename": "FeedItemComment",
-          "content": "debitis incidunt accusantium",
-          "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-          "createdAt": "2014-09-11T09:20:29.756Z",
+          "content": "libero repudiandae esse",
+          "contentUpdatedAt": "2014-06-14T18:46:15.611Z",
+          "createdAt": "2015-06-20T04:51:30.834Z",
           "id": "3",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tatyana Johns",
+            "fullName": "Hipolito Connelly",
             "id": "4",
-            "picture": "blanditiis natus et",
+            "picture": "itaque velit omnis",
           },
         },
         Object {
           "__typename": "FeedItemComment",
-          "content": "eos itaque velit",
-          "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-          "createdAt": "2012-04-03T21:06:10.473Z",
+          "content": "et porro ut",
+          "contentUpdatedAt": "2016-11-26T00:02:28.431Z",
+          "createdAt": "2012-01-05T22:26:33.583Z",
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Michel Wisoky",
+            "fullName": "Augusta Pouros",
             "id": "6",
-            "picture": "et ipsam explicabo",
+            "picture": "occaecati debitis et",
           },
         },
       ]
@@ -1196,13 +1188,13 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                     "paddingVertical": 0,
                   },
                   Object {
-                    "backgroundColor": "#7076B5",
+                    "backgroundColor": "#B4B6BA",
                   },
                   null,
                   null,
                 ]
               }
-              testID="STORYLabel"
+              testID="THOUGHTLabel"
             >
               <SvgMock
                 color="#ffffff"
@@ -1235,7 +1227,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   ]
                 }
               >
-                God Story
+                What's on Your Mind
               </Text>
             </View>
             <View
@@ -1287,7 +1279,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "amet iure ut",
+                  "uri": "qui recusandae ut",
                 }
               }
               style={
@@ -1298,7 +1290,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(200, 125, 125)",
+                    "backgroundColor": "rgb(51, 167, 125)",
                   },
                   undefined,
                 ]
@@ -1306,15 +1298,20 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -1338,7 +1335,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                   ]
                 }
               >
-                nobis cupiditate sed
+                debitis incidunt accusantium
               </Text>
               <Text
                 style={
@@ -1400,35 +1397,22 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  alias consequuntur corporis
+                  consequuntur corporis repellat
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "repellat ratione ut",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -1507,7 +1491,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                     ]
                   }
                 >
-                  51815
+                  82914
                 </Text>
                 <View
                   accessible={true}
@@ -1544,7 +1528,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -1564,6 +1547,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -1587,7 +1571,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                     ]
                   }
                 >
-                  44345
+                  53441
                 </Text>
                 <View
                   accessible={true}
@@ -1656,15 +1640,15 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "debitis incidunt accusantium",
-              "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-              "createdAt": "2014-09-11T09:20:29.756Z",
+              "content": "libero repudiandae esse",
+              "contentUpdatedAt": "2014-06-14T18:46:15.611Z",
+              "createdAt": "2015-06-20T04:51:30.834Z",
               "id": "3",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Tatyana Johns",
+                "fullName": "Hipolito Connelly",
                 "id": "4",
-                "picture": "blanditiis natus et",
+                "picture": "itaque velit omnis",
               },
             }
           }
@@ -1688,15 +1672,15 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "eos itaque velit",
-              "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-              "createdAt": "2012-04-03T21:06:10.473Z",
+              "content": "et porro ut",
+              "contentUpdatedAt": "2016-11-26T00:02:28.431Z",
+              "createdAt": "2012-01-05T22:26:33.583Z",
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Michel Wisoky",
+                "fullName": "Augusta Pouros",
                 "id": "6",
-                "picture": "et ipsam explicabo",
+                "picture": "occaecati debitis et",
               },
             }
           }
@@ -1729,7 +1713,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "saepe eum dicta",
+          "uri": "eaque enim ipsum",
         }
       }
       style={
@@ -1740,7 +1724,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(156, 123, 67)",
+            "backgroundColor": "rgb(161, 136, 125)",
           },
           undefined,
         ]
@@ -1965,7 +1949,7 @@ exports[`edit/delete post no options for not my post 1`] = `
                 ]
               }
             >
-              Programmable foreground task-force
+              Switchable full-range extranet
             </Text>
           </View>
         </View>
@@ -2010,28 +1994,28 @@ exports[`edit/delete post no options for not my post 1`] = `
       Array [
         Object {
           "__typename": "FeedItemComment",
-          "content": "debitis incidunt accusantium",
-          "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-          "createdAt": "2014-09-11T09:20:29.756Z",
+          "content": "libero repudiandae esse",
+          "contentUpdatedAt": "2014-06-14T18:46:15.611Z",
+          "createdAt": "2015-06-20T04:51:30.834Z",
           "id": "3",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tatyana Johns",
+            "fullName": "Hipolito Connelly",
             "id": "4",
-            "picture": "blanditiis natus et",
+            "picture": "itaque velit omnis",
           },
         },
         Object {
           "__typename": "FeedItemComment",
-          "content": "eos itaque velit",
-          "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-          "createdAt": "2012-04-03T21:06:10.473Z",
+          "content": "et porro ut",
+          "contentUpdatedAt": "2016-11-26T00:02:28.431Z",
+          "createdAt": "2012-01-05T22:26:33.583Z",
           "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Michel Wisoky",
+            "fullName": "Augusta Pouros",
             "id": "6",
-            "picture": "et ipsam explicabo",
+            "picture": "occaecati debitis et",
           },
         },
       ]
@@ -2108,13 +2092,13 @@ exports[`edit/delete post no options for not my post 1`] = `
                     "paddingVertical": 0,
                   },
                   Object {
-                    "backgroundColor": "#7076B5",
+                    "backgroundColor": "#B4B6BA",
                   },
                   null,
                   null,
                 ]
               }
-              testID="STORYLabel"
+              testID="THOUGHTLabel"
             >
               <SvgMock
                 color="#ffffff"
@@ -2147,7 +2131,7 @@ exports[`edit/delete post no options for not my post 1`] = `
                   ]
                 }
               >
-                God Story
+                What's on Your Mind
               </Text>
             </View>
           </View>
@@ -2164,7 +2148,7 @@ exports[`edit/delete post no options for not my post 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "amet iure ut",
+                  "uri": "qui recusandae ut",
                 }
               }
               style={
@@ -2175,7 +2159,7 @@ exports[`edit/delete post no options for not my post 1`] = `
                     "width": 48,
                   },
                   Object {
-                    "backgroundColor": "rgb(135, 199, 125)",
+                    "backgroundColor": "rgb(123, 98, 152)",
                   },
                   undefined,
                 ]
@@ -2183,15 +2167,20 @@ exports[`edit/delete post no options for not my post 1`] = `
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -2215,7 +2204,7 @@ exports[`edit/delete post no options for not my post 1`] = `
                   ]
                 }
               >
-                nobis cupiditate sed
+                debitis incidunt accusantium
               </Text>
               <Text
                 style={
@@ -2277,35 +2266,22 @@ exports[`edit/delete post no options for not my post 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  alias consequuntur corporis
+                  consequuntur corporis repellat
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "repellat ratione ut",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -2419,7 +2395,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -2439,6 +2414,7 @@ exports[`edit/delete post no options for not my post 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -2462,7 +2438,7 @@ exports[`edit/delete post no options for not my post 1`] = `
                     ]
                   }
                 >
-                  44345
+                  53441
                 </Text>
                 <View
                   accessible={true}
@@ -2531,15 +2507,15 @@ exports[`edit/delete post no options for not my post 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "debitis incidunt accusantium",
-              "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-              "createdAt": "2014-09-11T09:20:29.756Z",
+              "content": "libero repudiandae esse",
+              "contentUpdatedAt": "2014-06-14T18:46:15.611Z",
+              "createdAt": "2015-06-20T04:51:30.834Z",
               "id": "3",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Tatyana Johns",
+                "fullName": "Hipolito Connelly",
                 "id": "4",
-                "picture": "blanditiis natus et",
+                "picture": "itaque velit omnis",
               },
             }
           }
@@ -2563,15 +2539,15 @@ exports[`edit/delete post no options for not my post 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "eos itaque velit",
-              "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-              "createdAt": "2012-04-03T21:06:10.473Z",
+              "content": "et porro ut",
+              "contentUpdatedAt": "2016-11-26T00:02:28.431Z",
+              "createdAt": "2012-01-05T22:26:33.583Z",
               "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Michel Wisoky",
+                "fullName": "Augusta Pouros",
                 "id": "6",
-                "picture": "et ipsam explicabo",
+                "picture": "occaecati debitis et",
               },
             }
           }
@@ -2604,7 +2580,7 @@ exports[`edit/delete post no options for not my post 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "saepe eum dicta",
+          "uri": "eaque enim ipsum",
         }
       }
       style={
@@ -2615,7 +2591,7 @@ exports[`edit/delete post no options for not my post 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(156, 123, 67)",
+            "backgroundColor": "rgb(161, 136, 125)",
           },
           undefined,
         ]
@@ -2708,8 +2684,8 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               >
--               Upgradable interactive solution
-+               Distributed needs-based encoding
+-               Programmable foreground task-force
++               Operative coherent open architecture
               </Text>
             </View>
           </View>
@@ -2721,238 +2697,114 @@ exports[`refresh calls refreshComments 1`] = `
         Array [
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
--           \\"content\\": \\"debitis incidunt accusantium\\",
--           \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
--           \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
--           \\"id\\": \\"5\\",
-+           \\"content\\": \\"sit aperiam placeat\\",
-+           \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
-+           \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
-+           \\"id\\": \\"16\\",
+-           \\"content\\": \\"sed dignissimos debitis\\",
+-           \\"contentUpdatedAt\\": \\"2019-10-06T00:50:46.763Z\\",
+-           \\"createdAt\\": \\"2017-09-28T01:02:07.116Z\\",
+-           \\"id\\": \\"6\\",
++           \\"content\\": \\"velit sit aperiam\\",
++           \\"contentUpdatedAt\\": \\"2013-10-19T06:58:24.090Z\\",
++           \\"createdAt\\": \\"2012-07-15T23:21:29.394Z\\",
++           \\"id\\": \\"17\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Tatyana Johns\\",
--             \\"id\\": \\"6\\",
--             \\"picture\\": \\"blanditiis natus et\\",
-+             \\"fullName\\": \\"Magnolia Rogahn\\",
-+             \\"id\\": \\"17\\",
-+             \\"picture\\": \\"ullam minima ducimus\\",
+-             \\"fullName\\": \\"Kaden Ortiz\\",
+-             \\"id\\": \\"7\\",
+-             \\"picture\\": \\"repudiandae esse blanditiis\\",
++             \\"fullName\\": \\"Yasmin Olson\\",
++             \\"id\\": \\"18\\",
++             \\"picture\\": \\"placeat ullam minima\\",
             },
           },
           Object {
             \\"__typename\\": \\"FeedItemComment\\",
--           \\"content\\": \\"eos itaque velit\\",
--           \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
--           \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
--           \\"id\\": \\"7\\",
-+           \\"content\\": \\"temporibus modi aut\\",
-+           \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
-+           \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
-+           \\"id\\": \\"18\\",
+-           \\"content\\": \\"natus et eos\\",
+-           \\"contentUpdatedAt\\": \\"2018-01-20T22:18:35.430Z\\",
+-           \\"createdAt\\": \\"2010-08-26T04:24:18.529Z\\",
+-           \\"id\\": \\"8\\",
++           \\"content\\": \\"ducimus temporibus modi\\",
++           \\"contentUpdatedAt\\": \\"2019-04-21T05:17:53.090Z\\",
++           \\"createdAt\\": \\"2019-01-02T05:24:03.933Z\\",
++           \\"id\\": \\"19\\",
             \\"person\\": Object {
               \\"__typename\\": \\"Person\\",
--             \\"fullName\\": \\"Michel Wisoky\\",
--             \\"id\\": \\"8\\",
--             \\"picture\\": \\"et ipsam explicabo\\",
-+             \\"fullName\\": \\"Janelle Upton\\",
-+             \\"id\\": \\"19\\",
-+             \\"picture\\": \\"explicabo exercitationem ut\\",
+-             \\"fullName\\": \\"Orlando Schmidt\\",
+-             \\"id\\": \\"9\\",
+-             \\"picture\\": \\"porro ut et\\",
++             \\"fullName\\": \\"Isai Koss\\",
++             \\"id\\": \\"20\\",
++             \\"picture\\": \\"voluptates explicabo exercitationem\\",
             },
           },
         ]
       }
       disableVirtualization={false}
-@@ -264,128 +264,63 @@
-              style={
-                Object {
-                  \\"flexDirection\\": \\"row\\",
-                  \\"justifyContent\\": \\"flex-start\\",
-                  \\"paddingVertical\\": 8,
--               }
-                }
--           >
--             <View
--               style={
--                 Array [
--                   Object {
--                     \\"alignItems\\": \\"center\\",
--                     \\"borderRadius\\": 18,
--                     \\"flexDirection\\": \\"row\\",
--                     \\"height\\": 36,
--                     \\"justifyContent\\": \\"space-between\\",
--                     \\"paddingLeft\\": 20,
--                     \\"paddingRight\\": 16,
--                     \\"paddingVertical\\": 0,
--                   },
--                   Object {
--                     \\"backgroundColor\\": \\"#505256\\",
--                   },
--                   null,
--                   null,
--                 ]
-              }
--               testID=\\"ANNOUNCEMENTLabel\\"
-            >
--               <SvgMock
--                 color=\\"#ffffff\\"
--                 height={20}
--                 style={
--                   Array [
--                     Object {
--                       \\"marginLeft\\": -10,
--                       \\"marginRight\\": 10,
--                     },
--                     undefined,
--                   ]
--                 }
--                 width={20}
--               />
-              <Text
-                style={
-                  Array [
-                    Object {
-                      \\"color\\": \\"#505256\\",
-                    },
-                    Object {
-                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                    },
-                    Object {
--                       \\"color\\": \\"#ffffff\\",
--                       \\"fontSize\\": 14,
-+                     \\"color\\": \\"#3CC8E6\\",
-+                     \\"fontSize\\": 16,
-+                     \\"fontWeight\\": \\"bold\\",
-                      \\"lineHeight\\": 20,
-                    },
-                  ]
-                }
-              >
--                 Announcement
-+               Challenge Accepted!
-              </Text>
-            </View>
-            <View
-              style={
-                Object {
--                   \\"alignItems\\": \\"flex-end\\",
--                   \\"flex\\": 1,
--                   \\"justifyContent\\": \\"center\\",
--                 }
--               }
--             >
--               <View
--                 accessible={true}
--                 focusable={true}
--                 isTVSelectable={true}
--                 onClick={[Function bound touchableHandlePress]}
--                 onResponderGrant={[Function bound touchableHandleResponderGrant]}
--                 onResponderMove={[Function bound touchableHandleResponderMove]}
--                 onResponderRelease={[Function bound touchableHandleResponderRelease]}
--                 onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--                 onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--                 onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
--                 style={
--                   Object {
--                     \\"opacity\\": 1,
--                     \\"paddingLeft\\": 30,
--                     \\"paddingRight\\": 12,
--                     \\"paddingVertical\\": 5,
--                   }
--                 }
--                 testID=\\"popupMenuButton\\"
--               >
--                 <SvgMock
--                   color=\\"#505256\\"
--                 />
--               </View>
--             </View>
--           </View>
--           <View
--             style={
--               Object {
-                  \\"flexDirection\\": \\"row\\",
-                  \\"justifyContent\\": \\"flex-start\\",
-                  \\"paddingVertical\\": 8,
-                }
-              }
+@@ -271,22 +271,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
                 source={
                   Object {
--                   \\"uri\\": \\"quam ipsam nobis\\",
-+                   \\"uri\\": \\"a velit provident\\",
+-                   \\"uri\\": \\"amet iure ut\\",
++                   \\"uri\\": \\"tempore a velit\\",
                   }
                 }
                 style={
-+                 Array [
+                  Array [
                     Object {
                       \\"borderRadius\\": 24,
                       \\"height\\": 48,
                       \\"width\\": 48,
-+                   },
-+                   Object {
-+                     \\"backgroundColor\\": \\"rgb(159, 161, 130)\\",
-+                   },
-+                   undefined,
-+                 ]
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"rgb(152, 167, 125)\\",
++                     \\"backgroundColor\\": \\"rgb(155, 121, 115)\\",
+                    },
+                    undefined,
+                  ]
                 }
--               }
               />
-              <View
-                style={
-                  Object {
-                    \\"alignItems\\": \\"flex-start\\",
-@@ -401,19 +336,27 @@
-                      Object {
-                        \\"color\\": \\"#505256\\",
-                      },
-                      Object {
-                        \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Array [
-+                       Object {
-+                         \\"color\\": \\"#007398\\",
-+                         \\"fontSize\\": 16,
+@@ -327,11 +327,11 @@
                         },
-                        Object {
-+                         \\"color\\": \\"#505256\\",
-                          \\"fontSize\\": 16,
-                          \\"fontWeight\\": \\"bold\\",
-+                         \\"lineHeight\\": 20,
-                        },
-+                     ],
+                      ],
                     ]
                   }
                 >
--                 Upgradable interactive solution
-+                 Richard Batz
+-                 Hayden Zieme
++                 Ricardo Bogan
                 </Text>
                 <Text
                   style={
                     Array [
                       Object {
-@@ -435,11 +378,11 @@
+@@ -353,11 +353,11 @@
                       ],
                     ]
                   }
                   testID=\\"Text\\"
                 >
 -                 November 1, 2012 @ 7:34 PM
-+                 April 22, 2017 @ 8:49 AM
++                 September 29, 2011 @ 10:44 PM
                 </Text>
               </View>
             </View>
           </View>
           <View
-@@ -448,62 +391,63 @@
-                \\"paddingHorizontal\\": 20,
-                \\"paddingVertical\\": 8,
-              }
-            }
-          >
--           <View
--             style={Object {}}
+@@ -376,19 +376,39 @@
+                  },
+                  Object {
+                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                  },
+                  Object {
++                   \\"color\\": \\"#3CC8E6\\",
+                    \\"fontSize\\": 16,
++                   \\"fontWeight\\": \\"bold\\",
++                   \\"lineHeight\\": 20,
++                 },
++               ]
++             }
++           >
++             Completed a Challenge!
++           </Text>
 +           <Text
 +             style={
 +               Array [
@@ -2964,195 +2816,69 @@ exports[`refresh calls refreshComments 1`] = `
 +                 },
 +                 Object {
 +                   \\"fontSize\\": 16,
-+                   \\"justifyContent\\": \\"flex-start\\",
-+                   \\"lineHeight\\": 24,
-+                 },
-+               ]
-+             }
-            >
-+             Richard B. completed a Challenge:
-+           </Text>
-            <View
-              style={
-                Object {
--                   \\"alignItems\\": \\"flex-start\\",
-                  \\"flexDirection\\": \\"row\\",
--                   \\"flexWrap\\": \\"wrap\\",
--                   \\"justifyContent\\": \\"flex-start\\",
--                   \\"marginBottom\\": 10,
--                   \\"marginTop\\": 10,
--                   \\"marginVertical\\": 10,
--                   \\"width\\": \\"100%\\",
-                }
+                    \\"justifyContent\\": \\"flex-start\\",
+                    \\"lineHeight\\": 24,
+                    \\"paddingBottom\\": 8,
+                  },
+                ]
               }
             >
-              <Text
--                 style={Object {}}
--               >
--                 <Text
-+               numberOfLines={2}
-                style={
-                  Array [
--                       Object {},
-                    Object {
-                      \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-                      \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                         \\"fontSize\\": 14,
--                         \\"lineHeight\\": 18,
-+                   },
-+                   Object {
-+                     \\"fontSize\\": 16,
-+                     \\"fontWeight\\": \\"400\\",
-+                     \\"letterSpacing\\": 0,
-+                     \\"lineHeight\\": 24,
-+                     \\"marginBottom\\": 10,
-+                     \\"textAlign\\": \\"left\\",
-+                     \\"textDecorationColor\\": \\"#3CC8E6\\",
-+                     \\"textDecorationLine\\": \\"underline\\",
-                    },
-                  ]
-                }
-              >
--                   corporis repellat ratione
-+               libero aspernatur deserunt
-              </Text>
--               </Text>
--             </View>
-            </View>
+-             repellat ratione ut
++             debitis libero aspernatur
+            </Text>
           </View>
--         <Image
--           resizeMode=\\"cover\\"
--           source={
--             Object {
--               \\"uri\\": \\"ut sunt qui\\",
--             }
--           }
--           style={
--             Object {
--               \\"aspectRatio\\": 1.3333333333333333,
--             }
--           }
--         />
           <View
             style={
               Array [
-                Object {
-                  \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -531,11 +475,63 @@
-                \\"paddingHorizontal\\": 20,
-                \\"paddingVertical\\": 16,
-              }
-            }
-            testID=\\"FooterTouchable\\"
-+         >
-+           <View
-+             accessible={true}
-+             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+             style={
-+               Object {
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"flex\\": 1,
-+                 \\"flexDirection\\": \\"row\\",
-+                 \\"opacity\\": 1,
-+               }
-+             }
-+             testID=\\"ChallengeLinkButton\\"
-+           >
-+             <SvgMock
-+               color=\\"#505256\\"
-+               style={
-+                 Object {
-+                   \\"alignItems\\": \\"center\\",
-+                   \\"height\\": 24,
-+                   \\"justifyContent\\": \\"center\\",
-+                   \\"width\\": 24,
-+                 }
-+               }
-+             />
-+             <Text
-+               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"fontSize\\": 14,
-+                     \\"lineHeight\\": 20,
-+                     \\"paddingLeft\\": 12,
-+                   },
-+                 ]
-+               }
-              >
-+               View Challenge
-+             </Text>
-+           </View>
-            <View
-              style={
-                Object {
-                  \\"flex\\": 1,
-                  \\"justifyContent\\": \\"flex-end\\",
-@@ -621,12 +617,11 @@
+@@ -559,11 +579,12 @@
                           null,
                         ]
                       }
                     >
                       <SvgMock
--                       color=\\"#FF5532\\"
--                       fill=\\"#FF5532\\"
-+                       color=\\"#505256\\"
+-                       color=\\"#505256\\"
++                       color=\\"#FF5532\\"
++                       fill=\\"#FF5532\\"
                       />
                     </View>
                   </View>
                 </View>
                 <View
-@@ -656,11 +651,11 @@
+@@ -594,11 +615,11 @@
                           \\"width\\": 30,
                         },
                       ]
                     }
                   >
--                   44345
-+                   41253
+-                   52454
++                   83462
                   </Text>
                   <View
                     accessible={true}
                     focusable={true}
                     isTVSelectable={true}
-@@ -725,29 +720,28 @@
+@@ -663,28 +684,29 @@
         >
           <CommentItem
             comment={
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
--               \\"content\\": \\"debitis incidunt accusantium\\",
--               \\"contentUpdatedAt\\": \\"2013-05-02T19:02:46.486Z\\",
--               \\"createdAt\\": \\"2014-09-11T09:20:29.756Z\\",
--               \\"id\\": \\"5\\",
-+               \\"content\\": \\"sit aperiam placeat\\",
-+               \\"contentUpdatedAt\\": \\"2010-02-25T15:46:07.442Z\\",
-+               \\"createdAt\\": \\"2013-10-19T06:58:24.090Z\\",
-+               \\"id\\": \\"16\\",
+-               \\"content\\": \\"sed dignissimos debitis\\",
+-               \\"contentUpdatedAt\\": \\"2019-10-06T00:50:46.763Z\\",
+-               \\"createdAt\\": \\"2017-09-28T01:02:07.116Z\\",
+-               \\"id\\": \\"6\\",
++               \\"content\\": \\"velit sit aperiam\\",
++               \\"contentUpdatedAt\\": \\"2013-10-19T06:58:24.090Z\\",
++               \\"createdAt\\": \\"2012-07-15T23:21:29.394Z\\",
++               \\"id\\": \\"17\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Tatyana Johns\\",
--                 \\"id\\": \\"6\\",
--                 \\"picture\\": \\"blanditiis natus et\\",
-+                 \\"fullName\\": \\"Magnolia Rogahn\\",
-+                 \\"id\\": \\"17\\",
-+                 \\"picture\\": \\"ullam minima ducimus\\",
+-                 \\"fullName\\": \\"Kaden Ortiz\\",
+-                 \\"id\\": \\"7\\",
+-                 \\"picture\\": \\"repudiandae esse blanditiis\\",
++                 \\"fullName\\": \\"Yasmin Olson\\",
++                 \\"id\\": \\"18\\",
++                 \\"picture\\": \\"placeat ullam minima\\",
                 },
               }
             }
@@ -3160,37 +2886,37 @@ exports[`refresh calls refreshComments 1`] = `
             menuActions={
               Array [
                 Object {
--                 \\"destructive\\": true,
++                 \\"destructive\\": true,
                   \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Delete Comment\\",
-+                 \\"text\\": \\"Report to Owner\\",
+-                 \\"text\\": \\"Report to Owner\\",
++                 \\"text\\": \\"Delete Comment\\",
                 },
               ]
             }
             testID=\\"CommentItem\\"
           />
-@@ -758,29 +752,28 @@
+@@ -695,28 +717,29 @@
         >
           <CommentItem
             comment={
               Object {
                 \\"__typename\\": \\"FeedItemComment\\",
--               \\"content\\": \\"eos itaque velit\\",
--               \\"contentUpdatedAt\\": \\"2012-01-13T06:46:33.351Z\\",
--               \\"createdAt\\": \\"2012-04-03T21:06:10.473Z\\",
--               \\"id\\": \\"7\\",
-+               \\"content\\": \\"temporibus modi aut\\",
-+               \\"contentUpdatedAt\\": \\"2015-07-24T04:31:37.548Z\\",
-+               \\"createdAt\\": \\"2019-04-21T05:17:53.090Z\\",
-+               \\"id\\": \\"18\\",
+-               \\"content\\": \\"natus et eos\\",
+-               \\"contentUpdatedAt\\": \\"2018-01-20T22:18:35.430Z\\",
+-               \\"createdAt\\": \\"2010-08-26T04:24:18.529Z\\",
+-               \\"id\\": \\"8\\",
++               \\"content\\": \\"ducimus temporibus modi\\",
++               \\"contentUpdatedAt\\": \\"2019-04-21T05:17:53.090Z\\",
++               \\"createdAt\\": \\"2019-01-02T05:24:03.933Z\\",
++               \\"id\\": \\"19\\",
                 \\"person\\": Object {
                   \\"__typename\\": \\"Person\\",
--                 \\"fullName\\": \\"Michel Wisoky\\",
--                 \\"id\\": \\"8\\",
--                 \\"picture\\": \\"et ipsam explicabo\\",
-+                 \\"fullName\\": \\"Janelle Upton\\",
-+                 \\"id\\": \\"19\\",
-+                 \\"picture\\": \\"explicabo exercitationem ut\\",
+-                 \\"fullName\\": \\"Orlando Schmidt\\",
+-                 \\"id\\": \\"9\\",
+-                 \\"picture\\": \\"porro ut et\\",
++                 \\"fullName\\": \\"Isai Koss\\",
++                 \\"id\\": \\"20\\",
++                 \\"picture\\": \\"voluptates explicabo exercitationem\\",
                 },
               }
             }
@@ -3198,23 +2924,23 @@ exports[`refresh calls refreshComments 1`] = `
             menuActions={
               Array [
                 Object {
--                 \\"destructive\\": true,
++                 \\"destructive\\": true,
                   \\"onPress\\": [Function onPress],
--                 \\"text\\": \\"Delete Comment\\",
-+                 \\"text\\": \\"Report to Owner\\",
+-                 \\"text\\": \\"Report to Owner\\",
++                 \\"text\\": \\"Delete Comment\\",
                 },
               ]
             }
             testID=\\"CommentItem\\"
           />
-@@ -800,22 +793,22 @@
+@@ -736,22 +759,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
         source={
           Object {
--           \\"uri\\": \\"saepe eum dicta\\",
-+           \\"uri\\": \\"sit vitae soluta\\",
+-           \\"uri\\": \\"debitis et saepe\\",
++           \\"uri\\": \\"cupiditate sit vitae\\",
           }
         }
         style={
@@ -3225,8 +2951,8 @@ exports[`refresh calls refreshComments 1`] = `
               \\"width\\": 36,
             },
             Object {
--             \\"backgroundColor\\": \\"rgb(144, 99, 67)\\",
-+             \\"backgroundColor\\": \\"rgb(167, 192, 125)\\",
+-             \\"backgroundColor\\": \\"rgb(197, 162, 115)\\",
++             \\"backgroundColor\\": \\"rgb(161, 115, 125)\\",
             },
             undefined,
           ]
@@ -3377,7 +3103,7 @@ exports[`renders correctly 1`] = `
                 ]
               }
             >
-              Upgradable interactive solution
+              Switchable full-range extranet
             </Text>
           </View>
         </View>
@@ -3422,28 +3148,28 @@ exports[`renders correctly 1`] = `
       Array [
         Object {
           "__typename": "FeedItemComment",
-          "content": "debitis incidunt accusantium",
-          "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-          "createdAt": "2014-09-11T09:20:29.756Z",
-          "id": "5",
+          "content": "repudiandae esse blanditiis",
+          "contentUpdatedAt": "2015-09-24T22:48:18.365Z",
+          "createdAt": "2014-06-14T18:46:15.611Z",
+          "id": "3",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Tatyana Johns",
-            "id": "6",
-            "picture": "blanditiis natus et",
+            "fullName": "Brooklyn Weimann",
+            "id": "4",
+            "picture": "velit omnis et",
           },
         },
         Object {
           "__typename": "FeedItemComment",
-          "content": "eos itaque velit",
-          "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-          "createdAt": "2012-04-03T21:06:10.473Z",
-          "id": "7",
+          "content": "porro ut et",
+          "contentUpdatedAt": "2019-02-09T06:38:55.578Z",
+          "createdAt": "2016-11-26T00:02:28.431Z",
+          "id": "5",
           "person": Object {
             "__typename": "Person",
-            "fullName": "Michel Wisoky",
-            "id": "8",
-            "picture": "et ipsam explicabo",
+            "fullName": "Mathias Larson",
+            "id": "6",
+            "picture": "debitis et saepe",
           },
         },
       ]
@@ -3520,13 +3246,13 @@ exports[`renders correctly 1`] = `
                     "paddingVertical": 0,
                   },
                   Object {
-                    "backgroundColor": "#505256",
+                    "backgroundColor": "#B4B6BA",
                   },
                   null,
                   null,
                 ]
               }
-              testID="ANNOUNCEMENTLabel"
+              testID="THOUGHTLabel"
             >
               <SvgMock
                 color="#ffffff"
@@ -3559,43 +3285,8 @@ exports[`renders correctly 1`] = `
                   ]
                 }
               >
-                Announcement
+                What's on Your Mind
               </Text>
-            </View>
-            <View
-              style={
-                Object {
-                  "alignItems": "flex-end",
-                  "flex": 1,
-                  "justifyContent": "center",
-                }
-              }
-            >
-              <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
-                style={
-                  Object {
-                    "opacity": 1,
-                    "paddingLeft": 30,
-                    "paddingRight": 12,
-                    "paddingVertical": 5,
-                  }
-                }
-                testID="popupMenuButton"
-              >
-                <SvgMock
-                  color="#505256"
-                />
-              </View>
             </View>
           </View>
           <View
@@ -3611,28 +3302,39 @@ exports[`renders correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "quam ipsam nobis",
+                  "uri": "qui recusandae ut",
                 }
               }
               style={
-                Object {
-                  "borderRadius": 24,
-                  "height": 48,
-                  "width": 48,
-                }
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(198, 16, 152)",
+                  },
+                  undefined,
+                ]
               }
             />
             <View
               style={
-                Object {
-                  "alignItems": "flex-start",
-                  "flexDirection": "column",
-                  "justifyContent": "center",
-                  "paddingHorizontal": 8,
-                }
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
               }
             >
               <Text
+                numberOfLines={2}
                 style={
                   Array [
                     Object {
@@ -3641,14 +3343,22 @@ exports[`renders correctly 1`] = `
                     Object {
                       "fontFamily": "SourceSansPro-Regular",
                     },
-                    Object {
-                      "fontSize": 16,
-                      "fontWeight": "bold",
-                    },
+                    Array [
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "lineHeight": 20,
+                      },
+                    ],
                   ]
                 }
               >
-                Upgradable interactive solution
+                incidunt accusantium sed
               </Text>
               <Text
                 style={
@@ -3674,7 +3384,7 @@ exports[`renders correctly 1`] = `
                 }
                 testID="Text"
               >
-                November 1, 2012 @ 7:34 PM
+                November 13, 2015 @ 8:52 PM
               </Text>
             </View>
           </View>
@@ -3710,35 +3420,22 @@ exports[`renders correctly 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
                         "lineHeight": 18,
                       },
+                      Object {},
                     ]
                   }
                 >
-                  corporis repellat ratione
+                  consequuntur corporis repellat
                 </Text>
               </Text>
             </View>
           </View>
         </View>
-        <Image
-          resizeMode="cover"
-          source={
-            Object {
-              "uri": "ut sunt qui",
-            }
-          }
-          style={
-            Object {
-              "aspectRatio": 1.3333333333333333,
-            }
-          }
-        />
         <View
           style={
             Array [
@@ -3852,7 +3549,6 @@ exports[`renders correctly 1`] = `
                         null,
                         Object {
                           "height": 24,
-                          "marginRight": 20,
                           "width": 24,
                         },
                         null,
@@ -3872,6 +3568,7 @@ exports[`renders correctly 1`] = `
                     "alignItems": "center",
                     "flexDirection": "row",
                     "justifyContent": "flex-end",
+                    "marginLeft": 20,
                     "width": 40,
                   }
                 }
@@ -3895,7 +3592,7 @@ exports[`renders correctly 1`] = `
                     ]
                   }
                 >
-                  44345
+                  67046
                 </Text>
                 <View
                   accessible={true}
@@ -3964,15 +3661,15 @@ exports[`renders correctly 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "debitis incidunt accusantium",
-              "contentUpdatedAt": "2013-05-02T19:02:46.486Z",
-              "createdAt": "2014-09-11T09:20:29.756Z",
-              "id": "5",
+              "content": "repudiandae esse blanditiis",
+              "contentUpdatedAt": "2015-09-24T22:48:18.365Z",
+              "createdAt": "2014-06-14T18:46:15.611Z",
+              "id": "3",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Tatyana Johns",
-                "id": "6",
-                "picture": "blanditiis natus et",
+                "fullName": "Brooklyn Weimann",
+                "id": "4",
+                "picture": "velit omnis et",
               },
             }
           }
@@ -3980,9 +3677,8 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
-                "destructive": true,
                 "onPress": [Function],
-                "text": "Delete Comment",
+                "text": "Report to Owner",
               },
             ]
           }
@@ -3997,15 +3693,15 @@ exports[`renders correctly 1`] = `
           comment={
             Object {
               "__typename": "FeedItemComment",
-              "content": "eos itaque velit",
-              "contentUpdatedAt": "2012-01-13T06:46:33.351Z",
-              "createdAt": "2012-04-03T21:06:10.473Z",
-              "id": "7",
+              "content": "porro ut et",
+              "contentUpdatedAt": "2019-02-09T06:38:55.578Z",
+              "createdAt": "2016-11-26T00:02:28.431Z",
+              "id": "5",
               "person": Object {
                 "__typename": "Person",
-                "fullName": "Michel Wisoky",
-                "id": "8",
-                "picture": "et ipsam explicabo",
+                "fullName": "Mathias Larson",
+                "id": "6",
+                "picture": "debitis et saepe",
               },
             }
           }
@@ -4013,9 +3709,8 @@ exports[`renders correctly 1`] = `
           menuActions={
             Array [
               Object {
-                "destructive": true,
                 "onPress": [Function],
-                "text": "Delete Comment",
+                "text": "Report to Owner",
               },
             ]
           }
@@ -4039,7 +3734,7 @@ exports[`renders correctly 1`] = `
       resizeMode="cover"
       source={
         Object {
-          "uri": "saepe eum dicta",
+          "uri": "enim ipsum inventore",
         }
       }
       style={
@@ -4050,7 +3745,874 @@ exports[`renders correctly 1`] = `
             "width": 36,
           },
           Object {
-            "backgroundColor": "rgb(144, 99, 67)",
+            "backgroundColor": "rgb(122, 98, 130)",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "backgroundColor": "#ECEEF2",
+          "borderRadius": 8,
+          "flex": 1,
+          "marginHorizontal": 8,
+        }
+      }
+    >
+      <TextInput
+        allowFontScaling={true}
+        autoCorrect={true}
+        autoFocus={false}
+        blurOnSubmit={true}
+        multiline={false}
+        onChangeText={[Function]}
+        onFocus={[Function]}
+        onSubmitEditing={[Function]}
+        placeholder="Add a comment..."
+        placeholderTextColor="#B2B0B2"
+        rejectResponderTermination={true}
+        returnKeyType="done"
+        selectionColor="#005A7F"
+        style={
+          Array [
+            Object {
+              "backgroundColor": "transparent",
+              "borderBottomColor": "#52C5DC",
+              "borderBottomWidth": 1,
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "letterSpacing": 0.25,
+              "paddingVertical": 5,
+            },
+            Object {
+              "borderBottomWidth": 0,
+              "color": "#4E4C4E",
+              "flex": 1,
+              "fontSize": 14,
+              "paddingHorizontal": 12,
+              "paddingVertical": 6,
+            },
+          ]
+        }
+        underlineColorAndroid="rgba(0,0,0,0)"
+        value=""
+      />
+    </View>
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
+      testID="SubmitButton"
+    >
+      <SvgMock
+        color="#ECEEF2"
+      />
+    </View>
+  </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders correctly with communityId passed in 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "flex": 1,
+    }
+  }
+>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+  >
+    <RCTSafeAreaView
+      emulateUnlessSupported={true}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "flexDirection": "row",
+              "height": 56,
+              "paddingTop": 0,
+            },
+            undefined,
+            null,
+          ]
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "paddingLeft": 5,
+              },
+              Object {
+                "alignItems": "flex-start",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="BackButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Array [
+                    Object {
+                      "alignItems": "flex-start",
+                      "alignSelf": "flex-start",
+                      "justifyContent": "center",
+                    },
+                    undefined,
+                  ],
+                  null,
+                ]
+              }
+            >
+              <SvgMock
+                color="#B4B6BA"
+              />
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {},
+              Object {
+                "alignItems": "center",
+                "justifyContent": "center",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="CommunityNameHeader"
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Object {
+                    "fontSize": 14,
+                    "lineHeight": 20,
+                  },
+                ]
+              }
+            >
+              Switchable full-range extranet
+            </Text>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "paddingRight": 5,
+              },
+              Object {
+                "alignItems": "flex-end",
+                "flex": 1,
+                "justifyContent": "center",
+              },
+            ]
+          }
+        />
+      </View>
+    </RCTSafeAreaView>
+    <View
+      style={
+        Array [
+          Object {
+            "backgroundColor": "#ECEEF2",
+            "height": 1,
+          },
+          undefined,
+        ]
+      }
+    />
+  </RCTSafeAreaView>
+  <RCTScrollView
+    ListFooterComponent={null}
+    ListHeaderComponent={[Function]}
+    bounces={false}
+    contentContainerStyle={
+      Object {
+        "paddingBottom": 15,
+      }
+    }
+    data={
+      Array [
+        Object {
+          "__typename": "FeedItemComment",
+          "content": "repudiandae esse blanditiis",
+          "contentUpdatedAt": "2015-09-24T22:48:18.365Z",
+          "createdAt": "2014-06-14T18:46:15.611Z",
+          "id": "3",
+          "person": Object {
+            "__typename": "Person",
+            "fullName": "Brooklyn Weimann",
+            "id": "4",
+            "picture": "velit omnis et",
+          },
+        },
+        Object {
+          "__typename": "FeedItemComment",
+          "content": "porro ut et",
+          "contentUpdatedAt": "2019-02-09T06:38:55.578Z",
+          "createdAt": "2016-11-26T00:02:28.431Z",
+          "id": "5",
+          "person": Object {
+            "__typename": "Person",
+            "fullName": "Mathias Larson",
+            "id": "6",
+            "picture": "debitis et saepe",
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReached={[Function]}
+    onEndReachedThreshold={0.2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+        testID="RefreshControl"
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+      >
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 20,
+              "paddingTop": 12,
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "borderRadius": 18,
+                    "flexDirection": "row",
+                    "height": 36,
+                    "justifyContent": "space-between",
+                    "paddingLeft": 20,
+                    "paddingRight": 16,
+                    "paddingVertical": 0,
+                  },
+                  Object {
+                    "backgroundColor": "#B4B6BA",
+                  },
+                  null,
+                  null,
+                ]
+              }
+              testID="THOUGHTLabel"
+            >
+              <SvgMock
+                color="#ffffff"
+                height={20}
+                style={
+                  Array [
+                    Object {
+                      "marginLeft": -10,
+                      "marginRight": 10,
+                    },
+                    undefined,
+                  ]
+                }
+                width={20}
+              />
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "lineHeight": 20,
+                    },
+                  ]
+                }
+              >
+                What's on Your Mind
+              </Text>
+            </View>
+          </View>
+          <View
+            style={
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "flex-start",
+                "paddingVertical": 8,
+              }
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "qui recusandae ut",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 24,
+                    "height": 48,
+                    "width": 48,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(198, 16, 152)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "flex-start",
+                    "flex": 1,
+                    "flexDirection": "column",
+                    "justifyContent": "center",
+                    "paddingHorizontal": 8,
+                  },
+                  undefined,
+                ]
+              }
+            >
+              <Text
+                numberOfLines={2}
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007398",
+                        "fontSize": 16,
+                      },
+                      Object {
+                        "color": "#505256",
+                        "fontSize": 16,
+                        "fontWeight": "bold",
+                        "lineHeight": 20,
+                      },
+                    ],
+                  ]
+                }
+              >
+                incidunt accusantium sed
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Array [
+                      Object {
+                        "color": "#B2B0B2",
+                        "fontSize": 12,
+                      },
+                      Object {
+                        "color": "#B4B6BA",
+                        "fontSize": 12,
+                        "lineHeight": 16,
+                      },
+                    ],
+                  ]
+                }
+                testID="Text"
+              >
+                November 13, 2015 @ 8:52 PM
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Object {
+              "paddingHorizontal": 20,
+              "paddingVertical": 8,
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "flex-start",
+                  "flexDirection": "row",
+                  "flexWrap": "wrap",
+                  "justifyContent": "flex-start",
+                  "marginBottom": 10,
+                  "marginTop": 10,
+                  "marginVertical": 10,
+                  "width": "100%",
+                }
+              }
+            >
+              <Text
+                style={Object {}}
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 14,
+                        "lineHeight": 18,
+                      },
+                      Object {},
+                    ]
+                  }
+                >
+                  consequuntur corporis repellat
+                </Text>
+              </Text>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "flexDirection": "row",
+              "opacity": 1,
+              "paddingHorizontal": 20,
+              "paddingVertical": 16,
+            }
+          }
+          testID="FooterTouchable"
+        >
+          <View
+            style={
+              Object {
+                "flex": 1,
+                "justifyContent": "flex-end",
+              }
+            }
+          >
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "flexDirection": "row",
+                  "justifyContent": "flex-end",
+                }
+              }
+            >
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "width": 80,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                        "paddingRight": 10,
+                        "textAlign": "right",
+                        "width": 30,
+                      },
+                    ]
+                  }
+                />
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="LikeIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {
+                          "height": 24,
+                          "width": 24,
+                        },
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock
+                      color="#FF5532"
+                      fill="#FF5532"
+                    />
+                  </View>
+                </View>
+              </View>
+              <View
+                style={
+                  Object {
+                    "alignItems": "center",
+                    "flexDirection": "row",
+                    "justifyContent": "flex-end",
+                    "marginLeft": 20,
+                    "width": 40,
+                  }
+                }
+              >
+                <Text
+                  style={
+                    Array [
+                      Object {
+                        "color": "#505256",
+                      },
+                      Object {
+                        "fontFamily": "SourceSansPro-Regular",
+                      },
+                      Object {
+                        "fontSize": 14,
+                        "lineHeight": 20,
+                        "paddingRight": 10,
+                        "textAlign": "right",
+                        "width": 30,
+                      },
+                    ]
+                  }
+                >
+                  67046
+                </Text>
+                <View
+                  accessible={true}
+                  focusable={true}
+                  isTVSelectable={true}
+                  onClick={[Function]}
+                  onResponderGrant={[Function]}
+                  onResponderMove={[Function]}
+                  onResponderRelease={[Function]}
+                  onResponderTerminate={[Function]}
+                  onResponderTerminationRequest={[Function]}
+                  onStartShouldSetResponder={[Function]}
+                  style={
+                    Object {
+                      "opacity": 1,
+                    }
+                  }
+                  testID="CommentIconButton"
+                >
+                  <View
+                    hitSlop={
+                      Object {
+                        "bottom": 25,
+                        "left": 25,
+                        "right": 25,
+                        "top": 25,
+                      }
+                    }
+                    style={
+                      Array [
+                        Object {
+                          "backgroundColor": "transparent",
+                        },
+                        null,
+                        Object {},
+                        null,
+                      ]
+                    }
+                  >
+                    <SvgMock />
+                  </View>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+        <View
+          style={
+            Array [
+              Object {
+                "backgroundColor": "#ECEEF2",
+                "height": 1,
+              },
+              Object {
+                "marginBottom": 6,
+              },
+            ]
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <CommentItem
+          comment={
+            Object {
+              "__typename": "FeedItemComment",
+              "content": "repudiandae esse blanditiis",
+              "contentUpdatedAt": "2015-09-24T22:48:18.365Z",
+              "createdAt": "2014-06-14T18:46:15.611Z",
+              "id": "3",
+              "person": Object {
+                "__typename": "Person",
+                "fullName": "Brooklyn Weimann",
+                "id": "4",
+                "picture": "velit omnis et",
+              },
+            }
+          }
+          isEditing={false}
+          menuActions={
+            Array [
+              Object {
+                "onPress": [Function],
+                "text": "Report to Owner",
+              },
+            ]
+          }
+          testID="CommentItem"
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <CommentItem
+          comment={
+            Object {
+              "__typename": "FeedItemComment",
+              "content": "porro ut et",
+              "contentUpdatedAt": "2019-02-09T06:38:55.578Z",
+              "createdAt": "2016-11-26T00:02:28.431Z",
+              "id": "5",
+              "person": Object {
+                "__typename": "Person",
+                "fullName": "Mathias Larson",
+                "id": "6",
+                "picture": "debitis et saepe",
+              },
+            }
+          }
+          isEditing={false}
+          menuActions={
+            Array [
+              Object {
+                "onPress": [Function],
+                "text": "Report to Owner",
+              },
+            ]
+          }
+          testID="CommentItem"
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginHorizontal": 16,
+        "marginVertical": 12,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "enim ipsum inventore",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 18,
+            "height": 36,
+            "width": 36,
+          },
+          Object {
+            "backgroundColor": "rgb(122, 98, 130)",
           },
           undefined,
         ]

@@ -10,6 +10,7 @@ import {
   RelationshipTypeEnum,
   NotificationTriggerEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../__generated__/globalTypes';
 
 let currentId = 1;
@@ -38,6 +39,8 @@ export const globalMocks: IMocks = {
   }),
   ReminderTypeEnum: () => ReminderTypeEnum.once,
   StepTypeEnum: () => faker.random.arrayElement(Object.values(StepTypeEnum)),
+  FeedItemSubjectEventEnum: () =>
+    faker.random.arrayElement(Object.values(FeedItemSubjectEventEnum)),
   RelationshipTypeEnum: () =>
     faker.random.arrayElement(Object.values(RelationshipTypeEnum)),
   NotificationTriggerEnum: () => NotificationTriggerEnum.step_reminder,

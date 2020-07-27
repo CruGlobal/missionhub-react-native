@@ -9,9 +9,7 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { Button, RefreshControl, Text } from '../../../components/common';
 import BottomButton from '../../../components/BottomButton';
 import NULL from '../../../../assets/images/footprints.png';
-import { ANALYTICS_ASSIGNMENT_TYPE } from '../../../constants';
 import { keyExtractorId } from '../../../utils/common';
-import { getAnalyticsAssignmentType } from '../../../utils/analytics';
 import {
   contactAssignmentSelector,
   personSelector,
@@ -51,13 +49,8 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
       },
   );
 
-  const analyticsAssignmentType = useSelector(({ auth }: { auth: AuthState }) =>
-    getAnalyticsAssignmentType(person, auth),
-  );
   useAnalytics(['person', 'my steps'], {
-    screenContext: {
-      [ANALYTICS_ASSIGNMENT_TYPE]: analyticsAssignmentType,
-    },
+    assignmentType: { personId },
   });
   const { t } = useTranslation('contactSteps');
   const [hideCompleted, setHideCompleted] = useState(true);

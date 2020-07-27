@@ -135,15 +135,22 @@ export default {
     description: 'You will lose any info you have entered and be logged out',
     action: 'Go Back',
   },
-  settingsMenu: {
+  sideMenu: {
     about: 'About',
+    feedBack: 'Feedback',
+    version: 'Version',
+    update: 'Update',
+    blog: 'MissionHub Blog',
+    website: 'MissionHub Website',
     help: 'Help',
-    review: 'Write a Review',
-    shareStory: 'Share a Story With Us',
-    signOut: 'Sign out',
+    review: 'Enjoying our app? Rate it',
+    shareStory: 'Share a God Story with us',
+    suggestStep: 'Suggest a Step of Faith',
+    signOut: 'Sign Out',
     cannotOpenUrl: 'Cannot open URL',
     pleaseVisit: 'Sorry, we could not open that URL. Please visit {{url}}',
-    signUp: 'Sign Up',
+    signIn: 'Sign In',
+    createAccount: 'Create Account',
   },
   login: {
     tagline1: 'Grow closer to God.',
@@ -529,7 +536,7 @@ export default {
     groupsNull: 'Your communities will show up here.',
     joinCommunity: 'Join a Community',
     createCommunity: 'Create a Community',
-    globalCommunity: 'MissionHub Community',
+    globalCommunity: 'MissionHub',
     errorLoadingCommunities: 'Error loading communities',
   },
   shareAStoryScreen: {
@@ -562,16 +569,15 @@ export default {
     },
     addToMySteps: 'Add to My Steps',
     viewChallenge: 'View Challenge',
-    challengeAcceptedHeader: 'Challenge Accepted!',
-    challengeCompletedHeader: 'Challenge Completed!',
-    newMemberHeader: 'New Member!',
+    challengeAcceptedHeader: 'Joined a Challenge!',
+    challengeCompletedHeader: 'Completed a Challenge!',
+    newMemberHeader: 'We have a new member!',
+    newMemberMessage: 'Help welcome {{personFirstName}}.',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     stepOfFaithUnknownStage:
       '{{initiator}} completed a Step of Faith with someone.',
     stepOfFaithNotSureStage: '{{initiator}} completed a Step of Faith.',
-    challengeAccepted: '{{initiator}} accepted a Challenge:',
-    challengeCompleted: '{{initiator}} completed a Challenge:',
     missionHubUser: 'MissionHub user',
     aMissionHubUser: 'A MissionHub user',
   },
@@ -833,7 +839,7 @@ export default {
       QUESTION:
         'Ask a question or join a conversation about life, God and the Bible.',
       HELP_REQUEST: 'Share and respond to needs in the community.',
-      ANNOUNCEMENT: 'Get the latest news, like directions to the next potluck.',
+      ANNOUNCEMENT: 'Get the latest community news.',
       THOUGHT:
         'Share a random thought, or pass on the meme that made you laugh until you cried.',
       STEP: 'Recognize your Community’s steps of faith.',
@@ -869,6 +875,7 @@ export default {
   createPostScreen: {
     choosePostType: 'Choose a Post Type',
     inputPlaceholder: 'Post to community...',
+    recordVideo: 'Record a 15-Second Video',
     postAsYou: 'Post as You',
     ownersAndAdmins: 'Post as Owner/Admin',
     addAPhoto: 'Add a Photo',
@@ -907,7 +914,7 @@ export default {
     memberCount: '{{count}} Member',
     memberCount_plural: '{{count}} Members',
     errorLoadingCommunityDetails: 'Error loading community details',
-    globalCommunity: 'MissionHub Community',
+    globalCommunity: 'MissionHub',
   },
   personHeader: {
     editPerson: 'Edit Person',
@@ -994,6 +1001,20 @@ export default {
     respondedPostMessage: {
       delete: 'You have successfully deleted the post.',
       ignore: 'You have successfully ignored the post.',
+    },
+  },
+  recordVideo: {
+    cameraPermissions: {
+      title: 'Permission to use camera',
+      message: 'We need your permission to use your camera',
+      buttonPositive: 'Ok',
+      buttonNegative: 'Cancel',
+    },
+    audioPermissions: {
+      title: 'Permission to use audio recording',
+      message: 'We need your permission to use your audio',
+      buttonPositive: 'Ok',
+      buttonNegative: 'Cancel',
     },
   },
 };

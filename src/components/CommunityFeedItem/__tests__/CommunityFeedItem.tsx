@@ -24,6 +24,7 @@ import {
   PostTypeEnum,
   FeedItemSubjectTypeEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
 import { DELETE_POST, REPORT_POST } from '../queries';
 
@@ -101,8 +102,20 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
     mocks: {
       FeedItem: () => ({
         community: () => ({ id: communityId }),
+        subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
+        subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
+      }),
+    },
+  },
+);
+const newMemberItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
         subject: () => ({
-          __typename: 'AcceptedCommunityChallenge',
+          __typename: 'CommunityPermission',
         }),
       }),
     },
@@ -254,6 +267,17 @@ describe('Community', () => {
     snapshot();
   });
 
+  it('renders new member item correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={newMemberItem} namePressable={false} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+
   it('renders with clear notification button correctly', async () => {
     const { snapshot } = renderWithContext(
       <CommunityFeedItem
@@ -304,7 +328,6 @@ describe('press card', () => {
 
     expect(navigatePush).toHaveBeenCalledWith(FEED_ITEM_DETAIL_SCREEN, {
       feedItemId: stepItem.id,
-      communityId,
     });
   });
 });

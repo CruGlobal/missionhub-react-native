@@ -11,5 +11,9 @@ interface ItemHeaderText {
 }
 
 export default function ItemHeaderText({ text, style }: ItemHeaderText) {
-  return <Text style={[styles.name, style]}>{text}</Text>;
+  return (
+    <Text style={[styles.name, style]} numberOfLines={2}>
+      {text}
+    </Text>
+  );
 }

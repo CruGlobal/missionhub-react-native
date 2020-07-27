@@ -16,6 +16,7 @@ import {
 import {
   FeedItemSubjectTypeEnum,
   PostStepStatusEnum,
+  FeedItemSubjectEventEnum,
 } from '../../../__generated__/globalTypes';
 import PostTypeLabel from '../PostTypeLabel';
 import Avatar from '../Avatar';
@@ -30,9 +31,12 @@ import { GLOBAL_COMMUNITY_ID } from '../../constants';
 import { TouchablePress } from '../Touchable/index.ios';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 import PopupMenu from '../PopupMenu';
+import VideoPlayer from '../VideoPlayer';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import ChallengesTarget from '../../../assets/images/challenge-target.svg';
 import theme from '../../theme';
+import { CardHorizontalMargin } from '../Card/styles';
+import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
 
 import {
   CommunityFeedItemContent as FeedItem,
@@ -64,24 +68,36 @@ export const CommunityFeedItemContent = ({
 }: CommunityFeedItemContentProps) => {
   const { t } = useTranslation('communityFeedItems');
   const dispatch = useDispatch();
+  const { video: videoEnabled } = useFeatureFlags();
 
-  const { subject, subjectPerson, subjectPersonName, community } = feedItem;
+  const {
+    subject,
+    subjectEvent,
+    subjectPerson,
+    subjectPersonName,
+    community,
+  } = feedItem;
   if (
     subject.__typename !== 'Post' &&
     subject.__typename !== 'AcceptedCommunityChallenge' &&
-    subject.__typename !== 'Step'
+    subject.__typename !== 'Step' &&
+    subject.__typename !== 'CommunityPermission'
   ) {
     throw new Error(
-      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, CommunityPermission or Step',
     );
   }
 
-  const imageData =
+  const mediaData =
     (subject.__typename === 'Post' && subject.mediaExpiringUrl) || null;
+  const mediaType =
+    (subject.__typename === 'Post' && subject.mediaContentType) || null;
   const stepStatus =
     (subject.__typename === 'Post' && subject.stepStatus) ||
     PostStepStatusEnum.NOT_SUPPORTED;
-  const imageAspectRatio = useAspectRatio(imageData);
+  const aspectRatio = useAspectRatio(mediaData);
+
+  const isGlobal = !community;
 
   const itemType = getFeedItemType(subject);
   const addToSteps =
@@ -89,7 +105,9 @@ export const CommunityFeedItemContent = ({
       FeedItemSubjectTypeEnum.HELP_REQUEST,
       FeedItemSubjectTypeEnum.PRAYER_REQUEST,
       FeedItemSubjectTypeEnum.QUESTION,
-    ].includes(itemType) && stepStatus === PostStepStatusEnum.NONE;
+    ].includes(itemType) &&
+    stepStatus === PostStepStatusEnum.NONE &&
+    !isGlobal;
 
   const personName = subjectPerson
     ? `${getFirstNameAndLastInitial(
@@ -100,8 +118,6 @@ export const CommunityFeedItemContent = ({
     ? subjectPersonName
     : t('aMissionHubUser');
 
-  const isGlobal = !community;
-
   const onPressChallengeLink = async () => {
     const challengeId = (subject as CommunityFeedItemContent_subject_AcceptedCommunityChallenge)
       .communityChallenge.id;
@@ -109,6 +125,7 @@ export const CommunityFeedItemContent = ({
     await dispatch(reloadGroupChallengeFeed(communityId));
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        communityName: community?.name,
         challengeId,
         orgId: communityId,
       }),
@@ -136,9 +153,7 @@ export const CommunityFeedItemContent = ({
   const renderChallengeMessage = (
     subject: CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
   ) => {
-    return t(subject.completedAt ? 'challengeCompleted' : 'challengeAccepted', {
-      initiator: personName,
-    });
+    return subject.communityChallenge.title || '';
   };
 
   const renderStepOfFaithMessage = (
@@ -156,6 +171,16 @@ export const CommunityFeedItemContent = ({
         initiator: personName,
         receiverStage: renderStage(receiverStageAtCompletion),
       },
+    );
+  };
+
+  const renderNewMemberMessage = () => {
+    return (
+      <Text style={styles.messageText}>
+        {t('newMemberMessage', {
+          personFirstName: subjectPerson?.firstName,
+        })}
+      </Text>
     );
   };
 
@@ -186,6 +211,8 @@ export const CommunityFeedItemContent = ({
         return renderText(renderChallengeMessage(subject));
       case 'Post':
         return renderPostMessage(subject);
+      case 'CommunityPermission':
+        return renderNewMemberMessage();
     }
   };
 
@@ -216,46 +243,34 @@ export const CommunityFeedItemContent = ({
     subject: CommunityFeedItemContent_subject_Post,
   ) => <Markdown style={markdown}>{subject.content}</Markdown>;
 
-  const renderChallengeLink = (
-    subject: CommunityFeedItemContent_subject_AcceptedCommunityChallenge,
-  ) => (
-    <View style={styles.row}>
-      <Text numberOfLines={2} style={styles.challengeLinkText}>
-        {subject.communityChallenge.title}
-      </Text>
-    </View>
-  );
-
   const renderHeader = () => (
     <View style={styles.headerWrap}>
-      <View style={styles.headerRow}>
-        {subject.__typename === 'AcceptedCommunityChallenge' ? (
-          <Text style={styles.headerTextOnly}>
-            {t('challengeAcceptedHeader')}
-          </Text>
-        ) : (
+      {subject.__typename === 'AcceptedCommunityChallenge' ||
+      subject.__typename === 'CommunityPermission' ? null : (
+        <View style={styles.headerRow}>
           <PostTypeLabel
             type={itemType}
             onPress={postLabelPressable ? navToFilteredFeed : undefined}
           />
-        )}
-        {menuActions && menuActions.length > 0 ? (
-          <View style={styles.popupMenuWrap}>
-            <PopupMenu
-              actions={menuActions}
-              buttonProps={{ style: styles.popupButton }}
-            >
-              <KebabIcon color={theme.grey} />
-            </PopupMenu>
-          </View>
-        ) : null}
-      </View>
+          {menuActions && menuActions.length > 0 ? (
+            <View style={styles.popupMenuWrap}>
+              <PopupMenu
+                actions={menuActions}
+                buttonProps={{ style: styles.popupButton }}
+              >
+                <KebabIcon color={theme.grey} />
+              </PopupMenu>
+            </View>
+          ) : null}
+        </View>
+      )}
       <View style={styles.headerRow}>
         {!isGlobal ? renderAvatar() : null}
         <View
-          style={
-            isGlobal ? styles.globalHeaderNameWrapper : styles.headerNameWrapper
-          }
+          style={[
+            styles.headerNameWrapper,
+            isGlobal ? styles.globalHeaderNameWrapper : undefined,
+          ]}
         >
           {itemType === FeedItemSubjectTypeEnum.ANNOUNCEMENT ? (
             <Text style={styles.communityName}>{community?.name}</Text>
@@ -273,13 +288,25 @@ export const CommunityFeedItemContent = ({
     </View>
   );
 
-  const renderImage = () =>
-    imageData ? (
+  const renderMedia = () =>
+    mediaData && mediaType?.includes('image') ? (
       <Image
-        source={{ uri: imageData }}
-        style={{ aspectRatio: imageAspectRatio }}
+        source={{ uri: mediaData }}
+        style={{ aspectRatio }}
         resizeMode="cover"
       />
+    ) : mediaData && videoEnabled && mediaType?.includes('video') ? (
+      <Touchable
+        isAndroidOpacity={true}
+        activeOpacity={1}
+        onPress={() => {}}
+        testID="VideoTouchable"
+      >
+        <VideoPlayer
+          uri={mediaData}
+          width={theme.fullWidth - CardHorizontalMargin * 2.0}
+        />
+      </Touchable>
     ) : null;
 
   const renderFooter = () => (
@@ -298,6 +325,7 @@ export const CommunityFeedItemContent = ({
         <CommentLikeComponent
           testID="CommentLikeComponent"
           feedItem={feedItem}
+          hideComment={isGlobal}
           onCommentPress={onCommentPress}
         />
       </View>
@@ -330,12 +358,21 @@ export const CommunityFeedItemContent = ({
     <>
       {renderHeader()}
       <View style={styles.postTextWrap}>
+        {subject.__typename === 'AcceptedCommunityChallenge' &&
+        (subjectEvent === FeedItemSubjectEventEnum.challengeCompleted ||
+          subjectEvent === FeedItemSubjectEventEnum.challengeJoined) ? (
+          <Text style={styles.headerTextOnly}>
+            {subjectEvent === FeedItemSubjectEventEnum.challengeCompleted
+              ? t('challengeCompletedHeader')
+              : t('challengeAcceptedHeader')}
+          </Text>
+        ) : null}
+        {subject.__typename === 'CommunityPermission' ? (
+          <Text style={styles.headerTextOnly}>{t('newMemberHeader')}</Text>
+        ) : null}
         {renderMessage()}
-        {subject.__typename === 'AcceptedCommunityChallenge'
-          ? renderChallengeLink(subject)
-          : null}
       </View>
-      {renderImage()}
+      {renderMedia()}
       {showLikeAndComment ? (
         <>
           <Separator />

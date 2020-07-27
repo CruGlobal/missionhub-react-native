@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "opacity": 1,
+    }
+  }
+  testID="menuButton"
+>
+  <View
+    style={
+      Array [
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "transparent",
+          "borderRadius": 0,
+          "borderWidth": 0,
+          "height": 60,
+          "justifyContent": "center",
+          "margin": 0,
+          "paddingHorizontal": 20,
+          "paddingVertical": 10,
+        },
+        null,
+        Object {},
+        null,
+      ]
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "alignItems": "center",
+            "justifyContent": "center",
+          },
+          Array [
+            Object {
+              "borderRadius": 24,
+              "height": 48,
+              "width": 48,
+            },
+            Object {
+              "backgroundColor": "#B4B6BA",
+            },
+            undefined,
+          ],
+        ]
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Array [
+              Object {
+                "color": "#ffffff",
+              },
+              Object {
+                "fontSize": 26,
+                "fontWeight": "300",
+              },
+            ],
+          ]
+        }
+      >
+        
+      </Text>
+    </View>
+  </View>
+</View>
+`;
