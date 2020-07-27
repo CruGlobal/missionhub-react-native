@@ -1,7 +1,5 @@
 // @ts-ignore
 import { LoginManager, AccessToken } from 'react-native-fbsdk';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 
 import {
   FACEBOOK_CANCELED_ERROR,
@@ -10,7 +8,6 @@ import {
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { updateAnalyticsContext } from '../analytics';
-import { RootState } from '../../reducers';
 
 import { retryIfInvalidatedClientToken } from './auth';
 import { authSuccess } from './userData';
@@ -27,7 +24,8 @@ export function facebookPromptLogin() {
 }
 
 export function facebookLoginWithAccessToken() {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+  // @ts-ignore
+  return async dispatch => {
     try {
       const { accessToken, userID } =
         (await AccessToken.getCurrentAccessToken()) || {};
@@ -45,16 +43,16 @@ export function facebookLoginWithAccessToken() {
   };
 }
 
-function facebookLoginAction(accessToken: string, facebookId?: string) {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => RootState,
-  ) => {
+// @ts-ignore
+function facebookLoginAction(accessToken, facebookId) {
+  // @ts-ignore
+  return async (dispatch, getState) => {
     const { upgradeToken } = getState().auth;
 
     await dispatch(
       retryIfInvalidatedClientToken(
         loginWithFacebookAccessToken(accessToken, upgradeToken),
+        // @ts-ignore
         loginWithFacebookAccessToken(accessToken),
       ),
     );
@@ -62,10 +60,8 @@ function facebookLoginAction(accessToken: string, facebookId?: string) {
   };
 }
 
-const loginWithFacebookAccessToken = (
-  fb_access_token: string,
-  client_token?: string | null,
-) =>
+// @ts-ignore
+const loginWithFacebookAccessToken = (fb_access_token, client_token) =>
   callApi(
     REQUESTS.FACEBOOK_LOGIN,
     {},
@@ -76,7 +72,8 @@ const loginWithFacebookAccessToken = (
   );
 
 export function refreshMissionHubFacebookAccess() {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+  // @ts-ignore
+  return async dispatch => {
     try {
       try {
         await AccessToken.refreshCurrentAccessTokenAsync();
