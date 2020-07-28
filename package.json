@@ -124,7 +124,7 @@
     "@types/enzyme": "^3.10.3",
     "@types/enzyme-adapter-react-16": "^1.0.5",
     "@types/faker": "^4.1.7",
-    "@types/jest": "^26.0.5",
+    "@types/jest": "^26.0.7",
     "@types/lodash.debounce": "^4.0.6",
     "@types/mockdate": "^2.0.0",
     "@types/react": "^16.9.9",
