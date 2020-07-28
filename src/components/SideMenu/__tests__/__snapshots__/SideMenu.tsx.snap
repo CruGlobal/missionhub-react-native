@@ -993,7 +993,7 @@ exports[`render update button 1`] = `
                     "color": "#ffffff",
                     "fontSize": 16,
                     "fontWeight": "400",
-                    "height": 25,
+                    "height": 20,
                     "letterSpacing": 0.2,
                     "textAlign": "center",
                   },

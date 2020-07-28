@@ -100,6 +100,6 @@ export default StyleSheet.create({
     fontWeight: '400',
     letterSpacing: 0.2,
     textAlign: 'center',
-    height: 25,
+    height: 20,
   },
 });
