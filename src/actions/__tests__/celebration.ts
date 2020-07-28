@@ -1,10 +1,7 @@
 import { apolloClient } from '../../apolloClient';
-import { getCelebrateFeed, getGlobalCommunityFeed } from '../celebration';
+import { getCelebrateFeed } from '../celebration';
 import callApi from '../api';
-import {
-  GET_COMMUNITY_FEED,
-  GET_GLOBAL_COMMUNITY_FEED,
-} from '../../containers/CommunityFeed/queries';
+import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
 
 jest.mock('../api');
 
@@ -56,16 +53,6 @@ describe('getCelebrateFeed', () => {
         personIds: undefined,
         hasUnreadComments: true,
       },
-    });
-  });
-});
-
-describe('getGlobalFeed', () => {
-  it('should get global community feed', async () => {
-    await getGlobalCommunityFeed();
-
-    expect(apolloClient.query).toHaveBeenCalledWith({
-      query: GET_GLOBAL_COMMUNITY_FEED,
     });
   });
 });

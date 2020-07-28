@@ -41,7 +41,7 @@ import { reloadGroupChallengeFeed } from '../challenges';
 import { NOTIFICATION_OFF_SCREEN } from '../../containers/NotificationOffScreen';
 import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerScreen';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
-import { getCelebrateFeed, getGlobalCommunityFeed } from '../celebration';
+import { getCelebrateFeed } from '../celebration';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../../containers/Groups/GroupChallenges';
 
@@ -720,7 +720,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           organization.id,
@@ -735,7 +734,6 @@ describe('askNotificationPermissions', () => {
         } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).toHaveBeenCalled();
-        expect(getGlobalCommunityFeed).toHaveBeenCalledWith();
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           GLOBAL_COMMUNITY_ID,
@@ -768,7 +766,6 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           organization.id,
@@ -784,7 +781,6 @@ describe('askNotificationPermissions', () => {
         } as unknown) as PushNotificationPayloadData);
 
         expect(refreshCommunity).toHaveBeenCalled();
-        expect(getGlobalCommunityFeed).toHaveBeenCalled();
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           GLOBAL_COMMUNITY_ID,

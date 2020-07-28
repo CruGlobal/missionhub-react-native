@@ -33,7 +33,6 @@ import {
   navigateToFeedItemComments,
 } from './navigation';
 import callApi from './api';
-import { getCelebrateFeed, getGlobalCommunityFeed } from './celebration';
 
 export const SET_NOTIFICATION_ANALYTICS = 'app/SET_NOTIFICATION_ANALYTICS';
 
@@ -296,9 +295,6 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         dispatch(navigatePush(LOADING_SCREEN));
         try {
           dispatch(refreshCommunity(organization_id));
-          communityId === GLOBAL_COMMUNITY_ID
-            ? await getGlobalCommunityFeed()
-            : await getCelebrateFeed(communityId);
 
           return dispatch(
             navigateToFeedItemComments(celebration_item_id, communityId),
