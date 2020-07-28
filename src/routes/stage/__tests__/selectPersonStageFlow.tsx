@@ -260,6 +260,39 @@ describe('SelectStageScreen next', () => {
       });
     });
 
+    describe('skipSelectSteps', () => {
+      beforeEach(async () => {
+        await buildAndCallNext(
+          SELECT_STAGE_SCREEN,
+          {
+            section: 'people',
+            subsection: 'person',
+            selectedStageId: 0,
+            enableBackButton: false,
+            questionText,
+            orgId,
+            personId: otherId,
+          },
+          {
+            stage,
+            personId: otherId,
+            firstName: otherName,
+            orgId,
+            isAlreadySelected: false,
+            skipSelectSteps: true,
+            contactAssignmentId,
+          },
+        );
+      });
+
+      it('should navigate to CelebrationScreen', () => {
+        expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+          personId: otherId,
+          orgId,
+        });
+      });
+    });
+
     describe('without contactAssignmentId', () => {
       beforeEach(async () => {
         await buildAndCallNext(
