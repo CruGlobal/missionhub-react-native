@@ -18,7 +18,7 @@ const AvatarMenuButton = () => {
 
   return (
     <Button onPress={() => dispatch(openMainMenu())} testID="menuButton">
-      <Avatar size="medium" person={currentUser?.person} />
+      <Avatar size="sidemenu" person={currentUser?.person} />
     </Button>
   );
 };

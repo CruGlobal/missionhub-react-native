@@ -141,9 +141,9 @@ exports[`render update button 1`] = `
         style={
           Array [
             Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
+              "borderRadius": 20,
+              "height": 42,
+              "width": 42,
             },
             Object {
               "backgroundColor": "rgb(167, 154, 115)",
@@ -1150,9 +1150,9 @@ exports[`renders correctly | Authenticated User 1`] = `
             },
             Array [
               Object {
-                "borderRadius": 24,
-                "height": 48,
-                "width": 48,
+                "borderRadius": 20,
+                "height": 42,
+                "width": 42,
               },
               Object {
                 "backgroundColor": "#B4B6BA",
@@ -2242,9 +2242,9 @@ exports[`renders correctly | UnAuthed User 1`] = `
             },
             Array [
               Object {
-                "borderRadius": 24,
-                "height": 48,
-                "width": 48,
+                "borderRadius": 20,
+                "height": 42,
+                "width": 42,
               },
               Object {
                 "backgroundColor": "#B4B6BA",

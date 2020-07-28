@@ -112,7 +112,7 @@ const SideMenu = () => {
         },
         {
           label: t('suggestStep'),
-          action: () => openUrl(LINKS.shareStory),
+          action: () => openUrl(LINKS.suggestStep),
         },
         {
           label: t('review'),
@@ -160,7 +160,7 @@ const SideMenu = () => {
       </View>
       <View style={styles.headerContainer}>
         <View style={styles.avatarContainer}>
-          <Avatar person={person} size={'medium'} />
+          <Avatar person={person} size={'sidemenu'} />
           <View style={styles.personInfoContainer}>
             <Text style={styles.personName}>{person?.fullName}</Text>
             <Text style={styles.personEmail}>{personEmail}</Text>
