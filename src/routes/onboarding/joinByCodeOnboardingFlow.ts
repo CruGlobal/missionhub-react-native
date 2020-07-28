@@ -2,8 +2,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import { CELEBRATION_SCREEN } from '../../containers/CelebrationScreen';
-import CelebrationScreen from '../../containers/CelebrationScreen';
+import CelebrationScreen, {
+  CELEBRATION_SCREEN,
+} from '../../containers/CelebrationScreen';
 import { navigatePush } from '../../actions/navigation';
 import {
   joinStashedCommunity,
@@ -16,10 +17,10 @@ import JoinGroupScreen, {
 } from '../../containers/Groups/JoinGroupScreen';
 import { wrapNextAction } from '../helpers';
 import { WELCOME_SCREEN } from '../../containers/WelcomeScreen';
-import { SETUP_SCREEN } from '../../containers/SetupScreen';
-import SetupScreen from '../../containers/SetupScreen';
+import SetupScreen, { SETUP_SCREEN } from '../../containers/SetupScreen';
 import { Organization } from '../../reducers/organizations';
 import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
+import { RootState } from '../../reducers';
 
 import { onboardingFlowGenerator } from './onboardingFlowGenerator';
 
@@ -28,7 +29,7 @@ export const JoinByCodeOnboardingFlowScreens = {
     screen: wrapNextAction(
       JoinGroupScreen,
       ({ community }: { community: Organization }) => (
-        dispatch: ThunkDispatch<{}, {}, AnyAction>,
+        dispatch: ThunkDispatch<RootState, never, AnyAction>,
       ) => {
         dispatch(setOnboardingCommunity(community));
         dispatch(navigatePush(WELCOME_SCREEN));
@@ -39,8 +40,7 @@ export const JoinByCodeOnboardingFlowScreens = {
   ...onboardingFlowGenerator(),
   [SETUP_SCREEN]: wrapNextAction(
     SetupScreen,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    () => async (dispatch: ThunkDispatch<{}, {}, any>) => {
+    () => async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
       await dispatch(joinStashedCommunity());
       dispatch(navigatePush(GET_STARTED_SCREEN));
     },
@@ -50,8 +50,7 @@ export const JoinByCodeOnboardingFlowScreens = {
   ),
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    () => (dispatch: ThunkDispatch<{}, {}, any>) => {
+    () => (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
       dispatch(landOnStashedCommunityScreen());
       dispatch(setOnboardingPersonId(''));
     },

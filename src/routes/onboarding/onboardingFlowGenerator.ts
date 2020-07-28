@@ -60,6 +60,7 @@ import CelebrationScreen, {
 } from '../../containers/CelebrationScreen';
 import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
+import { RootState } from '../../reducers';
 
 export const onboardingFlowGenerator = ({
   startScreen = WELCOME_SCREEN,
@@ -89,7 +90,7 @@ export const onboardingFlowGenerator = ({
         [GET_STARTED_SCREEN]: wrapNextAction(
           GetStartedScreen,
           () => (
-            dispatch: ThunkDispatch<{}, {}, AnyAction>,
+            dispatch: ThunkDispatch<RootState, never, AnyAction>,
             getState: () => { auth: AuthState },
           ) =>
             dispatch(
@@ -106,7 +107,7 @@ export const onboardingFlowGenerator = ({
         [STAGE_SUCCESS_SCREEN]: wrapNextAction(
           StageSuccessScreen,
           () => (
-            dispatch: ThunkDispatch<{}, {}, AnyAction>,
+            dispatch: ThunkDispatch<RootState, never, AnyAction>,
             getState: () => { auth: AuthState },
           ) =>
             dispatch(
@@ -146,7 +147,7 @@ export const onboardingFlowGenerator = ({
   [SETUP_PERSON_SCREEN]: wrapNextAction(
     SetupScreen,
     ({ skip, personId }: { skip?: boolean; personId?: string } = {}) => (
-      dispatch: ThunkDispatch<{}, {}, AnyAction>,
+      dispatch: ThunkDispatch<RootState, never, AnyAction>,
       getState: () => { onboarding: OnboardingState },
     ) => {
       personId && dispatch(setOnboardingPersonId(personId));
@@ -165,7 +166,7 @@ export const onboardingFlowGenerator = ({
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
     ({ isMe }: { isMe: boolean }) => (
-      dispatch: ThunkDispatch<{}, {}, AnyAction>,
+      dispatch: ThunkDispatch<RootState, never, AnyAction>,
       getState: () => { onboarding: OnboardingState },
     ) =>
       dispatch(
@@ -193,7 +194,7 @@ export const onboardingFlowGenerator = ({
   [SUGGESTED_STEP_DETAIL_SCREEN]: wrapNextAction(
     SuggestedStepDetailScreen,
     ({ personId }: { personId: string }) => (
-      dispatch: ThunkDispatch<any, null, any>,
+      dispatch: ThunkDispatch<RootState, never, AnyAction>,
       getState: () => any,
     ) => {
       const isMe = personId === getState().auth.person.id;
@@ -207,7 +208,7 @@ export const onboardingFlowGenerator = ({
   [ADD_STEP_SCREEN]: wrapNextAction(
     AddStepScreen,
     ({ personId }: AddStepScreenNextProps) => (
-      dispatch: ThunkDispatch<any, null, any>,
+      dispatch: ThunkDispatch<RootState, never, AnyAction>,
       getState: () => any,
     ) => {
       const isMe = personId === getState().auth.person.id;
@@ -228,7 +229,7 @@ export const onboardingFlowGenerator = ({
   ),
   [CELEBRATION_SCREEN]: wrapNextAction(
     CelebrationScreen,
-    () => (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+    () => (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
       dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_COMPLETE));
       appsFlyer.trackEvent(
         ACTIONS.ONBOARDING_COMPLETE.name,

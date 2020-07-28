@@ -6,7 +6,6 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { UPDATE_PERSON } from '../../../containers/SetupScreen/queries';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import { renderWithContext } from '../../../../testUtils';
-
 import PersonCategoryScreen from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');

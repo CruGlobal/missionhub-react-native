@@ -1,4 +1,3 @@
-/* eslint max-lines-per-function: 0 */
 import React, {
   useState,
   useEffect,
@@ -27,7 +26,7 @@ interface CommentBoxProps {
   editingComment?: FeedItemEditingComment;
   testID?: string;
 }
-export type CommentBoxHandles = { focus: Function };
+export type CommentBoxHandles = { focus: () => void };
 
 const CommentBox = forwardRef(
   (

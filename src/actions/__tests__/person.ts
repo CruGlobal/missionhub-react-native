@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import thunk from 'redux-thunk';
 import configureStore from 'redux-mock-store';
@@ -159,14 +159,15 @@ describe('getPersonDetails', () => {
   });
 
   it('should not get person details if no person id', async () => {
-    try {
+    await expect(
       // @ts-ignore
-      await store.dispatch(getPersonDetails(undefined, orgId));
-    } catch {
-      expect(callApi).not.toHaveBeenCalled();
-      // @ts-ignore
-      expect(store.getActions()).toEqual([]);
-    }
+      store.dispatch(getPersonDetails(undefined, orgId)),
+    ).rejects.toEqual(
+      'Invalid Data from getPersonDetails: no personId passed in',
+    );
+    expect(callApi).not.toHaveBeenCalled();
+    // @ts-ignore
+    expect(store.getActions()).toEqual([]);
   });
 });
 
@@ -619,6 +620,7 @@ describe('deleteContactAssignment', () => {
     await store.dispatch(deleteContactAssignment(personId));
 
     testDelete();
+    expect.hasAssertions();
   });
 });
 
@@ -728,14 +730,12 @@ describe('saveNote', () => {
     });
 
     it('should reject note', async () => {
-      try {
+      await expect(
         // @ts-ignore
-        await store.dispatch(savePersonNote(undefined, note, noteId, myId));
-      } catch (e) {
-        expect(e).toBe(
-          'Invalid Data from savePersonNote: no personId passed in',
-        );
-      }
+        store.dispatch(savePersonNote(undefined, note, noteId, myId)),
+      ).rejects.toEqual(
+        'Invalid Data from savePersonNote: no personId passed in',
+      );
     });
   });
 });

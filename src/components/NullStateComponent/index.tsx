@@ -6,7 +6,7 @@ import { Flex, Text } from '../../components/common';
 import styles from './styles';
 
 interface NullStateComponentProps {
-  imageSource: object | number;
+  imageSource: Record<string, unknown> | number;
   headerText: string;
   descriptionText: string;
   content?: React.ReactNode;

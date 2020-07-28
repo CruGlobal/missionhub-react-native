@@ -67,6 +67,6 @@ expect.extend({
     // This point is reached when the above assertion was successful.
     // The test should therefore always pass, that means it needs to be
     // `true` when used normally, and `false` when `.not` was used.
-    return { pass: !this.isNot, message: '' };
+    return { pass: !this.isNot, message: () => '' };
   },
 });

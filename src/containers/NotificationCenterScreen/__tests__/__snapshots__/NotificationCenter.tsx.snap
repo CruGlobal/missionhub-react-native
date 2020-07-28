@@ -921,6 +921,1417 @@ exports[`handle pagination should not load more when no next page 1`] = `
 Compared values have no visual difference."
 `;
 
+exports[`handles refresh 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -165,373 +165,372 @@
+        Array [
+          Object {
+            \\"data\\": Array [
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"21\\",
++               \\"id\\": \\"53\\",
+                \\"subject\\": Object {
+                  \\"__typename\\": \\"Post\\",
+                  \\"author\\": Object {
+                    \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Viva Hessel\\",
+-                   \\"id\\": \\"23\\",
++                   \\"fullName\\": \\"Lelah Feeney\\",
++                   \\"id\\": \\"55\\",
+                  },
+-                 \\"content\\": \\"adipisci itaque culpa\\",
+-                 \\"createdAt\\": \\"2011-07-29T01:47:49.648Z\\",
++                 \\"content\\": \\"velit dolorum soluta\\",
++                 \\"createdAt\\": \\"2014-12-08T04:22:36.764Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"voluptatem maxime neque\\",
+-                     \\"id\\": \\"25\\",
+-                     \\"name\\": \\"Diverse analyzing database\\",
++                     \\"communityPhotoUrl\\": \\"voluptatum eius sequi\\",
++                     \\"id\\": \\"57\\",
++                     \\"name\\": \\"Total incremental project\\",
+                    },
+-                   \\"id\\": \\"24\\",
++                   \\"id\\": \\"56\\",
+                  },
+-                 \\"id\\": \\"22\\",
+-                 \\"mediaExpiringUrl\\": \\"quis ut ab\\",
++                 \\"id\\": \\"54\\",
++                 \\"mediaExpiringUrl\\": \\"perspiciatis sequi et\\",
+                },
+              },
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"26\\",
++               \\"id\\": \\"58\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"Post\\",
+-                 \\"author\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Nannie Ferry\\",
+-                   \\"id\\": \\"28\\",
+-                 },
+-                 \\"content\\": \\"omnis sit et\\",
+-                 \\"createdAt\\": \\"2011-11-26T08:25:50.350Z\\",
++                 \\"__typename\\": \\"FeedItemComment\\",
++                 \\"content\\": \\"qui doloribus facere\\",
++                 \\"createdAt\\": \\"2018-08-03T20:59:19.468Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"eum saepe nesciunt\\",
+-                     \\"id\\": \\"30\\",
+-                     \\"name\\": \\"Diverse mobile website\\",
++                     \\"communityPhotoUrl\\": \\"enim quia reprehenderit\\",
++                     \\"id\\": \\"62\\",
++                     \\"name\\": \\"Seamless non-volatile adapter\\",
++                   },
++                   \\"id\\": \\"61\\",
+                  },
+-                   \\"id\\": \\"29\\",
++                 \\"id\\": \\"59\\",
++                 \\"person\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Damaris Beahan\\",
++                   \\"id\\": \\"60\\",
+                  },
+-                 \\"id\\": \\"27\\",
+-                 \\"mediaExpiringUrl\\": \\"quasi eaque corrupti\\",
+                },
+              },
+            ],
+            \\"id\\": 0,
+            \\"name\\": \\"reportedActivity\\",
+          },
+          Object {
+            \\"data\\": Array [
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2015-11-13T20:52:21.990Z\\",
+-               \\"id\\": \\"1\\",
+-               \\"messageTemplate\\": \\"repellat quisquam recusandae\\",
++               \\"createdAt\\": \\"2014-09-20T20:00:11.427Z\\",
++               \\"id\\": \\"33\\",
++               \\"messageTemplate\\": \\"doloribus aut culpa\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"ut nulla quam\\",
+-                   \\"value\\": \\"ipsam nobis cupiditate\\",
++                   \\"key\\": \\"non et architecto\\",
++                   \\"value\\": \\"non explicabo facere\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"sed dignissimos debitis\\",
+-                   \\"value\\": \\"incidunt accusantium sed\\",
++                   \\"key\\": \\"neque et ex\\",
++                   \\"value\\": \\"quaerat explicabo aut\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"libero qui recusandae\\",
+-                 \\"communityId\\": \\"amet iure ut\\",
+-                 \\"feedItemId\\": \\"ut sunt qui\\",
++                 \\"challengeId\\": \\"et voluptas quis\\",
++                 \\"communityId\\": \\"laudantium voluptatem magni\\",
++                 \\"feedItemId\\": \\"maxime sint libero\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Aaliyah Champlin\\",
+-                 \\"id\\": \\"2\\",
+-                 \\"picture\\": \\"corporis repellat ratione\\",
++                 \\"fullName\\": \\"Cade Hoeger\\",
++                 \\"id\\": \\"34\\",
++                 \\"picture\\": \\"molestias omnis numquam\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2013-05-02T19:02:46.486Z\\",
+-               \\"id\\": \\"3\\",
+-               \\"messageTemplate\\": \\"repudiandae esse blanditiis\\",
++               \\"createdAt\\": \\"2018-08-09T02:09:37.314Z\\",
++               \\"id\\": \\"35\\",
++               \\"messageTemplate\\": \\"adipisci non rerum\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"debitis et saepe\\",
+-                   \\"value\\": \\"eum dicta eum\\",
++                   \\"key\\": \\"dolorem recusandae est\\",
++                   \\"value\\": \\"perferendis molestiae ut\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"eaque enim ipsum\\",
+-                   \\"value\\": \\"inventore debitis libero\\",
++                   \\"key\\": \\"qui et possimus\\",
++                   \\"value\\": \\"hic in hic\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"explicabo eligendi occaecati\\",
+-                 \\"communityId\\": \\"ut et ipsam\\",
+-                 \\"feedItemId\\": \\"omnis et porro\\",
++                 \\"challengeId\\": \\"est id voluptates\\",
++                 \\"communityId\\": \\"qui id cupiditate\\",
++                 \\"feedItemId\\": \\"voluptatem quia et\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Keaton Keeling\\",
+-                 \\"id\\": \\"4\\",
+-                 \\"picture\\": \\"eos itaque velit\\",
++                 \\"fullName\\": \\"Kirk Ledner\\",
++                 \\"id\\": \\"36\\",
++                 \\"picture\\": \\"voluptas molestiae fuga\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2019-01-20T00:49:00.772Z\\",
+-               \\"id\\": \\"5\\",
+-               \\"messageTemplate\\": \\"deserunt quam tempore\\",
++               \\"createdAt\\": \\"2010-10-16T00:28:13.874Z\\",
++               \\"id\\": \\"37\\",
++               \\"messageTemplate\\": \\"iste sed repudiandae\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"placeat fuga doloribus\\",
+-                   \\"value\\": \\"distinctio placeat ullam\\",
++                   \\"key\\": \\"consequatur qui est\\",
++                   \\"value\\": \\"sapiente aperiam quia\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"minima ducimus temporibus\\",
+-                   \\"value\\": \\"modi aut architecto\\",
++                   \\"key\\": \\"ex consequuntur beatae\\",
++                   \\"value\\": \\"dolores eligendi quas\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"velit sit aperiam\\",
+-                 \\"communityId\\": \\"nobis repellendus fugiat\\",
+-                 \\"feedItemId\\": \\"nostrum ipsam qui\\",
++                 \\"challengeId\\": \\"molestiae consequatur sint\\",
++                 \\"communityId\\": \\"accusantium unde qui\\",
++                 \\"feedItemId\\": \\"corrupti dolorem id\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Vernie Jenkins\\",
+-                 \\"id\\": \\"6\\",
+-                 \\"picture\\": \\"provident velit eligendi\\",
++                 \\"fullName\\": \\"Addie Nitzsche\\",
++                 \\"id\\": \\"38\\",
++                 \\"picture\\": \\"molestiae reprehenderit exercitationem\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2015-07-24T04:31:37.548Z\\",
+-               \\"id\\": \\"7\\",
+-               \\"messageTemplate\\": \\"totam voluptates explicabo\\",
++               \\"createdAt\\": \\"2019-11-28T14:22:12.569Z\\",
++               \\"id\\": \\"39\\",
++               \\"messageTemplate\\": \\"voluptatem praesentium hic\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"quos qui illo\\",
+-                   \\"value\\": \\"error sunt laborum\\",
++                   \\"key\\": \\"veniam earum ex\\",
++                   \\"value\\": \\"culpa eveniet debitis\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"ratione a officia\\",
+-                   \\"value\\": \\"quaerat cumque incidunt\\",
++                   \\"key\\": \\"et nulla voluptatem\\",
++                   \\"value\\": \\"et delectus praesentium\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"voluptates ut ullam\\",
+-                 \\"communityId\\": \\"soluta sint non\\",
+-                 \\"feedItemId\\": \\"cupiditate sit vitae\\",
++                 \\"challengeId\\": \\"consequatur sed nisi\\",
++                 \\"communityId\\": \\"quas magni rerum\\",
++                 \\"feedItemId\\": \\"quia odit sit\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Eldora Turner\\",
+-                 \\"id\\": \\"8\\",
+-                 \\"picture\\": \\"quis sed magni\\",
++                 \\"fullName\\": \\"Victoria Shields\\",
++                 \\"id\\": \\"40\\",
++                 \\"picture\\": \\"suscipit perferendis rem\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2019-01-05T11:30:13.119Z\\",
+-               \\"id\\": \\"9\\",
+-               \\"messageTemplate\\": \\"provident esse hic\\",
++               \\"createdAt\\": \\"2015-09-27T14:48:43.575Z\\",
++               \\"id\\": \\"41\\",
++               \\"messageTemplate\\": \\"unde ut quibusdam\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"officia aut ut\\",
+-                   \\"value\\": \\"ut eos ducimus\\",
++                   \\"key\\": \\"et ipsam ut\\",
++                   \\"value\\": \\"saepe vel in\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"eos saepe consequatur\\",
+-                   \\"value\\": \\"vel in ut\\",
++                   \\"key\\": \\"perspiciatis sit consectetur\\",
++                   \\"value\\": \\"temporibus officia laborum\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"autem rerum doloremque\\",
+-                 \\"communityId\\": \\"nam eos sint\\",
+-                 \\"feedItemId\\": \\"voluptas sed quae\\",
++                 \\"challengeId\\": \\"et dolore consequatur\\",
++                 \\"communityId\\": \\"tenetur deserunt eius\\",
++                 \\"feedItemId\\": \\"animi ipsam perferendis\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Maud Kulas\\",
+-                 \\"id\\": \\"10\\",
+-                 \\"picture\\": \\"esse ut ab\\",
++                 \\"fullName\\": \\"Kirstin Graham\\",
++                 \\"id\\": \\"42\\",
++                 \\"picture\\": \\"consequuntur quos hic\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2018-05-20T10:58:20.582Z\\",
+-               \\"id\\": \\"11\\",
+-               \\"messageTemplate\\": \\"et molestiae ea\\",
++               \\"createdAt\\": \\"2019-07-22T07:12:59.250Z\\",
++               \\"id\\": \\"43\\",
++               \\"messageTemplate\\": \\"illo perferendis quam\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"enim ex eveniet\\",
+-                   \\"value\\": \\"facere molestiae aut\\",
++                   \\"key\\": \\"nesciunt eum non\\",
++                   \\"value\\": \\"in esse et\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"delectus aut nam\\",
+-                   \\"value\\": \\"et dolorum architecto\\",
++                   \\"key\\": \\"ut quis cumque\\",
++                   \\"value\\": \\"officia optio placeat\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"ex ut voluptas\\",
+-                 \\"communityId\\": \\"fuga est placeat\\",
+-                 \\"feedItemId\\": \\"consequuntur aut est\\",
++                 \\"challengeId\\": \\"aut vitae id\\",
++                 \\"communityId\\": \\"repellendus autem aliquam\\",
++                 \\"feedItemId\\": \\"alias accusamus reiciendis\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Fanny Marks\\",
+-                 \\"id\\": \\"12\\",
+-                 \\"picture\\": \\"placeat quidem est\\",
++                 \\"fullName\\": \\"Amari Pagac\\",
++                 \\"id\\": \\"44\\",
++                 \\"picture\\": \\"in sint in\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2018-11-21T04:15:10.052Z\\",
+-               \\"id\\": \\"13\\",
+-               \\"messageTemplate\\": \\"repellendus hic veritatis\\",
++               \\"createdAt\\": \\"2019-04-16T06:11:12.227Z\\",
++               \\"id\\": \\"45\\",
++               \\"messageTemplate\\": \\"vero eaque possimus\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"et sequi voluptas\\",
+-                   \\"value\\": \\"culpa non aut\\",
++                   \\"key\\": \\"voluptatem in provident\\",
++                   \\"value\\": \\"voluptatem magni dolorum\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"rerum impedit ex\\",
+-                   \\"value\\": \\"rem voluptates voluptas\\",
++                   \\"key\\": \\"natus et dolorem\\",
++                   \\"value\\": \\"aut quam cum\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"corporis alias est\\",
+-                 \\"communityId\\": \\"ut est sunt\\",
+-                 \\"feedItemId\\": \\"vel labore omnis\\",
++                 \\"challengeId\\": \\"eum labore velit\\",
++                 \\"communityId\\": \\"totam qui ea\\",
++                 \\"feedItemId\\": \\"quia voluptatem tempore\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Isom Hermann\\",
+-                 \\"id\\": \\"14\\",
+-                 \\"picture\\": \\"culpa earum voluptate\\",
++                 \\"fullName\\": \\"Patience Predovic\\",
++                 \\"id\\": \\"46\\",
++                 \\"picture\\": \\"ut et consequatur\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2013-10-21T17:39:13.137Z\\",
+-               \\"id\\": \\"15\\",
+-               \\"messageTemplate\\": \\"totam perferendis ut\\",
++               \\"createdAt\\": \\"2013-03-11T21:20:21.005Z\\",
++               \\"id\\": \\"47\\",
++               \\"messageTemplate\\": \\"velit ad molestiae\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"et incidunt possimus\\",
+-                   \\"value\\": \\"molestias facere quia\\",
++                   \\"key\\": \\"ullam at ut\\",
++                   \\"value\\": \\"non eos et\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"et ab quo\\",
+-                   \\"value\\": \\"occaecati quia ipsum\\",
++                   \\"key\\": \\"amet sunt vitae\\",
++                   \\"value\\": \\"minus quae occaecati\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"consectetur optio laudantium\\",
+-                 \\"communityId\\": \\"eos quod recusandae\\",
+-                 \\"feedItemId\\": \\"quasi ipsum rem\\",
++                 \\"challengeId\\": \\"enim sit magnam\\",
++                 \\"communityId\\": \\"dolor nam sint\\",
++                 \\"feedItemId\\": \\"aut recusandae et\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Tobin Sipes\\",
+-                 \\"id\\": \\"16\\",
+-                 \\"picture\\": \\"eligendi omnis repellat\\",
++                 \\"fullName\\": \\"Adeline Heaney\\",
++                 \\"id\\": \\"48\\",
++                 \\"picture\\": \\"eius quibusdam doloremque\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2019-11-02T10:30:00.577Z\\",
+-               \\"id\\": \\"17\\",
+-               \\"messageTemplate\\": \\"qui accusantium odit\\",
++               \\"createdAt\\": \\"2015-08-08T02:25:13.829Z\\",
++               \\"id\\": \\"49\\",
++               \\"messageTemplate\\": \\"assumenda sit similique\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"minima sunt qui\\",
+-                   \\"value\\": \\"similique ut quam\\",
++                   \\"key\\": \\"veniam vel et\\",
++                   \\"value\\": \\"officiis architecto est\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"natus consequatur sit\\",
+-                   \\"value\\": \\"vel et nostrum\\",
++                   \\"key\\": \\"distinctio similique amet\\",
++                   \\"value\\": \\"neque cupiditate totam\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"minima quia ut\\",
+-                 \\"communityId\\": \\"omnis delectus voluptas\\",
+-                 \\"feedItemId\\": \\"quis ut incidunt\\",
++                 \\"challengeId\\": \\"voluptatibus quae sit\\",
++                 \\"communityId\\": \\"nihil beatae labore\\",
++                 \\"feedItemId\\": \\"et est vel\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Alessandra Lang\\",
+-                 \\"id\\": \\"18\\",
+-                 \\"picture\\": \\"dolore aut eos\\",
++                 \\"fullName\\": \\"Annalise Kohler\\",
++                 \\"id\\": \\"50\\",
++                 \\"picture\\": \\"vel nisi quidem\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2017-09-15T15:27:12.378Z\\",
+-               \\"id\\": \\"19\\",
+-               \\"messageTemplate\\": \\"porro aut laborum\\",
++               \\"createdAt\\": \\"2011-01-01T20:10:35.606Z\\",
++               \\"id\\": \\"51\\",
++               \\"messageTemplate\\": \\"nisi voluptatum tempora\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"quae sint odit\\",
+-                   \\"value\\": \\"dolor tempora et\\",
++                   \\"key\\": \\"deleniti et sit\\",
++                   \\"value\\": \\"qui aut quia\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"quo aperiam natus\\",
+-                   \\"value\\": \\"et perferendis magni\\",
++                   \\"key\\": \\"quas dolore tempore\\",
++                   \\"value\\": \\"at illo esse\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"sequi quia itaque\\",
+-                 \\"communityId\\": \\"dolores commodi inventore\\",
+-                 \\"feedItemId\\": \\"molestiae iste molestiae\\",
++                 \\"challengeId\\": \\"aut odio adipisci\\",
++                 \\"communityId\\": \\"totam quaerat eius\\",
++                 \\"feedItemId\\": \\"sint ut voluptates\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Gideon Kautzer\\",
+-                 \\"id\\": \\"20\\",
+-                 \\"picture\\": \\"et facere placeat\\",
++                 \\"fullName\\": \\"Rosella McLaughlin\\",
++                 \\"id\\": \\"52\\",
++                 \\"picture\\": \\"quo enim eos\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+            ],
+            \\"id\\": 2,
+@@ -569,373 +568,372 @@
+        Array [
+          Object {
+            \\"data\\": Array [
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"21\\",
++               \\"id\\": \\"53\\",
+                \\"subject\\": Object {
+                  \\"__typename\\": \\"Post\\",
+                  \\"author\\": Object {
+                    \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Viva Hessel\\",
+-                   \\"id\\": \\"23\\",
++                   \\"fullName\\": \\"Lelah Feeney\\",
++                   \\"id\\": \\"55\\",
+                  },
+-                 \\"content\\": \\"adipisci itaque culpa\\",
+-                 \\"createdAt\\": \\"2011-07-29T01:47:49.648Z\\",
++                 \\"content\\": \\"velit dolorum soluta\\",
++                 \\"createdAt\\": \\"2014-12-08T04:22:36.764Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"voluptatem maxime neque\\",
+-                     \\"id\\": \\"25\\",
+-                     \\"name\\": \\"Diverse analyzing database\\",
++                     \\"communityPhotoUrl\\": \\"voluptatum eius sequi\\",
++                     \\"id\\": \\"57\\",
++                     \\"name\\": \\"Total incremental project\\",
+                    },
+-                   \\"id\\": \\"24\\",
++                   \\"id\\": \\"56\\",
+                  },
+-                 \\"id\\": \\"22\\",
+-                 \\"mediaExpiringUrl\\": \\"quis ut ab\\",
++                 \\"id\\": \\"54\\",
++                 \\"mediaExpiringUrl\\": \\"perspiciatis sequi et\\",
+                },
+              },
+              Object {
+                \\"__typename\\": \\"ContentComplaintGroup\\",
+-               \\"id\\": \\"26\\",
++               \\"id\\": \\"58\\",
+                \\"subject\\": Object {
+-                 \\"__typename\\": \\"Post\\",
+-                 \\"author\\": Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"fullName\\": \\"Nannie Ferry\\",
+-                   \\"id\\": \\"28\\",
+-                 },
+-                 \\"content\\": \\"omnis sit et\\",
+-                 \\"createdAt\\": \\"2011-11-26T08:25:50.350Z\\",
++                 \\"__typename\\": \\"FeedItemComment\\",
++                 \\"content\\": \\"qui doloribus facere\\",
++                 \\"createdAt\\": \\"2018-08-03T20:59:19.468Z\\",
+                  \\"feedItem\\": Object {
+                    \\"__typename\\": \\"FeedItem\\",
+                    \\"community\\": Object {
+                      \\"__typename\\": \\"Community\\",
+-                     \\"communityPhotoUrl\\": \\"eum saepe nesciunt\\",
+-                     \\"id\\": \\"30\\",
+-                     \\"name\\": \\"Diverse mobile website\\",
++                     \\"communityPhotoUrl\\": \\"enim quia reprehenderit\\",
++                     \\"id\\": \\"62\\",
++                     \\"name\\": \\"Seamless non-volatile adapter\\",
+                    },
+-                   \\"id\\": \\"29\\",
++                   \\"id\\": \\"61\\",
++                 },
++                 \\"id\\": \\"59\\",
++                 \\"person\\": Object {
++                   \\"__typename\\": \\"Person\\",
++                   \\"fullName\\": \\"Damaris Beahan\\",
++                   \\"id\\": \\"60\\",
+                  },
+-                 \\"id\\": \\"27\\",
+-                 \\"mediaExpiringUrl\\": \\"quasi eaque corrupti\\",
+                },
+              },
+            ],
+            \\"id\\": 0,
+            \\"name\\": \\"reportedActivity\\",
+          },
+          Object {
+            \\"data\\": Array [
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2015-11-13T20:52:21.990Z\\",
+-               \\"id\\": \\"1\\",
+-               \\"messageTemplate\\": \\"repellat quisquam recusandae\\",
++               \\"createdAt\\": \\"2014-09-20T20:00:11.427Z\\",
++               \\"id\\": \\"33\\",
++               \\"messageTemplate\\": \\"doloribus aut culpa\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"ut nulla quam\\",
+-                   \\"value\\": \\"ipsam nobis cupiditate\\",
++                   \\"key\\": \\"non et architecto\\",
++                   \\"value\\": \\"non explicabo facere\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"sed dignissimos debitis\\",
+-                   \\"value\\": \\"incidunt accusantium sed\\",
++                   \\"key\\": \\"neque et ex\\",
++                   \\"value\\": \\"quaerat explicabo aut\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"libero qui recusandae\\",
+-                 \\"communityId\\": \\"amet iure ut\\",
+-                 \\"feedItemId\\": \\"ut sunt qui\\",
++                 \\"challengeId\\": \\"et voluptas quis\\",
++                 \\"communityId\\": \\"laudantium voluptatem magni\\",
++                 \\"feedItemId\\": \\"maxime sint libero\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Aaliyah Champlin\\",
+-                 \\"id\\": \\"2\\",
+-                 \\"picture\\": \\"corporis repellat ratione\\",
++                 \\"fullName\\": \\"Cade Hoeger\\",
++                 \\"id\\": \\"34\\",
++                 \\"picture\\": \\"molestias omnis numquam\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2013-05-02T19:02:46.486Z\\",
+-               \\"id\\": \\"3\\",
+-               \\"messageTemplate\\": \\"repudiandae esse blanditiis\\",
++               \\"createdAt\\": \\"2018-08-09T02:09:37.314Z\\",
++               \\"id\\": \\"35\\",
++               \\"messageTemplate\\": \\"adipisci non rerum\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"debitis et saepe\\",
+-                   \\"value\\": \\"eum dicta eum\\",
++                   \\"key\\": \\"dolorem recusandae est\\",
++                   \\"value\\": \\"perferendis molestiae ut\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"eaque enim ipsum\\",
+-                   \\"value\\": \\"inventore debitis libero\\",
++                   \\"key\\": \\"qui et possimus\\",
++                   \\"value\\": \\"hic in hic\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"explicabo eligendi occaecati\\",
+-                 \\"communityId\\": \\"ut et ipsam\\",
+-                 \\"feedItemId\\": \\"omnis et porro\\",
++                 \\"challengeId\\": \\"est id voluptates\\",
++                 \\"communityId\\": \\"qui id cupiditate\\",
++                 \\"feedItemId\\": \\"voluptatem quia et\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Keaton Keeling\\",
+-                 \\"id\\": \\"4\\",
+-                 \\"picture\\": \\"eos itaque velit\\",
++                 \\"fullName\\": \\"Kirk Ledner\\",
++                 \\"id\\": \\"36\\",
++                 \\"picture\\": \\"voluptas molestiae fuga\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2019-01-20T00:49:00.772Z\\",
+-               \\"id\\": \\"5\\",
+-               \\"messageTemplate\\": \\"deserunt quam tempore\\",
++               \\"createdAt\\": \\"2010-10-16T00:28:13.874Z\\",
++               \\"id\\": \\"37\\",
++               \\"messageTemplate\\": \\"iste sed repudiandae\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"placeat fuga doloribus\\",
+-                   \\"value\\": \\"distinctio placeat ullam\\",
++                   \\"key\\": \\"consequatur qui est\\",
++                   \\"value\\": \\"sapiente aperiam quia\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"minima ducimus temporibus\\",
+-                   \\"value\\": \\"modi aut architecto\\",
++                   \\"key\\": \\"ex consequuntur beatae\\",
++                   \\"value\\": \\"dolores eligendi quas\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"velit sit aperiam\\",
+-                 \\"communityId\\": \\"nobis repellendus fugiat\\",
+-                 \\"feedItemId\\": \\"nostrum ipsam qui\\",
++                 \\"challengeId\\": \\"molestiae consequatur sint\\",
++                 \\"communityId\\": \\"accusantium unde qui\\",
++                 \\"feedItemId\\": \\"corrupti dolorem id\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Vernie Jenkins\\",
+-                 \\"id\\": \\"6\\",
+-                 \\"picture\\": \\"provident velit eligendi\\",
++                 \\"fullName\\": \\"Addie Nitzsche\\",
++                 \\"id\\": \\"38\\",
++                 \\"picture\\": \\"molestiae reprehenderit exercitationem\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2015-07-24T04:31:37.548Z\\",
+-               \\"id\\": \\"7\\",
+-               \\"messageTemplate\\": \\"totam voluptates explicabo\\",
++               \\"createdAt\\": \\"2019-11-28T14:22:12.569Z\\",
++               \\"id\\": \\"39\\",
++               \\"messageTemplate\\": \\"voluptatem praesentium hic\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"quos qui illo\\",
+-                   \\"value\\": \\"error sunt laborum\\",
++                   \\"key\\": \\"veniam earum ex\\",
++                   \\"value\\": \\"culpa eveniet debitis\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"ratione a officia\\",
+-                   \\"value\\": \\"quaerat cumque incidunt\\",
++                   \\"key\\": \\"et nulla voluptatem\\",
++                   \\"value\\": \\"et delectus praesentium\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"voluptates ut ullam\\",
+-                 \\"communityId\\": \\"soluta sint non\\",
+-                 \\"feedItemId\\": \\"cupiditate sit vitae\\",
++                 \\"challengeId\\": \\"consequatur sed nisi\\",
++                 \\"communityId\\": \\"quas magni rerum\\",
++                 \\"feedItemId\\": \\"quia odit sit\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Eldora Turner\\",
+-                 \\"id\\": \\"8\\",
+-                 \\"picture\\": \\"quis sed magni\\",
++                 \\"fullName\\": \\"Victoria Shields\\",
++                 \\"id\\": \\"40\\",
++                 \\"picture\\": \\"suscipit perferendis rem\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2019-01-05T11:30:13.119Z\\",
+-               \\"id\\": \\"9\\",
+-               \\"messageTemplate\\": \\"provident esse hic\\",
++               \\"createdAt\\": \\"2015-09-27T14:48:43.575Z\\",
++               \\"id\\": \\"41\\",
++               \\"messageTemplate\\": \\"unde ut quibusdam\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"officia aut ut\\",
+-                   \\"value\\": \\"ut eos ducimus\\",
++                   \\"key\\": \\"et ipsam ut\\",
++                   \\"value\\": \\"saepe vel in\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"eos saepe consequatur\\",
+-                   \\"value\\": \\"vel in ut\\",
++                   \\"key\\": \\"perspiciatis sit consectetur\\",
++                   \\"value\\": \\"temporibus officia laborum\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"autem rerum doloremque\\",
+-                 \\"communityId\\": \\"nam eos sint\\",
+-                 \\"feedItemId\\": \\"voluptas sed quae\\",
++                 \\"challengeId\\": \\"et dolore consequatur\\",
++                 \\"communityId\\": \\"tenetur deserunt eius\\",
++                 \\"feedItemId\\": \\"animi ipsam perferendis\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Maud Kulas\\",
+-                 \\"id\\": \\"10\\",
+-                 \\"picture\\": \\"esse ut ab\\",
++                 \\"fullName\\": \\"Kirstin Graham\\",
++                 \\"id\\": \\"42\\",
++                 \\"picture\\": \\"consequuntur quos hic\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2018-05-20T10:58:20.582Z\\",
+-               \\"id\\": \\"11\\",
+-               \\"messageTemplate\\": \\"et molestiae ea\\",
++               \\"createdAt\\": \\"2019-07-22T07:12:59.250Z\\",
++               \\"id\\": \\"43\\",
++               \\"messageTemplate\\": \\"illo perferendis quam\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"enim ex eveniet\\",
+-                   \\"value\\": \\"facere molestiae aut\\",
++                   \\"key\\": \\"nesciunt eum non\\",
++                   \\"value\\": \\"in esse et\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"delectus aut nam\\",
+-                   \\"value\\": \\"et dolorum architecto\\",
++                   \\"key\\": \\"ut quis cumque\\",
++                   \\"value\\": \\"officia optio placeat\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"ex ut voluptas\\",
+-                 \\"communityId\\": \\"fuga est placeat\\",
+-                 \\"feedItemId\\": \\"consequuntur aut est\\",
++                 \\"challengeId\\": \\"aut vitae id\\",
++                 \\"communityId\\": \\"repellendus autem aliquam\\",
++                 \\"feedItemId\\": \\"alias accusamus reiciendis\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Fanny Marks\\",
+-                 \\"id\\": \\"12\\",
+-                 \\"picture\\": \\"placeat quidem est\\",
++                 \\"fullName\\": \\"Amari Pagac\\",
++                 \\"id\\": \\"44\\",
++                 \\"picture\\": \\"in sint in\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2018-11-21T04:15:10.052Z\\",
+-               \\"id\\": \\"13\\",
+-               \\"messageTemplate\\": \\"repellendus hic veritatis\\",
++               \\"createdAt\\": \\"2019-04-16T06:11:12.227Z\\",
++               \\"id\\": \\"45\\",
++               \\"messageTemplate\\": \\"vero eaque possimus\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"et sequi voluptas\\",
+-                   \\"value\\": \\"culpa non aut\\",
++                   \\"key\\": \\"voluptatem in provident\\",
++                   \\"value\\": \\"voluptatem magni dolorum\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"rerum impedit ex\\",
+-                   \\"value\\": \\"rem voluptates voluptas\\",
++                   \\"key\\": \\"natus et dolorem\\",
++                   \\"value\\": \\"aut quam cum\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"corporis alias est\\",
+-                 \\"communityId\\": \\"ut est sunt\\",
+-                 \\"feedItemId\\": \\"vel labore omnis\\",
++                 \\"challengeId\\": \\"eum labore velit\\",
++                 \\"communityId\\": \\"totam qui ea\\",
++                 \\"feedItemId\\": \\"quia voluptatem tempore\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Isom Hermann\\",
+-                 \\"id\\": \\"14\\",
+-                 \\"picture\\": \\"culpa earum voluptate\\",
++                 \\"fullName\\": \\"Patience Predovic\\",
++                 \\"id\\": \\"46\\",
++                 \\"picture\\": \\"ut et consequatur\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2013-10-21T17:39:13.137Z\\",
+-               \\"id\\": \\"15\\",
+-               \\"messageTemplate\\": \\"totam perferendis ut\\",
++               \\"createdAt\\": \\"2013-03-11T21:20:21.005Z\\",
++               \\"id\\": \\"47\\",
++               \\"messageTemplate\\": \\"velit ad molestiae\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"et incidunt possimus\\",
+-                   \\"value\\": \\"molestias facere quia\\",
++                   \\"key\\": \\"ullam at ut\\",
++                   \\"value\\": \\"non eos et\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"et ab quo\\",
+-                   \\"value\\": \\"occaecati quia ipsum\\",
++                   \\"key\\": \\"amet sunt vitae\\",
++                   \\"value\\": \\"minus quae occaecati\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"consectetur optio laudantium\\",
+-                 \\"communityId\\": \\"eos quod recusandae\\",
+-                 \\"feedItemId\\": \\"quasi ipsum rem\\",
++                 \\"challengeId\\": \\"enim sit magnam\\",
++                 \\"communityId\\": \\"dolor nam sint\\",
++                 \\"feedItemId\\": \\"aut recusandae et\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Tobin Sipes\\",
+-                 \\"id\\": \\"16\\",
+-                 \\"picture\\": \\"eligendi omnis repellat\\",
++                 \\"fullName\\": \\"Adeline Heaney\\",
++                 \\"id\\": \\"48\\",
++                 \\"picture\\": \\"eius quibusdam doloremque\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2019-11-02T10:30:00.577Z\\",
+-               \\"id\\": \\"17\\",
+-               \\"messageTemplate\\": \\"qui accusantium odit\\",
++               \\"createdAt\\": \\"2015-08-08T02:25:13.829Z\\",
++               \\"id\\": \\"49\\",
++               \\"messageTemplate\\": \\"assumenda sit similique\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"minima sunt qui\\",
+-                   \\"value\\": \\"similique ut quam\\",
++                   \\"key\\": \\"veniam vel et\\",
++                   \\"value\\": \\"officiis architecto est\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"natus consequatur sit\\",
+-                   \\"value\\": \\"vel et nostrum\\",
++                   \\"key\\": \\"distinctio similique amet\\",
++                   \\"value\\": \\"neque cupiditate totam\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"minima quia ut\\",
+-                 \\"communityId\\": \\"omnis delectus voluptas\\",
+-                 \\"feedItemId\\": \\"quis ut incidunt\\",
++                 \\"challengeId\\": \\"voluptatibus quae sit\\",
++                 \\"communityId\\": \\"nihil beatae labore\\",
++                 \\"feedItemId\\": \\"et est vel\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Alessandra Lang\\",
+-                 \\"id\\": \\"18\\",
+-                 \\"picture\\": \\"dolore aut eos\\",
++                 \\"fullName\\": \\"Annalise Kohler\\",
++                 \\"id\\": \\"50\\",
++                 \\"picture\\": \\"vel nisi quidem\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+              Object {
+                \\"__typename\\": \\"Notification\\",
+-               \\"createdAt\\": \\"2017-09-15T15:27:12.378Z\\",
+-               \\"id\\": \\"19\\",
+-               \\"messageTemplate\\": \\"porro aut laborum\\",
++               \\"createdAt\\": \\"2011-01-01T20:10:35.606Z\\",
++               \\"id\\": \\"51\\",
++               \\"messageTemplate\\": \\"nisi voluptatum tempora\\",
+                \\"messageVariables\\": Array [
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"quae sint odit\\",
+-                   \\"value\\": \\"dolor tempora et\\",
++                   \\"key\\": \\"deleniti et sit\\",
++                   \\"value\\": \\"qui aut quia\\",
+                  },
+                  Object {
+                    \\"__typename\\": \\"NotificationMessageVariable\\",
+-                   \\"key\\": \\"quo aperiam natus\\",
+-                   \\"value\\": \\"et perferendis magni\\",
++                   \\"key\\": \\"quas dolore tempore\\",
++                   \\"value\\": \\"at illo esse\\",
+                  },
+                ],
+                \\"screenData\\": Object {
+                  \\"__typename\\": \\"NotificationScreenData\\",
+-                 \\"challengeId\\": \\"sequi quia itaque\\",
+-                 \\"communityId\\": \\"dolores commodi inventore\\",
+-                 \\"feedItemId\\": \\"molestiae iste molestiae\\",
++                 \\"challengeId\\": \\"aut odio adipisci\\",
++                 \\"communityId\\": \\"totam quaerat eius\\",
++                 \\"feedItemId\\": \\"sint ut voluptates\\",
+                },
+                \\"subjectPerson\\": Object {
+                  \\"__typename\\": \\"Person\\",
+-                 \\"fullName\\": \\"Gideon Kautzer\\",
+-                 \\"id\\": \\"20\\",
+-                 \\"picture\\": \\"et facere placeat\\",
++                 \\"fullName\\": \\"Rosella McLaughlin\\",
++                 \\"id\\": \\"52\\",
++                 \\"picture\\": \\"quo enim eos\\",
+                },
+                \\"trigger\\": \\"step_reminder\\",
+              },
+            ],
+            \\"id\\": 2,
+@@ -1027,11 +1025,11 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"voluptatem maxime neque\\",
++                   \\"uri\\": \\"voluptatum eius sequi\\",
+                  }
+                }
+                style={
+                  Object {
+                    \\"borderRadius\\": 24,
+@@ -1106,11 +1104,11 @@
+                          \\"fontWeight\\": \\"bold\\",
+                        },
+                      ]
+                    }
+                  >
+-                    Diverse analyzing database 
++                    Total incremental project 
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1159,11 +1157,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 July 29, 2011 1:47 AM
++                 December 8, 2014 4:22 AM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -1205,11 +1203,11 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"eum saepe nesciunt\\",
++                   \\"uri\\": \\"enim quia reprehenderit\\",
+                  }
+                }
+                style={
+                  Object {
+                    \\"borderRadius\\": 24,
+@@ -1267,11 +1265,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   A post from
++                   A comment from
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1284,11 +1282,11 @@
+                          \\"fontWeight\\": \\"bold\\",
+                        },
+                      ]
+                    }
+                  >
+-                    Diverse mobile website 
++                    Seamless non-volatile adapter 
+                  </Text>
+                  <Text
+                    style={
+                      Array [
+                        Object {
+@@ -1337,11 +1335,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 November 26, 2011 8:25 AM
++                 August 3, 2018 8:59 PM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -1415,22 +1413,22 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"corporis repellat ratione\\",
++                   \\"uri\\": \\"molestias omnis numquam\\",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      \\"borderRadius\\": 24,
+                      \\"height\\": 48,
+                      \\"width\\": 48,
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"rgb(167, 121, 125)\\",
++                     \\"backgroundColor\\": \\"rgb(167, 199, 125)\\",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+@@ -1526,11 +1524,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   repellat quisquam recusandae
++                   doloribus aut culpa
+                  </Text>
+                </Text>
+                <Text
+                  style={
+                    Array [
+@@ -1547,11 +1545,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 November 13, 2015 8:52 PM
++                 September 20, 2014 8:00 PM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -1593,22 +1591,22 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"eos itaque velit\\",
++                   \\"uri\\": \\"voluptas molestiae fuga\\",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      \\"borderRadius\\": 24,
+                      \\"height\\": 48,
+                      \\"width\\": 48,
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"rgb(123, 155, 130)\\",
++                     \\"backgroundColor\\": \\"rgb(154, 115, 115)\\",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+@@ -1704,11 +1702,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   repudiandae esse blanditiis
++                   adipisci non rerum
+                  </Text>
+                </Text>
+                <Text
+                  style={
+                    Array [
+@@ -1725,11 +1723,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 May 2, 2013 7:02 PM
++                 August 9, 2018 2:09 AM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -1771,22 +1769,22 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"provident velit eligendi\\",
++                   \\"uri\\": \\"molestiae reprehenderit exercitationem\\",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      \\"borderRadius\\": 24,
+                      \\"height\\": 48,
+                      \\"width\\": 48,
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"rgb(152, 122, 155)\\",
++                     \\"backgroundColor\\": \\"rgb(122, 152, 130)\\",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+@@ -1882,11 +1880,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   deserunt quam tempore
++                   iste sed repudiandae
+                  </Text>
+                </Text>
+                <Text
+                  style={
+                    Array [
+@@ -1903,11 +1901,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 January 20, 2019 12:49 AM
++                 October 16, 2010 12:28 AM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -1949,22 +1947,22 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"quis sed magni\\",
++                   \\"uri\\": \\"suscipit perferendis rem\\",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      \\"borderRadius\\": 24,
+                      \\"height\\": 48,
+                      \\"width\\": 48,
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"rgb(135, 72, 125)\\",
++                     \\"backgroundColor\\": \\"rgb(144, 199, 67)\\",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+@@ -2060,11 +2058,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   totam voluptates explicabo
++                   voluptatem praesentium hic
+                  </Text>
+                </Text>
+                <Text
+                  style={
+                    Array [
+@@ -2081,11 +2079,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 July 24, 2015 4:31 AM
++                 November 28, 2019 2:22 PM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>
+@@ -2127,22 +2125,22 @@
+            >
+              <Image
+                resizeMode=\\"cover\\"
+                source={
+                  Object {
+-                   \\"uri\\": \\"esse ut ab\\",
++                   \\"uri\\": \\"consequuntur quos hic\\",
+                  }
+                }
+                style={
+                  Array [
+                    Object {
+                      \\"borderRadius\\": 24,
+                      \\"height\\": 48,
+                      \\"width\\": 48,
+                    },
+                    Object {
+-                     \\"backgroundColor\\": \\"rgb(153, 123, 115)\\",
++                     \\"backgroundColor\\": \\"rgb(109, 144, 115)\\",
+                    },
+                    undefined,
+                  ]
+                }
+              />
+@@ -2238,11 +2236,11 @@
+                        },
+                        Object {},
+                      ]
+                    }
+                  >
+-                   provident esse hic
++                   unde ut quibusdam
+                  </Text>
+                </Text>
+                <Text
+                  style={
+                    Array [
+@@ -2259,11 +2257,11 @@
+                      },
+                    ]
+                  }
+                  testID=\\"Text\\"
+                >
+-                 January 5, 2019 11:30 AM
++                 September 27, 2015 2:48 PM
+                </Text>
+              </View>
+            </View>
+          </View>
+        </View>"
+`;
+
 exports[`renders Earlier section correctly  1`] = `
 <View
   style={
@@ -1013,9 +2424,9 @@ exports[`renders Earlier section correctly  1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(112, 144, 115)",
@@ -2025,9 +3436,9 @@ exports[`renders Today section correctly  1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(112, 144, 115)",
@@ -3037,9 +4448,9 @@ exports[`renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(102, 144, 115)",
@@ -5319,9 +6730,9 @@ exports[`renders null for non-english users 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(102, 144, 115)",
@@ -5582,9 +6993,9 @@ exports[`renders with no data 1`] = `
                   },
                   Array [
                     Object {
-                      "borderRadius": 24,
-                      "height": 48,
-                      "width": 48,
+                      "borderRadius": 20,
+                      "height": 42,
+                      "width": 42,
                     },
                     Object {
                       "backgroundColor": "#B4B6BA",
@@ -5871,9 +7282,9 @@ exports[`renders with refresh button 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(155, 123, 115)",

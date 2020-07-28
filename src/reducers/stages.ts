@@ -20,8 +20,7 @@ export interface Stage {
   localized_pathway_stages: LocalizedPathwayStage[];
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type StagesObj = { [key: string]: Stage };
+export type StagesObj = Record<string, Stage>;
 
 export interface StagesState {
   stages: Stage[];
@@ -43,7 +42,7 @@ function stagesReducer(
     | LogoutAction,
 ) {
   switch (action.type) {
-    case REQUESTS.GET_STAGES.SUCCESS:
+    case REQUESTS.GET_STAGES.SUCCESS: {
       const stages = action.results.response as Stage[];
       const stagesObj = stages.reduce(
         (stagesObj, stage) => ({
@@ -57,6 +56,7 @@ function stagesReducer(
         stages,
         stagesObj,
       };
+    }
     case LOGOUT:
       return initialStagesState;
     default:

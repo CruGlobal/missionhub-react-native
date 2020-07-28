@@ -81,6 +81,7 @@ if (module.hot) {
   // @ts-ignore
   module.hot.accept(() => {
     // This fetches the new state of the above reducers.
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const nextRootReducer = require('./reducers').default;
     store.replaceReducer(persistReducer(persistConfig, nextRootReducer));
   });

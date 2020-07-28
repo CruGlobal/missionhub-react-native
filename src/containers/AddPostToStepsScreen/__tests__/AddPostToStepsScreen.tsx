@@ -18,7 +18,6 @@ import {
   PostStepStatusEnum,
   StepTypeEnum,
 } from '../../../../__generated__/globalTypes';
-
 import AddPostToStepsScreen from '..';
 
 jest.mock('../../../actions/analytics');

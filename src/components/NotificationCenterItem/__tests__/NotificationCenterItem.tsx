@@ -23,7 +23,6 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { ContentComplaintGroupItem } from '../__generated__/ContentComplaintGroupItem';
 import { COMMUNITY_REPORTED } from '../../../containers/Communities/Community/CommunityReported/CommunityReported';
 import { reloadGroupChallengeFeed } from '../../../actions/challenges';
-
 import { NotificationCenterItem, ReportedNotificationCenterItem } from '..';
 
 jest.mock('../../../actions/navigation');
@@ -111,18 +110,23 @@ describe('different notification types', () => {
 
   it('renders correctly | Prayer Request', () => {
     notificationType('prayer request', PostTypeEnum.prayer_request);
+    expect.hasAssertions();
   });
   it('renders correctly | Spiritual Question', () => {
     notificationType('spiritual question', PostTypeEnum.question);
+    expect.hasAssertions();
   });
   it('renders correctly | Community Need', () => {
     notificationType('care request', PostTypeEnum.help_request);
+    expect.hasAssertions();
   });
   it('renders correctly | God Story', () => {
     notificationType('god story', PostTypeEnum.story);
+    expect.hasAssertions();
   });
   it('renders correctly | Thought', () => {
     notificationType('thought', PostTypeEnum.thought);
+    expect.hasAssertions();
   });
   describe('Announcement', () => {
     const mockAnnouncment = mockFragment<NotificationItem>(

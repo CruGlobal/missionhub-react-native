@@ -1,5 +1,3 @@
-/* eslint max-params: 0, max-lines-per-function: 0 */
-
 import { Linking } from 'react-native';
 import gql from 'graphql-tag';
 
@@ -58,6 +56,7 @@ export function openCommunicationLink(url, action) {
       .catch(err => WARN('An unexpected error happened', err));
 }
 
+// eslint-disable-next-line max-params
 export function navigateToStageScreen(
   personIsCurrentUser: boolean,
   person: Person,

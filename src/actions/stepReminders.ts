@@ -1,11 +1,13 @@
 import { ThunkDispatch } from 'redux-thunk';
 import gql from 'graphql-tag';
 import moment from 'moment';
+import { AnyAction } from 'redux';
 
 import { DAYS_OF_THE_WEEK } from '../constants';
 import { REQUESTS } from '../api/routes';
 import { ReminderTypeEnum } from '../../__generated__/globalTypes';
 import { apolloClient } from '../apolloClient';
+import { RootState } from '../reducers';
 
 import callApi from './api';
 import {
@@ -27,7 +29,7 @@ const REFRESH_STEP_REMINDER_QUERY = gql`
 `;
 
 export function removeStepReminder(stepId: string) {
-  return async (dispatch: ThunkDispatch<never, never, never>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     await dispatch(
       callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id: stepId }),
     );
@@ -43,7 +45,7 @@ export function createStepReminder(
   reminder_at: Date,
   reminder_type = ReminderTypeEnum.once,
 ) {
-  return async (dispatch: ThunkDispatch<never, never, never>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     await dispatch(
       callApi(
         REQUESTS.CREATE_CHALLENGE_REMINDER,

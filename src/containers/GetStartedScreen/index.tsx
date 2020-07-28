@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { Flex, Text } from '../../components/common';
 import DeprecatedBackButton from '../DeprecatedBackButton';
@@ -13,12 +14,12 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import Header from '../../components/Header';
 import { AuthState } from '../../reducers/auth';
 import { OnboardingState } from '../../reducers/onboarding';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
 interface GetStartedScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: () => ThunkAction<void, any, null, never>;
+  next: () => ThunkAction<void, RootState, never, AnyAction>;
   name: string;
   enableBackButton?: boolean;
   logoutOnBack?: boolean;

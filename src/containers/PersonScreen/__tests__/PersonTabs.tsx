@@ -5,18 +5,22 @@ import { personTabs } from '../PersonTabs';
 
 jest.mock('../../Groups/GroupCelebrate', () => 'CommunityFeed');
 jest.mock('../PersonSteps', () => ({
+  // @ts-ignore
   ...jest.requireActual('../PersonSteps'),
   PersonSteps: 'PersonSteps',
 }));
 jest.mock('../PersonNotes', () => ({
+  // @ts-ignore
   ...jest.requireActual('../PersonNotes'),
   PersonNotes: 'PersonNotes',
 }));
 jest.mock('../PersonJourney', () => ({
+  // @ts-ignore
   ...jest.requireActual('../PersonJourney'),
   PersonJourney: 'PersonJourney',
 }));
 jest.mock('../../ImpactTab/ImpactTab', () => ({
+  // @ts-ignore
   ...jest.requireActual('../../ImpactTab/ImpactTab'),
   ImpactTab: 'ImpactTab',
 }));

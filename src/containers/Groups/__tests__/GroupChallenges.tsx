@@ -145,7 +145,7 @@ it('should render empty correctly', () => {
 });
 
 it('should refresh items properly', () => {
-  const { getByType } = renderWithContext(
+  const { getByType, recordSnapshot, diffSnapshot } = renderWithContext(
     // @ts-ignore
     <GroupChallenges />,
     {
@@ -154,7 +154,9 @@ it('should refresh items properly', () => {
     },
   );
 
+  recordSnapshot();
   getByType(ChallengeFeed).props.refreshCallback();
+  diffSnapshot();
 });
 
 it('should call create', async () => {

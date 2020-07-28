@@ -9,7 +9,7 @@ const initialState = {
 function labelsReducer(state = initialState, action) {
   const results = action.results;
   switch (action.type) {
-    case REQUESTS.GET_MY_LABELS.SUCCESS:
+    case REQUESTS.GET_MY_LABELS.SUCCESS: {
       // @ts-ignore
       const labels = (results.findAll('label') || []).map(l => ({
         text: l.name,
@@ -19,6 +19,7 @@ function labelsReducer(state = initialState, action) {
         ...state,
         all: labels,
       };
+    }
     case LOGOUT:
       return initialState;
     default:

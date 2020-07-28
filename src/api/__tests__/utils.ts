@@ -95,17 +95,15 @@ it('should reject with response if application json', async () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (global as any).fetch = jest.fn(() => Promise.resolve(mock2Response));
 
-  try {
-    await request(
+  await expect(
+    request(
       requestObj.type,
       requestObj.url,
       requestObj.query,
       requestObj.data,
       {},
-    );
-  } catch (e) {
-    expect(e).toEqual(mock2ResponseBody);
-  }
+    ),
+  ).rejects.toEqual(mock2ResponseBody);
 });
 
 it('should reject with response if application vnd.api+json', async () => {
@@ -121,17 +119,15 @@ it('should reject with response if application vnd.api+json', async () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (global as any).fetch = jest.fn(() => Promise.resolve(mock2Response));
 
-  try {
-    await request(
+  await expect(
+    request(
       requestObj.type,
       requestObj.url,
       requestObj.query,
       requestObj.data,
       {},
-    );
-  } catch (e) {
-    expect(e).toEqual(mock2ResponseBody);
-  }
+    ),
+  ).rejects.toEqual(mock2ResponseBody);
 });
 
 it('should reject with response if html', async () => {
@@ -147,15 +143,13 @@ it('should reject with response if html', async () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   (global as any).fetch = jest.fn(() => Promise.resolve(mock2Response));
 
-  try {
-    await request(
+  await expect(
+    request(
       requestObj.type,
       requestObj.url,
       requestObj.query,
       requestObj.data,
       {},
-    );
-  } catch (e) {
-    expect(e).toEqual(mock2ResponseBody);
-  }
+    ),
+  ).rejects.toEqual(mock2ResponseBody);
 });

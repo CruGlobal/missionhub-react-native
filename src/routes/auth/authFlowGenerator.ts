@@ -4,10 +4,12 @@ import { buildTrackingObj } from '../../utils/common';
 import SignUpScreen, {
   SIGN_UP_SCREEN,
 } from '../../containers/Auth/SignUpScreen';
-import { SIGN_IN_SCREEN } from '../../containers/Auth/SignInScreen';
-import SignInScreen from '../../containers/Auth/SignInScreen';
-import { MFA_CODE_SCREEN } from '../../containers/Auth/MFACodeScreen';
-import MFACodeScreen from '../../containers/Auth/MFACodeScreen';
+import SignInScreen, {
+  SIGN_IN_SCREEN,
+} from '../../containers/Auth/SignInScreen';
+import MFACodeScreen, {
+  MFA_CODE_SCREEN,
+} from '../../containers/Auth/MFACodeScreen';
 
 export const authFlowGenerator = ({
   // @ts-ignore
