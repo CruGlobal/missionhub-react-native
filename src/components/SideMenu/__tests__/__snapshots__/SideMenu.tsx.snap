@@ -1275,7 +1275,7 @@ exports[`renders correctly | Authenticated User 1`] = `
               Object {
                 "borderColor": "#3CC8E6",
                 "borderWidth": 1,
-                "height": 40,
+                "height": 42,
                 "marginLeft": 10,
               },
               Object {
@@ -1352,7 +1352,7 @@ exports[`renders correctly | Authenticated User 1`] = `
               Object {
                 "borderColor": "#3CC8E6",
                 "borderWidth": 1,
-                "height": 40,
+                "height": 42,
                 "marginLeft": 10,
               },
               Object {
