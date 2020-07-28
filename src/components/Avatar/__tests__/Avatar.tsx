@@ -34,6 +34,11 @@ it('renders text small', () => {
   expect.hasAssertions();
 });
 
+it('renders text mediumSmall', () => {
+  renders({ person, size: 'mediumSmall' });
+  expect.hasAssertions();
+});
+
 it('renders text medium', () => {
   renders({ person, size: 'medium' });
   expect.hasAssertions();
@@ -46,6 +51,11 @@ it('renders text large', () => {
 
 it('renders image small', () => {
   renders({ person: personImage, size: 'small' });
+  expect.hasAssertions();
+});
+
+it('renders image mediumSmall', () => {
+  renders({ person: personImage, size: 'mediumSmall' });
   expect.hasAssertions();
 });
 
