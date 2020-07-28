@@ -13,7 +13,7 @@ export type AvatarPerson = {
   picture: string | null;
 };
 
-type AvatarSize = 'extrasmall' | 'small' | 'sidemenu' | 'medium' | 'large';
+type AvatarSize = 'extrasmall' | 'small' | 'mediumSmall' | 'medium' | 'large';
 
 const wrapStyles: { [key in AvatarSize]: StyleProp<ImageStyle> } = {
   extrasmall: {
@@ -24,14 +24,14 @@ const wrapStyles: { [key in AvatarSize]: StyleProp<ImageStyle> } = {
     borderColor: theme.white,
   },
   small: { width: 36, height: 36, borderRadius: 18 },
-  sidemenu: { width: 42, height: 42, borderRadius: 20 },
+  mediumSmall: { width: 42, height: 42, borderRadius: 20 },
   medium: { width: 48, height: 48, borderRadius: 24 },
   large: { width: 96, height: 96, borderRadius: 48 },
 };
 const textStyles: { [key in AvatarSize]: StyleProp<TextStyle> } = {
   extrasmall: { fontSize: 12 },
   small: { fontSize: 20, fontWeight: '300' },
-  sidemenu: { fontSize: 26, fontWeight: '300' },
+  mediumSmall: { fontSize: 26, fontWeight: '300' },
   medium: { fontSize: 26, fontWeight: '300' },
   large: { fontSize: 64, fontWeight: '300' },
 };

@@ -160,7 +160,7 @@ const SideMenu = () => {
       </View>
       <View style={styles.headerContainer}>
         <View style={styles.avatarContainer}>
-          <Avatar person={person} size={'sidemenu'} />
+          <Avatar person={person} size={'mediumSmall'} />
           <View style={styles.personInfoContainer}>
             <Text style={styles.personName}>{person?.fullName}</Text>
             <Text style={styles.personEmail}>{personEmail}</Text>

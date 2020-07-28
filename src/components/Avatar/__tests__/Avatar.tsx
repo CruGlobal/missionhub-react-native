@@ -34,8 +34,8 @@ it('renders text small', () => {
   expect.hasAssertions();
 });
 
-it('renders text for sidemeu', () => {
-  renders({ person, size: 'sidemenu' });
+it('renders text mediumSmall', () => {
+  renders({ person, size: 'mediumSmall' });
   expect.hasAssertions();
 });
 
@@ -54,8 +54,8 @@ it('renders image small', () => {
   expect.hasAssertions();
 });
 
-it('renders image for sidemenu', () => {
-  renders({ person: personImage, size: 'sidemenu' });
+it('renders image mediumSmall', () => {
+  renders({ person: personImage, size: 'mediumSmall' });
   expect.hasAssertions();
 });
 
