@@ -27,7 +27,6 @@ import {
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
-import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
@@ -172,7 +171,7 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const handlePress = (community: Organization) => {
+  const handlePress = (community: GetCommunities_communities_nodes) => {
     dispatch(
       navigatePush(COMMUNITY_TABS, {
         communityId: community.id,
