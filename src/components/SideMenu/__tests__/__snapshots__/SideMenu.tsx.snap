@@ -141,9 +141,9 @@ exports[`render update button 1`] = `
         style={
           Array [
             Object {
-              "borderRadius": 24,
-              "height": 48,
-              "width": 48,
+              "borderRadius": 20,
+              "height": 42,
+              "width": 42,
             },
             Object {
               "backgroundColor": "rgb(167, 154, 115)",
@@ -993,7 +993,7 @@ exports[`render update button 1`] = `
                     "color": "#ffffff",
                     "fontSize": 16,
                     "fontWeight": "400",
-                    "height": 25,
+                    "height": 20,
                     "letterSpacing": 0.2,
                     "textAlign": "center",
                   },
@@ -1150,9 +1150,9 @@ exports[`renders correctly | Authenticated User 1`] = `
             },
             Array [
               Object {
-                "borderRadius": 24,
-                "height": 48,
-                "width": 48,
+                "borderRadius": 20,
+                "height": 42,
+                "width": 42,
               },
               Object {
                 "backgroundColor": "#B4B6BA",
@@ -1275,7 +1275,7 @@ exports[`renders correctly | Authenticated User 1`] = `
               Object {
                 "borderColor": "#3CC8E6",
                 "borderWidth": 1,
-                "height": 40,
+                "height": 42,
                 "marginLeft": 10,
               },
               Object {
@@ -1352,7 +1352,7 @@ exports[`renders correctly | Authenticated User 1`] = `
               Object {
                 "borderColor": "#3CC8E6",
                 "borderWidth": 1,
-                "height": 40,
+                "height": 42,
                 "marginLeft": 10,
               },
               Object {
@@ -2242,9 +2242,9 @@ exports[`renders correctly | UnAuthed User 1`] = `
             },
             Array [
               Object {
-                "borderRadius": 24,
-                "height": 48,
-                "width": 48,
+                "borderRadius": 20,
+                "height": 42,
+                "width": 42,
               },
               Object {
                 "backgroundColor": "#B4B6BA",

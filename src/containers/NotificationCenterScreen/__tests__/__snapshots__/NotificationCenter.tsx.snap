@@ -2424,9 +2424,9 @@ exports[`renders Earlier section correctly  1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(112, 144, 115)",
@@ -3436,9 +3436,9 @@ exports[`renders Today section correctly  1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(112, 144, 115)",
@@ -4448,9 +4448,9 @@ exports[`renders correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(102, 144, 115)",
@@ -6730,9 +6730,9 @@ exports[`renders null for non-english users 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(102, 144, 115)",
@@ -6993,9 +6993,9 @@ exports[`renders with no data 1`] = `
                   },
                   Array [
                     Object {
-                      "borderRadius": 24,
-                      "height": 48,
-                      "width": 48,
+                      "borderRadius": 20,
+                      "height": 42,
+                      "width": 42,
                     },
                     Object {
                       "backgroundColor": "#B4B6BA",
@@ -7282,9 +7282,9 @@ exports[`renders with refresh button 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(155, 123, 115)",
