@@ -142,7 +142,10 @@ describe('navigateNestedReset', () => {
             type: 'Navigation/NAVIGATE',
             routeName: tabsScreen,
             params: params1,
-            action: NavigationActions.navigate({ routeName: tab1 }),
+            action: NavigationActions.navigate({
+              routeName: tab1,
+              params: params1,
+            }),
           },
           { type: 'Navigation/NAVIGATE', routeName: screen1 },
           { type: 'Navigation/NAVIGATE', routeName: screen2, params: params2 },
