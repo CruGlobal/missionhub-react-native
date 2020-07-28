@@ -1,5 +1,5 @@
 import React from 'react';
-import { GestureResponderEvent, Image } from 'react-native';
+import { Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Text, Flex, Card, Button } from '../common';
@@ -11,8 +11,8 @@ import styles from './styles';
 
 export interface GroupCardItemProps {
   group: GetCommunities_communities_nodes;
-  onPress?: (event: GestureResponderEvent) => void;
-  onJoin?: (event: GestureResponderEvent) => void;
+  onPress?: (group: GetCommunities_communities_nodes) => void;
+  onJoin?: (group: GetCommunities_communities_nodes) => void;
   testID?: string;
 }
 
@@ -59,7 +59,11 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
   //In some cases we want to prevent clicking on GroupCardItem.
 
   return (
-    <Card testID="CardButton" onPress={onPress} style={styles.card}>
+    <Card
+      testID="CardButton"
+      onPress={() => onPress?.(group)}
+      style={styles.card}
+    >
       <Flex value={1} style={styles.content}>
         <Image
           source={communityPhotoSource}
@@ -79,7 +83,7 @@ const GroupCardItem = ({ group, onPress, onJoin }: GroupCardItemProps) => {
                 style={[styles.joinButton]}
                 buttonTextStyle={styles.joinButtonText}
                 text={t('join').toUpperCase()}
-                onPress={onJoin}
+                onPress={() => onJoin?.(group)}
               />
             </Flex>
           ) : null}
