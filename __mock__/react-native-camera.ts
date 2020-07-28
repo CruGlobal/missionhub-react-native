@@ -1,4 +1,5 @@
 jest.mock('react-native-camera', () => {
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const React = require('react');
 
   const MOCK_IMAGE = 'data:image/jpeg;base64,base64image.jpeg';

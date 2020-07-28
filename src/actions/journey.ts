@@ -1,5 +1,3 @@
-/* eslint max-params: 0 */
-
 import { UPDATE_JOURNEY_ITEMS } from '../constants';
 import { REQUESTS } from '../api/routes';
 
@@ -45,6 +43,7 @@ export function getJourney(personId) {
 }
 
 // @ts-ignore
+// eslint-disable-next-line max-params
 function getPersonFeed(personId, orgId, include, filters = {}) {
   // @ts-ignore
   return dispatch => {

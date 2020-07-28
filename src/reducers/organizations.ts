@@ -1,4 +1,3 @@
-/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
 import i18next from 'i18next';
 
 import {
@@ -38,8 +37,11 @@ const initialState: OrganizationsState = {
   all: [globalCommunity],
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function organizationsReducer(state = initialState, action: any) {
+function organizationsReducer(
+  state: OrganizationsState = initialState,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  action: any,
+) {
   switch (action.type) {
     case LOAD_ORGANIZATIONS:
       return {
@@ -63,7 +65,7 @@ function organizationsReducer(state = initialState, action: any) {
             )
           : [...state.all, action.results.response],
       };
-    case GET_ORGANIZATIONS_CONTACTS_REPORT:
+    case GET_ORGANIZATIONS_CONTACTS_REPORT: {
       const { reports } = action;
       return {
         ...state,
@@ -74,6 +76,7 @@ function organizationsReducer(state = initialState, action: any) {
           return contactReport ? { ...o, contactReport } : o;
         }),
       };
+    }
     case REQUESTS.GET_USERS_REPORT.SUCCESS:
       return {
         ...state,
@@ -89,7 +92,7 @@ function organizationsReducer(state = initialState, action: any) {
             : o,
         ),
       };
-    case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS:
+    case REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS: {
       const isChallenge =
         action.type === REQUESTS.GET_GROUP_CHALLENGE_FEED.SUCCESS;
       const cQuery = action.query;
@@ -141,7 +144,8 @@ function organizationsReducer(state = initialState, action: any) {
             )
           : state.all,
       };
-    case RESET_CHALLENGE_PAGINATION:
+    }
+    case RESET_CHALLENGE_PAGINATION: {
       const resetCPagination =
         action.type === RESET_CHALLENGE_PAGINATION
           ? 'challengePagination'
@@ -157,10 +161,11 @@ function organizationsReducer(state = initialState, action: any) {
             : o,
         ),
       };
+    }
     case REQUESTS.UPDATE_ORGANIZATION.SUCCESS:
     case REQUESTS.UPDATE_ORGANIZATION_IMAGE.SUCCESS:
     case REQUESTS.ORGANIZATION_NEW_CODE.SUCCESS:
-    case REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS:
+    case REQUESTS.ORGANIZATION_NEW_LINK.SUCCESS: {
       const {
         results: { response: updatedOrgResponse },
       } = action;
@@ -180,16 +185,17 @@ function organizationsReducer(state = initialState, action: any) {
             : o,
         ),
       };
+    }
     case UPDATE_PERSON_ATTRIBUTES:
       return updateAllPersonInstances(action.updatedPersonAttributes, state);
     case LOAD_PERSON_DETAILS:
       return updateAllPersonInstances(action.person, state);
     case REQUESTS.GET_ME.SUCCESS:
       return updateAllPersonInstances(action.results.response, state);
-    case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS:
+    case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS: {
       const commentCounts = action.results.response.organizational_permissions.reduce(
         (
-          acc: object,
+          acc: Record<string, unknown>,
           {
             organization: { id, unread_comments_count },
           }: { organization: Organization },
@@ -207,7 +213,8 @@ function organizationsReducer(state = initialState, action: any) {
           unread_comments_count: commentCounts[o.id] || o.unread_comments_count,
         })),
       };
-    case REMOVE_ORGANIZATION_MEMBER:
+    }
+    case REMOVE_ORGANIZATION_MEMBER: {
       const { personId, orgId } = action;
 
       return {
@@ -223,6 +230,7 @@ function organizationsReducer(state = initialState, action: any) {
             : o,
         ),
       };
+    }
     case UPDATE_CHALLENGE:
       return updateChallenge(action, state);
 
@@ -248,8 +256,10 @@ function organizationsReducer(state = initialState, action: any) {
   }
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function updateAllPersonInstances(updatedPerson: { id: string }, state: any) {
+function updateAllPersonInstances(
+  updatedPerson: { id: string },
+  state: OrganizationsState,
+) {
   return {
     ...state,
     all: state.all.map((org: Organization) =>
@@ -266,7 +276,7 @@ function updateAllPersonInstances(updatedPerson: { id: string }, state: any) {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function updateChallenge(action: any, state: any) {
+function updateChallenge(action: any, state: OrganizationsState) {
   const { challenge = {} } = action;
   const orgId =
     (challenge.organization && challenge.organization.id) || undefined;

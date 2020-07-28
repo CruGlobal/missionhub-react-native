@@ -17,7 +17,7 @@ beforeEach(() => {
   (startOnboarding as jest.Mock).mockReturnValue(startOnboardingResponse);
 });
 
-const test = async ({
+const testDeepLink = async ({
   auth = false,
   initialLink = false,
   deepLinkUrl = 'https://missionhub.com/c/1234567890123456',
@@ -46,7 +46,7 @@ describe('setupFirebaseDynamicLinks', () => {
   describe('unauthenticated', () => {
     it('should handle a link that launched the app ', async () => {
       expect(
-        await test({
+        await testDeepLink({
           auth: false,
           initialLink: true,
         }),
@@ -78,7 +78,7 @@ describe('setupFirebaseDynamicLinks', () => {
     });
     it('should handle a link that was opened while the app was running ', async () => {
       expect(
-        await test({
+        await testDeepLink({
           auth: false,
           initialLink: false,
         }),
@@ -112,7 +112,7 @@ describe('setupFirebaseDynamicLinks', () => {
   describe('authenticated', () => {
     it('should handle a link that launched the app ', async () => {
       expect(
-        await test({
+        await testDeepLink({
           auth: true,
           initialLink: true,
         }),
@@ -145,7 +145,7 @@ describe('setupFirebaseDynamicLinks', () => {
     });
     it('should handle a link that was opened while the app was running', async () => {
       expect(
-        await test({
+        await testDeepLink({
           auth: true,
           initialLink: false,
         }),
@@ -180,45 +180,45 @@ describe('setupFirebaseDynamicLinks', () => {
   describe('unknown links', () => {
     it('should ignore an empty link', async () => {
       expect(
-        await test({
+        await testDeepLink({
           deepLinkUrl: '',
         }),
       ).toEqual([]);
     });
     it('should ignore a link with the wrong domain', async () => {
       expect(
-        await test({
+        await testDeepLink({
           deepLinkUrl: 'https://mhub.cc/c/1234567890123456',
         }),
       ).toEqual([]);
       expect(
-        await test({
+        await testDeepLink({
           deepLinkUrl: 'https://missionhub.page.link/c/1234567890123456',
         }),
       ).toEqual([]);
     });
     it('should ignore a link with the wrong path', async () => {
       expect(
-        await test({
+        await testDeepLink({
           deepLinkUrl: 'https://missionhub.com/s/1234567890123456',
         }),
       ).toEqual([]);
       expect(
-        await test({
+        await testDeepLink({
           deepLinkUrl: 'https://missionhub.com/1234567890123456',
         }),
       ).toEqual([]);
     });
     it('should ignore a link using http', async () => {
       expect(
-        await test({
+        await testDeepLink({
           deepLinkUrl: 'http://missionhub.com/c/1234567890123456',
         }),
       ).toEqual([]);
     });
     it('should ignore a link with too short of a code', async () => {
       expect(
-        await test({
+        await testDeepLink({
           deepLinkUrl: 'https://missionhub.com/c/123456789012345',
         }),
       ).toEqual([]);

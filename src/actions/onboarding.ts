@@ -18,6 +18,7 @@ import { rollbar } from '../utils/rollbar.config';
 import { CELEBRATION_SCREEN } from '../containers/CelebrationScreen';
 import { REQUESTS } from '../api/routes';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
+import { RootState } from '../reducers';
 
 import callApi from './api';
 import { getMe } from './person';
@@ -80,7 +81,7 @@ export const skipOnboardingAddPerson = (): SkipOnboardingAddPersonAction => ({
 });
 
 export const startOnboarding = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   dispatch(trackActionWithoutData(ACTIONS.ONBOARDING_STARTED));
   dispatch({ type: START_ONBOARDING });
@@ -97,8 +98,7 @@ export function createMyPerson(firstName: string, lastName: string) {
     last_name: lastName,
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return async (dispatch: ThunkDispatch<{}, {}, any>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     await dispatch(callApi(REQUESTS.CREATE_MY_PERSON, {}, data));
     // @ts-ignore
     const me = ((await dispatch(getMe())) as unknown) as Person;
@@ -116,8 +116,7 @@ export function createMyPerson(firstName: string, lastName: string) {
 }
 
 export const createPerson = (firstName: string, lastName: string) => async (
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<{}, {}, any>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => { auth: AuthState },
 ) => {
   const {
@@ -155,7 +154,7 @@ export const createPerson = (firstName: string, lastName: string) => async (
 };
 
 export const skipAddPersonAndCompleteOnboarding = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   dispatch(skipOnboardingAddPerson());
   dispatch<any>(
@@ -166,7 +165,7 @@ export const skipAddPersonAndCompleteOnboarding = () => (
 };
 
 export const resetPersonAndCompleteOnboarding = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   dispatch(setOnboardingPersonId(''));
   dispatch<any>(
@@ -178,7 +177,7 @@ export const resetPersonAndCompleteOnboarding = () => (
 
 export function joinStashedCommunity() {
   return async (
-    dispatch: ThunkDispatch<{ auth: AuthState }, null, AnyAction>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => {
       onboarding: OnboardingState;
     },

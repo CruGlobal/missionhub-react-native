@@ -1,5 +1,3 @@
-/* eslint max-params: 0 */
-
 import { Alert } from 'react-native';
 
 import { prompt } from '../prompt';

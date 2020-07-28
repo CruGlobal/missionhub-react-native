@@ -2,33 +2,6 @@
 
 exports[`renders correctly 1`] = `
 <View
-  navigation={
-    Object {
-      "actions": Object {
-        "goBack": [Function],
-        "navigate": [Function],
-        "setParams": [Function],
-      },
-      "addListener": [Function],
-      "dangerouslyGetParent": [Function],
-      "dispatch": [Function],
-      "emit": [Function],
-      "getChildNavigation": [Function],
-      "getParam": [Function],
-      "getScreenProps": [Function],
-      "goBack": [Function],
-      "isFirstRouteInParent": [Function],
-      "isFocused": [Function],
-      "navigate": [Function],
-      "router": undefined,
-      "setParams": [Function],
-      "state": Object {
-        "key": "TestScreen",
-        "params": undefined,
-        "routeName": "TestScreen",
-      },
-    }
-  }
   style={
     Array [
       Object {
@@ -43,33 +16,6 @@ exports[`renders correctly 1`] = `
 
 exports[`renders correctly with style 1`] = `
 <View
-  navigation={
-    Object {
-      "actions": Object {
-        "goBack": [Function],
-        "navigate": [Function],
-        "setParams": [Function],
-      },
-      "addListener": [Function],
-      "dangerouslyGetParent": [Function],
-      "dispatch": [Function],
-      "emit": [Function],
-      "getChildNavigation": [Function],
-      "getParam": [Function],
-      "getScreenProps": [Function],
-      "goBack": [Function],
-      "isFirstRouteInParent": [Function],
-      "isFocused": [Function],
-      "navigate": [Function],
-      "router": undefined,
-      "setParams": [Function],
-      "state": Object {
-        "key": "TestScreen",
-        "params": undefined,
-        "routeName": "TestScreen",
-      },
-    }
-  }
   style={
     Array [
       Object {

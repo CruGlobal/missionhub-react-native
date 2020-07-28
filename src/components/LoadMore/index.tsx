@@ -1,14 +1,14 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { GestureResponderEvent } from 'react-native';
 
 import { Button } from '../common';
-import { TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
 interface LoadMoreProps {
   testID?: string;
-  onPress: TouchablePress;
+  onPress: (event: GestureResponderEvent) => void;
   text?: string;
 }
 

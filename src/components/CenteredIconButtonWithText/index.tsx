@@ -10,7 +10,7 @@ interface CenteredIconButtonWithTextProps {
   text: string;
   wrapperStyle?: StyleProp<ViewStyle>;
   buttonStyle?: StyleProp<ViewStyle>;
-  onClick?: Function;
+  onClick?: () => void;
 }
 
 const CenteredIconButtonWithText = ({

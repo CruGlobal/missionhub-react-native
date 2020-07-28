@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import CenteredIconButtonWithText from '..';
 
 it('renders correctly with non-null onClick', () => {

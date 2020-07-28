@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import React from 'react';
 import { Alert } from 'react-native';
@@ -154,7 +154,7 @@ describe('CommunityProfile', () => {
 
     await flushMicrotasksQueue();
 
-    getByTestId('editButton');
+    expect(() => getByTestId('editButton')).not.toThrow();
   });
 
   it('should handle copy code', async () => {

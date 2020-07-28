@@ -29,6 +29,7 @@ import {
 } from '../constants';
 import { AnalyticsState } from '../reducers/analytics';
 import { AuthState } from '../reducers/auth';
+import { RootState } from '../reducers';
 
 import { StepAddedAnalytics } from './__generated__/StepAddedAnalytics';
 
@@ -64,7 +65,7 @@ export const trackScreenChange = (
   screenName: string | string[],
   screenContext: Partial<ScreenContext> = {},
 ) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => { analytics: AnalyticsState },
 ) => {
   const { analytics } = getState();
@@ -121,7 +122,7 @@ export function updateAnalyticsContext(
 
 export function trackStepAdded(step?: StepAddedAnalytics | null) {
   return (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
     if (!step) {
@@ -157,7 +158,7 @@ export function trackStepAdded(step?: StepAddedAnalytics | null) {
 }
 
 export function trackSearchFilter(label: string) {
-  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     dispatch(
       trackAction(ACTIONS.FILTER_ENGAGED.name, {
         [ACTIONS.SEARCH_FILTER.key]: label,
@@ -171,8 +172,7 @@ export function trackActionWithoutData(action: { name: string; key: string }) {
   return trackAction(action.name, { [action.key]: null });
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function trackAction(action: string, data: { [key: string]: any }) {
+export function trackAction(action: string, data: Record<string, unknown>) {
   const newData = Object.keys(data).reduce(
     (acc, key) => ({ ...acc, [key]: data[key] ? data[key] : '1' }),
     {},
@@ -210,7 +210,7 @@ function sendStateToSnowplow(context: { [key: string]: string }) {
 
 export function logInAnalytics() {
   return (
-    dispatch: ThunkDispatch<{}, {}, AnyAction>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { analytics: AnalyticsState },
   ) => {
     const context = getState().analytics;

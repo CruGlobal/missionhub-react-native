@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import organizations from '../organizations';
 import { REQUESTS } from '../../api/routes';

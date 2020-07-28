@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import Config from 'react-native-config';
 

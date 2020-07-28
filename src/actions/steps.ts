@@ -1,5 +1,6 @@
 import { ThunkDispatch } from 'redux-thunk';
 import appsFlyer from 'react-native-appsflyer';
+import { AnyAction } from 'redux';
 
 import {
   COMPLETED_STEP_COUNT,
@@ -21,6 +22,7 @@ import {
   PersonStepsList,
   PersonStepsListVariables,
 } from '../containers/PersonScreen/PersonSteps/__generated__/PersonStepsList';
+import { RootState } from '../reducers';
 
 import { refreshImpact } from './impact';
 import { navigatePush } from './navigation';
@@ -29,7 +31,7 @@ import { trackAction } from './analytics';
 import { getCelebrateFeed } from './celebration';
 
 export function updateChallengeNote(stepId: string, note: string) {
-  return (dispatch: ThunkDispatch<never, never, never>) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     if (!stepId) {
       return;
     }
@@ -41,7 +43,7 @@ export function updateChallengeNote(stepId: string, note: string) {
   };
 }
 
-function buildChallengeData(attributes: object) {
+function buildChallengeData(attributes: Record<string, unknown>) {
   return {
     data: {
       type: ACCEPTED_STEP,
@@ -55,8 +57,7 @@ function completeChallengeAPI(step: {
   receiver: { id: string };
   organization?: { id: string };
 }) {
-  //eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return async (dispatch: ThunkDispatch<never, never, any>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = receiver && receiver.id;
     const orgId = organization && organization.id;
@@ -95,7 +96,7 @@ export function completeStep(
   screen: string,
   extraBack = false,
 ) {
-  return (dispatch: ThunkDispatch<never, never, never>) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const { id: stepId, receiver, organization } = step;
     const receiverId = (receiver && receiver.id) || null;
     const orgId = (organization && organization.id) || null;
@@ -126,7 +127,7 @@ export function deleteStepWithTracking(
   step: { id: string; receiver: { id: string } },
   screen: string,
 ) {
-  return async (dispatch: ThunkDispatch<never, never, never>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     await dispatch(deleteStep(step));
     dispatch(
       trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
@@ -137,7 +138,7 @@ export function deleteStepWithTracking(
 }
 
 function deleteStep(step: { id: string; receiver: { id: string } }) {
-  return async (dispatch: ThunkDispatch<never, never, never>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     const query = { challenge_id: step.id };
     await dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
     removeFromStepsList(step.id, step.receiver.id);

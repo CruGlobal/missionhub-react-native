@@ -5,6 +5,7 @@ import { View } from 'react-native';
 import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import { AnyAction } from 'redux';
 
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -13,6 +14,7 @@ import { STEPS_QUERY } from '../StepsScreen/queries';
 import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
 import { insertName } from '../../utils/steps';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 import {
@@ -32,8 +34,7 @@ interface SuggestedStepDetailScreenProps {
   next: (props: {
     personId: string;
     orgId: string | undefined;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, {}, never>;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 const SuggestedStepDetailScreen = ({

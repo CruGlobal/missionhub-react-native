@@ -7,7 +7,6 @@ import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { CREATE_STEP_FROM_SUGGESTION_MUTATION } from '../queries';
 import { trackStepAdded } from '../../../actions/analytics';
-
 import SuggestedStepDetailScreen from '..';
 
 jest.mock('../../../actions/steps');

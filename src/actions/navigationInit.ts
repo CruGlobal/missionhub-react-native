@@ -12,7 +12,7 @@ import { startOnboarding } from './onboarding';
 import { checkNotifications } from './notifications';
 
 export const resetToInitialRoute = (preservePreviousScreen = false) => (
-  dispatch: ThunkDispatch<RootState, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => RootState,
 ) => {
   !preservePreviousScreen && dispatch({ type: RELOAD_APP });

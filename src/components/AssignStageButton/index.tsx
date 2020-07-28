@@ -3,6 +3,7 @@ import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import i18next from 'i18next';
+import { AnyAction } from 'redux';
 
 import { Button } from '../common';
 import {
@@ -11,23 +12,23 @@ import {
 } from '../../selectors/people';
 import { navigateToStageScreen } from '../../actions/misc';
 import { getStageIndex } from '../../utils/common';
-import { PeopleState } from '../../reducers/people';
+import { PeopleState, Person } from '../../reducers/people';
 import { AuthState } from '../../reducers/auth';
 import { StagesState, Stage } from '../../reducers/stages';
 import { localizedStageSelector } from '../../selectors/stages';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
 interface AssignStageButtonProps {
-  person: object;
-  organization: object;
+  person: Record<string, unknown>;
+  organization?: Record<string, unknown>;
   isMe: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   contactAssignment: any;
   firstItemIndex?: number;
   pathwayStage: Stage | undefined;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
 }
 
 const AssignStageButton = ({
@@ -75,8 +76,7 @@ const mapStateToProps = (
     auth,
     stages,
   }: { people: PeopleState; auth: AuthState; stages: StagesState },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { person = {} }: any,
+  { person = {} }: { person: Person },
 ) => {
   const personId = person.id;
   const authPerson = auth.person;

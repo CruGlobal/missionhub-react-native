@@ -11,7 +11,6 @@ import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from '../queries';
 import { openMainMenu } from '../../../utils/common';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
-
 import NotificationCenterScreen from '..';
 
 jest.mock('../../../utils/common');
@@ -123,17 +122,25 @@ it('renders with refresh button', async () => {
 });
 
 it('handles refresh', async () => {
-  const { getByType } = renderWithContext(<NotificationCenterScreen />, {
-    mocks: {
-      NotificationConnection: () => ({
-        nodes: () => new MockList(10),
-      }),
+  const { getByType, recordSnapshot, diffSnapshot } = renderWithContext(
+    <NotificationCenterScreen />,
+    {
+      mocks: {
+        NotificationConnection: () => ({
+          nodes: () => new MockList(10),
+        }),
+      },
+      initialApolloState,
     },
-    initialApolloState,
-  });
+  );
 
   await flushMicrotasksQueue();
+  recordSnapshot();
+
   fireEvent(getByType(SectionList), 'onRefresh');
+
+  await flushMicrotasksQueue();
+  diffSnapshot();
 });
 
 it('renders Today section correctly ', async () => {

@@ -1,4 +1,3 @@
-/* eslint max-lines: 0 */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import configureStore, { MockStore } from 'redux-mock-store';

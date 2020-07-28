@@ -7,18 +7,16 @@ import { Linking } from 'react-native';
 // @ts-ignore
 import randomString from 'random-string';
 import Config from 'react-native-config';
-import { ThunkDispatch } from 'redux-thunk';
-import { AnyAction } from 'redux';
 
 import { THE_KEY_CLIENT_ID } from '../../constants';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { RootState } from '../../reducers';
 
 import { retryIfInvalidatedClientToken } from './auth';
 import { authSuccess } from './userData';
 
-export function openKeyURL(baseURL: string) {
+// @ts-ignore
+export function openKeyURL(baseURL) {
   return () => {
     global.Buffer = global.Buffer || Buffer.Buffer;
 
@@ -52,7 +50,8 @@ export function openKeyURL(baseURL: string) {
   };
 }
 
-export function keyLogin(email: string, password: string, mfaCode: string) {
+// @ts-ignore
+export function keyLogin(email, password, mfaCode) {
   const data =
     `grant_type=password&client_id=${THE_KEY_CLIENT_ID}&scope=fullticket%20extended` +
     `&username=${encodeURIComponent(email)}&password=${encodeURIComponent(
@@ -62,34 +61,30 @@ export function keyLogin(email: string, password: string, mfaCode: string) {
   return getTokenAndLogin(data);
 }
 
-export function keyLoginWithAuthorizationCode(
-  code: string,
-  codeVerifier: string,
-  redirectUri: string,
-) {
+// @ts-ignore
+export function keyLoginWithAuthorizationCode(code, codeVerifier, redirectUri) {
   const data = `grant_type=authorization_code&client_id=${THE_KEY_CLIENT_ID}&code=${code}&code_verifier=${codeVerifier}&redirect_uri=${redirectUri}`;
 
   return getTokenAndLogin(data);
 }
 
 export function refreshAccessToken() {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => RootState,
-  ) => {
+  // @ts-ignore
+  return async (dispatch, getState) => {
     const data = `grant_type=refresh_token&refresh_token=${
       getState().auth.refreshToken
     }`;
 
     // @ts-ignore
     await dispatch(callApi(REQUESTS.KEY_REFRESH_TOKEN, {}, data));
-    return dispatch(getTicketAndLogin());
+    dispatch(getTicketAndLogin());
   };
 }
 
 // @ts-ignore
 function getTokenAndLogin(data) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+  // @ts-ignore
+  return async dispatch => {
     await dispatch(callApi(REQUESTS.KEY_LOGIN, {}, data));
     await dispatch(getTicketAndLogin());
 
@@ -98,23 +93,23 @@ function getTokenAndLogin(data) {
 }
 
 function getTicketAndLogin() {
-  return async (
-    dispatch: ThunkDispatch<RootState, never, AnyAction>,
-    getState: () => RootState,
-  ) => {
+  // @ts-ignore
+  return async (dispatch, getState) => {
     const { upgradeToken } = getState().auth;
     const { ticket } = await dispatch(callApi(REQUESTS.KEY_GET_TICKET, {}, {}));
 
     await dispatch(
       retryIfInvalidatedClientToken(
         loginWithKeyTicket(ticket, upgradeToken),
+        // @ts-ignore
         loginWithKeyTicket(ticket),
       ),
     );
   };
 }
 
-const loginWithKeyTicket = (ticket: string, client_token?: string | null) =>
+// @ts-ignore
+const loginWithKeyTicket = (ticket, client_token) =>
   callApi(
     REQUESTS.TICKET_LOGIN,
     {},

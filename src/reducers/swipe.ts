@@ -28,7 +28,7 @@ const initialState: SwipeState = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function swipeReducer(state = initialState, action: any) {
+function swipeReducer(state: SwipeState = initialState, action: any) {
   switch (action.type) {
     case SWIPE_REMINDER_JOURNEY:
       return { ...state, journey: false };
@@ -36,7 +36,7 @@ function swipeReducer(state = initialState, action: any) {
       return { ...state, groupInviteInfo: false };
     case GROUP_TAB_SCROLL_ON_MOUNT:
       return { ...state, groupScrollToId: action.value };
-    case GROUP_ONBOARDING_CARD:
+    case GROUP_ONBOARDING_CARD: {
       const target = action.target;
       if (!exists(state.groupOnboarding[target])) {
         return state;
@@ -45,6 +45,7 @@ function swipeReducer(state = initialState, action: any) {
         ...state,
         groupOnboarding: { ...state.groupOnboarding, [target]: action.value },
       };
+    }
     case LOGOUT:
       return initialState;
     default:

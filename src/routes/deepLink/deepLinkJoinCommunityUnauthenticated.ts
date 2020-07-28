@@ -1,5 +1,6 @@
 import { createStackNavigator } from 'react-navigation-stack';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   buildTrackedScreen,
@@ -27,6 +28,7 @@ import { GET_STARTED_SCREEN } from '../../containers/GetStartedScreen';
 import CelebrationScreen, {
   CELEBRATION_SCREEN,
 } from '../../containers/CelebrationScreen';
+import { RootState } from '../../reducers';
 
 export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [DEEP_LINK_CONFIRM_JOIN_GROUP_SCREEN]: buildTrackedScreen(
@@ -69,8 +71,7 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
   [CELEBRATION_SCREEN]: buildTrackedScreen(
     wrapNextAction(
       CelebrationScreen,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      () => async (dispatch: ThunkDispatch<{}, {}, any>) => {
+      () => async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
         await dispatch(loadHome());
         dispatch(landOnStashedCommunityScreen());
         dispatch(setOnboardingPersonId(''));
@@ -80,8 +81,9 @@ export const DeepLinkJoinCommunityUnauthenticatedScreens = {
     buildTrackingObj('onboarding : complete', 'onboarding'),
   ),
   ...authFlowGenerator({
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    completeAction: async (dispatch: ThunkDispatch<{}, {}, any>) => {
+    completeAction: async (
+      dispatch: ThunkDispatch<RootState, never, AnyAction>,
+    ) => {
       await dispatch(joinStashedCommunity());
       await dispatch(loadHome());
       dispatch(landOnStashedCommunityScreen());
