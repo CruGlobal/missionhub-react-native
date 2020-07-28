@@ -65,6 +65,7 @@ export function navigateToStageScreen(
   contactAssignment,
   organization = {},
   firstItemIndex: number | undefined, //todo find a way to not pass this
+  skipSelectSteps = false,
 ) {
   // @ts-ignore
   return dispatch => {
@@ -80,6 +81,7 @@ export function navigateToStageScreen(
     } else {
       dispatch(
         navigatePush(SELECT_PERSON_STAGE_FLOW, {
+          skipSelectSteps,
           selectedStageId: firstItemIndex,
           personId: person.id,
           // @ts-ignore

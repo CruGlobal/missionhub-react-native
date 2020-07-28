@@ -55,6 +55,7 @@ interface SelectStageScreenProps {
     personId: string;
     stage: Stage;
     isAlreadySelected: boolean;
+    skipSelectSteps?: boolean;
     orgId?: string;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   }) => ThunkAction<void, any, {}, never>;
@@ -69,6 +70,7 @@ interface SelectStageScreenProps {
 export interface SelectStageNavParams {
   selectedStageId?: number;
   enableBackButton: boolean;
+  skipSelectSteps?: boolean;
   personId: string;
   orgId?: string;
   questionText?: string;
@@ -90,6 +92,7 @@ const SelectStageScreen = ({
     orgId,
     questionText,
     onComplete,
+    skipSelectSteps,
   } = useNavigationState().params as SelectStageNavParams;
   const dispatch = useDispatch<
     ThunkDispatch<{ analytics: AnalyticsState }, {}, AnyAction>
@@ -140,6 +143,7 @@ const SelectStageScreen = ({
         stage,
         isAlreadySelected,
         orgId,
+        skipSelectSteps,
       }),
     );
 
