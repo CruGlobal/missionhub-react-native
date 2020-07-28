@@ -164,7 +164,7 @@ describe('menu items and links', () => {
     expect.hasAssertions();
   });
   it('should test link, then open it | suggestStep', async () => {
-    await testUrl(i18n.t('sideMenu:suggestStep'), LINKS.shareStory);
+    await testUrl(i18n.t('sideMenu:suggestStep'), LINKS.suggestStep);
     expect.hasAssertions();
   });
   it('should test link, then open it | shareStory', async () => {
