@@ -1,5 +1,5 @@
-/* eslint max-params: 0 */
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import {
   DEFAULT_PAGE_LIMIT,
@@ -11,6 +11,7 @@ import callApi from '../actions/api';
 import { REQUESTS } from '../api/routes';
 import { organizationSelector } from '../selectors/organizations';
 import { OrganizationsState } from '../reducers/organizations';
+import { RootState } from '../reducers';
 
 // Challenge and Celebrate action helpers
 
@@ -40,6 +41,7 @@ const getPaginationType = (type: string) =>
   type === CHALLENGE ? 'challengePagination' : 'celebratePagination';
 
 // Query for the celebrate and challenge feeds
+// eslint-disable-next-line max-params
 function buildQuery(
   type: string,
   orgId: string,
@@ -81,8 +83,7 @@ export function getFeed(
   personId: string | null = null,
 ) {
   return (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch: ThunkDispatch<{}, {}, any>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { organizations: OrganizationsState },
   ) => {
     const org = getOrg(orgId, getState);
@@ -105,8 +106,7 @@ export function getFeed(
 // Use this for reloading the challenge and celebrate feeds
 export function reloadFeed(type: string, orgId: string) {
   return (
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    dispatch: ThunkDispatch<{}, {}, any>,
+    dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { organizations: OrganizationsState },
   ) => {
     const org = getOrg(orgId, getState);

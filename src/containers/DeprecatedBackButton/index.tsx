@@ -13,11 +13,12 @@ import { ThunkDispatch } from 'redux-thunk';
 
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
 interface DeprecatedBackButtonProps {
-  dispatch: ThunkDispatch<{}, {}, AnyAction>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
   style?: StyleProp<ViewStyle>;
   customIcon?: string;
   RenderIcon?: React.ReactNode;

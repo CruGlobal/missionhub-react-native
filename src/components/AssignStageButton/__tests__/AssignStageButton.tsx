@@ -5,7 +5,6 @@ import { renderWithContext } from '../../../../testUtils';
 import { contactAssignmentSelector } from '../../../selectors/people';
 import { navigateToStageScreen } from '../../../actions/misc';
 import { getStageIndex } from '../../../utils/common';
-
 import AssignStageButton from '..';
 
 jest.mock('../../../selectors/people');
@@ -55,6 +54,7 @@ it('renders correctly for me', () => {
 });
 
 it('renders correctly without person', () => {
+  // @ts-ignore
   renderWithContext(<AssignStageButton {...props} person={undefined} />, {
     initialState,
   }).snapshot();
@@ -83,14 +83,14 @@ it('renders correctly without stage', () => {
 it('renders correctly for other', () => {
   renderWithContext(<AssignStageButton {...props} person={{ id: otherId }} />, {
     initialState,
-  });
+  }).snapshot();
 });
 
 it('renders correctly for other without stage', () => {
   ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue({});
   renderWithContext(<AssignStageButton {...props} person={{ id: otherId }} />, {
     initialState,
-  });
+  }).snapshot();
 });
 
 describe('assignStage', () => {

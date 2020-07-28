@@ -8,11 +8,11 @@ import { getPersonNote, savePersonNote } from '../../../../actions/person';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
 import * as common from '../../../../utils/common';
 import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
-
 import { PersonNotes } from '..';
 
 jest.mock('react-native-device-info');
 jest.mock('react-navigation-hooks', () => ({
+  // @ts-ignore
   ...jest.requireActual('react-navigation-hooks'),
   useIsFocused: jest.fn(),
 }));

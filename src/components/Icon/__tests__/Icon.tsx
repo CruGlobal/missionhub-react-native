@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import Icon from '..';
 
 it('renders correctly', () => {

@@ -2,15 +2,18 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { useLogoutOnBack } from '../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../utils/hooks/useAnalytics';
+import { RootState } from '../reducers';
 
 import IconMessageScreen from './IconMessageScreen';
 
 interface AddSomeoneScreenProps {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  next: (props?: { skip: boolean }) => ThunkAction<void, any, null, never>;
+  next: (props?: {
+    skip: boolean;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
   hideSkipBtn?: boolean;
   enableBackButton?: boolean;
   logoutOnBack?: boolean;

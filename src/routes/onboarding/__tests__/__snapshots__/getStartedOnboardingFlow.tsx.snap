@@ -1862,9 +1862,9 @@ exports[`SelectStepScreen next for me renders correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <ForwardRef(_SafeAreaView)>
+      <SafeAreaView>
         <FooterLoading />
-      </ForwardRef(_SafeAreaView)>
+      </SafeAreaView>
     }
     ListHeaderComponent={
       <ErrorNotice
@@ -2564,9 +2564,9 @@ exports[`SelectStepScreen next for other renders correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <ForwardRef(_SafeAreaView)>
+      <SafeAreaView>
         <FooterLoading />
-      </ForwardRef(_SafeAreaView)>
+      </SafeAreaView>
     }
     ListHeaderComponent={
       <ErrorNotice

@@ -18,8 +18,7 @@ interface IconButtonProps extends IconProps {
   buttonStyle?: StyleProp<TextStyle>;
   style?: StyleProp<TextStyle>;
   image?: ImageSourcePropType;
-  pressProps?: any[]; // eslint-disable-line @typescript-eslint/no-explicit-any
-  onPress?: Function;
+  onPress?: () => void;
   testID?: string;
   hitSlop?: Insets;
   disabled?: boolean;
@@ -31,14 +30,12 @@ const IconButton = ({
   buttonStyle,
   style = {},
   onPress,
-  pressProps = [],
   image,
   ...rest
 }: IconButtonProps) => {
   const handlePress = () => {
     if (onPress) {
-      // Call the onPress with all of the pressProps passed in or just undefined if it doesn't exist
-      onPress(...pressProps);
+      onPress();
     }
   };
   return (

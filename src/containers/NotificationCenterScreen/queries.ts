@@ -1,7 +1,9 @@
 import gql from 'graphql-tag';
 
-import { NOTIFICATION_ITEM_FRAGMENT } from '../../components/NotificationCenterItem/queries';
-import { CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT } from '../../components/NotificationCenterItem/queries';
+import {
+  NOTIFICATION_ITEM_FRAGMENT,
+  CONTENT_COMPLAINT_GROUP_ITEM_FRAGMENT,
+} from '../../components/NotificationCenterItem/queries';
 
 export const GET_NOTIFICATIONS = gql`
   query GetNotifications($notificationCursor: String) {

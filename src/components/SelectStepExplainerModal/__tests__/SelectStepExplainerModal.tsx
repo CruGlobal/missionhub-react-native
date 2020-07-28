@@ -4,10 +4,10 @@ import i18next from 'i18next';
 
 import { renderWithContext } from '../../../../testUtils';
 import { StepTypeEnum } from '../../../../__generated__/globalTypes';
-
 import SelectStepExplainerModal, { AddStepExplainer } from '..';
 
 jest.mock('react-native-snap-carousel', () => ({
+  // @ts-ignore
   ...jest.requireActual('react-native-snap-carousel'),
   __esModule: true,
   Pagination: 'Pagination',

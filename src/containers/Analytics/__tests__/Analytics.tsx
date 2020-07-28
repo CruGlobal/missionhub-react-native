@@ -5,7 +5,6 @@ import {
   useAnalytics,
   UseAnalyticsOptions,
 } from '../../../utils/hooks/useAnalytics';
-
 import Analytics from '..';
 
 jest.mock('../../../utils/hooks/useAnalytics');

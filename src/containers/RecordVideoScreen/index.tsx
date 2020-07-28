@@ -68,6 +68,7 @@ export const RecordVideoScreen = () => {
         <Touchable
           testID="CloseButton"
           onPress={handleClose}
+          // @ts-ignore
           type="transparent"
           style={styles.closeButton}
         >

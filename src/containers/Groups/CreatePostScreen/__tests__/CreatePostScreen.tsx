@@ -22,7 +22,6 @@ import {
   CommunityFeedItem_subject_Post,
 } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { useFeatureFlags } from '../../../../utils/hooks/useFeatureFlags';
-
 import { CreatePostScreen } from '..';
 
 jest.mock('../../../../actions/navigation');

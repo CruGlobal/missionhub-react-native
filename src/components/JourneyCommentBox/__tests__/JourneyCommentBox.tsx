@@ -5,7 +5,6 @@ import { renderWithContext } from '../../../../testUtils';
 import { addNewInteraction } from '../../../actions/interactions';
 import CommentBox from '../../CommentBox';
 import { INTERACTION_TYPES } from '../../../constants';
-
 import JourneyCommentBox from '..';
 
 jest.mock('../../../actions/interactions');

@@ -1,4 +1,5 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import React from 'react';
 
 import { CREATE_STEP, ACTIONS } from '../../../constants';

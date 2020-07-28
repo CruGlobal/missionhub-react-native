@@ -1,4 +1,4 @@
-import { onboardingReducer } from '../onboarding';
+import { onboardingReducer, initialState } from '../onboarding';
 import {
   START_ONBOARDING,
   FINISH_ONBOARDING,
@@ -7,7 +7,6 @@ import {
   SKIP_ONBOARDING_ADD_PERSON,
 } from '../../actions/onboarding';
 import { LOGOUT } from '../../constants';
-import { initialState } from '../onboarding';
 
 it('START_ONBOARDING', () => {
   expect(

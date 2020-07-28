@@ -1,5 +1,3 @@
-/* eslint max-params: 0, max-lines-per-function: 0 */
-
 import { ACTIONS } from '../constants';
 import { REQUESTS } from '../api/routes';
 
@@ -9,6 +7,7 @@ import { refreshImpact } from './impact';
 import { reloadJourney } from './journey';
 import { getCelebrateFeed } from './celebration';
 
+// eslint-disable-next-line max-params
 export function addNewInteraction(
   // @ts-ignore
   personId,

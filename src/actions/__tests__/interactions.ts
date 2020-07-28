@@ -187,16 +187,14 @@ describe('add comment', () => {
       // @ts-ignore
       callApi.mockReturnValue(action);
 
-      try {
+      await expect(
         // @ts-ignore
-        await store.dispatch(
+        store.dispatch(
           addNewInteraction(undefined, interaction, comment, orgId),
-        );
-      } catch (e) {
-        expect(e).toBe(
-          'Invalid Data from addNewInteraction: no personId passed in',
-        );
-      }
+        ),
+      ).rejects.toEqual(
+        'Invalid Data from addNewInteraction: no personId passed in',
+      );
     });
   });
 });
@@ -244,24 +242,20 @@ describe('edit comment', () => {
   });
 
   it('should not edit a comment, no interaction', async () => {
-    try {
+    await expect(
       // @ts-ignore
-      await store.dispatch(editComment(undefined, comment));
-    } catch (e) {
-      expect(e).toBe(
-        'Invalid Data from editComment: no interaction or no comment passed in',
-      );
-    }
+      store.dispatch(editComment(undefined, comment)),
+    ).rejects.toEqual(
+      'Invalid Data from editComment: no interaction or no comment passed in',
+    );
   });
 
   it('should not edit a comment, no comment', async () => {
-    try {
+    await expect(
       // @ts-ignore
-      await store.dispatch(editComment(interaction.id));
-    } catch (e) {
-      expect(e).toBe(
-        'Invalid Data from editComment: no interaction or no comment passed in',
-      );
-    }
+      store.dispatch(editComment(interaction.id)),
+    ).rejects.toEqual(
+      'Invalid Data from editComment: no interaction or no comment passed in',
+    );
   });
 });
