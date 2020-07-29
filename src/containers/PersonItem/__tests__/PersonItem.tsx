@@ -212,6 +212,7 @@ describe('handleChangeStage', () => {
         {},
         mockOrganization,
         undefined,
+        true,
       );
       expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });
@@ -241,6 +242,7 @@ describe('handleChangeStage', () => {
         mockContactAssignmentNoStage,
         mockOrganization,
         undefined,
+        true,
       );
       expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });
@@ -356,6 +358,7 @@ describe('handleAddStep', () => {
       mockContactAssignmentNoStage,
       mockOrganization,
       undefined,
+      true,
     );
     expect(store.getActions()).toEqual([navigateToStageScreenResult]);
   });

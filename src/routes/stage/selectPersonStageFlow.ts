@@ -15,10 +15,14 @@ import { AddPersonStepFlowScreens } from '../steps/addPersonStepFlow';
 export const SelectPersonStageFlowScreens = {
   [SELECT_STAGE_SCREEN]: wrapNextAction(
     SelectStageScreen,
-    ({ stage, personId, orgId, isAlreadySelected, contactAssignmentId }) => (
-      dispatch,
-      getState,
-    ) => {
+    ({
+      stage,
+      personId,
+      orgId,
+      isAlreadySelected,
+      skipSelectSteps,
+      contactAssignmentId,
+    }) => (dispatch, getState) => {
       const { people } = getState();
       const person = personSelector({ people }, { personId });
 
@@ -39,7 +43,7 @@ export const SelectPersonStageFlowScreens = {
       dispatch(reloadJourney(personId));
 
       dispatch(
-        isAlreadySelected
+        isAlreadySelected || skipSelectSteps
           ? navigatePush(CELEBRATION_SCREEN, { personId, orgId })
           : navigatePush(SELECT_STEP_SCREEN, {
               personId,
