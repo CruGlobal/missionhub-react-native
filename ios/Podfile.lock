@@ -416,6 +416,8 @@ PODS:
     - React
   - RNSVG (12.1.0):
     - React
+  - RNThumbnail (1.0.0):
+    - React
   - RNVectorIcons (6.6.0):
     - React
   - Rollbar (1.5.2)
@@ -479,6 +481,7 @@ DEPENDENCIES:
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
   - RNSVG (from `../node_modules/react-native-svg`)
+  - RNThumbnail (from `../node_modules/react-native-thumbnail/ios`)
   - RNVectorIcons (from `../node_modules/react-native-vector-icons`)
   - RollbarReactNative (from `../node_modules/rollbar-react-native`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
@@ -608,6 +611,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native-screens"
   RNSVG:
     :path: "../node_modules/react-native-svg"
+  RNThumbnail:
+    :path: "../node_modules/react-native-thumbnail/ios"
   RNVectorIcons:
     :path: "../node_modules/react-native-vector-icons"
   RollbarReactNative:
@@ -688,6 +693,7 @@ SPEC CHECKSUMS:
   RNReanimated: c2bb7438b57a3d987bb2e4e6e4bca94787e30b02
   RNScreens: c526239bbe0e957b988dacc8d75ac94ec9cb19da
   RNSVG: ce9d996113475209013317e48b05c21ee988d42e
+  RNThumbnail: f5d3c6e18dd15213ce46e1f631be65d4c6fcb133
   RNVectorIcons: 0bb4def82230be1333ddaeee9fcba45f0b288ed4
   Rollbar: 5060e3fc9fa28ae75e70c61e95b1b31b2b22710c
   RollbarReactNative: 6a9f248d2cd1a767056e1ee1ef1061be2be50c5f

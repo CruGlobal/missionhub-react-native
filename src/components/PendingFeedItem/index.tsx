@@ -9,6 +9,7 @@ import CloseIcon from '../../../assets/images/closeIcon.svg';
 import { Card, Touchable, Text } from '../common';
 import { RootState } from '../../reducers';
 import { StoredPost } from '../../reducers/communityPosts';
+import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
 
 import styles from './styles';
 
@@ -28,11 +29,10 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
 
   useEffect(() => {
     const { uri } = media instanceof ReactNativeFile ? media : { uri: '' };
-    RNThumbnail.get(uri).then(result => {
-      console.log('thumbnail');
-      console.log(result.path);
-      setThumbnailUri(result.path);
-    });
+    console.log(uri);
+    const { path } = await RNThumbnail.get(`file://${uri}`);
+    console.log(path);
+    setThumbnailUri(path);
   }, []);
 
   const handleRetry = () => {};
@@ -67,7 +67,7 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
     <Card testID="PendingFeedItem" style={styles.container}>
       <Image
         style={{ height: 48, width: 48 }}
-        source={thumbnailUri}
+        source={GLOBAL_COMMUNITY_IMAGE}
         resizeMode={'cover'}
       />
       {renderText()}
