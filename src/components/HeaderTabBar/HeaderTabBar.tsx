@@ -23,6 +23,7 @@ export const HeaderTabBar = ({ tabs }: HeaderTabBarProps) => {
       dispatch(
         NavigationActions.navigate({
           routeName: tabs[index].navigationAction,
+          params: navState.params,
         }),
       );
     }

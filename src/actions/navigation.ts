@@ -55,6 +55,7 @@ export const navigateNestedReset = (
           ? {
               action: NavigationActions.navigate({
                 routeName: tabName,
+                ...(params ? { params } : {}),
               }),
             }
           : {}),
