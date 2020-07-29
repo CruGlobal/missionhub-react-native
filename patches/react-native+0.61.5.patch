@@ -1,0 +1,1113 @@
+diff --git a/node_modules/react-native/Libraries/Animated/release/.npmignore b/node_modules/react-native/Libraries/Animated/release/.gitignore
+similarity index 100%
+rename from node_modules/react-native/Libraries/Animated/release/.npmignore
+rename to node_modules/react-native/Libraries/Animated/release/.gitignore
+diff --git a/node_modules/react-native/Libraries/Animated/src/animations/TimingAnimation.js b/node_modules/react-native/Libraries/Animated/src/animations/TimingAnimation.js
+index b73794f..8458ef9 100644
+--- a/node_modules/react-native/Libraries/Animated/src/animations/TimingAnimation.js
++++ b/node_modules/react-native/Libraries/Animated/src/animations/TimingAnimation.js
+@@ -66,8 +66,9 @@ class TimingAnimation extends Animation {
+   __getNativeAnimationConfig(): any {
+     const frameDuration = 1000.0 / 60.0;
+     const frames = [];
+-    for (let dt = 0.0; dt < this._duration; dt += frameDuration) {
+-      frames.push(this._easing(dt / this._duration));
++    const numFrames = Math.round(this._duration / frameDuration);
++    for (let frame = 0; frame < numFrames; frame++) {
++      frames.push(this._easing(frame / numFrames));
+     }
+     frames.push(this._easing(1));
+     return {
+diff --git a/node_modules/react-native/Libraries/CameraRoll/RCTImagePickerManager.m b/node_modules/react-native/Libraries/CameraRoll/RCTImagePickerManager.m
+index d7b57c7..4e73ad6 100644
+--- a/node_modules/react-native/Libraries/CameraRoll/RCTImagePickerManager.m
++++ b/node_modules/react-native/Libraries/CameraRoll/RCTImagePickerManager.m
+@@ -35,6 +35,7 @@ @implementation RCTImagePickerManager
+   NSMutableArray<UIImagePickerController *> *_pickers;
+   NSMutableArray<RCTResponseSenderBlock> *_pickerCallbacks;
+   NSMutableArray<RCTResponseSenderBlock> *_pickerCancelCallbacks;
++  NSMutableDictionary<NSString *, NSDictionary<NSString *, id> *> *_pendingVideoInfo;
+ }
+ 
+ RCT_EXPORT_MODULE(ImagePickerIOS);
+@@ -131,6 +132,24 @@ - (dispatch_queue_t)methodQueue
+         cancelCallback:cancelCallback];
+ }
+ 
++// In iOS 13, the URLs provided when selecting videos from the library are only valid while the
++// info object provided by the delegate is retained.
++// This method provides a way to clear out all retained pending info objects.
++RCT_EXPORT_METHOD(clearAllPendingVideos)
++{
++  [_pendingVideoInfo removeAllObjects];
++  _pendingVideoInfo = [NSMutableDictionary new];
++}
++
++// In iOS 13, the URLs provided when selecting videos from the library are only valid while the
++// info object provided by the delegate is retained.
++// This method provides a way to release the info object for a particular file url when the application
++// is done with it, for example after the video has been uploaded or copied locally.
++RCT_EXPORT_METHOD(removePendingVideo:(NSString *)url)
++{
++  [_pendingVideoInfo removeObjectForKey:url];
++}
++
+ - (void)imagePickerController:(UIImagePickerController *)picker
+ didFinishPickingMediaWithInfo:(NSDictionary<NSString *, id> *)info
+ {
+@@ -146,7 +165,15 @@ - (void)imagePickerController:(UIImagePickerController *)picker
+     width = @(image.size.width);
+   }
+   if (imageURL) {
+-    [self _dismissPicker:picker args:@[imageURL.absoluteString, RCTNullIfNil(height), RCTNullIfNil(width)]];
++    NSString *imageURLString = imageURL.absoluteString;
++    // In iOS 13, video URLs are only valid while info dictionary is retained
++    if (@available(iOS 13.0, *)) {
++      if (isMovie) {
++        _pendingVideoInfo[imageURLString] = info;
++      }
++    }
++
++    [self _dismissPicker:picker args:@[imageURLString, RCTNullIfNil(height), RCTNullIfNil(width)]];
+     return;
+   }
+ 
+@@ -174,6 +201,7 @@ - (void)_presentPicker:(UIImagePickerController *)imagePicker
+     _pickers = [NSMutableArray new];
+     _pickerCallbacks = [NSMutableArray new];
+     _pickerCancelCallbacks = [NSMutableArray new];
++    _pendingVideoInfo = [NSMutableDictionary new];
+   }
+ 
+   [_pickers addObject:imagePicker];
+diff --git a/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js b/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js
+index b429815..e1021e3 100644
+--- a/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js
++++ b/node_modules/react-native/Libraries/Components/ScrollView/ScrollView.js
+@@ -698,10 +698,7 @@ class ScrollView extends React.Component<Props, State> {
+       this.props.contentOffset ? this.props.contentOffset.y : 0,
+     );
+     this._scrollAnimatedValue.setOffset(
+-      /* $FlowFixMe(>=0.98.0 site=react_native_fb) This comment suppresses an
+-       * error found when Flow v0.98 was deployed. To see the error delete this
+-       * comment and run Flow. */
+-      this.props.contentInset ? this.props.contentInset.top : 0,
++      this.props.contentInset ? this.props.contentInset.top || 0 : 0,
+     );
+     this._stickyHeaderRefs = new Map();
+     this._headerLayoutYs = new Map();
+diff --git a/node_modules/react-native/Libraries/Core/ReactNativeVersion.js b/node_modules/react-native/Libraries/Core/ReactNativeVersion.js
+index 3a6993e..a3a0a00 100644
+--- a/node_modules/react-native/Libraries/Core/ReactNativeVersion.js
++++ b/node_modules/react-native/Libraries/Core/ReactNativeVersion.js
+@@ -12,6 +12,6 @@
+ exports.version = {
+   major: 0,
+   minor: 61,
+-  patch: 2,
++  patch: 5,
+   prerelease: null,
+ };
+diff --git a/node_modules/react-native/Libraries/Core/setUpDeveloperTools.js b/node_modules/react-native/Libraries/Core/setUpDeveloperTools.js
+index 7a9ff42..6d3bc32 100644
+--- a/node_modules/react-native/Libraries/Core/setUpDeveloperTools.js
++++ b/node_modules/react-native/Libraries/Core/setUpDeveloperTools.js
+@@ -11,6 +11,10 @@
+ 
+ import Platform from '../Utilities/Platform';
+ 
++declare var console: typeof console & {
++  _isPolyfilled: boolean,
++};
++
+ /**
+  * Sets up developer tools for React Native.
+  * You can use this module directly, or just require InitializeCore.
+@@ -54,25 +58,54 @@ if (__DEV__) {
+       JSInspector.registerAgent(require('../JSInspector/NetworkAgent'));
+     }
+ 
++    // Note we can't check if console is "native" because it would appear "native" in JSC and Hermes.
++    // We also can't check any properties that don't exist in the Chrome worker environment.
++    // So we check a navigator property that's set to a particular value ("Netscape") in all real browsers.
++    const isLikelyARealBrowser =
++      global.navigator != null &&
++      /*              _
++       *             | |
++       *   _ __   ___| |_ ___  ___ __ _ _ __   ___
++       *  | '_ \ / _ \ __/ __|/ __/ _` | '_ \ / _ \
++       *  | | | |  __/ |_\__ \ (_| (_| | |_) |  __/
++       *  |_| |_|\___|\__|___/\___\__,_| .__/ \___|
++       *                               | |
++       *                               |_|
++       */
++      global.navigator.appName === 'Netscape'; // Any real browser
++
+     if (!Platform.isTesting) {
+       const HMRClient = require('../Utilities/HMRClient');
+-      [
+-        'trace',
+-        'info',
+-        'warn',
+-        'log',
+-        'group',
+-        'groupCollapsed',
+-        'groupEnd',
+-        'debug',
+-      ].forEach(level => {
+-        const originalFunction = console[level];
+-        // $FlowFixMe Overwrite console methods
+-        console[level] = function(...args) {
+-          HMRClient.log(level, args);
+-          originalFunction.apply(console, args);
+-        };
+-      });
++
++      if (console._isPolyfilled) {
++        // We assume full control over the console and send JavaScript logs to Metro.
++        [
++          'trace',
++          'info',
++          'warn',
++          'log',
++          'group',
++          'groupCollapsed',
++          'groupEnd',
++          'debug',
++        ].forEach(level => {
++          const originalFunction = console[level];
++          // $FlowFixMe Overwrite console methods
++          console[level] = function(...args) {
++            HMRClient.log(level, args);
++            originalFunction.apply(console, args);
++          };
++        });
++      } else {
++        // We assume the environment has a real rich console (like Chrome), and don't hijack it to log to Metro.
++        // It's likely the developer is using rich console to debug anyway, and hijacking it would
++        // lose the filenames in console.log calls: https://github.com/facebook/react-native/issues/26788.
++        HMRClient.log('log', [
++          `JavaScript logs will appear in your ${
++            isLikelyARealBrowser ? 'browser' : 'environment'
++          } console`,
++        ]);
++      }
+     }
+ 
+     require('./setUpReactRefresh');
+diff --git a/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec-generated.mm b/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec-generated.mm
+index eb25fc7..553779b 100644
+--- a/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec-generated.mm
++++ b/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec-generated.mm
+@@ -1125,6 +1125,14 @@ + (RCTManagedPointer *)JS_NativeImagePickerIOS_SpecOpenSelectDialogConfig:(id)js
+       return static_cast<ObjCTurboModule&>(turboModule).invokeObjCMethod(rt, VoidKind, "openSelectDialog", @selector(openSelectDialog:successCallback:cancelCallback:), args, count);
+     }
+ 
++    static facebook::jsi::Value __hostFunction_NativeImagePickerIOSSpecJSI_clearAllPendingVideos(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
++      return static_cast<ObjCTurboModule&>(turboModule).invokeObjCMethod(rt, VoidKind, "clearAllPendingVideos", @selector(clearAllPendingVideos), args, count);
++    }
++
++    static facebook::jsi::Value __hostFunction_NativeImagePickerIOSSpecJSI_removePendingVideo(facebook::jsi::Runtime& rt, TurboModule &turboModule, const facebook::jsi::Value* args, size_t count) {
++      return static_cast<ObjCTurboModule&>(turboModule).invokeObjCMethod(rt, VoidKind, "removePendingVideo", @selector(removePendingVideo:), args, count);
++    }
++
+ 
+     NativeImagePickerIOSSpecJSI::NativeImagePickerIOSSpecJSI(id<RCTTurboModule> instance, std::shared_ptr<JSCallInvoker> jsInvoker)
+       : ObjCTurboModule("ImagePickerIOS", instance, jsInvoker) {
+@@ -1143,6 +1151,12 @@ + (RCTManagedPointer *)JS_NativeImagePickerIOS_SpecOpenSelectDialogConfig:(id)js
+         
+         setMethodArgConversionSelector(@"openSelectDialog", 0, @"JS_NativeImagePickerIOS_SpecOpenSelectDialogConfig:");
+         
++        methodMap_["clearAllPendingVideos"] = MethodMetadata {0, __hostFunction_NativeImagePickerIOSSpecJSI_clearAllPendingVideos};
++        
++        
++        methodMap_["removePendingVideo"] = MethodMetadata {1, __hostFunction_NativeImagePickerIOSSpecJSI_removePendingVideo};
++        
++        
+ 
+     }
+ 
+diff --git a/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec.h b/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec.h
+index eee2be7..617ec6a 100644
+--- a/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec.h
++++ b/node_modules/react-native/Libraries/FBReactNativeSpec/FBReactNativeSpec/FBReactNativeSpec.h
+@@ -1143,6 +1143,8 @@ namespace JS {
+ - (void)openSelectDialog:(JS::NativeImagePickerIOS::SpecOpenSelectDialogConfig &)config
+          successCallback:(RCTResponseSenderBlock)successCallback
+           cancelCallback:(RCTResponseSenderBlock)cancelCallback;
++- (void)clearAllPendingVideos;
++- (void)removePendingVideo:(NSString *)url;
+ 
+ @end
+ namespace facebook {
+diff --git a/node_modules/react-native/Libraries/Image/ImagePickerIOS.js b/node_modules/react-native/Libraries/Image/ImagePickerIOS.js
+index 587d89b..a7f0049 100644
+--- a/node_modules/react-native/Libraries/Image/ImagePickerIOS.js
++++ b/node_modules/react-native/Libraries/Image/ImagePickerIOS.js
+@@ -80,6 +80,26 @@ const ImagePickerIOS = {
+       cancelCallback,
+     );
+   },
++  /**
++   * In iOS 13, the video URLs returned by the Image Picker are invalidated when
++   * the picker is dismissed, unless reference to it is held. This API allows
++   * the application to signal when it's finished with the video so that the
++   * reference can be cleaned up.
++   * It is safe to call this method for urlsthat aren't video URLs;
++   * it will be a no-op.
++   */
++  removePendingVideo: function(url: string): void {
++    invariant(NativeImagePickerIOS, 'ImagePickerIOS is not available');
++    NativeImagePickerIOS.removePendingVideo(url);
++  },
++  /**
++   * WARNING: In most cases, removePendingVideo should be used instead because
++   * clearAllPendingVideos could clear out pending videos made by other callers.
++   */
++  clearAllPendingVideos: function(): void {
++    invariant(NativeImagePickerIOS, 'ImagePickerIOS is not available');
++    NativeImagePickerIOS.clearAllPendingVideos();
++  },
+ };
+ 
+ module.exports = ImagePickerIOS;
+diff --git a/node_modules/react-native/Libraries/Image/NativeImagePickerIOS.js b/node_modules/react-native/Libraries/Image/NativeImagePickerIOS.js
+index 895f95f..6101c7b 100644
+--- a/node_modules/react-native/Libraries/Image/NativeImagePickerIOS.js
++++ b/node_modules/react-native/Libraries/Image/NativeImagePickerIOS.js
+@@ -33,6 +33,8 @@ export interface Spec extends TurboModule {
+     successCallback: (imageURL: string, height: number, width: number) => void,
+     cancelCallback: () => void,
+   ) => void;
++  +clearAllPendingVideos: () => void;
++  +removePendingVideo: (url: string) => void;
+ }
+ 
+ export default (TurboModuleRegistry.get<Spec>('ImagePickerIOS'): ?Spec);
+diff --git a/node_modules/react-native/Libraries/Text/Text/RCTTextShadowView.m b/node_modules/react-native/Libraries/Text/Text/RCTTextShadowView.m
+index 1543bca..e252408 100644
+--- a/node_modules/react-native/Libraries/Text/Text/RCTTextShadowView.m
++++ b/node_modules/react-native/Libraries/Text/Text/RCTTextShadowView.m
+@@ -177,6 +177,12 @@ - (void)postprocessAttributedText:(NSMutableAttributedString *)attributedText
+ 
+ - (NSAttributedString *)attributedTextWithMeasuredAttachmentsThatFitSize:(CGSize)size
+ {
++  static UIImage *placeholderImage;
++  static dispatch_once_t onceToken;
++   dispatch_once(&onceToken, ^{
++     placeholderImage = [UIImage new];
++   });
++  
+   NSMutableAttributedString *attributedText =
+     [[NSMutableAttributedString alloc] initWithAttributedString:[self attributedTextWithBaseTextAttributes:nil]];
+ 
+@@ -195,6 +201,7 @@ - (NSAttributedString *)attributedTextWithMeasuredAttachmentsThatFitSize:(CGSize
+                                                    maximumSize:size];
+       NSTextAttachment *attachment = [NSTextAttachment new];
+       attachment.bounds = (CGRect){CGPointZero, fittingSize};
++      attachment.image = placeholderImage;
+       [attributedText addAttribute:NSAttachmentAttributeName value:attachment range:range];
+     }
+   ];
+diff --git a/node_modules/react-native/Libraries/polyfills/console.js b/node_modules/react-native/Libraries/polyfills/console.js
+index 1dab70c..384dd87 100644
+--- a/node_modules/react-native/Libraries/polyfills/console.js
++++ b/node_modules/react-native/Libraries/polyfills/console.js
+@@ -557,6 +557,11 @@ if (global.nativeLoggingHook) {
+     assert: consoleAssertPolyfill,
+   };
+ 
++  Object.defineProperty(console, '_isPolyfilled', {
++    value: true,
++    enumerable: false,
++  });
++
+   // If available, also call the original `console` method since that is
+   // sometimes useful. Ex: on OS X, this will let you see rich output in
+   // the Safari Web Inspector console.
+@@ -608,4 +613,9 @@ if (global.nativeLoggingHook) {
+     debug: log,
+     table: log,
+   };
++
++  Object.defineProperty(console, '_isPolyfilled', {
++    value: true,
++    enumerable: false,
++  });
+ }
+diff --git a/node_modules/react-native/React/Base/RCTBridgeModule.h b/node_modules/react-native/React/Base/RCTBridgeModule.h
+index 8d95f4d..253c211 100644
+--- a/node_modules/react-native/React/Base/RCTBridgeModule.h
++++ b/node_modules/react-native/React/Base/RCTBridgeModule.h
+@@ -7,7 +7,11 @@
+ 
+ #import <Foundation/Foundation.h>
+ 
+-#import <React/RCTDefines.h>
++#if __has_include("RCTDefines.h")
++  #import "RCTDefines.h"
++#else
++ #import <React/RCTDefines.h>
++#endif
+ 
+ @class RCTBridge;
+ @protocol RCTBridgeMethod;
+diff --git a/node_modules/react-native/React/Base/RCTVersion.m b/node_modules/react-native/React/Base/RCTVersion.m
+index e5e9b94..9d25f08 100644
+--- a/node_modules/react-native/React/Base/RCTVersion.m
++++ b/node_modules/react-native/React/Base/RCTVersion.m
+@@ -23,7 +23,7 @@
+     __rnVersion = @{
+                   RCTVersionMajor: @(0),
+                   RCTVersionMinor: @(61),
+-                  RCTVersionPatch: @(2),
++                  RCTVersionPatch: @(5),
+                   RCTVersionPrerelease: [NSNull null],
+                   };
+   });
+diff --git a/node_modules/react-native/React/Modules/RCTTiming.m b/node_modules/react-native/React/Modules/RCTTiming.m
+index bfc31c6..8a09022 100644
+--- a/node_modules/react-native/React/Modules/RCTTiming.m
++++ b/node_modules/react-native/React/Modules/RCTTiming.m
+@@ -97,7 +97,6 @@ @implementation RCTTiming
+   NSTimer *_sleepTimer;
+   BOOL _sendIdleEvents;
+   BOOL _inBackground;
+-  UIBackgroundTaskIdentifier _backgroundTaskIdentifier;
+ }
+ 
+ @synthesize bridge = _bridge;
+@@ -113,7 +112,6 @@ - (void)setBridge:(RCTBridge *)bridge
+   _paused = YES;
+   _timers = [NSMutableDictionary new];
+   _inBackground = NO;
+-  _backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+ 
+   for (NSString *name in @[UIApplicationWillResignActiveNotification,
+                            UIApplicationDidEnterBackgroundNotification,
+@@ -137,35 +135,10 @@ - (void)setBridge:(RCTBridge *)bridge
+ 
+ - (void)dealloc
+ {
+-  [self markEndOfBackgroundTaskIfNeeded];
+   [_sleepTimer invalidate];
+   [[NSNotificationCenter defaultCenter] removeObserver:self];
+ }
+ 
+-- (void)markStartOfBackgroundTaskIfNeeded
+-{
+-  if (_backgroundTaskIdentifier == UIBackgroundTaskInvalid) {
+-    __weak typeof(self) weakSelf = self;
+-    // Marks the beginning of a new long-running background task. We can run the timer in the background.
+-    _backgroundTaskIdentifier = [[UIApplication sharedApplication] beginBackgroundTaskWithName:@"rct.timing.gb.task" expirationHandler:^{
+-      typeof(self) strongSelf = weakSelf;
+-      if (!strongSelf) {
+-        return;
+-      }
+-      // Mark the end of background task
+-      [strongSelf markEndOfBackgroundTaskIfNeeded];
+-    }];
+-  }
+-}
+-
+-- (void)markEndOfBackgroundTaskIfNeeded
+-{
+-  if (_backgroundTaskIdentifier != UIBackgroundTaskInvalid) {
+-    [[UIApplication sharedApplication] endBackgroundTask:_backgroundTaskIdentifier];
+-    _backgroundTaskIdentifier = UIBackgroundTaskInvalid;
+-  }
+-}
+-
+ - (dispatch_queue_t)methodQueue
+ {
+   return RCTJSThread;
+@@ -190,7 +163,6 @@ - (void)appDidMoveToBackground
+ 
+ - (void)appDidMoveToForeground
+ {
+-  [self markEndOfBackgroundTaskIfNeeded];
+   _inBackground = NO;
+   [self startTimers];
+ }
+@@ -288,7 +260,6 @@ - (void)didUpdateFrame:(RCTFrameUpdate *)update
+   }
+   if (_inBackground) {
+     if (timerCount) {
+-      [self markStartOfBackgroundTaskIfNeeded];
+       [self scheduleSleepTimer:nextScheduledTarget];
+     }
+   } else if (!_sendIdleEvents && timersToCall.count == 0) {
+@@ -367,7 +338,6 @@ - (void)timerDidFire
+   }
+ 
+   if (_inBackground) {
+-    [self markStartOfBackgroundTaskIfNeeded];
+     [self scheduleSleepTimer:timer.target];
+   } else if (_paused) {
+     if ([timer.target timeIntervalSinceNow] > kMinimumSleepInterval) {
+diff --git a/node_modules/react-native/ReactAndroid/build.gradle b/node_modules/react-native/ReactAndroid/build.gradle
+index 1ef2f60..3a155af 100644
+--- a/node_modules/react-native/ReactAndroid/build.gradle
++++ b/node_modules/react-native/ReactAndroid/build.gradle
+@@ -256,6 +256,7 @@ def getNdkBuildFullPath() {
+ task buildReactNdkLib(dependsOn: [prepareJSC, prepareHermes, prepareBoost, prepareDoubleConversion, prepareFolly, prepareGlog], type: Exec) {
+     inputs.dir("$projectDir/../ReactCommon")
+     inputs.dir("src/main/jni")
++    inputs.dir("src/main/java/com/facebook/react/modules/blob")
+     outputs.dir("$buildDir/react-ndk/all")
+     commandLine(getNdkBuildFullPath(),
+             "NDK_DEBUG=" + (nativeBuildType.equalsIgnoreCase("debug") ? "1" : "0"),
+diff --git a/node_modules/react-native/ReactAndroid/gradle.properties b/node_modules/react-native/ReactAndroid/gradle.properties
+index 19dff65..34482ae 100644
+--- a/node_modules/react-native/ReactAndroid/gradle.properties
++++ b/node_modules/react-native/ReactAndroid/gradle.properties
+@@ -1,4 +1,4 @@
+-VERSION_NAME=0.61.2
++VERSION_NAME=0.61.5
+ GROUP=com.facebook.react
+ 
+ POM_NAME=ReactNative
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BUCK b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BUCK
+index ac8fbcb..72c9273 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BUCK
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BUCK
+@@ -16,6 +16,7 @@ rn_android_library(
+     ],
+     deps = [
+         react_native_dep("libraries/fbcore/src/main/java/com/facebook/common/logging:logging"),
++        react_native_dep("libraries/soloader/java/com/facebook/soloader:soloader"),
+         react_native_dep("third-party/java/infer-annotations:infer-annotations"),
+         react_native_dep("third-party/java/jsr-305:jsr-305"),
+         react_native_dep("third-party/java/okhttp:okhttp3"),
+@@ -24,6 +25,7 @@ rn_android_library(
+         react_native_target("java/com/facebook/react/bridge:bridge"),
+         react_native_target("java/com/facebook/react/common:common"),
+         react_native_target("java/com/facebook/react/module/annotations:annotations"),
++        react_native_target("java/com/facebook/react/modules/blob/jni:jni"),
+         react_native_target("java/com/facebook/react/modules/network:network"),
+         react_native_target("java/com/facebook/react/modules/websocket:websocket"),
+     ],
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BlobCollector.java b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BlobCollector.java
+new file mode 100644
+index 0000000..428f3f1
+--- /dev/null
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BlobCollector.java
+@@ -0,0 +1,27 @@
++package com.facebook.react.modules.blob;
++
++import com.facebook.react.bridge.JavaScriptContextHolder;
++import com.facebook.react.bridge.ReactContext;
++import com.facebook.soloader.SoLoader;
++
++/* package */ class BlobCollector {
++  static {
++    SoLoader.loadLibrary("reactnativeblob");
++  }
++
++  static void install(final ReactContext reactContext, final BlobModule blobModule) {
++    reactContext.runOnJSQueueThread(
++        new Runnable() {
++          @Override
++          public void run() {
++            JavaScriptContextHolder jsContext = reactContext.getJavaScriptContextHolder();
++            // When debugging in chrome the JS context is not available.
++            if (jsContext.get() != 0) {
++              nativeInstall(blobModule, jsContext.get());
++            }
++          }
++        });
++  }
++
++  private static native void nativeInstall(Object blobModule, long jsContext);
++}
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BlobModule.java b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BlobModule.java
+index 90a8984..9740323 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BlobModule.java
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/BlobModule.java
+@@ -12,6 +12,7 @@ import android.net.Uri;
+ import android.provider.MediaStore;
+ import android.webkit.MimeTypeMap;
+ import androidx.annotation.Nullable;
++import com.facebook.proguard.annotations.DoNotStrip;
+ import com.facebook.react.bridge.Arguments;
+ import com.facebook.react.bridge.ReactApplicationContext;
+ import com.facebook.react.bridge.ReactContextBaseJavaModule;
+@@ -143,6 +144,11 @@ public class BlobModule extends ReactContextBaseJavaModule {
+     super(reactContext);
+   }
+ 
++  @Override
++  public void initialize() {
++    BlobCollector.install(getReactApplicationContext(), this);
++  }
++
+   @Override
+   public String getName() {
+     return NAME;
+@@ -170,11 +176,16 @@ public class BlobModule extends ReactContextBaseJavaModule {
+   }
+ 
+   public void store(byte[] data, String blobId) {
+-    mBlobs.put(blobId, data);
++    synchronized (mBlobs) {
++      mBlobs.put(blobId, data);
++    }
+   }
+ 
++  @DoNotStrip
+   public void remove(String blobId) {
+-    mBlobs.remove(blobId);
++    synchronized (mBlobs) {
++      mBlobs.remove(blobId);
++    }
+   }
+ 
+   public @Nullable byte[] resolve(Uri uri) {
+@@ -193,17 +204,19 @@ public class BlobModule extends ReactContextBaseJavaModule {
+   }
+ 
+   public @Nullable byte[] resolve(String blobId, int offset, int size) {
+-    byte[] data = mBlobs.get(blobId);
+-    if (data == null) {
+-      return null;
+-    }
+-    if (size == -1) {
+-      size = data.length - offset;
+-    }
+-    if (offset > 0 || size != data.length) {
+-      data = Arrays.copyOfRange(data, offset, offset + size);
++    synchronized (mBlobs) {
++      byte[] data = mBlobs.get(blobId);
++      if (data == null) {
++        return null;
++      }
++      if (size == -1) {
++        size = data.length - offset;
++      }
++      if (offset > 0 || size != data.length) {
++        data = Arrays.copyOfRange(data, offset, offset + size);
++      }
++      return data;
+     }
+-    return data;
+   }
+ 
+   public @Nullable byte[] resolve(ReadableMap blob) {
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/Android.mk b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/Android.mk
+new file mode 100644
+index 0000000..9eb190a
+--- /dev/null
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/Android.mk
+@@ -0,0 +1,21 @@
++# Copyright (c) Facebook, Inc. and its affiliates.
++#
++# This source code is licensed under the MIT license found in the
++# LICENSE file in the root directory of this source tree.
++
++LOCAL_PATH := $(call my-dir)
++
++include $(CLEAR_VARS)
++
++LOCAL_MODULE := reactnativeblob
++
++LOCAL_SRC_FILES := $(wildcard $(LOCAL_PATH)/*.cpp)
++
++LOCAL_C_INCLUDES := $(LOCAL_PATH)
++
++LOCAL_CFLAGS += -fvisibility=hidden -fexceptions -frtti
++
++LOCAL_STATIC_LIBRARIES := libjsi libjsireact
++LOCAL_SHARED_LIBRARIES := libfolly_json libfb libreactnativejni
++
++include $(BUILD_SHARED_LIBRARY)
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BUCK b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BUCK
+new file mode 100644
+index 0000000..4bd4ee6
+--- /dev/null
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BUCK
+@@ -0,0 +1,22 @@
++load("//tools/build_defs/oss:rn_defs.bzl", "ANDROID", "FBJNI_TARGET", "react_native_target", "react_native_xplat_dep", "rn_xplat_cxx_library")
++
++rn_xplat_cxx_library(
++    name = "jni",
++    srcs = glob(["*.cpp"]),
++    headers = glob(["*.h"]),
++    header_namespace = "",
++    compiler_flags = [
++        "-fexceptions",
++        "-frtti",
++        "-std=c++14",
++        "-Wall",
++    ],
++    platforms = ANDROID,
++    soname = "libreactnativeblob.$(ext)",
++    visibility = ["PUBLIC"],
++    deps = [
++        react_native_target("jni/react/jni:jni"),
++        FBJNI_TARGET,
++        react_native_xplat_dep("jsi:jsi"),
++    ],
++)
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BlobCollector.cpp b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BlobCollector.cpp
+new file mode 100644
+index 0000000..b529f68
+--- /dev/null
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BlobCollector.cpp
+@@ -0,0 +1,63 @@
++// Copyright 2004-present Facebook. All Rights Reserved.
++// This source code is licensed under the MIT license found in the
++// LICENSE file in the root directory of this source tree.
++
++#include "BlobCollector.h"
++
++#include <fb/fbjni.h>
++#include <memory>
++#include <mutex>
++
++using namespace facebook;
++
++namespace facebook {
++namespace react {
++
++static constexpr auto kBlobModuleJavaDescriptor =
++    "com/facebook/react/modules/blob/BlobModule";
++
++BlobCollector::BlobCollector(
++    jni::global_ref<jobject> blobModule,
++    const std::string &blobId)
++    : blobModule_(blobModule), blobId_(blobId) {}
++
++BlobCollector::~BlobCollector() {
++  jni::ThreadScope::WithClassLoader([&] {
++    static auto removeMethod = jni::findClassStatic(kBlobModuleJavaDescriptor)
++        ->getMethod<void(jstring)>("remove");
++    removeMethod(blobModule_, jni::make_jstring(blobId_).get());
++  });
++}
++
++void BlobCollector::nativeInstall(
++    jni::alias_ref<jhybridobject> jThis,
++    jni::alias_ref<jobject> blobModule,
++    jlong jsContextNativePointer) {
++  auto &runtime = *((jsi::Runtime *) jsContextNativePointer);
++  auto blobModuleRef = jni::make_global(blobModule);
++  runtime.global().setProperty(
++      runtime,
++      "__blobCollectorProvider",
++      jsi::Function::createFromHostFunction(
++          runtime,
++          jsi::PropNameID::forAscii(runtime, "__blobCollectorProvider"),
++          1,
++          [blobModuleRef](
++              jsi::Runtime &rt,
++              const jsi::Value &thisVal,
++              const jsi::Value *args,
++              size_t count) {
++            auto blobId = args[0].asString(rt).utf8(rt);
++            auto blobCollector =
++                std::make_shared<BlobCollector>(blobModuleRef, blobId);
++            return jsi::Object::createFromHostObject(rt, blobCollector);
++          }));
++}
++
++void BlobCollector::registerNatives() {
++  registerHybrid(
++      {makeNativeMethod("nativeInstall", BlobCollector::nativeInstall)});
++}
++
++} // namespace react
++} // namespace facebook
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BlobCollector.h b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BlobCollector.h
+new file mode 100644
+index 0000000..b013cf8
+--- /dev/null
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/BlobCollector.h
+@@ -0,0 +1,39 @@
++// Copyright 2004-present Facebook. All Rights Reserved.
++// This source code is licensed under the MIT license found in the
++// LICENSE file in the root directory of this source tree.
++
++#pragma once
++
++#include <fb/fbjni.h>
++#include <jsi/jsi.h>
++
++namespace facebook {
++namespace react {
++
++class BlobCollector : public jni::HybridClass<BlobCollector>,
++                      public jsi::HostObject {
++ public:
++  BlobCollector(
++      jni::global_ref<jobject> blobManager,
++      const std::string &blobId);
++  ~BlobCollector();
++
++  static constexpr auto kJavaDescriptor =
++      "Lcom/facebook/react/modules/blob/BlobCollector;";
++
++  static void nativeInstall(
++      jni::alias_ref<jhybridobject> jThis,
++      jni::alias_ref<jobject> blobModule,
++      jlong jsContextNativePointer);
++
++  static void registerNatives();
++
++ private:
++  friend HybridBase;
++
++  jni::global_ref<jobject> blobModule_;
++  const std::string blobId_;
++};
++
++} // namespace react
++} // namespace facebook
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/OnLoad.cpp b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/OnLoad.cpp
+new file mode 100644
+index 0000000..3707d02
+--- /dev/null
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/blob/jni/OnLoad.cpp
+@@ -0,0 +1,13 @@
++// Copyright 2004-present Facebook. All Rights Reserved.
++
++// This source code is licensed under the MIT license found in the
++// LICENSE file in the root directory of this source tree.
++
++#include <fb/fbjni.h>
++
++#include "BlobCollector.h"
++
++JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
++  return facebook::jni::initialize(
++      vm, [] { facebook::react::BlobCollector::registerNatives(); });
++}
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/network/NetworkingModule.java b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/network/NetworkingModule.java
+index 444c893..84244d6 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/network/NetworkingModule.java
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/network/NetworkingModule.java
+@@ -7,6 +7,7 @@
+ package com.facebook.react.modules.network;
+ 
+ import android.net.Uri;
++import android.os.Bundle;
+ import android.util.Base64;
+ import androidx.annotation.Nullable;
+ import com.facebook.common.logging.FLog;
+@@ -625,18 +626,18 @@ public final class NetworkingModule extends ReactContextBaseJavaModule {
+   }
+ 
+   private static WritableMap translateHeaders(Headers headers) {
+-    WritableMap responseHeaders = Arguments.createMap();
++    Bundle responseHeaders = new Bundle();
+     for (int i = 0; i < headers.size(); i++) {
+       String headerName = headers.name(i);
+       // multiple values for the same header
+-      if (responseHeaders.hasKey(headerName)) {
++      if (responseHeaders.containsKey(headerName)) {
+         responseHeaders.putString(
+             headerName, responseHeaders.getString(headerName) + ", " + headers.value(i));
+       } else {
+         responseHeaders.putString(headerName, headers.value(i));
+       }
+     }
+-    return responseHeaders;
++    return Arguments.fromBundle(responseHeaders);
+   }
+ 
+   @ReactMethod
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/AndroidInfoModule.java b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/AndroidInfoModule.java
+index ef2ae93..2795802 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/AndroidInfoModule.java
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/AndroidInfoModule.java
+@@ -92,7 +92,7 @@ public class AndroidInfoModule extends ReactContextBaseJavaModule implements Tur
+ 
+   private Boolean isRunningScreenshotTest() {
+     try {
+-      Class.forName("android.support.test.rule.ActivityTestRule");
++      Class.forName("androidx.test.rule.ActivityTestRule");
+       return true;
+     } catch (ClassNotFoundException ignored) {
+       return false;
+diff --git a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/ReactNativeVersion.java b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/ReactNativeVersion.java
+index a5de8ba..ce268ed 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/ReactNativeVersion.java
++++ b/node_modules/react-native/ReactAndroid/src/main/java/com/facebook/react/modules/systeminfo/ReactNativeVersion.java
+@@ -17,6 +17,6 @@ public class ReactNativeVersion {
+   public static final Map<String, Object> VERSION = MapBuilder.<String, Object>of(
+       "major", 0,
+       "minor", 61,
+-      "patch", 2,
++      "patch", 5,
+       "prerelease", null);
+ }
+diff --git a/node_modules/react-native/ReactAndroid/src/main/jni/react/jni/Android.mk b/node_modules/react-native/ReactAndroid/src/main/jni/react/jni/Android.mk
+index 20b2171..cb88bb8 100644
+--- a/node_modules/react-native/ReactAndroid/src/main/jni/react/jni/Android.mk
++++ b/node_modules/react-native/ReactAndroid/src/main/jni/react/jni/Android.mk
+@@ -79,3 +79,4 @@ include $(REACT_SRC_DIR)/turbomodule/core/jni/Android.mk
+ include $(REACT_SRC_DIR)/jscexecutor/Android.mk
+ include $(REACT_SRC_DIR)/../hermes/reactexecutor/Android.mk
+ include $(REACT_SRC_DIR)/../hermes/instrumentation/Android.mk
++include $(REACT_SRC_DIR)/modules/blob/jni/Android.mk
+diff --git a/node_modules/react-native/ReactCommon/hermes/inspector/tools/msggen/.npmignore b/node_modules/react-native/ReactCommon/hermes/inspector/tools/msggen/.gitignore
+similarity index 100%
+rename from node_modules/react-native/ReactCommon/hermes/inspector/tools/msggen/.npmignore
+rename to node_modules/react-native/ReactCommon/hermes/inspector/tools/msggen/.gitignore
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar
+deleted file mode 100644
+index 5b4747c..0000000
+Binary files a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar and /dev/null differ
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar.md5
+deleted file mode 100644
+index 08a4b63..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar.md5
++++ /dev/null
+@@ -1 +0,0 @@
+-995c8d9c87c215d6a63b1f97f15afd9c
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar.sha1
+deleted file mode 100644
+index 4b7e43d..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-javadoc.jar.sha1
++++ /dev/null
+@@ -1 +0,0 @@
+-d6db056206738777d25d2e99e2b7d6f8f716815e
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar.md5
+deleted file mode 100644
+index 929611a..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar.md5
++++ /dev/null
+@@ -1 +0,0 @@
+-6ecbd65982773280081b0de7f07db270
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar.sha1
+deleted file mode 100644
+index e880a30..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar.sha1
++++ /dev/null
+@@ -1 +0,0 @@
+-2d68be3dc0ff87725b74cbf5e8ad69d7c7b7b8e3
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar.md5
+deleted file mode 100644
+index 5ab78fe..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar.md5
++++ /dev/null
+@@ -1 +0,0 @@
+-27c4f4d4364bbb6c69f4f2b674c75074
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar.sha1
+deleted file mode 100644
+index 5c06dca..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar.sha1
++++ /dev/null
+@@ -1 +0,0 @@
+-9154dabdb09404601597c02d825533f4ba0f60b1
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom.md5
+deleted file mode 100644
+index b863ebb..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom.md5
++++ /dev/null
+@@ -1 +0,0 @@
+-24e205b61978cd533090f3bf2da61c9e
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom.sha1
+deleted file mode 100644
+index 5119e5c..0000000
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom.sha1
++++ /dev/null
+@@ -1 +0,0 @@
+-d10c89c09c556c9c2e94596884cbd465dc2008ee
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar
+new file mode 100644
+index 0000000..5c2a298
+Binary files /dev/null and b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar differ
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar.md5
+new file mode 100644
+index 0000000..857d87a
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar.md5
+@@ -0,0 +1 @@
++6b610ef784aec8701b44819d57c84065
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar.sha1
+new file mode 100644
+index 0000000..76200b2
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-javadoc.jar.sha1
+@@ -0,0 +1 @@
++d5ae26378cc093cd00968c00dfd3cf75d6dab27b
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar
+similarity index 87%
+rename from node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar
+rename to node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar
+index 44b9874..7ca5329 100644
+Binary files a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2-sources.jar and b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar differ
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar.md5
+new file mode 100644
+index 0000000..fbbc5ae
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar.md5
+@@ -0,0 +1 @@
++9a2c235cb58dc22975825928768f4a21
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar.sha1
+new file mode 100644
+index 0000000..c8660e1
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5-sources.jar.sha1
+@@ -0,0 +1 @@
++097d08ca33be63713e0b14aeff695837edc848e5
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar
+similarity index 89%
+rename from node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar
+rename to node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar
+index ac21bf4..d02e7c2 100644
+Binary files a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.aar and b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar differ
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar.md5
+new file mode 100644
+index 0000000..837ad6b
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar.md5
+@@ -0,0 +1 @@
++529df2363a103911ec0fc4be091343a8
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar.sha1
+new file mode 100644
+index 0000000..3fe67ca
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.aar.sha1
+@@ -0,0 +1 @@
++a39ce251ee6e5ddda3251344208a98e3e012d866
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom
+similarity index 99%
+rename from node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom
+rename to node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom
+index 131c51e..da47839 100644
+--- a/node_modules/react-native/android/com/facebook/react/react-native/0.61.2/react-native-0.61.2.pom
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom
+@@ -4,7 +4,7 @@
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.facebook.react</groupId>
+   <artifactId>react-native</artifactId>
+-  <version>0.61.2</version>
++  <version>0.61.5</version>
+   <packaging>aar</packaging>
+   <name>ReactNative</name>
+   <description>A framework for building native apps with React</description>
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom.md5 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom.md5
+new file mode 100644
+index 0000000..a467ee8
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom.md5
+@@ -0,0 +1 @@
++d773081803ace0462fc69253c3c251b3
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom.sha1
+new file mode 100644
+index 0000000..8fbe396
+--- /dev/null
++++ b/node_modules/react-native/android/com/facebook/react/react-native/0.61.5/react-native-0.61.5.pom.sha1
+@@ -0,0 +1 @@
++42dccae2647b050b57e05e41e2bec898927aeb37
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml b/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml
+index aa0075e..88aadaa 100644
+--- a/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml
++++ b/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml
+@@ -3,10 +3,10 @@
+   <groupId>com.facebook.react</groupId>
+   <artifactId>react-native</artifactId>
+   <versioning>
+-    <release>0.61.2</release>
++    <release>0.61.5</release>
+     <versions>
+-      <version>0.61.2</version>
++      <version>0.61.5</version>
+     </versions>
+-    <lastUpdated>20191002190744</lastUpdated>
++    <lastUpdated>20191123150306</lastUpdated>
+   </versioning>
+ </metadata>
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.md5 b/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.md5
+index dc49f25..2c28bd3 100644
+--- a/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.md5
++++ b/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.md5
+@@ -1 +1 @@
+-df1c2232a49c196d754f3226a0192718
+\ No newline at end of file
++f1858951e8f71502ed022a1ba5396cd8
+\ No newline at end of file
+diff --git a/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.sha1 b/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.sha1
+index ecb2432..8b52655 100644
+--- a/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.sha1
++++ b/node_modules/react-native/android/com/facebook/react/react-native/maven-metadata.xml.sha1
+@@ -1 +1 @@
+-8f3a3046e9e57ce0ce61c979f6c48670cb2d9ab4
+\ No newline at end of file
++4d77c40355e82f7e6e66b53f6ec1c2b4d5506a5b
+\ No newline at end of file
+diff --git a/node_modules/react-native/react.gradle b/node_modules/react-native/react.gradle
+index 14f0746..a84417b 100644
+--- a/node_modules/react-native/react.gradle
++++ b/node_modules/react-native/react.gradle
+@@ -85,6 +85,19 @@ afterEvaluate {
+         // Additional node and packager commandline arguments
+         def nodeExecutableAndArgs = config.nodeExecutableAndArgs ?: ["node"]
+         def extraPackagerArgs = config.extraPackagerArgs ?: []
++        def npx = Os.isFamily(Os.FAMILY_WINDOWS) ? "npx.cmd" : "npx"
++
++        def execCommand = []
++
++        if (config.cliPath || config.nodeExecutableAndArgs) {
++            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
++                execCommand.addAll(["cmd", "/c", *nodeExecutableAndArgs, cliPath])
++            } else {
++                execCommand.addAll([*nodeExecutableAndArgs, cliPath])
++            }
++        } else {
++            execCommand.addAll([npx, "react-native"])
++        }
+ 
+         def enableHermes = enableHermesForVariant(variant)
+ 
+@@ -126,15 +139,10 @@ afterEvaluate {
+                 extraArgs.add(bundleConfig);
+             }
+ 
+-            if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+-                commandLine("cmd", "/c", *nodeExecutableAndArgs, cliPath, bundleCommand, "--platform", "android", "--dev", "${devEnabled}",
+-                    "--reset-cache", "--entry-file", entryFile, "--bundle-output", jsBundleFile, "--assets-dest", resourcesDir,
+-                    "--sourcemap-output", enableHermes ? jsPackagerSourceMapFile : jsOutputSourceMapFile, *extraArgs)
+-            } else {
+-                commandLine(*nodeExecutableAndArgs, cliPath, bundleCommand, "--platform", "android", "--dev", "${devEnabled}",
+-                    "--reset-cache", "--entry-file", entryFile, "--bundle-output", jsBundleFile, "--assets-dest", resourcesDir,
+-                    "--sourcemap-output", enableHermes ? jsPackagerSourceMapFile : jsOutputSourceMapFile, *extraArgs)
+-            }
++            commandLine(*execCommand, bundleCommand, "--platform", "android", "--dev", "${devEnabled}",
++                "--reset-cache", "--entry-file", entryFile, "--bundle-output", jsBundleFile, "--assets-dest", resourcesDir,
++                "--sourcemap-output", enableHermes ? jsPackagerSourceMapFile : jsOutputSourceMapFile, *extraArgs)
++
+ 
+             if (enableHermes) {
+                 doLast {
+@@ -149,7 +157,12 @@ afterEvaluate {
+                             hermesFlags = config.hermesFlagsDebug
+                             if (hermesFlags == null) hermesFlags = []
+                         }
+-                        commandLine(getHermesCommand(), "-emit-binary", "-out", hbcTempFile, jsBundleFile, *hermesFlags)
++                        
++                        if (Os.isFamily(Os.FAMILY_WINDOWS)) {
++                            commandLine("cmd", "/c", getHermesCommand(), "-emit-binary", "-out", hbcTempFile, jsBundleFile, *hermesFlags)
++                        } else {
++                            commandLine(getHermesCommand(), "-emit-binary", "-out", hbcTempFile, jsBundleFile, *hermesFlags)
++                        }
+                     }
+                     ant.move(
+                         file: hbcTempFile,

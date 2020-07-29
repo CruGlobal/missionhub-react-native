@@ -66,6 +66,8 @@
     "jsonapi-datastore": "^0.4.0-beta",
     "lodash.debounce": "^4.0.8",
     "moment": "^2.24.0",
+    "patch-package": "^6.2.2",
+    "postinstall-postinstall": "^2.1.0",
     "prop-types": "^15.7.2",
     "qs": "^6.7.0",
     "random-string": "^0.2.0",
