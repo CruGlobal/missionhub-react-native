@@ -13,6 +13,7 @@ import {
   UPDATE_TOKEN,
 } from '../constants';
 import { LOG, APILOG } from '../utils/logging';
+import { RootState } from '../reducers';
 
 import { logout, handleInvalidAccessToken } from './auth/auth';
 
@@ -26,9 +27,9 @@ export default function callApi(
   query: { [key: string]: any } = {},
   data: { [key: string]: any } = {},
 ): ThunkAction<
-  any, // TODO: change to void after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
-  any, // TODO: change to RootState after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
-  null, // TODO: change to never after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
+  Record<string, any>,
+  RootState,
+  never,
   | {
       query: any;
       data: any;
@@ -115,7 +116,7 @@ export default function callApi(
 
     try {
       const response = await API_CALLS[action.name](newQuery, data);
-      const actionResults: { [key: string]: any } = response // TODO: replace any. I gave up typing this for now. It could be absolutely anything and every field is optional.
+      const actionResults: Record<string, any> = response // TODO: replace any. I gave up typing this for now. It could be absolutely anything and every field is optional.
         ? response.results || {}
         : {};
       actionResults.response = response && response.response;

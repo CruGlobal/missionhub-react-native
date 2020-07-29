@@ -6,9 +6,7 @@ import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
-//eslint-disable-next-line import/named
 import { RecordResponse } from 'react-native-camera';
-//eslint-disable-next-line import/named
 import { ReactNativeFile } from 'apollo-upload-client';
 
 import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';

@@ -40,9 +40,8 @@ export const createApolloClient = async () => {
             )
           ) {
             (async () => {
-              // @ts-ignore TODO: Remove after https://github.com/CruGlobal/missionhub-react-native/pull/1852 is merged
-              await store.dispatch(handleInvalidAccessToken());
-              forward(operation);
+              const retry = await store.dispatch(handleInvalidAccessToken());
+              retry && forward(operation);
             })();
           } else {
             const errorMessage = `[Apollo GraphQL error]: ${error.message}`;

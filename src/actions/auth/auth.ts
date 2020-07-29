@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/default
 import PushNotification from 'react-native-push-notification';
 import { AccessToken } from 'react-native-fbsdk';
 import { ThunkDispatch } from 'redux-thunk';
@@ -10,7 +9,6 @@ import { rollbar } from '../../utils/rollbar.config';
 import { navigateReset } from '../navigation';
 import { deletePushToken } from '../notifications';
 import { SIGN_IN_FLOW } from '../../routes/constants';
-import { getFeatureFlags } from '../misc';
 import { apolloClient } from '../../apolloClient';
 import { RootState } from '../../reducers';
 
@@ -23,14 +21,13 @@ export function logout(forcedLogout = false) {
     try {
       await dispatch(deletePushToken());
     } finally {
-      dispatch({ type: LOGOUT });
-      apolloClient.clearStore();
-      getFeatureFlags();
       dispatch(
         forcedLogout
           ? navigateReset(SIGN_IN_FLOW, { forcedLogout })
           : navigateReset(LANDING_SCREEN),
       );
+      dispatch({ type: LOGOUT });
+      apolloClient.clearStore();
       PushNotification.unregister();
       rollbar.clearPerson();
     }
@@ -66,22 +63,31 @@ export const handleInvalidAccessToken = () => {
   return async (
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => RootState,
-  ) => {
+    // Return true if the request should be retried after refreshing token
+  ): Promise<boolean> => {
     const { auth } = getState();
 
+    if (!auth.token) {
+      return false;
+    }
+
     if (auth.refreshToken) {
-      return dispatch(refreshAccessToken());
+      await dispatch(refreshAccessToken());
+      return true;
     }
 
     if (auth.upgradeToken) {
-      return dispatch(refreshAnonymousLogin());
+      await dispatch(refreshAnonymousLogin());
+      return true;
     }
 
     const { accessToken } = (await AccessToken.getCurrentAccessToken()) || {};
     if (accessToken) {
-      return dispatch(refreshMissionHubFacebookAccess());
+      await dispatch(refreshMissionHubFacebookAccess());
+      return true;
     }
 
     dispatch(logout(true));
+    return false;
   };
 };
