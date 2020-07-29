@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, StatusBar } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
@@ -181,6 +181,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
 
   return (
     <View style={isEdit ? styles.editContainer : styles.container}>
+      <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={
           isEdit ? null : (
