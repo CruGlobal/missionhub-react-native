@@ -146,15 +146,7 @@ describe('navigateToStageScreen', () => {
   it('should navigate to self stage screen if first param is true', async () => {
     // @ts-ignore
     await store.dispatch(
-      navigateToStageScreen(
-        true,
-        person,
-        null,
-        organization,
-        firstItemIndex,
-        // @ts-ignore
-        true,
-      ),
+      navigateToStageScreen(true, person, null, organization, firstItemIndex),
     );
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_FLOW, {
@@ -179,7 +171,6 @@ describe('navigateToStageScreen', () => {
         contactAssignment,
         organization,
         firstItemIndex,
-        // @ts-ignore
         true,
       ),
     );
@@ -190,6 +181,7 @@ describe('navigateToStageScreen', () => {
       orgId: organization.id,
       section: 'people',
       subsection: 'person',
+      skipSelectSteps: true,
     });
     // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
