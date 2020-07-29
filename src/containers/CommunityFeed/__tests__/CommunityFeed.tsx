@@ -421,7 +421,7 @@ describe('renders for Global Community', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
-      variables: { subjectType: [FeedItemSubjectTypeEnum.STORY] },
+      variables: { subjectType: FeedItemSubjectTypeEnum.STORY },
       skip: false,
     });
   });

@@ -4,17 +4,7 @@ import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../../components/CommunityFeedItem
 
 export const GET_GLOBAL_COMMUNITY_FEED = gql`
   query GetGlobalCommunityFeed(
-    $subjectType: [FeedItemSubjectTypeEnum!] = [
-      STORY
-      QUESTION
-      PRAYER_REQUEST
-      ANNOUNCEMENT
-      HELP_REQUEST
-      THOUGHT
-      STEP
-      ACCEPTED_COMMUNITY_CHALLENGE
-      COMMUNITY_PERMISSION
-    ]
+    $subjectType: FeedItemSubjectTypeEnum
     $feedItemsCursor: String
     $commentsCursor: String # not used by this query but needed to make CommunityFeedItemCommentLike.comments fragment happy
   ) {
