@@ -1,5 +1,4 @@
 import React, { useCallback } from 'react';
-import { useDispatch } from 'react-redux';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { View, Text, SectionList } from 'react-native';
@@ -7,30 +6,33 @@ import { useNavigationEvents } from 'react-navigation-hooks';
 
 import theme from '../../theme';
 import Header from '../../components/Header';
-import { IconButton, Flex } from '../../components/common';
+import { Flex } from '../../components/common';
 import {
   NotificationCenterItem,
   ReportedNotificationCenterItem,
 } from '../../components/NotificationCenterItem';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
-import { openMainMenu } from '../../utils/common';
 import { isLastTwentyFourHours, getMomentDate } from '../../utils/date';
 import { NotificationItem } from '../../components/NotificationCenterItem/__generated__/NotificationItem';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { ContentComplaintGroupItem } from '../../components/NotificationCenterItem/__generated__/ContentComplaintGroupItem';
 import { useFeatureFlags } from '../../utils/hooks/useFeatureFlags';
+import AvatarMenuButton from '../../components/AvatarMenuButton';
 
+import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
 import {
   UpdateLatestNotification,
   UpdateLatestNotificationVariables,
 } from './__generated__/UpdateLatestNotification';
 import NullNotificationsIcon from './nullNotificationsIcon.svg';
-import { GetNotifications } from './__generated__/GetNotifications';
-import { GET_NOTIFICATIONS, UPDATE_LATEST_NOTIFICATION } from './queries';
+import {
+  GetNotifications,
+  GetNotifications_contentComplaints,
+  GetNotifications_notifications_nodes,
+} from './__generated__/GetNotifications';
 import styles from './styles';
 
 const NotificationCenterScreen = () => {
-  const dispatch = useDispatch();
   const { t } = useTranslation('notificationsCenter');
 
   useAnalytics('notification center');
@@ -66,7 +68,14 @@ const NotificationCenterScreen = () => {
     }
   });
 
-  const filteredSections = [
+  const filteredSections: {
+    id: number;
+    name: string;
+    data: (
+      | GetNotifications_contentComplaints
+      | GetNotifications_notifications_nodes
+    )[];
+  }[] = [
     {
       id: 0,
       name: 'reportedActivity',
@@ -94,8 +103,6 @@ const NotificationCenterScreen = () => {
   >(UPDATE_LATEST_NOTIFICATION);
 
   const { notifications_panel } = useFeatureFlags();
-
-  const onOpenMainMenu = () => dispatch(openMainMenu());
 
   const renderNull = () => (
     <Flex justify="center" align="center" style={{ marginTop: '50%' }}>
@@ -164,13 +171,7 @@ const NotificationCenterScreen = () => {
     <View style={styles.pageContainer}>
       <Header
         testID="header"
-        left={
-          <IconButton
-            name="menuIcon"
-            type="MissionHub"
-            onPress={onOpenMainMenu}
-          />
-        }
+        left={<AvatarMenuButton />}
         title={t('title')}
         titleStyle={styles.title}
       />

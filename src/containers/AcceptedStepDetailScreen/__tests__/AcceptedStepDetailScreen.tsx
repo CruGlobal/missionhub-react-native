@@ -7,7 +7,6 @@ import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
-
 import AcceptedStepDetailScreen from '..';
 
 jest.mock('../../../actions/steps');
@@ -15,11 +14,13 @@ jest.mock('../../../actions/stepReminders');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../components/ReminderButton', () => ({
   __esModule: true,
+  // @ts-ignore
   ...jest.requireActual('../../../components/ReminderButton'),
   default: 'ReminderButton',
 }));
 jest.mock('../../../components/ReminderDateText', () => ({
   __esModule: true,
+  // @ts-ignore
   ...jest.requireActual('../../../components/ReminderDateText'),
   default: 'ReminderDateText',
 }));

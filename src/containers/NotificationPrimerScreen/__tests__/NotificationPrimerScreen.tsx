@@ -11,7 +11,6 @@ import { navigatePush, navigateBack } from '../../../actions/navigation';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import NotificationPrimerScreen from '..';
 
 const {

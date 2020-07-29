@@ -4,33 +4,28 @@ import {
   TouchableWithoutFeedback,
   TouchableHighlightProps,
   TouchableHighlight,
+  GestureResponderEvent,
 } from 'react-native';
 
 import theme from '../../theme';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type PressPropsType = any[];
-export type TouchablePress = (...args: PressPropsType) => void;
-
 interface TouchableIOSProps extends TouchableHighlightProps {
   highlight?: boolean;
   withoutFeedback?: boolean;
-  pressProps?: PressPropsType;
-  onPress?: TouchablePress;
+  onPress?: (event: GestureResponderEvent) => void;
   children?: React.ReactNode;
+  isAndroidOpacity?: boolean; // Unused here but added to prevent type errors
 }
 
 const TouchableIOS = ({
-  pressProps = [],
   onPress,
   highlight,
   withoutFeedback,
   ...rest
 }: TouchableIOSProps) => {
-  const handlePress = () => {
+  const handlePress = (event: GestureResponderEvent) => {
     if (onPress) {
-      // Call the onPress with all of the pressProps passed in or just undefined if it doesn't exist
-      onPress(...pressProps);
+      onPress(event);
     }
   };
   if (highlight) {

@@ -1,9 +1,8 @@
 import React from 'react';
-import { StatusBar, View, Image } from 'react-native';
+import { StatusBar, View, Image, ScrollView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-display';
-import { ScrollView } from 'react-native';
 
 import Header from '../Header/index';
 import BottomButton, { BottomButtonProps } from '../BottomButton/index';
@@ -101,8 +100,8 @@ const StepDetailScreen = ({
               <Markdown
                 style={{
                   ...markdownStyles,
-                  text: {
-                    ...markdownStyles.text,
+                  body: {
+                    ...markdownStyles.body,
                     fontSize: 16,
                     color: theme.grey,
                     paddingBottom: 20,

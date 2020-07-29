@@ -13,5 +13,6 @@ declare const _test: typeof android;
 declare const _testDefault: typeof DefaultIos;
 declare const _testDefault: typeof DefaultAndroid;
 
+// eslint-disable-next-line import/export
 export * from './index.ios';
 export default DefaultIos;

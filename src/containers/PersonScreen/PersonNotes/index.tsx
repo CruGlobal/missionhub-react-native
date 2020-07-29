@@ -38,7 +38,7 @@ export const PersonNotes = ({ collapsibleHeaderContext }: PersonNotesProps) => {
     assignmentType: { personId },
   });
   const { t } = useTranslation('notes');
-  const dispatch = useDispatch<ThunkDispatch<{}, {}, AnyAction>>();
+  const dispatch = useDispatch<ThunkDispatch<RootState, never, AnyAction>>();
   const [text, setText] = useState<string | undefined>(undefined);
   const [editing, setEditing] = useState(false);
   const [noteId, setNoteId] = useState<string | null>(null);

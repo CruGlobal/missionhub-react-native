@@ -8,7 +8,6 @@ import {
   testSnapshotShallow,
 } from '../../../../../testUtils';
 import { navigateBack } from '../../../../actions/navigation';
-
 import JoinGroupScreen from '..';
 
 jest.mock('../../../../actions/navigation', () => ({
@@ -29,6 +28,7 @@ jest.mock('../../../../actions/analytics', () => ({
   trackActionWithoutData: jest.fn(() => ({ type: 'track' })),
 }));
 
+// @ts-ignore
 global.setTimeout = jest.fn();
 
 const mockStore = configureStore([thunk]);

@@ -369,7 +369,11 @@ exports[`should render correctly | Care Step 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -391,14 +395,13 @@ exports[`should render correctly | Care Step 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -866,7 +869,11 @@ exports[`should render correctly | Pray Step 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -888,14 +895,13 @@ exports[`should render correctly | Pray Step 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >
@@ -1364,7 +1370,11 @@ exports[`should render correctly | Share Step 1`] = `
           }
         >
           <View
-            style={Object {}}
+            style={
+              Object {
+                "paddingBottom": 20,
+              }
+            }
           >
             <View
               style={
@@ -1386,14 +1396,13 @@ exports[`should render correctly | Share Step 1`] = `
                 <Text
                   style={
                     Array [
-                      Object {},
                       Object {
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
                         "lineHeight": 24,
-                        "paddingBottom": 20,
                       },
+                      Object {},
                     ]
                   }
                 >

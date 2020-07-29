@@ -1,5 +1,3 @@
-/* eslint complexity: 0, max-lines: 0, max-lines-per-function: 0 */
-
 import React, { useState, useRef } from 'react';
 import { KeyboardAvoidingView, View, TextInput } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
@@ -33,7 +31,7 @@ export interface AddContactFieldsProps {
     navigateToStageSelection: boolean;
     person: PersonType;
     updatePerson: (person: PersonType) => void;
-  }) => ThunkAction<unknown, RootState, {}, AnyAction>;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
   testID?: string;
 }
 

@@ -1,5 +1,3 @@
-/*eslint max-lines: 0*/
-
 import { Alert, Keyboard } from 'react-native';
 import React from 'react';
 import MockDate from 'mockdate';
@@ -17,7 +15,6 @@ import locale from '../../../i18n/locales/en-US';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { trackStepAdded } from '../../../actions/analytics';
 import * as common from '../../../utils/common';
-
 import AddStepScreen from '..';
 
 //fixed in steps-improvement

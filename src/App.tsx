@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react';
-import { AppState, StatusBar, AppStateStatus } from 'react-native';
+import { AppState, StatusBar, AppStateStatus, Alert } from 'react-native';
 import { Provider } from 'react-redux';
 import { Provider as ProviderLegacy } from 'react-redux-legacy';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -7,8 +7,6 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import i18n from 'i18next';
 import * as RNOmniture from 'react-native-omniture';
 import DefaultPreference from 'react-native-default-preference';
-import { Alert } from 'react-native';
-// eslint-disable-next-line import/default
 import codePush from 'react-native-code-push';
 import Config from 'react-native-config';
 import Icon from 'react-native-vector-icons/MaterialIcons';
@@ -67,7 +65,7 @@ export default class App extends Component {
     apolloClient: undefined,
   };
 
-  constructor(props: Readonly<{}>) {
+  constructor(props: Readonly<Record<string, unknown>>) {
     super(props);
     this.initializeErrorHandling();
   }
@@ -128,7 +126,6 @@ export default class App extends Component {
     ErrorUtils.setGlobalHandler(this.handleError);
   }
 
-  // eslint-disable-next-line complexity
   handleError(
     e: {
       // eslint-disable-next-line  @typescript-eslint/no-explicit-any

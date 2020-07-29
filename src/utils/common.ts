@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-params: 0 */
+/* eslint-disable max-lines */
 
 import {
   ToastAndroid,
@@ -48,6 +48,7 @@ export const buildTrackingObj = (
   level3,
   // @ts-ignore
   level4,
+  // eslint-disable-next-line max-params
 ) => ({
   name,
   section,
@@ -411,4 +412,18 @@ export const getFeedItemType = (subject: CommunityFeedItem_subject) => {
     default:
       return FeedItemSubjectTypeEnum.STORY;
   }
+};
+export const canModifyFeedItemSubject = (
+  subject?: CommunityFeedItem_subject,
+) => {
+  const itemType = subject && getFeedItemType(subject);
+  return [
+    FeedItemSubjectTypeEnum.ANNOUNCEMENT,
+    FeedItemSubjectTypeEnum.HELP_REQUEST,
+    FeedItemSubjectTypeEnum.PRAYER_REQUEST,
+    FeedItemSubjectTypeEnum.QUESTION,
+    FeedItemSubjectTypeEnum.STORY,
+    FeedItemSubjectTypeEnum.THOUGHT,
+    FeedItemSubjectTypeEnum.THOUGHT,
+  ].includes(itemType as FeedItemSubjectTypeEnum);
 };

@@ -1,7 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CommunityMembers renders with content 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ECEEF2",
@@ -76,32 +77,28 @@ exports[`CommunityMembers renders with content 1`] = `
       <View
         onLayout={[Function]}
       >
-        <RCTSafeAreaView
-          emulateUnlessSupported={true}
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "marginBottom": 20,
+                "marginTop": 15,
+              },
+            ]
+          }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "marginBottom": 20,
-                  "marginTop": 15,
-                },
-              ]
-            }
-          >
-            93255 Members
-          </Text>
-        </RCTSafeAreaView>
+          93255 Members
+        </Text>
       </View>
       <View
         onLayout={[Function]}
@@ -361,7 +358,7 @@ exports[`CommunityMembers renders with content 1`] = `
       style={
         Object {
           "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingVertical": 60,
         }
       }
     >
@@ -453,7 +450,7 @@ exports[`CommunityMembers renders with content 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`CommunityMembers should load next page 1`] = `
@@ -461,7 +458,7 @@ exports[`CommunityMembers should load next page 1`] = `
 - First value
 + Second value
 
-@@ -51,10 +51,46 @@
+@@ -52,10 +52,46 @@
               \\"id\\": \\"5\\",
               \\"lastName\\": \\"Ortiz\\",
               \\"picture\\": \\"qui recusandae ut\\",
@@ -508,20 +505,20 @@ exports[`CommunityMembers should load next page 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -112,11 +148,11 @@
-                    \\"marginTop\\": 15,
-                  },
-                ]
-              }
-            >
--             93255 Members
-+             52454 Members
-            </Text>
-          </RCTSafeAreaView>
+@@ -110,11 +146,11 @@
+                  \\"marginTop\\": 15,
+                },
+              ]
+            }
+          >
+-           93255 Members
++           52454 Members
+          </Text>
         </View>
         <View
           onLayout={[Function onLayout]}
-@@ -419,10 +455,320 @@
+          style={null}
+@@ -416,10 +452,320 @@
                         ]
                       }
                       testID=\\"Text\\"
@@ -845,7 +842,8 @@ exports[`CommunityMembers should load next page 1`] = `
 `;
 
 exports[`CommunityMembers should render empty state 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ECEEF2",
@@ -899,32 +897,28 @@ exports[`CommunityMembers should render empty state 1`] = `
       <View
         onLayout={[Function]}
       >
-        <RCTSafeAreaView
-          emulateUnlessSupported={true}
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "marginBottom": 20,
+                "marginTop": 15,
+              },
+            ]
+          }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "marginBottom": 20,
-                  "marginTop": 15,
-                },
-              ]
-            }
-          >
-            0 Members
-          </Text>
-        </RCTSafeAreaView>
+          0 Members
+        </Text>
       </View>
       <View
         onLayout={[Function]}
@@ -1053,7 +1047,7 @@ exports[`CommunityMembers should render empty state 1`] = `
       style={
         Object {
           "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingVertical": 60,
         }
       }
     >
@@ -1145,11 +1139,12 @@ exports[`CommunityMembers should render empty state 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</View>
+</RCTSafeAreaView>
 `;
 
 exports[`CommunityMembers should render loading state 1`] = `
-<View
+<RCTSafeAreaView
+  emulateUnlessSupported={true}
   style={
     Object {
       "backgroundColor": "#ECEEF2",
@@ -1203,32 +1198,28 @@ exports[`CommunityMembers should render loading state 1`] = `
       <View
         onLayout={[Function]}
       >
-        <RCTSafeAreaView
-          emulateUnlessSupported={true}
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "color": "#505256",
+                "fontSize": 24,
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "marginBottom": 20,
+                "marginTop": 15,
+              },
+            ]
+          }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "marginBottom": 20,
-                  "marginTop": 15,
-                },
-              ]
-            }
-          >
-            0 Members
-          </Text>
-        </RCTSafeAreaView>
+          0 Members
+        </Text>
       </View>
       <View
         onLayout={[Function]}
@@ -1357,7 +1348,7 @@ exports[`CommunityMembers should render loading state 1`] = `
       style={
         Object {
           "paddingHorizontal": 20,
-          "paddingVertical": 10,
+          "paddingVertical": 60,
         }
       }
     >
@@ -1449,5 +1440,5 @@ exports[`CommunityMembers should render loading state 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-</View>
+</RCTSafeAreaView>
 `;

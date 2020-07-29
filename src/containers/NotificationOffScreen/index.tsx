@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useAppState } from 'react-native-hooks';
+import { AnyAction } from 'redux';
 
 import { Text, Button } from '../../components/common';
 import { isAndroid } from '../../utils/common';
@@ -13,6 +14,7 @@ import { requestNativePermissions } from '../../actions/notifications';
 import { navigateBack } from '../../actions/navigation';
 import { ACTIONS, NOTIFICATION_PROMPT_TYPES } from '../../constants';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
@@ -23,8 +25,8 @@ const {
 } = NOTIFICATION_PROMPT_TYPES;
 
 interface NotificationOffScreenProps {
-  dispatch: ThunkDispatch<{}, null, never>;
-  next?: () => ThunkAction<void, {}, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
+  next?: () => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 const NotificationOffScreen = ({

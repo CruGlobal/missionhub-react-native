@@ -1,6 +1,6 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, GestureResponderEvent } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import Markdown from 'react-native-markdown-display';
@@ -28,7 +28,6 @@ import Separator from '../Separator';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../containers/CommunityFeedWithType';
 import { useAspectRatio } from '../../utils/hooks/useAspectRatio';
 import { GLOBAL_COMMUNITY_ID } from '../../constants';
-import { TouchablePress } from '../Touchable/index.ios';
 import DefaultCommunityAvatar from '../../../assets/images/defaultCommunityAvatar.svg';
 import PopupMenu from '../PopupMenu';
 import VideoPlayer from '../VideoPlayer';
@@ -54,7 +53,7 @@ export interface CommunityFeedItemContentProps {
   namePressable?: boolean;
   postLabelPressable?: boolean;
   showLikeAndComment?: boolean;
-  onCommentPress?: TouchablePress;
+  onCommentPress?: (event: GestureResponderEvent) => void;
   menuActions?: { text: string; onPress: () => void; destructive?: boolean }[];
 }
 
@@ -80,10 +79,11 @@ export const CommunityFeedItemContent = ({
   if (
     subject.__typename !== 'Post' &&
     subject.__typename !== 'AcceptedCommunityChallenge' &&
-    subject.__typename !== 'Step'
+    subject.__typename !== 'Step' &&
+    subject.__typename !== 'CommunityPermission'
   ) {
     throw new Error(
-      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, or Step',
+      'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, CommunityPermission or Step',
     );
   }
 
@@ -124,6 +124,7 @@ export const CommunityFeedItemContent = ({
     await dispatch(reloadGroupChallengeFeed(communityId));
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        communityName: community?.name,
         challengeId,
         orgId: communityId,
       }),
@@ -172,6 +173,16 @@ export const CommunityFeedItemContent = ({
     );
   };
 
+  const renderNewMemberMessage = () => {
+    return (
+      <Text style={styles.messageText}>
+        {t('newMemberMessage', {
+          personFirstName: subjectPerson?.firstName,
+        })}
+      </Text>
+    );
+  };
+
   const renderStage = (
     stage: CommunityFeedItemContent_subject_Step_receiverStageAtCompletion | null,
   ) => {
@@ -199,6 +210,8 @@ export const CommunityFeedItemContent = ({
         return renderText(renderChallengeMessage(subject));
       case 'Post':
         return renderPostMessage(subject);
+      case 'CommunityPermission':
+        return renderNewMemberMessage();
     }
   };
 
@@ -231,7 +244,8 @@ export const CommunityFeedItemContent = ({
 
   const renderHeader = () => (
     <View style={styles.headerWrap}>
-      {subject.__typename === 'AcceptedCommunityChallenge' ? null : (
+      {subject.__typename === 'AcceptedCommunityChallenge' ||
+      subject.__typename === 'CommunityPermission' ? null : (
         <View style={styles.headerRow}>
           <PostTypeLabel
             type={itemType}
@@ -351,6 +365,9 @@ export const CommunityFeedItemContent = ({
               ? t('challengeCompletedHeader')
               : t('challengeAcceptedHeader')}
           </Text>
+        ) : null}
+        {subject.__typename === 'CommunityPermission' ? (
+          <Text style={styles.headerTextOnly}>{t('newMemberHeader')}</Text>
         ) : null}
         {renderMessage()}
       </View>

@@ -1,6 +1,5 @@
 import * as utils from '../utils';
 import { REQUESTS } from '../../api/routes';
-
 import API_CALLS from '..';
 
 beforeEach(() => {
@@ -21,17 +20,13 @@ it('should return apiError object for api errors', async () => {
   // @ts-ignore
   utils.default = () => Promise.reject(response);
 
-  try {
-    await API_CALLS[request.name]({}, {});
-  } catch (error) {
-    expect(error).toEqual({
-      apiError: response,
-      endpoint: request.endpoint,
-      key: request.name,
-      method: 'get',
-      query: {},
-    });
-  }
+  await expect(API_CALLS[request.name]({}, {})).rejects.toEqual({
+    apiError: response,
+    endpoint: request.endpoint,
+    key: request.name,
+    method: 'get',
+    query: {},
+  });
 });
 
 it('should return session header with empty response', async () => {

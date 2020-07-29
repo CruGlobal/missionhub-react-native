@@ -3,9 +3,7 @@ import ReactNative from 'react-native';
 // @ts-ignore
 import Adapter from 'enzyme-adapter-react-16/build/index';
 // @ts-ignore
-import { shallow } from 'enzyme/build/index';
-// @ts-ignore
-import Enzyme from 'enzyme/build/index';
+import Enzyme, { shallow } from 'enzyme/build/index';
 
 jest.mock('react-native-vector-icons/MaterialIcons', () => ({
   loadFont: jest.fn(),
@@ -49,6 +47,7 @@ jest.mock('react-navigation-redux-helpers', () => ({
 }));
 
 jest.mock('../store', () => ({
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   store: require('../../testUtils').createThunkStore(),
   persistor: {},
 }));
@@ -82,7 +81,7 @@ beforeEach(() => {
 });
 
 // @ts-ignore
-const test = async response => {
+const testApp = async response => {
   const shallowScreen = shallow(<App />);
 
   await shallowScreen.instance().handleError(response);
@@ -102,7 +101,7 @@ it('calls actions onBeforeLift', async () => {
 });
 
 it('shows offline alert if network request failed', () => {
-  test({ apiError: { message: NETWORK_REQUEST_FAILED } });
+  testApp({ apiError: { message: NETWORK_REQUEST_FAILED } });
 
   expect(ReactNative.Alert.alert).toHaveBeenCalledWith(
     youreOffline,
@@ -112,19 +111,19 @@ it('shows offline alert if network request failed', () => {
 });
 
 it('should not show alert for expired access token', () => {
-  test({ apiError: { errors: [{ detail: EXPIRED_ACCESS_TOKEN }] } });
+  testApp({ apiError: { errors: [{ detail: EXPIRED_ACCESS_TOKEN }] } });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should not show alert for invalid access token', () => {
-  test({ apiError: { errors: [{ detail: INVALID_ACCESS_TOKEN }] } });
+  testApp({ apiError: { errors: [{ detail: INVALID_ACCESS_TOKEN }] } });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
 
 it('should not show alert for invalid grant', () => {
-  test({ apiError: { error: INVALID_GRANT } });
+  testApp({ apiError: { error: INVALID_GRANT } });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
@@ -132,7 +131,7 @@ it('should not show alert for invalid grant', () => {
 it('should not show alert if not ApiError', () => {
   const message = 'some message\nwith break';
 
-  test({ key: 'test', method: '', message });
+  testApp({ key: 'test', method: '', message });
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
@@ -140,7 +139,7 @@ it('should not show alert if not ApiError', () => {
 it('should not show alert if no error message', () => {
   const unknownError = { key: 'test', method: '' };
 
-  test(unknownError);
+  testApp(unknownError);
 
   expect(ReactNative.Alert.alert).not.toHaveBeenCalled();
 });
@@ -168,7 +167,7 @@ describe('__DEV__ === false', () => {
       query: { filters: { organization_ids: '1' } },
     };
 
-    await test(apiError);
+    await testApp(apiError);
 
     expect(rollbar.error).toHaveBeenCalledWith(
       Error(
@@ -188,7 +187,7 @@ describe('__DEV__ === false', () => {
     const errorDetails = 'Error Details';
     const error = Error(`${errorName}\n${errorDetails}`);
 
-    await test(error);
+    await testApp(error);
 
     expect(rollbar.error).toHaveBeenCalledWith(error);
   });
@@ -196,7 +195,7 @@ describe('__DEV__ === false', () => {
   it('Sends Rollbar report for unknown error', async () => {
     const unknownError = { key: 'test', method: '' };
 
-    await test(unknownError);
+    await testApp(unknownError);
 
     expect(rollbar.error).toHaveBeenCalledWith(
       Error(`Unknown Error:\n${JSON.stringify(unknownError, null, 2)}`),

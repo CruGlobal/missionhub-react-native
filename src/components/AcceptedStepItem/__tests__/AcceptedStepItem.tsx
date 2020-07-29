@@ -9,7 +9,6 @@ import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../../containers/AcceptedStepDet
 import { CONTACT_STEPS } from '../../../constants';
 import { reminderSelector } from '../../../selectors/stepReminders';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepDetailScreen';
-
 import AcceptedStepItem from '..';
 
 jest.mock('../../../actions/navigation');

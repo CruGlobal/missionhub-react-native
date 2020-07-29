@@ -121,7 +121,7 @@ describe('GroupsListScreen', () => {
         },
       });
 
-      fireEvent.press(getByTestId('IconButton'));
+      fireEvent.press(getByTestId('menuButton'));
       expect(openMainMenu).toHaveBeenCalled();
       expect(store.getActions()).toEqual([openMainMenuResponse]);
     });

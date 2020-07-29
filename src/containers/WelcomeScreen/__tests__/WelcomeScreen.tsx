@@ -5,7 +5,6 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import WelcomeScreen from '..';
 
 const next = jest.fn(() => () => {});

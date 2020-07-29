@@ -95,7 +95,7 @@ export const AddStepExplainer: {
   },
 ];
 
-function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
+function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
   const [setViewed] = useMutation<SetStepExplainerModalViewed>(
     SET_STEP_EXPLAINER_MODAL_VIEWED,
   );
@@ -113,7 +113,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: Function }) {
           data={AddStepExplainer}
           inactiveSlideOpacity={1}
           inactiveSlideScale={1}
-          renderItem={({ item }) => {
+          renderItem={({ item }: { item: typeof AddStepExplainer[0] }) => {
             const { source, text, stepType } = item;
             return (
               <>

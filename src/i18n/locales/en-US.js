@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 export default {
   common: {
@@ -135,15 +135,22 @@ export default {
     description: 'You will lose any info you have entered and be logged out',
     action: 'Go Back',
   },
-  settingsMenu: {
+  sideMenu: {
     about: 'About',
+    feedBack: 'Feedback',
+    version: 'Version',
+    update: 'Update',
+    blog: 'MissionHub Blog',
+    website: 'MissionHub Website',
     help: 'Help',
-    review: 'Write a Review',
-    shareStory: 'Share a Story With Us',
-    signOut: 'Sign out',
+    review: 'Enjoying our app? Rate it',
+    shareStory: 'Share a God Story with us',
+    suggestStep: 'Suggest a Step of Faith',
+    signOut: 'Sign Out',
     cannotOpenUrl: 'Cannot open URL',
     pleaseVisit: 'Sorry, we could not open that URL. Please visit {{url}}',
-    signUp: 'Sign Up',
+    signIn: 'Sign In',
+    createAccount: 'Create Account',
   },
   login: {
     tagline1: 'Grow closer to God.',
@@ -565,6 +572,7 @@ export default {
     challengeAcceptedHeader: 'Joined a Challenge!',
     challengeCompletedHeader: 'Completed a Challenge!',
     newMemberHeader: 'We have a new member!',
+    newMemberMessage: 'Help welcome {{personFirstName}}.',
     stepOfFaith:
       '{{initiator}} completed a Step of Faith with a {{receiverStage}} person.',
     stepOfFaithUnknownStage:

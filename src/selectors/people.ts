@@ -8,7 +8,6 @@ import { removeHiddenOrgs } from './selectorUtils';
 
 interface Org {
   id: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   people: Person[];
   name: string;
 }
@@ -101,9 +100,14 @@ export const selectContactAssignment = (person: Person, authUserId: string) => {
 };
 
 export const orgPermissionSelector = createSelector(
-  (_: {}, { person }: { person: Person; organization: Organization }) => person,
-  (_: {}, { organization }: { person: Person; organization: Organization }) =>
-    organization,
+  (
+    _: Record<string, unknown>,
+    { person }: { person: Person; organization: Organization },
+  ) => person,
+  (
+    _: Record<string, unknown>,
+    { organization }: { person: Person; organization: Organization },
+  ) => organization,
   (person, organization) => selectOrgPermission(person, organization),
 );
 

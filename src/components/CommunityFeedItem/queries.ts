@@ -20,6 +20,9 @@ export const COMMUNITY_FEED_ITEM_FRAGMENT = gql`
       ... on Post {
         id
       }
+      ... on CommunityPermission {
+        id
+      }
     }
     subjectPerson {
       id

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { testSnapshot } from '../../../../testUtils';
-
 import Flex from '..';
 
 it('renders correctly', () => {

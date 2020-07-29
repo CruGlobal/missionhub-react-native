@@ -11,7 +11,6 @@ import {
   SIGN_IN_FLOW,
 } from '../../../routes/constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import LandingScreen from '..';
 
 jest.mock('../../../actions/analytics');

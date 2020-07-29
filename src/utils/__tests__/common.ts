@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import { DrawerActions } from 'react-navigation-drawer';
 import Config from 'react-native-config';
@@ -30,6 +30,7 @@ import {
   mapPostTypeToFeedType,
   mapFeedTypeToPostType,
   getFeedItemType,
+  canModifyFeedItemSubject,
 } from '../common';
 import {
   MAIN_MENU_DRAWER,
@@ -384,7 +385,7 @@ describe('showAssignButton', () => {
   // @ts-ignore
   let contactAssignment;
 
-  const test = () => {
+  const testShowAssignButton = () => {
     // @ts-ignore
     return showAssignButton(isCruOrg, personIsCurrentUser, contactAssignment);
   };
@@ -393,25 +394,25 @@ describe('showAssignButton', () => {
     isCruOrg = false;
     personIsCurrentUser = false;
     contactAssignment = false;
-    expect(test()).toEqual(false);
+    expect(testShowAssignButton()).toEqual(false);
   });
   it('should return false if is current user', () => {
     isCruOrg = true;
     personIsCurrentUser = true;
     contactAssignment = false;
-    expect(test()).toEqual(false);
+    expect(testShowAssignButton()).toEqual(false);
   });
   it('should return false if assigned to you', () => {
     isCruOrg = true;
     personIsCurrentUser = false;
     contactAssignment = true;
-    expect(test()).toEqual(false);
+    expect(testShowAssignButton()).toEqual(false);
   });
   it('should return true if cru org, not current user, and not assigned to you', () => {
     isCruOrg = true;
     personIsCurrentUser = false;
     contactAssignment = false;
-    expect(test()).toEqual(true);
+    expect(testShowAssignButton()).toEqual(true);
   });
 });
 
@@ -421,7 +422,7 @@ describe('showUnassignButton', () => {
   // @ts-ignore
   let contactAssignment;
 
-  const test = () => {
+  const testShowUnassignButton = () => {
     // @ts-ignore
     return showUnassignButton(isCruOrg, contactAssignment);
   };
@@ -429,17 +430,17 @@ describe('showUnassignButton', () => {
   it('should return false if not cru org', () => {
     isCruOrg = false;
     contactAssignment = true;
-    expect(test()).toEqual(false);
+    expect(testShowUnassignButton()).toEqual(false);
   });
   it('should return false if not assigned to you', () => {
     isCruOrg = true;
     contactAssignment = false;
-    expect(test()).toEqual(false);
+    expect(testShowUnassignButton()).toEqual(false);
   });
   it('should return true if cru org and assigned to you', () => {
     isCruOrg = true;
     contactAssignment = true;
-    expect(test()).toEqual(true);
+    expect(testShowUnassignButton()).toEqual(true);
   });
 });
 
@@ -451,7 +452,7 @@ describe('showDeleteButton', () => {
   // @ts-ignore
   let orgPermission;
 
-  const test = () => {
+  const testShowDeleteButton = () => {
     return showDeleteButton(
       // @ts-ignore
       personIsCurrentUser,
@@ -466,25 +467,25 @@ describe('showDeleteButton', () => {
     personIsCurrentUser = true;
     contactAssignment = true;
     orgPermission = false;
-    expect(test()).toEqual(false);
+    expect(testShowDeleteButton()).toEqual(false);
   });
   it('should return false if not assigned to you', () => {
     personIsCurrentUser = false;
     contactAssignment = false;
     orgPermission = false;
-    expect(test()).toEqual(false);
+    expect(testShowDeleteButton()).toEqual(false);
   });
   it('should return false if not personal ministry', () => {
     personIsCurrentUser = false;
     contactAssignment = true;
     orgPermission = true;
-    expect(test()).toEqual(false);
+    expect(testShowDeleteButton()).toEqual(false);
   });
   it('should return true if not current user, assigned to you, and is personal ministry', () => {
     personIsCurrentUser = false;
     contactAssignment = true;
     orgPermission = false;
-    expect(test()).toEqual(true);
+    expect(testShowDeleteButton()).toEqual(true);
   });
 });
 
@@ -774,5 +775,69 @@ describe('getFeedItemType', () => {
     expect(
       getFeedItemType({ ...post, postType: PostTypeEnum.announcement }),
     ).toEqual(FeedItemSubjectTypeEnum.ANNOUNCEMENT);
+  });
+});
+
+describe('canModifyFeedItemSubject', () => {
+  const post: CommunityFeedItem_subject_Post = {
+    __typename: 'Post',
+    id: '1',
+    content: 'asdf',
+    mediaContentType: '',
+    mediaExpiringUrl: '',
+    postType: PostTypeEnum.story,
+    stepStatus: PostStepStatusEnum.INCOMPLETE,
+  };
+  function check(postType: PostTypeEnum) {
+    return canModifyFeedItemSubject({ ...post, postType });
+  }
+
+  it('returns STEP', () => {
+    const step: CommunityFeedItem_subject_Step = {
+      __typename: 'Step',
+      id: '1',
+      receiverStageAtCompletion: null,
+    };
+
+    expect(canModifyFeedItemSubject(step)).toEqual(false);
+  });
+
+  it('returns ACCEPTED_COMMUNITY_CHALLENGE', () => {
+    const challenge: CommunityFeedItem_subject_AcceptedCommunityChallenge = {
+      __typename: 'AcceptedCommunityChallenge',
+      id: '1',
+      completedAt: 'some time',
+      communityChallenge: {
+        __typename: 'CommunityChallenge',
+        id: '1',
+        title: 'asdf',
+      },
+    };
+
+    expect(canModifyFeedItemSubject(challenge)).toEqual(false);
+  });
+
+  it('returns STORY', () => {
+    expect(check(PostTypeEnum.story)).toEqual(true);
+  });
+
+  it('returns PRAYER_REQUEST', () => {
+    expect(check(PostTypeEnum.prayer_request)).toEqual(true);
+  });
+
+  it('returns QUESTION', () => {
+    expect(check(PostTypeEnum.question)).toEqual(true);
+  });
+
+  it('returns HELP_REQUEST', () => {
+    expect(check(PostTypeEnum.help_request)).toEqual(true);
+  });
+
+  it('returns THOUGHT', () => {
+    expect(check(PostTypeEnum.thought)).toEqual(true);
+  });
+
+  it('returns ANNOUNCEMENT', () => {
+    expect(check(PostTypeEnum.announcement)).toEqual(true);
   });
 });

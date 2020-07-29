@@ -1,4 +1,4 @@
-/*eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
@@ -15,7 +15,11 @@ import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Communi
 import { CREATE_POST_SCREEN } from '../../../containers/Groups/CreatePostScreen';
 import { ADD_POST_TO_STEPS_SCREEN } from '../../../containers/AddPostToStepsScreen/index';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../../../containers/CommunityFeedWithType';
-import { COMMUNITY_FEED_ITEM_FRAGMENT } from '../queries';
+import {
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  DELETE_POST,
+  REPORT_POST,
+} from '../queries';
 import {
   CommunityFeedItem as CommunityFeedItemFragment,
   CommunityFeedItem_subject_Post,
@@ -26,8 +30,6 @@ import {
   PostStepStatusEnum,
   FeedItemSubjectEventEnum,
 } from '../../../../__generated__/globalTypes';
-import { DELETE_POST, REPORT_POST } from '../queries';
-
 import { CommunityFeedItem } from '..';
 
 jest.mock('../../../actions/analytics');
@@ -104,6 +106,19 @@ const challengeItem = mockFragment<CommunityFeedItemFragment>(
         community: () => ({ id: communityId }),
         subjectEvent: FeedItemSubjectEventEnum.challengeJoined,
         subject: () => ({ __typename: 'AcceptedCommunityChallenge' }),
+      }),
+    },
+  },
+);
+const newMemberItem = mockFragment<CommunityFeedItemFragment>(
+  COMMUNITY_FEED_ITEM_FRAGMENT,
+  {
+    mocks: {
+      FeedItem: () => ({
+        community: () => ({ id: communityId }),
+        subject: () => ({
+          __typename: 'CommunityPermission',
+        }),
       }),
     },
   },
@@ -246,6 +261,17 @@ describe('Community', () => {
   it('renders challenge correctly', async () => {
     const { snapshot } = renderWithContext(
       <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
+      {
+        initialState,
+      },
+    );
+    await flushMicrotasksQueue();
+    snapshot();
+  });
+
+  it('renders new member item correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeedItem feedItem={newMemberItem} namePressable={false} />,
       {
         initialState,
       },

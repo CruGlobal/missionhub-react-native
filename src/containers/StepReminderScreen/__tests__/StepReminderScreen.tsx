@@ -6,7 +6,6 @@ import { renderWithContext } from '../../../../testUtils';
 import { navigateBack } from '../../../actions/navigation';
 import { createStepReminder } from '../../../actions/stepReminders';
 import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
-
 import StepReminderScreen from '..';
 
 jest.mock('../../../actions/navigation');

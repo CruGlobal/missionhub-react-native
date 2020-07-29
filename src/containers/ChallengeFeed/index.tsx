@@ -13,11 +13,10 @@ import OnboardingCard, {
 import { navigatePush } from '../../actions/navigation';
 import { completeChallenge, joinChallenge } from '../../actions/challenges';
 import { orgPermissionSelector } from '../../selectors/people';
-import { isAdminOrOwner, isAndroid } from '../../utils/common';
+import { isAdminOrOwner, isAndroid, keyExtractorId } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../ChallengeDetailScreen';
 import { ACTIONS } from '../../constants';
-import { keyExtractorId } from '../../utils/common';
 import NullStateComponent from '../../components/NullStateComponent';
 import TARGET from '../../../assets/images/challengeTarget.png';
 import { AuthState } from '../../reducers/auth';
@@ -108,6 +107,7 @@ const ChallengeFeed = ({
   const handleSelectRow = (challenge: ChallengeItemInterface) => {
     dispatch(
       navigatePush(CHALLENGE_DETAIL_SCREEN, {
+        communityName: organization.name,
         challengeId: challenge.id,
         orgId: organization.id,
         isAdmin: adminOrOwner,

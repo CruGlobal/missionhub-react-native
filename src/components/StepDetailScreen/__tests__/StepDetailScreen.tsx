@@ -10,7 +10,6 @@ import { StepDetailPost } from '../__generated__/StepDetailPost';
 import { StepTypeEnum } from '../../../../__generated__/globalTypes';
 import { navigatePush } from '../../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
-
 import StepDetailScreen from '..';
 
 jest.mock('../../../actions/navigation');

@@ -27,11 +27,11 @@ import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroup
 import ReportedIcon from './reportedIcon.svg';
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
-import { GET_COMMUNITY_PHOTO } from './queries';
+import { GET_COMMUNITY_INFO } from './queries';
 import {
-  GetCommunityPhoto,
-  GetCommunityPhotoVariables,
-} from './__generated__/GetCommunityPhoto';
+  GetCommunityInfo,
+  GetCommunityInfoVariables,
+} from './__generated__/GetCommunityInfo';
 
 export const NotificationCenterItem = ({
   event,
@@ -92,9 +92,11 @@ export const NotificationCenterItem = ({
   );
 
   const {
-    data: { community: { communityPhotoUrl = null } = {} } = {},
-  } = useQuery<GetCommunityPhoto, GetCommunityPhotoVariables>(
-    GET_COMMUNITY_PHOTO,
+    data: {
+      community: { name: communityName = '', communityPhotoUrl = null } = {},
+    } = {},
+  } = useQuery<GetCommunityInfo, GetCommunityInfoVariables>(
+    GET_COMMUNITY_INFO,
     {
       fetchPolicy: 'cache-first',
       variables: {
@@ -145,7 +147,7 @@ export const NotificationCenterItem = ({
   const handleNotificationPress = async () => {
     switch (trigger) {
       case NotificationTriggerEnum.community_challenge_created_alert:
-      case NotificationTriggerEnum.completed_challenge_notification:
+      case NotificationTriggerEnum.completed_challenge_notification: {
         const communityId = screenData.communityId
           ? screenData.communityId
           : GLOBAL_COMMUNITY_ID;
@@ -153,11 +155,14 @@ export const NotificationCenterItem = ({
         await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
           navigatePush(CHALLENGE_DETAIL_SCREEN, {
+            communityName,
+            fromNotificationCenterItem: true,
             // If no communityId, than it is a global challenge
             orgId: communityId,
             challengeId: screenData.challengeId,
           }),
         );
+      }
       default:
         return dispatch(
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {
