@@ -1,5 +1,3 @@
-/* eslint max-lines:0 */
-
 import React, { useEffect, useRef, useState } from 'react';
 import {
   FlatList,
@@ -29,7 +27,6 @@ import {
 import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { SwipeState } from '../../reducers/swipe';
 import { AuthState } from '../../reducers/auth';
-import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
@@ -79,8 +76,7 @@ const isCloseToBottom = ({
   );
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-const getItemLayout = (_: any, index: number) => {
+const getItemLayout = (_: unknown, index: number) => {
   const ItemHeight = GroupCardHeight + CardVerticalMargin * 2;
   return { length: ItemHeight, offset: ItemHeight * index, index };
 };
@@ -175,7 +171,7 @@ const GroupsListScreen = ({
     loadGroupsAndScrollToId();
   }, [communities, scrollToId, flatList]);
 
-  const handlePress = (community: Organization) => {
+  const handlePress = (community: GetCommunities_communities_nodes) => {
     dispatch(
       navigatePush(COMMUNITY_TABS, {
         communityId: community.id,

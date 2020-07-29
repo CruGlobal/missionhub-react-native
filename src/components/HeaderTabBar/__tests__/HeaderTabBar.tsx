@@ -1,6 +1,5 @@
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
-// eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 import { useNavigationState } from 'react-navigation-hooks';
 

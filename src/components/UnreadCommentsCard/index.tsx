@@ -11,8 +11,8 @@ import styles from './styles';
 interface UnreadCommentsCardProps {
   testID?: string;
   count: number;
-  onPress: Function & ((event: GestureResponderEvent) => void);
-  onClose: Function;
+  onPress: (event: GestureResponderEvent) => void;
+  onClose: () => void;
 }
 
 export default function UnreadCommentsCard({

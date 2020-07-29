@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -33,7 +33,7 @@ beforeEach(() => {
 
 describe('getFeed', () => {
   // @ts-ignore
-  const test = () => store.dispatch(getFeed(type, orgId));
+  const testGetFeed = () => store.dispatch(getFeed(type, orgId));
 
   describe('Celebration Feed', () => {
     beforeEach(() => {
@@ -44,7 +44,7 @@ describe('getFeed', () => {
       beforeEach(() => {
         // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
-        test();
+        testGetFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -85,7 +85,7 @@ describe('getFeed', () => {
           id: orgId,
           celebratePagination,
         });
-        test();
+        testGetFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -126,7 +126,7 @@ describe('getFeed', () => {
           id: orgId,
           celebratePagination,
         });
-        test();
+        testGetFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -157,7 +157,7 @@ describe('getFeed', () => {
       beforeEach(() => {
         // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
-        test();
+        testGetFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -199,7 +199,7 @@ describe('getFeed', () => {
           id: orgId,
           challengePagination,
         });
-        test();
+        testGetFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -241,7 +241,7 @@ describe('getFeed', () => {
           id: orgId,
           challengePagination,
         });
-        test();
+        testGetFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -266,7 +266,7 @@ describe('getFeed', () => {
 
 describe('reloadFeed', () => {
   // @ts-ignore
-  const test = () => store.dispatch(reloadFeed(type, orgId));
+  const testReloadFeed = () => store.dispatch(reloadFeed(type, orgId));
 
   describe('Celebration Feed', () => {
     beforeEach(() => {
@@ -277,7 +277,7 @@ describe('reloadFeed', () => {
       beforeEach(() => {
         // @ts-ignore
         organizationSelector.mockReturnValue(undefined);
-        test();
+        testReloadFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -302,7 +302,7 @@ describe('reloadFeed', () => {
       beforeEach(() => {
         // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
-        test();
+        testReloadFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -343,7 +343,7 @@ describe('reloadFeed', () => {
           id: orgId,
           celebratePagination,
         });
-        test();
+        testReloadFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -388,7 +388,7 @@ describe('reloadFeed', () => {
       beforeEach(() => {
         // @ts-ignore
         organizationSelector.mockReturnValue(undefined);
-        test();
+        testReloadFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -413,7 +413,7 @@ describe('reloadFeed', () => {
       beforeEach(() => {
         // @ts-ignore
         organizationSelector.mockReturnValue({ id: orgId });
-        test();
+        testReloadFeed();
       });
 
       it('calls organizationSelector', () => {
@@ -455,7 +455,7 @@ describe('reloadFeed', () => {
           id: orgId,
           challengePagination,
         });
-        test();
+        testReloadFeed();
       });
 
       it('calls organizationSelector', () => {

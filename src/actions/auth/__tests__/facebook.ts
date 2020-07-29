@@ -1,6 +1,3 @@
-/* eslint max-lines: 0 */
-
-// @ts-ignore
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';

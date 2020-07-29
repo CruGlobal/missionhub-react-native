@@ -1,5 +1,3 @@
-/* eslint complexity: 0 */
-
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { StatusBar, Keyboard, Alert, View, ScrollView } from 'react-native';
@@ -7,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 import { ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useMutation } from '@apollo/react-hooks';
+import { AnyAction } from 'redux';
 
 import { Input } from '../../components/common';
 import theme from '../../theme';
@@ -30,6 +29,7 @@ import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 import { isAndroid } from '../../utils/common';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 import { CREATE_CUSTOM_STEP_MUTATION } from './queries';
@@ -50,8 +50,7 @@ export interface AddStepScreenNextProps {
 interface AddStepScreenProps {
   next: (
     props: AddStepScreenNextProps,
-  ) => // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ThunkAction<void, any, {}, never>;
+  ) => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 const AddStepScreen = ({ next }: AddStepScreenProps) => {

@@ -1,5 +1,3 @@
-/* eslint complexity: 0, max-lines-per-function: 0 */
-
 import {
   CLEAR_UPGRADE_TOKEN,
   LOGOUT,
@@ -90,7 +88,7 @@ function authReducer(state = initialAuthState, action: any) {
           user: results.response,
         },
       };
-    case REQUESTS.GET_ME.SUCCESS:
+    case REQUESTS.GET_ME.SUCCESS: {
       const person = results.response;
 
       return {
@@ -100,6 +98,7 @@ function authReducer(state = initialAuthState, action: any) {
           stage: state.person.id === person.id ? state.person.stage : null, // Add the stage if we're getting the same user again
         },
       };
+    }
     case REQUESTS.GET_UNREAD_COMMENTS_NOTIFICATION.SUCCESS:
       return {
         ...state,
@@ -109,7 +108,7 @@ function authReducer(state = initialAuthState, action: any) {
         },
       };
     case REQUESTS.GET_STAGES.SUCCESS:
-    case UPDATE_STAGES:
+    case UPDATE_STAGES: {
       // Add the matching 'stage' object to the user object
       const stages = results ? results.response : action.stages;
 
@@ -123,6 +122,7 @@ function authReducer(state = initialAuthState, action: any) {
           ),
         },
       };
+    }
     case UPDATE_TOKEN:
       // If an API call is slow and then finishes after a user logs out, it would cause the user to be stuck in an online state. This will prevent that state from happening.
       if (state.token === '') {

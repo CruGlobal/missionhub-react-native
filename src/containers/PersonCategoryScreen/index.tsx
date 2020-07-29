@@ -18,6 +18,7 @@ import {
   UpdatePerson,
   UpdatePersonVariables,
 } from '../../containers/SetupScreen/__generated__/UpdatePerson';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
@@ -26,7 +27,7 @@ interface PersonCategoryScreenProps {
     personId?: string;
     orgId?: string;
     relationshipType?: RelationshipTypeEnum;
-  }) => ThunkAction<unknown, {}, {}, AnyAction>;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
 }
 RelationshipTypeEnum;
 

@@ -1,5 +1,4 @@
 import dynamicLinks, {
-  // eslint-disable-next-line import/named
   FirebaseDynamicLinksTypes,
 } from '@react-native-firebase/dynamic-links';
 import { AnyAction } from 'redux';
@@ -13,12 +12,13 @@ import {
 import { AuthState } from '../reducers/auth';
 import { MAIN_TABS, COMMUNITIES_TAB } from '../constants';
 import { LANDING_SCREEN } from '../containers/LandingScreen';
+import { RootState } from '../reducers';
 
 import { navigateNestedReset } from './navigation';
 import { startOnboarding } from './onboarding';
 
 export const setupFirebaseDynamicLinks = () => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => { auth: AuthState },
 ) => {
   dynamicLinks().onLink(onFirebaseLink(dispatch, getState));
@@ -31,7 +31,7 @@ export const setupFirebaseDynamicLinks = () => (
 const joinCommunityUrlRegex = /^https:\/\/missionhub.com\/c\/([A-Za-z0-9-_]{16,})$/;
 
 const onFirebaseLink = (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   getState: () => { auth: AuthState },
 ) => (dynamicLink: FirebaseDynamicLinksTypes.DynamicLink | null) => {
   if (!dynamicLink) {
@@ -45,7 +45,7 @@ const onFirebaseLink = (
 };
 
 const handleJoinCommunityDeepLink = (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
   url: string,
   hasAuth: boolean,
 ) => {

@@ -109,7 +109,7 @@ export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
     },
   );
 
-  function deleteFeedItem(onComplete?: Function) {
+  function deleteFeedItem(onComplete?: () => void) {
     Alert.alert(
       i18n.t('communityFeedItems:delete.title'),
       i18n.t('communityFeedItems:delete.message'),

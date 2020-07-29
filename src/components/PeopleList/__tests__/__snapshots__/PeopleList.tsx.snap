@@ -5,7 +5,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 - First value
 + Second value
 
-@@ -47,11 +47,11 @@
+@@ -47,195 +47,18 @@
             align=\\"center\\"
             direction=\\"row\\"
             justify=\\"end\\"
@@ -13,12 +13,8 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
             <IconButton
 -             name=\\"upArrowIcon\\"
 +             name=\\"downArrowIcon\\"
-              onPress={[Function toggleSection]}
-              pressProps={
-                Array [
-                  \\"personal\\",
-                ]
-@@ -60,187 +60,10 @@
+              onPress={[Function onPress]}
+              size={10}
               testID=\\"toggleSectionBtn\\"
               type=\\"MissionHub\\"
             />
@@ -400,11 +396,6 @@ exports[`renders correctly as Jean 1`] = `
           <IconButton
             name="upArrowIcon"
             onPress={[Function]}
-            pressProps={
-              Array [
-                "personal",
-              ]
-            }
             size={10}
             testID="toggleSectionBtn"
             type="MissionHub"
@@ -621,11 +612,6 @@ exports[`renders correctly as Jean 1`] = `
           <IconButton
             name="upArrowIcon"
             onPress={[Function]}
-            pressProps={
-              Array [
-                "10",
-              ]
-            }
             size={10}
             testID="toggleSectionBtn"
             type="MissionHub"
@@ -733,11 +719,6 @@ exports[`renders correctly as Jean 1`] = `
           <IconButton
             name="upArrowIcon"
             onPress={[Function]}
-            pressProps={
-              Array [
-                "20",
-              ]
-            }
             size={10}
             testID="toggleSectionBtn"
             type="MissionHub"

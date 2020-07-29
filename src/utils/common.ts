@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-params: 0 */
+/* eslint-disable max-lines */
 
 import {
   ToastAndroid,
@@ -48,6 +48,7 @@ export const buildTrackingObj = (
   level3,
   // @ts-ignore
   level4,
+  // eslint-disable-next-line max-params
 ) => ({
   name,
   section,

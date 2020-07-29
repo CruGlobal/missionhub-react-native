@@ -18,7 +18,6 @@ import { CommunityFeedItemCommentLike } from '../__generated__/CommunityFeedItem
 import { navigatePush } from '../../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { PostTypeEnum } from '../../../../__generated__/globalTypes';
-
 import { CommentLikeComponent } from '..';
 
 jest.mock('../../../actions/celebration');

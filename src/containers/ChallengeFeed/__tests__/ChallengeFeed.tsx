@@ -1,4 +1,5 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 import MockDate from 'mockdate';
@@ -13,7 +14,6 @@ import { GROUP_ONBOARDING_TYPES } from '../../../containers/Groups/OnboardingCar
 import { trackActionWithoutData } from '../../../actions/analytics';
 import { CHALLENGE_DETAIL_SCREEN } from '../../../containers/ChallengeDetailScreen';
 import * as common from '../../../utils/common';
-
 import ChallengeFeed from '..';
 
 jest.mock('../../../selectors/people');

@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import { useQuery } from '@apollo/react-hooks';
 import * as Redux from 'react-redux';

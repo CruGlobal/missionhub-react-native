@@ -3,7 +3,6 @@ import MockDate from 'mockdate';
 import moment from 'moment';
 
 import { testSnapshotShallow, renderWithContext } from '../../../../testUtils';
-
 import DateComponent from '..';
 
 MockDate.set(moment('2018-06-11 12:00:00').toDate(), 0);

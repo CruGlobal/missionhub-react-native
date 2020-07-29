@@ -179,28 +179,25 @@ class RowSwipeable extends Component {
 
   handleDelete = () => {
     // @ts-ignore
-    const { deletePressProps, onDelete } = this.props;
+    const { onDelete } = this.props;
     if (onDelete) {
-      // Call the onDelete with all of the deletePressProps passed in or just undefined if they don't exist
-      onDelete(...deletePressProps);
+      onDelete();
     }
   };
 
   handleComplete = () => {
     // @ts-ignore
-    const { completePressProps, onComplete } = this.props;
+    const { onComplete } = this.props;
     if (onComplete) {
-      // Call the onComplete with all of the completePressProps passed in or just undefined if they don't exist
-      onComplete(...completePressProps);
+      onComplete();
     }
   };
 
   handleEdit = () => {
     // @ts-ignore
-    const { editPressProps, onEdit } = this.props;
+    const { onEdit } = this.props;
     if (onEdit) {
-      // Call the onEdit with all of the editPressProps passed in or just undefined if they don't exist
-      onEdit(...editPressProps);
+      onEdit();
     }
   };
 
@@ -279,9 +276,6 @@ RowSwipeable.propTypes = {
   onEdit: PropTypes.func,
   bump: PropTypes.bool,
   onBumpComplete: PropTypes.func,
-  deletePressProps: PropTypes.array,
-  completePressProps: PropTypes.array,
-  editPressProps: PropTypes.array,
 };
 
 export default RowSwipeable;

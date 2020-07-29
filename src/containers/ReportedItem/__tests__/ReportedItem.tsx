@@ -17,7 +17,6 @@ import {
 } from '../../../../__generated__/globalTypes';
 import { navigatePush } from '../../../actions/navigation';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
-
 import ReportedItem from '..';
 
 jest.mock('../../../actions/navigation');

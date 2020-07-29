@@ -4,12 +4,14 @@ import { useTranslation } from 'react-i18next';
 import { connect } from 'react-redux-legacy';
 import { useDispatch } from 'react-redux';
 import { ThunkAction } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import { navigateBack } from '../actions/navigation';
 import { AuthState } from '../reducers/auth';
 import { Stage, StagesState } from '../reducers/stages';
 import { stageSelector, localizedStageSelector } from '../selectors/stages';
 import { useAnalytics } from '../utils/hooks/useAnalytics';
+import { RootState } from '../reducers';
 
 import IconMessageScreen from './IconMessageScreen';
 
@@ -18,8 +20,7 @@ type SelectedStage = { self_followup_description?: string } | undefined;
 interface StageSuccessScreenProps {
   next: (props?: {
     selectedStage: SelectedStage;
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  }) => ThunkAction<void, any, null, never>; // TODO: make next
+  }) => ThunkAction<void, RootState, never, AnyAction>; // TODO: make next
   firstName?: string;
   stage?: Stage;
 }

@@ -26,6 +26,7 @@ import { personSelector } from '../../selectors/people';
 import { OnboardingState } from '../../reducers/onboarding';
 import { RelationshipTypeEnum } from '../../../__generated__/globalTypes';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
+import { RootState } from '../../reducers';
 
 import { CREATE_PERSON, UPDATE_PERSON } from './queries';
 import {
@@ -42,7 +43,7 @@ interface SetupScreenProps {
   next: (props: {
     skip?: boolean;
     personId?: string;
-  }) => ThunkAction<unknown, {}, {}, AnyAction>;
+  }) => ThunkAction<void, RootState, never, AnyAction>;
   isMe: boolean;
   personId?: string;
   loadedFirstName?: string;

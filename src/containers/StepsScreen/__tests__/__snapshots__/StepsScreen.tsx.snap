@@ -1,5 +1,29 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`handleRefresh refetches steps and checks for unread comments 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -367,14 +367,14 @@
+        onScrollBeginDrag={[Function anonymous]}
+        onScrollEndDrag={[Function anonymous]}
+        refreshControl={
+          <RefreshControlMock
+            onRefresh={[Function _callee]}
+-           refreshing={false}
++           refreshing={true}
+          />
+        }
+-       refreshing={false}
++       refreshing={true}
+        removeClippedSubviews={false}
+        renderItem={[Function anonymous]}
+        scrollEventThrottle={50}
+        showsVerticalScrollIndicator={false}
+        stickyHeaderIndices={Array []}"
+`;
+
 exports[`renders empty screen correctly 1`] = `
 <View
   style={
@@ -92,9 +116,9 @@ exports[`renders empty screen correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(167, 154, 115)",
@@ -426,9 +450,9 @@ exports[`renders loading screen correctly 1`] = `
                   },
                   Array [
                     Object {
-                      "borderRadius": 24,
-                      "height": 48,
-                      "width": 48,
+                      "borderRadius": 20,
+                      "height": 42,
+                      "width": 42,
                     },
                     Object {
                       "backgroundColor": "#B4B6BA",
@@ -714,9 +738,9 @@ exports[`renders screen with steps correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "borderRadius": 24,
-                    "height": 48,
-                    "width": 48,
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
                   },
                   Object {
                     "backgroundColor": "rgb(160, 123, 115)",

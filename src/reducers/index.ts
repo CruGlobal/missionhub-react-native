@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { combineReducers } from 'redux';
 
 import auth, { AuthState } from './auth';
@@ -23,10 +22,14 @@ export type RootState = {
   auth: AuthState;
   communityPosts: CommunityPostsState;
   drawer: DrawerState;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   groups: any; // TODO: Fill out these reducer type states
   impact: ImpactState;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   journey: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   labels: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   nav: any;
   notifications: NotificationsState;
   onboarding: OnboardingState;

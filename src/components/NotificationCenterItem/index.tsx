@@ -136,7 +136,7 @@ export const NotificationCenterItem = ({
 
   const handleNotificationPress = async () => {
     switch (trigger) {
-      case NotificationTriggerEnum.community_challenge_created_alert:
+      case NotificationTriggerEnum.community_challenge_created_alert: {
         const communityId = screenData.communityId
           ? screenData.communityId
           : GLOBAL_COMMUNITY_ID;
@@ -151,6 +151,7 @@ export const NotificationCenterItem = ({
             challengeId: screenData.challengeId,
           }),
         );
+      }
       default:
         return dispatch(
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {

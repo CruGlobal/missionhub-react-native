@@ -14,7 +14,6 @@ import PlatformKeyboardAvoidingView from './PlatformKeyboardAvoidingView';
 import RefreshControl from './RefreshControl';
 import Separator from './Separator';
 import Text from './Text';
-// @ts-ignore
 import Touchable from './Touchable';
 
 export {

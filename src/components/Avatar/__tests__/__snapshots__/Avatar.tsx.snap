@@ -74,6 +74,30 @@ exports[`renders image medium 1`] = `
 />
 `;
 
+exports[`renders image mediumSmall 1`] = `
+<Image
+  resizeMode="cover"
+  source={
+    Object {
+      "uri": "consequuntur corporis repellat",
+    }
+  }
+  style={
+    Array [
+      Object {
+        "borderRadius": 20,
+        "height": 42,
+        "width": 42,
+      },
+      Object {
+        "backgroundColor": "rgb(72, 144, 67)",
+      },
+      undefined,
+    ]
+  }
+/>
+`;
+
 exports[`renders image small 1`] = `
 <Image
   resizeMode="cover"
@@ -256,6 +280,54 @@ exports[`renders text medium 1`] = `
           "borderRadius": 24,
           "height": 48,
           "width": 48,
+        },
+        Object {
+          "backgroundColor": "rgb(135, 51, 216)",
+        },
+        undefined,
+      ],
+    ]
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#505256",
+        },
+        Object {
+          "fontFamily": "SourceSansPro-Regular",
+        },
+        Array [
+          Object {
+            "color": "#ffffff",
+          },
+          Object {
+            "fontSize": 26,
+            "fontWeight": "300",
+          },
+        ],
+      ]
+    }
+  >
+    e
+  </Text>
+</View>
+`;
+
+exports[`renders text mediumSmall 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "alignItems": "center",
+        "justifyContent": "center",
+      },
+      Array [
+        Object {
+          "borderRadius": 20,
+          "height": 42,
+          "width": 42,
         },
         Object {
           "backgroundColor": "rgb(135, 51, 216)",
