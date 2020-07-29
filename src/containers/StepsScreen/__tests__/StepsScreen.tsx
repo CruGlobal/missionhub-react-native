@@ -11,7 +11,6 @@ import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../../utils/hooks/useAnalytics';
-
 import StepsScreen from '..';
 
 jest.mock('react-navigation-hooks');
@@ -22,6 +21,7 @@ jest.mock('../../../actions/person');
 jest.mock('../../../utils/common');
 jest.mock('../../../components/StepItem', () => ({
   __esModule: true,
+  // @ts-ignore
   ...jest.requireActual('../../../components/StepItem'),
   default: 'StepItem',
 }));
@@ -86,7 +86,7 @@ describe('handleOpenMainMenu', () => {
       initialState,
     });
 
-    fireEvent.press(getByTestId('menuIcon'));
+    fireEvent.press(getByTestId('menuButton'));
 
     expect(openMainMenu).toHaveBeenCalledWith();
     expect(store.getActions()).toEqual([openMainMenuResult]);
@@ -95,13 +95,18 @@ describe('handleOpenMainMenu', () => {
 
 describe('handleRefresh', () => {
   it('refetches steps and checks for unread comments', async () => {
-    const { getByTestId } = renderWithContext(<StepsScreen />, {
-      initialState,
-    });
+    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
+      <StepsScreen />,
+      {
+        initialState,
+      },
+    );
 
     await flushMicrotasksQueue();
 
+    recordSnapshot();
     fireEvent(getByTestId('stepsList'), 'onRefresh');
+    diffSnapshot();
   });
 });
 

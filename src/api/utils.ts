@@ -1,5 +1,3 @@
-/* eslint-disable max-params */
-
 import qs from 'qs';
 import Config from 'react-native-config';
 
@@ -69,7 +67,7 @@ async function handleResponse(response: Response) {
   };
 }
 
-function createUrl(url = '', params: {}) {
+function createUrl(url = '', params: Record<string, unknown>) {
   let newUrl = `${url}`;
   if (newUrl[0] === '/') {
     newUrl = newUrl.substr(1);
@@ -86,10 +84,10 @@ function createUrl(url = '', params: {}) {
 
 const defaultObject = (
   method: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   extra: RequestInit,
-  data: {} | BodyInit | undefined,
+  data: Record<string, unknown> | BodyInit | undefined,
   stringify = true,
+  // eslint-disable-next-line max-params
 ): RequestInit => ({
   ...extra,
   headers: { ...DEFAULT_HEADERS, ...(extra.headers ? extra.headers : {}) },
@@ -101,11 +99,12 @@ const defaultObject = (
     : {}),
 });
 
+// eslint-disable-next-line max-params
 export default async function request(
   type: string,
   url: string,
-  query: {},
-  data: {} | undefined,
+  query: Record<string, unknown>,
+  data: Record<string, unknown> | undefined,
   extra: RequestInit,
   stringify = true,
 ) {

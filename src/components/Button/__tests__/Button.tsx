@@ -3,7 +3,6 @@ import { fireEvent } from 'react-native-testing-library';
 import debounce from 'lodash.debounce';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import Button, { ButtonProps } from '..';
 
 // Tell jest to mock this import
@@ -59,17 +58,15 @@ it('renders transparent correctly', () => {
 });
 
 it('calls on press with press props', () => {
-  const pressProps = ['test'];
   const props: ButtonProps = {
     type: 'transparent',
     onPress: jest.fn(),
-    pressProps,
   };
   const { getByTestId } = renderWithContext(<Button {...props} />, {
     noWrappers: true,
   });
   fireEvent.press(getByTestId('Button'));
-  expect(props.onPress).toHaveBeenCalledWith(pressProps[0]);
+  expect(props.onPress).toHaveBeenCalled();
 });
 
 it('calls on press without press props', () => {
@@ -81,5 +78,5 @@ it('calls on press without press props', () => {
     noWrappers: true,
   });
   fireEvent.press(getByTestId('Button'));
-  expect(props.onPress).toHaveBeenCalledWith();
+  expect(props.onPress).toHaveBeenCalled();
 });

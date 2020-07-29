@@ -25,6 +25,7 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
         <Touchable
           testID="DeleteButton"
           onPress={onDelete}
+          // @ts-ignore
           type="transparent"
           style={styles.deleteButton}
         >

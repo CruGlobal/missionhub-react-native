@@ -11,7 +11,6 @@ import { COMPLETED_STEP_DETAIL_SCREEN } from '../../../containers/CompletedStepD
 import { navToPersonScreen } from '../../../actions/person';
 import { completeStep } from '../../../actions/steps';
 import { CONTACT_STEPS } from '../../../constants';
-
 import StepItem from '..';
 
 jest.mock('../../../actions/navigation', () => ({
@@ -25,6 +24,7 @@ jest.mock('../../../actions/steps', () => ({
 }));
 jest.mock('../../ReminderButton', () => ({
   __esModule: true,
+  // @ts-ignore
   ...jest.requireActual('../../../components/ReminderButton'),
   default: 'ReminderButton',
 }));
@@ -43,7 +43,7 @@ const initialState = {
 };
 
 it('renders me correctly', () => {
-  renderWithContext(<StepItem step={mockStep} />, { initialState });
+  renderWithContext(<StepItem step={mockStep} />, { initialState }).snapshot();
 });
 
 it('renders not me correctly', () => {
@@ -73,13 +73,13 @@ it('renders completed step', () => {
 it('renders hiding name', () => {
   renderWithContext(<StepItem step={mockStep} showName={false} />, {
     initialState,
-  });
+  }).snapshot();
 });
 
 it('renders hiding checkbox', () => {
   renderWithContext(<StepItem step={mockStep} showCheckbox={false} />, {
     initialState,
-  });
+  }).snapshot();
 });
 
 it('should navigate to accepted step detail screen', () => {

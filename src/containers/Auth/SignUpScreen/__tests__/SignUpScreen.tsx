@@ -13,7 +13,6 @@ import {
 } from '../../../../actions/auth/facebook';
 import { navigatePush } from '../../../../actions/navigation';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
-
 import SignUpScreen, { SIGNUP_TYPES } from '..';
 
 const next = jest.fn(() => () => {});

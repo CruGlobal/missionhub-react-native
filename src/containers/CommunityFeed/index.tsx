@@ -135,6 +135,9 @@ export const CommunityFeed = ({
   } = useQuery<GetGlobalCommunityFeed, GetGlobalCommunityFeedVariables>(
     GET_GLOBAL_COMMUNITY_FEED,
     {
+      variables: {
+        subjectType: filteredFeedType,
+      },
       skip: !isGlobal,
     },
   );
@@ -258,7 +261,7 @@ export const CommunityFeed = ({
           error={globalError}
           refetch={globalRefetch}
         />
-        {noHeader || isGlobal ? null : (
+        {noHeader ? null : (
           <>
             <CreatePostButton
               communityId={communityId}

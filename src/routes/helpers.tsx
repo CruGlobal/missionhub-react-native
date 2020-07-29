@@ -3,17 +3,19 @@
 import React from 'react';
 import { AnyAction } from 'redux';
 import { ThunkAction } from 'redux-thunk';
-//eslint-disable-next-line import/named
 import { NavigationScreenComponent } from 'react-navigation';
 import { NavigationStackOptions } from 'react-navigation-stack';
 
 import { navigatePush } from '../actions/navigation';
+import { RootState } from '../reducers';
 
 interface AnyProps {
   [key: string]: any;
 }
 
-export type NextAction = (props?: any) => ThunkAction<void, any, {}, AnyAction>;
+export type NextAction = (
+  props?: any,
+) => ThunkAction<void, RootState, never, AnyAction>;
 
 export const wrapNextScreen = (
   WrappedComponent: NavigationScreenComponent<any, any>,

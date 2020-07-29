@@ -110,7 +110,7 @@ export const CommunityMembers = () => {
   }
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <StatusBar {...theme.statusBar.darkContent} />
 
       <FlatList
@@ -119,7 +119,7 @@ export const CommunityMembers = () => {
         data={data?.community.people.edges || []}
         keyExtractor={k => k.node.id}
         ListHeaderComponent={() => (
-          <SafeAreaView>
+          <>
             <Text style={styles.membersCount}>
               {t('communityHeader:memberCount', {
                 count: data?.community.report.memberCount ?? 0,
@@ -130,7 +130,7 @@ export const CommunityMembers = () => {
               error={error}
               refetch={refetch}
             />
-          </SafeAreaView>
+          </>
         )}
         contentContainerStyle={styles.listContent}
         renderItem={({ item }) => (
@@ -168,7 +168,7 @@ export const CommunityMembers = () => {
           />
         </View>
       </SafeAreaView>
-    </View>
+    </SafeAreaView>
   );
 };
 

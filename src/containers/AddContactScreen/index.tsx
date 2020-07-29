@@ -1,12 +1,9 @@
-/* eslint complexity: 0, max-lines-per-function: 0 */
-
 import React, { useState } from 'react';
-import { View, ScrollView } from 'react-native';
+import { View, ScrollView, StatusBar } from 'react-native';
 import { useDispatch } from 'react-redux';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
-import { useMutation } from '@apollo/react-hooks';
 import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 import { DrawerActions } from 'react-navigation-drawer';
@@ -60,7 +57,7 @@ interface AddContactScreenProps {
           didSavePerson?: boolean;
           isMe?: boolean;
         },
-  ) => ThunkAction<unknown, RootState, {}, AnyAction>;
+  ) => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 export type PersonType = Omit<GetPerson_person, '__typename'>;
@@ -184,6 +181,7 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
 
   return (
     <View style={isEdit ? styles.editContainer : styles.container}>
+      <StatusBar {...theme.statusBar.darkContent} />
       <Header
         left={
           isEdit ? null : (

@@ -1,4 +1,4 @@
-/*eslint no-console: 0 */
+/* eslint-disable no-console */
 
 const ENABLE_LOGS = true;
 const ENABLE_WARN = false;

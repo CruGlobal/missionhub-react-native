@@ -5,6 +5,7 @@ import { ThunkAction } from 'redux-thunk';
 import { useTranslation } from 'react-i18next';
 import { useMutation, useQuery } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
+import { AnyAction } from 'redux';
 
 import BackButton from '../../components/BackButton';
 import { Text, Button } from '../../components/common';
@@ -17,6 +18,7 @@ import {
 } from '../SetupScreen/__generated__/UpdatePerson';
 import { UPDATE_PERSON } from '../SetupScreen/queries';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 
 import ProfileIcon from './ProfileIcon.svg';
 import ProfilePlusIcon from './ProfilePlusIcon.svg';
@@ -34,8 +36,7 @@ const GET_ME = gql`
 `;
 
 interface OnboardingAddPhotoScreenProps {
-  next: () => // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  ThunkAction<void, any, null, never>;
+  next: () => ThunkAction<void, RootState, never, AnyAction>;
 }
 
 export const OnboardingAddPhotoScreen = ({

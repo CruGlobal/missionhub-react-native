@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import React from 'react';
 import MockDate from 'mockdate';
@@ -10,7 +10,6 @@ import { ORG_PERMISSIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { renderWithContext } from '../../../../testUtils';
 import * as common from '../../../utils/common';
-
 import AddChallengeScreen from '..';
 
 const mockDate = '2020-02-13';

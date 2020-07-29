@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-var-requires, no-console */
+
 const { resolve } = require('path');
 const { readdir, readFile, rename } = require('fs').promises;
 const util = require('util');

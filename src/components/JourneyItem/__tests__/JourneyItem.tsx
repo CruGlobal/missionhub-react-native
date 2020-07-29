@@ -4,7 +4,6 @@ import React from 'react';
 import { getAssignedByName, getAssignedToName } from '../../../utils/common';
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
 import { ACCEPTED_STEP } from '../../../constants';
-
 import JourneyItem from '..';
 
 jest.mock('../../../utils/common');

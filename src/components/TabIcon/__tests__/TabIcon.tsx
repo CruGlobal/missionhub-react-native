@@ -7,7 +7,6 @@ import { MockList } from 'graphql-tools';
 import * as common from '../../../utils/common';
 import { renderWithContext } from '../../../../testUtils';
 import { GET_UNREAD_NOTIFICATION_STATUS } from '../queries';
-
 import TabIcon from '..';
 
 // Use fake timers for pollInterval

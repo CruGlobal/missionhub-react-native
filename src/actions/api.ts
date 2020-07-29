@@ -1,4 +1,4 @@
-/* eslint-disable @typescript-eslint/no-explicit-any, complexity */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import { ThunkAction } from 'redux-thunk';
 

@@ -1,4 +1,3 @@
-/* eslint max-lines: 0 */
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -71,6 +70,23 @@ const getPersonDetailsResponse = { type: 'get person details' };
 const loadStepsJourneyResponse = { type: 'load steps and journey' };
 const navigatePushResponse = { type: 'navigate push' };
 
+const screenParams = {
+  section: 'people',
+  subsection: 'person',
+  SelectedStageId: 0,
+  enableBackButton: false,
+  questionText,
+  orgId,
+  personId: otherId,
+};
+const navParams = {
+  stage,
+  orgId,
+  isAlreadySelected: true,
+  personId: otherId,
+  firstName: otherName,
+};
+
 beforeEach(() => {
   store.clearActions();
   // @ts-ignore
@@ -89,26 +105,10 @@ describe('SelectStageScreen next', () => {
   describe('isAlreadySelected', () => {
     describe('with contactAssignmentId', () => {
       beforeEach(async () => {
-        await buildAndCallNext(
-          SELECT_STAGE_SCREEN,
-          {
-            section: 'people',
-            subsection: 'person',
-            SelectedStageId: 0,
-            enableBackButton: false,
-            questionText,
-            orgId,
-            personId: otherId,
-          },
-          {
-            stage,
-            personId: otherId,
-            firstName: otherName,
-            orgId,
-            isAlreadySelected: true,
-            contactAssignmentId,
-          },
-        );
+        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
+          ...navParams,
+          contactAssignmentId,
+        });
       });
 
       it('should select person', () => {
@@ -148,25 +148,9 @@ describe('SelectStageScreen next', () => {
 
     describe('without contactAssignmentId', () => {
       beforeEach(async () => {
-        await buildAndCallNext(
-          SELECT_STAGE_SCREEN,
-          {
-            section: 'people',
-            subsection: 'person',
-            selectedStageId: 0,
-            enableBackButton: false,
-            questionText,
-            orgId,
-            personId: otherId,
-          },
-          {
-            stage,
-            personId: otherId,
-            firstName: otherName,
-            orgId,
-            isAlreadySelected: true,
-          },
-        );
+        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
+          ...navParams,
+        });
       });
 
       it('should select person', () => {
@@ -204,26 +188,11 @@ describe('SelectStageScreen next', () => {
   describe('not isAlreadySelected', () => {
     describe('with contactAssignmentId', () => {
       beforeEach(async () => {
-        await buildAndCallNext(
-          SELECT_STAGE_SCREEN,
-          {
-            section: 'people',
-            subsection: 'person',
-            selectedStageId: 0,
-            enableBackButton: false,
-            questionText,
-            orgId,
-            personId: otherId,
-          },
-          {
-            stage,
-            personId: otherId,
-            firstName: otherName,
-            orgId,
-            isAlreadySelected: false,
-            contactAssignmentId,
-          },
-        );
+        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
+          ...navParams,
+          contactAssignmentId,
+          isAlreadySelected: false,
+        });
       });
 
       it('should select person', () => {
@@ -261,27 +230,30 @@ describe('SelectStageScreen next', () => {
       });
     });
 
+    describe('skipSelectSteps', () => {
+      beforeEach(async () => {
+        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
+          ...navParams,
+          contactAssignmentId,
+          isAlreadySelected: false,
+          skipSelectSteps: true,
+        });
+      });
+
+      it('should navigate to CelebrationScreen', () => {
+        expect(navigatePush).toHaveBeenCalledWith(CELEBRATION_SCREEN, {
+          personId: otherId,
+          orgId,
+        });
+      });
+    });
+
     describe('without contactAssignmentId', () => {
       beforeEach(async () => {
-        await buildAndCallNext(
-          SELECT_STAGE_SCREEN,
-          {
-            section: 'people',
-            subsection: 'person',
-            selectedStageId: 0,
-            enableBackButton: false,
-            questionText,
-            orgId,
-            personId: otherId,
-          },
-          {
-            stage,
-            personId: otherId,
-            firstName: otherName,
-            orgId,
-            isAlreadySelected: false,
-          },
-        );
+        await buildAndCallNext(SELECT_STAGE_SCREEN, screenParams, {
+          ...navParams,
+          isAlreadySelected: false,
+        });
       });
 
       it('should select person', () => {

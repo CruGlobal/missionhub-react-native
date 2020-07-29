@@ -4,7 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { GetCommunities_communities_nodes } from '../../../containers/Groups/__generated__/GetCommunities';
-
 import GroupCardItem, { GroupCardItemProps } from '..';
 
 const contactCount = 768;
@@ -35,7 +34,7 @@ let props: GroupCardItemProps = {
   onJoin: undefined,
 };
 
-const test = () => {
+const testGroupCardItem = () => {
   renderWithContext(<GroupCardItem {...props} />, {
     noWrappers: true,
   }).snapshot();
@@ -43,7 +42,8 @@ const test = () => {
 
 describe('GroupCardItem', () => {
   it('renders with no report counts', () => {
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders for global community', () => {
@@ -55,7 +55,8 @@ describe('GroupCardItem', () => {
       },
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders with no report counts', () => {
@@ -71,7 +72,8 @@ describe('GroupCardItem', () => {
       },
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders group', () => {
@@ -82,7 +84,8 @@ describe('GroupCardItem', () => {
       },
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders group with member count', () => {
@@ -97,7 +100,8 @@ describe('GroupCardItem', () => {
       },
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders group with singular member count', () => {
@@ -112,7 +116,8 @@ describe('GroupCardItem', () => {
       },
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders with image url', () => {
@@ -125,7 +130,8 @@ describe('GroupCardItem', () => {
       },
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders with notification', () => {
@@ -137,7 +143,8 @@ describe('GroupCardItem', () => {
       },
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders for join screen', () => {
@@ -163,7 +170,8 @@ describe('GroupCardItem', () => {
       onJoin: jest.fn(),
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('renders for join screen no owner', () => {
@@ -179,7 +187,8 @@ describe('GroupCardItem', () => {
       onJoin: jest.fn(),
     };
 
-    test();
+    testGroupCardItem();
+    expect.hasAssertions();
   });
 
   it('calls props.onPress when pressed', () => {

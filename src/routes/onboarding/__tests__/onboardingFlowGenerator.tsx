@@ -1,17 +1,20 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import React from 'react';
 
 import { CREATE_STEP, ACTIONS } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { WELCOME_SCREEN } from '../../../containers/WelcomeScreen';
-import { SETUP_SCREEN } from '../../../containers/SetupScreen';
+import {
+  SETUP_SCREEN,
+  SETUP_PERSON_SCREEN,
+} from '../../../containers/SetupScreen';
 import { ONBOARDING_ADD_PHOTO_SCREEN } from '../../../containers/OnboardingAddPhotoScreen';
 import { GET_STARTED_SCREEN } from '../../../containers/GetStartedScreen';
 import { SELECT_STAGE_SCREEN } from '../../../containers/SelectStageScreen';
 import { STAGE_SUCCESS_SCREEN } from '../../../containers/StageSuccessScreen';
 import { SELECT_STEP_SCREEN } from '../../../containers/SelectStepScreen';
 import { ADD_SOMEONE_SCREEN } from '../../../containers/AddSomeoneScreen';
-import { SETUP_PERSON_SCREEN } from '../../../containers/SetupScreen';
 import { SUGGESTED_STEP_DETAIL_SCREEN } from '../../../containers/SuggestedStepDetailScreen';
 import { PERSON_CATEGORY_SCREEN } from '../../../containers/PersonCategoryScreen';
 import { ADD_STEP_SCREEN } from '../../../containers/AddStepScreen';

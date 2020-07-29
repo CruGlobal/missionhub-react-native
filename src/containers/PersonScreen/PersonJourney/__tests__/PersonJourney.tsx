@@ -14,7 +14,6 @@ import RowSwipeable from '../../../../components/RowSwipeable';
 import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
 import { navigatePush } from '../../../../actions/navigation';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
-
 import { PersonJourney } from '..';
 
 const mockAddComment = jest.fn(() => Promise.resolve());

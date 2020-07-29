@@ -27,11 +27,11 @@ import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroup
 import ReportedIcon from './reportedIcon.svg';
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
-import { GET_COMMUNITY_PHOTO } from './queries';
+import { GET_COMMUNITY_INFO } from './queries';
 import {
-  GetCommunityPhoto,
-  GetCommunityPhotoVariables,
-} from './__generated__/GetCommunityPhoto';
+  GetCommunityInfo,
+  GetCommunityInfoVariables,
+} from './__generated__/GetCommunityInfo';
 
 export const NotificationCenterItem = ({
   event,
@@ -83,17 +83,20 @@ export const NotificationCenterItem = ({
       getMessageVariable('post_type_enum') as PostTypeEnum,
     ) || FeedItemSubjectTypeEnum.STORY;
 
-  // Only query for community photo if notification is a challenge created or an announcment post
+  // Only query for community photo if notification is a challenge created, challenge completed, or an announcment post
   const shouldSkip = !(
     trigger === NotificationTriggerEnum.community_challenge_created_alert ||
+    trigger === NotificationTriggerEnum.completed_challenge_notification ||
     (trigger === NotificationTriggerEnum.story_notification &&
       iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT)
   );
 
   const {
-    data: { community: { communityPhotoUrl = null } = {} } = {},
-  } = useQuery<GetCommunityPhoto, GetCommunityPhotoVariables>(
-    GET_COMMUNITY_PHOTO,
+    data: {
+      community: { name: communityName = '', communityPhotoUrl = null } = {},
+    } = {},
+  } = useQuery<GetCommunityInfo, GetCommunityInfoVariables>(
+    GET_COMMUNITY_INFO,
     {
       fetchPolicy: 'cache-first',
       variables: {
@@ -114,11 +117,20 @@ export const NotificationCenterItem = ({
       case NotificationTriggerEnum.feed_items_comment_on_other_persons_post_notification:
         return <CommentIcon />;
       case NotificationTriggerEnum.community_challenge_created_alert:
+      case NotificationTriggerEnum.completed_challenge_notification:
         return (
           <PostTypeLabel
             showText={false}
             size={PostLabelSizeEnum.small}
             type={FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE}
+          />
+        );
+      case NotificationTriggerEnum.prayer_post_like_notification:
+        return (
+          <PostTypeLabel
+            showText={false}
+            size={PostLabelSizeEnum.small}
+            type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
           />
         );
       default:
@@ -135,6 +147,7 @@ export const NotificationCenterItem = ({
   const handleNotificationPress = async () => {
     switch (trigger) {
       case NotificationTriggerEnum.community_challenge_created_alert:
+      case NotificationTriggerEnum.completed_challenge_notification: {
         const communityId = screenData.communityId
           ? screenData.communityId
           : GLOBAL_COMMUNITY_ID;
@@ -142,11 +155,14 @@ export const NotificationCenterItem = ({
         await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
           navigatePush(CHALLENGE_DETAIL_SCREEN, {
+            communityName,
+            fromNotificationCenterItem: true,
             // If no communityId, than it is a global challenge
             orgId: communityId,
             challengeId: screenData.challengeId,
           }),
         );
+      }
       default:
         return dispatch(
           navigatePush(FEED_ITEM_DETAIL_SCREEN, {

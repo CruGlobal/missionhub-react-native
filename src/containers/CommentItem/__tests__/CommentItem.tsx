@@ -5,7 +5,6 @@ import { renderWithContext } from '../../../../testUtils';
 import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import { FeedItemCommentItem } from '../__generated__/FeedItemCommentItem';
 import { FEED_ITEM_COMMENT_ITEM_FRAGMENT } from '../queries';
-
 import CommentItem from '..';
 
 const item = mockFragment<FeedItemCommentItem>(FEED_ITEM_COMMENT_ITEM_FRAGMENT);

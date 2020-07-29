@@ -1,10 +1,15 @@
 import React from 'react';
-import { SafeAreaView, StyleProp, ViewStyle, View } from 'react-native';
+import {
+  SafeAreaView,
+  StyleProp,
+  ViewStyle,
+  View,
+  GestureResponderEvent,
+} from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import Button from '../Button';
-import { Text } from '../common';
-import { TouchablePress } from '../Touchable/index.ios';
+import { Text, Card } from '../common';
 import AnnouncementIcon from '../../../assets/images/announcementIcon.svg';
 import CareRequestIcon from '../../../assets/images/careRequestIcon.svg';
 import ChallengesIcon from '../../../assets/images/challengesIcon.svg';
@@ -13,7 +18,6 @@ import OnYourMindIcon from '../../../assets/images/onYourMindIcon.svg';
 import PrayerRequestIcon from '../../../assets/images/prayerRequestIcon.svg';
 import SpiritualQuestionIcon from '../../../assets/images/spiritualQuestionIcon.svg';
 import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
-import { Card } from '../common';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
@@ -108,7 +112,7 @@ function PostTypeIcon({ type, size, color, style }: PostTypeIconProps) {
 
 interface PostTypeLabelProps {
   type: FeedItemSubjectTypeEnum;
-  onPress?: TouchablePress;
+  onPress?: (event: GestureResponderEvent) => void;
   showText?: boolean;
   size?: PostLabelSizeEnum;
   communityName?: string;
@@ -195,7 +199,7 @@ function getExtraCount(numPeople = 0, countOnly = false) {
 
 interface PostTypeCardWithPeopleProps {
   type: FeedItemSubjectTypeEnum;
-  onPress: TouchablePress;
+  onPress: (event: GestureResponderEvent) => void;
   people?: AvatarPerson[];
   countOnly?: boolean;
   testID?: string;

@@ -6,7 +6,6 @@ import i18next from 'i18next';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import ImagePicker from '..';
 
 jest.mock('react-native-image-crop-picker', () => ({
@@ -92,6 +91,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(0);
       openCameraTests();
+      expect.hasAssertions();
     });
 
     it('selects image without type and parses out png', async () => {
@@ -116,6 +116,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(0);
       openCameraTests();
+      expect.hasAssertions();
     });
 
     it('selects image without type and parses out jpg', async () => {
@@ -140,6 +141,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(0);
       openCameraTests();
+      expect.hasAssertions();
     });
 
     it('selects image without type and parses out heic and puts in jpg', async () => {
@@ -164,6 +166,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(0);
       openCameraTests();
+      expect.hasAssertions();
     });
   });
 
@@ -196,6 +199,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(1);
       openPickerTests();
+      expect.hasAssertions();
     });
 
     it('selects image without type and parses out png', async () => {
@@ -220,6 +224,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(1);
       openPickerTests();
+      expect.hasAssertions();
     });
 
     it('selects image without type and parses out jpg', async () => {
@@ -244,6 +249,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(1);
       openPickerTests();
+      expect.hasAssertions();
     });
 
     it('selects image without type and parses out heic and puts in jpg', async () => {
@@ -268,6 +274,7 @@ describe('press image picker', () => {
 
       await buildAndPressPicker(1);
       openPickerTests();
+      expect.hasAssertions();
     });
   });
 

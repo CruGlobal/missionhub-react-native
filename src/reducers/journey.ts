@@ -7,7 +7,7 @@ const initialState = {
 // @ts-ignore
 function journeyReducer(state = initialState, action) {
   switch (action.type) {
-    case UPDATE_JOURNEY_ITEMS:
+    case UPDATE_JOURNEY_ITEMS: {
       const orgId = action.orgId || 'personal';
       // @ts-ignore
       const org = state[orgId] || {};
@@ -19,6 +19,7 @@ function journeyReducer(state = initialState, action) {
           [action.personId]: action.journeyItems,
         },
       };
+    }
     case LOGOUT:
       return initialState;
     default:

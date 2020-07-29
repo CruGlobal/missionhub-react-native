@@ -3,7 +3,6 @@ import MockDate from 'mockdate';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import ChallengeMemberItem from '..';
 
 const mockDate = '2020-02-29 12:00:00 PM GMT+0';

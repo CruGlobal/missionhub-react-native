@@ -3,7 +3,6 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
-
 import PersonCategoryButton from '..';
 
 const onPress = jest.fn();

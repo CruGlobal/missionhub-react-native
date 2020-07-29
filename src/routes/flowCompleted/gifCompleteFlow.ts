@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/named
 import { StackActions } from 'react-navigation';
 
 import { wrapNextAction } from '../helpers';

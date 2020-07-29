@@ -7,7 +7,6 @@ import { renderWithContext } from '../../../../../testUtils';
 import { keyLogin } from '../../../../actions/auth/key';
 import { MFA_REQUIRED } from '../../../../constants';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
-
 import MFACodeScreen from '..';
 
 jest.mock('../../../../actions/auth/key');
@@ -101,7 +100,7 @@ describe('onSubmit', () => {
     );
 
     const { error } = await clickLoginButton();
-    expect(error).rejects.toEqual(expectedError);
+    await expect(error).rejects.toEqual(expectedError);
 
     expect(keyLogin).toHaveBeenCalledWith(email, password, mfaCode);
     expect(next).not.toHaveBeenCalled();
