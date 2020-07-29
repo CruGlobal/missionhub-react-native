@@ -89,6 +89,7 @@ it('renders with items correctly', async () => {
     },
   });
   expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+    variables: {},
     skip: true,
   });
 });
@@ -123,6 +124,7 @@ describe('sections', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
       skip: true,
     });
   });
@@ -156,6 +158,7 @@ describe('sections', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
       skip: true,
     });
   });
@@ -189,6 +192,7 @@ describe('sections', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
       skip: true,
     });
   });
@@ -224,6 +228,7 @@ describe('renders for member', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
       skip: true,
     });
   });
@@ -256,6 +261,7 @@ describe('renders for member', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
       skip: true,
     });
   });
@@ -309,6 +315,7 @@ describe('renders with clear notification', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
       skip: true,
     });
   });
@@ -344,6 +351,7 @@ describe('renders for Unread Comments', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
       skip: true,
     });
   });
@@ -378,6 +386,42 @@ describe('renders for Global Community', () => {
       },
     });
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: { subjectType: undefined },
+      skip: false,
+    });
+  });
+
+  it('renders with filter correctly', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeed
+        communityId={GLOBAL_COMMUNITY_ID}
+        itemNamePressable={true}
+        filteredFeedType={FeedItemSubjectTypeEnum.STORY}
+      />,
+      {
+        initialState,
+        mocks: {
+          FeedItemConnection: () => ({
+            nodes: () => new MockList(10),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+      skip: true,
+      variables: {
+        communityId: GLOBAL_COMMUNITY_ID,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+        subjectType: [FeedItemSubjectTypeEnum.STORY],
+      },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: { subjectType: FeedItemSubjectTypeEnum.STORY },
       skip: false,
     });
   });
