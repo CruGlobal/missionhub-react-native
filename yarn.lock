@@ -1433,10 +1433,10 @@
   resolved "https://registry.yarnpkg.com/@react-native-firebase/dynamic-links/-/dynamic-links-7.3.2.tgz#3976b2f67606fdb440c5e5d5b2e2e69675fa4d1d"
   integrity sha512-cq/5APaQLrwRvMF0DCNNvVuomdOXMyanmey1ydDPKf7sTO7SaPgCZLFET3VZH42FgtrMPqmb5UgDHYdjD4kjGQ==
 
-"@react-native-firebase/perf@^7.2.1":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-7.2.2.tgz#1adf5cc8ee96815528be8c503ec12bdb81162604"
-  integrity sha512-EzsUYqPGBgPnBLodeDyqlRhnJqa//YU/TTFZ1KKZLpCahr8KmC1xSwHaLmnHXrjcxq14VAHf4UTz/02Iut4PJg==
+"@react-native-firebase/perf@^7.2.3":
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/@react-native-firebase/perf/-/perf-7.2.3.tgz#72e0580c9a7692047e0cf97a1da00d02d7865c68"
+  integrity sha512-G+piXeg+0bW36Lfx4/CzUojWdZOiwm4B4rcQkhloArRvOdn9F8+B8og6S8YP8cPtEJNExW/bWazIDNq6fdumyw==
 
 "@react-navigation/core@^3.7.6":
   version "3.7.6"
