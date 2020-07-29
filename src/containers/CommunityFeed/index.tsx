@@ -88,11 +88,12 @@ export const CommunityFeed = ({
 }: CommunityFeedProps) => {
   const { t } = useTranslation('communityFeed');
   const isGlobal = orgIsGlobal({ id: communityId });
+  const subjectType = filteredFeedType ? [filteredFeedType] : undefined;
   const queryVariables = {
     communityId,
     personIds: (personId && [personId]) || undefined,
     hasUnreadComments: showUnreadOnly,
-    subjectType: filteredFeedType ? [filteredFeedType] : undefined,
+    subjectType,
   };
 
   const {
@@ -135,9 +136,7 @@ export const CommunityFeed = ({
   } = useQuery<GetGlobalCommunityFeed, GetGlobalCommunityFeedVariables>(
     GET_GLOBAL_COMMUNITY_FEED,
     {
-      variables: {
-        subjectType: filteredFeedType,
-      },
+      variables: { subjectType },
       skip: !isGlobal,
     },
   );
