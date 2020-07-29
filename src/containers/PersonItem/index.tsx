@@ -75,6 +75,7 @@ const PersonItem = ({
         contactAssignment,
         organization,
         stage && stage.id - 1,
+        true,
       ),
     );
 

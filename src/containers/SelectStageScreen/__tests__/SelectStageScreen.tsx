@@ -486,6 +486,28 @@ describe('setStage', () => {
       expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
 
+    it('selects already selected stage with skip select steps', async () => {
+      const navParams = {
+        ...baseParams,
+        personId: assignedPersonId,
+        selectedStageId,
+        skipSelectSteps: true,
+      };
+      const nextProps = {
+        isAlreadySelected: true,
+        skipSelectSteps: true,
+        isMe: false,
+        personId: assignedPersonId,
+        stage: stage,
+        orgId,
+      };
+
+      const { store } = await buildAndTestSelect(navParams, nextProps);
+
+      expect(updateUserStage).not.toHaveBeenCalled();
+      expect(store.getActions()).toEqual([nextResult, trackActionResult]);
+    });
+
     it('selects new stage for edit screen', async () => {
       const navParams = {
         ...baseParams,
