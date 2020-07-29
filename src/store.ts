@@ -1,4 +1,4 @@
-import { AsyncStorage } from 'react-native';
+import AsyncStorage from '@react-native-community/async-storage';
 import { createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
 import {
@@ -7,10 +7,10 @@ import {
   createTransform,
   createMigrate,
 } from 'redux-persist';
-// @ts-ignore
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
-// @ts-ignore
-import getStoredStateMigrateV4 from 'redux-persist/lib/integration/getStoredStateMigrateV4';
+import getStoredStateMigrateV4, {
+  V4Storage,
+} from 'redux-persist/lib/integration/getStoredStateMigrateV4';
 // @ts-ignore
 import jsan from 'jsan';
 import { createReactNavigationReduxMiddleware } from 'react-navigation-redux-helpers';
@@ -58,7 +58,7 @@ const persistConfig = {
   stateReconciler: autoMergeLevel2,
   transforms: [myTransform],
   getStoredState: getStoredStateMigrateV4({
-    storage: AsyncStorage,
+    storage: (AsyncStorage as unknown) as V4Storage,
     transforms: [myTransform],
   }),
   blacklist: ['tabs'],
@@ -69,8 +69,9 @@ const persistConfig = {
 };
 
 export const store = createStore(
+  // @ts-ignore
   persistReducer(persistConfig, reducers),
-  {},
+  { _persist: { version: 0, rehydrated: false } },
   storeEnhancers,
 );
 
@@ -83,6 +84,7 @@ if (module.hot) {
     // This fetches the new state of the above reducers.
     // eslint-disable-next-line @typescript-eslint/no-var-requires
     const nextRootReducer = require('./reducers').default;
+    // @ts-ignore
     store.replaceReducer(persistReducer(persistConfig, nextRootReducer));
   });
 }
