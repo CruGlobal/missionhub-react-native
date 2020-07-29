@@ -135,6 +135,9 @@ export const CommunityFeed = ({
   } = useQuery<GetGlobalCommunityFeed, GetGlobalCommunityFeedVariables>(
     GET_GLOBAL_COMMUNITY_FEED,
     {
+      variables: {
+        subjectType: filteredFeedType,
+      },
       skip: !isGlobal,
     },
   );

@@ -1,4 +1,5 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
+
 import 'react-native';
 import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
@@ -11,7 +12,6 @@ import {
 import { navToPersonScreen } from '../../../actions/person';
 import { hasOrgPermissions } from '../../../utils/common';
 import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../../components/PeopleList/__generated__/GetPeopleStepsCount';
-
 import PersonItem from '..';
 
 jest.mock('../../../actions/navigation');
@@ -212,6 +212,7 @@ describe('handleChangeStage', () => {
         {},
         mockOrganization,
         undefined,
+        true,
       );
       expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });
@@ -241,6 +242,7 @@ describe('handleChangeStage', () => {
         mockContactAssignmentNoStage,
         mockOrganization,
         undefined,
+        true,
       );
       expect(store.getActions()).toEqual([navigateToStageScreenResult]);
     });
@@ -356,6 +358,7 @@ describe('handleAddStep', () => {
       mockContactAssignmentNoStage,
       mockOrganization,
       undefined,
+      true,
     );
     expect(store.getActions()).toEqual([navigateToStageScreenResult]);
   });

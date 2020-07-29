@@ -1,5 +1,3 @@
-/* eslint max-lines: 0 */
-
 import 'react-native';
 import React from 'react';
 import {
@@ -21,7 +19,6 @@ import {
   facebookPromptLogin,
 } from '../../../../actions/auth/facebook';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
-
 import SignInScreen from '..';
 
 jest.mock('../../../../actions/analytics');

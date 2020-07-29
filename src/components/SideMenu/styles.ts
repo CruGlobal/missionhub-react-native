@@ -19,7 +19,7 @@ export default StyleSheet.create({
   notSignedInButton: {
     borderWidth: 1,
     borderColor: theme.parakeetBlue,
-    height: 40,
+    height: 42,
     marginLeft: 10,
   },
   closeContainer: {
@@ -100,6 +100,6 @@ export default StyleSheet.create({
     fontWeight: '400',
     letterSpacing: 0.2,
     textAlign: 'center',
-    height: 25,
+    height: 20,
   },
 });

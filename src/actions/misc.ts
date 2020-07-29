@@ -1,5 +1,3 @@
-/* eslint max-params: 0, max-lines-per-function: 0 */
-
 import { Linking } from 'react-native';
 import gql from 'graphql-tag';
 
@@ -58,6 +56,7 @@ export function openCommunicationLink(url, action) {
       .catch(err => WARN('An unexpected error happened', err));
 }
 
+// eslint-disable-next-line max-params
 export function navigateToStageScreen(
   personIsCurrentUser: boolean,
   person: Person,
@@ -65,6 +64,7 @@ export function navigateToStageScreen(
   contactAssignment,
   organization = {},
   firstItemIndex: number | undefined, //todo find a way to not pass this
+  skipSelectSteps = false,
 ) {
   // @ts-ignore
   return dispatch => {
@@ -80,6 +80,7 @@ export function navigateToStageScreen(
     } else {
       dispatch(
         navigatePush(SELECT_PERSON_STAGE_FLOW, {
+          skipSelectSteps,
           selectedStageId: firstItemIndex,
           personId: person.id,
           // @ts-ignore

@@ -11,6 +11,7 @@ import {
   GLOBAL_COMMUNITY_ID,
 } from '../constants';
 import { REQUESTS } from '../api/routes';
+import { RootState } from '../reducers';
 
 import callApi from './api';
 import { checkNotifications } from './notifications';
@@ -74,7 +75,7 @@ export function joinChallenge(item: { id: string }, orgId: string) {
     },
   };
 
-  return async (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     //eslint-disable-next-line @typescript-eslint/no-explicit-any
     await dispatch<any>(
       callApi(REQUESTS.ACCEPT_GROUP_CHALLENGE, query, bodyData),

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any, import/named */
-
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 import {
@@ -11,11 +9,12 @@ import {
 import { FEED_ITEM_DETAIL_SCREEN } from '../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { MAIN_TABS, PEOPLE_TAB, COMMUNITIES_TAB } from '../constants';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
+import { RootState } from '../reducers';
 
 import { loadHome } from './auth/userData';
 
 export function navigatePush(screen: string, props = {}) {
-  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     dispatch(
       StackActions.push({
         routeName: screen,
@@ -26,7 +25,7 @@ export function navigatePush(screen: string, props = {}) {
 }
 
 export function navigateBack(times?: number) {
-  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     if (times && times > 1) {
       dispatch(StackActions.pop({ n: times, immediate: true }));
     } else {
@@ -44,7 +43,7 @@ export const navigateNestedReset = (
   screens: {
     routeName: string;
     tabName?: string;
-    params?: { [key: string]: any };
+    params?: Record<string, unknown>;
   }[],
 ) =>
   resetStack(
@@ -56,6 +55,7 @@ export const navigateNestedReset = (
           ? {
               action: NavigationActions.navigate({
                 routeName: tabName,
+                ...(params ? { params } : {}),
               }),
             }
           : {}),
@@ -65,7 +65,7 @@ export const navigateNestedReset = (
   );
 
 const resetStack = (actions: NavigationNavigateAction[], index = 0) => (
-  dispatch: ThunkDispatch<{}, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) =>
   dispatch(
     StackActions.reset({
@@ -78,7 +78,7 @@ const resetStack = (actions: NavigationNavigateAction[], index = 0) => (
 // The reset home and reset login are handled by the login/logout auth actions
 
 export function navigateReplace(screen: string, props = {}) {
-  return (dispatch: ThunkDispatch<{}, {}, AnyAction>) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     dispatch(
       StackActions.replace({
         routeName: screen,
@@ -89,7 +89,7 @@ export function navigateReplace(screen: string, props = {}) {
 }
 
 export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
-  dispatch: ThunkDispatch<never, {}, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   dispatch(loadHome());
   dispatch(navigateNestedReset([{ routeName: MAIN_TABS, tabName }]));
@@ -98,7 +98,7 @@ export const navigateToMainTabs = (tabName = PEOPLE_TAB) => (
 export const navigateToFeedItemComments = (
   feedItemId: string,
   communityId: string,
-) => (dispatch: ThunkDispatch<{}, null, AnyAction>) => {
+) => (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
   dispatch(
     navigateNestedReset([
       {
@@ -118,7 +118,7 @@ export const navigateToFeedItemComments = (
 };
 
 export const navigateToCommunityFeed = (communityId: string) => (
-  dispatch: ThunkDispatch<{}, null, AnyAction>,
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) => {
   dispatch(
     navigateNestedReset([

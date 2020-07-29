@@ -1,5 +1,4 @@
-/* eslint max-lines: 0 */
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable max-lines */
 
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
@@ -15,7 +14,6 @@ import {
 import { Stage } from '../../../reducers/stages';
 import { ACTIONS } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
-
 import SelectStageScreen, { SelectStageNavParams } from '..';
 
 jest.mock('react-native-device-info');
@@ -370,8 +368,10 @@ describe('setStage', () => {
   const selectedStageId = 0;
   const stage = stages[selectedStageId];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let selectAction: any;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const buildAndTestSelect = async (navParams: any, nextProps: any) => {
     const { store, getAllByTestId } = await buildAndTestMount(state, navParams);
 
@@ -474,6 +474,28 @@ describe('setStage', () => {
       };
       const nextProps = {
         isAlreadySelected: true,
+        isMe: false,
+        personId: assignedPersonId,
+        stage: stage,
+        orgId,
+      };
+
+      const { store } = await buildAndTestSelect(navParams, nextProps);
+
+      expect(updateUserStage).not.toHaveBeenCalled();
+      expect(store.getActions()).toEqual([nextResult, trackActionResult]);
+    });
+
+    it('selects already selected stage with skip select steps', async () => {
+      const navParams = {
+        ...baseParams,
+        personId: assignedPersonId,
+        selectedStageId,
+        skipSelectSteps: true,
+      };
+      const nextProps = {
+        isAlreadySelected: true,
+        skipSelectSteps: true,
         isMe: false,
         personId: assignedPersonId,
         stage: stage,

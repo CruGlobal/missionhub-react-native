@@ -2,7 +2,6 @@ import React from 'react';
 import { View } from 'react-native';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import PlatformKeyboardAvoidingView from '..';
 
 it('renders correctly', () => {

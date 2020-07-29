@@ -19,7 +19,7 @@ import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 import { ReminderButton as Reminder } from './__generated__/ReminderButton';
 
-interface ReminderButtonProps {
+export interface ReminderButtonProps {
   stepId: string;
   reminder: Reminder | null;
   children: ReactNode;
@@ -47,7 +47,7 @@ const ReminderButton = ({
     dispatch(navigatePush(STEP_REMINDER_SCREEN, { reminder, stepId }));
   };
   // for iOS, ask for notifications, navigate to step reminder screen
-  const handlePressIOS = ({ showPicker }: { showPicker: Function }) => {
+  const handlePressIOS = ({ showPicker }: { showPicker: () => void }) => {
     dispatch(
       checkNotifications(
         NOTIFICATION_PROMPT_TYPES.SET_REMINDER,

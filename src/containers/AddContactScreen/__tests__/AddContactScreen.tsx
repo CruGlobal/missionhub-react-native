@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import React from 'react';
 import { Alert, ActionSheetIOS } from 'react-native';
@@ -23,7 +23,6 @@ import { ACTIONS, LOAD_PERSON_DETAILS } from '../../../constants';
 import { GET_PERSON } from '../queries';
 import { getPersonDetails } from '../../../actions/person';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
-
 import AddContactScreen from '..';
 
 jest.mock('../../../actions/analytics');

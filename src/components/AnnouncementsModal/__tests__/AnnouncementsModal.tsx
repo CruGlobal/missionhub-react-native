@@ -6,7 +6,6 @@ import { MockList } from 'graphql-tools';
 
 import { trackAction } from '../../../actions/analytics';
 import { renderWithContext } from '../../../../testUtils';
-
 import AnnouncementsModal, { GET_ANNOUNCEMENT, HANDLE_ANNOUNCEMENT } from '..';
 
 jest.mock('../../../actions/analytics');

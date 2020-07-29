@@ -12,21 +12,21 @@ jest.mock('../api');
 jest.mock('../person');
 jest.mock('../celebration');
 jest.mock('../organizations');
-(callApi as jest.Mock).mockReturnValue(() => {
-  result: 'marked as unread';
-});
-(getMe as jest.Mock).mockReturnValue(() => {
-  type: 'reloaded person';
-});
-(getCelebrateFeed as jest.Mock).mockReturnValue(() => {
-  type: 'get celebrate feed';
-});
-(refreshCommunity as jest.Mock).mockReturnValue(() => {
-  type: 'refresh community';
-});
-(getMyCommunities as jest.Mock).mockReturnValue(() => {
-  type: 'get my communities';
-});
+(callApi as jest.Mock).mockReturnValue(() => ({
+  result: 'marked as unread',
+}));
+(getMe as jest.Mock).mockReturnValue(() => ({
+  type: 'reloaded person',
+}));
+(getCelebrateFeed as jest.Mock).mockReturnValue(() => ({
+  type: 'get celebrate feed',
+}));
+(refreshCommunity as jest.Mock).mockReturnValue(() => ({
+  type: 'refresh community',
+}));
+(getMyCommunities as jest.Mock).mockReturnValue(() => ({
+  type: 'get my communities',
+}));
 
 const orgId = '4';
 

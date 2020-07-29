@@ -9,7 +9,7 @@ const initialState = {
 function groupsReducer(state = initialState, action) {
   const results = action.results;
   switch (action.type) {
-    case REQUESTS.GET_MY_GROUPS.SUCCESS:
+    case REQUESTS.GET_MY_GROUPS.SUCCESS: {
       // @ts-ignore
       const groups = (results.findAll('group') || []).map(g => ({
         text: g.name,
@@ -19,6 +19,7 @@ function groupsReducer(state = initialState, action) {
         ...state,
         all: groups,
       };
+    }
     case LOGOUT:
       return initialState;
     default:

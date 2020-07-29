@@ -1,4 +1,4 @@
-/* eslint max-lines: 0, max-lines-per-function: 0 */
+/* eslint-disable max-lines */
 
 import React, { useState } from 'react';
 import { View, Alert, Image, ScrollView } from 'react-native';

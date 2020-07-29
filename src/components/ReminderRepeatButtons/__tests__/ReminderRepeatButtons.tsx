@@ -2,15 +2,12 @@ import React from 'react';
 
 import { renderShallow } from '../../../../testUtils';
 import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
-
 import ReminderRepeatButtons from '..';
 
 const onRecurrenceChange = jest.fn();
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 let component: any;
-
-const test = () => expect(component).toMatchSnapshot();
 
 describe('none selected', () => {
   beforeEach(() => {
@@ -21,7 +18,7 @@ describe('none selected', () => {
   });
 
   it('renders with none highlighted', () => {
-    test();
+    expect(component).toMatchSnapshot();
   });
 
   describe('select daily button', () => {
@@ -52,7 +49,7 @@ describe('starts with weekly selected', () => {
   });
 
   it('renders with weekly highlighted', () => {
-    test();
+    expect(component).toMatchSnapshot();
   });
 
   describe('select weekly button', () => {
@@ -98,7 +95,7 @@ describe('starts with daily selected', () => {
   });
 
   it('renders with daily highlighted', () => {
-    test();
+    expect(component).toMatchSnapshot();
   });
 });
 
@@ -114,6 +111,6 @@ describe('starts with monthly selected', () => {
   });
 
   it('renders with monthly highlighted', () => {
-    test();
+    expect(component).toMatchSnapshot();
   });
 });

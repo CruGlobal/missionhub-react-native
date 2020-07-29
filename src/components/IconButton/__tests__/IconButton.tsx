@@ -2,7 +2,6 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import IconButton from '..';
 
 const onPress = jest.fn();
@@ -12,8 +11,7 @@ it('renders correctly', () => {
     <IconButton
       name="addContactIcon"
       type="MissionHub"
-      pressProps={['test']}
-      onPress={onPress}
+      onPress={() => onPress('test')}
     />,
     {
       noWrappers: true,
@@ -83,8 +81,7 @@ it('presses icon button', () => {
       <IconButton
         name="addContactIcon"
         type="MissionHub"
-        pressProps={['test']}
-        onPress={onPress}
+        onPress={() => onPress('test')}
       />,
       {
         noWrappers: true,

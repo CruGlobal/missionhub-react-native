@@ -5,7 +5,6 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { ORG_PERMISSIONS } from '../../../constants';
 import { renderWithContext } from '../../../../testUtils';
 import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
-
 import CelebrateFeedWithType from '..';
 
 jest.mock('../../CommunityFeed', () => ({ CommunityFeed: 'CommunityFeed' }));

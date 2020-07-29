@@ -3,7 +3,6 @@ import { LayoutAnimation } from 'react-native';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import PeopleList from '..';
 
 jest.mock('../../../containers/PersonItem', () => 'PersonItem');
@@ -111,7 +110,7 @@ describe('button presses', () => {
 
     recordSnapshot();
     const toggleSectionBtn = getAllByTestId('toggleSectionBtn')[0];
-    fireEvent(toggleSectionBtn, 'press', toggleSectionBtn.props.pressProps[0]);
+    fireEvent(toggleSectionBtn, 'press');
     diffSnapshot();
   });
 });

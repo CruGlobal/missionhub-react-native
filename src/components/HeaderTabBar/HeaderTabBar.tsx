@@ -1,6 +1,5 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-// eslint-disable-next-line import/named
 import { NavigationActions } from 'react-navigation';
 import { useNavigationState } from 'react-navigation-hooks';
 import { useDispatch } from 'react-redux';
@@ -24,6 +23,7 @@ export const HeaderTabBar = ({ tabs }: HeaderTabBarProps) => {
       dispatch(
         NavigationActions.navigate({
           routeName: tabs[index].navigationAction,
+          params: navState.params,
         }),
       );
     }

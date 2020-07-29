@@ -134,8 +134,7 @@ export default ({
             name={collapsedOrgs.has(org.id) ? 'downArrowIcon' : 'upArrowIcon'}
             type="MissionHub"
             size={10}
-            pressProps={[org.id]}
-            onPress={toggleSection}
+            onPress={() => toggleSection(org.id)}
           />
         </Flex>
       </Flex>

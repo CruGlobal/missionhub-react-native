@@ -1,16 +1,15 @@
 import React from 'react';
-import { View } from 'react-native';
+import { GestureResponderEvent, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '../common';
-import { TouchablePress } from '../Touchable/index.ios';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
 
 interface ReminderRepeatButtonsProps {
   recurrence?: ReminderTypeEnum;
-  onRecurrenceChange: Function;
+  onRecurrenceChange: (recurrence: ReminderTypeEnum) => void;
 }
 
 const ReminderRepeatButtons = ({
@@ -30,7 +29,7 @@ const ReminderRepeatButtons = ({
   const handleSetMonthly = () => setButtonState(ReminderTypeEnum.monthly);
   function renderReminderButton(
     recurrence: ReminderTypeEnum,
-    onPress: TouchablePress,
+    onPress: (event: GestureResponderEvent) => void,
   ) {
     const {
       button,

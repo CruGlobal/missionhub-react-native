@@ -4,15 +4,15 @@ import {
   ViewProps,
   TouchableOpacityProps,
   TouchableHighlightProps,
+  GestureResponderEvent,
 } from 'react-native';
 
 import { Touchable } from '../common';
-import { TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
 interface CardProps {
-  onPress?: TouchablePress;
+  onPress?: (event: GestureResponderEvent) => void;
   children?: ReactNode;
 }
 

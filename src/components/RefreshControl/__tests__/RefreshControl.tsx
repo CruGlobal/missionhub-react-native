@@ -1,7 +1,6 @@
 import React from 'react';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import RefreshControl from '..';
 
 const props = { refreshing: true, onRefresh: jest.fn() };

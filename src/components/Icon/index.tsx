@@ -35,17 +35,16 @@ const Icon = ({ name, type, size = 18, style = {} }: IconProps) => {
     }
   }
   // Set the type of icon to be rendered
-  let Tag;
-  if (iconType === 'FontAwesome') {
-    Tag = FontAwesome;
-  } else if (iconType === 'Ionicons') {
-    Tag = Ionicons;
-  } else if (iconType === 'MissionHub') {
-    Tag = MissionHub;
-  } else {
-    Tag = Material;
-  }
+  const Tag =
+    iconType === 'FontAwesome'
+      ? FontAwesome
+      : iconType === 'Ionicons'
+      ? Ionicons
+      : iconType === 'MissionHub'
+      ? MissionHub
+      : Material;
   return (
+    // @ts-ignore
     <Tag name={iconName} style={[styles.icon, { fontSize: size }, style]} />
   );
 };

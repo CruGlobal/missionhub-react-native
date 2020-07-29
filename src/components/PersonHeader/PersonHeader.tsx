@@ -16,7 +16,7 @@ import {
   CollapsibleViewHeader,
   CollapsibleViewContext,
 } from '../CollapsibleView/CollapsibleView';
-import EditIcon from '../../../assets/images/editIcon.svg';
+import EditIcon from '../../../assets/images/editIconNoBox.svg';
 import PopupMenu from '../PopupMenu';
 import KebabIcon from '../../../assets/images/kebabIcon.svg';
 import { navigatePush, navigateBack } from '../../actions/navigation';

@@ -7,12 +7,12 @@ import {
   Image,
   ImageSourcePropType,
   ViewProps,
+  GestureResponderEvent,
 } from 'react-native';
 import debounce from 'lodash.debounce';
 
 import { Touchable, Text, Flex } from '../common';
 import { exists } from '../../utils/common';
-import { PressPropsType, TouchablePress } from '../Touchable/index.ios';
 
 import styles from './styles';
 
@@ -21,7 +21,7 @@ const getTypeStyle = (type: ButtonProps['type']) =>
   type && exists(styles[type]) ? styles[type] : styles.button;
 
 export interface ButtonProps {
-  onPress: TouchablePress;
+  onPress: (event: GestureResponderEvent) => void;
   type?: 'transparent' | 'primary' | 'secondary';
   text?: string;
   image?: ImageSourcePropType;
@@ -29,7 +29,6 @@ export interface ButtonProps {
   disabled?: boolean;
   style?: StyleProp<ViewStyle>;
   buttonTextStyle?: StyleProp<TextStyle>;
-  pressProps?: PressPropsType;
   isAndroidOpacity?: boolean;
   activeOpacity?: number;
   testID?: string;
@@ -59,18 +58,13 @@ export default class Button extends Component<ButtonProps, ButtonState> {
     );
   };
 
-  handlePress = async (...args: PressPropsType) => {
-    const { pressProps, onPress } = this.props;
+  handlePress = async (event: GestureResponderEvent) => {
+    const { onPress } = this.props;
     // Prevent the user from being able to click twice
     this.setState({ clickedDisabled: true });
     try {
-      // If pressProps are passed in, use those when calling the `onPress` method
-      if (pressProps) {
-        await onPress(...pressProps);
-      } else {
-        // Call the users click function with all the normal click parameters
-        await onPress(...args);
-      }
+      // Call the users click function with all the normal click parameters
+      await onPress(event);
     } finally {
       // Re-enable the button after the timeout after any promises in the handler complete
       this.setClickDisableTimeout();
@@ -89,7 +83,6 @@ export default class Button extends Component<ButtonProps, ButtonState> {
       viewProps = {},
       style = {},
       buttonTextStyle = {},
-      pressProps, // eslint-disable-line @typescript-eslint/no-unused-vars
       ...rest
     } = this.props;
     let content = children;

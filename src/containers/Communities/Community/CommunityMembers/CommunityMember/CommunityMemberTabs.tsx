@@ -1,6 +1,5 @@
 import React from 'react';
 import { createMaterialTopTabNavigator } from 'react-navigation-tabs';
-// eslint-disable-next-line import/named
 import { NavigationProp, NavigationState } from 'react-navigation';
 import i18next from 'i18next';
 

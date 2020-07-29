@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
 import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
 import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
@@ -16,6 +17,7 @@ import { CONTACT_STEPS } from '../../constants';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDetailScreen';
 import Icon from '../Icon';
 import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
+import { RootState } from '../../reducers';
 
 import styles from './styles';
 
@@ -31,8 +33,7 @@ type AcceptedStepItemProps = {
   };
   reminder?: ReminderType;
   onComplete?: () => void;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  dispatch: ThunkDispatch<any, null, never>;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
 };
 
 const AcceptedStepItem = ({
@@ -112,8 +113,7 @@ const AcceptedStepItem = ({
 
 const mapStateToProps = (
   { stepReminders }: { stepReminders: StepReminderState },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  { step }: any,
+  { step }: { step: { id: string } },
 ) => ({
   reminder: reminderSelector({ stepReminders }, { stepId: step.id }),
 });

@@ -1,8 +1,8 @@
-/* eslint max-params: 0 */
 import { AnyAction } from 'redux';
 import { ThunkDispatch } from 'redux-thunk';
 
 import { REQUESTS } from '../api/routes';
+import { RootState } from '../reducers';
 
 import callApi from './api';
 import { refreshImpact } from './impact';
@@ -17,7 +17,7 @@ export function selectMyStage(id: string) {
     },
   };
 
-  return (dispatch: ThunkDispatch<void, null, AnyAction>) => {
+  return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     return dispatch(callApi(REQUESTS.UPDATE_ME_USER, {}, data));
   };
 }
@@ -35,9 +35,8 @@ export function updateUserStage(contactAssignmentId: string, stageId: string) {
     contactAssignmentId,
   };
 
-  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { response }: any = await dispatch(
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+    const { response } = await dispatch(
       callApi(REQUESTS.UPDATE_CONTACT_ASSIGNMENT, query, data),
     );
     const { person, organization } = response;
@@ -50,6 +49,7 @@ export function updateUserStage(contactAssignmentId: string, stageId: string) {
   };
 }
 
+// eslint-disable-next-line max-params
 export function selectPersonStage(
   personId: string,
   assignedToId: string,
@@ -88,9 +88,8 @@ export function selectPersonStage(
     },
   };
 
-  return async (dispatch: ThunkDispatch<void, null, AnyAction>) => {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const { response }: any = await dispatch(
+  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
+    const { response } = await dispatch(
       callApi(REQUESTS.CREATE_CONTACT_ASSIGNMENT, {}, data),
     );
 

@@ -4,7 +4,6 @@ import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
 import { navigateReset, navigateToMainTabs } from '../../../actions/navigation';
-
 import CelebrationScreen from '..';
 
 jest.mock('react-native-device-info');

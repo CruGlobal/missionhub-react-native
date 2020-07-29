@@ -3127,6 +3127,1399 @@ exports[`renders for Global Community renders correctly 1`] = `
 </RCTScrollView>
 `;
 
+exports[`renders for Global Community renders with filter correctly 1`] = `
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 53316,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quam tempore a",
+              "id": "4",
+              "name": "Progressive asynchronous matrices",
+            },
+            "createdAt": "2012-11-17T16:58:59.414Z",
+            "id": "1",
+            "liked": false,
+            "likesCount": 69187,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "explicabo eligendi occaecati",
+              "id": "2",
+              "mediaContentType": "debitis et saepe",
+              "mediaExpiringUrl": "eum dicta eum",
+              "postType": "story",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Hayden",
+              "fullName": "Alison Goldner",
+              "id": "3",
+              "lastName": "Zieme",
+              "picture": "ipsum inventore debitis",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 7336,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ducimus temporibus modi",
+              "id": "9",
+              "name": "Reduced disintermediate emulation",
+            },
+            "createdAt": "2016-11-18T08:49:49.007Z",
+            "id": "5",
+            "liked": false,
+            "likesCount": 46923,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "7",
+                "title": "fugiat velit sit",
+              },
+              "completedAt": "2012-03-16T21:39:07.726Z",
+              "id": "6",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Mina",
+              "fullName": "Alexys Rohan",
+              "id": "8",
+              "lastName": "Watsica",
+              "picture": "fuga doloribus distinctio",
+            },
+            "subjectPersonName": "Mina Watsica",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 57411,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quos qui illo",
+              "id": "14",
+              "name": "Universal demand-driven encryption",
+            },
+            "createdAt": "2019-01-27T23:18:35.512Z",
+            "id": "10",
+            "liked": true,
+            "likesCount": 14672,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "12",
+                "title": "sed magni cupiditate",
+              },
+              "completedAt": "2017-02-27T14:52:47.103Z",
+              "id": "11",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Aaliyah",
+              "fullName": "Aimee Boehm",
+              "id": "13",
+              "lastName": "Champlin",
+              "picture": "soluta sint non",
+            },
+            "subjectPersonName": "Aaliyah Champlin",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 79240,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quae nam eos",
+              "id": "19",
+              "name": "Automated real-time internet solution",
+            },
+            "createdAt": "2014-02-23T00:50:05.350Z",
+            "id": "15",
+            "liked": true,
+            "likesCount": 2980,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "17",
+                "title": "aut provident esse",
+              },
+              "completedAt": "2017-09-22T19:02:55.923Z",
+              "id": "16",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Elizabeth",
+              "fullName": "Valentin Powlowski",
+              "id": "18",
+              "lastName": "Zulauf",
+              "picture": "quos esse ut",
+            },
+            "subjectPersonName": "Elizabeth Zulauf",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 75094,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "aut est fuga",
+              "id": "23",
+              "name": "Proactive object-oriented benchmark",
+            },
+            "createdAt": "2011-03-18T14:12:31.143Z",
+            "id": "20",
+            "liked": false,
+            "likesCount": 34889,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "ducimus eos saepe",
+              "id": "21",
+              "mediaContentType": "consequatur vel in",
+              "mediaExpiringUrl": "ut dolorem et",
+              "postType": "question",
+              "stepStatus": "COMPLETED",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Caesar",
+              "fullName": "Timmy Hessel",
+              "id": "22",
+              "lastName": "Feest",
+              "picture": "ut sunt placeat",
+            },
+            "subjectPersonName": "Caesar Feest",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 77159,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "vel labore omnis",
+              "id": "28",
+              "name": "Organized value-added groupware",
+            },
+            "createdAt": "2017-05-03T18:18:58.692Z",
+            "id": "24",
+            "liked": true,
+            "likesCount": 30136,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "25",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "26",
+              },
+            },
+            "subjectEvent": "stepCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Audrey",
+              "fullName": "Pansy Wiegand",
+              "id": "27",
+              "lastName": "Huels",
+              "picture": "veritatis qui ex",
+            },
+            "subjectPersonName": "Audrey Huels",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 69089,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "perferendis ut non",
+              "id": "33",
+              "name": "Right-sized mobile implementation",
+            },
+            "createdAt": "2012-04-24T12:03:03.528Z",
+            "id": "29",
+            "liked": true,
+            "likesCount": 99732,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "30",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "31",
+              },
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Chyna",
+              "fullName": "Sheldon Quitzon",
+              "id": "32",
+              "lastName": "Howe",
+              "picture": "ex rem voluptates",
+            },
+            "subjectPersonName": "Chyna Howe",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 17227,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ab quo occaecati",
+              "id": "38",
+              "name": "Reverse-engineered composite synergy",
+            },
+            "createdAt": "2018-04-24T22:58:15.735Z",
+            "id": "34",
+            "liked": false,
+            "likesCount": 39631,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "35",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "36",
+              },
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Ezequiel",
+              "fullName": "Jamal Bergstrom",
+              "id": "37",
+              "lastName": "Ortiz",
+              "picture": "incidunt possimus molestias",
+            },
+            "subjectPersonName": "Ezequiel Ortiz",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 96959,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "minima sunt qui",
+              "id": "43",
+              "name": "Extended bandwidth-monitored core",
+            },
+            "createdAt": "2018-12-18T02:47:55.473Z",
+            "id": "39",
+            "liked": false,
+            "likesCount": 56103,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "41",
+                "title": "aut eos quis",
+              },
+              "completedAt": "2017-07-29T07:54:36.253Z",
+              "id": "40",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Gracie",
+              "fullName": "Kali Fay",
+              "id": "42",
+              "lastName": "Weber",
+              "picture": "omnis delectus voluptas",
+            },
+            "subjectPersonName": "Gracie Weber",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 78195,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "itaque quae sint",
+              "id": "47",
+              "name": "Balanced bottom-line attitude",
+            },
+            "createdAt": "2019-11-06T22:29:49.623Z",
+            "id": "44",
+            "liked": false,
+            "likesCount": 61632,
+            "read": false,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "ut porro aut",
+              "id": "45",
+              "mediaContentType": "laborum iure molestiae",
+              "mediaExpiringUrl": "et facere placeat",
+              "postType": "story",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Kali",
+              "fullName": "Hettie Luettgen",
+              "id": "46",
+              "lastName": "Stamm",
+              "picture": "molestiae dolores commodi",
+            },
+            "subjectPersonName": "Kali Stamm",
+          },
+        ],
+        "id": 2,
+        "title": "dates.earlier",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  scrollIndicatorInsets={
+    Object {
+      "right": 1,
+    }
+  }
+  sections={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 53316,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quam tempore a",
+              "id": "4",
+              "name": "Progressive asynchronous matrices",
+            },
+            "createdAt": "2012-11-17T16:58:59.414Z",
+            "id": "1",
+            "liked": false,
+            "likesCount": 69187,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "explicabo eligendi occaecati",
+              "id": "2",
+              "mediaContentType": "debitis et saepe",
+              "mediaExpiringUrl": "eum dicta eum",
+              "postType": "story",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Hayden",
+              "fullName": "Alison Goldner",
+              "id": "3",
+              "lastName": "Zieme",
+              "picture": "ipsum inventore debitis",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 7336,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ducimus temporibus modi",
+              "id": "9",
+              "name": "Reduced disintermediate emulation",
+            },
+            "createdAt": "2016-11-18T08:49:49.007Z",
+            "id": "5",
+            "liked": false,
+            "likesCount": 46923,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "7",
+                "title": "fugiat velit sit",
+              },
+              "completedAt": "2012-03-16T21:39:07.726Z",
+              "id": "6",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Mina",
+              "fullName": "Alexys Rohan",
+              "id": "8",
+              "lastName": "Watsica",
+              "picture": "fuga doloribus distinctio",
+            },
+            "subjectPersonName": "Mina Watsica",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 57411,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quos qui illo",
+              "id": "14",
+              "name": "Universal demand-driven encryption",
+            },
+            "createdAt": "2019-01-27T23:18:35.512Z",
+            "id": "10",
+            "liked": true,
+            "likesCount": 14672,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "12",
+                "title": "sed magni cupiditate",
+              },
+              "completedAt": "2017-02-27T14:52:47.103Z",
+              "id": "11",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Aaliyah",
+              "fullName": "Aimee Boehm",
+              "id": "13",
+              "lastName": "Champlin",
+              "picture": "soluta sint non",
+            },
+            "subjectPersonName": "Aaliyah Champlin",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 79240,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quae nam eos",
+              "id": "19",
+              "name": "Automated real-time internet solution",
+            },
+            "createdAt": "2014-02-23T00:50:05.350Z",
+            "id": "15",
+            "liked": true,
+            "likesCount": 2980,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "17",
+                "title": "aut provident esse",
+              },
+              "completedAt": "2017-09-22T19:02:55.923Z",
+              "id": "16",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Elizabeth",
+              "fullName": "Valentin Powlowski",
+              "id": "18",
+              "lastName": "Zulauf",
+              "picture": "quos esse ut",
+            },
+            "subjectPersonName": "Elizabeth Zulauf",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 75094,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "aut est fuga",
+              "id": "23",
+              "name": "Proactive object-oriented benchmark",
+            },
+            "createdAt": "2011-03-18T14:12:31.143Z",
+            "id": "20",
+            "liked": false,
+            "likesCount": 34889,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "ducimus eos saepe",
+              "id": "21",
+              "mediaContentType": "consequatur vel in",
+              "mediaExpiringUrl": "ut dolorem et",
+              "postType": "question",
+              "stepStatus": "COMPLETED",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Caesar",
+              "fullName": "Timmy Hessel",
+              "id": "22",
+              "lastName": "Feest",
+              "picture": "ut sunt placeat",
+            },
+            "subjectPersonName": "Caesar Feest",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 77159,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "vel labore omnis",
+              "id": "28",
+              "name": "Organized value-added groupware",
+            },
+            "createdAt": "2017-05-03T18:18:58.692Z",
+            "id": "24",
+            "liked": true,
+            "likesCount": 30136,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "25",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "26",
+              },
+            },
+            "subjectEvent": "stepCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Audrey",
+              "fullName": "Pansy Wiegand",
+              "id": "27",
+              "lastName": "Huels",
+              "picture": "veritatis qui ex",
+            },
+            "subjectPersonName": "Audrey Huels",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 69089,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "perferendis ut non",
+              "id": "33",
+              "name": "Right-sized mobile implementation",
+            },
+            "createdAt": "2012-04-24T12:03:03.528Z",
+            "id": "29",
+            "liked": true,
+            "likesCount": 99732,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "30",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "31",
+              },
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Chyna",
+              "fullName": "Sheldon Quitzon",
+              "id": "32",
+              "lastName": "Howe",
+              "picture": "ex rem voluptates",
+            },
+            "subjectPersonName": "Chyna Howe",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 17227,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ab quo occaecati",
+              "id": "38",
+              "name": "Reverse-engineered composite synergy",
+            },
+            "createdAt": "2018-04-24T22:58:15.735Z",
+            "id": "34",
+            "liked": false,
+            "likesCount": 39631,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "35",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "36",
+              },
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Ezequiel",
+              "fullName": "Jamal Bergstrom",
+              "id": "37",
+              "lastName": "Ortiz",
+              "picture": "incidunt possimus molestias",
+            },
+            "subjectPersonName": "Ezequiel Ortiz",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 96959,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "minima sunt qui",
+              "id": "43",
+              "name": "Extended bandwidth-monitored core",
+            },
+            "createdAt": "2018-12-18T02:47:55.473Z",
+            "id": "39",
+            "liked": false,
+            "likesCount": 56103,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "41",
+                "title": "aut eos quis",
+              },
+              "completedAt": "2017-07-29T07:54:36.253Z",
+              "id": "40",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Gracie",
+              "fullName": "Kali Fay",
+              "id": "42",
+              "lastName": "Weber",
+              "picture": "omnis delectus voluptas",
+            },
+            "subjectPersonName": "Gracie Weber",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 78195,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "itaque quae sint",
+              "id": "47",
+              "name": "Balanced bottom-line attitude",
+            },
+            "createdAt": "2019-11-06T22:29:49.623Z",
+            "id": "44",
+            "liked": false,
+            "likesCount": 61632,
+            "read": false,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "ut porro aut",
+              "id": "45",
+              "mediaContentType": "laborum iure molestiae",
+              "mediaExpiringUrl": "et facere placeat",
+              "postType": "story",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Kali",
+              "fullName": "Hettie Luettgen",
+              "id": "46",
+              "lastName": "Stamm",
+              "picture": "molestiae dolores commodi",
+            },
+            "subjectPersonName": "Kali Stamm",
+          },
+        ],
+        "id": 2,
+        "title": "dates.earlier",
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <CreatePostButton
+        communityId="_global_community_id"
+        type="STORY"
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingLeft": 15,
+              "paddingVertical": 10,
+            },
+            null,
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "200",
+            }
+          }
+        >
+          Earlier
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 53316,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quam tempore a",
+              "id": "4",
+              "name": "Progressive asynchronous matrices",
+            },
+            "createdAt": "2012-11-17T16:58:59.414Z",
+            "id": "1",
+            "liked": false,
+            "likesCount": 69187,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "explicabo eligendi occaecati",
+              "id": "2",
+              "mediaContentType": "debitis et saepe",
+              "mediaExpiringUrl": "eum dicta eum",
+              "postType": "story",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Hayden",
+              "fullName": "Alison Goldner",
+              "id": "3",
+              "lastName": "Zieme",
+              "picture": "ipsum inventore debitis",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 7336,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ducimus temporibus modi",
+              "id": "9",
+              "name": "Reduced disintermediate emulation",
+            },
+            "createdAt": "2016-11-18T08:49:49.007Z",
+            "id": "5",
+            "liked": false,
+            "likesCount": 46923,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "7",
+                "title": "fugiat velit sit",
+              },
+              "completedAt": "2012-03-16T21:39:07.726Z",
+              "id": "6",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Mina",
+              "fullName": "Alexys Rohan",
+              "id": "8",
+              "lastName": "Watsica",
+              "picture": "fuga doloribus distinctio",
+            },
+            "subjectPersonName": "Mina Watsica",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 57411,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quos qui illo",
+              "id": "14",
+              "name": "Universal demand-driven encryption",
+            },
+            "createdAt": "2019-01-27T23:18:35.512Z",
+            "id": "10",
+            "liked": true,
+            "likesCount": 14672,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "12",
+                "title": "sed magni cupiditate",
+              },
+              "completedAt": "2017-02-27T14:52:47.103Z",
+              "id": "11",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Aaliyah",
+              "fullName": "Aimee Boehm",
+              "id": "13",
+              "lastName": "Champlin",
+              "picture": "soluta sint non",
+            },
+            "subjectPersonName": "Aaliyah Champlin",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 79240,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "quae nam eos",
+              "id": "19",
+              "name": "Automated real-time internet solution",
+            },
+            "createdAt": "2014-02-23T00:50:05.350Z",
+            "id": "15",
+            "liked": true,
+            "likesCount": 2980,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "17",
+                "title": "aut provident esse",
+              },
+              "completedAt": "2017-09-22T19:02:55.923Z",
+              "id": "16",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Elizabeth",
+              "fullName": "Valentin Powlowski",
+              "id": "18",
+              "lastName": "Zulauf",
+              "picture": "quos esse ut",
+            },
+            "subjectPersonName": "Elizabeth Zulauf",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 75094,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "aut est fuga",
+              "id": "23",
+              "name": "Proactive object-oriented benchmark",
+            },
+            "createdAt": "2011-03-18T14:12:31.143Z",
+            "id": "20",
+            "liked": false,
+            "likesCount": 34889,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "ducimus eos saepe",
+              "id": "21",
+              "mediaContentType": "consequatur vel in",
+              "mediaExpiringUrl": "ut dolorem et",
+              "postType": "question",
+              "stepStatus": "COMPLETED",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Caesar",
+              "fullName": "Timmy Hessel",
+              "id": "22",
+              "lastName": "Feest",
+              "picture": "ut sunt placeat",
+            },
+            "subjectPersonName": "Caesar Feest",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 77159,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "vel labore omnis",
+              "id": "28",
+              "name": "Organized value-added groupware",
+            },
+            "createdAt": "2017-05-03T18:18:58.692Z",
+            "id": "24",
+            "liked": true,
+            "likesCount": 30136,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "25",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "26",
+              },
+            },
+            "subjectEvent": "stepCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Audrey",
+              "fullName": "Pansy Wiegand",
+              "id": "27",
+              "lastName": "Huels",
+              "picture": "veritatis qui ex",
+            },
+            "subjectPersonName": "Audrey Huels",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 69089,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "perferendis ut non",
+              "id": "33",
+              "name": "Right-sized mobile implementation",
+            },
+            "createdAt": "2012-04-24T12:03:03.528Z",
+            "id": "29",
+            "liked": true,
+            "likesCount": 99732,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "30",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "31",
+              },
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Chyna",
+              "fullName": "Sheldon Quitzon",
+              "id": "32",
+              "lastName": "Howe",
+              "picture": "ex rem voluptates",
+            },
+            "subjectPersonName": "Chyna Howe",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 17227,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ab quo occaecati",
+              "id": "38",
+              "name": "Reverse-engineered composite synergy",
+            },
+            "createdAt": "2018-04-24T22:58:15.735Z",
+            "id": "34",
+            "liked": false,
+            "likesCount": 39631,
+            "read": false,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "35",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "36",
+              },
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Ezequiel",
+              "fullName": "Jamal Bergstrom",
+              "id": "37",
+              "lastName": "Ortiz",
+              "picture": "incidunt possimus molestias",
+            },
+            "subjectPersonName": "Ezequiel Ortiz",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 96959,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "minima sunt qui",
+              "id": "43",
+              "name": "Extended bandwidth-monitored core",
+            },
+            "createdAt": "2018-12-18T02:47:55.473Z",
+            "id": "39",
+            "liked": false,
+            "likesCount": 56103,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "41",
+                "title": "aut eos quis",
+              },
+              "completedAt": "2017-07-29T07:54:36.253Z",
+              "id": "40",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Gracie",
+              "fullName": "Kali Fay",
+              "id": "42",
+              "lastName": "Weber",
+              "picture": "omnis delectus voluptas",
+            },
+            "subjectPersonName": "Gracie Weber",
+          }
+        }
+        namePressable={true}
+        postTypePressable={false}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
 exports[`renders for Unread Comments renders correctly 1`] = `
 <RCTScrollView
   ListEmptyComponent={[Function]}

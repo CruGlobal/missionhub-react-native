@@ -1,8 +1,12 @@
+/* eslint-disable no-console */
+
 import process from 'process';
 import fs from 'fs';
 import path from 'path';
+
 import dotenv from 'dotenv';
 import oneSky from '@brainly/onesky-utils';
+
 import { filterReadyTranslations } from './translationHelpers';
 
 dotenv.config({ path: '.env.local' });

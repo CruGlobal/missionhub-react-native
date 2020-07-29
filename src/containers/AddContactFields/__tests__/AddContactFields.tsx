@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 import React from 'react';
 import { ActionSheetIOS } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
@@ -9,7 +9,6 @@ import { orgPermissionSelector } from '../../../selectors/people';
 import { getPersonDetails } from '../../../actions/person';
 import { navigatePush } from '../../../actions/navigation';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
-
 import AddContactFields from '..';
 
 jest.mock('../../../selectors/people');

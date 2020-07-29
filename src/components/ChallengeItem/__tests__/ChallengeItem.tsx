@@ -4,7 +4,6 @@ import moment from 'moment';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
-
 import ChallengeItem from '..';
 
 jest.mock('../../../actions/celebration');

@@ -26,7 +26,7 @@ export default StyleSheet.create({
   },
   closeWrap: {
     paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingVertical: 60,
   },
   close: {
     margin: 2,
