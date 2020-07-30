@@ -31,7 +31,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingVertical: 9,
   },
   personInfoContainer: {
     flexDirection: 'column',
@@ -58,7 +58,7 @@ export default StyleSheet.create({
     flexDirection: 'column',
     margin: 0,
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingVertical: 9,
     alignItems: 'flex-start',
   },
   button: { paddingHorizontal: 0, paddingVertical: 0, height: 50 },
@@ -85,7 +85,7 @@ export default StyleSheet.create({
   versionText: {
     margin: 0,
     paddingHorizontal: 24,
-    paddingVertical: 16,
+    paddingVertical: 9,
     fontSize: 16,
     color: COLORS.NARWHAL_GREY,
   },
