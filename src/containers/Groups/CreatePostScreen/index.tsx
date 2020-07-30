@@ -10,8 +10,16 @@ import { useDispatch } from 'react-redux';
 import { RecordResponse } from 'react-native-camera';
 //eslint-disable-next-line import/named
 import { ReactNativeFile } from 'apollo-upload-client';
+import { ThunkDispatch } from 'redux-thunk';
+import { AnyAction } from 'redux';
 
-import { ACTIONS, ANALYTICS_PERMISSION_TYPE } from '../../../constants';
+import {
+  ACTIONS,
+  ANALYTICS_PERMISSION_TYPE,
+  SAVE_PENDING_POST,
+  DELETE_PENDING_POST,
+  PENDING_POST_FAILED,
+} from '../../../constants';
 import { mapPostTypeToFeedType } from '../../../utils/common';
 import { getPostTypeAnalytics } from '../../../utils/analytics';
 import { Input, Text, Button, Touchable } from '../../../components/common';
@@ -41,6 +49,14 @@ import {
 } from '../../CommunityFeed/__generated__/GetCommunityFeed';
 import { useAspectRatio } from '../../../utils/hooks/useAspectRatio';
 import { useFeatureFlags } from '../../../utils/hooks/useFeatureFlags';
+import { RootState } from '../../../reducers';
+import {
+  SavePendingPostAction,
+  DeletePendingPostAction,
+  PendingPostFailedAction,
+  PendingUpdatePost,
+  PendingCreatePost,
+} from '../../../reducers/communityPosts';
 
 import PhotoIcon from './photoIcon.svg';
 import VideoIcon from './videoIcon.svg';
@@ -65,6 +81,32 @@ interface UpdatePostNavParams extends CreatePostScreenParams {
 export type CreatePostScreenNavParams =
   | CreatePostNavParams
   | UpdatePostNavParams;
+
+const savePendingPost = (
+  post: PendingCreatePost | PendingUpdatePost,
+  storageId: string,
+) => (dispatch: ThunkDispatch<RootState, never, AnyAction>) =>
+  dispatch({
+    type: SAVE_PENDING_POST,
+    post,
+    storageId,
+  } as SavePendingPostAction);
+
+const deletePendingPost = (storageId: string) => (
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
+) =>
+  dispatch({
+    type: DELETE_PENDING_POST,
+    storageId,
+  } as DeletePendingPostAction);
+
+const PendingPostFailed = (storageId: string) => (
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
+) =>
+  dispatch({
+    type: PENDING_POST_FAILED,
+    storageId,
+  } as PendingPostFailedAction);
 
 export const CreatePostScreen = () => {
   const { t } = useTranslation('createPostScreen');
