@@ -71,6 +71,7 @@ export const CreatePostScreen = () => {
   const dispatch = useDispatch();
 
   const communityId: string = useNavigationParam('communityId');
+  const onComplete: () => void = useNavigationParam('onComplete');
   const post: CommunityFeedItem_subject_Post | undefined = useNavigationParam(
     'post',
   );
@@ -88,8 +89,9 @@ export const CreatePostScreen = () => {
   );
   const { video: videoEnabled } = useFeatureFlags();
 
-  const hasImage = mediaType?.includes('image');
-  const hasVideo = videoEnabled && mediaType?.includes('video');
+  const hasImage = !!mediaType?.includes('image');
+  const hasVideo = !!(videoEnabled && mediaType?.includes('video'));
+  const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
 
   const imageAspectRatio = useAspectRatio(hasImage ? mediaData : null);
 

@@ -27,6 +27,7 @@ interface CreatePostModalProps {
   closeModal: () => void;
   communityId: string;
   adminOrOwner: boolean;
+  onComplete: () => void;
 }
 
 const CreatePostModal = ({
