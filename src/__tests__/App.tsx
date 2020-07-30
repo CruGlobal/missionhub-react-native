@@ -48,7 +48,10 @@ jest.mock('react-navigation-redux-helpers', () => ({
 
 jest.mock('../store', () => ({
   // eslint-disable-next-line @typescript-eslint/no-var-requires
-  store: require('../../testUtils').createThunkStore(),
+  store: require('../../testUtils').createThunkStore({
+    auth: { token: undefined },
+  }),
+
   persistor: {},
 }));
 
@@ -97,7 +100,7 @@ it('calls actions onBeforeLift', async () => {
   expect(resetToInitialRoute).toHaveBeenCalledWith();
   expect(configureNotificationHandler).toHaveBeenCalledWith();
   expect(setupFirebaseDynamicLinks).toHaveBeenCalledWith();
-  expect(getFeatureFlags).toHaveBeenCalledWith();
+  expect(getFeatureFlags).not.toHaveBeenCalledWith();
 });
 
 it('shows offline alert if network request failed', () => {
