@@ -2,7 +2,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import callApi from '../api';
-import { REQUESTS } from '../../api/routes';
+import { ApiRouteConfigEntry, REQUESTS } from '../../api/routes';
 import API_CALLS from '../../api';
 import {
   EXPIRED_ACCESS_TOKEN,
@@ -11,6 +11,7 @@ import {
   UPDATE_TOKEN,
 } from '../../constants';
 import { logout, handleInvalidAccessToken } from '../auth/auth';
+import { AuthState } from '../../reducers/auth';
 
 jest.mock('../../api');
 jest.mock('../auth/anonymous');
@@ -21,10 +22,10 @@ jest.mock('../auth/key');
 const token = 'alsnjfjwqfpuqfeownposfnjnsaobjfaslkklnsfd';
 const refreshToken = 'refresh';
 const mockStore = configureStore([thunk]);
-let store;
 const mockAuthState = {
   token,
 };
+const mockActionResult = { type: 'mockActionResult' };
 
 const accessTokenQuery = { access_token: token };
 const refreshTokenData = `grant_type=refresh_token&refresh_token=${refreshToken}`;
@@ -32,121 +33,117 @@ const refreshTokenData = `grant_type=refresh_token&refresh_token=${refreshToken}
 const getMeRequest = REQUESTS.GET_ME;
 const refreshRequest = REQUESTS.KEY_REFRESH_TOKEN;
 
-const expiredTokenError = { errors: [{ detail: EXPIRED_ACCESS_TOKEN }] };
-const invalidTokenError = { errors: [{ detail: INVALID_ACCESS_TOKEN }] };
-const invalidGrantError = { error: INVALID_GRANT };
+const expiredTokenError = {
+  apiError: { errors: [{ detail: EXPIRED_ACCESS_TOKEN }] },
+};
+const invalidTokenError = {
+  apiError: { errors: [{ detail: INVALID_ACCESS_TOKEN }] },
+};
+const invalidGrantError = { apiError: { error: INVALID_GRANT } };
 
 // @ts-ignore
 global.APILOG = jest.fn();
 
-// eslint-disable-next-line max-params
-async function testCallApiWithError(
-  // @ts-ignore
-  state,
-  // @ts-ignore
+async function testCallApiWithError({
+  state = {},
   request,
-  // @ts-ignore
   error,
-  // @ts-ignore
-  method,
-  // @ts-ignore
-  methodParams,
-  // @ts-ignore
-  apiResult,
-  // @ts-ignore
-  query,
-  // @ts-ignore
-  data,
-) {
-  store = mockStore({ auth: { ...mockAuthState, ...state } });
-  // @ts-ignore
-  API_CALLS[request.name].mockReturnValue(Promise.reject({ apiError: error }));
-  method.mockReturnValue(apiResult);
+  action,
+  actionParams = [],
+  actionShouldNotBeCalled = false,
+  query = {},
+  data = {},
+  shouldReject = false,
+}: {
+  state?: Partial<AuthState>;
+  request: ApiRouteConfigEntry;
+  error: { apiError: { errors: { detail: string }[] } | { error: string } };
+  action: () => void;
+  actionParams?: boolean[];
+  actionShouldNotBeCalled?: boolean;
+  query?: { access_token?: string };
+  data?: Record<string, never> | string;
+  shouldReject?: boolean;
+}) {
+  const store = mockStore({ auth: { ...mockAuthState, ...state } });
+  (API_CALLS[request.name] as jest.Mock).mockReturnValue(Promise.reject(error));
+  (action as jest.Mock).mockReturnValue(mockActionResult);
 
-  try {
+  if (!shouldReject) {
     // @ts-ignore
     await store.dispatch(callApi(request, query, data));
-  } catch (e) {
-    expect(API_CALLS[request.name]).toHaveBeenCalledWith(query, data);
-    expect(method).toHaveBeenCalledWith(...methodParams);
-
-    expect(store.getActions()).toEqual([
-      {
-        data,
-        query,
-        type: request.FETCH,
-      },
-      apiResult,
-    ]);
+  } else {
+    // @ts-ignore
+    await expect(store.dispatch(callApi(request, query, data))).rejects.toEqual(
+      error,
+    );
   }
+
+  expect(API_CALLS[request.name]).toHaveBeenCalledWith(query, data);
+  if (!actionShouldNotBeCalled) {
+    expect(action).toHaveBeenCalledWith(...actionParams);
+  } else {
+    expect(action).not.toHaveBeenCalledWith(...actionParams);
+  }
+
+  expect(store.getActions()).toEqual([
+    {
+      data,
+      query,
+      type: request.FETCH,
+    },
+    ...(actionShouldNotBeCalled ? [] : [mockActionResult]),
+  ]);
 }
 
 it('should handle expired token', async () => {
-  await testCallApiWithError(
-    { refreshToken: 'refresh' },
-    getMeRequest,
-    expiredTokenError,
-    handleInvalidAccessToken,
-    [],
-    { type: 'expired token' },
-    accessTokenQuery,
-    {},
-  );
+  await testCallApiWithError({
+    state: { refreshToken: 'refresh' },
+    request: getMeRequest,
+    error: expiredTokenError,
+    action: handleInvalidAccessToken,
+    query: accessTokenQuery,
+  });
   expect.hasAssertions();
 });
 
 it('should handle invalid token', async () => {
-  await testCallApiWithError(
-    { refreshToken: 'refresh' },
-    getMeRequest,
-    invalidTokenError,
-    handleInvalidAccessToken,
-    [],
-    { type: 'invalid token' },
-    accessTokenQuery,
-    {},
-  );
+  await testCallApiWithError({
+    state: { refreshToken: 'refresh' },
+    request: getMeRequest,
+    error: invalidTokenError,
+    action: handleInvalidAccessToken,
+    query: accessTokenQuery,
+  });
   expect.hasAssertions();
 });
 
 it('should logout if KEY_REFRESH_TOKEN fails with invalid_grant', async () => {
-  await testCallApiWithError(
-    { refreshToken: 'refresh' },
-    refreshRequest,
-    invalidGrantError,
-    logout,
-    [true],
-    { type: 'logged out' },
-    {},
-    refreshTokenData,
-  );
+  await testCallApiWithError({
+    state: { refreshToken: 'refresh' },
+    request: refreshRequest,
+    error: invalidGrantError,
+    action: logout,
+    actionParams: [true],
+    data: refreshTokenData,
+  });
   expect.hasAssertions();
 });
 
 it("should not logout if invalid_grant is returned and request wasn't KEY_REFRESH_TOKEN", async () => {
-  store = mockStore({ auth: { ...mockAuthState } });
-
-  // @ts-ignore
-  API_CALLS[getMeRequest.name].mockReturnValue(
-    Promise.reject({ apiError: invalidGrantError }),
-  );
-
-  // @ts-ignore
-  await expect(store.dispatch(callApi(getMeRequest, {}, {}))).rejects.toEqual({
-    apiError: {
-      error: 'invalid_grant',
-    },
+  await testCallApiWithError({
+    request: getMeRequest,
+    error: invalidGrantError,
+    action: logout,
+    actionShouldNotBeCalled: true,
+    query: accessTokenQuery,
+    shouldReject: true,
   });
-
-  expect(API_CALLS[getMeRequest.name]).toHaveBeenCalledWith(
-    accessTokenQuery,
-    {},
-  );
-  expect(logout).not.toHaveBeenCalled();
+  expect.hasAssertions();
 });
 
 it('should update token if present in response', async () => {
-  store = mockStore({ auth: { ...mockAuthState } });
+  const store = mockStore({ auth: { ...mockAuthState } });
   const newToken =
     'pfiqwfioqwioefiqowfejiqwfipoioqwefpiowqniopnifiooiwfemiopqwoimefimwqefponioqwfenoiwefinonoiwqefnoip';
 
