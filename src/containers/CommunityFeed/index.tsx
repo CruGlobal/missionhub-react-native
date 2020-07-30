@@ -154,6 +154,7 @@ export const CommunityFeed = ({
   const items = sortFeedItems(isGlobal ? globalNodes : nodes);
 
   const handleRefreshing = () => {
+    console.log('refreshing');
     if (loading || globalLoading) {
       return;
     }
@@ -257,7 +258,7 @@ export const CommunityFeed = ({
       feedItem={item}
       namePressable={itemNamePressable}
       postTypePressable={!personId && !filteredFeedType}
-      onEditPost={refetch}
+      onEditPost={handleRefreshing}
     />
   );
 
@@ -279,13 +280,13 @@ export const CommunityFeed = ({
             <CreatePostButton
               communityId={communityId}
               type={filteredFeedType}
-              onComplete={refetch}
+              onComplete={handleRefreshing}
             />
             {filteredFeedType ? null : (
               <CommunityFeedPostCards
                 communityId={communityId}
                 // Refetch the feed to update new section once read
-                feedRefetch={refetch}
+                feedRefetch={handleRefreshing}
               />
             )}
           </>

@@ -5,7 +5,7 @@ import { View, Keyboard, ScrollView, Image, StatusBar } from 'react-native';
 import { useMutation } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 //eslint-disable-next-line import/named
 import { RecordResponse } from 'react-native-camera';
 //eslint-disable-next-line import/named
@@ -39,10 +39,12 @@ import {
   trackAction,
 } from '../../../actions/analytics';
 import { navigateBack, navigatePush } from '../../../actions/navigation';
-import { PostTypeEnum } from '../../../../__generated__/globalTypes';
+import {
+  PostTypeEnum,
+  CreatePostInput,
+} from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
-import { ErrorNotice } from '../../../components/ErrorNotice/ErrorNotice';
 import {
   GetCommunityFeed,
   GetCommunityFeedVariables,
@@ -108,6 +110,115 @@ const PendingPostFailed = (storageId: string) => (
     storageId,
   } as PendingPostFailedAction);
 
+const useCreatePost = (
+  post: CreatePostInput,
+  mediaType: string | null,
+  onComplete: () => void,
+) => {
+  const { communityId, postType, media } = post;
+  const hasImage = !!media && !!mediaType?.includes('image');
+  const hasVideo = !!media && !!mediaType?.includes('video');
+
+  const dispatch = useDispatch();
+  const nextId = useSelector(
+    ({ communityPosts }: RootState) => communityPosts.nextId,
+  );
+  const [storageId] = useState(`${nextId}`);
+
+  const [createPost] = useMutation<CreatePost, CreatePostVariables>(
+    CREATE_POST,
+    {
+      update: (cache, { data }) => {
+        try {
+          const originalData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: { communityId },
+            data: {
+              ...originalData,
+              community: {
+                ...originalData?.community,
+                feedItems: {
+                  ...originalData?.community.feedItems,
+                  nodes: [
+                    data?.createPost?.post?.feedItem,
+                    ...(originalData?.community.feedItems.nodes || []),
+                  ],
+                },
+              },
+            },
+          });
+        } catch {}
+
+        try {
+          const originalFilteredData = cache.readQuery<
+            GetCommunityFeed,
+            GetCommunityFeedVariables
+          >({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId,
+              subjectType: [mapPostTypeToFeedType(postType)],
+            },
+          });
+          cache.writeQuery({
+            query: GET_COMMUNITY_FEED,
+            variables: {
+              communityId,
+              subjectType: mapPostTypeToFeedType(postType),
+            },
+            data: {
+              ...originalFilteredData,
+              community: {
+                ...originalFilteredData?.community,
+                feedItems: {
+                  ...originalFilteredData?.community.feedItems,
+                  nodes: [
+                    data?.createPost?.post?.feedItem,
+                    ...(originalFilteredData?.community.feedItems.nodes || []),
+                  ],
+                },
+              },
+            },
+          });
+        } catch {}
+      },
+      onCompleted: () => {
+        dispatch(
+          trackAction(ACTIONS.CREATE_POST.name, {
+            [ACTIONS.CREATE_POST.key]: postType,
+          }),
+        );
+        hasVideo && dispatch(deletePendingPost(storageId));
+        hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
+        hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
+
+        onComplete();
+      },
+      onError: error => {
+        console.log(error);
+        hasVideo && dispatch(PendingPostFailed(storageId));
+      },
+    },
+  );
+
+  const createFeedItem = (postInput: CreatePostInput) => {
+    postInput.media &&
+      hasVideo &&
+      dispatch(savePendingPost(postInput, storageId));
+
+    createPost({ variables: { input: postInput } });
+  };
+
+  return createFeedItem;
+};
+
 export const CreatePostScreen = () => {
   const { t } = useTranslation('createPostScreen');
   const dispatch = useDispatch();
@@ -142,85 +253,20 @@ export const CreatePostScreen = () => {
     editMode: { isEdit: !!post },
   });
 
-  const [createPost, { error: errorCreatePost }] = useMutation<
-    CreatePost,
-    CreatePostVariables
-  >(CREATE_POST, {
-    update: (cache, { data }) => {
-      try {
-        const originalData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId },
-          data: {
-            ...originalData,
-            community: {
-              ...originalData?.community,
-              feedItems: {
-                ...originalData?.community.feedItems,
-                nodes: [
-                  data?.createPost?.post?.feedItem,
-                  ...(originalData?.community.feedItems.nodes || []),
-                ],
-              },
-            },
-          },
-        });
-      } catch {}
+  const createPost = useCreatePost(
+    { content: text, communityId, postType, media: mediaData },
+    mediaType,
+    onComplete,
+  );
 
-      try {
-        const originalFilteredData = cache.readQuery<
-          GetCommunityFeed,
-          GetCommunityFeedVariables
-        >({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId,
-            subjectType: [mapPostTypeToFeedType(postType)],
-          },
-        });
-        cache.writeQuery({
-          query: GET_COMMUNITY_FEED,
-          variables: {
-            communityId,
-            subjectType: mapPostTypeToFeedType(postType),
-          },
-          data: {
-            ...originalFilteredData,
-            community: {
-              ...originalFilteredData?.community,
-              feedItems: {
-                ...originalFilteredData?.community.feedItems,
-                nodes: [
-                  data?.createPost?.post?.feedItem,
-                  ...(originalFilteredData?.community.feedItems.nodes || []),
-                ],
-              },
-            },
-          },
-        });
-      } catch {}
-    },
-  });
-  const [updatePost, { error: errorUpdatePost }] = useMutation<
-    UpdatePost,
-    UpdatePostVariables
-  >(UPDATE_POST);
-
-  const savePost = async () => {
+  const savePost = () => {
     if (!text) {
       return;
     }
 
     Keyboard.dismiss();
 
-    const mediaHasChanged = mediaData != post?.mediaExpiringUrl;
+    dispatch(navigateBack());
 
     const media: string | ReactNativeFile | undefined =
       mediaData && mediaType && hasImage && mediaHasChanged
@@ -234,37 +280,10 @@ export const CreatePostScreen = () => {
         : undefined;
 
     if (post) {
-      await updatePost({
-        variables: {
-          input: {
-            id: post.id,
-            content: text,
-            media,
-          },
-        },
-      });
+      //updatePost({ id: post.id, content: text, media });
     } else {
-      await createPost({
-        variables: {
-          input: {
-            content: text,
-            communityId,
-            postType,
-            media,
-          },
-        },
-      });
-      dispatch(
-        trackAction(ACTIONS.CREATE_POST.name, {
-          [ACTIONS.CREATE_POST.key]: postType,
-        }),
-      );
+      createPost({ content: text, communityId, postType, media });
     }
-
-    media && hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
-    media && hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
-
-    dispatch(navigateBack());
   };
 
   const handleSavePhoto = (image: SelectImageParams) => {
@@ -380,16 +399,6 @@ export const CreatePostScreen = () => {
       <StatusBar {...theme.statusBar.darkContent} />
       {renderHeader()}
       <View style={styles.lineBreak} />
-      <ErrorNotice
-        message={t('errorCreatingPost')}
-        error={errorCreatePost}
-        refetch={savePost}
-      />
-      <ErrorNotice
-        message={t('errorUpdatingPost')}
-        error={errorUpdatePost}
-        refetch={savePost}
-      />
       <ScrollView
         style={{ flex: 1 }}
         contentInset={{ bottom: 90 }}

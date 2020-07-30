@@ -34,6 +34,7 @@ const CreatePostModal = ({
   closeModal,
   communityId,
   adminOrOwner,
+  onComplete,
 }: CreatePostModalProps) => {
   const {
     modalStyle,
@@ -61,6 +62,7 @@ const CreatePostModal = ({
       navigatePush(CREATE_POST_SCREEN, {
         communityId,
         postType,
+        onComplete,
       }),
     );
   };
