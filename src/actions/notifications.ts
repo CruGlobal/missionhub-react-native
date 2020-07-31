@@ -89,7 +89,7 @@ export type PushNotificationPayloadData =
   | { screen: 'person_steps'; person_id: string; organization_id?: string }
   | { screen: 'my_steps' }
   | { screen: 'add_a_person'; organization_id?: string }
-  | { screen: 'celebrate_feed'; organization_id: string }
+  | { screen: 'celebrate_feed'; organization_id?: string }
   | {
       screen: 'celebrate';
       organization_id?: string;
@@ -112,7 +112,7 @@ type ParsedNotificationData =
   | { screen: 'person_steps'; person_id: string; organization_id?: string }
   | { screen: 'my_steps' }
   | { screen: 'add_a_person'; organization_id?: string }
-  | { screen: 'celebrate_feed'; organization_id: string }
+  | { screen: 'celebrate_feed'; organization_id?: string }
   | {
       screen: 'celebrate';
       organization_id?: string;
@@ -290,14 +290,14 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       }
       case 'celebrate_feed': {
         const { organization_id } = notificationData;
-        if (organization_id) {
-          return dispatch(
-            navigatePush(COMMUNITY_TABS, {
-              communityId: organization_id,
-            }),
-          );
-        }
-        return;
+        const communityId =
+          organization_id === undefined ? GLOBAL_COMMUNITY_ID : organization_id;
+
+        return dispatch(
+          navigatePush(COMMUNITY_TABS, {
+            communityId,
+          }),
+        );
       }
       // We intend to deprecate 'celebrate'. 'celebrate_item' should always have 'celebration_item_id' defined while the old celebrate required conditional logic  https://jira.cru.org/browse/MHP-3151
       case 'celebrate':

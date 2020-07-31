@@ -718,12 +718,13 @@ describe('askNotificationPermissions', () => {
           ...baseNotification,
           data: {
             screen: 'celebrate_feed',
-            organization_id: '',
+            organization_id: undefined,
           },
         });
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(navigatePush).not.toHaveBeenCalled();
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+          communityId: GLOBAL_COMMUNITY_ID,
+        });
       });
     });
 
