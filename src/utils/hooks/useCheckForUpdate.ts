@@ -1,5 +1,4 @@
 import DeviceInfo from 'react-native-device-info';
-// eslint-disable-next-line import/default
 import VersionCheck from 'react-native-version-check';
 import { useEffect, useState } from 'react';
 

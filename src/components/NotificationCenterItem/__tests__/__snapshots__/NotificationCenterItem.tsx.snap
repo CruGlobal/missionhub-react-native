@@ -1047,6 +1047,231 @@ exports[`different notification types Announcement renders with default communit
 </View>
 `;
 
+exports[`different notification types Comunity Challenge renders completed challenge notification 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="notificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "omnis et porro",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
+          },
+          Object {
+            "backgroundColor": "rgb(135, 144, 67)",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
+            },
+            Object {
+              "backgroundColor": "#00CA99",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "width": 24,
+            },
+          ]
+        }
+        testID="ACCEPTED_COMMUNITY_CHALLENGELabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           completed a challenge in 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Bleh 2.0
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          .
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        August 19, 2018 2:06 PM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
 exports[`different notification types Comunity Challenge renders correctly | Community Challenge 1`] = `
 <View
   accessible={true}
@@ -1213,7 +1438,7 @@ exports[`different notification types Comunity Challenge renders correctly | Com
         }
         testID="Text"
       >
-        March 5, 2018 3:36 AM
+        December 28, 2017 5:58 PM
       </Text>
     </View>
   </View>
@@ -1553,6 +1778,231 @@ exports[`different notification types Comunity Challenge renders with default co
           }
         >
           Bleh 2.0
+        </Text>
+      </Text>
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#B4B6BA",
+              "fontSize": 12,
+              "lineHeight": 16,
+            },
+          ]
+        }
+        testID="Text"
+      >
+        December 28, 2017 5:58 PM
+      </Text>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`different notification types Prayed For You Notification renders correctly 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#ffffff",
+      "borderBottomColor": "#ECEEF2",
+      "borderBottomWidth": 1,
+      "opacity": 1,
+      "paddingVertical": 15,
+    }
+  }
+  testID="notificationButton"
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "flexDirection": "row",
+        "maxWidth": 350,
+        "paddingHorizontal": 20,
+      }
+    }
+  >
+    <Image
+      resizeMode="cover"
+      source={
+        Object {
+          "uri": "libero qui recusandae",
+        }
+      }
+      style={
+        Array [
+          Object {
+            "borderRadius": 24,
+            "height": 48,
+            "width": 48,
+          },
+          Object {
+            "backgroundColor": "rgb(152, 123, 130)",
+          },
+          undefined,
+        ]
+      }
+    />
+    <View
+      style={
+        Object {
+          "left": 50,
+          "position": "absolute",
+          "top": 30,
+        }
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "borderRadius": 18,
+              "flexDirection": "row",
+              "height": 36,
+              "justifyContent": "space-between",
+              "paddingLeft": 20,
+              "paddingRight": 16,
+              "paddingVertical": 0,
+            },
+            Object {
+              "backgroundColor": "#A97398",
+            },
+            Object {
+              "width": 20,
+            },
+            Object {
+              "alignItems": "center",
+              "borderRadius": 12,
+              "height": 24,
+              "justifyContent": "center",
+              "paddingLeft": 0,
+              "paddingRight": 0,
+              "width": 24,
+            },
+          ]
+        }
+        testID="PRAYER_REQUESTLabel"
+      >
+        <SvgMock
+          color="#ffffff"
+          height={15}
+          style={
+            Array [
+              Object {
+                "marginLeft": 0,
+                "marginRight": 0,
+              },
+              undefined,
+            ]
+          }
+          width={15}
+        />
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "paddingHorizontal": 20,
+        }
+      }
+    >
+      <Text
+        style={
+          Array [
+            Object {
+              "color": "#505256",
+            },
+            Object {
+              "fontFamily": "SourceSansPro-Regular",
+            },
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Christian Huffman
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+           prayed for you in 
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "fontWeight": "bold",
+              },
+            ]
+          }
+        >
+          Bleh 2.0
+        </Text>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {},
+            ]
+          }
+        >
+          .
         </Text>
       </Text>
       <Text

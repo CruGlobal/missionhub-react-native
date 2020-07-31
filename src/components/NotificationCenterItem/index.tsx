@@ -94,6 +94,7 @@ export const NotificationCenterItem = ({
     communityId === GLOBAL_COMMUNITY_ID ||
     !(
       trigger === NotificationTriggerEnum.community_challenge_created_alert ||
+      trigger === NotificationTriggerEnum.completed_challenge_notification ||
       (trigger === NotificationTriggerEnum.story_notification &&
         iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT)
     );
@@ -124,11 +125,20 @@ export const NotificationCenterItem = ({
       case NotificationTriggerEnum.feed_items_comment_on_other_persons_post_notification:
         return <CommentIcon />;
       case NotificationTriggerEnum.community_challenge_created_alert:
+      case NotificationTriggerEnum.completed_challenge_notification:
         return (
           <PostTypeLabel
             showText={false}
             size={PostLabelSizeEnum.small}
             type={FeedItemSubjectTypeEnum.ACCEPTED_COMMUNITY_CHALLENGE}
+          />
+        );
+      case NotificationTriggerEnum.prayer_post_like_notification:
+        return (
+          <PostTypeLabel
+            showText={false}
+            size={PostLabelSizeEnum.small}
+            type={FeedItemSubjectTypeEnum.PRAYER_REQUEST}
           />
         );
       default:
@@ -144,7 +154,8 @@ export const NotificationCenterItem = ({
 
   const handleNotificationPress = async () => {
     switch (trigger) {
-      case NotificationTriggerEnum.community_challenge_created_alert: {
+      case NotificationTriggerEnum.community_challenge_created_alert:
+      case NotificationTriggerEnum.completed_challenge_notification: {
         await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
           navigatePush(CHALLENGE_DETAIL_SCREEN, {

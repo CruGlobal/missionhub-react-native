@@ -5,12 +5,28 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { CommunityFeed } from '../CommunityFeed';
 import { orgIsGlobal } from '../../utils/common';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
-import theme from '../../theme';
 import PostTypeLabel, {
   PostLabelSizeEnum,
 } from '../../components/PostTypeLabel';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { getPostTypeAnalytics } from '../../utils/analytics';
+import theme from '../../theme';
+
+const StatusBarBgStyle: {
+  [key in FeedItemSubjectTypeEnum]: string;
+} = {
+  ANNOUNCEMENT: theme.communityAnnouncementGrey,
+  ACCEPTED_COMMUNITY_CHALLENGE: theme.communityChallengeGreen,
+  COMMUNITY_CHALLENGE: theme.communityChallengeGreen,
+  COMMUNITY: theme.communityChallengeGreen,
+  COMMUNITY_PERMISSION: theme.communityChallengeGreen,
+  HELP_REQUEST: theme.communityHelpRequestRed,
+  PRAYER_REQUEST: theme.communityPrayerRequestPurple,
+  QUESTION: theme.communityQuestionOrange,
+  STEP: theme.parakeetBlue,
+  STORY: theme.communityGodStoryPurple,
+  THOUGHT: theme.communityThoughtGrey,
+};
 
 const CommunityFeedWithType = () => {
   const communityId: string = useNavigationParam('communityId');
@@ -23,7 +39,10 @@ const CommunityFeedWithType = () => {
 
   return (
     <View style={{ height: '100%' }}>
-      <StatusBar {...theme.statusBar.lightContent} hidden={true} />
+      <StatusBar
+        {...theme.statusBar.lightContent}
+        backgroundColor={StatusBarBgStyle[type]}
+      />
       <PostTypeLabel
         communityName={communityName}
         type={type}

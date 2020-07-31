@@ -60,6 +60,7 @@ interface SelectStageScreenProps {
     personId: string;
     stage: Stage;
     isAlreadySelected: boolean;
+    skipSelectSteps?: boolean;
     orgId?: string;
   }) => ThunkAction<void, RootState, never, AnyAction>;
   myId: string;
@@ -73,6 +74,7 @@ interface SelectStageScreenProps {
 export interface SelectStageNavParams {
   selectedStageId?: number;
   enableBackButton: boolean;
+  skipSelectSteps?: boolean;
   personId: string;
   orgId?: string;
   questionText?: string;
@@ -94,6 +96,7 @@ const SelectStageScreen = ({
     orgId,
     questionText,
     onComplete,
+    skipSelectSteps,
   } = useNavigationState().params as SelectStageNavParams;
   const dispatch = useDispatch<ThunkDispatch<RootState, never, AnyAction>>();
   useAndroidBackButton(enableBackButton);
@@ -142,6 +145,7 @@ const SelectStageScreen = ({
         stage,
         isAlreadySelected,
         orgId,
+        skipSelectSteps,
       }),
     );
 

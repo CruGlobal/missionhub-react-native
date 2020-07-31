@@ -1,6 +1,6 @@
 /* eslint-disable max-lines */
 
-import { PushNotificationIOS } from 'react-native';
+import PushNotificationIOS from '@react-native-community/push-notification-ios';
 import PushNotification, {
   PushNotification as RNPushNotificationPayloadAndConstructor,
 } from 'react-native-push-notification';
@@ -11,6 +11,8 @@ import {
   GCM_SENDER_ID,
   GLOBAL_COMMUNITY_ID,
   NOTIFICATION_PROMPT_TYPES,
+  MAIN_TABS,
+  COMMUNITIES_TAB,
 } from '../constants';
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../routes/constants';
 import { isAndroid } from '../utils/common';
@@ -23,6 +25,8 @@ import { NotificationsState } from '../reducers/notifications';
 import { COMMUNITY_TABS } from '../containers/Communities/Community/constants';
 import { COMMUNITY_CHALLENGES } from '../containers/Groups/GroupChallenges';
 import { RootState } from '../reducers';
+import { rollbar } from '../utils/rollbar.config';
+import { CHALLENGE_DETAIL_SCREEN } from '../containers/ChallengeDetailScreen';
 
 import { refreshCommunity } from './organizations';
 import { navToPersonScreen } from './person';
@@ -31,6 +35,7 @@ import {
   navigatePush,
   navigateToMainTabs,
   navigateToFeedItemComments,
+  navigateNestedReset,
 } from './navigation';
 import callApi from './api';
 
@@ -74,8 +79,9 @@ export type PushNotificationPayloadIos = RNPushNotificationPayload & {
   };
 };
 
-export type PushNotificationPayloadAndroid = RNPushNotificationPayload &
-  PushNotificationPayloadData;
+export type PushNotificationPayloadAndroid = RNPushNotificationPayload & {
+  data: PushNotificationPayloadData;
+};
 
 export type PushNotificationPayloadData =
   | { screen: 'home' }
@@ -94,7 +100,11 @@ export type PushNotificationPayloadData =
       organization_id: string;
       screen_extra_data: string | { celebration_item_id: string };
     }
-  | { screen: 'community_challenges'; organization_id: string };
+  | {
+      screen: 'community_challenges';
+      organization_id: string | null;
+      challenge_id: string;
+    };
 
 type ParsedNotificationData =
   | { screen: 'home' }
@@ -113,7 +123,11 @@ type ParsedNotificationData =
       organization_id: string;
       celebration_item_id: string;
     }
-  | { screen: 'community_challenges'; organization_id: string };
+  | {
+      screen: 'community_challenges';
+      organization_id: string | null;
+      challenge_id: string;
+    };
 
 export const HAS_SHOWN_NOTIFICATION_PROMPT =
   'app/HAS_SHOWN_NOTIFICATION_PROMPT';
@@ -225,6 +239,13 @@ export function configureNotificationHandler() {
         notification.finish(PushNotificationIOS.FetchResult.NoData);
       },
 
+      // @ts-ignore onRegistrationError hasn't been added to @types/react-native-push-notification yet
+      onRegistrationError: (error: Error) => {
+        // eslint-disable-next-line no-console
+        console.log(error.message, error);
+        !__DEV__ && rollbar.error(error);
+      },
+
       // ANDROID ONLY: GCM Sender ID
       senderID: GCM_SENDER_ID,
 
@@ -278,6 +299,7 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         }
         return;
       }
+      // We intend to deprecate 'celebrate'. 'celebrate_item' should always have 'celebration_item_id' defined while the old celebrate required conditional logic  https://jira.cru.org/browse/MHP-3151
       case 'celebrate':
       case 'celebrate_item': {
         const { organization_id, celebration_item_id } = notificationData;
@@ -305,16 +327,32 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         }
       }
       case 'community_challenges': {
-        const { organization_id } = notificationData;
+        const { organization_id, challenge_id } = notificationData;
         // IOS Global Community Challenges PN returns the organization_id as null
-        const orgId =
+        const communityId =
           organization_id === null ? GLOBAL_COMMUNITY_ID : organization_id;
-        await dispatch(refreshCommunity(orgId));
-        await dispatch(reloadGroupChallengeFeed(orgId));
+        await dispatch(refreshCommunity(communityId));
+        await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
-          navigatePush(COMMUNITY_CHALLENGES, {
-            communityId: orgId,
-          }),
+          navigateNestedReset([
+            {
+              routeName: MAIN_TABS,
+              tabName: COMMUNITIES_TAB,
+            },
+            {
+              routeName: COMMUNITY_TABS,
+              params: { communityId },
+              tabName: COMMUNITY_CHALLENGES,
+            },
+            {
+              routeName: CHALLENGE_DETAIL_SCREEN,
+              params: {
+                challengeId: challenge_id,
+                orgId: communityId,
+                isAdmin: false,
+              },
+            },
+          ]),
         );
       }
     }
@@ -331,7 +369,7 @@ export function parseNotificationData(
 
   const payloadData = isIosPayload(notification)
     ? notification.data.link.data
-    : notification;
+    : notification.data;
 
   switch (payloadData.screen) {
     case 'celebrate':
