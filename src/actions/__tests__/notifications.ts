@@ -699,7 +699,7 @@ describe('askNotificationPermissions', () => {
       });
     });
 
-    describe('celebrate', () => {
+    describe('celebrate_feed', () => {
       it('should navigate to community celebrate feed', async () => {
         await testNotification({
           ...baseNotification,

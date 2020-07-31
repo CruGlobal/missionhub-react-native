@@ -92,12 +92,12 @@ export type PushNotificationPayloadData =
   | { screen: 'celebrate_feed'; organization_id: string }
   | {
       screen: 'celebrate';
-      organization_id: string | undefined;
+      organization_id?: string;
       screen_extra_data: string | { celebration_item_id?: string };
     }
   | {
       screen: 'celebrate_item';
-      organization_id: string | undefined;
+      organization_id?: string;
       screen_extra_data: string | { celebration_item_id: string };
     }
   | {
@@ -115,12 +115,12 @@ type ParsedNotificationData =
   | { screen: 'celebrate_feed'; organization_id: string }
   | {
       screen: 'celebrate';
-      organization_id: string;
+      organization_id?: string;
       celebration_item_id?: string;
     }
   | {
       screen: 'celebrate_item';
-      organization_id: string;
+      organization_id?: string;
       celebration_item_id: string;
     }
   | {
