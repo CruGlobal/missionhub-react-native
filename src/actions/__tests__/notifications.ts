@@ -45,7 +45,6 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerS
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
-import { LOADING_SCREEN } from '../../containers/LoadingScreen';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -705,29 +704,21 @@ describe('askNotificationPermissions', () => {
         await testNotification({
           ...baseNotification,
           data: {
-            screen: 'celebrate',
+            screen: 'celebrate_feed',
             organization_id: organization.id,
-            screen_extra_data: {
-              celebration_item_id,
-            },
           },
         });
 
-        expect(navigatePush).toHaveBeenCalledWith(LOADING_SCREEN);
-        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
-          celebration_item_id,
-          organization.id,
-        );
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+          communityId: organization.id,
+        });
       });
       it('should not navigate if no organization_id', async () => {
         await testNotification({
           ...baseNotification,
           data: {
-            screen: 'celebrate',
+            screen: 'celebrate_feed',
             organization_id: '',
-            screen_extra_data: {
-              celebration_item_id,
-            },
           },
         });
 
@@ -758,7 +749,7 @@ describe('askNotificationPermissions', () => {
           ...baseNotification,
           data: {
             screen: 'celebrate_item',
-            organization_id: '',
+            organization_id: undefined,
             screen_extra_data,
           },
         });
@@ -811,7 +802,7 @@ describe('askNotificationPermissions', () => {
           ...baseNotification,
           data: {
             screen: 'celebrate',
-            organization_id: '',
+            organization_id: undefined,
             screen_extra_data,
           },
         });

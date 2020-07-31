@@ -92,12 +92,12 @@ export type PushNotificationPayloadData =
   | { screen: 'celebrate_feed'; organization_id: string }
   | {
       screen: 'celebrate';
-      organization_id: string;
+      organization_id: string | undefined;
       screen_extra_data: string | { celebration_item_id?: string };
     }
   | {
       screen: 'celebrate_item';
-      organization_id: string;
+      organization_id: string | undefined;
       screen_extra_data: string | { celebration_item_id: string };
     }
   | {
@@ -303,7 +303,7 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       case 'celebrate':
       case 'celebrate_item': {
         const { organization_id, celebration_item_id } = notificationData;
-
+        // Global Community Posts PN returns the organization_id as undefined
         const communityId =
           organization_id === undefined ? GLOBAL_COMMUNITY_ID : organization_id;
         if (!celebration_item_id) {
