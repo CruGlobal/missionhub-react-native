@@ -11,7 +11,6 @@ import { LOGOUT } from '../../../constants';
 import { SIGN_IN_FLOW } from '../../../routes/constants';
 import { LANDING_SCREEN } from '../../../containers/LandingScreen';
 import { logout, handleInvalidAccessToken } from '../auth';
-import { getFeatureFlags } from '../../misc';
 import { refreshAccessToken } from '../key';
 import { refreshAnonymousLogin } from '../anonymous';
 import { refreshMissionHubFacebookAccess } from '../facebook';
@@ -56,14 +55,12 @@ describe('logout', () => {
     await store.dispatch<any>(logout());
 
     expect(deletePushToken).toHaveBeenCalledWith();
-    expect(getFeatureFlags).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(LANDING_SCREEN);
     expect(PushNotification.unregister).toHaveBeenCalled();
-    // @ts-ignore
     expect(store.getActions()).toEqual([
       deletePushTokenResult,
-      { type: LOGOUT },
       navigateResetResult,
+      { type: LOGOUT },
     ]);
   });
 
@@ -71,16 +68,14 @@ describe('logout', () => {
     await store.dispatch<any>(logout(true));
 
     expect(deletePushToken).toHaveBeenCalledWith();
-    expect(getFeatureFlags).toHaveBeenCalledWith();
     expect(navigateReset).toHaveBeenCalledWith(SIGN_IN_FLOW, {
       forcedLogout: true,
     });
     expect(PushNotification.unregister).toHaveBeenCalled();
-    // @ts-ignore
     expect(store.getActions()).toEqual([
       deletePushTokenResult,
-      { type: LOGOUT },
       navigateResetResult,
+      { type: LOGOUT },
     ]);
   });
 
@@ -96,8 +91,7 @@ describe('logout', () => {
       forcedLogout: true,
     });
     expect(PushNotification.unregister).toHaveBeenCalled();
-    // @ts-ignore
-    expect(store.getActions()).toEqual([{ type: LOGOUT }, navigateResetResult]);
+    expect(store.getActions()).toEqual([navigateResetResult, { type: LOGOUT }]);
   });
 });
 
@@ -121,6 +115,7 @@ describe('handleInvalidAccessToken', () => {
   it('should refresh key access token if user is logged in with TheKey', async () => {
     store = mockStore({
       auth: {
+        token: 'some-token',
         refreshToken: '111',
       },
     });
@@ -133,6 +128,7 @@ describe('handleInvalidAccessToken', () => {
   it('should refresh anonymous login if user is Try It Now', async () => {
     store = mockStore({
       auth: {
+        token: 'some-token',
         upgradeToken: 'some-upgrade-token',
       },
     });
@@ -143,8 +139,9 @@ describe('handleInvalidAccessToken', () => {
   });
 
   it('should refresh facebook login', async () => {
-    store = mockStore({ auth: {} });
+    store = mockStore({ auth: { token: 'some-token' } });
     (AccessToken.getCurrentAccessToken as jest.Mock).mockReturnValue({
+      token: 'some-token',
       accessToken: '111',
     });
 
@@ -154,7 +151,7 @@ describe('handleInvalidAccessToken', () => {
   });
 
   it('should logout user if none of the above conditions are met', async () => {
-    store = mockStore({ auth: {} });
+    store = mockStore({ auth: { token: 'some-token' } });
     (AccessToken.getCurrentAccessToken as jest.Mock).mockReturnValue({});
 
     await store.dispatch<any>(handleInvalidAccessToken());
@@ -166,8 +163,8 @@ describe('handleInvalidAccessToken', () => {
     expect(PushNotification.unregister).toHaveBeenCalled();
     expect(store.getActions()).toEqual([
       deletePushTokenResult,
-      { type: LOGOUT },
       navigateResetResult,
+      { type: LOGOUT },
     ]);
   });
 });

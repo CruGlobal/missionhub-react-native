@@ -8,7 +8,6 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useDispatch, useSelector } from 'react-redux';
 //eslint-disable-next-line import/named
 import { RecordResponse } from 'react-native-camera';
-//eslint-disable-next-line import/named
 import { ReactNativeFile } from 'apollo-upload-client';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';

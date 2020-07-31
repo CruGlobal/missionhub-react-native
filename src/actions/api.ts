@@ -13,6 +13,7 @@ import {
   UPDATE_TOKEN,
 } from '../constants';
 import { LOG, APILOG } from '../utils/logging';
+import { RootState } from '../reducers';
 
 import { logout, handleInvalidAccessToken } from './auth/auth';
 
@@ -26,9 +27,9 @@ export default function callApi(
   query: { [key: string]: any } = {},
   data: { [key: string]: any } = {},
 ): ThunkAction<
-  any,
-  any,
-  null,
+  Record<string, any>,
+  RootState,
+  never,
   | {
       query: any;
       data: any;
@@ -97,32 +98,25 @@ export default function callApi(
       APILOG('REQUEST ERROR', action.name, err);
       const { apiError } = err;
 
-      if (apiError) {
-        if (
-          apiError.errors &&
-          apiError.errors[0] &&
-          apiError.errors[0].detail
-        ) {
-          const errorDetail = apiError.errors[0].detail;
-          if (
-            errorDetail === EXPIRED_ACCESS_TOKEN ||
-            errorDetail === INVALID_ACCESS_TOKEN
-          ) {
-            dispatch(handleInvalidAccessToken());
-          }
-        } else if (
-          apiError.error === INVALID_GRANT &&
-          action.name === REQUESTS.KEY_REFRESH_TOKEN.name
-        ) {
-          dispatch(logout(true));
-        }
+      const errorDetail = apiError?.errors?.[0]?.detail;
+      if (
+        errorDetail === EXPIRED_ACCESS_TOKEN ||
+        errorDetail === INVALID_ACCESS_TOKEN
+      ) {
+        return dispatch(handleInvalidAccessToken());
+      } else if (
+        apiError?.error === INVALID_GRANT &&
+        action.name === REQUESTS.KEY_REFRESH_TOKEN.name
+      ) {
+        dispatch(logout(true));
+        return;
       }
       throw err;
     };
 
     try {
       const response = await API_CALLS[action.name](newQuery, data);
-      const actionResults: { [key: string]: any } = response // TODO: replace any. I gave up typing this for now. It could be absolutely anything and every field is optional.
+      const actionResults: Record<string, any> = response // TODO: replace any. I gave up typing this for now. It could be absolutely anything and every field is optional.
         ? response.results || {}
         : {};
       actionResults.response = response && response.response;

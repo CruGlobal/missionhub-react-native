@@ -1,9 +1,7 @@
 /* eslint-disable max-lines */
 
 import PushNotificationIOS from '@react-native-community/push-notification-ios';
-// eslint-disable-next-line import/default
 import PushNotification, {
-  // eslint-disable-next-line import/named
   PushNotification as RNPushNotificationPayloadAndConstructor,
 } from 'react-native-push-notification';
 import { AnyAction } from 'redux';

@@ -3,7 +3,6 @@ import { View, SafeAreaView } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { useTranslation } from 'react-i18next';
-//eslint-disable-next-line import/named
 import { RNCamera, RecordResponse } from 'react-native-camera';
 
 import { navigateBack } from '../../actions/navigation';
