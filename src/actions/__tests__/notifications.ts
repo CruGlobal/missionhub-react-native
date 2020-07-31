@@ -713,7 +713,7 @@ describe('askNotificationPermissions', () => {
           communityId: organization.id,
         });
       });
-      it('should not navigate if no organization_id', async () => {
+      it('should navigate to global community feed if no organization_id', async () => {
         await testNotification({
           ...baseNotification,
           data: {
@@ -745,7 +745,7 @@ describe('askNotificationPermissions', () => {
           organization.id,
         );
       });
-      it('should navigate to global community of no organization_id', async () => {
+      it('should navigate to global community if no organization_id', async () => {
         await testNotification({
           ...baseNotification,
           data: {
