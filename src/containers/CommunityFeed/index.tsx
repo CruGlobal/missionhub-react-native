@@ -154,7 +154,6 @@ export const CommunityFeed = ({
   const items = sortFeedItems(isGlobal ? globalNodes : nodes);
 
   const handleRefreshing = () => {
-    console.log('refreshing');
     if (loading || globalLoading) {
       return;
     }

@@ -42,6 +42,7 @@ import { navigateBack, navigatePush } from '../../../actions/navigation';
 import {
   PostTypeEnum,
   CreatePostInput,
+  UpdatePostInput,
 } from '../../../../__generated__/globalTypes';
 import { CommunityFeedItem_subject_Post } from '../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { GET_COMMUNITY_FEED } from '../../CommunityFeed/queries';
@@ -110,12 +111,19 @@ const PendingPostFailed = (storageId: string) => (
     storageId,
   } as PendingPostFailedAction);
 
-const useCreatePost = (
-  post: CreatePostInput,
-  mediaType: string | null,
-  onComplete: () => void,
-) => {
-  const { communityId, postType, media } = post;
+const useCreatePost = ({
+  media,
+  postType,
+  communityId,
+  mediaType,
+  onComplete,
+}: {
+  media: string | null;
+  postType: PostTypeEnum;
+  communityId: string;
+  mediaType: string | null;
+  onComplete: () => void;
+}) => {
   const hasImage = !!media && !!mediaType?.includes('image');
   const hasVideo = !!media && !!mediaType?.includes('video');
 
@@ -201,22 +209,71 @@ const useCreatePost = (
 
         onComplete();
       },
-      onError: error => {
-        console.log(error);
+      onError: () => {
         hasVideo && dispatch(PendingPostFailed(storageId));
       },
     },
   );
 
-  const createFeedItem = (postInput: CreatePostInput) => {
-    postInput.media &&
+  const createFeedItem = (input: CreatePostInput) => {
+    input.media &&
       hasVideo &&
-      dispatch(savePendingPost(postInput, storageId));
+      dispatch(savePendingPost(input as PendingCreatePost, storageId));
 
-    createPost({ variables: { input: postInput } });
+    createPost({ variables: { input } });
   };
 
   return createFeedItem;
+};
+
+export const useUpdatePost = ({
+  media,
+  mediaType,
+  onComplete,
+}: {
+  media: string | null;
+  mediaType: string | null;
+  onComplete: () => void;
+}) => {
+  const hasImage = !!media && !!mediaType?.includes('image');
+  const hasVideo = !!media && !!mediaType?.includes('video');
+
+  const dispatch = useDispatch();
+  const nextId = useSelector(
+    ({ communityPosts }: RootState) => communityPosts.nextId,
+  );
+  const [storageId] = useState(`${nextId}`);
+
+  const [updatePost] = useMutation<UpdatePost, UpdatePostVariables>(
+    UPDATE_POST,
+    {
+      onCompleted: () => {
+        hasVideo && dispatch(deletePendingPost(storageId));
+        hasImage && dispatch(trackActionWithoutData(ACTIONS.PHOTO_ADDED));
+        hasVideo && dispatch(trackActionWithoutData(ACTIONS.VIDEO_ADDED));
+
+        onComplete();
+      },
+      onError: () => {
+        hasVideo && dispatch(PendingPostFailed(storageId));
+      },
+    },
+  );
+
+  const updateFeedItem = (input: UpdatePostInput, communityId: string) => {
+    input.media &&
+      hasVideo &&
+      dispatch(
+        savePendingPost(
+          { ...input, communityId } as PendingUpdatePost,
+          storageId,
+        ),
+      );
+
+    updatePost({ variables: { input } });
+  };
+
+  return updateFeedItem;
 };
 
 export const CreatePostScreen = () => {
@@ -253,11 +310,14 @@ export const CreatePostScreen = () => {
     editMode: { isEdit: !!post },
   });
 
-  const createPost = useCreatePost(
-    { content: text, communityId, postType, media: mediaData },
+  const createPost = useCreatePost({
+    media: mediaData,
+    communityId,
+    postType,
     mediaType,
     onComplete,
-  );
+  });
+  const updatePost = useUpdatePost({ media: mediaData, mediaType, onComplete });
 
   const savePost = () => {
     if (!text) {
@@ -280,7 +340,7 @@ export const CreatePostScreen = () => {
         : undefined;
 
     if (post) {
-      //updatePost({ id: post.id, content: text, media });
+      updatePost({ id: post.id, content: text, media }, communityId);
     } else {
       createPost({ content: text, communityId, postType, media });
     }

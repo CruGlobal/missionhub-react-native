@@ -11,7 +11,7 @@ export interface PendingCreatePost {
   content: string;
   media: Upload;
   communityId: string;
-  postTypeEnum: PostTypeEnum;
+  postType: PostTypeEnum;
 }
 
 export interface PendingUpdatePost {
@@ -67,8 +67,6 @@ const communityPostsReducer = (
 ) => {
   switch (action.type) {
     case SAVE_PENDING_POST:
-      console.log('save');
-
       return {
         ...state,
         nextId: state.nextId + 1,
@@ -81,7 +79,6 @@ const communityPostsReducer = (
         },
       };
     case DELETE_PENDING_POST:
-      console.log('delete');
       return {
         ...state,
         pendingPosts: Object.values(state.pendingPosts).reduce(
@@ -96,7 +93,6 @@ const communityPostsReducer = (
         ),
       };
     case PENDING_POST_FAILED:
-      console.log('post failed');
       return {
         ...state,
         pendingPosts: {
