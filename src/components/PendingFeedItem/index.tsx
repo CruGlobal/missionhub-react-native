@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Image, ActivityIndicator } from 'react-native';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import Video from 'react-native-video';
 import { ReactNativeFile } from 'apollo-upload-client';
 
 import CloseIcon from '../../../assets/images/closeIcon.svg';
@@ -23,6 +24,7 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
     ({ communityPosts }: RootState) =>
       communityPosts.pendingPosts[pendingItemId],
   );
+  const { uri } = media instanceof ReactNativeFile ? media : { uri: '' };
 
   /*const [thumbnailUri, setThumbnailUri] = useState<string>('');
 
@@ -64,9 +66,11 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
 
   return (
     <Card testID="PendingFeedItem" style={styles.container}>
-      <Image
+      <Video
         style={{ height: 48, width: 48 }}
-        source={GLOBAL_COMMUNITY_IMAGE}
+        source={{ uri }}
+        controls={false}
+        paused={true}
         resizeMode={'cover'}
       />
       {renderText()}

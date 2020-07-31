@@ -37,9 +37,7 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
   return (
     <View style={[styles.videoContainer, { height }, style]}>
       <Video
-        source={{
-          uri,
-        }}
+        source={{ uri }}
         controls={true}
         paused={true}
         style={styles.videoPlayer}
