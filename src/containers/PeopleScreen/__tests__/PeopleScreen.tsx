@@ -19,7 +19,6 @@ jest.mock('../../../components/PeopleList', () => 'PeopleList');
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/people');
 jest.mock('../../../actions/person');
-jest.mock('../../../actions/unreadComments');
 jest.mock('../../../selectors/people');
 jest.mock('../../../actions/people', () => ({
   getMyPeople: jest.fn(),
