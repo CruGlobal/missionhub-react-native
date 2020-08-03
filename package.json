@@ -156,7 +156,7 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "faker": "^4.1.0",
     "fraql": "^1.2.1",
-    "graphql-tools": "^5.0.0",
+    "graphql-tools": "^6.0.15",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
     "jest-cli": "^26.1.0",
