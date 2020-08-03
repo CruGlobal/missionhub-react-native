@@ -1,3 +1,5 @@
+/* eslint-disable max-lines */
+
 import React from 'react';
 import { View, Image } from 'react-native';
 import { useQuery } from '@apollo/react-hooks';
@@ -25,6 +27,7 @@ import { reloadGroupChallengeFeed } from '../../actions/challenges';
 
 import { ContentComplaintGroupItem } from './__generated__/ContentComplaintGroupItem';
 import ReportedIcon from './reportedIcon.svg';
+import MHAvatar from './mhAvatar.png';
 import { NotificationItem } from './__generated__/NotificationItem';
 import styles from './styles';
 import { GET_COMMUNITY_INFO } from './queries';
@@ -77,19 +80,24 @@ export const NotificationCenterItem = ({
       );
     });
   };
+  const communityId = screenData.communityId
+    ? screenData.communityId
+    : GLOBAL_COMMUNITY_ID;
 
   const iconType =
     mapPostTypeToFeedType(
       getMessageVariable('post_type_enum') as PostTypeEnum,
     ) || FeedItemSubjectTypeEnum.STORY;
 
-  // Only query for community photo if notification is a challenge created, challenge completed, or an announcment post
-  const shouldSkip = !(
-    trigger === NotificationTriggerEnum.community_challenge_created_alert ||
-    trigger === NotificationTriggerEnum.completed_challenge_notification ||
-    (trigger === NotificationTriggerEnum.story_notification &&
-      iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT)
-  );
+  // Only query for community photo if notification is a challenge created or an announcment post
+  const shouldSkip =
+    communityId === GLOBAL_COMMUNITY_ID ||
+    !(
+      trigger === NotificationTriggerEnum.community_challenge_created_alert ||
+      trigger === NotificationTriggerEnum.completed_challenge_notification ||
+      (trigger === NotificationTriggerEnum.story_notification &&
+        iconType === FeedItemSubjectTypeEnum.ANNOUNCEMENT)
+    );
 
   const {
     data: {
@@ -148,10 +156,6 @@ export const NotificationCenterItem = ({
     switch (trigger) {
       case NotificationTriggerEnum.community_challenge_created_alert:
       case NotificationTriggerEnum.completed_challenge_notification: {
-        const communityId = screenData.communityId
-          ? screenData.communityId
-          : GLOBAL_COMMUNITY_ID;
-
         await dispatch(reloadGroupChallengeFeed(communityId));
         return dispatch(
           navigatePush(CHALLENGE_DETAIL_SCREEN, {
@@ -182,6 +186,12 @@ export const NotificationCenterItem = ({
             style={styles.wrapStyle}
             resizeMode="cover"
           />
+        ) : communityId === GLOBAL_COMMUNITY_ID ? (
+          <Image
+            source={MHAvatar}
+            style={styles.wrapStyle}
+            resizeMode="cover"
+          />
         ) : (
           <DefaultCommunityAvatar />
         );
@@ -196,9 +206,24 @@ export const NotificationCenterItem = ({
           ) : (
             <DefaultCommunityAvatar />
           )
+        ) : communityId === GLOBAL_COMMUNITY_ID ? (
+          <Image
+            source={MHAvatar}
+            style={styles.wrapStyle}
+            resizeMode="cover"
+          />
         ) : (
           <Avatar person={subjectPerson ?? undefined} size="medium" />
         );
+      case NotificationTriggerEnum.new_announcement_post:
+        return (
+          <Image
+            source={MHAvatar}
+            style={styles.wrapStyle}
+            resizeMode="cover"
+          />
+        );
+
       default:
         return <Avatar person={subjectPerson ?? undefined} size="medium" />;
     }

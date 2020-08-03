@@ -3,7 +3,14 @@ import { useQuery } from '@apollo/react-hooks';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { DrawerActions } from 'react-navigation-drawer';
-import { SafeAreaView, BackHandler, View, Linking, Alert } from 'react-native';
+import {
+  SafeAreaView,
+  BackHandler,
+  View,
+  Linking,
+  Alert,
+  ScrollView,
+} from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
 import { useCheckForUpdate } from '../../utils/hooks/useCheckForUpdate';
@@ -152,73 +159,75 @@ const SideMenu = () => {
 
   return (
     <SafeAreaView style={styles.background}>
-      <View style={styles.closeContainer}>
-        <CloseButton customNavigate={closeDrawer} />
-        <Button onPress={onEditProfile} testID="editButton">
-          <EditIcon color={theme.lightGrey} />
-        </Button>
-      </View>
-      <View style={styles.headerContainer}>
-        <View style={styles.avatarContainer}>
-          <Avatar person={person} size={'mediumSmall'} />
-          <View style={styles.personInfoContainer}>
-            <Text style={styles.personName}>{person?.fullName}</Text>
-            <Text style={styles.personEmail}>{personEmail}</Text>
-          </View>
+      <ScrollView>
+        <View style={styles.closeContainer}>
+          <CloseButton customNavigate={closeDrawer} />
+          <Button onPress={onEditProfile} testID="editButton">
+            <EditIcon color={theme.lightGrey} />
+          </Button>
         </View>
-        {!isSignedIn ? (
-          <View style={styles.notSignedInContainer}>
+        <View style={styles.headerContainer}>
+          <View style={styles.avatarContainer}>
+            <Avatar person={person} size={'mediumSmall'} />
+            <View style={styles.personInfoContainer}>
+              <Text style={styles.personName}>{person?.fullName}</Text>
+              <Text style={styles.personEmail}>{personEmail}</Text>
+            </View>
+          </View>
+          {!isSignedIn ? (
+            <View style={styles.notSignedInContainer}>
+              <Button
+                style={styles.notSignedInButton}
+                buttonTextStyle={styles.buttonText}
+                text={t('signIn')}
+                onPress={handleSignIn}
+                pill={true}
+              />
+              <Button
+                style={styles.notSignedInButton}
+                buttonTextStyle={styles.buttonText}
+                text={t('createAccount')}
+                onPress={handleSignUp}
+                pill={true}
+              />
+            </View>
+          ) : null}
+        </View>
+        {menuItems.map(section => (
+          <View style={styles.sectionContainer} key={section.id}>
+            <Text style={styles.sectionTitle}>{section.title}</Text>
+            {section?.data.map(({ label, action }) => (
+              <Button
+                style={styles.button}
+                buttonTextStyle={[styles.buttonText]}
+                text={label}
+                onPress={action}
+                key={label}
+              />
+            ))}
+          </View>
+        ))}
+        {isSignedIn ? (
+          <Text style={styles.signOutText} onPress={handleSignOut}>
+            {t('signOut')}
+          </Text>
+        ) : null}
+        <View style={styles.versionContainer}>
+          <Text style={styles.versionText}>{`${t(
+            'version',
+          )} ${DeviceInfo.getVersion()}`}</Text>
+          {needsToUpdate ? (
             <Button
-              style={styles.notSignedInButton}
-              buttonTextStyle={styles.buttonText}
-              text={t('signIn')}
-              onPress={handleSignIn}
+              testID="updateButton"
+              style={styles.updateButton}
+              buttonTextStyle={[styles.updateText]}
+              text={t('update')}
+              onPress={onHandleOpenStore}
               pill={true}
             />
-            <Button
-              style={styles.notSignedInButton}
-              buttonTextStyle={styles.buttonText}
-              text={t('createAccount')}
-              onPress={handleSignUp}
-              pill={true}
-            />
-          </View>
-        ) : null}
-      </View>
-      {menuItems.map(section => (
-        <View style={styles.sectionContainer} key={section.id}>
-          <Text style={styles.sectionTitle}>{section.title}</Text>
-          {section?.data.map(({ label, action }) => (
-            <Button
-              style={styles.button}
-              buttonTextStyle={[styles.buttonText]}
-              text={label}
-              onPress={action}
-              key={label}
-            />
-          ))}
+          ) : null}
         </View>
-      ))}
-      {isSignedIn ? (
-        <Text style={styles.signOutText} onPress={handleSignOut}>
-          {t('signOut')}
-        </Text>
-      ) : null}
-      <View style={styles.versionContainer}>
-        <Text style={styles.versionText}>{`${t(
-          'version',
-        )} ${DeviceInfo.getVersion()}`}</Text>
-        {needsToUpdate ? (
-          <Button
-            testID="updateButton"
-            style={styles.updateButton}
-            buttonTextStyle={[styles.updateText]}
-            text={t('update')}
-            onPress={onHandleOpenStore}
-            pill={true}
-          />
-        ) : null}
-      </View>
+      </ScrollView>
     </SafeAreaView>
   );
 };

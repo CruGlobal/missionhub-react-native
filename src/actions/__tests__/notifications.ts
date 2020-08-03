@@ -45,7 +45,6 @@ import { NOTIFICATION_PRIMER_SCREEN } from '../../containers/NotificationPrimerS
 import { ADD_PERSON_THEN_STEP_SCREEN_FLOW } from '../../routes/constants';
 import { getCelebrateFeed } from '../celebration';
 import { COMMUNITY_TABS } from '../../containers/Communities/Community/constants';
-import { LOADING_SCREEN } from '../../containers/LoadingScreen';
 
 jest.mock('../person');
 jest.mock('../organizations');
@@ -700,39 +699,32 @@ describe('askNotificationPermissions', () => {
       });
     });
 
-    describe('celebrate', () => {
+    describe('celebrate_feed', () => {
       it('should navigate to community celebrate feed', async () => {
         await testNotification({
           ...baseNotification,
           data: {
-            screen: 'celebrate',
+            screen: 'celebrate_feed',
             organization_id: organization.id,
-            screen_extra_data: {
-              celebration_item_id,
-            },
           },
         });
 
-        expect(navigatePush).toHaveBeenCalledWith(LOADING_SCREEN);
-        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
-          celebration_item_id,
-          organization.id,
-        );
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+          communityId: organization.id,
+        });
       });
-      it('should not navigate if no organization_id', async () => {
+      it('should navigate to global community feed if no organization_id', async () => {
         await testNotification({
           ...baseNotification,
           data: {
-            screen: 'celebrate',
-            organization_id: '',
-            screen_extra_data: {
-              celebration_item_id,
-            },
+            screen: 'celebrate_feed',
+            organization_id: undefined,
           },
         });
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(navigatePush).not.toHaveBeenCalled();
+        expect(navigatePush).toHaveBeenCalledWith(COMMUNITY_TABS, {
+          communityId: GLOBAL_COMMUNITY_ID,
+        });
       });
     });
 
@@ -748,25 +740,26 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           organization.id,
         );
       });
-      it('should not navigate if no organization_id', async () => {
+      it('should navigate to global community if no organization_id', async () => {
         await testNotification({
           ...baseNotification,
           data: {
             screen: 'celebrate_item',
-            organization_id: '',
+            organization_id: undefined,
             screen_extra_data,
           },
         });
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(getCelebrateFeed).not.toHaveBeenCalledWith();
-        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+        expect(refreshCommunity).toHaveBeenCalled();
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
+          celebration_item_id,
+          GLOBAL_COMMUNITY_ID,
+        );
       });
       it('should navigate to COMMUNITY_TABS if no celebrate_item_id', async () => {
         await testNotification({
@@ -799,26 +792,27 @@ describe('askNotificationPermissions', () => {
         });
 
         expect(refreshCommunity).toHaveBeenCalledWith(organization.id);
-        expect(getCelebrateFeed).toHaveBeenCalledWith(organization.id);
         expect(navigateToFeedItemComments).toHaveBeenCalledWith(
           celebration_item_id,
           organization.id,
         );
       });
 
-      it('should not navigate to org if no id passed', async () => {
+      it('should navigate to global community if no organization_id', async () => {
         await testNotification({
           ...baseNotification,
           data: {
             screen: 'celebrate',
-            organization_id: '',
+            organization_id: undefined,
             screen_extra_data,
           },
         });
 
-        expect(refreshCommunity).not.toHaveBeenCalled();
-        expect(getCelebrateFeed).not.toHaveBeenCalled();
-        expect(navigateToFeedItemComments).not.toHaveBeenCalled();
+        expect(refreshCommunity).toHaveBeenCalled();
+        expect(navigateToFeedItemComments).toHaveBeenCalledWith(
+          celebration_item_id,
+          GLOBAL_COMMUNITY_ID,
+        );
       });
     });
 

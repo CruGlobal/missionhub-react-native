@@ -272,7 +272,9 @@ export const CommunityFeedItemContent = ({
           ]}
         >
           {itemType === FeedItemSubjectTypeEnum.ANNOUNCEMENT ? (
-            <Text style={styles.communityName}>{community?.name}</Text>
+            <Text style={styles.communityName}>
+              {community?.name || subjectPersonName}
+            </Text>
           ) : (
             <CommunityFeedItemName
               name={subjectPersonName}
