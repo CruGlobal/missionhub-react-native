@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, { ReactNode, useState, useEffect } from 'react';
 import {
   View,
   DatePickerAndroid,
   TimePickerAndroid,
   Keyboard,
+  StyleProp,
+  ViewProps,
 } from 'react-native';
 import moment from 'moment';
-import { withTranslation } from 'react-i18next';
 
 import { Touchable } from '../common';
 import { getDate, modeIs24Hour } from '../../utils/date';
@@ -19,53 +19,77 @@ const FORMATS = {
   time: 'LT',
 };
 
-// @ts-ignore
-@withTranslation('datePicker')
-class MyDatePickerAndroid extends Component {
-  state = {
-    // @ts-ignore
-    date: getDate(this.props.date),
+type Mode = 'date' | 'time' | 'datetime';
+
+export interface MyDatePickerAndroidProps {
+  date?: Date | string;
+  height?: number;
+  duration?: number;
+  onCloseModal?: () => void;
+  onDateChange: (date: Date) => void;
+  disabled?: boolean;
+  onPressAndroid?: ({ showPicker }: { showPicker: () => void }) => void;
+  mode?: Mode;
+  customStyles?: {
+    datePicker: StyleProp<ViewProps>;
+    btnTextConfirm: StyleProp<ViewProps>;
   };
+  minDate?: Date | string;
+  maxDate?: Date | string;
+  timeZoneOffsetInMinutes?: number;
+  cancelBtnText?: string;
+  doneBtnText?: string;
+  title?: string;
+  children?: ReactNode;
+  androidDateMode?: 'calendar' | 'spinner' | 'default';
+  androidTimeMode?: 'clock' | 'spinner' | 'default';
+  format: typeof FORMATS[keyof typeof FORMATS];
+  is24Hour: boolean;
+  testID?: string;
+}
 
-  // @ts-ignore
-  UNSAFE_componentWillReceiveProps({ date }) {
-    // @ts-ignore
-    if (date !== this.props.date) {
-      this.setState({ date: getDate(date) });
-    }
-  }
+const MyDatePickerAndroid = ({
+  date: dateProp,
+  onCloseModal,
+  onDateChange,
+  disabled = false,
+  onPressAndroid,
+  mode = 'date',
+  minDate,
+  maxDate,
+  children,
+  androidDateMode = 'default',
+  androidTimeMode = 'spinner',
+  format = FORMATS[mode],
+  is24Hour = modeIs24Hour(format),
+}: MyDatePickerAndroidProps) => {
+  const [date, setDate] = useState<Date>(getDate(dateProp));
 
-  onPressCancel = () => {
-    // @ts-ignore
-    const { onCloseModal } = this.props;
+  useEffect(() => {
+    setDate(getDate(dateProp));
+  }, [dateProp]);
 
+  const onPressCancel = () => {
     isFunction(onCloseModal) && onCloseModal();
   };
 
-  datePicked() {
-    // @ts-ignore
-    const { onDateChange } = this.props;
-    const { date } = this.state;
-
+  const datePicked = () => {
     isFunction(onDateChange) && onDateChange(date);
-  }
+  };
 
-  async showPicker() {
-    // @ts-ignore
-    const { mode } = this.props;
-
+  const showPicker = async () => {
     const today = moment();
     let dateTimeSelections;
 
     switch (mode) {
       case 'date':
-        dateTimeSelections = await this.launchDatePicker();
+        dateTimeSelections = await launchDatePicker();
         break;
       case 'time':
-        dateTimeSelections = await this.launchTimePicker();
+        dateTimeSelections = await launchTimePicker();
         break;
       case 'datetime':
-        dateTimeSelections = await this.launchDateThenTimePicker();
+        dateTimeSelections = await launchDateThenTimePicker();
         break;
       default:
         dateTimeSelections = {};
@@ -73,53 +97,32 @@ class MyDatePickerAndroid extends Component {
 
     const {
       action,
-      // @ts-ignore
       year = today.year(),
-      // @ts-ignore
       month = today.month(),
-      // @ts-ignore
       day = today.date(),
-      // @ts-ignore
       hour = today.hour(),
-      // @ts-ignore
       minute = today.minutes(),
     } = dateTimeSelections;
 
     if (action === DatePickerAndroid.dismissedAction) {
-      return this.onPressCancel();
+      return onPressCancel();
     }
 
-    this.setState({
-      date: new Date(year, month, day, hour, minute),
-    });
-    return this.datePicked();
-  }
+    setDate(new Date(year, month, day, hour, minute));
+    return datePicked();
+  };
 
-  launchDatePicker() {
-    // @ts-ignore
-    const { androidDateMode, minDate, maxDate } = this.props;
-
+  const launchDatePicker = () => {
     return DatePickerAndroid.open({
-      date: this.state.date,
-      minDate: minDate && getDate(minDate),
-      maxDate: maxDate && getDate(maxDate),
+      date,
+      minDate: minDate ? getDate(minDate) : undefined,
+      maxDate: maxDate ? getDate(maxDate) : undefined,
       mode: androidDateMode,
     });
-  }
+  };
 
-  launchTimePicker() {
-    const {
-      // @ts-ignore
-      androidTimeMode,
-      // @ts-ignore
-      mode,
-      // @ts-ignore
-      format = FORMATS[mode],
-      // @ts-ignore
-      is24Hour = modeIs24Hour(format),
-    } = this.props;
-
-    const timeMoment = moment(this.state.date);
+  const launchTimePicker = () => {
+    const timeMoment = moment(date);
 
     return TimePickerAndroid.open({
       hour: timeMoment.hour(),
@@ -127,9 +130,9 @@ class MyDatePickerAndroid extends Component {
       is24Hour,
       mode: androidTimeMode,
     });
-  }
+  };
 
-  async launchDateThenTimePicker() {
+  const launchDateThenTimePicker = async () => {
     const {
       action: dateAction,
       // @ts-ignore
@@ -138,75 +141,37 @@ class MyDatePickerAndroid extends Component {
       month,
       // @ts-ignore
       day,
-    } = await this.launchDatePicker();
+    } = await launchDatePicker();
 
     if (dateAction === DatePickerAndroid.dismissedAction) {
       return { action: dateAction };
     }
 
     // @ts-ignore
-    const { action: timeAction, hour, minute } = await this.launchTimePicker();
+    const { action: timeAction, hour, minute } = await launchTimePicker();
 
     return { action: timeAction, year, month, day, hour, minute };
-  }
+  };
 
-  onPressDate = () => {
-    // @ts-ignore
-    const { disabled, onPressAndroid, date } = this.props;
-
+  const onPressDate = () => {
     if (disabled) {
       return true;
     }
 
     Keyboard.dismiss();
 
-    this.setState({
-      date: getDate(date),
-    });
+    setDate(getDate(date));
 
     return isFunction(onPressAndroid)
-      ? onPressAndroid({ showPicker: this.showPicker })
-      : this.showPicker();
+      ? onPressAndroid({ showPicker })
+      : showPicker();
   };
 
-  render() {
-    const { children } = this.props;
-
-    return (
-      <View>
-        <Touchable onPress={this.onPressDate}>{children}</Touchable>
-      </View>
-    );
-  }
-}
-
-// @ts-ignore
-MyDatePickerAndroid.defaultProps = {
-  mode: 'date',
-  androidDateMode: 'default',
-  androidTimeMode: 'spinner',
-  date: '',
-  disabled: false,
-};
-
-// @ts-ignore
-MyDatePickerAndroid.propTypes = {
-  mode: PropTypes.oneOf(['date', 'datetime', 'time']),
-  androidDateMode: PropTypes.oneOf(['calendar', 'spinner', 'default']),
-  androidTimeMode: PropTypes.oneOf(['clock', 'spinner', 'default']),
-  date: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.instanceOf(Date),
-    PropTypes.object,
-  ]),
-  minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-  maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-  disabled: PropTypes.bool,
-  onDateChange: PropTypes.func,
-  onCloseModal: PropTypes.func,
-  is24Hour: PropTypes.bool,
-  onPressAndroid: PropTypes.func,
-  children: PropTypes.element,
+  return (
+    <View>
+      <Touchable onPress={onPressDate}>{children}</Touchable>
+    </View>
+  );
 };
 
 export default MyDatePickerAndroid;

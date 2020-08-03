@@ -67,7 +67,6 @@ const ReminderButton = ({
   const today = new Date();
   return (
     <DatePicker
-      // @ts-ignore
       testID="ReminderDatePicker"
       date={nextOccurrenceAt}
       minDate={today}
