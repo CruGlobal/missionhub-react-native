@@ -18,7 +18,7 @@ export type dateFormat =
   | 'MMMM YYYY'
   | 'LL @ LT';
 
-export const getDate = (date: string | Date) => {
+export const getDate = (date?: string | Date) => {
   if (!date) {
     return new Date();
   }

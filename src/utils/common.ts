@@ -57,8 +57,8 @@ export const buildTrackingObj = (
   level4,
 });
 
-// @ts-ignore
-export const isFunction = fn => typeof fn === 'function';
+export const isFunction = (fn: unknown): fn is Function =>
+  typeof fn === 'function';
 // @ts-ignore
 export const isArray = arr => Array.isArray(arr);
 // @ts-ignore

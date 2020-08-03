@@ -72,12 +72,12 @@ const AddChallengeScreen = () => {
     changeDisableBtn(!(title && date));
   };
 
-  const onChangeDate = (challengeDate: string) => {
+  const onChangeDate = (challengeDate: Date) => {
     if (!challengeDate) {
       changeDate('');
       changeDisableBtn(false);
     } else {
-      changeDate(challengeDate);
+      changeDate(moment(challengeDate));
       changeDisableBtn(!title);
     }
   };
