@@ -128,6 +128,48 @@ describe('different notification types', () => {
     notificationType('thought', PostTypeEnum.thought);
     expect.hasAssertions();
   });
+
+  it('renders global community post', () => {
+    renderWithContext(
+      <NotificationCenterItem
+        event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
+          mocks: {
+            Notification: () => ({
+              messageTemplate: () =>
+                '<<person_name>> posted a new <<localized_post_type>> in <<community_name>>',
+              trigger: () => NotificationTriggerEnum.story_notification,
+              screenData: () => ({ communityId: '' }),
+              messageVariables: () => [
+                {
+                  key: 'localized_post_type',
+                  value: 'god story',
+                },
+                {
+                  key: 'post_type_enum',
+                  value: PostTypeEnum.story,
+                },
+                {
+                  key: 'community_name',
+                  value: 'MissionHub',
+                },
+                {
+                  key: 'person_name',
+                  value: 'MissionHub Team',
+                },
+              ],
+            }),
+          },
+        })}
+      />,
+    ).snapshot();
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_INFO, {
+      variables: {
+        communityId: '',
+      },
+      fetchPolicy: 'cache-first',
+      skip: true,
+    });
+  });
   describe('Announcement', () => {
     const mockAnnouncment = mockFragment<NotificationItem>(
       NOTIFICATION_ITEM_FRAGMENT,
@@ -182,6 +224,42 @@ describe('different notification types', () => {
         },
         fetchPolicy: 'cache-first',
         skip: false,
+      });
+    });
+
+    it('renders global community avatar', () => {
+      renderWithContext(
+        <NotificationCenterItem
+          event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
+            mocks: {
+              Notification: () => ({
+                screenData: () => ({
+                  communityId: '',
+                }),
+                messageTemplate: () =>
+                  '<<community_name>> posted a new announcement.',
+                trigger: () => NotificationTriggerEnum.new_announcement_post,
+                messageVariables: () => [
+                  {
+                    key: 'community_name',
+                    value: 'MissionHub',
+                  },
+                  {
+                    key: 'post_type_enum',
+                    value: PostTypeEnum.announcement,
+                  },
+                ],
+              }),
+            },
+          })}
+        />,
+      ).snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_INFO, {
+        variables: {
+          communityId: '',
+        },
+        fetchPolicy: 'cache-first',
+        skip: true,
       });
     });
   });
@@ -287,6 +365,20 @@ describe('different notification types', () => {
         skip: false,
       });
     });
+
+    it('renders completed challenge notification', () => {
+      renderWithContext(
+        <NotificationCenterItem event={mockCompletedCommunityChallenge} />,
+      ).snapshot();
+      expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_INFO, {
+        variables: {
+          communityId: mockCompletedCommunityChallenge.screenData.communityId,
+        },
+        fetchPolicy: 'cache-first',
+        skip: false,
+      });
+    });
+
     it('renders with default community avatar', () => {
       renderWithContext(
         <NotificationCenterItem event={mockCommunityChallenge} />,
@@ -307,16 +399,36 @@ describe('different notification types', () => {
       });
     });
 
-    it('renders completed challenge notification', () => {
+    it('renders global community avatar', () => {
       renderWithContext(
-        <NotificationCenterItem event={mockCompletedCommunityChallenge} />,
+        <NotificationCenterItem
+          event={mockFragment<NotificationItem>(NOTIFICATION_ITEM_FRAGMENT, {
+            mocks: {
+              Notification: () => ({
+                screenData: () => ({
+                  communityId: '',
+                }),
+                messageTemplate: () =>
+                  'You have a new Challenge in <<community_name>>',
+                trigger: () =>
+                  NotificationTriggerEnum.community_challenge_created_alert,
+                messageVariables: () => [
+                  {
+                    key: 'community_name',
+                    value: 'Bleh 2.0',
+                  },
+                ],
+              }),
+            },
+          })}
+        />,
       ).snapshot();
       expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_INFO, {
         variables: {
-          communityId: mockCompletedCommunityChallenge.screenData.communityId,
+          communityId: '',
         },
         fetchPolicy: 'cache-first',
-        skip: false,
+        skip: true,
       });
     });
   });

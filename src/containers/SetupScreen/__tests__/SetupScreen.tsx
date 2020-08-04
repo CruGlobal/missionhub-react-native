@@ -4,7 +4,6 @@ import { fireEvent, GetByAPI } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
-import { updatePerson } from '../../../actions/person';
 import { useLogoutOnBack } from '../../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { createMyPerson, createPerson } from '../../../actions/onboarding';
@@ -41,7 +40,6 @@ beforeEach(() => {
     type: 'createPerson',
     response: { id: '1' },
   });
-  (updatePerson as jest.Mock).mockReturnValue({ type: 'updatePerson' });
   (useLogoutOnBack as jest.Mock).mockReturnValue(back);
 });
 

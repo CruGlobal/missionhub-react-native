@@ -38,7 +38,6 @@ import {
   navigateNestedReset,
 } from './navigation';
 import callApi from './api';
-import { getCelebrateFeed } from './celebration';
 
 export const SET_NOTIFICATION_ANALYTICS = 'app/SET_NOTIFICATION_ANALYTICS';
 
@@ -90,15 +89,15 @@ export type PushNotificationPayloadData =
   | { screen: 'person_steps'; person_id: string; organization_id?: string }
   | { screen: 'my_steps' }
   | { screen: 'add_a_person'; organization_id?: string }
-  | { screen: 'celebrate_feed'; organization_id: string }
+  | { screen: 'celebrate_feed'; organization_id?: string }
   | {
       screen: 'celebrate';
-      organization_id: string;
+      organization_id?: string;
       screen_extra_data: string | { celebration_item_id?: string };
     }
   | {
       screen: 'celebrate_item';
-      organization_id: string;
+      organization_id?: string;
       screen_extra_data: string | { celebration_item_id: string };
     }
   | {
@@ -113,15 +112,15 @@ type ParsedNotificationData =
   | { screen: 'person_steps'; person_id: string; organization_id?: string }
   | { screen: 'my_steps' }
   | { screen: 'add_a_person'; organization_id?: string }
-  | { screen: 'celebrate_feed'; organization_id: string }
+  | { screen: 'celebrate_feed'; organization_id?: string }
   | {
       screen: 'celebrate';
-      organization_id: string;
+      organization_id?: string;
       celebration_item_id?: string;
     }
   | {
       screen: 'celebrate_item';
-      organization_id: string;
+      organization_id?: string;
       celebration_item_id: string;
     }
   | {
@@ -291,27 +290,26 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
       }
       case 'celebrate_feed': {
         const { organization_id } = notificationData;
-        if (organization_id) {
-          return dispatch(
-            navigatePush(COMMUNITY_TABS, {
-              communityId: organization_id,
-            }),
-          );
-        }
-        return;
+        const communityId =
+          organization_id === undefined ? GLOBAL_COMMUNITY_ID : organization_id;
+
+        return dispatch(
+          navigatePush(COMMUNITY_TABS, {
+            communityId,
+          }),
+        );
       }
       // We intend to deprecate 'celebrate'. 'celebrate_item' should always have 'celebration_item_id' defined while the old celebrate required conditional logic  https://jira.cru.org/browse/MHP-3151
       case 'celebrate':
       case 'celebrate_item': {
         const { organization_id, celebration_item_id } = notificationData;
-
-        if (!organization_id) {
-          return;
-        }
+        // Global Community Posts PN returns the organization_id as undefined
+        const communityId =
+          organization_id === undefined ? GLOBAL_COMMUNITY_ID : organization_id;
         if (!celebration_item_id) {
           return dispatch(
             navigatePush(COMMUNITY_TABS, {
-              communityId: organization_id,
+              communityId,
             }),
           );
         }
@@ -319,9 +317,9 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
         dispatch(navigatePush(LOADING_SCREEN));
         try {
           dispatch(refreshCommunity(organization_id));
-          await getCelebrateFeed(organization_id);
+
           return dispatch(
-            navigateToFeedItemComments(celebration_item_id, organization_id),
+            navigateToFeedItemComments(celebration_item_id, communityId),
           );
         } catch (error) {
           dispatch(navigateToMainTabs());

@@ -16,7 +16,6 @@ import StepsScreen from '..';
 jest.mock('react-navigation-hooks');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
-jest.mock('../../../actions/unreadComments');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/common');
 jest.mock('../../../components/StepItem', () => ({
