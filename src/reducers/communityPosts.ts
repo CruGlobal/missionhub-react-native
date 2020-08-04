@@ -21,19 +21,19 @@ export interface PendingUpdatePost {
   communityId: string;
 }
 
-export interface StoredPost {
-  id?: string;
+export interface StoredCreatePost extends PendingCreatePost {
   storageId: string;
-  content: string;
-  postType?: PostTypeEnum;
-  media: Upload;
-  communityId: string;
+  failed: boolean;
+}
+
+export interface StoredUpdatePost extends PendingUpdatePost {
+  storageId: string;
   failed: boolean;
 }
 
 export interface CommunityPostsState {
   nextId: number;
-  pendingPosts: { [key: string]: StoredPost };
+  pendingPosts: { [key: string]: StoredCreatePost | StoredUpdatePost };
 }
 
 export const initialState: CommunityPostsState = {
@@ -71,6 +71,7 @@ const communityPostsReducer = (
         ...state,
         nextId: state.nextId + 1,
         pendingPosts: {
+          ...state.pendingPosts,
           [action.storageId]: {
             ...action.post,
             storageId: action.storageId,

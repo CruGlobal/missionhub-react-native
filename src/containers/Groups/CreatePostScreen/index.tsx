@@ -94,7 +94,7 @@ const savePendingPost = (
     storageId,
   } as SavePendingPostAction);
 
-const deletePendingPost = (storageId: string) => (
+export const deletePendingPost = (storageId: string) => (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
 ) =>
   dispatch({
@@ -110,7 +110,7 @@ const PendingPostFailed = (storageId: string) => (
     storageId,
   } as PendingPostFailedAction);
 
-const useCreatePost = ({
+export const useCreatePost = ({
   media,
   postType,
   communityId,
@@ -215,9 +215,11 @@ const useCreatePost = ({
   );
 
   const createFeedItem = (input: CreatePostInput) => {
+    const pendingPost = { ...input } as PendingCreatePost;
+
     input.media &&
       hasVideo &&
-      dispatch(savePendingPost(input as PendingCreatePost, storageId));
+      dispatch(savePendingPost(pendingPost, storageId));
 
     createPost({ variables: { input } });
   };
@@ -260,14 +262,11 @@ export const useUpdatePost = ({
   );
 
   const updateFeedItem = (input: UpdatePostInput, communityId: string) => {
+    const pendingPost = { ...input, communityId } as PendingUpdatePost;
+
     input.media &&
       hasVideo &&
-      dispatch(
-        savePendingPost(
-          { ...input, communityId } as PendingUpdatePost,
-          storageId,
-        ),
-      );
+      dispatch(savePendingPost(pendingPost, storageId));
 
     updatePost({ variables: { input } });
   };

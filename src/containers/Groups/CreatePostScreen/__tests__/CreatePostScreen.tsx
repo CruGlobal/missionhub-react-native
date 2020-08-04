@@ -22,13 +22,13 @@ import {
   CommunityFeedItem_subject_Post,
 } from '../../../../components/CommunityFeedItem/__generated__/CommunityFeedItem';
 import { useFeatureFlags } from '../../../../utils/hooks/useFeatureFlags';
-import { CreatePostScreen } from '..';
+import { CreatePostScreen, deletePendingPost } from '..';
 
+jest.mock('react-native-video', () => 'Video');
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../utils/hooks/useFeatureFlags');
-jest.mock('react-native-video', () => 'Video');
 
 const myId = '5';
 const navigatePushResult = { type: 'navigated push' };
@@ -42,6 +42,7 @@ const postType = PostTypeEnum.prayer_request;
 const post = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT, {
   mocks: { FeedItem: () => ({ __typename: 'Post' }) },
 }).subject as CommunityFeedItem_subject_Post;
+const onComplete = jest.fn();
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
 const MOCK_IMAGE = 'data:image/jpeg;base64,base64image.jpeg';
@@ -50,6 +51,7 @@ const videoType = 'video/mp4';
 
 const initialState = {
   auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
+  communityPosts: { nextId: 0, pendingPosts: {} },
 };
 
 beforeEach(() => {
@@ -92,7 +94,7 @@ it('renders correctly for new post and feature flag false', () => {
 
   renderWithContext(<CreatePostScreen />, {
     initialState,
-    navParams: { communityId, postType },
+    navParams: { communityId, postType, onComplete },
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
@@ -112,6 +114,7 @@ it('renders correctly for update post without media', () => {
         mediaContentType: undefined,
         mediaExpiringUrl: undefined,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -134,6 +137,7 @@ it('renders correctly for update post without media and feature flag false', () 
         mediaContentType: undefined,
         mediaExpiringUrl: undefined,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -154,6 +158,7 @@ it('renders correctly for update post with image', () => {
         mediaContentType: 'image/jpeg',
         mediaExpiringUrl: MOCK_IMAGE,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -174,6 +179,7 @@ it('renders correctly for update post with video', () => {
         mediaContentType: 'video',
         mediaExpiringUrl: MOCK_VIDEO,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -196,6 +202,7 @@ it('renders correctly for update post without video if feature flag is false', (
         mediaContentType: 'video',
         mediaExpiringUrl: MOCK_VIDEO,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -209,7 +216,7 @@ describe('renders for post types', () => {
   it('renders for story', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { communityId, postType: PostTypeEnum.story },
+      navParams: { communityId, postType: PostTypeEnum.story, onComplete },
     }).snapshot();
   });
 
@@ -219,6 +226,7 @@ describe('renders for post types', () => {
       navParams: {
         communityId,
         postType: PostTypeEnum.prayer_request,
+        onComplete,
       },
     }).snapshot();
   });
@@ -226,7 +234,7 @@ describe('renders for post types', () => {
   it('renders for spiritual question', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { communityId, postType: PostTypeEnum.question },
+      navParams: { communityId, postType: PostTypeEnum.question, onComplete },
     }).snapshot();
   });
 
@@ -236,6 +244,7 @@ describe('renders for post types', () => {
       navParams: {
         communityId,
         postType: PostTypeEnum.help_request,
+        onComplete,
       },
     }).snapshot();
   });
@@ -243,7 +252,7 @@ describe('renders for post types', () => {
   it('renders for thought', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { communityId, postType: PostTypeEnum.thought },
+      navParams: { communityId, postType: PostTypeEnum.thought, onComplete },
     }).snapshot();
   });
 
@@ -253,6 +262,7 @@ describe('renders for post types', () => {
       navParams: {
         communityId,
         postType: PostTypeEnum.announcement,
+        onComplete,
       },
     }).snapshot();
   });
@@ -267,6 +277,7 @@ describe('Select image', () => {
         navParams: {
           communityId,
           postType: PostTypeEnum.story,
+          onComplete,
         },
       },
     );
@@ -292,9 +303,9 @@ describe('Select video', () => {
       {
         initialState,
         navParams: {
-          onComplete,
           communityId,
           postType: PostTypeEnum.story,
+          onComplete,
         },
       },
     );
@@ -317,6 +328,7 @@ describe('Creating a post', () => {
         navParams: {
           communityId,
           postType,
+          onComplete,
         },
       },
     );
@@ -326,27 +338,20 @@ describe('Creating a post', () => {
     diffSnapshot();
   });
 
-  it('calls savePost function when the user clicks the share post button', async () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+  fit('calls savePost function when the user clicks the share post button', async () => {
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
         communityId,
         postType,
+        onComplete,
       },
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
     await fireEvent.press(getByTestId('CreatePostButton'));
 
-    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
-      [ACTIONS.CREATE_POST.key]: postType,
-    });
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.PHOTO_ADDED,
-    );
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.VIDEO_ADDED,
-    );
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -357,6 +362,18 @@ describe('Creating a post', () => {
         },
       },
     });
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([]);
   });
 
   it('calls savePost function with image', async () => {
@@ -365,6 +382,7 @@ describe('Creating a post', () => {
       navParams: {
         communityId,
         postType,
+        onComplete,
       },
     });
 
@@ -399,6 +417,7 @@ describe('Creating a post', () => {
       navParams: {
         communityId,
         postType,
+        onComplete,
       },
     });
 
@@ -441,6 +460,7 @@ describe('Updating a post', () => {
         navParams: {
           communityId,
           post,
+          onComplete,
         },
       },
     );
@@ -486,6 +506,7 @@ describe('Updating a post', () => {
       navParams: {
         communityId,
         post,
+        onComplete,
       },
     });
 
@@ -517,6 +538,7 @@ describe('Updating a post', () => {
       navParams: {
         communityId,
         post,
+        onComplete,
       },
     });
 

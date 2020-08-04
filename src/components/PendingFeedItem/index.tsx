@@ -1,51 +1,85 @@
-import React, { useState, useEffect } from 'react';
-import { View, Image, ActivityIndicator } from 'react-native';
-import { useSelector } from 'react-redux';
+import React from 'react';
+import { View, ActivityIndicator } from 'react-native';
+import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Video from 'react-native-video';
 import { ReactNativeFile } from 'apollo-upload-client';
 
 import CloseIcon from '../../../assets/images/closeIcon.svg';
 import { Card, Touchable, Text } from '../common';
+import {
+  deletePendingPost,
+  useCreatePost,
+  useUpdatePost,
+} from '../../containers/Groups/CreatePostScreen';
 import { RootState } from '../../reducers';
-import { StoredPost } from '../../reducers/communityPosts';
-import GLOBAL_COMMUNITY_IMAGE from '../../../assets/images/globalCommunityImage.png';
+import {
+  StoredCreatePost,
+  StoredUpdatePost,
+} from '../../reducers/communityPosts';
+import { PostTypeEnum } from '../../../__generated__/globalTypes';
 
 import styles from './styles';
 
 interface PendingFeedItemProps {
   pendingItemId: string;
+  onComplete: () => void;
 }
 
-export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
+export const PendingFeedItem = ({
+  pendingItemId,
+  onComplete,
+}: PendingFeedItemProps) => {
   const { t } = useTranslation('pendingPost');
+  const dispatch = useDispatch();
 
-  const { media, failed }: StoredPost = useSelector(
+  const post: StoredCreatePost | StoredUpdatePost = useSelector(
     ({ communityPosts }: RootState) =>
       communityPosts.pendingPosts[pendingItemId],
   );
-  const { uri } = media instanceof ReactNativeFile ? media : { uri: '' };
+  const { media, communityId, failed } = post;
+  const postType = (post as StoredCreatePost).postType || PostTypeEnum.story;
+  const isUpdate = !!(post as StoredUpdatePost).id;
+  const uri = (media as ReactNativeFile).uri || '';
 
-  /*const [thumbnailUri, setThumbnailUri] = useState<string>('');
+  const createPost = useCreatePost({
+    media,
+    postType,
+    communityId,
+    mediaType: 'video',
+    onComplete,
+  });
+  const updatePost = useUpdatePost({
+    media,
+    mediaType: 'video',
+    onComplete,
+  });
 
-  useEffect(() => {
-    const { uri } = media instanceof ReactNativeFile ? media : { uri: '' };
-    console.log(uri);
-    const { path } = await RNThumbnail.get(`file://${uri}`);
-    console.log(path);
-    setThumbnailUri(path);
-  }, []);*/
+  const handleRetry = () => {
+    if (isUpdate) {
+      const { id, media, content, communityId } = post as StoredUpdatePost;
+      updatePost({ id, media, content }, communityId);
+    } else {
+      const {
+        media,
+        content,
+        communityId,
+        postType,
+      } = post as StoredCreatePost;
+      createPost({ media, content, postType, communityId });
+    }
+  };
 
-  const handleRetry = () => {};
-
-  const handleCancel = () => {};
+  const handleCancel = () => {
+    dispatch(deletePendingPost(pendingItemId));
+  };
 
   const renderText = () => (
     <View style={styles.textWrapper}>
       {failed ? (
         <View>
           <Text style={styles.text}>{t('failed')}</Text>
-          <Touchable onPress={handleRetry}>
+          <Touchable testID="RetryButton" onPress={handleRetry}>
             <Text>{t('tryAgain')}</Text>
           </Touchable>
         </View>
@@ -57,7 +91,7 @@ export const PendingFeedItem = ({ pendingItemId }: PendingFeedItemProps) => {
 
   const renderEnd = () =>
     failed ? (
-      <Touchable onPress={handleCancel}>
+      <Touchable testID="CancelButton" onPress={handleCancel}>
         <CloseIcon />
       </Touchable>
     ) : (

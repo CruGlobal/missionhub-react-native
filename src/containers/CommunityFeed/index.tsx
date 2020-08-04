@@ -244,7 +244,10 @@ export const CommunityFeed = ({
       >
         <Text style={styles.title}>{t(`${title}`)}</Text>
         {id === 1 && pendingPosts.length > 0 ? (
-          <PendingFeedItem pendingItemId={pendingPosts[0].storageId} />
+          <PendingFeedItem
+            pendingItemId={pendingPosts[0].storageId}
+            onComplete={handleRefreshing}
+          />
         ) : null}
       </View>
     ),

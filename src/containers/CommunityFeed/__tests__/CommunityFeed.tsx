@@ -10,8 +10,12 @@ import { GLOBAL_COMMUNITY_ID } from '../../../constants';
 import { navigatePush } from '../../../actions/navigation';
 import { renderWithContext } from '../../../../testUtils';
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from '../queries';
-import { FeedItemSubjectTypeEnum } from '../../../../__generated__/globalTypes';
+import {
+  FeedItemSubjectTypeEnum,
+  PostTypeEnum,
+} from '../../../../__generated__/globalTypes';
 import { CommunityFeed } from '..';
+import { StoredCreatePost } from '../../../reducers/communityPosts';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../selectors/organizations');
@@ -27,9 +31,11 @@ jest.mock('../../../components/PostTypeLabel', () => ({
 jest.mock('../../Groups/CreatePostButton', () => ({
   CreatePostButton: 'CreatePostButton',
 }));
-
 jest.mock('../../../containers/CommunityFeedPostCards', () => ({
   CommunityFeedPostCards: 'CommunityFeedPostCards',
+}));
+jest.mock('../../../components/PendingFeedItem', () => ({
+  PendingFeedItem: 'PendingFeedItem',
 }));
 
 const myId = '123';
@@ -43,6 +49,7 @@ const navigatePushResult = { type: 'navigated' };
 const initialState = {
   auth: { person: { id: myId } },
   swipe: { groupOnboarding: {} },
+  communityPosts: { pendingPosts: {} },
 };
 
 beforeEach(() => {
@@ -72,6 +79,56 @@ it('renders with items correctly', async () => {
       mocks: {
         FeedItemConnection: () => ({
           nodes: () => new MockList(10),
+        }),
+      },
+    },
+  );
+
+  await flushMicrotasksQueue();
+  snapshot();
+
+  expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+    skip: false,
+    variables: {
+      communityId,
+      hasUnreadComments: undefined,
+      personIds: undefined,
+    },
+  });
+  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+    variables: {},
+    skip: true,
+  });
+});
+
+it('renders with pending post correctly', async () => {
+  const pendingPost: StoredCreatePost = {
+    content: 'text',
+    media: 'video.mov',
+    communityId,
+    postType: PostTypeEnum.story,
+    storageId: '123',
+    failed: false,
+  };
+
+  const { snapshot } = renderWithContext(
+    <CommunityFeed communityId={communityId} itemNamePressable={true} />,
+    {
+      initialState: {
+        ...initialState,
+        communityPosts: {
+          pendingPosts: {
+            [pendingPost.storageId]: pendingPost,
+          },
+        },
+      },
+      mocks: {
+        FeedItemConnection: () => ({
+          nodes: () =>
+            new MockList(1, () => ({
+              read: true,
+              createdAt: '2020-05-20 11:00:00 PM GMT+0',
+            })),
         }),
       },
     },
