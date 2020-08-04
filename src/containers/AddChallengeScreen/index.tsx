@@ -130,10 +130,9 @@ const AddChallengeScreen = () => {
     const today = new Date();
     return (
       <DatePicker
-        // @ts-ignore
-        date={date}
+        date={moment(date).toDate()}
         mode="date"
-        minDate={today}
+        minimumDate={today}
         onDateChange={onChangeDate}
         testID="datePicker"
       >

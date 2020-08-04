@@ -47,7 +47,6 @@ describe('DatePicker methods', () => {
     beforeEach(() => {
       component = renderShallow(
         <DatePicker
-          // @ts-ignore
           date={date}
           minDate={minDate}
           maxDate={maxDate}
@@ -134,7 +133,6 @@ describe('DatePicker methods', () => {
     beforeEach(() => {
       component = renderShallow(
         <DatePicker
-          // @ts-ignore
           date={date}
           onDateChange={mockChange}
           onCloseModal={mockCloseModal}
@@ -196,7 +194,6 @@ describe('DatePicker methods', () => {
     beforeEach(() => {
       component = renderShallow(
         <DatePicker
-          // @ts-ignore
           date={date}
           minDate={minDate}
           maxDate={maxDate}
@@ -275,7 +272,6 @@ describe('DatePicker methods', () => {
     beforeEach(async () => {
       component = renderShallow(
         <DatePicker
-          // @ts-ignore
           date={date}
           onPressAndroid={onPressAndroid}
           onDateChange={mockChange}

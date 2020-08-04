@@ -57,6 +57,7 @@ export const buildTrackingObj = (
   level4,
 });
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 export const isFunction = (fn: unknown): fn is Function =>
   typeof fn === 'function';
 // @ts-ignore

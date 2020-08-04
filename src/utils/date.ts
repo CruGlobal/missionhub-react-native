@@ -30,8 +30,6 @@ export const getDate = (date?: string | Date) => {
   return moment(date).toDate();
 };
 
-export const modeIs24Hour = (format: string) => !!format.match(/H|k/);
-
 // Pull dates out of UTC format into a moment object
 export const momentUtc = (time: string | Date | undefined) =>
   moment.utc(time, 'YYYY-MM-DD HH:mm:ss UTC').local();
