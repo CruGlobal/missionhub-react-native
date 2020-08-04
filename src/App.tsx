@@ -49,6 +49,8 @@ appsFlyer.initSdk({
   appId: '447869440',
 });
 
+store.dispatch(configureNotificationHandler());
+
 @codePush({
   deploymentKey: isAndroid
     ? Config.CODEPUSH_ANDROID_KEY
@@ -75,10 +77,6 @@ export default class App extends Component {
     this.setState({ apolloClient });
 
     this.checkOldAppToken();
-    // @ts-ignore
-    store.dispatch(resetToInitialRoute());
-    // @ts-ignore
-    store.dispatch(configureNotificationHandler());
     // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
     store.getState().auth.token && getFeatureFlags();

@@ -260,10 +260,6 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
-    if (isAndroid && !notification.userInteraction) {
-      return;
-    }
-
     const { person: me } = getState().auth;
 
     const notificationData = parseNotificationData(notification);
@@ -362,6 +358,10 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
 export function parseNotificationData(
   notification: PushNotificationPayloadIosOrAndroid,
 ): ParsedNotificationData {
+  // If there is no userInteraction, it means the notification was received while the app was killed/in the background.
+  if (isAndroid && !notification.userInteraction) {
+    return notification as any;
+  }
   const isIosPayload = (
     notification: PushNotificationPayloadIosOrAndroid,
   ): notification is PushNotificationPayloadIos =>
