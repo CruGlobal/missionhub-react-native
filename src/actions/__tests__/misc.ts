@@ -11,7 +11,7 @@ import {
   GET_FEATURE_FLAGS,
   getFeatureFlags,
 } from '../misc';
-import { createContactAssignment, updatePersonAttributes } from '../person';
+import { updatePersonAttributes } from '../person';
 import { reloadJourney } from '../journey';
 import { navigatePush, navigateReplace } from '../navigation';
 import {
@@ -46,7 +46,6 @@ const reloadJourneyResult = { type: 'reloaded journey' };
 const navigatePushResult = { type: 'navigated forward' };
 const navigateReplaceResult = { type: 'route replaced' };
 const updatePersonAttributesResult = { type: 'updated person' };
-const createContactAssignmentResult = () => Promise.resolve({ person });
 const hasOrgPermissionsResult = false;
 const buildTrackingObjResult = { tracking: 'tracking' };
 
@@ -85,7 +84,6 @@ beforeEach(() => {
   // @ts-ignore
   contactAssignmentSelector.mockReturnValue(contactAssignment);
   // @ts-ignore
-  createContactAssignment.mockReturnValue(createContactAssignmentResult);
   // @ts-ignore
   orgPermissionSelector.mockReturnValue(orgPermission);
   // @ts-ignore
