@@ -99,12 +99,10 @@ const StepReminderScreen = () => {
       <View style={dateInputContainer}>
         <Text style={inputHeaderStyle}>{t('endDate')}</Text>
         <DatePicker
-          // @ts-ignore
           testID="datePicker"
-          // @ts-ignore
           date={date}
           mode="datetime"
-          minDate={today}
+          minimumDate={today}
           onDateChange={handleChangeDate}
         >
           <View>
