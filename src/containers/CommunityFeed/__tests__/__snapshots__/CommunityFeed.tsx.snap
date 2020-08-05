@@ -12142,6 +12142,1368 @@ exports[`renders with pending post correctly 1`] = `
 </RCTScrollView>
 `;
 
+exports[`renders with pending post without Today items correctly 1`] = `
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [],
+        "id": 1,
+        "title": "dates.today",
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 71597,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "itaque velit omnis",
+              "id": "6",
+              "name": "Optional global budgetary management",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "2",
+            "liked": true,
+            "likesCount": 80275,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "3",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "4",
+              },
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Torey",
+              "fullName": "Kaden Ortiz",
+              "id": "5",
+              "lastName": "Abbott",
+              "picture": "repudiandae esse blanditiis",
+            },
+            "subjectPersonName": "Torey Abbott",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 42110,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "debitis libero aspernatur",
+              "id": "11",
+              "name": "Extended client-driven application",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "7",
+            "liked": true,
+            "likesCount": 95788,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "9",
+                "title": "occaecati debitis et",
+              },
+              "completedAt": "2013-02-12T00:32:19.217Z",
+              "id": "8",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Branson",
+              "fullName": "Soledad Simonis",
+              "id": "10",
+              "lastName": "Gutkowski",
+              "picture": "dicta eum eaque",
+            },
+            "subjectPersonName": "Branson Gutkowski",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 78927,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "placeat ullam minima",
+              "id": "16",
+              "name": "Pre-emptive zero defect monitoring",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "12",
+            "liked": false,
+            "likesCount": 10322,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "13",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "14",
+              },
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Zola",
+              "fullName": "Roberta Jenkins",
+              "id": "15",
+              "lastName": "Corkery",
+              "picture": "sit aperiam placeat",
+            },
+            "subjectPersonName": "Zola Corkery",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 29893,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "sint non voluptates",
+              "id": "21",
+              "name": "Advanced asymmetric neural-net",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "17",
+            "liked": false,
+            "likesCount": 58438,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "19",
+                "title": "voluptates explicabo exercitationem",
+              },
+              "completedAt": "2015-05-07T06:42:18.291Z",
+              "id": "18",
+            },
+            "subjectEvent": "challengeJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Darwin",
+              "fullName": "Stewart Grant",
+              "id": "20",
+              "lastName": "Bosco",
+              "picture": "sed magni cupiditate",
+            },
+            "subjectPersonName": "Darwin Bosco",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 4995,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "eligendi quos esse",
+              "id": "26",
+              "name": "Operative fresh-thinking throughput",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "22",
+            "liked": true,
+            "likesCount": 53589,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "24",
+                "title": "laborum ratione a",
+              },
+              "completedAt": "2014-04-19T11:17:51.113Z",
+              "id": "23",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Grace",
+              "fullName": "Laisha Gerlach",
+              "id": "25",
+              "lastName": "Dibbert",
+              "picture": "cumque incidunt aut",
+            },
+            "subjectPersonName": "Grace Dibbert",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 53842,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "saepe consequatur vel",
+              "id": "31",
+              "name": "Customer-focused heuristic budgetary management",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "27",
+            "liked": false,
+            "likesCount": 65229,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "29",
+                "title": "sint autem rerum",
+              },
+              "completedAt": "2018-08-21T02:58:03.460Z",
+              "id": "28",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Gideon",
+              "fullName": "Alex McGlynn",
+              "id": "30",
+              "lastName": "Heathcote",
+              "picture": "aut ut ut",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 66344,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "molestiae aut delectus",
+              "id": "35",
+              "name": "Grass-roots tertiary pricing structure",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "32",
+            "liked": false,
+            "likesCount": 62169,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "sunt placeat quidem",
+              "id": "33",
+              "mediaContentType": "est consequuntur aut",
+              "mediaExpiringUrl": "est fuga est",
+              "postType": "prayer_request",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Marcellus",
+              "fullName": "Nettie Herman",
+              "id": "34",
+              "lastName": "Hyatt",
+              "picture": "ut voluptas enim",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 77273,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "est sunt corporis",
+              "id": "40",
+              "name": "Enterprise-wide real-time superstructure",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "36",
+            "liked": true,
+            "likesCount": 15292,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "38",
+                "title": "hic veritatis qui",
+              },
+              "completedAt": "2012-03-03T15:03:02.973Z",
+              "id": "37",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Tre",
+              "fullName": "Fiona Mayert",
+              "id": "39",
+              "lastName": "Lind",
+              "picture": "earum voluptate vel",
+            },
+            "subjectPersonName": "Tre Lind",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 99732,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "non fugiat eligendi",
+              "id": "45",
+              "name": "Multi-lateral 24/7 data-warehouse",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "41",
+            "liked": false,
+            "likesCount": 17234,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "43",
+                "title": "aut rerum impedit",
+              },
+              "completedAt": "2014-10-08T05:42:35.245Z",
+              "id": "42",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Roscoe",
+              "fullName": "Florence Kovacek",
+              "id": "44",
+              "lastName": "Johnson",
+              "picture": "voluptates voluptas fuga",
+            },
+            "subjectPersonName": "Roscoe Johnson",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 17227,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ab quo occaecati",
+              "id": "50",
+              "name": "Reverse-engineered composite synergy",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "46",
+            "liked": false,
+            "likesCount": 39631,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "47",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "48",
+              },
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Elza",
+              "fullName": "Jamal Bergstrom",
+              "id": "49",
+              "lastName": "Paucek",
+              "picture": "incidunt possimus molestias",
+            },
+            "subjectPersonName": "Elza Paucek",
+          },
+        ],
+        "id": 2,
+        "title": "dates.earlier",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  renderSectionHeader={[Function]}
+  scrollEventThrottle={0.0001}
+  scrollIndicatorInsets={
+    Object {
+      "right": 1,
+    }
+  }
+  sections={
+    Array [
+      Object {
+        "data": Array [],
+        "id": 1,
+        "title": "dates.today",
+      },
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 71597,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "itaque velit omnis",
+              "id": "6",
+              "name": "Optional global budgetary management",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "2",
+            "liked": true,
+            "likesCount": 80275,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "3",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "4",
+              },
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Torey",
+              "fullName": "Kaden Ortiz",
+              "id": "5",
+              "lastName": "Abbott",
+              "picture": "repudiandae esse blanditiis",
+            },
+            "subjectPersonName": "Torey Abbott",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 42110,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "debitis libero aspernatur",
+              "id": "11",
+              "name": "Extended client-driven application",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "7",
+            "liked": true,
+            "likesCount": 95788,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "9",
+                "title": "occaecati debitis et",
+              },
+              "completedAt": "2013-02-12T00:32:19.217Z",
+              "id": "8",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Branson",
+              "fullName": "Soledad Simonis",
+              "id": "10",
+              "lastName": "Gutkowski",
+              "picture": "dicta eum eaque",
+            },
+            "subjectPersonName": "Branson Gutkowski",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 78927,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "placeat ullam minima",
+              "id": "16",
+              "name": "Pre-emptive zero defect monitoring",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "12",
+            "liked": false,
+            "likesCount": 10322,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "13",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "14",
+              },
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Zola",
+              "fullName": "Roberta Jenkins",
+              "id": "15",
+              "lastName": "Corkery",
+              "picture": "sit aperiam placeat",
+            },
+            "subjectPersonName": "Zola Corkery",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 29893,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "sint non voluptates",
+              "id": "21",
+              "name": "Advanced asymmetric neural-net",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "17",
+            "liked": false,
+            "likesCount": 58438,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "19",
+                "title": "voluptates explicabo exercitationem",
+              },
+              "completedAt": "2015-05-07T06:42:18.291Z",
+              "id": "18",
+            },
+            "subjectEvent": "challengeJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Darwin",
+              "fullName": "Stewart Grant",
+              "id": "20",
+              "lastName": "Bosco",
+              "picture": "sed magni cupiditate",
+            },
+            "subjectPersonName": "Darwin Bosco",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 4995,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "eligendi quos esse",
+              "id": "26",
+              "name": "Operative fresh-thinking throughput",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "22",
+            "liked": true,
+            "likesCount": 53589,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "24",
+                "title": "laborum ratione a",
+              },
+              "completedAt": "2014-04-19T11:17:51.113Z",
+              "id": "23",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Grace",
+              "fullName": "Laisha Gerlach",
+              "id": "25",
+              "lastName": "Dibbert",
+              "picture": "cumque incidunt aut",
+            },
+            "subjectPersonName": "Grace Dibbert",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 53842,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "saepe consequatur vel",
+              "id": "31",
+              "name": "Customer-focused heuristic budgetary management",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "27",
+            "liked": false,
+            "likesCount": 65229,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "29",
+                "title": "sint autem rerum",
+              },
+              "completedAt": "2018-08-21T02:58:03.460Z",
+              "id": "28",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Gideon",
+              "fullName": "Alex McGlynn",
+              "id": "30",
+              "lastName": "Heathcote",
+              "picture": "aut ut ut",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 66344,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "molestiae aut delectus",
+              "id": "35",
+              "name": "Grass-roots tertiary pricing structure",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "32",
+            "liked": false,
+            "likesCount": 62169,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "sunt placeat quidem",
+              "id": "33",
+              "mediaContentType": "est consequuntur aut",
+              "mediaExpiringUrl": "est fuga est",
+              "postType": "prayer_request",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Marcellus",
+              "fullName": "Nettie Herman",
+              "id": "34",
+              "lastName": "Hyatt",
+              "picture": "ut voluptas enim",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 77273,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "est sunt corporis",
+              "id": "40",
+              "name": "Enterprise-wide real-time superstructure",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "36",
+            "liked": true,
+            "likesCount": 15292,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "38",
+                "title": "hic veritatis qui",
+              },
+              "completedAt": "2012-03-03T15:03:02.973Z",
+              "id": "37",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Tre",
+              "fullName": "Fiona Mayert",
+              "id": "39",
+              "lastName": "Lind",
+              "picture": "earum voluptate vel",
+            },
+            "subjectPersonName": "Tre Lind",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 99732,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "non fugiat eligendi",
+              "id": "45",
+              "name": "Multi-lateral 24/7 data-warehouse",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "41",
+            "liked": false,
+            "likesCount": 17234,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "43",
+                "title": "aut rerum impedit",
+              },
+              "completedAt": "2014-10-08T05:42:35.245Z",
+              "id": "42",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Roscoe",
+              "fullName": "Florence Kovacek",
+              "id": "44",
+              "lastName": "Johnson",
+              "picture": "voluptates voluptas fuga",
+            },
+            "subjectPersonName": "Roscoe Johnson",
+          },
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 17227,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "ab quo occaecati",
+              "id": "50",
+              "name": "Reverse-engineered composite synergy",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "46",
+            "liked": false,
+            "likesCount": 39631,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "47",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "48",
+              },
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Elza",
+              "fullName": "Jamal Bergstrom",
+              "id": "49",
+              "lastName": "Paucek",
+              "picture": "incidunt possimus molestias",
+            },
+            "subjectPersonName": "Elza Paucek",
+          },
+        ],
+        "id": 2,
+        "title": "dates.earlier",
+      },
+    ]
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+      3,
+    ]
+  }
+  stickySectionHeadersEnabled={true}
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <CreatePostButton
+        communityId="456"
+        onComplete={[Function]}
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "200",
+              "marginLeft": 15,
+            }
+          }
+        >
+          Today
+        </Text>
+        <PendingFeedItem
+          onComplete={[Function]}
+          pendingItemId="123"
+        />
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "200",
+              "marginLeft": 15,
+            }
+          }
+        >
+          Earlier
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 71597,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "itaque velit omnis",
+              "id": "6",
+              "name": "Optional global budgetary management",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "2",
+            "liked": true,
+            "likesCount": 80275,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "3",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "4",
+              },
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Torey",
+              "fullName": "Kaden Ortiz",
+              "id": "5",
+              "lastName": "Abbott",
+              "picture": "repudiandae esse blanditiis",
+            },
+            "subjectPersonName": "Torey Abbott",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 42110,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "debitis libero aspernatur",
+              "id": "11",
+              "name": "Extended client-driven application",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "7",
+            "liked": true,
+            "likesCount": 95788,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "9",
+                "title": "occaecati debitis et",
+              },
+              "completedAt": "2013-02-12T00:32:19.217Z",
+              "id": "8",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Branson",
+              "fullName": "Soledad Simonis",
+              "id": "10",
+              "lastName": "Gutkowski",
+              "picture": "dicta eum eaque",
+            },
+            "subjectPersonName": "Branson Gutkowski",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 78927,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "placeat ullam minima",
+              "id": "16",
+              "name": "Pre-emptive zero defect monitoring",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "12",
+            "liked": false,
+            "likesCount": 10322,
+            "read": true,
+            "subject": Object {
+              "__typename": "Step",
+              "id": "13",
+              "receiverStageAtCompletion": Object {
+                "__typename": "Stage",
+                "id": "14",
+              },
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Zola",
+              "fullName": "Roberta Jenkins",
+              "id": "15",
+              "lastName": "Corkery",
+              "picture": "sit aperiam placeat",
+            },
+            "subjectPersonName": "Zola Corkery",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 29893,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "sint non voluptates",
+              "id": "21",
+              "name": "Advanced asymmetric neural-net",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "17",
+            "liked": false,
+            "likesCount": 58438,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "19",
+                "title": "voluptates explicabo exercitationem",
+              },
+              "completedAt": "2015-05-07T06:42:18.291Z",
+              "id": "18",
+            },
+            "subjectEvent": "challengeJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Darwin",
+              "fullName": "Stewart Grant",
+              "id": "20",
+              "lastName": "Bosco",
+              "picture": "sed magni cupiditate",
+            },
+            "subjectPersonName": "Darwin Bosco",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 4995,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "eligendi quos esse",
+              "id": "26",
+              "name": "Operative fresh-thinking throughput",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "22",
+            "liked": true,
+            "likesCount": 53589,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "24",
+                "title": "laborum ratione a",
+              },
+              "completedAt": "2014-04-19T11:17:51.113Z",
+              "id": "23",
+            },
+            "subjectEvent": "communityJoined",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Grace",
+              "fullName": "Laisha Gerlach",
+              "id": "25",
+              "lastName": "Dibbert",
+              "picture": "cumque incidunt aut",
+            },
+            "subjectPersonName": "Grace Dibbert",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 53842,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "saepe consequatur vel",
+              "id": "31",
+              "name": "Customer-focused heuristic budgetary management",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "27",
+            "liked": false,
+            "likesCount": 65229,
+            "read": true,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "29",
+                "title": "sint autem rerum",
+              },
+              "completedAt": "2018-08-21T02:58:03.460Z",
+              "id": "28",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Gideon",
+              "fullName": "Alex McGlynn",
+              "id": "30",
+              "lastName": "Heathcote",
+              "picture": "aut ut ut",
+            },
+            "subjectPersonName": "Gideon Heathcote",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 66344,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "molestiae aut delectus",
+              "id": "35",
+              "name": "Grass-roots tertiary pricing structure",
+            },
+            "createdAt": "2020-05-10 11:00:00 PM GMT+0",
+            "id": "32",
+            "liked": false,
+            "likesCount": 62169,
+            "read": true,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "sunt placeat quidem",
+              "id": "33",
+              "mediaContentType": "est consequuntur aut",
+              "mediaExpiringUrl": "est fuga est",
+              "postType": "prayer_request",
+              "stepStatus": "INCOMPLETE",
+            },
+            "subjectEvent": "challengeCompleted",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Marcellus",
+              "fullName": "Nettie Herman",
+              "id": "34",
+              "lastName": "Hyatt",
+              "picture": "ut voluptas enim",
+            },
+            "subjectPersonName": "Marcellus Hyatt",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
 exports[`sections renders Earlier section 1`] = `
 <RCTScrollView
   ListEmptyComponent={[Function]}

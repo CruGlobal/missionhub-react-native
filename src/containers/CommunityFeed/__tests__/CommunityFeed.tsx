@@ -151,6 +151,56 @@ it('renders with pending post correctly', async () => {
   });
 });
 
+it('renders with pending post without Today items correctly', async () => {
+  const pendingPost: StoredCreatePost = {
+    content: 'text',
+    media: 'video.mov',
+    communityId,
+    postType: PostTypeEnum.story,
+    storageId: '123',
+    failed: false,
+  };
+
+  const { snapshot } = renderWithContext(
+    <CommunityFeed communityId={communityId} itemNamePressable={true} />,
+    {
+      initialState: {
+        ...initialState,
+        communityPosts: {
+          pendingPosts: {
+            [pendingPost.storageId]: pendingPost,
+          },
+        },
+      },
+      mocks: {
+        FeedItemConnection: () => ({
+          nodes: () =>
+            new MockList(10, () => ({
+              read: true,
+              createdAt: '2020-05-10 11:00:00 PM GMT+0',
+            })),
+        }),
+      },
+    },
+  );
+
+  await flushMicrotasksQueue();
+  snapshot();
+
+  expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+    skip: false,
+    variables: {
+      communityId,
+      hasUnreadComments: undefined,
+      personIds: undefined,
+    },
+  });
+  expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+    variables: {},
+    skip: true,
+  });
+});
+
 describe('sections', () => {
   it('renders New section', async () => {
     const { snapshot } = renderWithContext(
