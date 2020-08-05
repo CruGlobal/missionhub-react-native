@@ -98,6 +98,7 @@ const DatePickerIos = ({
           ]}
         >
           <DateTimePicker
+            testID="DateTimePicker"
             value={date}
             mode={mode}
             minimumDate={minimumDate ? getDate(minimumDate) : undefined}

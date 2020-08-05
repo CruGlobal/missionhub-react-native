@@ -71,6 +71,7 @@ const DatePickerAndroid = ({
       <Touchable onPress={openModal}>{children}</Touchable>
       {datePickerVisible && (
         <DateTimePicker
+          testID="DateTimePicker"
           mode={currentMode}
           value={date}
           onChange={onChange}
