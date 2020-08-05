@@ -215,7 +215,7 @@ export const useCreatePost = ({
   );
 
   const createFeedItem = (input: CreatePostInput) => {
-    const pendingPost = { ...input } as PendingCreatePost;
+    const pendingPost = input as PendingCreatePost;
 
     input.media &&
       hasVideo &&
