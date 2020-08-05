@@ -1017,4 +1017,9 @@ export default {
       buttonNegative: 'Cancel',
     },
   },
+  pendingPost: {
+    posting: 'Posting...',
+    failed: 'Failed to upload video.',
+    tryAgain: 'Try again.',
+  },
 };

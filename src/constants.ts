@@ -64,6 +64,10 @@ export const PERSON_MENU_DRAWER = 'nav/drawer/person';
 export const UPDATE_TOKEN = 'app/UPDATE_TOKEN';
 export const CLEAR_UPGRADE_TOKEN = 'app/CLEAR_UPGRADE_TOKEN';
 
+export const SAVE_PENDING_POST = 'app/SAVE_PENDING_POST';
+export const DELETE_PENDING_POST = 'app/DELETE_PENDING_POST';
+export const PENDING_POST_FAILED = 'app/PENDING_POST_FAILED';
+
 // Errors
 export const EXPIRED_ACCESS_TOKEN = 'Expired access token';
 export const INVALID_ACCESS_TOKEN = 'Invalid access token';

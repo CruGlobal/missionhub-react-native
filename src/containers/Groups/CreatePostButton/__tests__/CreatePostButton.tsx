@@ -22,9 +22,11 @@ jest.mock('../../../../selectors/people');
 
 const refreshItems = jest.fn();
 const mockCommunityId = '1';
+const onComplete = jest.fn();
 const props = {
   refreshItems,
   communityId: mockCommunityId,
+  onComplete,
 };
 const initialState = {
   auth: { person: { id: '1' } },
@@ -143,6 +145,7 @@ it('onPress navigates for PRAYER_REQUEST ', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.prayer_request,
+    onComplete,
   });
 });
 
@@ -158,6 +161,7 @@ it('onPress navigates for QUESTION ', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.question,
+    onComplete,
   });
 });
 
@@ -173,6 +177,7 @@ it('onPress navigates for STORY ', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.story,
+    onComplete,
   });
 });
 
@@ -188,6 +193,7 @@ it('onPress navigates for HELP_REQUEST ', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.help_request,
+    onComplete,
   });
 });
 
@@ -203,6 +209,7 @@ it('onPress navigates for THOUGHT ', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.thought,
+    onComplete,
   });
 });
 
@@ -223,5 +230,6 @@ it('onPress navigates for ANNOUNCEMENT ', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.announcement,
+    onComplete,
   });
 });

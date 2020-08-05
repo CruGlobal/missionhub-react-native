@@ -37,6 +37,7 @@ interface CommunityFeedItemProps {
   namePressable: boolean;
   postTypePressable?: boolean;
   onClearNotification?: (item: FeedItemFragment) => void;
+  onEditPost: () => void;
 }
 
 export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
@@ -133,6 +134,7 @@ export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
 export function useEditFeedItem(
   subject?: CommunityFeedItem_subject,
   communityId?: string,
+  onComplete?: () => void,
 ) {
   const dispatch = useDispatch();
 
@@ -141,6 +143,7 @@ export function useEditFeedItem(
       navigatePush(CREATE_POST_SCREEN, {
         post: subject,
         communityId,
+        onComplete,
       } as CreatePostScreenNavParams),
     );
   }
@@ -152,6 +155,7 @@ export const CommunityFeedItem = ({
   namePressable,
   postTypePressable = true,
   onClearNotification,
+  onEditPost,
 }: CommunityFeedItemProps) => {
   const { subject, subjectPerson, community } = feedItem;
   const { t } = useTranslation('communityFeedItems');
@@ -175,7 +179,11 @@ export const CommunityFeedItem = ({
     );
   }
   const deleteFeedItem = useDeleteFeedItem(feedItem);
-  const editFeedItem = useEditFeedItem(feedItem.subject, community?.id);
+  const editFeedItem = useEditFeedItem(
+    feedItem.subject,
+    community?.id,
+    onEditPost,
+  );
 
   const isPost = (
     subject: CommunityFeedItem_subject,

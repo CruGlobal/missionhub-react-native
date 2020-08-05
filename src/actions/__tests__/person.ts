@@ -14,13 +14,11 @@ import {
 import {
   getMe,
   getPersonDetails,
-  updateFollowupStatus,
   archiveOrgPermission,
   updatePerson,
   makeAdmin,
   removeAsAdmin,
   updateOrgPermission,
-  createContactAssignment,
   deleteContactAssignment,
   getPersonJourneyDetails,
   savePersonNote,
@@ -56,7 +54,6 @@ let store;
 let auth: AuthState;
 let organizations: OrganizationsState;
 let people: PeopleState;
-const dispatch = jest.fn(response => Promise.resolve(response));
 const expectedInclude =
   'email_addresses,phone_numbers,organizational_permissions.organization,reverse_contact_assignments,user';
 const expectedIncludeWithContactAssignmentPerson =
@@ -520,75 +517,6 @@ describe('archiveOrgPermission', () => {
       trackActionResponse,
       getCommunitiesResponse,
     ]);
-  });
-});
-
-describe('updateFollowupStatus', () => {
-  it('should send the correct API request', () => {
-    updateFollowupStatus(
-      { id: 1, type: 'person', organizational_permissions: [] },
-      2,
-      'uncontacted',
-    )(dispatch);
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.UPDATE_PERSON,
-      {
-        personId: 1,
-      },
-      {
-        data: {
-          type: 'person',
-        },
-        included: [
-          {
-            id: 2,
-            type: 'organizational_permission',
-            attributes: {
-              followup_status: 'uncontacted',
-            },
-          },
-        ],
-      },
-    );
-    expect(dispatch).toHaveBeenCalled();
-  });
-
-  it('should track action', async () => {
-    const trackActionResult = { type: 'track action' };
-    (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
-
-    await updateFollowupStatus(
-      { id: 1, type: 'person', organizational_permissions: [] },
-      2,
-      'uncontacted',
-    )(dispatch);
-
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.STATUS_CHANGED);
-  });
-});
-
-describe('createContactAssignment', () => {
-  it('should send the correct API request', async () => {
-    // @ts-ignore
-    callApi.mockReturnValue({ type: REQUESTS.UPDATE_PERSON });
-    await createContactAssignment(1, 2, 3)(dispatch);
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.UPDATE_PERSON,
-      { personId: 3 },
-      {
-        included: [
-          {
-            type: 'contact_assignment',
-            attributes: {
-              assigned_to_id: 2,
-              organization_id: 1,
-            },
-          },
-        ],
-      },
-    );
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.ASSIGNED_TO_ME);
-    expect(dispatch).toHaveBeenCalledTimes(3);
   });
 });
 

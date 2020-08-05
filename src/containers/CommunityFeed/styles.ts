@@ -15,10 +15,10 @@ export default StyleSheet.create({
     flex: 1,
     alignContent: 'center',
     paddingVertical: 10,
-    paddingLeft: 15,
     backgroundColor: theme.extraLightGrey,
   },
   title: {
+    marginLeft: 15,
     fontSize: 24,
     fontWeight: '200',
     fontFamily: 'SourceSansPro-Light',

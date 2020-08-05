@@ -19,11 +19,13 @@ jest.mock('../../../../selectors/people');
 
 const closeModal = jest.fn();
 const mockCommunityId = '1';
+const onComplete = jest.fn();
 
 const props = {
   communityId: mockCommunityId,
   closeModal,
   adminOrOwner: false,
+  onComplete,
 };
 const initialState = {
   auth: { person: { id: '1' } },
@@ -89,6 +91,7 @@ it('fires onPress and navigates | member', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.story,
+    onComplete,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     permissionType: { communityId: mockCommunityId },
@@ -111,6 +114,7 @@ it('fires onPress and navigates | owner', async () => {
   expect(navigatePush).toHaveBeenLastCalledWith(CREATE_POST_SCREEN, {
     communityId: mockCommunityId,
     postType: PostTypeEnum.announcement,
+    onComplete,
   });
   expect(useAnalytics).toHaveBeenLastCalledWith(['post', 'choose type'], {
     permissionType: { communityId: mockCommunityId },
