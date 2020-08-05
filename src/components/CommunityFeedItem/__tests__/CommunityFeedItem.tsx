@@ -126,8 +126,8 @@ const newMemberItem = mockFragment<CommunityFeedItemFragment>(
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
-let onClearNotification = jest.fn();
-let onEditPost = jest.fn();
+const onClearNotification = jest.fn();
+const onEditPost = jest.fn();
 
 const trackActionResult = { type: 'tracked plain action' };
 const navigatePushResult = { type: 'navigate push' };
@@ -135,8 +135,6 @@ const navigatePushResult = { type: 'navigate push' };
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
-  onClearNotification = jest.fn();
-  onEditPost = jest.fn();
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
 });

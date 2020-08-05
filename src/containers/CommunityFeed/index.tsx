@@ -18,6 +18,10 @@ import { PostTypeNullState } from '../../components/PostTypeLabel';
 import { PendingFeedItem } from '../../components/PendingFeedItem';
 import { getStatusBarHeight } from '../../utils/statusbar';
 import { RootState } from '../../reducers';
+import {
+  StoredCreatePost,
+  StoredUpdatePost,
+} from '../../reducers/communityPosts';
 
 import { GET_COMMUNITY_FEED, GET_GLOBAL_COMMUNITY_FEED } from './queries';
 import {
@@ -51,7 +55,10 @@ interface CommunityFeedSection {
   data: FeedItemFragment[];
 }
 
-const sortFeedItems = (items: GetCommunityFeed_community_feedItems_nodes[]) => {
+const sortFeedItems = (
+  items: GetCommunityFeed_community_feedItems_nodes[],
+  pendingPosts: (StoredCreatePost | StoredUpdatePost)[],
+) => {
   const dateSections: CommunityFeedSection[] = [
     { id: 0, title: 'dates.new', data: [] },
     { id: 1, title: 'dates.today', data: [] },
@@ -70,9 +77,13 @@ const sortFeedItems = (items: GetCommunityFeed_community_feedItems_nodes[]) => {
     }
   });
   // Filter out any sections with no data
-  const filteredSections = dateSections.filter(
-    section => section.data.length > 0,
-  );
+  const filteredSections = dateSections.filter(section => {
+    if (section.title === 'dates.today' && pendingPosts.length > 0) {
+      return true;
+    }
+
+    return section.data.length > 0;
+  });
 
   return filteredSections;
 };
@@ -151,7 +162,7 @@ export const CommunityFeed = ({
     },
   );
 
-  const items = sortFeedItems(isGlobal ? globalNodes : nodes);
+  const items = sortFeedItems(isGlobal ? globalNodes : nodes, pendingPosts);
 
   const handleRefreshing = () => {
     if (loading || globalLoading) {
@@ -228,7 +239,7 @@ export const CommunityFeed = ({
 
   const renderSectionHeader = useCallback(
     ({
-      section: { id, title },
+      section: { title },
     }: {
       section: SectionListData<CommunityFeedSection>;
     }) => (
@@ -243,7 +254,7 @@ export const CommunityFeed = ({
         ]}
       >
         <Text style={styles.title}>{t(`${title}`)}</Text>
-        {id === 1 && pendingPosts.length > 0 ? (
+        {title === 'dates.today' && pendingPosts.length > 0 ? (
           <PendingFeedItem
             pendingItemId={pendingPosts[0].storageId}
             onComplete={handleRefreshing}

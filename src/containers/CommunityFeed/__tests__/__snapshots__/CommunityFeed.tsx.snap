@@ -12069,6 +12069,7 @@ exports[`renders with pending post correctly 1`] = `
           Today
         </Text>
         <PendingFeedItem
+          onComplete={[Function]}
           pendingItemId="123"
         />
       </View>
