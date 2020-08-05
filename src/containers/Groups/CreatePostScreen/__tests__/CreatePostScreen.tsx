@@ -451,10 +451,10 @@ describe('Creating a post', () => {
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
-    await fireEvent.press(getByTestId('VideoButton'));
+    fireEvent.press(getByTestId('VideoButton'));
     await flushMicrotasksQueue();
 
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
     await flushMicrotasksQueue();
 
     expect(navigateBack).toHaveBeenCalledWith();
@@ -600,10 +600,10 @@ describe('Updating a post', () => {
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
-    await fireEvent.press(getByTestId('VideoButton'));
+    fireEvent.press(getByTestId('VideoButton'));
     await flushMicrotasksQueue();
 
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
     await flushMicrotasksQueue();
 
     expect(navigateBack).toHaveBeenCalledWith();
