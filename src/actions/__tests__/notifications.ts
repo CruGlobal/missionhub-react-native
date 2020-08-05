@@ -544,15 +544,15 @@ describe('askNotificationPermissions', () => {
         ]);
       });
 
-      it('on Android, should do nothing', async () => {
+      it('on Android, should navigate', async () => {
         ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
 
-        await testNotification(
-          { ...baseNotification, data: { screen: 'home' } },
-          false,
-        );
+        await testNotification({ ...baseNotification, screen: 'home' }, false);
 
-        expect(store.getActions()).toEqual([]);
+        expect(store.getActions()).toEqual([
+          { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
+          navigateToMainTabsResult,
+        ]);
       });
     });
 

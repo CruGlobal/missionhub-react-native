@@ -79,9 +79,13 @@ export type PushNotificationPayloadIos = RNPushNotificationPayload & {
   };
 };
 
-export type PushNotificationPayloadAndroid = RNPushNotificationPayload & {
-  data: PushNotificationPayloadData;
-};
+export type PushNotificationPayloadAndroid = RNPushNotificationPayload &
+  (
+    | {
+        data: PushNotificationPayloadData;
+      }
+    | PushNotificationPayloadData
+  );
 
 export type PushNotificationPayloadData =
   | { screen: 'home' }
@@ -358,10 +362,6 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
 export function parseNotificationData(
   notification: PushNotificationPayloadIosOrAndroid,
 ): ParsedNotificationData {
-  // If there is no userInteraction, it means the notification was received while the app was killed/in the background.
-  if (isAndroid && !notification.userInteraction) {
-    return notification as any;
-  }
   const isIosPayload = (
     notification: PushNotificationPayloadIosOrAndroid,
   ): notification is PushNotificationPayloadIos =>
@@ -369,7 +369,11 @@ export function parseNotificationData(
 
   const payloadData = isIosPayload(notification)
     ? notification.data.link.data
-    : notification.data;
+    : // If a notification is pressed while the app is killed/in the background, the payload will not include the data key
+    // The values can be accessed directly from the notification
+    notification.data?.screen && notification.userInteraction
+    ? notification.data
+    : notification;
 
   switch (payloadData.screen) {
     case 'celebrate':
