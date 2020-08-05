@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import theme from '../../theme';
+
 export default StyleSheet.create({
   container: {
     flex: 1,
@@ -16,8 +18,17 @@ export default StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
   },
+  retryText: {
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: 'bold',
+    color: theme.secondaryColor,
+  },
   endWrapper: {
     width: 24,
     height: 24,
+  },
+  closeIcon: {
+    color: theme.lightGrey,
   },
 });

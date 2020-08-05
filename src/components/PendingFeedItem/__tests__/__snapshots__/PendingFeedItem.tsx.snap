@@ -101,7 +101,12 @@ exports[`PendingFeedItem renders failed post 1`] = `
               Object {
                 "fontFamily": "SourceSansPro-Regular",
               },
-              Object {},
+              Object {
+                "color": "#52C5DC",
+                "fontSize": 16,
+                "fontWeight": "bold",
+                "lineHeight": 24,
+              },
             ]
           }
         >
@@ -128,7 +133,9 @@ exports[`PendingFeedItem renders failed post 1`] = `
     }
     testID="CancelButton"
   >
-    <SvgMock />
+    <SvgMock
+      color="#B4B6BA"
+    />
   </View>
 </View>
 `;

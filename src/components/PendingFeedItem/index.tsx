@@ -18,6 +18,7 @@ import {
   StoredUpdatePost,
 } from '../../reducers/communityPosts';
 import { PostTypeEnum } from '../../../__generated__/globalTypes';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -80,7 +81,7 @@ export const PendingFeedItem = ({
         <View>
           <Text style={styles.text}>{t('failed')}</Text>
           <Touchable testID="RetryButton" onPress={handleRetry}>
-            <Text>{t('tryAgain')}</Text>
+            <Text style={styles.retryText}>{t('tryAgain')}</Text>
           </Touchable>
         </View>
       ) : (
@@ -92,7 +93,7 @@ export const PendingFeedItem = ({
   const renderEnd = () =>
     failed ? (
       <Touchable testID="CancelButton" onPress={handleCancel}>
-        <CloseIcon />
+        <CloseIcon color={theme.lightGrey} />
       </Touchable>
     ) : (
       <ActivityIndicator size="small" color="rgba(0, 0, 0, 1)" />
