@@ -39,6 +39,7 @@ const DatePickerIos = ({
     return Animated.timing(animatedHeight.current, {
       toValue: visible ? 0 : height,
       duration: 300,
+      useNativeDriver: true,
     }).start();
   };
 
