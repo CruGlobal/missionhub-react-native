@@ -4,6 +4,11 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
+// https://github.com/facebook/react-native/issues/16376#issuecomment-521723794
+#if RCT_DEV && __has_include(<React/RCTDevLoadingView.h>)
+#import <React/RCTDevLoadingView.h>
+#endif
+
 #if FB_SONARKIT_ENABLED
 #import <FlipperKit/FlipperClient.h>
 #import <FlipperKitLayoutPlugin/FlipperKitLayoutPlugin.h>
@@ -56,6 +61,12 @@ const NSString *MH_ADOBE_ANAYLYTICS_FILENAME_KEY = @"ADB Mobile Config";
     InitializeFlipper(application);
   #endif
   RCTBridge *bridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+
+  // https://github.com/facebook/react-native/issues/16376#issuecomment-521723794
+  #if RCT_DEV && __has_include(<React/RCTDevLoadingView.h>)
+  [bridge moduleForClass:[RCTDevLoadingView class]];
+  #endif
+
   RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:bridge
                                                    moduleName:@"MissionHub"
                                             initialProperties:nil];

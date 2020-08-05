@@ -25,6 +25,7 @@ jest.mock('../../../actions/people', () => ({
 }));
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/common');
+jest.mock('react-native/Libraries/LogBox/LogBox');
 
 const orgs = [
   {

@@ -1,17 +1,10 @@
 import 'core-js';
-import { YellowBox, AppRegistry } from 'react-native';
+import { LogBox, AppRegistry } from 'react-native';
 
 import App from './src/App';
 
-// See https://github.com/react-navigation/react-navigation/issues/3956
-YellowBox.ignoreWarnings([
-  'Warning: isMounted(...) is deprecated',
-  'Module RCTImageLoader',
-  'Class RCTCxxModule',
-  'Remote debugger',
-  'Warning: componentWillUpdate is deprecated',
-  'Warning: componentWillReceiveProps is deprecated',
-  'VirtualizedLists should never',
+LogBox.ignoreLogs([
+  'currentlyFocusedField is deprecated', // node_modules/@react-navigation/native/lib/module/createKeyboardAwareNavigator.js#44 is throwing this. Needs a react-navigation upgrade of some sort
 ]);
 
 AppRegistry.registerComponent('MissionHub', () => App);
