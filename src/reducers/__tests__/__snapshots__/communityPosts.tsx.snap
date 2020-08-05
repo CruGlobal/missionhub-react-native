@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DELETE_PENDING_POST deletes pending create post 1`] = `
+Object {
+  "nextId": 2,
+  "pendingPosts": Object {
+    "1": Object {
+      "communityId": "321",
+      "content": "update post",
+      "failed": false,
+      "id": "4",
+      "media": "image.jpg",
+      "storageId": "1",
+    },
+  },
+}
+`;
+
+exports[`DELETE_PENDING_POST deletes pending update post 1`] = `
+Object {
+  "nextId": 2,
+  "pendingPosts": Object {
+    "0": Object {
+      "communityId": "123",
+      "content": "create post",
+      "failed": false,
+      "media": "video.mov",
+      "postType": "story",
+      "storageId": "0",
+    },
+  },
+}
+`;
+
+exports[`LOGOUT logs out 1`] = `
+Object {
+  "nextId": 0,
+  "pendingPosts": Object {},
+}
+`;
+
+exports[`PENDING_POST_FAILED marks pending create post as failed 1`] = `
+Object {
+  "nextId": 2,
+  "pendingPosts": Object {
+    "0": Object {
+      "communityId": "123",
+      "content": "create post",
+      "failed": true,
+      "media": "video.mov",
+      "postType": "story",
+      "storageId": "0",
+    },
+    "1": Object {
+      "communityId": "321",
+      "content": "update post",
+      "failed": false,
+      "id": "4",
+      "media": "image.jpg",
+      "storageId": "1",
+    },
+  },
+}
+`;
+
+exports[`PENDING_POST_FAILED marks pending update post as failed 1`] = `
+Object {
+  "nextId": 2,
+  "pendingPosts": Object {
+    "0": Object {
+      "communityId": "123",
+      "content": "create post",
+      "failed": false,
+      "media": "video.mov",
+      "postType": "story",
+      "storageId": "0",
+    },
+    "1": Object {
+      "communityId": "321",
+      "content": "update post",
+      "failed": true,
+      "id": "4",
+      "media": "image.jpg",
+      "storageId": "1",
+    },
+  },
+}
+`;
+
+exports[`SAVE_PENDING_POST saves pending create post 1`] = `
+Object {
+  "nextId": 3,
+  "pendingPosts": Object {
+    "0": Object {
+      "communityId": "123",
+      "content": "create post",
+      "failed": false,
+      "media": "video.mov",
+      "postType": "story",
+      "storageId": "0",
+    },
+    "1": Object {
+      "communityId": "321",
+      "content": "update post",
+      "failed": false,
+      "id": "4",
+      "media": "image.jpg",
+      "storageId": "1",
+    },
+    "2": Object {
+      "communityId": "234",
+      "content": "new",
+      "failed": false,
+      "media": "newVideo.mov",
+      "postType": "question",
+      "storageId": "2",
+    },
+  },
+}
+`;
+
+exports[`SAVE_PENDING_POST saves pending update post 1`] = `
+Object {
+  "nextId": 3,
+  "pendingPosts": Object {
+    "0": Object {
+      "communityId": "123",
+      "content": "create post",
+      "failed": false,
+      "media": "video.mov",
+      "postType": "story",
+      "storageId": "0",
+    },
+    "1": Object {
+      "communityId": "321",
+      "content": "update post",
+      "failed": false,
+      "id": "4",
+      "media": "image.jpg",
+      "storageId": "1",
+    },
+    "2": Object {
+      "communityId": "234",
+      "content": "new",
+      "failed": false,
+      "id": "5",
+      "media": "newVideo.mov",
+      "storageId": "2",
+    },
+  },
+}
+`;

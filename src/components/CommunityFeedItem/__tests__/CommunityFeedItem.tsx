@@ -126,7 +126,8 @@ const newMemberItem = mockFragment<CommunityFeedItemFragment>(
 
 MockDate.set('2019-08-21 12:00:00', 300);
 
-let onClearNotification = jest.fn();
+const onClearNotification = jest.fn();
+const onEditPost = jest.fn();
 
 const trackActionResult = { type: 'tracked plain action' };
 const navigatePushResult = { type: 'navigate push' };
@@ -134,7 +135,6 @@ const navigatePushResult = { type: 'navigate push' };
 const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
-  onClearNotification = jest.fn();
   (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
   (navigatePush as jest.Mock).mockReturnValue(navigatePushResult);
 });
@@ -145,6 +145,7 @@ describe('global community', () => {
       <CommunityFeedItem
         feedItem={{ ...stepItem, community: null }}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       {
         initialState,
@@ -158,6 +159,7 @@ describe('global community', () => {
         feedItem={{ ...stepItem, community: null }}
         namePressable={false}
         onClearNotification={onClearNotification}
+        onEditPost={onEditPost}
       />,
       {
         initialState,
@@ -170,6 +172,7 @@ describe('global community', () => {
       <CommunityFeedItem
         feedItem={{ ...storyPostItem, community: null }}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       {
         initialState,
@@ -181,7 +184,11 @@ describe('global community', () => {
 describe('Community', () => {
   it('renders post correctly without add to steps button ', async () => {
     const { snapshot } = renderWithContext(
-      <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
+      <CommunityFeedItem
+        feedItem={storyPostItem}
+        namePressable={false}
+        onEditPost={onEditPost}
+      />,
       {
         initialState,
       },
@@ -192,7 +199,11 @@ describe('Community', () => {
 
   it('renders post created by me correctly without add to steps button', async () => {
     const { snapshot } = renderWithContext(
-      <CommunityFeedItem feedItem={myPrayerPostItem} namePressable={true} />,
+      <CommunityFeedItem
+        feedItem={myPrayerPostItem}
+        namePressable={true}
+        onEditPost={onEditPost}
+      />,
       {
         initialState,
       },
@@ -220,6 +231,7 @@ describe('Community', () => {
           },
         )}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       {
         initialState,
@@ -240,6 +252,7 @@ describe('Community', () => {
           },
         }}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       { initialState },
     );
@@ -249,7 +262,11 @@ describe('Community', () => {
 
   it('renders step correctly', async () => {
     const { snapshot } = renderWithContext(
-      <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
+      <CommunityFeedItem
+        feedItem={stepItem}
+        namePressable={false}
+        onEditPost={onEditPost}
+      />,
       {
         initialState,
       },
@@ -260,7 +277,11 @@ describe('Community', () => {
 
   it('renders challenge correctly', async () => {
     const { snapshot } = renderWithContext(
-      <CommunityFeedItem feedItem={challengeItem} namePressable={false} />,
+      <CommunityFeedItem
+        feedItem={challengeItem}
+        namePressable={false}
+        onEditPost={onEditPost}
+      />,
       {
         initialState,
       },
@@ -271,7 +292,11 @@ describe('Community', () => {
 
   it('renders new member item correctly', async () => {
     const { snapshot } = renderWithContext(
-      <CommunityFeedItem feedItem={newMemberItem} namePressable={false} />,
+      <CommunityFeedItem
+        feedItem={newMemberItem}
+        namePressable={false}
+        onEditPost={onEditPost}
+      />,
       {
         initialState,
       },
@@ -286,6 +311,7 @@ describe('Community', () => {
         feedItem={storyPostItem}
         onClearNotification={onClearNotification}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       {
         initialState,
@@ -298,7 +324,11 @@ describe('Community', () => {
 
 it('renders with name pressable correctly', async () => {
   const { snapshot } = renderWithContext(
-    <CommunityFeedItem feedItem={storyPostItem} namePressable={true} />,
+    <CommunityFeedItem
+      feedItem={storyPostItem}
+      namePressable={true}
+      onEditPost={onEditPost}
+    />,
     {
       initialState,
     },
@@ -313,6 +343,7 @@ describe('press card', () => {
       <CommunityFeedItem
         feedItem={{ ...stepItem, community: null }}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       { initialState },
     );
@@ -322,7 +353,11 @@ describe('press card', () => {
 
   it('navigates to celebrate detail screen', () => {
     const { getByTestId } = renderWithContext(
-      <CommunityFeedItem feedItem={stepItem} namePressable={false} />,
+      <CommunityFeedItem
+        feedItem={stepItem}
+        namePressable={false}
+        onEditPost={onEditPost}
+      />,
       { initialState },
     );
 
@@ -348,7 +383,11 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem feedItem={myPost} namePressable={false} />,
+        <CommunityFeedItem
+          feedItem={myPost}
+          namePressable={false}
+          onEditPost={onEditPost}
+        />,
         { initialState },
       );
 
@@ -360,6 +399,7 @@ describe('long-press card', () => {
       expect(navigatePush).toHaveBeenCalledWith(CREATE_POST_SCREEN, {
         post: storyPostItem.subject,
         communityId,
+        onComplete: onEditPost,
       });
       expect(Alert.alert).not.toHaveBeenCalled();
     });
@@ -369,7 +409,11 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem feedItem={myPost} namePressable={false} />,
+        <CommunityFeedItem
+          feedItem={myPost}
+          namePressable={false}
+          onEditPost={onEditPost}
+        />,
         { initialState },
       );
 
@@ -409,7 +453,11 @@ describe('long-press card', () => {
       Alert.alert = jest.fn();
 
       const { getByTestId } = renderWithContext(
-        <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
+        <CommunityFeedItem
+          feedItem={storyPostItem}
+          namePressable={false}
+          onEditPost={onEditPost}
+        />,
         { initialState },
       );
 
@@ -450,6 +498,7 @@ describe('clear notification button', () => {
         feedItem={storyPostItem}
         onClearNotification={onClearNotification}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       { initialState },
     );
@@ -481,6 +530,7 @@ describe('add to steps button', () => {
         )}
         onClearNotification={onClearNotification}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       { initialState },
     );
@@ -512,6 +562,7 @@ describe('add to steps button', () => {
         )}
         onClearNotification={onClearNotification}
         namePressable={false}
+        onEditPost={onEditPost}
       />,
       { initialState },
     );
@@ -528,7 +579,11 @@ describe('add to steps button', () => {
 describe('navigates to post type screen', () => {
   it('navigates', () => {
     const { getByTestId } = renderWithContext(
-      <CommunityFeedItem feedItem={storyPostItem} namePressable={false} />,
+      <CommunityFeedItem
+        feedItem={storyPostItem}
+        namePressable={false}
+        onEditPost={onEditPost}
+      />,
       { initialState },
     );
     fireEvent.press(getByTestId('STORYButton'));

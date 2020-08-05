@@ -27,12 +27,14 @@ interface CreatePostModalProps {
   closeModal: () => void;
   communityId: string;
   adminOrOwner: boolean;
+  onComplete: () => void;
 }
 
 const CreatePostModal = ({
   closeModal,
   communityId,
   adminOrOwner,
+  onComplete,
 }: CreatePostModalProps) => {
   const {
     modalStyle,
@@ -60,6 +62,7 @@ const CreatePostModal = ({
       navigatePush(CREATE_POST_SCREEN, {
         communityId,
         postType,
+        onComplete,
       }),
     );
   };
