@@ -214,7 +214,7 @@ exports[`handleChangeDate date not passed in sets new state and renders 1`] = `
       </Text>
       <DatePicker
         date="2020-03-10"
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -833,7 +833,7 @@ exports[`handleChangeDate date passed in sets new state and renders 1`] = `
       </Text>
       <DatePicker
         date="2020-03-10"
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -1450,7 +1450,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder not passed in sets new
       </Text>
       <DatePicker
         date=""
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -2069,7 +2069,7 @@ exports[`handleChangeDate handleRecurrenceChange reminder passed in sets new sta
       </Text>
       <DatePicker
         date="2018-09-01"
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -2686,7 +2686,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       </Text>
       <DatePicker
         date="2020-03-10"
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -3303,7 +3303,7 @@ exports[`handleChangeDate handleSetReminder reminder not passed in calls createS
       </Text>
       <DatePicker
         date="2020-03-10"
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -3922,7 +3922,7 @@ exports[`handleChangeDate handleSetReminder reminder passed in calls createStepR
       </Text>
       <DatePicker
         date="2018-09-01"
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -4539,7 +4539,7 @@ exports[`render no reminder in props renders correctly 1`] = `
       </Text>
       <DatePicker
         date=""
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"
@@ -5160,7 +5160,7 @@ exports[`render reminder in props renders correctly 1`] = `
       </Text>
       <DatePicker
         date="2018-09-01"
-        minDate={2018-09-01T00:00:00.000Z}
+        minimumDate={2018-09-01T00:00:00.000Z}
         mode="datetime"
         onDateChange={[Function]}
         testID="datePicker"

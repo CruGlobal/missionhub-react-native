@@ -18,6 +18,7 @@ import { ReminderButton as Reminder } from '../__generated__/ReminderButton';
 import { ReminderTypeEnum } from '../../../../__generated__/globalTypes';
 import { REMINDER_BUTTON_FRAGMENT } from '../queries';
 import ReminderButton from '..';
+import * as common from '../../../utils/common';
 
 jest.mock('../../../actions/notifications');
 jest.mock('../../../actions/navigation');
@@ -68,13 +69,16 @@ describe('reminder not passed in', () => {
 
 describe('handlePressAndroid', () => {
   it('requests notifications and navigates to step reminder screen', () => {
+    ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
     const { getByTestId } = renderWithContext(
       <ReminderButton {...props} reminder={reminder}>
         <View />
       </ReminderButton>,
       { initialState: {} },
     );
-    fireEvent(getByTestId('ReminderDatePicker'), 'onPressAndroid');
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPress', {
+      showPicker: jest.fn(),
+    });
 
     expect(requestNativePermissions).toHaveBeenCalled();
     expect(navigatePush).toHaveBeenCalledWith(STEP_REMINDER_SCREEN, {
@@ -86,6 +90,12 @@ describe('handlePressAndroid', () => {
 
 describe('handlePressIOS', () => {
   const showPicker = jest.fn();
+
+  beforeEach(() => {
+    ((common as unknown) as {
+      isAndroid: boolean;
+    }).isAndroid = false;
+  });
 
   it('requests notifications and shows picker', () => {
     (checkNotifications as jest.Mock).mockImplementation(
@@ -111,7 +121,7 @@ describe('handlePressIOS', () => {
       { initialState: {} },
     );
 
-    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPress', {
       showPicker,
     });
 
@@ -147,7 +157,7 @@ describe('handlePressIOS', () => {
       { initialState: {} },
     );
 
-    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPress', {
       showPicker,
     });
 
@@ -183,7 +193,7 @@ describe('handlePressIOS', () => {
       { initialState: {} },
     );
 
-    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPress', {
       showPicker,
     });
 
@@ -219,7 +229,7 @@ describe('handlePressIOS', () => {
       { initialState: {} },
     );
 
-    fireEvent(getByTestId('ReminderDatePicker'), 'onPressIOS', {
+    fireEvent(getByTestId('ReminderDatePicker'), 'onPress', {
       showPicker,
     });
 

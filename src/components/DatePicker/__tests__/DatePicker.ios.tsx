@@ -1,246 +1,134 @@
 import React from 'react';
 import { Animated, Text } from 'react-native';
 import MockDate from 'mockdate';
+import { fireEvent } from 'react-native-testing-library';
+import i18n from 'i18next';
 
-import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
+import { renderWithContext } from '../../../../testUtils';
 import DatePicker from '../index.ios';
+
+jest.mock('lodash.debounce', () => jest.fn(fn => fn));
 
 const mockDate = '2018-09-12 12:00:00 PM GMT+0';
 MockDate.set(mockDate);
 const today = new Date();
+const newDate = new Date('2010-01-01');
 
 // @ts-ignore
 Animated.timing = jest.fn(() => ({
   start: jest.fn(a => a && a()),
 }));
 
+const onDateChange = jest.fn();
+
 it('renders default date picker', () => {
-  // @ts-ignore
-  testSnapshotShallow(<DatePicker date={today} />);
+  renderWithContext(
+    <DatePicker date={today} onDateChange={onDateChange} />,
+  ).snapshot();
 });
 
 it('renders date only date picker', () => {
-  // @ts-ignore
-  testSnapshotShallow(<DatePicker date={today} mode="date" />);
+  renderWithContext(
+    <DatePicker date={today} mode="date" onDateChange={onDateChange} />,
+  ).snapshot();
 });
 
 it('renders datetime only date picker', () => {
-  // @ts-ignore
-  testSnapshotShallow(<DatePicker date={today} mode="datetime" />);
+  renderWithContext(
+    <DatePicker date={today} mode="datetime" onDateChange={onDateChange} />,
+  ).snapshot();
 });
 
 it('renders time only date picker', () => {
-  // @ts-ignore
-  testSnapshotShallow(<DatePicker date={today} mode="time" />);
+  renderWithContext(
+    <DatePicker date={today} mode="time" onDateChange={onDateChange} />,
+  ).snapshot();
 });
 
 it('renders date only date picker with min date', () => {
-  testSnapshotShallow(
-    // @ts-ignore
-    <DatePicker date={today} mode="date" minDate={new Date()} />,
-  );
-});
-
-it('renders date only date picker with max date', () => {
-  testSnapshotShallow(
-    // @ts-ignore
-    <DatePicker date={today} mode="date" maxDate={new Date()} />,
-  );
+  renderWithContext(
+    <DatePicker
+      date={today}
+      mode="date"
+      minimumDate={new Date()}
+      onDateChange={onDateChange}
+    />,
+  ).snapshot();
 });
 
 it('renders with child component', () => {
-  testSnapshotShallow(
-    // @ts-ignore
-    <DatePicker date={today}>
+  renderWithContext(
+    <DatePicker date={today} onDateChange={onDateChange}>
       <Text>Child Component</Text>
     </DatePicker>,
-  );
+  ).snapshot();
 });
 
 it('renders with additional modal component', () => {
-  testSnapshotShallow(
-    // @ts-ignore
-    <DatePicker date={today} iOSModalContent={<Text>Modal Component</Text>} />,
-  );
-});
-
-it('renders date with custom title', () => {
-  // @ts-ignore
-  testSnapshotShallow(<DatePicker date={today} title={'Title'} />);
+  renderWithContext(
+    <DatePicker
+      date={today}
+      iOSModalContent={<Text>Modal Component</Text>}
+      onDateChange={onDateChange}
+    />,
+  ).snapshot();
 });
 
 describe('DatePicker methods', () => {
-  // @ts-ignore
-  let component;
-  // @ts-ignore
-  let instance;
-  const mockChange = jest.fn();
-  const mockCloseModal = jest.fn();
-  const date = new Date();
-
-  beforeEach(() => {
-    component = renderShallow(
-      <DatePicker
-        // @ts-ignore
-        date={date}
-        onDateChange={mockChange}
-        onCloseModal={mockCloseModal}
-      />,
+  it('should open modal', () => {
+    const { getByText, recordSnapshot, diffSnapshot } = renderWithContext(
+      <DatePicker date={today} onDateChange={onDateChange}>
+        <Text>Button Text</Text>
+      </DatePicker>,
     );
-    instance = component.instance();
+
+    recordSnapshot();
+    fireEvent.press(getByText('Button Text'));
+    diffSnapshot();
   });
 
-  it('starts with modal not visible', () => {
-    // @ts-ignore
-    expect(component.childAt(1).props().visible).toEqual(false);
-    // @ts-ignore
-    expect(instance.state.modalVisible).toEqual(false);
+  it('date change pressed', () => {
+    const { getByText, getByTestId } = renderWithContext(
+      <DatePicker date={today} onDateChange={onDateChange}>
+        <Text>Button Text</Text>
+      </DatePicker>,
+    );
+
+    fireEvent.press(getByText('Button Text'));
+    fireEvent(getByTestId('DateTimePicker'), 'onChange', undefined, newDate);
+    fireEvent.press(getByText(i18n.t('datePicker:done')));
+
+    expect(onDateChange).toHaveBeenCalledWith(newDate);
   });
 
-  describe('touchable pressed', () => {
-    beforeEach(() => {
-      // @ts-ignore
-      component
-        .childAt(0)
-        .props()
-        .onPress();
-      // @ts-ignore
-      component.update();
-    });
+  it('cancel pressed', () => {
+    const { getByText, getByTestId } = renderWithContext(
+      <DatePicker date={today} onDateChange={onDateChange}>
+        <Text>Button Text</Text>
+      </DatePicker>,
+    );
 
-    it('modal visible', () => {
-      // @ts-ignore
-      expect(component.childAt(1).props().visible).toEqual(true);
-      // @ts-ignore
-      expect(instance.state.modalVisible).toEqual(true);
-    });
+    fireEvent.press(getByText('Button Text'));
+    fireEvent(getByTestId('DateTimePicker'), 'onChange', undefined, newDate);
+    fireEvent.press(getByText(i18n.t('datePicker:cancel')));
 
-    it('receive new date prop', () => {
-      const newDate = new Date('2018-09-30');
-      // @ts-ignore
-      instance.UNSAFE_componentWillReceiveProps({ date: newDate });
-
-      // @ts-ignore
-      expect(instance.state.date).toEqual(newDate);
-    });
-
-    it('date change pressed', () => {
-      jest.useFakeTimers();
-
-      const newDate = new Date('2019-09-01');
-      // @ts-ignore
-      component
-        .childAt(1)
-        .childAt(1)
-        .childAt(0)
-        .props()
-        .onDateChange(newDate);
-
-      jest.runAllTimers();
-
-      // @ts-ignore
-      expect(instance.state.date).toEqual(newDate);
-    });
-
-    it('confirm pressed', () => {
-      // @ts-ignore
-      component
-        .childAt(1)
-        .childAt(1)
-        .childAt(1)
-        .childAt(2)
-        .props()
-        .onPress();
-      // @ts-ignore
-      component.update();
-
-      expect(mockChange).toHaveBeenCalledWith(date);
-      // @ts-ignore
-      expect(component.childAt(1).props().visible).toEqual(false);
-      // @ts-ignore
-      expect(instance.state.modalVisible).toEqual(false);
-      expect(mockCloseModal).toHaveBeenCalled();
-    });
-
-    it('cancel pressed', () => {
-      // @ts-ignore
-      component
-        .childAt(1)
-        .childAt(1)
-        .childAt(1)
-        .childAt(0)
-        .props()
-        .onPress();
-      // @ts-ignore
-      component.update();
-
-      // @ts-ignore
-      expect(component.childAt(1).props().visible).toEqual(false);
-      // @ts-ignore
-      expect(instance.state.modalVisible).toEqual(false);
-      expect(mockCloseModal).toHaveBeenCalled();
-    });
-
-    it('mask pressed cancels modal', () => {
-      // @ts-ignore
-      component
-        .childAt(1)
-        .childAt(0)
-        .props()
-        .onPress();
-      // @ts-ignore
-      component.update();
-
-      // @ts-ignore
-      expect(component.childAt(1).props().visible).toEqual(false);
-      // @ts-ignore
-      expect(instance.state.modalVisible).toEqual(false);
-      expect(mockCloseModal).toHaveBeenCalled();
-    });
-
-    it('modal request close', () => {
-      // @ts-ignore
-      component
-        .childAt(1)
-        .props()
-        .onRequestClose();
-      // @ts-ignore
-      component.update();
-
-      // @ts-ignore
-      expect(component.childAt(1).props().visible).toEqual(false);
-      // @ts-ignore
-      expect(instance.state.modalVisible).toEqual(false);
-    });
+    expect(onDateChange).not.toHaveBeenCalled();
   });
+});
 
-  describe('custom action on press', () => {
-    const onPressIOS = jest.fn();
+describe('custom action on press', () => {
+  it('calls custom action and passes in showPicker', () => {
+    const onPress = jest.fn();
+    const { getByText } = renderWithContext(
+      <DatePicker date={today} onPress={onPress} onDateChange={onDateChange}>
+        <Text>Button Text</Text>
+      </DatePicker>,
+    );
 
-    beforeEach(async () => {
-      component = renderShallow(
-        <DatePicker
-          // @ts-ignore
-          date={date}
-          onPressIOS={onPressIOS}
-          onDateChange={mockChange}
-          onCloseModal={mockCloseModal}
-        />,
-      );
+    fireEvent.press(getByText('Button Text'));
 
-      instance = component.instance();
-
-      await component
-        .childAt(0)
-        .props()
-        .onPress();
-    });
-
-    it('calls custom action and passes in showPicker', () => {
-      expect(onPressIOS).toHaveBeenCalledWith({
-        // @ts-ignore
-        showPicker: instance.showPicker,
-      });
+    expect(onPress).toHaveBeenCalledWith({
+      showPicker: expect.any(Function),
     });
   });
 });
