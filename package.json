@@ -127,7 +127,7 @@
     "@types/lodash.debounce": "^4.0.6",
     "@types/mockdate": "^2.0.0",
     "@types/react": "^16.9.44",
-    "@types/react-native": "^0.63.4",
+    "@types/react-native": "0.63.1",
     "@types/react-native-snap-carousel": "^3.7.4",
     "@types/react-native-vector-icons": "^6.4.4",
     "@types/react-native-version-check": "^3.4.0",
