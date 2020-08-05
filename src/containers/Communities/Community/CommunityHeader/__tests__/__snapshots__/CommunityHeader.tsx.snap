@@ -22,7 +22,7 @@ exports[`CommunityHeader should render community details 1`] = `
               Object {
                 \\"bottom\\": 0,
                 \\"left\\": 0,
-@@ -271,11 +275,11 @@
+@@ -269,11 +273,11 @@
                   \\"lineHeight\\": 30,
                 },
               ]
@@ -35,7 +35,7 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -351,11 +355,11 @@
+@@ -348,11 +352,11 @@
                         },
                       ],
                     ]
@@ -55,7 +55,7 @@ exports[`CommunityHeader should render global community details 1`] = `
 - First value
 + Second value
 
-@@ -311,11 +311,11 @@
+@@ -309,11 +309,11 @@
                         },
                       ],
                     ]
@@ -193,7 +193,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -239,7 +238,7 @@ exports[`CommunityHeader should render global community loading 1`] = `
                             Object {
                               "margin": 10,
                             },
-                            Object {},
+                            undefined,
                           ],
                         ],
                         Object {
@@ -322,7 +321,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -409,7 +407,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -450,7 +447,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -491,7 +487,6 @@ exports[`CommunityHeader should render global community loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -654,7 +649,6 @@ exports[`CommunityHeader should render loading state 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -700,7 +694,7 @@ exports[`CommunityHeader should render loading state 1`] = `
                             Object {
                               "margin": 10,
                             },
-                            Object {},
+                            undefined,
                           ],
                         ],
                         Object {
@@ -735,7 +729,6 @@ exports[`CommunityHeader should render loading state 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -827,7 +820,6 @@ exports[`CommunityHeader should render loading state 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -914,7 +906,6 @@ exports[`CommunityHeader should render loading state 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -955,7 +946,6 @@ exports[`CommunityHeader should render loading state 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -996,7 +986,6 @@ exports[`CommunityHeader should render loading state 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}

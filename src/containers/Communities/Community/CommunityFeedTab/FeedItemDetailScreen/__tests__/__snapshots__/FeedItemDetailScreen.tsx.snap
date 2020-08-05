@@ -50,7 +50,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -112,7 +111,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -221,7 +219,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -340,7 +337,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -525,7 +521,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -592,7 +587,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -672,7 +666,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -879,7 +872,6 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -952,7 +944,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1014,7 +1005,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1123,7 +1113,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -1242,7 +1231,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -1427,7 +1415,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1496,7 +1483,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -1576,7 +1562,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -1783,7 +1768,6 @@ exports[`edit/delete post edit and delete for my post 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1856,7 +1840,6 @@ exports[`edit/delete post no options for not my post 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1918,7 +1901,6 @@ exports[`edit/delete post no options for not my post 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2027,7 +2009,6 @@ exports[`edit/delete post no options for not my post 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -2296,7 +2277,6 @@ exports[`edit/delete post no options for not my post 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2363,7 +2343,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -2443,7 +2422,6 @@ exports[`edit/delete post no options for not my post 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -2650,7 +2628,6 @@ exports[`edit/delete post no options for not my post 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -2678,7 +2655,7 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -138,11 +138,11 @@
+@@ -136,11 +136,11 @@
                       \\"lineHeight\\": 20,
                     },
                   ]
@@ -2691,7 +2668,7 @@ exports[`refresh calls refreshComments 1`] = `
           </View>
           <View
             style={
-@@ -183,32 +183,32 @@
+@@ -181,32 +181,32 @@
       }
       data={
         Array [
@@ -2738,7 +2715,7 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -271,22 +271,22 @@
+@@ -268,22 +268,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2763,7 +2740,7 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -327,11 +327,11 @@
+@@ -324,11 +324,11 @@
                         },
                       ],
                     ]
@@ -2776,7 +2753,7 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -353,11 +353,11 @@
+@@ -350,11 +350,11 @@
                       ],
                     ]
                   }
@@ -2789,7 +2766,7 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -376,19 +376,39 @@
+@@ -373,19 +373,39 @@
                   },
                   Object {
                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
@@ -2830,7 +2807,7 @@ exports[`refresh calls refreshComments 1`] = `
           <View
             style={
               Array [
-@@ -559,11 +579,12 @@
+@@ -553,11 +573,12 @@
                           null,
                         ]
                       }
@@ -2844,7 +2821,7 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -594,11 +615,11 @@
+@@ -588,11 +609,11 @@
                           \\"width\\": 30,
                         },
                       ]
@@ -2856,8 +2833,8 @@ exports[`refresh calls refreshComments 1`] = `
                   <View
                     accessible={true}
                     focusable={true}
-                    isTVSelectable={true}
-@@ -663,28 +684,29 @@
+                    onClick={[Function onClick]}
+@@ -656,28 +677,29 @@
         >
           <CommentItem
             comment={
@@ -2895,7 +2872,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -695,28 +717,29 @@
+@@ -688,28 +710,29 @@
         >
           <CommentItem
             comment={
@@ -2933,7 +2910,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -736,22 +759,22 @@
+@@ -729,22 +752,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3010,7 +2987,6 @@ exports[`renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3072,7 +3048,6 @@ exports[`renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3181,7 +3156,6 @@ exports[`renders correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -3450,7 +3424,6 @@ exports[`renders correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3517,7 +3490,6 @@ exports[`renders correctly 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -3597,7 +3569,6 @@ exports[`renders correctly 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -3804,7 +3775,6 @@ exports[`renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -3877,7 +3847,6 @@ exports[`renders correctly with communityId passed in 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3939,7 +3908,6 @@ exports[`renders correctly with communityId passed in 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -4048,7 +4016,6 @@ exports[`renders correctly with communityId passed in 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -4317,7 +4284,6 @@ exports[`renders correctly with communityId passed in 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4384,7 +4350,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -4464,7 +4429,6 @@ exports[`renders correctly with communityId passed in 1`] = `
                 <View
                   accessible={true}
                   focusable={true}
-                  isTVSelectable={true}
                   onClick={[Function]}
                   onResponderGrant={[Function]}
                   onResponderMove={[Function]}
@@ -4671,7 +4635,6 @@ exports[`renders correctly with communityId passed in 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -4744,7 +4707,6 @@ exports[`renders loading 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -4806,7 +4768,6 @@ exports[`renders loading 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}

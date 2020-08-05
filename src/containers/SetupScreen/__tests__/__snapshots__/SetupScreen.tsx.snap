@@ -61,7 +61,6 @@ exports[`renders isMe version correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -107,7 +106,7 @@ exports[`renders isMe version correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -321,7 +320,6 @@ exports[`renders isMe version correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -406,7 +404,6 @@ exports[`renders isMe version correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -484,7 +481,6 @@ exports[`renders isMe version correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -617,7 +613,6 @@ exports[`renders other person version correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -663,7 +658,7 @@ exports[`renders other person version correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -698,7 +693,6 @@ exports[`renders other person version correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -923,7 +917,6 @@ exports[`renders other person version correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1000,7 +993,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -305,11 +305,11 @@
+@@ -303,11 +303,11 @@
               Object {},
             ]
           }
@@ -1020,7 +1013,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -345,11 +345,11 @@
+@@ -343,11 +343,11 @@
               Object {},
             ]
           }

@@ -5,7 +5,7 @@ exports[`handleRefresh refetches steps and checks for unread comments 1`] = `
 - First value
 + Second value
 
-@@ -367,14 +367,14 @@
+@@ -365,14 +365,14 @@
         onScrollBeginDrag={[Function anonymous]}
         onScrollEndDrag={[Function anonymous]}
         refreshControl={
@@ -71,7 +71,6 @@ exports[`renders empty screen correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -280,7 +279,6 @@ exports[`renders empty screen correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -406,7 +404,6 @@ exports[`renders loading screen correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -693,7 +690,6 @@ exports[`renders screen with steps correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1005,7 +1001,6 @@ exports[`renders screen with steps correctly 1`] = `
       initialNumToRender={10}
       keyExtractor={[Function]}
       maxToRenderPerBatch={10}
-      numColumns={1}
       onContentSizeChange={[Function]}
       onEndReached={[Function]}
       onEndReachedThreshold={0.2}
@@ -1111,7 +1106,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -345,10 +345,54 @@
+@@ -344,10 +344,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1166,7 +1161,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -449,9 +493,82 @@
+@@ -447,9 +491,82 @@
                 }
               }
               testID=\\"stepItem\\"

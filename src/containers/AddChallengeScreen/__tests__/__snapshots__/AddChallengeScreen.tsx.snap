@@ -77,7 +77,6 @@ exports[`create methods calls onComplete 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -338,7 +337,6 @@ exports[`create methods calls onComplete 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -415,7 +413,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -179,11 +179,11 @@
+@@ -178,11 +178,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -428,7 +426,7 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -231,11 +231,11 @@
+@@ -230,11 +230,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -448,7 +446,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -300,11 +300,11 @@
+@@ -299,11 +299,11 @@
                 },
               ]
             }
@@ -468,7 +466,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -176,11 +176,11 @@
+@@ -175,11 +175,11 @@
               },
             ]
           }
@@ -488,7 +486,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -179,11 +179,11 @@
+@@ -178,11 +178,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -501,7 +499,7 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -231,11 +231,11 @@
+@@ -230,11 +230,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -521,7 +519,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -272,11 +272,11 @@
+@@ -271,11 +271,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -541,7 +539,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
 - First value
 + Second value
 
-@@ -147,11 +147,11 @@
+@@ -146,11 +146,11 @@
           multiline={true}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeTitle]}
@@ -561,7 +559,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -272,11 +272,11 @@
+@@ -271,11 +271,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -581,7 +579,7 @@ exports[`create methods focuses on press | titleInput 1`] = `
 - First value
 + Second value
 
-@@ -147,11 +147,11 @@
+@@ -146,11 +146,11 @@
           multiline={true}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeTitle]}
@@ -601,7 +599,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -176,14 +176,14 @@
+@@ -175,14 +175,14 @@
               },
             ]
           }
@@ -618,7 +616,7 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -231,11 +231,11 @@
+@@ -230,11 +230,11 @@
                     \\"lineHeight\\": 22,
                   },
                 ]
@@ -631,7 +629,7 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -357,22 +357,18 @@
+@@ -355,22 +355,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -656,7 +654,7 @@ exports[`create methods sets disable false 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -395,13 +391,11 @@
+@@ -393,13 +389,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -678,7 +676,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -383,11 +383,11 @@
+@@ -381,11 +381,11 @@
                 },
               ]
             }
@@ -753,7 +751,6 @@ exports[`edit methods calls onComplete 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -836,7 +833,6 @@ exports[`edit methods calls onComplete 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1109,7 +1105,7 @@ exports[`edit methods disables button if user deletes title 1`] = `
 - First value
 + Second value
 
-@@ -259,11 +259,11 @@
+@@ -257,11 +257,11 @@
               },
             ]
           }
@@ -1201,7 +1197,6 @@ exports[`renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1462,7 +1457,6 @@ exports[`renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1617,7 +1611,6 @@ exports[`renders correctly on android 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1878,7 +1871,6 @@ exports[`renders correctly on android 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -2016,7 +2008,6 @@ exports[`renders edit challenge correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2099,7 +2090,6 @@ exports[`renders edit challenge correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}

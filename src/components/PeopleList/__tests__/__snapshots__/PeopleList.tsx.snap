@@ -5,7 +5,7 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 - First value
 + Second value
 
-@@ -47,195 +47,18 @@
+@@ -47,194 +47,18 @@
             align=\\"center\\"
             direction=\\"row\\"
             justify=\\"end\\"
@@ -44,7 +44,6 @@ exports[`button presses arrow icon toggles collapsed sections 1`] = `
 -         initialNumToRender={10}
 -         keyExtractor={[Function anonymous]}
 -         maxToRenderPerBatch={10}
--         numColumns={1}
 -         onContentSizeChange={[Function anonymous]}
 -         onEndReachedThreshold={2}
 -         onLayout={[Function anonymous]}
@@ -239,7 +238,6 @@ exports[`renders correctly as Casey 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -426,7 +424,6 @@ exports[`renders correctly as Jean 1`] = `
         initialNumToRender={10}
         keyExtractor={[Function]}
         maxToRenderPerBatch={10}
-        numColumns={1}
         onContentSizeChange={[Function]}
         onEndReachedThreshold={2}
         onLayout={[Function]}
@@ -634,7 +631,6 @@ exports[`renders correctly as Jean 1`] = `
         initialNumToRender={10}
         keyExtractor={[Function]}
         maxToRenderPerBatch={10}
-        numColumns={1}
         onContentSizeChange={[Function]}
         onEndReachedThreshold={2}
         onLayout={[Function]}
@@ -741,7 +737,6 @@ exports[`renders correctly as Jean 1`] = `
         initialNumToRender={10}
         keyExtractor={[Function]}
         maxToRenderPerBatch={10}
-        numColumns={1}
         onContentSizeChange={[Function]}
         onEndReachedThreshold={2}
         onLayout={[Function]}

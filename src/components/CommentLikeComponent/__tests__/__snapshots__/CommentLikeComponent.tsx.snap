@@ -42,7 +42,6 @@ exports[`renders nothing with no subject person 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -122,7 +121,6 @@ exports[`renders nothing with no subject person 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -169,7 +167,7 @@ exports[`with subject person onPress like button like -> unlike renders disabled
 - First value
 + Second value
 
-@@ -68,11 +68,13 @@
+@@ -67,11 +67,13 @@
           style={
             Array [
               Object {
@@ -191,7 +189,7 @@ exports[`with subject person onPress like button unlike -> like renders disabled
 - First value
 + Second value
 
-@@ -68,11 +68,13 @@
+@@ -67,11 +67,13 @@
           style={
             Array [
               Object {
@@ -250,7 +248,6 @@ exports[`with subject person renders 0 comments_count 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -328,7 +325,6 @@ exports[`with subject person renders 0 comments_count 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -412,7 +408,6 @@ exports[`with subject person renders 0 likes_count 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -492,7 +487,6 @@ exports[`with subject person renders 0 likes_count 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -578,7 +572,6 @@ exports[`with subject person renders for me 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -658,7 +651,6 @@ exports[`with subject person renders for me 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -742,7 +734,6 @@ exports[`with subject person renders for someone else 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -822,7 +813,6 @@ exports[`with subject person renders for someone else 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -906,7 +896,6 @@ exports[`with subject person renders prayer request liked 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -985,7 +974,6 @@ exports[`with subject person renders prayer request liked 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1069,7 +1057,6 @@ exports[`with subject person renders prayer request not liked 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1148,7 +1135,6 @@ exports[`with subject person renders prayer request not liked 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1232,7 +1218,6 @@ exports[`with subject person renders when not liked 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1311,7 +1296,6 @@ exports[`with subject person renders when not liked 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}

@@ -1,41 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders touchable 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffbcbc",
-        "borderColor": "red",
-        "borderWidth": 1,
-        "height": 100,
-        "justifyContent": "center",
-        "margin": 10,
-        "width": 300,
-      },
-      undefined,
-    ]
-  }
+<Text
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
 >
-  <Text
-    style={
-      Object {
-        "color": "#333333",
-        "margin": 20,
-      }
-    }
-  >
-    TouchableNativeFeedback is not supported on this platform!
-  </Text>
-</View>
+  Test
+</Text>
 `;
 
 exports[`renders touchable opacity 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -56,125 +40,72 @@ exports[`renders touchable opacity 1`] = `
 `;
 
 exports[`renders touchable with platform < 21 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffbcbc",
-        "borderColor": "red",
-        "borderWidth": 1,
-        "height": 100,
-        "justifyContent": "center",
-        "margin": 10,
-        "width": 300,
-      },
-      undefined,
-    ]
-  }
+<Text
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
 >
-  <Text
-    style={
-      Object {
-        "color": "#333333",
-        "margin": 20,
-      }
-    }
-  >
-    TouchableNativeFeedback is not supported on this platform!
-  </Text>
-</View>
+  Test
+</Text>
 `;
 
 exports[`renders touchable with platform > 21 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffbcbc",
-        "borderColor": "red",
-        "borderWidth": 1,
-        "height": 100,
-        "justifyContent": "center",
-        "margin": 10,
-        "width": 300,
-      },
-      undefined,
-    ]
-  }
+<Text
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
 >
-  <Text
-    style={
-      Object {
-        "color": "#333333",
-        "margin": 20,
-      }
-    }
-  >
-    TouchableNativeFeedback is not supported on this platform!
-  </Text>
-</View>
+  Test
+</Text>
 `;
 
 exports[`renders touchable with platform > 21 borderless 1`] = `
-<View
-  style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffbcbc",
-        "borderColor": "red",
-        "borderWidth": 1,
-        "height": 100,
-        "justifyContent": "center",
-        "margin": 10,
-        "width": 300,
-      },
-      undefined,
-    ]
-  }
+<Text
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
 >
-  <Text
-    style={
-      Object {
-        "color": "#333333",
-        "margin": 20,
-      }
-    }
-  >
-    TouchableNativeFeedback is not supported on this platform!
-  </Text>
-</View>
+  Test
+</Text>
 `;
 
 exports[`renders touchable with style 1`] = `
 <View
+  accessible={true}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
   style={
-    Array [
-      Object {
-        "alignItems": "center",
-        "backgroundColor": "#ffbcbc",
-        "borderColor": "red",
-        "borderWidth": 1,
-        "height": 100,
-        "justifyContent": "center",
-        "margin": 10,
-        "width": 300,
-      },
-      undefined,
-    ]
+    Object {
+      "padding": 25,
+    }
   }
 >
-  <Text
-    style={
-      Object {
-        "color": "#333333",
-        "margin": 20,
-      }
-    }
-  >
-    TouchableNativeFeedback is not supported on this platform!
+  <Text>
+    Test
   </Text>
 </View>
 `;

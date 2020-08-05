@@ -66,11 +66,8 @@ exports[`renders correctly when me and no steps 1`] = `
       />
     }
     renderItem={[Function]}
-    renderSectionFooter={[Function]}
     scrollEventThrottle={0.0001}
-    sections={Array []}
     stickyHeaderIndices={Array []}
-    stickySectionHeadersEnabled={true}
     style={
       Object {
         "flex": 1,
@@ -175,7 +172,6 @@ exports[`renders correctly when me and no steps 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -313,11 +309,8 @@ exports[`renders correctly when no steps 1`] = `
       />
     }
     renderItem={[Function]}
-    renderSectionFooter={[Function]}
     scrollEventThrottle={0.0001}
-    sections={Array []}
     stickyHeaderIndices={Array []}
-    stickySectionHeadersEnabled={true}
     style={
       Object {
         "flex": 1,
@@ -422,7 +415,6 @@ exports[`renders correctly when no steps 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -661,73 +653,13 @@ exports[`renders correctly with completed steps 1`] = `
       />
     }
     renderItem={[Function]}
-    renderSectionFooter={[Function]}
     scrollEventThrottle={0.0001}
-    sections={
-      Array [
-        Object {
-          "data": Array [
-            Object {
-              "__typename": "Step",
-              "community": Object {
-                "__typename": "Community",
-                "id": "4",
-              },
-              "completedAt": null,
-              "id": "2",
-              "receiver": Object {
-                "__typename": "Person",
-                "fullName": "Chyna Howe",
-                "id": "3",
-              },
-              "reminder": Object {
-                "__typename": "StepReminder",
-                "id": "5",
-                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
-                "reminderType": "once",
-              },
-              "stepType": "care",
-              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
-            },
-          ],
-          "key": "active",
-        },
-        Object {
-          "data": Array [
-            Object {
-              "__typename": "Step",
-              "community": Object {
-                "__typename": "Community",
-                "id": "9",
-              },
-              "completedAt": null,
-              "id": "7",
-              "receiver": Object {
-                "__typename": "Person",
-                "fullName": "Alek Lesch",
-                "id": "8",
-              },
-              "reminder": Object {
-                "__typename": "StepReminder",
-                "id": "10",
-                "nextOccurrenceAt": "2015-06-20T04:51:30.834Z",
-                "reminderType": "once",
-              },
-              "stepType": "bond",
-              "title": "Ipsam nobis cupiditate sed dignissimos debitis.",
-            },
-          ],
-          "key": "completed",
-        },
-      ]
-    }
     stickyHeaderIndices={
       Array [
         1,
         4,
       ]
     }
-    stickySectionHeadersEnabled={true}
     style={
       Object {
         "flex": 1,
@@ -794,7 +726,6 @@ exports[`renders correctly with completed steps 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -930,7 +861,6 @@ exports[`renders correctly with completed steps 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1098,45 +1028,12 @@ exports[`renders correctly with steps 1`] = `
       />
     }
     renderItem={[Function]}
-    renderSectionFooter={[Function]}
     scrollEventThrottle={0.0001}
-    sections={
-      Array [
-        Object {
-          "data": Array [
-            Object {
-              "__typename": "Step",
-              "community": Object {
-                "__typename": "Community",
-                "id": "4",
-              },
-              "completedAt": null,
-              "id": "2",
-              "receiver": Object {
-                "__typename": "Person",
-                "fullName": "Chyna Howe",
-                "id": "3",
-              },
-              "reminder": Object {
-                "__typename": "StepReminder",
-                "id": "5",
-                "nextOccurrenceAt": "2010-09-08T06:46:37.996Z",
-                "reminderType": "once",
-              },
-              "stepType": "care",
-              "title": "Recusandae alias consequuntur corporis repellat ratione ut sunt.",
-            },
-          ],
-          "key": "active",
-        },
-      ]
-    }
     stickyHeaderIndices={
       Array [
         1,
       ]
     }
-    stickySectionHeadersEnabled={true}
     style={
       Object {
         "flex": 1,
@@ -1214,7 +1111,6 @@ exports[`renders correctly with steps 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1324,41 +1220,7 @@ exports[`should paginate 1`] = `
           },
         ]
       }
-@@ -118,11 +140,33 @@
-                  \\"nextOccurrenceAt\\": \\"2010-09-08T06:46:37.996Z\\",
-                  \\"reminderType\\": \\"once\\",
-                },
-                \\"stepType\\": \\"care\\",
-                \\"title\\": \\"Recusandae alias consequuntur corporis repellat ratione ut sunt.\\",
-+             },
-+             Object {
-+               \\"__typename\\": \\"Step\\",
-+               \\"community\\": Object {
-+                 \\"__typename\\": \\"Community\\",
-+                 \\"id\\": \\"9\\",
-+               },
-+               \\"completedAt\\": null,
-+               \\"id\\": \\"7\\",
-+               \\"receiver\\": Object {
-+                 \\"__typename\\": \\"Person\\",
-+                 \\"fullName\\": \\"Alek Lesch\\",
-+                 \\"id\\": \\"8\\",
-                },
-+               \\"reminder\\": Object {
-+                 \\"__typename\\": \\"StepReminder\\",
-+                 \\"id\\": \\"10\\",
-+                 \\"nextOccurrenceAt\\": \\"2015-06-20T04:51:30.834Z\\",
-+                 \\"reminderType\\": \\"once\\",
-+               },
-+               \\"stepType\\": \\"bond\\",
-+               \\"title\\": \\"Ipsam nobis cupiditate sed dignissimos debitis.\\",
-+             },
-            ],
-            \\"key\\": \\"active\\",
-          },
-        ]
-      }
-@@ -176,10 +220,43 @@
+@@ -143,10 +165,43 @@
                   \\"nextOccurrenceAt\\": \\"2010-09-08T06:46:37.996Z\\",
                   \\"reminderType\\": \\"once\\",
                 },

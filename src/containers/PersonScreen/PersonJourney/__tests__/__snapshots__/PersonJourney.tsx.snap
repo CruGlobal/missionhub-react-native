@@ -19,7 +19,6 @@ exports[`PersonJourney renders loading screen correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -168,7 +167,6 @@ exports[`PersonJourney renders null screen correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -325,7 +323,6 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -379,7 +376,6 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -424,7 +420,7 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
                         Object {
                           "fontSize": 30,
                         },
-                        Object {},
+                        undefined,
                       ],
                       Object {
                         "fontFamily": "icomoon",
@@ -660,7 +656,6 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -714,7 +709,6 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -759,7 +753,7 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
                         Object {
                           "fontSize": 30,
                         },
-                        Object {},
+                        undefined,
                       ],
                       Object {
                         "fontFamily": "icomoon",
@@ -1009,7 +1003,6 @@ exports[`journey methods renders a stage change row 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -1232,7 +1225,6 @@ exports[`journey methods renders a step 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -1286,7 +1278,6 @@ exports[`journey methods renders a step 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -1331,7 +1322,7 @@ exports[`journey methods renders a step 1`] = `
                         Object {
                           "fontSize": 30,
                         },
-                        Object {},
+                        undefined,
                       ],
                       Object {
                         "fontFamily": "icomoon",
@@ -1587,7 +1578,6 @@ exports[`journey methods renders an interaction row 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -1641,7 +1631,6 @@ exports[`journey methods renders an interaction row 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -1686,7 +1675,7 @@ exports[`journey methods renders an interaction row 1`] = `
                         Object {
                           "fontSize": 30,
                         },
-                        Object {},
+                        undefined,
                       ],
                       Object {
                         "fontFamily": "icomoon",
