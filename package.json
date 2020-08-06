@@ -88,7 +88,7 @@
     "react-native-markdown-display": "^6.1.5",
     "react-native-material-menu": "^1.0.0",
     "react-native-omniture": "https://github.com/CruGlobal/react-native-omniture",
-    "react-native-push-notification": "^4.0.0",
+    "react-native-push-notification": "^5.0.1",
     "react-native-reanimated": "^1.4.0",
     "react-native-screens": "^2.9.0",
     "react-native-snap-carousel": "^3.8.0",
