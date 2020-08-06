@@ -202,7 +202,48 @@ it('renders with pending post without Today items correctly', async () => {
 });
 
 describe('sections', () => {
-  it('renders New section', async () => {
+  it('renders New section for filtered feed', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeed
+        communityId={communityId}
+        itemNamePressable={true}
+        filteredFeedType={FeedItemSubjectTypeEnum.STORY}
+      />,
+      {
+        initialState,
+        mocks: {
+          FeedItemConnection: () => ({
+            nodes: () =>
+              new MockList(1, () => ({
+                read: false,
+                createdAt: '2020-05-20 11:00:00 PM GMT+0',
+              })),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+      skip: false,
+      variables: {
+        communityId,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+        subjectType: [FeedItemSubjectTypeEnum.STORY],
+      },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {
+        subjectType: FeedItemSubjectTypeEnum.STORY,
+      },
+      skip: true,
+    });
+  });
+
+  it('does not render New section for community feed', async () => {
     const { snapshot } = renderWithContext(
       <CommunityFeed communityId={communityId} itemNamePressable={true} />,
       {
@@ -233,6 +274,43 @@ describe('sections', () => {
     expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
       variables: {},
       skip: true,
+    });
+  });
+
+  it('does not render New section for global feed', async () => {
+    const { snapshot } = renderWithContext(
+      <CommunityFeed
+        communityId={GLOBAL_COMMUNITY_ID}
+        itemNamePressable={true}
+      />,
+      {
+        initialState,
+        mocks: {
+          FeedItemConnection: () => ({
+            nodes: () =>
+              new MockList(1, () => ({
+                read: false,
+                createdAt: '2020-05-20 11:00:00 PM GMT+0',
+              })),
+          }),
+        },
+      },
+    );
+
+    await flushMicrotasksQueue();
+    snapshot();
+
+    expect(useQuery).toHaveBeenCalledWith(GET_COMMUNITY_FEED, {
+      skip: true,
+      variables: {
+        communityId: GLOBAL_COMMUNITY_ID,
+        hasUnreadComments: undefined,
+        personIds: undefined,
+      },
+    });
+    expect(useQuery).toHaveBeenCalledWith(GET_GLOBAL_COMMUNITY_FEED, {
+      variables: {},
+      skip: false,
     });
   });
 
