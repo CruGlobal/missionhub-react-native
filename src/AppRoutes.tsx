@@ -331,7 +331,7 @@ const MainStackRoutes = createStackNavigator(
     },
   },
   {
-    initialRouteName: MAIN_TABS,
+    initialRouteName: LANDING_SCREEN,
     defaultNavigationOptions: {
       header: null,
       gesturesEnabled: false,
