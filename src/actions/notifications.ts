@@ -266,9 +266,8 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
   ) => {
     if (
       isAndroid &&
-      notification.userInteraction === false &&
       // A notification recieved in the background/app closed will not have a userInteraction, so it will be undefined
-      notification.userInteraction !== undefined
+      notification.userInteraction === false
     ) {
       return;
     }
