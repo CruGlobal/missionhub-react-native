@@ -4,7 +4,6 @@ import MockDate from 'mockdate';
 import { ReminderDateText } from '../../components/ReminderDateText/__generated__/ReminderDateText';
 import {
   getDate,
-  modeIs24Hour,
   formatApiDate,
   isLastTwentyFourHours,
   getMomentDate,
@@ -34,20 +33,6 @@ describe('isLastTwentyFourHours', () => {
   it('returns false for date past twenty four hours', () => {
     const date = getMomentDate('2018-09-10 11:00:00 AM GMT+0');
     expect(isLastTwentyFourHours(date)).toEqual(false);
-  });
-});
-
-describe('modeIs24Hour', () => {
-  it('format has h', () => {
-    expect(modeIs24Hour('hh:mm')).toEqual(false);
-  });
-
-  it('format has a', () => {
-    expect(modeIs24Hour('aa')).toEqual(false);
-  });
-
-  it('format has neither h nor a', () => {
-    expect(modeIs24Hour('HH:mm')).toEqual(true);
   });
 });
 

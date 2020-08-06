@@ -1,192 +1,99 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders date only date picker 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
-    animationType="none"
-    hardwareAccelerated={false}
-    onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
-    transparent={true}
-    visible={false}
-  >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.5)",
-          "flex": 1,
-        }
-      }
-    />
-    <AnimatedComponent
-      pointerEvents="auto"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
-      }
+exports[`DatePicker methods should open modal 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -23,11 +23,11 @@
+    <Modal
+      animationType=\\"none\\"
+      hardwareAccelerated={false}
+      onRequestClose={[Function closeModal]}
+      transparent={true}
+-     visible={false}
++     visible={true}
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
-        locale="en-TEST"
-        mode="date"
-        onDateChange={[Function]}
-        style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
-        }
-        timeZoneOffsetInMinutes={null}
-      />
       <View
-        style={
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "flexDirection": "row",
-            "height": 60,
-            "paddingHorizontal": 20,
-            "position": "absolute",
-            "top": 0,
-            "width": "100%",
-          }
-        }
-      >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
-          style={
-            Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
-            }
-          }
-        >
-          Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
-          }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
-      </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}"
 `;
 
-exports[`renders date only date picker with max date 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
+exports[`renders date only date picker 1`] = `
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  />,
+  <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
+          "opacity": 1,
         }
       }
     />
-    <AnimatedComponent
-      pointerEvents="auto"
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 259,
+            },
+          ],
+        }
       }
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
+      <DateTimePicker
         locale="en-TEST"
-        maximumDate={2018-09-12T12:00:00.000Z}
         mode="date"
-        onDateChange={[Function]}
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
+          }
         }
-        timeZoneOffsetInMinutes={null}
+        testID="DateTimePicker"
+        value={2018-09-12T12:00:00.000Z}
       />
       <View
         style={
@@ -202,118 +109,235 @@ exports[`renders date only date picker with max date 1`] = `
           }
         }
       >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
           }
         >
           Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
           }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
       </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+    </View>
+  </Modal>,
+]
 `;
 
 exports[`renders date only date picker with min date 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  />,
+  <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
+          "opacity": 1,
         }
       }
     />
-    <AnimatedComponent
-      pointerEvents="auto"
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 259,
+            },
+          ],
+        }
       }
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
+      <DateTimePicker
         locale="en-TEST"
         minimumDate={2018-09-12T12:00:00.000Z}
         mode="date"
-        onDateChange={[Function]}
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
+          }
         }
-        timeZoneOffsetInMinutes={null}
+        testID="DateTimePicker"
+        value={2018-09-12T12:00:00.000Z}
       />
       <View
         style={
@@ -329,243 +353,234 @@ exports[`renders date only date picker with min date 1`] = `
           }
         }
       >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
           }
         >
           Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
-          }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
-      </View>
-    </AnimatedComponent>
-  </Component>
-</View>
-`;
-
-exports[`renders date with custom title 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
-    animationType="none"
-    hardwareAccelerated={false}
-    onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
-    transparent={true}
-    visible={false}
-  >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
-      style={
-        Object {
-          "backgroundColor": "rgba(0, 0, 0, 0.5)",
-          "flex": 1,
-        }
-      }
-    />
-    <AnimatedComponent
-      pointerEvents="auto"
-      style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
-      }
-    >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
-        locale="en-TEST"
-        mode="date"
-        onDateChange={[Function]}
-        style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
-        }
-        timeZoneOffsetInMinutes={null}
-      />
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "alignSelf": "stretch",
-            "flexDirection": "row",
-            "height": 60,
-            "paddingHorizontal": 20,
-            "position": "absolute",
-            "top": 0,
-            "width": "100%",
-          }
-        }
-      >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
           }
+          testID="Button"
         >
-          Title
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
-          }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
       </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+    </View>
+  </Modal>,
+]
 `;
 
 exports[`renders datetime only date picker 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  />,
+  <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
+          "opacity": 1,
         }
       }
     />
-    <AnimatedComponent
-      pointerEvents="auto"
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 259,
+            },
+          ],
+        }
       }
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
+      <DateTimePicker
         locale="en-TEST"
         mode="datetime"
-        onDateChange={[Function]}
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
+          }
         }
-        timeZoneOffsetInMinutes={null}
+        testID="DateTimePicker"
+        value={2018-09-12T12:00:00.000Z}
       />
       <View
         style={
@@ -581,117 +596,234 @@ exports[`renders datetime only date picker 1`] = `
           }
         }
       >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
           }
         >
           Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
           }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
       </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+    </View>
+  </Modal>,
+]
 `;
 
 exports[`renders default date picker 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  />,
+  <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
+          "opacity": 1,
         }
       }
     />
-    <AnimatedComponent
-      pointerEvents="auto"
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 259,
+            },
+          ],
+        }
       }
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
+      <DateTimePicker
         locale="en-TEST"
-        mode="date"
-        onDateChange={[Function]}
+        mode="datetime"
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
+          }
         }
-        timeZoneOffsetInMinutes={null}
+        testID="DateTimePicker"
+        value={2018-09-12T12:00:00.000Z}
       />
       <View
         style={
@@ -707,117 +839,234 @@ exports[`renders default date picker 1`] = `
           }
         }
       >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
           }
         >
           Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
           }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
       </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+    </View>
+  </Modal>,
+]
 `;
 
 exports[`renders time only date picker 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  />,
+  <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
+          "opacity": 1,
         }
       }
     />
-    <AnimatedComponent
-      pointerEvents="auto"
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 259,
+            },
+          ],
+        }
       }
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
+      <DateTimePicker
         locale="en-TEST"
         mode="time"
-        onDateChange={[Function]}
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
+          }
         }
-        timeZoneOffsetInMinutes={null}
+        testID="DateTimePicker"
+        value={2018-09-12T12:00:00.000Z}
       />
       <View
         style={
@@ -833,117 +1082,234 @@ exports[`renders time only date picker 1`] = `
           }
         }
       >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
           }
         >
           Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
           }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
       </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+    </View>
+  </Modal>,
+]
 `;
 
 exports[`renders with additional modal component 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
-  />
-  <Component
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
+  />,
+  <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
+          "opacity": 1,
         }
       }
     />
-    <AnimatedComponent
-      pointerEvents="auto"
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 259,
+            },
+          ],
+        }
       }
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
+      <DateTimePicker
         locale="en-TEST"
-        mode="date"
-        onDateChange={[Function]}
+        mode="datetime"
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
+          }
         }
-        timeZoneOffsetInMinutes={null}
+        testID="DateTimePicker"
+        value={2018-09-12T12:00:00.000Z}
       />
       <Text>
         Modal Component
@@ -962,121 +1328,238 @@ exports[`renders with additional modal component 1`] = `
           }
         }
       >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
           }
         >
           Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
           }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
       </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+    </View>
+  </Modal>,
+]
 `;
 
 exports[`renders with child component 1`] = `
-<View>
-  <TouchableIOS
-    onPress={[Function]}
+Array [
+  <View
+    accessible={true}
+    focusable={true}
+    isTVSelectable={true}
+    onClick={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "opacity": 1,
+      }
+    }
   >
     <Text>
       Child Component
     </Text>
-  </TouchableIOS>
-  <Component
+  </View>,
+  <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
-    <TouchableIOS
-      activeOpacity={1}
-      onPress={[Function]}
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "backgroundColor": "rgba(0, 0, 0, 0.5)",
           "flex": 1,
+          "opacity": 1,
         }
       }
     />
-    <AnimatedComponent
-      pointerEvents="auto"
+    <View
       style={
-        Array [
-          Object {
-            "backgroundColor": "#ffffff",
-            "height": 0,
-            "overflow": "hidden",
-          },
-          Object {
-            "height": 0,
-          },
-        ]
+        Object {
+          "backgroundColor": "#ffffff",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 259,
+            },
+          ],
+        }
       }
     >
-      <DatePickerIOS
-        date={2018-09-12T12:00:00.000Z}
+      <DateTimePicker
         locale="en-TEST"
-        mode="date"
-        onDateChange={[Function]}
+        mode="datetime"
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
+          }
         }
-        timeZoneOffsetInMinutes={null}
+        testID="DateTimePicker"
+        value={2018-09-12T12:00:00.000Z}
       />
       <View
         style={
@@ -1092,53 +1575,156 @@ exports[`renders with child component 1`] = `
           }
         }
       >
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              Object {
-                "textAlign": "left",
-              },
-            ]
-          }
-          onPress={[Function]}
-          text="Cancel"
-          type="transparent"
-        />
-        <MyText
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
           style={
             Object {
-              "flex": 1,
-              "fontSize": 16,
-              "textAlign": "center",
+              "opacity": 1,
             }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Array [
+                      Object {
+                        "color": "#007AFF",
+                        "fontSize": 16,
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                      },
+                      Object {
+                        "textAlign": "left",
+                      },
+                    ],
+                  ],
+                ]
+              }
+            >
+              Cancel
+            </Text>
+          </View>
+        </View>
+        <Text
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Object {
+                "flex": 1,
+                "fontSize": 16,
+                "textAlign": "center",
+              },
+            ]
           }
         >
           Date
-        </MyText>
-        <Button
-          buttonTextStyle={
-            Array [
-              Object {
-                "color": "#007AFF",
-                "fontSize": 16,
-                "fontWeight": "normal",
-                "letterSpacing": 1,
-              },
-              undefined,
-            ]
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
           }
-          onPress={[Function]}
-          text="Done"
-          type="transparent"
-        />
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "transparent",
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
+                  ],
+                ]
+              }
+            >
+              Done
+            </Text>
+          </View>
+        </View>
       </View>
-    </AnimatedComponent>
-  </Component>
-</View>
+    </View>
+  </Modal>,
+]
 `;

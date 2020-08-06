@@ -185,7 +185,7 @@ exports[`create methods calls onComplete 1`] = `
       />
       <DatePicker
         date={2020-02-13T00:00:00.000Z}
-        minDate={2020-02-13T00:00:00.000Z}
+        minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
         testID="datePicker"
@@ -421,9 +421,9 @@ exports[`create methods changes date 1`] = `
           value=\\"\\"
         />
         <DatePicker
--         date=\\"\\"
+-         date={Date { NaN }}
 +         date={2020-02-13T00:00:00.000Z}
-          minDate={2020-02-13T00:00:00.000Z}
+          minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
@@ -478,8 +478,8 @@ exports[`create methods changes title 1`] = `
 +         value=\\"New Title For My Challenge\\"
         />
         <DatePicker
-          date=\\"\\"
-          minDate={2020-02-13T00:00:00.000Z}
+          date={Date { NaN }}
+          minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\""
 `;
 
@@ -495,8 +495,8 @@ exports[`create methods clears date 1`] = `
         />
         <DatePicker
 -         date={2020-02-13T00:00:00.000Z}
-+         date=\\"\\"
-          minDate={2020-02-13T00:00:00.000Z}
++         date={Date { NaN }}
+          minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
@@ -611,9 +611,9 @@ exports[`create methods sets disable false 1`] = `
 +         value=\\"New Title\\"
         />
         <DatePicker
--         date=\\"\\"
+-         date={Date { NaN }}
 +         date={2020-02-13T00:00:00.000Z}
-          minDate={2020-02-13T00:00:00.000Z}
+          minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\"
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
@@ -960,8 +960,8 @@ exports[`edit methods calls onComplete 1`] = `
         value="Old Title"
       />
       <DatePicker
-        date={"2020-02-13T23:59:59.999Z"}
-        minDate={2020-02-13T00:00:00.000Z}
+        date={2020-02-13T23:59:59.999Z}
+        minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
         testID="datePicker"
@@ -1119,8 +1119,8 @@ exports[`edit methods disables button if user deletes title 1`] = `
 +         value=\\"\\"
         />
         <DatePicker
-          date={\\"2020-02-13T23:59:59.999Z\\"}
-          minDate={2020-02-13T00:00:00.000Z}
+          date={2020-02-13T23:59:59.999Z}
+          minimumDate={2020-02-13T00:00:00.000Z}
           mode=\\"date\\""
 `;
 
@@ -1308,8 +1308,8 @@ exports[`renders correctly 1`] = `
         value=""
       />
       <DatePicker
-        date=""
-        minDate={2020-02-13T00:00:00.000Z}
+        date={Date { NaN }}
+        minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
         testID="datePicker"
@@ -1724,8 +1724,8 @@ exports[`renders correctly on android 1`] = `
         value=""
       />
       <DatePicker
-        date=""
-        minDate={2020-02-13T00:00:00.000Z}
+        date={Date { NaN }}
+        minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
         testID="datePicker"
@@ -2223,8 +2223,8 @@ exports[`renders edit challenge correctly 1`] = `
         value="Test Title"
       />
       <DatePicker
-        date={"2020-02-29T23:59:59.999Z"}
-        minDate={2020-02-13T00:00:00.000Z}
+        date={2020-02-29T23:59:59.999Z}
+        minimumDate={2020-02-13T00:00:00.000Z}
         mode="date"
         onDateChange={[Function]}
         testID="datePicker"
