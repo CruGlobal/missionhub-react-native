@@ -8,19 +8,16 @@ export default StyleSheet.create({
   placeholderText: {
     color: theme.white,
   },
-  datePickerContainer: {
-    flex: 1,
-    alignItems: 'flex-end',
-    flexDirection: 'row',
-  },
   datePickerMask: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
   datePickerBox: {
     backgroundColor: theme.white,
-    height: 0,
-    overflow: 'hidden',
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   topWrap: {
     position: 'absolute',

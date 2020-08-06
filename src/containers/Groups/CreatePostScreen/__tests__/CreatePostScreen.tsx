@@ -4,7 +4,12 @@ import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { useMutation } from '@apollo/react-hooks';
 
-import { ACTIONS, ORG_PERMISSIONS } from '../../../../constants';
+import {
+  ACTIONS,
+  ORG_PERMISSIONS,
+  SAVE_PENDING_POST,
+  DELETE_PENDING_POST,
+} from '../../../../constants';
 import { navigatePush, navigateBack } from '../../../../actions/navigation';
 import {
   trackActionWithoutData,
@@ -24,15 +29,13 @@ import {
 import { useFeatureFlags } from '../../../../utils/hooks/useFeatureFlags';
 import { CreatePostScreen } from '..';
 
+jest.mock('react-native-video', () => 'Video');
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');
 jest.mock('../../../../utils/hooks/useFeatureFlags');
-jest.mock('react-native-video', () => 'Video');
 
 const myId = '5';
-const navigatePushResult = { type: 'navigated push' };
-const navigateBackResult = { type: 'navigated back' };
 const communityId = '1234';
 const orgPermission = {
   organization_id: communityId,
@@ -42,15 +45,22 @@ const postType = PostTypeEnum.prayer_request;
 const post = mockFragment<CommunityFeedItem>(COMMUNITY_FEED_ITEM_FRAGMENT, {
   mocks: { FeedItem: () => ({ __typename: 'Post' }) },
 }).subject as CommunityFeedItem_subject_Post;
+const onComplete = jest.fn();
 
 const MOCK_POST = 'This is my cool story! 📘✏️';
 const MOCK_IMAGE = 'data:image/jpeg;base64,base64image.jpeg';
 const MOCK_VIDEO = 'file:/video.mov';
-const videoType = 'video/mp4';
+const VIDEO_TYPE = 'video/mp4';
 
 const initialState = {
   auth: { person: { id: myId, organizational_permissions: [orgPermission] } },
+  communityPosts: { nextId: 0, pendingPosts: {} },
 };
+
+const navigatePushResult = { type: 'navigated push' };
+const navigateBackResult = { type: 'navigated back' };
+const trackActionResult = { type: 'tracked action' };
+const trackActionWithoutDataResult = { type: 'tracked action without data' };
 
 beforeEach(() => {
   ((common as unknown) as { isAndroid: boolean }).isAndroid = false;
@@ -68,10 +78,10 @@ beforeEach(() => {
     },
   );
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
-  (trackActionWithoutData as jest.Mock).mockReturnValue(() =>
-    Promise.resolve(),
+  (trackActionWithoutData as jest.Mock).mockReturnValue(
+    trackActionWithoutDataResult,
   );
-  (trackAction as jest.Mock).mockReturnValue(() => Promise.resolve());
+  (trackAction as jest.Mock).mockReturnValue(trackActionResult);
   (useFeatureFlags as jest.Mock).mockReturnValue({ video: true });
 });
 
@@ -92,7 +102,7 @@ it('renders correctly for new post and feature flag false', () => {
 
   renderWithContext(<CreatePostScreen />, {
     initialState,
-    navParams: { communityId, postType },
+    navParams: { communityId, postType, onComplete },
   }).snapshot();
 
   expect(useAnalytics).toHaveBeenCalledWith(['post', 'prayer request'], {
@@ -112,6 +122,7 @@ it('renders correctly for update post without media', () => {
         mediaContentType: undefined,
         mediaExpiringUrl: undefined,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -134,6 +145,7 @@ it('renders correctly for update post without media and feature flag false', () 
         mediaContentType: undefined,
         mediaExpiringUrl: undefined,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -154,6 +166,7 @@ it('renders correctly for update post with image', () => {
         mediaContentType: 'image/jpeg',
         mediaExpiringUrl: MOCK_IMAGE,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -174,6 +187,7 @@ it('renders correctly for update post with video', () => {
         mediaContentType: 'video',
         mediaExpiringUrl: MOCK_VIDEO,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -196,6 +210,7 @@ it('renders correctly for update post without video if feature flag is false', (
         mediaContentType: 'video',
         mediaExpiringUrl: MOCK_VIDEO,
       },
+      onComplete,
     },
   }).snapshot();
 
@@ -209,7 +224,7 @@ describe('renders for post types', () => {
   it('renders for story', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { communityId, postType: PostTypeEnum.story },
+      navParams: { communityId, postType: PostTypeEnum.story, onComplete },
     }).snapshot();
   });
 
@@ -219,6 +234,7 @@ describe('renders for post types', () => {
       navParams: {
         communityId,
         postType: PostTypeEnum.prayer_request,
+        onComplete,
       },
     }).snapshot();
   });
@@ -226,7 +242,7 @@ describe('renders for post types', () => {
   it('renders for spiritual question', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { communityId, postType: PostTypeEnum.question },
+      navParams: { communityId, postType: PostTypeEnum.question, onComplete },
     }).snapshot();
   });
 
@@ -236,6 +252,7 @@ describe('renders for post types', () => {
       navParams: {
         communityId,
         postType: PostTypeEnum.help_request,
+        onComplete,
       },
     }).snapshot();
   });
@@ -243,7 +260,7 @@ describe('renders for post types', () => {
   it('renders for thought', () => {
     renderWithContext(<CreatePostScreen />, {
       initialState,
-      navParams: { communityId, postType: PostTypeEnum.thought },
+      navParams: { communityId, postType: PostTypeEnum.thought, onComplete },
     }).snapshot();
   });
 
@@ -253,6 +270,7 @@ describe('renders for post types', () => {
       navParams: {
         communityId,
         postType: PostTypeEnum.announcement,
+        onComplete,
       },
     }).snapshot();
   });
@@ -267,6 +285,7 @@ describe('Select image', () => {
         navParams: {
           communityId,
           postType: PostTypeEnum.story,
+          onComplete,
         },
       },
     );
@@ -292,9 +311,9 @@ describe('Select video', () => {
       {
         initialState,
         navParams: {
-          onComplete,
           communityId,
           postType: PostTypeEnum.story,
+          onComplete,
         },
       },
     );
@@ -317,6 +336,7 @@ describe('Creating a post', () => {
         navParams: {
           communityId,
           postType,
+          onComplete,
         },
       },
     );
@@ -327,26 +347,20 @@ describe('Creating a post', () => {
   });
 
   it('calls savePost function when the user clicks the share post button', async () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
         communityId,
         postType,
+        onComplete,
       },
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
 
-    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
-      [ACTIONS.CREATE_POST.key]: postType,
-    });
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.PHOTO_ADDED,
-    );
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.VIDEO_ADDED,
-    );
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -357,14 +371,27 @@ describe('Creating a post', () => {
         },
       },
     });
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([navigateBackResult, trackActionResult]);
   });
 
   it('calls savePost function with image', async () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
         communityId,
         postType,
+        onComplete,
       },
     });
 
@@ -372,15 +399,10 @@ describe('Creating a post', () => {
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
       data: MOCK_IMAGE,
     });
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
 
-    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
-      [ACTIONS.CREATE_POST.key]: postType,
-    });
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.VIDEO_ADDED,
-    );
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
       variables: {
         input: {
@@ -391,23 +413,56 @@ describe('Creating a post', () => {
         },
       },
     });
+    expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
+      [ACTIONS.CREATE_POST.key]: postType,
+    });
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      navigateBackResult,
+      trackActionResult,
+      trackActionWithoutDataResult,
+    ]);
   });
 
   it('calls savePost function with video', async () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+    const expectedInput = {
+      content: MOCK_POST,
+      communityId,
+      postType: PostTypeEnum.prayer_request,
+      media: {
+        name: 'upload',
+        type: VIDEO_TYPE,
+        uri: MOCK_VIDEO,
+      },
+    };
+
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
         communityId,
         postType,
+        onComplete,
       },
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
-    await fireEvent.press(getByTestId('VideoButton'));
+    fireEvent.press(getByTestId('VideoButton'));
     await flushMicrotasksQueue();
 
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
 
+    expect(navigateBack).toHaveBeenCalledWith();
+    expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
+      variables: {
+        input: expectedInput,
+      },
+    });
     expect(trackAction).toHaveBeenCalledWith(ACTIONS.CREATE_POST.name, {
       [ACTIONS.CREATE_POST.key]: postType,
     });
@@ -415,20 +470,16 @@ describe('Creating a post', () => {
       ACTIONS.PHOTO_ADDED,
     );
     expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
-    expect(useMutation).toHaveBeenMutatedWith(CREATE_POST, {
-      variables: {
-        input: {
-          content: MOCK_POST,
-          communityId,
-          postType: PostTypeEnum.prayer_request,
-          media: {
-            name: 'upload',
-            type: videoType,
-            uri: MOCK_VIDEO,
-          },
-        },
-      },
-    });
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      navigatePushResult,
+      navigateBackResult,
+      { type: SAVE_PENDING_POST, post: expectedInput, storageId: '0' },
+      trackActionResult,
+      { type: DELETE_PENDING_POST, storageId: '0' },
+      trackActionWithoutDataResult,
+    ]);
   });
 });
 
@@ -441,6 +492,7 @@ describe('Updating a post', () => {
         navParams: {
           communityId,
           post,
+          onComplete,
         },
       },
     );
@@ -451,24 +503,20 @@ describe('Updating a post', () => {
   });
 
   it('calls savePost function when the user clicks the share post button', async () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
         communityId,
         post,
+        onComplete,
       },
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
 
-    expect(trackAction).not.toHaveBeenCalled();
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.PHOTO_ADDED,
-    );
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.VIDEO_ADDED,
-    );
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
@@ -478,14 +526,25 @@ describe('Updating a post', () => {
         },
       },
     });
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([navigateBackResult]);
   });
 
   it('calls savePost function with image', async () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
         communityId,
         post,
+        onComplete,
       },
     });
 
@@ -493,13 +552,10 @@ describe('Updating a post', () => {
     await fireEvent(getByTestId('ImagePicker'), 'onSelectImage', {
       data: MOCK_IMAGE,
     });
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
 
-    expect(trackAction).not.toHaveBeenCalled();
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.VIDEO_ADDED,
-    );
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
@@ -509,28 +565,48 @@ describe('Updating a post', () => {
         },
       },
     });
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.PHOTO_ADDED);
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.VIDEO_ADDED,
+    );
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      navigateBackResult,
+      trackActionWithoutDataResult,
+    ]);
   });
 
   it('calls savePost function with video', async () => {
-    const { getByTestId } = renderWithContext(<CreatePostScreen />, {
+    const expectedInput = {
+      id: post.id,
+      content: MOCK_POST,
+      communityId,
+      media: {
+        name: 'upload',
+        type: VIDEO_TYPE,
+        uri: MOCK_VIDEO,
+      },
+    };
+
+    const { getByTestId, store } = renderWithContext(<CreatePostScreen />, {
       initialState,
       navParams: {
         communityId,
         post,
+        onComplete,
       },
     });
 
     await fireEvent(getByTestId('PostInput'), 'onChangeText', MOCK_POST);
-    await fireEvent.press(getByTestId('VideoButton'));
+    fireEvent.press(getByTestId('VideoButton'));
     await flushMicrotasksQueue();
 
-    await fireEvent.press(getByTestId('CreatePostButton'));
+    fireEvent.press(getByTestId('CreatePostButton'));
+    await flushMicrotasksQueue();
 
-    expect(trackAction).not.toHaveBeenCalled();
-    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
-      ACTIONS.PHOTO_ADDED,
-    );
-    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(navigateBack).toHaveBeenCalledWith();
     expect(useMutation).toHaveBeenMutatedWith(UPDATE_POST, {
       variables: {
         input: {
@@ -538,11 +614,25 @@ describe('Updating a post', () => {
           id: post.id,
           media: {
             name: 'upload',
-            type: videoType,
+            type: VIDEO_TYPE,
             uri: MOCK_VIDEO,
           },
         },
       },
     });
+    expect(trackAction).not.toHaveBeenCalled();
+    expect(trackActionWithoutData).not.toHaveBeenCalledWith(
+      ACTIONS.PHOTO_ADDED,
+    );
+    expect(trackActionWithoutData).toHaveBeenCalledWith(ACTIONS.VIDEO_ADDED);
+    expect(onComplete).toHaveBeenCalledWith();
+
+    expect(store.getActions()).toEqual([
+      navigatePushResult,
+      navigateBackResult,
+      { type: SAVE_PENDING_POST, post: expectedInput, storageId: '0' },
+      { type: DELETE_PENDING_POST, storageId: '0' },
+      trackActionWithoutDataResult,
+    ]);
   });
 });
