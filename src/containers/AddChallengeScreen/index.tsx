@@ -72,12 +72,12 @@ const AddChallengeScreen = () => {
     changeDisableBtn(!(title && date));
   };
 
-  const onChangeDate = (challengeDate: string) => {
+  const onChangeDate = (challengeDate: Date) => {
     if (!challengeDate) {
       changeDate('');
       changeDisableBtn(false);
     } else {
-      changeDate(challengeDate);
+      changeDate(moment(challengeDate));
       changeDisableBtn(!title);
     }
   };
@@ -130,10 +130,9 @@ const AddChallengeScreen = () => {
     const today = new Date();
     return (
       <DatePicker
-        // @ts-ignore
-        date={date}
+        date={moment(date).toDate()}
         mode="date"
-        minDate={today}
+        minimumDate={today}
         onDateChange={onChangeDate}
         testID="datePicker"
       >

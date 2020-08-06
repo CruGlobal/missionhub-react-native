@@ -4836,7 +4836,9 @@ exports[`renders loading 1`] = `
                   },
                 ]
               }
-            />
+            >
+              MissionHub
+            </Text>
           </View>
         </View>
         <View

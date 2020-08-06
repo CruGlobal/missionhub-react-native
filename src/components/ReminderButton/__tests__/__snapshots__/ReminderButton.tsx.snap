@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`reminder not passed in renders correctly 1`] = `
-<View>
+Array [
   <View
     accessible={true}
     focusable={true}
@@ -20,18 +20,11 @@ exports[`reminder not passed in renders correctly 1`] = `
     }
   >
     <View />
-  </View>
+  </View>,
   <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
@@ -55,43 +48,36 @@ exports[`reminder not passed in renders correctly 1`] = `
       }
     />
     <View
-      pointerEvents="auto"
       style={
         Object {
           "backgroundColor": "#ffffff",
-          "height": 0,
-          "overflow": "hidden",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 378,
+            },
+          ],
         }
       }
     >
-      <View
+      <DateTimePicker
+        locale="en-TEST"
+        minimumDate={2018-01-02T00:39:39.887Z}
+        mode="datetime"
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
-        }
-      >
-        <RCTDatePicker
-          date={1514853579887}
-          locale="en-TEST"
-          minimumDate={1514853579887}
-          mode="datetime"
-          onChange={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "height": 216,
-            }
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
           }
-          timeZoneOffsetInMinutes={null}
-        />
-      </View>
+        }
+        testID="DateTimePicker"
+        value={2018-01-02T00:39:39.887Z}
+      />
       <View
         style={
           Object {
@@ -516,15 +502,12 @@ exports[`reminder not passed in renders correctly 1`] = `
                       "letterSpacing": 1.5,
                       "textAlign": "center",
                     },
-                    Array [
-                      Object {
-                        "color": "#007AFF",
-                        "fontSize": 16,
-                        "fontWeight": "normal",
-                        "letterSpacing": 1,
-                      },
-                      undefined,
-                    ],
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
                   ],
                 ]
               }
@@ -535,12 +518,12 @@ exports[`reminder not passed in renders correctly 1`] = `
         </View>
       </View>
     </View>
-  </Modal>
-</View>
+  </Modal>,
+]
 `;
 
 exports[`reminder passed in renders correctly 1`] = `
-<View>
+Array [
   <View
     accessible={true}
     focusable={true}
@@ -559,18 +542,11 @@ exports[`reminder passed in renders correctly 1`] = `
     }
   >
     <View />
-  </View>
+  </View>,
   <Modal
     animationType="none"
     hardwareAccelerated={false}
     onRequestClose={[Function]}
-    style={
-      Object {
-        "alignItems": "flex-end",
-        "flex": 1,
-        "flexDirection": "row",
-      }
-    }
     transparent={true}
     visible={false}
   >
@@ -594,43 +570,36 @@ exports[`reminder passed in renders correctly 1`] = `
       }
     />
     <View
-      pointerEvents="auto"
       style={
         Object {
           "backgroundColor": "#ffffff",
-          "height": 0,
-          "overflow": "hidden",
+          "bottom": 0,
+          "left": 0,
+          "position": "absolute",
+          "right": 0,
+          "transform": Array [
+            Object {
+              "translateY": 378,
+            },
+          ],
         }
       }
     >
-      <View
+      <DateTimePicker
+        locale="en-TEST"
+        minimumDate={2018-01-02T00:39:39.887Z}
+        mode="datetime"
+        onChange={[Function]}
         style={
-          Array [
-            Object {
-              "borderTopColor": "#ccc",
-              "borderTopWidth": 1,
-              "marginTop": 60,
-            },
-            undefined,
-          ]
-        }
-      >
-        <RCTDatePicker
-          date={1447447941990}
-          locale="en-TEST"
-          minimumDate={1514853579887}
-          mode="datetime"
-          onChange={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "height": 216,
-            }
+          Object {
+            "borderTopColor": "#ccc",
+            "borderTopWidth": 1,
+            "marginTop": 60,
           }
-          timeZoneOffsetInMinutes={null}
-        />
-      </View>
+        }
+        testID="DateTimePicker"
+        value={2015-11-13T20:52:21.990Z}
+      />
       <View
         style={
           Object {
@@ -1055,15 +1024,12 @@ exports[`reminder passed in renders correctly 1`] = `
                       "letterSpacing": 1.5,
                       "textAlign": "center",
                     },
-                    Array [
-                      Object {
-                        "color": "#007AFF",
-                        "fontSize": 16,
-                        "fontWeight": "normal",
-                        "letterSpacing": 1,
-                      },
-                      undefined,
-                    ],
+                    Object {
+                      "color": "#007AFF",
+                      "fontSize": 16,
+                      "fontWeight": "normal",
+                      "letterSpacing": 1,
+                    },
                   ],
                 ]
               }
@@ -1074,6 +1040,6 @@ exports[`reminder passed in renders correctly 1`] = `
         </View>
       </View>
     </View>
-  </Modal>
-</View>
+  </Modal>,
+]
 `;

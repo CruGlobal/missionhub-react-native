@@ -75,11 +75,7 @@ export default class App extends Component {
     this.setState({ apolloClient });
 
     this.checkOldAppToken();
-    // @ts-ignore
-    store.dispatch(resetToInitialRoute());
-    // @ts-ignore
     store.dispatch(configureNotificationHandler());
-    // @ts-ignore
     store.dispatch(setupFirebaseDynamicLinks());
     store.getState().auth.token && getFeatureFlags();
     moment.locale(i18n.language.split('-')[0]);

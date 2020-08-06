@@ -1,245 +1,131 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, Modal, DatePickerIOS, Animated, Keyboard } from 'react-native';
-import { withTranslation } from 'react-i18next';
+import React, { useState, useEffect, useRef } from 'react';
+import { View, Modal, Animated, Keyboard } from 'react-native';
+import { useTranslation } from 'react-i18next';
 import { getLocales } from 'react-native-localize';
+import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 
 import { Text, Touchable, Button } from '../common';
 import { getDate } from '../../utils/date';
 import { isFunction } from '../../utils/common';
 
 import styles from './styles';
+import { DateTimePickerButtonProps } from './shared';
 
-// @ts-ignore
-@withTranslation('datePicker')
-class MyDatePickerIOS extends Component {
-  state = {
-    // @ts-ignore
-    date: getDate(this.props.date),
-    modalVisible: false,
-    animatedHeight: new Animated.Value(0),
-    allowPointerEvents: true,
-  };
+const DatePickerIos = ({
+  date: dateProp,
+  // component height: 216(DatePickerIOS) + 1(borderTop) + 42(marginTop), IOS only
+  height = 259,
+  onDateChange,
+  onPress,
+  mode = 'datetime',
+  minimumDate,
+  children,
+  iOSModalContent,
+}: DateTimePickerButtonProps) => {
+  const { t } = useTranslation('datePicker');
 
-  // @ts-ignore
-  UNSAFE_componentWillReceiveProps({ date }) {
-    // @ts-ignore
-    if (date !== this.props.date) {
-      this.setState({ date: getDate(date) });
-    }
-  }
+  const [date, setDate] = useState<Date>(getDate(dateProp));
+  const [modalVisible, setModalVisible] = useState(false);
+  const animatedHeight = useRef(new Animated.Value(height));
 
-  // @ts-ignore
-  setModalVisible = visible => {
-    // @ts-ignore
-    const { height, duration } = this.props;
+  useEffect(() => {
+    setDate(getDate(dateProp));
+  }, [dateProp]);
 
-    this.setState({ modalVisible: visible });
+  const updateModalVisible = (visible: boolean) => {
+    setModalVisible(visible);
 
     // slide animation
-    return Animated.timing(this.state.animatedHeight, {
-      toValue: visible ? height : 0,
-      duration: duration,
+    return Animated.timing(animatedHeight.current, {
+      toValue: visible ? 0 : height,
+      duration: 300,
     }).start();
   };
 
-  closeModal = () => this.setModalVisible(false);
+  const closeModal = () => updateModalVisible(false);
 
-  showPicker = () => this.setModalVisible(true);
+  const showPicker = () => updateModalVisible(true);
 
-  onPressCancel = () => {
-    // @ts-ignore
-    const { onCloseModal } = this.props;
-
-    this.closeModal();
-    isFunction(onCloseModal) && onCloseModal();
+  const onPressConfirm = () => {
+    datePicked();
+    closeModal();
   };
 
-  onPressConfirm = () => {
-    // @ts-ignore
-    const { onCloseModal } = this.props;
-
-    this.datePicked();
-    this.closeModal();
-    isFunction(onCloseModal) && onCloseModal();
+  const datePicked = () => {
+    onDateChange(date);
   };
 
-  datePicked() {
-    // @ts-ignore
-    const { onDateChange } = this.props;
-    const { date } = this.state;
-
-    isFunction(onDateChange) && onDateChange(date);
-  }
-
-  // @ts-ignore
-  onDateChange = date => {
-    this.setState({
-      allowPointerEvents: false,
-      date: date,
-    });
-    const timeoutId = setTimeout(() => {
-      this.setState({
-        allowPointerEvents: true,
-      });
-      clearTimeout(timeoutId);
-    }, 200);
+  const onChange = (event: Event, date?: Date) => {
+    setDate(getDate(date));
   };
 
-  onPressDate = () => {
-    // @ts-ignore
-    const { disabled, onPressIOS, date } = this.props;
-
-    if (disabled) {
-      return true;
-    }
-
+  const openModal = () => {
     Keyboard.dismiss();
 
-    this.setState({
-      date: getDate(date),
-    });
+    setDate(getDate(dateProp));
 
-    return isFunction(onPressIOS)
-      ? onPressIOS({ showPicker: this.showPicker })
-      : this.showPicker();
+    return isFunction(onPress) ? onPress({ showPicker }) : showPicker();
   };
 
-  render() {
-    const {
-      // @ts-ignore
-      t,
-      // @ts-ignore
-      mode,
-      // @ts-ignore
-      customStyles,
-      // @ts-ignore
-      minDate,
-      // @ts-ignore
-      maxDate,
-      // @ts-ignore
-      minuteInterval,
-      // @ts-ignore
-      timeZoneOffsetInMinutes,
-      // @ts-ignore
-      cancelBtnText,
-      // @ts-ignore
-      doneBtnText,
-      // @ts-ignore
-      title,
-      children,
-      // @ts-ignore
-      iOSModalContent,
-    } = this.props;
-    const {
-      modalVisible,
-      animatedHeight,
-      date,
-      allowPointerEvents,
-    } = this.state;
-    const {
-      datePickerMask,
-      datePickerBox,
-      datePicker,
-      topWrap,
-      btnText,
-      btnTextCancel,
-      titleText,
-    } = styles;
+  const {
+    datePickerMask,
+    datePickerBox,
+    datePicker,
+    topWrap,
+    btnText,
+    btnTextCancel,
+    titleText,
+  } = styles;
 
-    return (
-      <View>
-        <Touchable onPress={this.onPressDate}>{children}</Touchable>
-        <Modal
-          transparent={true}
-          animationType="none"
-          visible={modalVisible}
-          onRequestClose={this.closeModal}
-          // @ts-ignore
-          style={styles.datePickerContainer}
+  return (
+    <>
+      <Touchable onPress={openModal}>{children}</Touchable>
+      <Modal
+        transparent={true}
+        animationType="none"
+        visible={modalVisible}
+        onRequestClose={closeModal}
+      >
+        <Touchable
+          style={datePickerMask}
+          activeOpacity={1}
+          onPress={closeModal}
+        />
+        <Animated.View
+          style={[
+            datePickerBox,
+            { transform: [{ translateY: animatedHeight.current }] },
+          ]}
         >
-          <Touchable
-            style={datePickerMask}
-            activeOpacity={1}
-            onPress={this.onPressCancel}
+          <DateTimePicker
+            testID="DateTimePicker"
+            value={date}
+            mode={mode}
+            minimumDate={minimumDate ? getDate(minimumDate) : undefined}
+            onChange={onChange}
+            style={datePicker}
+            locale={(getLocales()[0] || {}).languageTag}
           />
-          <Animated.View
-            style={[datePickerBox, { height: animatedHeight }]}
-            pointerEvents={allowPointerEvents ? 'auto' : 'none'}
-          >
-            <DatePickerIOS
-              date={date}
-              mode={mode}
-              minimumDate={minDate && getDate(minDate)}
-              maximumDate={maxDate && getDate(maxDate)}
-              onDateChange={this.onDateChange}
-              minuteInterval={minuteInterval}
-              timeZoneOffsetInMinutes={
-                timeZoneOffsetInMinutes ? timeZoneOffsetInMinutes : null
-              }
-              style={[datePicker, customStyles.datePicker]}
-              locale={(getLocales()[0] || {}).languageTag}
+          {iOSModalContent}
+          <View style={topWrap}>
+            <Button
+              type={'transparent'}
+              onPress={closeModal}
+              text={t('cancel')}
+              buttonTextStyle={[btnText, btnTextCancel]}
             />
-            {iOSModalContent}
-            <View style={topWrap}>
-              <Button
-                type={'transparent'}
-                onPress={this.onPressCancel}
-                text={cancelBtnText || t('cancel')}
-                buttonTextStyle={[btnText, btnTextCancel]}
-              />
-              <Text style={titleText}>{title || t('date')}</Text>
-              <Button
-                type={'transparent'}
-                onPress={this.onPressConfirm}
-                text={doneBtnText || t('done')}
-                buttonTextStyle={[btnText, customStyles.btnTextConfirm]}
-              />
-            </View>
-          </Animated.View>
-        </Modal>
-      </View>
-    );
-  }
-}
-
-// @ts-ignore
-MyDatePickerIOS.defaultProps = {
-  mode: 'date',
-  date: '',
-  // component height: 216(DatePickerIOS) + 1(borderTop) + 42(marginTop), IOS only
-  height: 259,
-
-  // slide animation duration time, default to 300ms, IOS only
-  duration: 300,
-  customStyles: {},
-  disabled: false,
+            <Text style={titleText}>{t('date')}</Text>
+            <Button
+              type={'transparent'}
+              onPress={onPressConfirm}
+              text={t('done')}
+              buttonTextStyle={btnText}
+            />
+          </View>
+        </Animated.View>
+      </Modal>
+    </>
+  );
 };
 
-// @ts-ignore
-MyDatePickerIOS.propTypes = {
-  mode: PropTypes.oneOf(['date', 'datetime', 'time']),
-  date: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.instanceOf(Date),
-    PropTypes.object,
-  ]),
-  minDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-  maxDate: PropTypes.oneOfType([PropTypes.string, PropTypes.instanceOf(Date)]),
-  height: PropTypes.number,
-  duration: PropTypes.number,
-  doneBtnText: PropTypes.string,
-  cancelBtnText: PropTypes.string,
-  customStyles: PropTypes.object,
-  disabled: PropTypes.bool,
-  onDateChange: PropTypes.func.isRequired,
-  onCloseModal: PropTypes.func,
-  onPressIOS: PropTypes.func,
-  minuteInterval: PropTypes.number,
-  timeZoneOffsetInMinutes: PropTypes.number,
-  title: PropTypes.string,
-  children: PropTypes.element,
-  iOSModalContent: PropTypes.element,
-};
-
-export default MyDatePickerIOS;
+export default DatePickerIos;

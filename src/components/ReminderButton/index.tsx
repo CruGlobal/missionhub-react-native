@@ -16,6 +16,7 @@ import { createStepReminder } from '../../actions/stepReminders';
 import { AuthState } from '../../reducers/auth';
 import { NotificationsState } from '../../reducers/notifications';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
+import { isAndroid } from '../../utils/common';
 
 import { ReminderButton as Reminder } from './__generated__/ReminderButton';
 
@@ -41,22 +42,22 @@ const ReminderButton = ({
     reminderType: undefined,
   };
   const [recurrence, setRecurrence] = useState(reminderType);
-  // for Android, request notifications, then navigate to step reminder screen
-  const handlePressAndroid = () => {
-    dispatch(requestNativePermissions());
-    dispatch(navigatePush(STEP_REMINDER_SCREEN, { reminder, stepId }));
-  };
-  // for iOS, ask for notifications, navigate to step reminder screen
-  const handlePressIOS = ({ showPicker }: { showPicker: () => void }) => {
-    dispatch(
-      checkNotifications(
-        NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
-        ({ nativePermissionsEnabled, showedPrompt }) => {
-          showedPrompt && dispatch(navigateBack());
-          nativePermissionsEnabled && showPicker();
-        },
-      ),
-    );
+  const handlePress = ({ showPicker }: { showPicker: () => void }) => {
+    if (isAndroid) {
+      // for Android, request notifications, then navigate to step reminder screen
+      dispatch(requestNativePermissions());
+      dispatch(navigatePush(STEP_REMINDER_SCREEN, { reminder, stepId }));
+    } else {
+      dispatch(
+        checkNotifications(
+          NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+          ({ nativePermissionsEnabled, showedPrompt }) => {
+            showedPrompt && dispatch(navigateBack());
+            nativePermissionsEnabled && showPicker();
+          },
+        ),
+      );
+    }
   };
   const handleChangeDate = (date: Date) => {
     dispatch(createStepReminder(stepId, date, recurrence));
@@ -67,12 +68,10 @@ const ReminderButton = ({
   const today = new Date();
   return (
     <DatePicker
-      // @ts-ignore
       testID="ReminderDatePicker"
       date={nextOccurrenceAt}
-      minDate={today}
-      onPressAndroid={handlePressAndroid}
-      onPressIOS={handlePressIOS}
+      minimumDate={today}
+      onPress={handlePress}
       onDateChange={handleChangeDate}
       iOSModalContent={
         <ReminderRepeatButtons
