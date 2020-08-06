@@ -385,8 +385,7 @@ export function parseNotificationData(
 
   const payloadData = isIosPayload(notification)
     ? notification.data.link.data
-    : // If a notification is pressed while the app is killed/in the background, the payload will not include the data key
-    // The values can be accessed directly from the notification
+    : // If a notification is pressed while the app is killed/in the background, the payload will not include the data key and the values need to be accessed directly from the root notification object
     isUsingDataKey(notification)
     ? notification.data
     : notification;
