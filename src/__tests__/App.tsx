@@ -97,7 +97,6 @@ it('calls actions onBeforeLift', async () => {
 
   await shallowScreen.instance().onBeforeLift();
 
-  expect(resetToInitialRoute).toHaveBeenCalledWith();
   expect(configureNotificationHandler).toHaveBeenCalledWith();
   expect(setupFirebaseDynamicLinks).toHaveBeenCalledWith();
   expect(getFeatureFlags).not.toHaveBeenCalledWith();
