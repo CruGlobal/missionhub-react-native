@@ -264,6 +264,10 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
+    if (isAndroid && !notification.userInteraction) {
+      return;
+    }
+
     const { person: me } = getState().auth;
 
     const notificationData = parseNotificationData(notification);
@@ -367,11 +371,20 @@ export function parseNotificationData(
   ): notification is PushNotificationPayloadIos =>
     !!(notification as PushNotificationPayloadIos).data?.link;
 
+  const isUsingDataKey = (
+    notification: PushNotificationPayloadAndroid,
+  ): notification is RNPushNotificationPayload & {
+    data: PushNotificationPayloadData;
+  } =>
+    !!(notification as RNPushNotificationPayload & {
+      data: PushNotificationPayloadData;
+    }).data?.screen;
+
   const payloadData = isIosPayload(notification)
     ? notification.data.link.data
     : // If a notification is pressed while the app is killed/in the background, the payload will not include the data key
     // The values can be accessed directly from the notification
-    notification.data?.screen && notification.userInteraction
+    isUsingDataKey(notification)
     ? notification.data
     : notification;
 
