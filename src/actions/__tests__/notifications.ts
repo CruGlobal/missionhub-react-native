@@ -544,10 +544,21 @@ describe('askNotificationPermissions', () => {
         ]);
       });
 
-      it('on Android, should navigate', async () => {
+      it('on Android, should not navigate', async () => {
         ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
 
         await testNotification({ ...baseNotification, screen: 'home' }, false);
+
+        expect(store.getActions()).toEqual([]);
+      });
+
+      it('on Android, it should navigate if userInteraction is undefined', async () => {
+        ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+
+        await testNotification(
+          { ...baseNotification, screen: 'home' },
+          undefined,
+        );
 
         expect(store.getActions()).toEqual([
           { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
