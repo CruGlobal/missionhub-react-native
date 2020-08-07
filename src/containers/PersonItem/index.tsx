@@ -1,18 +1,9 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { connect } from 'react-redux-legacy';
-import { ThunkDispatch } from 'redux-thunk';
-import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { useSelector } from 'react-redux';
-import { AnyAction } from 'redux';
+import { useSelector, useDispatch } from 'react-redux';
 
-import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
-import CURIOUS from '../../../assets/images/curiousIcon.png';
-import FORGIVEN from '../../../assets/images/forgivenIcon.png';
-import GROWING from '../../../assets/images/growingIcon.png';
-import GUIDING from '../../../assets/images/guidingIcon.png';
-import NOTSURE from '../../../assets/images/notsureIcon.png';
 import NoStage from '../../../assets/images/noStage.svg';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import { Text, Touchable, Icon, Card } from '../../components/common';
@@ -23,49 +14,42 @@ import {
 import { navToPersonScreen } from '../../actions/person';
 import { Organization } from '../../reducers/organizations';
 import { AuthState } from '../../reducers/auth';
-import { StagesObj, StagesState } from '../../reducers/stages';
-import { Person } from '../../reducers/people';
-import { localizedStageSelector } from '../../selectors/stages';
-import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../components/PeopleList/__generated__/GetPeopleStepsCount';
+import { StagesState } from '../../reducers/stages';
 import { RootState } from '../../reducers';
 import { contactAssignmentSelector } from '../../selectors/people';
+import { useIsMe } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
-
-const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
+import { PersonFragment } from './__generated__/PersonFragment';
 
 interface PersonItemProps {
-  person: PersonAttributes;
+  person: PersonFragment;
   organization?: Organization;
-  me: Person;
-  stagesObj: StagesObj;
-  dispatch: ThunkDispatch<RootState, never, AnyAction>;
-  stepsData?: PersonStepCount;
 }
 
-const PersonItem = ({
-  person,
-  organization,
-  me,
-  stagesObj,
-  dispatch,
-  stepsData,
-}: PersonItemProps) => {
+const PersonItem = ({ person, organization }: PersonItemProps) => {
   const { t } = useTranslation();
-  const totalCount = stepsData ? stepsData.steps.pageInfo.totalCount : 0;
-  const isMe = person.id === me.id;
+  const dispatch = useDispatch();
+
+  const {
+    id,
+    fullName,
+    stage,
+    steps: {
+      pageInfo: { totalCount },
+    },
+  } = person;
+
+  const isMe = useIsMe(id);
+
   const contactAssignment =
     useSelector(({ auth }: RootState) =>
       contactAssignmentSelector({ auth }, { person }),
     ) || {};
 
-  const personName = isMe ? t('me') : person.full_name || '';
+  const personName = isMe ? t('me') : fullName;
 
-  const stage = isMe
-    ? me.stage
-    : stagesObj[`${contactAssignment.pathway_stage_id}`];
-
-  const handleSelect = () => dispatch(navToPersonScreen(person.id));
+  const handleSelect = () => dispatch(navToPersonScreen(id));
 
   const handleChangeStage = () =>
     dispatch(
@@ -74,7 +58,7 @@ const PersonItem = ({
         person,
         contactAssignment,
         organization,
-        stage && stage.id - 1,
+        stage?.position && stage.position - 1,
         true,
       ),
     );
@@ -87,11 +71,11 @@ const PersonItem = ({
   const renderStageIcon = () => {
     return (
       <View style={styles.stageIconWrapper}>
-        {stage ? (
+        {stage && stage.iconUrl ? (
           <Image
             style={styles.image}
             resizeMode={'contain'}
-            source={stageIcons[stage.id - 1]}
+            source={{ uri: stage.iconUrl }}
           />
         ) : (
           <NoStage />
@@ -106,9 +90,7 @@ const PersonItem = ({
         <ItemHeaderText text={personName} />
         <View style={styles.textRow}>
           {stage ? (
-            <Text style={styles.stage}>
-              {localizedStageSelector(stage, i18next.language).name}
-            </Text>
+            <Text style={styles.stage}>{stage.nameI18n}</Text>
           ) : (
             <Touchable testID="stageText" onPress={handleChangeStage}>
               <Text style={[styles.stage, styles.addStage]}>
