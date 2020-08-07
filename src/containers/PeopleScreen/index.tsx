@@ -9,7 +9,7 @@ import { navigatePush } from '../../actions/navigation';
 import { Button, RefreshControl } from '../../components/common';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
-import PersonItem from '../PersonItem';
+import { PersonItem } from '../PersonItem';
 import { PersonFragment } from '../PersonItem/__generated__/PersonFragment';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
 import { useRefreshing } from '../../utils/hooks/useRefreshing';

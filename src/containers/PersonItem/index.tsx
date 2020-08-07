@@ -1,9 +1,14 @@
 import React from 'react';
 import { View, Image } from 'react-native';
-import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 
+import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
+import CURIOUS from '../../../assets/images/curiousIcon.png';
+import FORGIVEN from '../../../assets/images/forgivenIcon.png';
+import GROWING from '../../../assets/images/growingIcon.png';
+import GUIDING from '../../../assets/images/guidingIcon.png';
+import NOTSURE from '../../../assets/images/notsureIcon.png';
 import NoStage from '../../../assets/images/noStage.svg';
 import ItemHeaderText from '../../components/ItemHeaderText';
 import { Text, Touchable, Icon, Card } from '../../components/common';
@@ -22,12 +27,13 @@ import { useIsMe } from '../../utils/hooks/useIsMe';
 import styles from './styles';
 import { PersonFragment } from './__generated__/PersonFragment';
 
+const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
+
 interface PersonItemProps {
   person: PersonFragment;
-  organization?: Organization;
 }
 
-const PersonItem = ({ person, organization }: PersonItemProps) => {
+export const PersonItem = ({ person }: PersonItemProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 
@@ -71,11 +77,11 @@ const PersonItem = ({ person, organization }: PersonItemProps) => {
   const renderStageIcon = () => {
     return (
       <View style={styles.stageIconWrapper}>
-        {stage && stage.iconUrl ? (
+        {stage ? (
           <Image
             style={styles.image}
             resizeMode={'contain'}
-            source={{ uri: stage.iconUrl }}
+            source={stageIcons[stage.position - 1]}
           />
         ) : (
           <NoStage />
@@ -90,7 +96,7 @@ const PersonItem = ({ person, organization }: PersonItemProps) => {
         <ItemHeaderText text={personName} />
         <View style={styles.textRow}>
           {stage ? (
-            <Text style={styles.stage}>{stage.nameI18n}</Text>
+            <Text style={styles.stage}>{stage.name}</Text>
           ) : (
             <Touchable testID="stageText" onPress={handleChangeStage}>
               <Text style={[styles.stage, styles.addStage]}>
@@ -146,16 +152,3 @@ const PersonItem = ({ person, organization }: PersonItemProps) => {
     </Card>
   );
 };
-
-const mapStateToProps = ({
-  auth,
-  stages,
-}: {
-  auth: AuthState;
-  stages: StagesState;
-}) => ({
-  me: auth.person,
-  stagesObj: stages.stagesObj || {},
-});
-
-export default connect(mapStateToProps)(PersonItem);
