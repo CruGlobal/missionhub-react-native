@@ -35,12 +35,14 @@ const AddSomeoneScreen = ({
     dispatch(next({ skip }));
   };
 
+  const navToAddPerson = () => handleNavigate(false);
+
   const skip = () => handleNavigate(true);
 
   return (
     <IconMessageScreen
       mainText={t('message')}
-      onComplete={handleNavigate}
+      onComplete={navToAddPerson}
       buttonText={t('addSomeone')}
       iconPath={require('../../assets/images/add_someone.png')}
       onSkip={hideSkipBtn ? undefined : skip}
