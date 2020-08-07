@@ -58,6 +58,7 @@ interface CommunityFeedSection {
 const sortFeedItems = (
   items: GetCommunityFeed_community_feedItems_nodes[],
   pendingPosts: (StoredCreatePost | StoredUpdatePost)[],
+  filteredFeedType?: FeedItemSubjectTypeEnum,
 ) => {
   const dateSections: CommunityFeedSection[] = [
     { id: 0, title: 'dates.new', data: [] },
@@ -66,7 +67,7 @@ const sortFeedItems = (
   ];
   items.forEach(item => {
     const itemMoment = momentUtc(item.createdAt);
-    if (isLastTwentyFourHours(itemMoment) && !item.read) {
+    if (filteredFeedType && isLastTwentyFourHours(itemMoment) && !item.read) {
       dateSections[0].data.push(item);
       return;
     }
@@ -162,7 +163,11 @@ export const CommunityFeed = ({
     },
   );
 
-  const items = sortFeedItems(isGlobal ? globalNodes : nodes, pendingPosts);
+  const items = sortFeedItems(
+    isGlobal ? globalNodes : nodes,
+    pendingPosts,
+    filteredFeedType,
+  );
 
   const handleRefreshing = () => {
     if (loading || globalLoading) {
