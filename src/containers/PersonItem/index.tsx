@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Image } from 'react-native';
 import { useTranslation } from 'react-i18next';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -17,11 +17,6 @@ import {
   navigateToAddStepFlow,
 } from '../../actions/misc';
 import { navToPersonScreen } from '../../actions/person';
-import { Organization } from '../../reducers/organizations';
-import { AuthState } from '../../reducers/auth';
-import { StagesState } from '../../reducers/stages';
-import { RootState } from '../../reducers';
-import { contactAssignmentSelector } from '../../selectors/people';
 import { useIsMe } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
@@ -48,11 +43,6 @@ export const PersonItem = ({ person }: PersonItemProps) => {
 
   const isMe = useIsMe(id);
 
-  const contactAssignment =
-    useSelector(({ auth }: RootState) =>
-      contactAssignmentSelector({ auth }, { person }),
-    ) || {};
-
   const personName = isMe ? t('me') : fullName;
 
   const handleSelect = () => dispatch(navToPersonScreen(id));
@@ -60,19 +50,14 @@ export const PersonItem = ({ person }: PersonItemProps) => {
   const handleChangeStage = () =>
     dispatch(
       navigateToStageScreen(
-        isMe,
-        person,
-        contactAssignment,
-        organization,
+        person.id,
         stage?.position && stage.position - 1,
         true,
       ),
     );
 
   const handleAddStep = () =>
-    stage
-      ? dispatch(navigateToAddStepFlow(isMe, person, organization))
-      : handleChangeStage();
+    stage ? dispatch(navigateToAddStepFlow(person.id)) : handleChangeStage();
 
   const renderStageIcon = () => {
     return (
