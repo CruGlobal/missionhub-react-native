@@ -4,7 +4,6 @@ import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
 import { useQuery } from '@apollo/react-hooks';
 
-import { getMyPeople } from '../../actions/people';
 import { navigatePush } from '../../actions/navigation';
 import { Button, RefreshControl } from '../../components/common';
 import Header from '../../components/Header';
@@ -39,6 +38,7 @@ export const PeopleScreen = () => {
 
   const {
     data: { currentUser, people: { nodes: peopleNodes = [] } = {} } = {},
+    refetch,
   } = useQuery<GetPeople>(GET_PEOPLE, { variables: { myId } });
 
   const peopleItems: PersonFragment[] = [
@@ -54,11 +54,7 @@ export const PeopleScreen = () => {
     );
   };
 
-  const handleRefresh = () => {
-    return dispatch(getMyPeople());
-  };
-
-  const { isRefreshing, refresh } = useRefreshing(handleRefresh);
+  const { isRefreshing, refresh } = useRefreshing(refetch);
 
   const renderItem = () => ({ item }: { item: PersonFragment }) => {
     return <PersonItem person={item} />;
