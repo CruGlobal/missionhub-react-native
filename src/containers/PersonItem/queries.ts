@@ -7,7 +7,6 @@ export const PERSON_FRAGMENT = gql`
     stage {
       id
       name
-      nameI18n
       iconUrl
       position
     }
