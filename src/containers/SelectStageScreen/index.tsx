@@ -127,15 +127,17 @@ const SelectStageScreen = ({
     }, [stageIndex]),
   );
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
-    !isAlreadySelected &&
-      (await dispatch(
+    if (!isAlreadySelected) {
+      await dispatch(
         isMe
           ? selectMyStage(stage.id)
           : contactAssignmentId
           ? updateUserStage(contactAssignmentId, stage.id)
           : selectPersonStage(personId, myId, stage.id, orgId),
-      ));
-    updatePersonGQL(personId);
+      );
+      updatePersonGQL(personId);
+    }
+
     if (onComplete) {
       onComplete(stage);
     }

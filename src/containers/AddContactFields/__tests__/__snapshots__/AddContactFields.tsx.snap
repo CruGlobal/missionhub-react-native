@@ -450,51 +450,27 @@ exports[`render correctly | With Person | No Stage 1`] = `
           }
           testID="popupMenuButton"
         >
-          <View
+          <Image
+            resizeMode="cover"
+            source={
+              Object {
+                "uri": "base64image.jpeg",
+              }
+            }
             style={
               Array [
                 Object {
-                  "alignItems": "center",
-                  "justifyContent": "center",
+                  "borderRadius": 48,
+                  "height": 96,
+                  "width": 96,
                 },
-                Array [
-                  Object {
-                    "borderRadius": 48,
-                    "height": 96,
-                    "width": 96,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(19, 181, 125)",
-                  },
-                  undefined,
-                ],
+                Object {
+                  "backgroundColor": "rgb(19, 181, 125)",
+                },
+                undefined,
               ]
             }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 64,
-                      "fontWeight": "300",
-                    },
-                  ],
-                ]
-              }
-            >
-              C
-            </Text>
-          </View>
+          />
           <View
             style={
               Object {
@@ -935,7 +911,7 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
           }
           testID="stageSelectButton"
         >
-          Choose a stage
+          Forgiven
         </Text>
       </View>
     </View>
@@ -1253,7 +1229,7 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
           }
           testID="stageSelectButton"
         >
-          Choose a stage
+          Forgiven
         </Text>
       </View>
     </View>

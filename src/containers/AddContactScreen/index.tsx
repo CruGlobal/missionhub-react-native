@@ -75,6 +75,10 @@ const AddContactScreen = ({ next }: AddContactScreenProps) => {
     lastName: '',
     fullName: '',
     stage: null,
+    steps: {
+      __typename: 'StepConnection',
+      pageInfo: { __typename: 'BasePageInfo', totalCount: 0 },
+    },
     relationshipType: null,
     picture: null,
   });

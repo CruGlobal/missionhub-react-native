@@ -9,6 +9,10 @@ import { orgPermissionSelector } from '../../../selectors/people';
 import { getPersonDetails } from '../../../actions/person';
 import { navigatePush } from '../../../actions/navigation';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
+import { PersonType } from '../../AddContactScreen';
+import { PERSON_FRAGMENT } from '../../PersonItem/queries';
+import { PersonFragment } from '../../PersonItem/__generated__/PersonFragment';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 import AddContactFields from '..';
 
 jest.mock('../../../selectors/people');
@@ -19,20 +23,37 @@ const orgPermission = { permission_id: ORG_PERMISSIONS.CONTACT };
 const getPersonDetailsResults = { type: 'get person details' };
 const navigatePushResults = { type: 'navigate push' };
 const myMockId = '2';
-const personId = '3';
 const initialState = { auth: { person: { id: myMockId } } };
 const onUpdateData = jest.fn();
-const emptyPerson = {
+const emptyPerson: PersonType = {
   id: '',
   firstName: '',
   lastName: '',
   fullName: '',
   relationshipType: null,
   stage: null,
+  steps: {
+    __typename: 'StepConnection',
+    pageInfo: { __typename: 'BasePageInfo', totalCount: 0 },
+  },
   picture: null,
 };
 const next = jest.fn();
 const mockImage = 'base64image.jpeg';
+
+const mockPersonFragment = mockFragment<PersonFragment>(PERSON_FRAGMENT, {
+  mocks: {
+    Stage: () => ({ id: '2', name: 'Forgiven' }),
+  },
+});
+const mockPerson: PersonType = {
+  ...mockPersonFragment,
+  firstName: 'Christian',
+  lastName: 'Huffman',
+  fullName: 'Christian Huffman',
+  relationshipType: RelationshipTypeEnum.family,
+  picture: mockImage,
+};
 
 beforeEach(() => {
   ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
@@ -64,19 +85,7 @@ it('render correctly | With Person | With Picture', () => {
       next={next}
       organization={null}
       onUpdateData={onUpdateData}
-      person={{
-        id: myMockId,
-        relationshipType: null,
-        firstName: 'Christian',
-        lastName: 'Huffman',
-        fullName: 'Christian Huffman',
-        stage: {
-          name: 'Forgiven',
-          id: '2',
-          __typename: 'Stage',
-        },
-        picture: mockImage,
-      }}
+      person={{ ...mockPerson, id: myMockId, picture: mockImage }}
     />,
     {
       initialState,
@@ -92,16 +101,8 @@ it('render correctly | With Person | No Picture', () => {
       organization={null}
       onUpdateData={onUpdateData}
       person={{
+        ...mockPerson,
         id: myMockId,
-        relationshipType: null,
-        firstName: 'Christian',
-        lastName: 'Huffman',
-        fullName: 'Christian Huffman',
-        stage: {
-          id: '2',
-          name: 'Forgiven',
-          __typename: 'Stage',
-        },
         picture: null,
       }}
     />,
@@ -118,15 +119,7 @@ it('render correctly | With Person | No Stage', () => {
       next={next}
       organization={null}
       onUpdateData={onUpdateData}
-      person={{
-        id: myMockId,
-        relationshipType: null,
-        firstName: 'Christian',
-        lastName: 'Huffman',
-        fullName: 'Christian Huffman',
-        stage: null,
-        picture: null,
-      }}
+      person={{ ...mockPerson, id: myMockId, stage: null }}
     />,
     {
       initialState,
@@ -142,13 +135,8 @@ it('render correctly | With Person | Not Me | No Person Category', () => {
       organization={null}
       onUpdateData={onUpdateData}
       person={{
-        id: personId,
+        ...mockPerson,
         relationshipType: null,
-        firstName: 'Christian',
-        lastName: 'Huffman',
-        fullName: 'Christian Huffman',
-        stage: null,
-        picture: null,
       }}
     />,
     {
@@ -165,13 +153,8 @@ it('render correctly | With Person | Not Me | With Person Category', () => {
       organization={null}
       onUpdateData={onUpdateData}
       person={{
-        id: personId,
+        ...mockPerson,
         relationshipType: RelationshipTypeEnum.family,
-        firstName: 'Christian',
-        lastName: 'Huffman',
-        fullName: 'Christian Huffman',
-        stage: null,
-        picture: null,
       }}
     />,
     {
@@ -199,13 +182,8 @@ describe('calls methods', () => {
     fireEvent.changeText(getByTestId('firstNameInput'), 'Christian');
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({
+      ...emptyPerson,
       firstName: 'Christian',
-      id: '',
-      lastName: '',
-      fullName: '',
-      relationshipType: null,
-      stage: null,
-      picture: null,
     });
   });
 
@@ -226,13 +204,8 @@ describe('calls methods', () => {
     fireEvent.changeText(getByTestId('lastNameInput'), 'Huffman');
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({
-      firstName: '',
+      ...emptyPerson,
       lastName: 'Huffman',
-      fullName: '',
-      id: '',
-      relationshipType: null,
-      stage: null,
-      picture: null,
     });
   });
 
@@ -244,17 +217,8 @@ describe('calls methods', () => {
         organization={null}
         onUpdateData={onUpdateData}
         person={{
-          id: '1',
+          ...mockPerson,
           relationshipType: RelationshipTypeEnum.family,
-          firstName: 'Christian',
-          lastName: 'Huffman',
-          fullName: 'Christian Huffman',
-          stage: {
-            id: '2',
-            name: 'Forgiven',
-            __typename: 'Stage',
-          },
-          picture: mockImage,
         }}
       />,
       {
@@ -268,17 +232,8 @@ describe('calls methods', () => {
     );
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({
-      firstName: 'Christian',
-      lastName: 'Huffman',
-      fullName: 'Christian Huffman',
-      id: '1',
+      ...mockPerson,
       relationshipType: RelationshipTypeEnum.friend,
-      stage: {
-        id: '2',
-        name: 'Forgiven',
-        __typename: 'Stage',
-      },
-      picture: mockImage,
     });
   });
 
@@ -288,19 +243,7 @@ describe('calls methods', () => {
         next={next}
         organization={null}
         onUpdateData={onUpdateData}
-        person={{
-          id: myMockId,
-          relationshipType: RelationshipTypeEnum.family,
-          firstName: 'Christian',
-          lastName: 'Huffman',
-          fullName: 'Christian Huffman',
-          stage: {
-            name: 'Forgiven',
-            id: '2',
-            __typename: 'Stage',
-          },
-          picture: null,
-        }}
+        person={{ ...mockPerson, id: myMockId, picture: null }}
       />,
       {
         initialState,
@@ -312,16 +255,8 @@ describe('calls methods', () => {
     });
     diffSnapshot();
     expect(onUpdateData).toHaveBeenLastCalledWith({
-      firstName: 'Christian',
-      lastName: 'Huffman',
-      fullName: 'Christian Huffman',
+      ...mockPerson,
       id: myMockId,
-      relationshipType: RelationshipTypeEnum.family,
-      stage: {
-        name: 'Forgiven',
-        id: '2',
-        __typename: 'Stage',
-      },
       picture: `data:image/jpeg;base64,${mockImage}`,
     });
   });
@@ -332,19 +267,7 @@ describe('calls methods', () => {
         next={next}
         organization={null}
         onUpdateData={onUpdateData}
-        person={{
-          id: '1',
-          relationshipType: RelationshipTypeEnum.family,
-          firstName: 'Christian',
-          lastName: 'Huffman',
-          fullName: 'Christian Huffman',
-          stage: {
-            __typename: 'Stage',
-            id: '2',
-            name: 'Forgiven',
-          },
-          picture: mockImage,
-        }}
+        person={{ ...mockPerson, id: myMockId }}
       />,
       {
         initialState,
@@ -353,19 +276,7 @@ describe('calls methods', () => {
     fireEvent.press(getByTestId('stageSelectButton'));
     expect(next).toHaveBeenCalledWith({
       orgId: undefined,
-      person: {
-        id: '1',
-        relationshipType: RelationshipTypeEnum.family,
-        firstName: 'Christian',
-        lastName: 'Huffman',
-        fullName: 'Christian Huffman',
-        stage: {
-          __typename: 'Stage',
-          id: '2',
-          name: 'Forgiven',
-        },
-        picture: mockImage,
-      },
+      person: { ...mockPerson, id: myMockId },
       navigateToStageSelection: true,
       updatePerson: onUpdateData,
     });
