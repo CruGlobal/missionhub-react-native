@@ -77,7 +77,6 @@ export const PeopleScreen = () => {
         data={peopleItems}
         style={styles.list}
         keyExtractor={keyExtractorId}
-        scrollEnabled={true}
         renderItem={renderItem()}
         refreshControl={
           <RefreshControl refreshing={loading} onRefresh={refetch} />
