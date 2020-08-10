@@ -57,7 +57,7 @@ export const PeopleScreen = () => {
   const { isRefreshing, refresh } = useRefreshing(refetch);
 
   const renderItem = () => ({ item }: { item: PersonFragment }) => {
-    return <PersonItem person={item} refresh={refresh} />;
+    return <PersonItem person={item} />;
   };
 
   return (
