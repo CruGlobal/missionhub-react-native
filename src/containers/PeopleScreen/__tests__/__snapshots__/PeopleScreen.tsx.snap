@@ -1,541 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly as Casey 1`] = `
-<View
-  style={
-    Object {
-      "backgroundColor": "#007398",
-      "flex": 1,
-    }
-  }
->
-  <Modal
-    animationType="slide"
-    hardwareAccelerated={false}
-    transparent={true}
-    visible={true}
-  >
-    <View
-      style={
-        Object {
-          "alignItems": "center",
-          "backgroundColor": "rgba(0,0,0,0.5)",
-          "flex": 1,
-          "justifyContent": "center",
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#ffffff",
-            "borderRadius": 14,
-            "flex": 0.4,
-            "justifyContent": "space-around",
-            "paddingHorizontal": 14,
-            "paddingVertical": 40,
-            "width": "80%",
-          }
-        }
-      >
-        <View
-          style={
-            Array [
-              Object {
-                "width": "100%",
-              },
-              Object {
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-              },
-            ]
-          }
-        >
-          <View
-            accessible={true}
-            focusable={true}
-            isTVSelectable={true}
-            onClick={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderRelease={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            style={
-              Object {
-                "opacity": 1,
-              }
-            }
-            testID="IconButton"
-          >
-            <View
-              style={
-                Array [
-                  Object {
-                    "alignItems": "center",
-                    "backgroundColor": "transparent",
-                    "borderRadius": 0,
-                    "borderWidth": 0,
-                    "height": 60,
-                    "justifyContent": "center",
-                    "margin": 0,
-                    "paddingHorizontal": 20,
-                    "paddingVertical": 10,
-                  },
-                  null,
-                  Object {},
-                  null,
-                ]
-              }
-            >
-              <Text
-                allowFontScaling={false}
-                style={
-                  Array [
-                    Object {
-                      "color": undefined,
-                      "fontSize": 12,
-                    },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 32,
-                      },
-                      Array [
-                        Object {
-                          "margin": 10,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                          "justifyContent": "flex-end",
-                          "margin": 0,
-                          "padding": 25,
-                          "position": "absolute",
-                          "right": -20,
-                          "top": -70,
-                        },
-                      ],
-                    ],
-                    Object {
-                      "fontFamily": "Material Icons",
-                      "fontStyle": "normal",
-                      "fontWeight": "normal",
-                    },
-                    Object {},
-                  ]
-                }
-              >
-                
-              </Text>
-            </View>
-          </View>
-        </View>
-        <Text
-          style={
-            Object {
-              "color": "#333333",
-              "fontFamily": "SourceSansPro-Light",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "textAlign": "center",
-            }
-          }
-        >
-          recusandae alias consequuntur
-        </Text>
-        <Text
-          style={
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 22,
-              "textAlign": "center",
-            }
-          }
-        >
-          esse repellat quisquam
-        </Text>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              CORPORIS REPELLAT RATIONE
-            </Text>
-          </View>
-        </View>
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="AnnouncementActionButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#007398",
-                  "fontSize": 14,
-                  "height": 48,
-                  "letterSpacing": 1.5,
-                  "lineHeight": 24,
-                  "width": 600,
-                },
-                Object {
-                  "borderRadius": 50,
-                },
-              ]
-            }
-          >
-            <Text
-              style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {},
-                  ],
-                ]
-              }
-            >
-              LIBERO QUI RECUSANDAE
-            </Text>
-          </View>
-        </View>
-      </View>
-    </View>
-  </Modal>
-  <RCTSafeAreaView
-    emulateUnlessSupported={true}
-    style={
-      Object {
-        "backgroundColor": "transparent",
-      }
-    }
-  >
-    <View
-      style={
-        Array [
-          Object {
-            "flexDirection": "row",
-            "height": 56,
-            "paddingTop": 0,
-          },
-          undefined,
-          Object {
-            "elevation": 4,
-          },
-        ]
-      }
-    >
-      <View
-        style={
-          Array [
-            Object {
-              "paddingLeft": 5,
-            },
-            Object {
-              "alignItems": "flex-start",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="menuButton"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <Image
-              resizeMode="cover"
-              source={
-                Object {
-                  "uri": "debitis incidunt accusantium",
-                }
-              }
-              style={
-                Array [
-                  Object {
-                    "borderRadius": 20,
-                    "height": 42,
-                    "width": 42,
-                  },
-                  Object {
-                    "backgroundColor": "rgb(123, 161, 125)",
-                  },
-                  undefined,
-                ]
-              }
-            />
-          </View>
-        </View>
-      </View>
-      <View
-        style={
-          Array [
-            Object {},
-            Object {
-              "alignItems": "center",
-              "flex": 4,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <Text
-          numberOfLines={1}
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
-            ]
-          }
-        >
-          People
-        </Text>
-      </View>
-      <View
-        style={
-          Array [
-            Object {
-              "paddingRight": 5,
-            },
-            Object {
-              "alignItems": "flex-end",
-              "flex": 1,
-              "justifyContent": "center",
-            },
-          ]
-        }
-      >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "opacity": 1,
-            }
-          }
-          testID="Button"
-        >
-          <View
-            style={
-              Array [
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "transparent",
-                  "borderRadius": 0,
-                  "borderWidth": 0,
-                  "height": 60,
-                  "justifyContent": "center",
-                  "margin": 0,
-                  "paddingHorizontal": 20,
-                  "paddingVertical": 10,
-                },
-                null,
-                Object {},
-                null,
-              ]
-            }
-          >
-            <SvgMock />
-          </View>
-        </View>
-      </View>
-    </View>
-  </RCTSafeAreaView>
-  <PeopleList
-    items={
-      Array [
-        Object {
-          "id": 1,
-          "type": "person",
-        },
-        Object {
-          "id": 2,
-          "type": "person",
-        },
-        Object {
-          "id": 3,
-          "type": "person",
-        },
-      ]
-    }
-    onRefresh={[Function]}
-    personId="1234"
-    refreshing={false}
-    sections={false}
-    testID="peopleList"
-  />
-</View>
-`;
-
 exports[`renders empty correctly 1`] = `
 <View
   style={
@@ -682,7 +146,7 @@ exports[`renders empty correctly 1`] = `
             }
           }
         >
-          recusandae alias consequuntur
+          qui recusandae ut
         </Text>
         <Text
           style={
@@ -694,7 +158,7 @@ exports[`renders empty correctly 1`] = `
             }
           }
         >
-          esse repellat quisquam
+          iure ut libero
         </Text>
         <View
           accessible={true}
@@ -767,7 +231,7 @@ exports[`renders empty correctly 1`] = `
                 ]
               }
             >
-              CORPORIS REPELLAT RATIONE
+              NULLA QUAM IPSAM
             </Text>
           </View>
         </View>
@@ -842,7 +306,7 @@ exports[`renders empty correctly 1`] = `
                 ]
               }
             >
-              LIBERO QUI RECUSANDAE
+              ACCUSANTIUM SED LIBERO
             </Text>
           </View>
         </View>
@@ -928,7 +392,7 @@ exports[`renders empty correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "debitis incidunt accusantium",
+                  "uri": "omnis et porro",
                 }
               }
               style={
@@ -939,7 +403,7 @@ exports[`renders empty correctly 1`] = `
                     "width": 42,
                   },
                   Object {
-                    "backgroundColor": "rgb(123, 161, 125)",
+                    "backgroundColor": "rgb(152, 195, 180)",
                   },
                   undefined,
                 ]
@@ -1046,20 +510,101 @@ exports[`renders empty correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
-  <PeopleList
-    items={
+  <RCTScrollView
+    data={
       Array [
         Object {
-          "id": "me person",
+          "__typename": "Person",
+          "fullName": "Trevor Donnelly",
+          "id": "1",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "ratione ut sunt",
+            "id": "2",
+            "name": "quisquam recusandae alias",
+            "nameI18n": "consequuntur corporis repellat",
+            "position": 39658,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 18626,
+            },
+          },
         },
       ]
     }
-    onRefresh={[Function]}
-    personId="1234"
-    refreshing={false}
-    sections={false}
-    testID="peopleList"
-  />
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+        "paddingVertical": 6,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Trevor Donnelly",
+              "id": "1",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "ratione ut sunt",
+                "id": "2",
+                "name": "quisquam recusandae alias",
+                "nameI18n": "consequuntur corporis repellat",
+                "position": 39658,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 18626,
+                },
+              },
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
   <RCTSafeAreaView
     emulateUnlessSupported={true}
     style={
@@ -1147,5 +692,1081 @@ exports[`renders empty correctly 1`] = `
       </View>
     </View>
   </RCTSafeAreaView>
+</View>
+`;
+
+exports[`renders with people correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#007398",
+      "flex": 1,
+    }
+  }
+>
+  <Modal
+    animationType="slide"
+    hardwareAccelerated={false}
+    transparent={true}
+    visible={true}
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "backgroundColor": "rgba(0,0,0,0.5)",
+          "flex": 1,
+          "justifyContent": "center",
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "backgroundColor": "#ffffff",
+            "borderRadius": 14,
+            "flex": 0.4,
+            "justifyContent": "space-around",
+            "paddingHorizontal": 14,
+            "paddingVertical": 40,
+            "width": "80%",
+          }
+        }
+      >
+        <View
+          style={
+            Array [
+              Object {
+                "width": "100%",
+              },
+              Object {
+                "flexDirection": "row",
+                "justifyContent": "flex-end",
+              },
+            ]
+          }
+        >
+          <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
+            style={
+              Object {
+                "opacity": 1,
+              }
+            }
+            testID="IconButton"
+          >
+            <View
+              style={
+                Array [
+                  Object {
+                    "alignItems": "center",
+                    "backgroundColor": "transparent",
+                    "borderRadius": 0,
+                    "borderWidth": 0,
+                    "height": 60,
+                    "justifyContent": "center",
+                    "margin": 0,
+                    "paddingHorizontal": 20,
+                    "paddingVertical": 10,
+                  },
+                  null,
+                  Object {},
+                  null,
+                ]
+              }
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": undefined,
+                      "fontSize": 12,
+                    },
+                    Array [
+                      Object {
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
+                      },
+                      Array [
+                        Object {
+                          "margin": 10,
+                        },
+                        Object {
+                          "color": "#B4B6BA",
+                          "justifyContent": "flex-end",
+                          "margin": 0,
+                          "padding": 25,
+                          "position": "absolute",
+                          "right": -20,
+                          "top": -70,
+                        },
+                      ],
+                    ],
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+          </View>
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#333333",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
+            }
+          }
+        >
+          ut voluptas enim
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontSize": 16,
+              "lineHeight": 22,
+              "textAlign": "center",
+            }
+          }
+        >
+          est placeat ex
+        </Text>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="AnnouncementActionButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#007398",
+                  "fontSize": 14,
+                  "height": 48,
+                  "letterSpacing": 1.5,
+                  "lineHeight": 24,
+                  "width": 600,
+                },
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {},
+                  ],
+                ]
+              }
+            >
+              EX EVENIET FACERE
+            </Text>
+          </View>
+        </View>
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="AnnouncementActionButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "#007398",
+                  "fontSize": 14,
+                  "height": 48,
+                  "letterSpacing": 1.5,
+                  "lineHeight": 24,
+                  "width": 600,
+                },
+                Object {
+                  "borderRadius": 50,
+                },
+              ]
+            }
+          >
+            <Text
+              style={
+                Array [
+                  Object {
+                    "color": "#505256",
+                  },
+                  Object {
+                    "fontFamily": "SourceSansPro-Regular",
+                  },
+                  Array [
+                    Object {
+                      "backgroundColor": "rgba(0,0,0,0)",
+                      "color": "#ffffff",
+                      "fontSize": 14,
+                      "fontWeight": "500",
+                      "letterSpacing": 1.5,
+                      "textAlign": "center",
+                    },
+                    Object {},
+                  ],
+                ]
+              }
+            >
+              DOLORUM ARCHITECTO FUGIT
+            </Text>
+          </View>
+        </View>
+      </View>
+    </View>
+  </Modal>
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+      }
+    }
+  >
+    <View
+      style={
+        Array [
+          Object {
+            "flexDirection": "row",
+            "height": 56,
+            "paddingTop": 0,
+          },
+          undefined,
+          Object {
+            "elevation": 4,
+          },
+        ]
+      }
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "paddingLeft": 5,
+            },
+            Object {
+              "alignItems": "flex-start",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="menuButton"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <Image
+              resizeMode="cover"
+              source={
+                Object {
+                  "uri": "vel labore omnis",
+                }
+              }
+              style={
+                Array [
+                  Object {
+                    "borderRadius": 20,
+                    "height": 42,
+                    "width": 42,
+                  },
+                  Object {
+                    "backgroundColor": "rgb(161, 109, 67)",
+                  },
+                  undefined,
+                ]
+              }
+            />
+          </View>
+        </View>
+      </View>
+      <View
+        style={
+          Array [
+            Object {},
+            Object {
+              "alignItems": "center",
+              "flex": 4,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Array [
+              Object {
+                "color": "#505256",
+              },
+              Object {
+                "fontFamily": "SourceSansPro-Regular",
+              },
+              Array [
+                Object {
+                  "color": "white",
+                  "fontSize": 14,
+                  "fontWeight": "500",
+                },
+                Object {
+                  "fontSize": 16,
+                  "fontWeight": "400",
+                  "lineHeight": 24,
+                },
+              ],
+            ]
+          }
+        >
+          People
+        </Text>
+      </View>
+      <View
+        style={
+          Array [
+            Object {
+              "paddingRight": 5,
+            },
+            Object {
+              "alignItems": "flex-end",
+              "flex": 1,
+              "justifyContent": "center",
+            },
+          ]
+        }
+      >
+        <View
+          accessible={true}
+          focusable={true}
+          isTVSelectable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="Button"
+        >
+          <View
+            style={
+              Array [
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "borderRadius": 0,
+                  "borderWidth": 0,
+                  "height": 60,
+                  "justifyContent": "center",
+                  "margin": 0,
+                  "paddingHorizontal": 20,
+                  "paddingVertical": 10,
+                },
+                null,
+                Object {},
+                null,
+              ]
+            }
+          >
+            <SvgMock />
+          </View>
+        </View>
+      </View>
+    </View>
+  </RCTSafeAreaView>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "__typename": "Person",
+          "fullName": "Trycia Jaskolski",
+          "id": "1",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "ratione ut sunt",
+            "id": "2",
+            "name": "quisquam recusandae alias",
+            "nameI18n": "consequuntur corporis repellat",
+            "position": 39658,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 18626,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Gideon Heathcote",
+          "id": "3",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "libero aspernatur deserunt",
+            "id": "4",
+            "name": "eum eaque enim",
+            "nameI18n": "ipsum inventore debitis",
+            "position": 42110,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 67165,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Marcellus Hyatt",
+          "id": "5",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "ipsam qui nobis",
+            "id": "6",
+            "name": "a velit provident",
+            "nameI18n": "velit eligendi nostrum",
+            "position": 78331,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 83462,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Tre Lind",
+          "id": "7",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "distinctio placeat ullam",
+            "id": "8",
+            "name": "velit sit aperiam",
+            "nameI18n": "placeat fuga doloribus",
+            "position": 28044,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 44613,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Roscoe Johnson",
+          "id": "9",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "voluptates explicabo exercitationem",
+            "id": "10",
+            "name": "temporibus modi aut",
+            "nameI18n": "architecto ducimus totam",
+            "position": 90337,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 28777,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Elza Paucek",
+          "id": "11",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "sint non voluptates",
+            "id": "12",
+            "name": "sed magni cupiditate",
+            "nameI18n": "sit vitae soluta",
+            "position": 26554,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 29893,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Judge Doyle",
+          "id": "13",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "ratione a officia",
+            "id": "14",
+            "name": "quos qui illo",
+            "nameI18n": "error sunt laborum",
+            "position": 26097,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 69975,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Immanuel Thiel",
+          "id": "15",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "quos esse ut",
+            "id": "16",
+            "name": "incidunt aut provident",
+            "nameI18n": "esse hic eligendi",
+            "position": 4995,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 76548,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Daphney Balistreri",
+          "id": "17",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "rerum doloremque officia",
+            "id": "18",
+            "name": "sed quae nam",
+            "nameI18n": "eos sint autem",
+            "position": 88312,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 90340,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Kaden Ortiz",
+          "id": "19",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "vel in ut",
+            "id": "20",
+            "name": "ut eos ducimus",
+            "nameI18n": "eos saepe consequatur",
+            "position": 16535,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 65229,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "fullName": "Tatyana Johns",
+          "id": "21",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "est consequuntur aut",
+            "id": "22",
+            "name": "molestiae ea ut",
+            "nameI18n": "sunt placeat quidem",
+            "position": 69020,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 62367,
+            },
+          },
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <MyRefreshControl
+        onRefresh={[Function]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "backgroundColor": "#ffffff",
+        "flex": 1,
+        "paddingVertical": 6,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RCTRefreshControl />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Trycia Jaskolski",
+              "id": "1",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "ratione ut sunt",
+                "id": "2",
+                "name": "quisquam recusandae alias",
+                "nameI18n": "consequuntur corporis repellat",
+                "position": 39658,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 18626,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Gideon Heathcote",
+              "id": "3",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "libero aspernatur deserunt",
+                "id": "4",
+                "name": "eum eaque enim",
+                "nameI18n": "ipsum inventore debitis",
+                "position": 42110,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 67165,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Marcellus Hyatt",
+              "id": "5",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "ipsam qui nobis",
+                "id": "6",
+                "name": "a velit provident",
+                "nameI18n": "velit eligendi nostrum",
+                "position": 78331,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 83462,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Tre Lind",
+              "id": "7",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "distinctio placeat ullam",
+                "id": "8",
+                "name": "velit sit aperiam",
+                "nameI18n": "placeat fuga doloribus",
+                "position": 28044,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 44613,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Roscoe Johnson",
+              "id": "9",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "voluptates explicabo exercitationem",
+                "id": "10",
+                "name": "temporibus modi aut",
+                "nameI18n": "architecto ducimus totam",
+                "position": 90337,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 28777,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Elza Paucek",
+              "id": "11",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "sint non voluptates",
+                "id": "12",
+                "name": "sed magni cupiditate",
+                "nameI18n": "sit vitae soluta",
+                "position": 26554,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 29893,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Judge Doyle",
+              "id": "13",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "ratione a officia",
+                "id": "14",
+                "name": "quos qui illo",
+                "nameI18n": "error sunt laborum",
+                "position": 26097,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 69975,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Immanuel Thiel",
+              "id": "15",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "quos esse ut",
+                "id": "16",
+                "name": "incidunt aut provident",
+                "nameI18n": "esse hic eligendi",
+                "position": 4995,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 76548,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Daphney Balistreri",
+              "id": "17",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "rerum doloremque officia",
+                "id": "18",
+                "name": "sed quae nam",
+                "nameI18n": "eos sint autem",
+                "position": 88312,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 90340,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "fullName": "Kaden Ortiz",
+              "id": "19",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "vel in ut",
+                "id": "20",
+                "name": "ut eos ducimus",
+                "nameI18n": "eos saepe consequatur",
+                "position": 16535,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 65229,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "height": 0,
+          }
+        }
+      />
+    </View>
+  </RCTScrollView>
 </View>
 `;

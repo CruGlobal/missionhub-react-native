@@ -59,7 +59,7 @@ export function openCommunicationLink(url, action) {
 
 export const navigateToStageScreen = (
   personId: string,
-  firstItemIndex: number | undefined, //todo find a way to not pass this
+  firstItemIndex?: number, //todo find a way to not pass this
   skipSelectSteps = false,
 ) => (
   dispatch: ThunkDispatch<RootState, never, AnyAction>,
