@@ -26,9 +26,10 @@ const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface PersonItemProps {
   person: PersonFragment;
+  refresh: () => void;
 }
 
-export const PersonItem = ({ person }: PersonItemProps) => {
+export const PersonItem = ({ person, refresh }: PersonItemProps) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
 

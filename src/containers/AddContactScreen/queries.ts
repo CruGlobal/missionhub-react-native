@@ -1,18 +1,16 @@
 import gql from 'graphql-tag';
 
+import { PERSON_FRAGMENT } from '../PersonItem/queries';
+
 export const GET_PERSON = gql`
   query GetPerson($id: ID!) {
     person(id: $id) {
-      id
+      ...PersonFragment
       firstName
       lastName
-      fullName
-      stage {
-        id
-        name
-      }
       relationshipType
       picture
     }
   }
+  ${PERSON_FRAGMENT}
 `;
