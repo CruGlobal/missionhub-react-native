@@ -236,7 +236,11 @@ describe('handleCreateStep', () => {
 
       fireEvent.press(getByTestId('bottomButton'));
 
-      expect(navigateToAddStepFlow).toHaveBeenCalledWith(mePerson.id);
+      expect(navigateToAddStepFlow).toHaveBeenCalledWith(
+        true,
+        mePerson,
+        undefined,
+      );
     });
   });
 
@@ -256,7 +260,13 @@ describe('handleCreateStep', () => {
 
       fireEvent.press(getByTestId('bottomButton'));
 
-      expect(navigateToStageScreen).toHaveBeenCalledWith(assignedPerson.id);
+      expect(navigateToStageScreen).toHaveBeenCalledWith(
+        false,
+        assignedPerson,
+        contactAssignment,
+        undefined,
+        undefined,
+      );
     });
   });
 
@@ -276,7 +286,11 @@ describe('handleCreateStep', () => {
 
       fireEvent.press(getByTestId('bottomButton'));
 
-      expect(navigateToAddStepFlow).toHaveBeenCalledWith(personWithStage.id);
+      expect(navigateToAddStepFlow).toHaveBeenCalledWith(
+        false,
+        personWithStage,
+        undefined,
+      );
     });
   });
 });
