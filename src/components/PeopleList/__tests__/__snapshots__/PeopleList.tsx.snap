@@ -1,0 +1,799 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`button presses arrow icon toggles collapsed sections 1`] = `
+"Snapshot Diff:
+- First value
++ Second value
+
+@@ -47,195 +47,18 @@
+            align=\\"center\\"
+            direction=\\"row\\"
+            justify=\\"end\\"
+          >
+            <IconButton
+-             name=\\"upArrowIcon\\"
++             name=\\"downArrowIcon\\"
+              onPress={[Function onPress]}
+              size={10}
+              testID=\\"toggleSectionBtn\\"
+              type=\\"MissionHub\\"
+            />
+          </Flex>
+        </Flex>
+-       <RCTScrollView
+-         data={
+-           Array [
+-             Object {
+-               \\"id\\": 1,
+-               \\"type\\": \\"person\\",
+-             },
+-             Object {
+-               \\"id\\": 2,
+-               \\"type\\": \\"person\\",
+-             },
+-             Object {
+-               \\"id\\": 3,
+-               \\"type\\": \\"person\\",
+-             },
+-           ]
+-         }
+-         disableVirtualization={false}
+-         getItem={[Function anonymous]}
+-         getItemCount={[Function anonymous]}
+-         horizontal={false}
+-         initialNumToRender={10}
+-         keyExtractor={[Function anonymous]}
+-         maxToRenderPerBatch={10}
+-         numColumns={1}
+-         onContentSizeChange={[Function anonymous]}
+-         onEndReachedThreshold={2}
+-         onLayout={[Function anonymous]}
+-         onMomentumScrollEnd={[Function anonymous]}
+-         onScroll={[Function anonymous]}
+-         onScrollBeginDrag={[Function anonymous]}
+-         onScrollEndDrag={[Function anonymous]}
+-         removeClippedSubviews={false}
+-         renderItem={[Function anonymous]}
+-         scrollEnabled={false}
+-         scrollEventThrottle={50}
+-         stickyHeaderIndices={Array []}
+-         style={
+-           Object {
+-             \\"paddingVertical\\": 6,
+-           }
+-         }
+-         updateCellsBatchingPeriod={50}
+-         viewabilityConfigCallbackPairs={Array []}
+-         windowSize={21}
+-       >
+-         <View>
+-           <View
+-             onLayout={[Function onLayout]}
+-             style={null}
+-           >
+-             <PersonItem
+-               organization={
+-                 Object {
+-                   \\"expanded\\": false,
+-                   \\"id\\": \\"personal\\",
+-                   \\"people\\": Array [
+-                     Object {
+-                       \\"id\\": 1,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 2,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 3,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                   ],
+-                   \\"type\\": \\"organization\\",
+-                 }
+-               }
+-               person={
+-                 Object {
+-                   \\"id\\": 1,
+-                   \\"type\\": \\"person\\",
+-                 }
+-               }
+-             />
+-           </View>
+-           <View
+-             onLayout={[Function onLayout]}
+-             style={null}
+-           >
+-             <PersonItem
+-               organization={
+-                 Object {
+-                   \\"expanded\\": false,
+-                   \\"id\\": \\"personal\\",
+-                   \\"people\\": Array [
+-                     Object {
+-                       \\"id\\": 1,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 2,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 3,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                   ],
+-                   \\"type\\": \\"organization\\",
+-                 }
+-               }
+-               person={
+-                 Object {
+-                   \\"id\\": 2,
+-                   \\"type\\": \\"person\\",
+-                 }
+-               }
+-               stepsData={
+-                 Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"id\\": \\"2\\",
+-                   \\"steps\\": Object {
+-                     \\"__typename\\": \\"StepConnection\\",
+-                     \\"pageInfo\\": Object {
+-                       \\"__typename\\": \\"BasePageInfo\\",
+-                       \\"totalCount\\": 9233,
+-                     },
+-                   },
+-                 }
+-               }
+-             />
+-           </View>
+-           <View
+-             onLayout={[Function onLayout]}
+-             style={null}
+-           >
+-             <PersonItem
+-               organization={
+-                 Object {
+-                   \\"expanded\\": false,
+-                   \\"id\\": \\"personal\\",
+-                   \\"people\\": Array [
+-                     Object {
+-                       \\"id\\": 1,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 2,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                     Object {
+-                       \\"id\\": 3,
+-                       \\"type\\": \\"person\\",
+-                     },
+-                   ],
+-                   \\"type\\": \\"organization\\",
+-                 }
+-               }
+-               person={
+-                 Object {
+-                   \\"id\\": 3,
+-                   \\"type\\": \\"person\\",
+-                 }
+-               }
+-               stepsData={
+-                 Object {
+-                   \\"__typename\\": \\"Person\\",
+-                   \\"id\\": \\"3\\",
+-                   \\"steps\\": Object {
+-                     \\"__typename\\": \\"StepConnection\\",
+-                     \\"pageInfo\\": Object {
+-                       \\"__typename\\": \\"BasePageInfo\\",
+-                       \\"totalCount\\": 39658,
+-                     },
+-                   },
+-                 }
+-               }
+-             />
+-           </View>
+-         </View>
+-       </RCTScrollView>
+      </Flex>
+      <Flex>
+        <Flex
+          align=\\"center\\"
+          direction=\\"row\\""
+`;
+
+exports[`renders correctly as Casey 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "borderTopColor": "#ECEEF2",
+      "borderTopWidth": 1,
+      "flex": 1,
+    }
+  }
+>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "id": "1",
+          "type": "person",
+        },
+        Object {
+          "id": "2",
+          "type": "person",
+        },
+        Object {
+          "id": "3",
+          "type": "person",
+        },
+      ]
+    }
+    disableVirtualization={false}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    horizontal={false}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    refreshControl={
+      <RefreshControl
+        onRefresh={[MockFunction]}
+        refreshing={false}
+      />
+    }
+    removeClippedSubviews={false}
+    renderItem={[Function]}
+    scrollEnabled={true}
+    scrollEventThrottle={50}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "paddingVertical": 6,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    viewabilityConfigCallbackPairs={Array []}
+    windowSize={21}
+  >
+    <RefreshControl
+      onRefresh={[MockFunction]}
+      refreshing={false}
+    />
+    <View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "id": "1",
+              "type": "person",
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "id": "2",
+              "type": "person",
+            }
+          }
+          stepsData={
+            Object {
+              "__typename": "Person",
+              "id": "2",
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 9233,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "id": "3",
+              "type": "person",
+            }
+          }
+          stepsData={
+            Object {
+              "__typename": "Person",
+              "id": "3",
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 39658,
+                },
+              },
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+</View>
+`;
+
+exports[`renders correctly as Jean 1`] = `
+<RCTScrollView
+  refreshControl={
+    <RefreshControl
+      onRefresh={[MockFunction]}
+      refreshing={false}
+    />
+  }
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "borderTopColor": "#ECEEF2",
+      "borderTopWidth": 1,
+      "flex": 1,
+    }
+  }
+>
+  <RefreshControl
+    onRefresh={[MockFunction]}
+    refreshing={false}
+  />
+  <View>
+    <Flex>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "backgroundColor": "#007398",
+            "height": 50,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontWeight": "bold",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          Personal Ministry
+        </Text>
+        <Flex
+          align="center"
+          direction="row"
+          justify="end"
+        >
+          <IconButton
+            name="upArrowIcon"
+            onPress={[Function]}
+            size={10}
+            testID="toggleSectionBtn"
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "id": 1,
+              "type": "person",
+            },
+            Object {
+              "id": 2,
+              "type": "person",
+            },
+            Object {
+              "id": 3,
+              "type": "person",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={false}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "paddingVertical": 6,
+          }
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "personal",
+                  "people": Array [
+                    Object {
+                      "id": 1,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 2,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 3,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": 1,
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "personal",
+                  "people": Array [
+                    Object {
+                      "id": 1,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 2,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 3,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": 2,
+                  "type": "person",
+                }
+              }
+              stepsData={
+                Object {
+                  "__typename": "Person",
+                  "id": "2",
+                  "steps": Object {
+                    "__typename": "StepConnection",
+                    "pageInfo": Object {
+                      "__typename": "BasePageInfo",
+                      "totalCount": 9233,
+                    },
+                  },
+                }
+              }
+            />
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "personal",
+                  "people": Array [
+                    Object {
+                      "id": 1,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 2,
+                      "type": "person",
+                    },
+                    Object {
+                      "id": 3,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": 3,
+                  "type": "person",
+                }
+              }
+              stepsData={
+                Object {
+                  "__typename": "Person",
+                  "id": "3",
+                  "steps": Object {
+                    "__typename": "StepConnection",
+                    "pageInfo": Object {
+                      "__typename": "BasePageInfo",
+                      "totalCount": 39658,
+                    },
+                  },
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </Flex>
+    <Flex>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "backgroundColor": "#007398",
+            "height": 50,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontWeight": "bold",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          org 1
+        </Text>
+        <Flex
+          align="center"
+          direction="row"
+          justify="end"
+        >
+          <IconButton
+            name="upArrowIcon"
+            onPress={[Function]}
+            size={10}
+            testID="toggleSectionBtn"
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "id": 11,
+              "type": "person",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={false}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "paddingVertical": 6,
+          }
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "10",
+                  "name": "org 1",
+                  "people": Array [
+                    Object {
+                      "id": 11,
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": 11,
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </Flex>
+    <Flex>
+      <Flex
+        align="center"
+        direction="row"
+        style={
+          Object {
+            "backgroundColor": "#007398",
+            "height": 50,
+          }
+        }
+      >
+        <Text
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "#ffffff",
+              "flex": 1,
+              "fontWeight": "bold",
+              "paddingLeft": 20,
+            }
+          }
+        >
+          org 2
+        </Text>
+        <Flex
+          align="center"
+          direction="row"
+          justify="end"
+        >
+          <IconButton
+            name="upArrowIcon"
+            onPress={[Function]}
+            size={10}
+            testID="toggleSectionBtn"
+            type="MissionHub"
+          />
+        </Flex>
+      </Flex>
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "id": "21",
+              "type": "person",
+            },
+          ]
+        }
+        disableVirtualization={false}
+        getItem={[Function]}
+        getItemCount={[Function]}
+        horizontal={false}
+        initialNumToRender={10}
+        keyExtractor={[Function]}
+        maxToRenderPerBatch={10}
+        numColumns={1}
+        onContentSizeChange={[Function]}
+        onEndReachedThreshold={2}
+        onLayout={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEnabled={false}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        style={
+          Object {
+            "paddingVertical": 6,
+          }
+        }
+        updateCellsBatchingPeriod={50}
+        viewabilityConfigCallbackPairs={Array []}
+        windowSize={21}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <PersonItem
+              organization={
+                Object {
+                  "expanded": false,
+                  "id": "20",
+                  "name": "org 2",
+                  "people": Array [
+                    Object {
+                      "id": "21",
+                      "type": "person",
+                    },
+                  ],
+                  "type": "organization",
+                }
+              }
+              person={
+                Object {
+                  "id": "21",
+                  "type": "person",
+                }
+              }
+            />
+          </View>
+        </View>
+      </RCTScrollView>
+    </Flex>
+  </View>
+</RCTScrollView>
+`;

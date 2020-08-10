@@ -10,7 +10,7 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 
 import LandingScreen, { LANDING_SCREEN } from './containers/LandingScreen';
 import StepsScreen from './containers/StepsScreen';
-import { PeopleScreen } from './containers/PeopleScreen';
+import PeopleScreen from './containers/PeopleScreen';
 import AddChallengeScreen, {
   ADD_CHALLENGE_SCREEN,
 } from './containers/AddChallengeScreen';

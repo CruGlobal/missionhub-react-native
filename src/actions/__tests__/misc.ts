@@ -1,8 +1,6 @@
-/* eslint-disable @typescript-eslint/no-explicit-any, max-lines */
-
 import ReactNative from 'react-native';
 import thunk from 'redux-thunk';
-import configureStore, { MockStore } from 'redux-mock-store';
+import configureStore from 'redux-mock-store';
 
 import { apolloClient } from '../../apolloClient';
 import { trackActionWithoutData } from '../analytics';
@@ -36,8 +34,10 @@ jest.mock('../person');
 jest.mock('../../selectors/people');
 jest.mock('../../utils/common');
 
-const mockStore = configureStore([thunk]);
-let store: MockStore;
+// @ts-ignore
+const mockStore = state => configureStore([thunk])(state);
+// @ts-ignore
+let store;
 
 apolloClient.query = jest.fn();
 
@@ -57,10 +57,12 @@ const mePerson = {
     groups_feature,
   },
 };
+const orgId = '26';
 const personId = '100';
 const url = 'url';
 const action = { type: 'link action' };
 const person = { id: personId, first_name: 'Fred' };
+const organization = { id: orgId };
 const contactAssignment = { id: '1908' };
 const orgPermission = { id: '1234' };
 const firstItemIndex = 3;
@@ -72,25 +74,30 @@ const state = {
 beforeEach(() => {
   store = mockStore(state);
 
-  (trackActionWithoutData as jest.Mock).mockReturnValue(trackActionResult);
-  (reloadJourney as jest.Mock).mockReturnValue(reloadJourneyResult);
-  (updatePersonAttributes as jest.Mock).mockReturnValue(
-    updatePersonAttributesResult,
-  );
+  // @ts-ignore
+  trackActionWithoutData.mockReturnValue(trackActionResult);
+  // @ts-ignore
+  reloadJourney.mockReturnValue(reloadJourneyResult);
+  // @ts-ignore
+  updatePersonAttributes.mockReturnValue(updatePersonAttributesResult);
   ReactNative.Linking.openURL = jest.fn().mockReturnValue(Promise.resolve());
-  ((contactAssignmentSelector as unknown) as jest.Mock).mockReturnValue(
-    contactAssignment,
-  );
-  ((orgPermissionSelector as unknown) as jest.Mock).mockReturnValue(
-    orgPermission,
-  );
-  (hasOrgPermissions as jest.Mock).mockReturnValue(hasOrgPermissionsResult);
-  (buildTrackingObj as jest.Mock).mockReturnValue(buildTrackingObjResult);
-  (navigatePush as jest.Mock).mockImplementation((_, { onComplete }) => {
+  // @ts-ignore
+  contactAssignmentSelector.mockReturnValue(contactAssignment);
+  // @ts-ignore
+  // @ts-ignore
+  orgPermissionSelector.mockReturnValue(orgPermission);
+  // @ts-ignore
+  hasOrgPermissions.mockReturnValue(hasOrgPermissionsResult);
+  // @ts-ignore
+  buildTrackingObj.mockReturnValue(buildTrackingObjResult);
+
+  // @ts-ignore
+  navigatePush.mockImplementation((_, { onComplete }) => {
     onComplete && onComplete(stage);
     return navigatePushResult;
   });
-  (navigateReplace as jest.Mock).mockReturnValue(navigateReplaceResult);
+  // @ts-ignore
+  navigateReplace.mockReturnValue(navigateReplaceResult);
 });
 
 describe('getFeatureFlags', () => {
@@ -134,44 +141,96 @@ describe('openCommunicationLink', () => {
 });
 
 describe('navigateToStageScreen', () => {
-  it('should navigate to self stage screen', () => {
-    store.dispatch<any>(navigateToStageScreen(myId));
+  it('should navigate to self stage screen if first param is true', async () => {
+    // @ts-ignore
+    await store.dispatch(
+      navigateToStageScreen(true, person, null, organization, firstItemIndex),
+    );
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_MY_STAGE_FLOW, {
-      selectedStageId: undefined,
-      personId: myId,
+      selectedStageId: firstItemIndex,
+      personId: person.id,
+      section: 'people',
+      subsection: 'self',
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 
-  it('should navigate to person stage screen', () => {
-    store.dispatch<any>(navigateToStageScreen(personId, firstItemIndex, true));
+  it('should navigate to person stage screen if first param is false', async () => {
+    // @ts-ignore
+    await store.dispatch(
+      navigateToStageScreen(
+        false,
+        {
+          ...person,
+          reverse_contact_assignments: [{ id: contactAssignment.id }],
+        },
+        contactAssignment,
+        organization,
+        firstItemIndex,
+        true,
+      ),
+    );
 
     expect(navigatePush).toHaveBeenCalledWith(SELECT_PERSON_STAGE_FLOW, {
       selectedStageId: firstItemIndex,
       personId: person.id,
+      orgId: organization.id,
+      section: 'people',
+      subsection: 'person',
       skipSelectSteps: true,
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 });
 
 describe('navigateToAddStepFlow', () => {
-  it('navigates to add my step flow', () => {
-    store.dispatch<any>(navigateToAddStepFlow(myId));
+  beforeEach(() => {});
 
+  it('navigates to add my step flow', async () => {
+    // @ts-ignore
+    await store.dispatch(navigateToAddStepFlow(true, mePerson, organization));
+
+    expect(buildTrackingObj).toHaveBeenCalledWith(
+      'people : person : steps : add',
+      'people',
+      'person',
+      'steps',
+    );
     expect(navigatePush).toHaveBeenCalledWith(ADD_MY_STEP_FLOW, {
+      trackingObj: buildTrackingObjResult,
       personId: myId,
+      organization,
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 
-  it('navigates to add person step flow', () => {
-    store.dispatch<any>(navigateToAddStepFlow(personId));
+  it('navigates to add person step flow', async () => {
+    // @ts-ignore
+    await store.dispatch(navigateToAddStepFlow(false, person, organization));
 
+    expect(buildTrackingObj).toHaveBeenCalledWith(
+      'people : person : steps : add',
+      'people',
+      'person',
+      'steps',
+    );
+    expect(buildTrackingObj).toHaveBeenCalledWith(
+      'people : person : steps : create',
+      'people',
+      'person',
+      'steps',
+    );
     expect(navigatePush).toHaveBeenCalledWith(ADD_PERSON_STEP_FLOW, {
-      personId,
+      trackingObj: buildTrackingObjResult,
+      personId: person.id,
+      organization,
+      createStepTracking: buildTrackingObjResult,
     });
+    // @ts-ignore
     expect(store.getActions()).toEqual([navigatePushResult]);
   });
 });
