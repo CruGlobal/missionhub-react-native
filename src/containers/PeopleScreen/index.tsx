@@ -11,7 +11,6 @@ import BottomButton from '../../components/BottomButton';
 import { PersonItem } from '../PersonItem';
 import { PersonFragment } from '../PersonItem/__generated__/PersonFragment';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
-import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
@@ -39,6 +38,7 @@ export const PeopleScreen = () => {
   const {
     data: { currentUser, people: { nodes: peopleNodes = [] } = {} } = {},
     refetch,
+    loading,
   } = useQuery<GetPeople>(GET_PEOPLE, { variables: { myId } });
 
   const peopleItems: PersonFragment[] = [
@@ -53,8 +53,6 @@ export const PeopleScreen = () => {
       }),
     );
   };
-
-  const { isRefreshing, refresh } = useRefreshing(refetch);
 
   const renderItem = () => ({ item }: { item: PersonFragment }) => {
     return <PersonItem person={item} />;
@@ -79,10 +77,9 @@ export const PeopleScreen = () => {
         data={peopleItems}
         style={styles.list}
         keyExtractor={keyExtractorId}
-        scrollEnabled={true}
         renderItem={renderItem()}
         refreshControl={
-          <RefreshControl refreshing={isRefreshing} onRefresh={refresh} />
+          <RefreshControl refreshing={loading} onRefresh={refetch} />
         }
       />
       {peopleNodes.length === 0 ? (
