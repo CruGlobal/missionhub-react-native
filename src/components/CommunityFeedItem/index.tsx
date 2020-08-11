@@ -2,8 +2,9 @@ import React from 'react';
 import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useMutation } from '@apollo/react-hooks';
+import { useMutation, useApolloClient } from '@apollo/react-hooks';
 import i18n from 'i18next';
+import ApolloClient from 'apollo-client';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
@@ -41,24 +42,32 @@ interface CommunityFeedItemProps {
 }
 
 export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
+  const client: ApolloClient<any> = useApolloClient();
+
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
     DELETE_POST,
     {
-      update: cache => {
+      onCompleted: () => {
+        console.log('here');
         if (!feedItem || !feedItem.community) {
           return;
         }
         const { subject, community } = feedItem;
 
-        try {
-          const originalData = cache.readQuery<
+        client.query({
+          query: GET_COMMUNITY_FEED,
+          variables: { communityId: community.id },
+        });
+
+        /*try {
+          const originalData = client.readQuery<
             GetCommunityFeed,
             GetCommunityFeedVariables
           >({
             query: GET_COMMUNITY_FEED,
             variables: { communityId: community.id },
           });
-          cache.writeQuery({
+          client.writeQuery({
             query: GET_COMMUNITY_FEED,
             variables: { communityId: community.id },
             data: {
@@ -75,7 +84,7 @@ export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
             },
           });
 
-          const originalFilteredData = cache.readQuery<
+          const originalFilteredData = client.readQuery<
             GetCommunityFeed,
             GetCommunityFeedVariables
           >({
@@ -85,7 +94,7 @@ export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
               subjectType: [getFeedItemType(subject)],
             },
           });
-          cache.writeQuery({
+          client.writeQuery({
             query: GET_COMMUNITY_FEED,
             variables: {
               communityId: community.id,
@@ -104,7 +113,7 @@ export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
               },
             },
           });
-        } catch {}
+        } catch {}*/
       },
     },
   );
