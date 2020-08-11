@@ -8,10 +8,7 @@ import ReminderRepeatButtons from '../ReminderRepeatButtons';
 import { navigatePush, navigateBack } from '../../actions/navigation';
 import { STEP_REMINDER_SCREEN } from '../../containers/StepReminderScreen';
 import DatePicker from '../DatePicker';
-import {
-  checkNotifications,
-  requestNativePermissions,
-} from '../../actions/notifications';
+import { checkNotifications } from '../../actions/notifications';
 import { createStepReminder } from '../../actions/stepReminders';
 import { AuthState } from '../../reducers/auth';
 import { NotificationsState } from '../../reducers/notifications';
@@ -44,9 +41,20 @@ const ReminderButton = ({
   const [recurrence, setRecurrence] = useState(reminderType);
   const handlePress = ({ showPicker }: { showPicker: () => void }) => {
     if (isAndroid) {
-      // for Android, request notifications, then navigate to step reminder screen
-      dispatch(requestNativePermissions());
-      dispatch(navigatePush(STEP_REMINDER_SCREEN, { reminder, stepId }));
+      // for Android, check permissions , then navigate to step reminder screen
+      // If no permissions, navigate to NotificationsOffScreen
+      dispatch(
+        checkNotifications(
+          NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+          ({ showedPrompt, nativePermissionsEnabled }) => {
+            showedPrompt && dispatch(navigateBack());
+            nativePermissionsEnabled &&
+              dispatch(
+                navigatePush(STEP_REMINDER_SCREEN, { reminder, stepId }),
+              );
+          },
+        ),
+      );
     } else {
       dispatch(
         checkNotifications(

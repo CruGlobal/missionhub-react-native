@@ -93,8 +93,8 @@ const NotificationOffScreen = ({
         return Linking.openURL(APP_SETTINGS_URL);
       }
     }
-
-    close(false);
+    // If android, use openSettings
+    Linking.openSettings();
   };
 
   useEffect(() => {

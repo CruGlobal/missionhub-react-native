@@ -183,9 +183,9 @@ export const checkNotifications = (
     nativePermissionsEnabled = (await dispatch(requestNativePermissions()))
       .nativePermissionsEnabled;
 
-    //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
+    //if user has previously accepted notifications, but Native Permissions are now off,
     //delete push token from API and Redux, then navigate to NotificationOffScreen
-    if (!isAndroid && !nativePermissionsEnabled && !skipNotificationOff) {
+    if (!nativePermissionsEnabled && !skipNotificationOff) {
       dispatch(deletePushToken());
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
@@ -213,6 +213,15 @@ export const requestNativePermissions = () => async () => {
   const nativePermissionsEnabled = !!(
     nativePermissions && nativePermissions.alert
   );
+
+  if (isAndroid) {
+    return new Promise<{ nativePermissionsEnabled: boolean }>(resolve =>
+      PushNotification.checkPermissions(permission => {
+        const nativePermissionsEnabled = !!(permission && permission.alert);
+        return resolve({ nativePermissionsEnabled });
+      }),
+    );
+  }
 
   return { nativePermissionsEnabled };
 };

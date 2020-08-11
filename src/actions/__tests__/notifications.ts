@@ -93,6 +93,9 @@ beforeEach(() => {
   (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue(
     permission,
   );
+  (RNPushNotification.checkPermissions as jest.Mock).mockImplementation(cb =>
+    cb(permission),
+  );
 });
 
 describe('checkNotifications', () => {
@@ -151,7 +154,37 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([]);
     });
 
-    it('navigates to NotificationOffScreen if native permissions are disabled', async () => {
+    it('navigates to NotificationOffScreen if native permissions are disabled | IOS', async () => {
+      (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
+
+      const store = createThunkStore({
+        auth: { token: authToken },
+        notifications: {
+          pushDevice,
+          appHasShownPrompt: true,
+        },
+      });
+
+      await store.dispatch<any>(checkNotifications(notificationType));
+
+      expect(callApi).toHaveBeenCalledWith(
+        REQUESTS.DELETE_PUSH_TOKEN,
+        { deviceId: pushDevice.id },
+        {},
+      );
+      expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_OFF_SCREEN, {
+        notificationType,
+        onComplete: undefined,
+      });
+      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(store.getActions()).toEqual([callApiResult, navigatePushResult]);
+    });
+
+    it('navigates to NotificationOffScreen if native permissions are disabled | Android', async () => {
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+      (RNPushNotification.checkPermissions as jest.Mock).mockImplementation(
+        cb => cb({ alert: false }),
+      );
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
@@ -548,7 +581,6 @@ describe('askNotificationPermissions', () => {
         ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
 
         await testNotification({ ...baseNotification, screen: 'home' }, false);
-
         expect(store.getActions()).toEqual([]);
       });
 
