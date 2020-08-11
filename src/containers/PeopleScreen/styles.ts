@@ -8,9 +8,4 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
   },
   headerTitle: { fontSize: 16, lineHeight: 24, fontWeight: '400' },
-  list: {
-    flex: 1,
-    backgroundColor: theme.white,
-    paddingVertical: 6,
-  },
 });

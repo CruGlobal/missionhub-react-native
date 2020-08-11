@@ -1,7 +1,11 @@
 import React from 'react';
 import { View, Image } from 'react-native';
+import { connect } from 'react-redux-legacy';
+import { ThunkDispatch } from 'redux-thunk';
+import i18next from 'i18next';
 import { useTranslation } from 'react-i18next';
-import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { AnyAction } from 'redux';
 
 import UNINTERESTED from '../../../assets/images/uninterestedIcon.png';
 import CURIOUS from '../../../assets/images/curiousIcon.png';
@@ -17,47 +21,68 @@ import {
   navigateToAddStepFlow,
 } from '../../actions/misc';
 import { navToPersonScreen } from '../../actions/person';
-import { useIsMe } from '../../utils/hooks/useIsMe';
+import { Organization } from '../../reducers/organizations';
+import { AuthState } from '../../reducers/auth';
+import { StagesObj, StagesState } from '../../reducers/stages';
+import { Person } from '../../reducers/people';
+import { localizedStageSelector } from '../../selectors/stages';
+import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../components/PeopleList/__generated__/GetPeopleStepsCount';
+import { RootState } from '../../reducers';
+import { contactAssignmentSelector } from '../../selectors/people';
 
 import styles from './styles';
-import { PersonFragment } from './__generated__/PersonFragment';
 
 const stageIcons = [UNINTERESTED, CURIOUS, FORGIVEN, GROWING, GUIDING, NOTSURE];
 
 interface PersonItemProps {
-  person: PersonFragment;
+  person: PersonAttributes;
+  organization?: Organization;
+  me: Person;
+  stagesObj: StagesObj;
+  dispatch: ThunkDispatch<RootState, never, AnyAction>;
+  stepsData?: PersonStepCount;
 }
 
-export const PersonItem = ({ person }: PersonItemProps) => {
+const PersonItem = ({
+  person,
+  organization,
+  me,
+  stagesObj,
+  dispatch,
+  stepsData,
+}: PersonItemProps) => {
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const totalCount = stepsData ? stepsData.steps.pageInfo.totalCount : 0;
+  const isMe = person.id === me.id;
+  const contactAssignment =
+    useSelector(({ auth }: RootState) =>
+      contactAssignmentSelector({ auth }, { person }),
+    ) || {};
 
-  const {
-    id,
-    fullName,
-    stage,
-    steps: {
-      pageInfo: { totalCount },
-    },
-  } = person;
+  const personName = isMe ? t('me') : person.full_name || '';
 
-  const isMe = useIsMe(id);
+  const stage = isMe
+    ? me.stage
+    : stagesObj[`${contactAssignment.pathway_stage_id}`];
 
-  const personName = isMe ? t('me') : fullName;
-
-  const handleSelect = () => dispatch(navToPersonScreen(id));
+  const handleSelect = () => dispatch(navToPersonScreen(person.id));
 
   const handleChangeStage = () =>
     dispatch(
       navigateToStageScreen(
-        person.id,
-        stage?.position && stage.position - 1,
+        isMe,
+        person,
+        contactAssignment,
+        organization,
+        stage && stage.id - 1,
         true,
       ),
     );
 
   const handleAddStep = () =>
-    stage ? dispatch(navigateToAddStepFlow(person.id)) : handleChangeStage();
+    stage
+      ? dispatch(navigateToAddStepFlow(isMe, person, organization))
+      : handleChangeStage();
 
   const renderStageIcon = () => {
     return (
@@ -66,7 +91,7 @@ export const PersonItem = ({ person }: PersonItemProps) => {
           <Image
             style={styles.image}
             resizeMode={'contain'}
-            source={stageIcons[stage.position - 1]}
+            source={stageIcons[stage.id - 1]}
           />
         ) : (
           <NoStage />
@@ -81,7 +106,9 @@ export const PersonItem = ({ person }: PersonItemProps) => {
         <ItemHeaderText text={personName} />
         <View style={styles.textRow}>
           {stage ? (
-            <Text style={styles.stage}>{stage.name}</Text>
+            <Text style={styles.stage}>
+              {localizedStageSelector(stage, i18next.language).name}
+            </Text>
           ) : (
             <Touchable testID="stageText" onPress={handleChangeStage}>
               <Text style={[styles.stage, styles.addStage]}>
@@ -137,3 +164,16 @@ export const PersonItem = ({ person }: PersonItemProps) => {
     </Card>
   );
 };
+
+const mapStateToProps = ({
+  auth,
+  stages,
+}: {
+  auth: AuthState;
+  stages: StagesState;
+}) => ({
+  me: auth.person,
+  stagesObj: stages.stagesObj || {},
+});
+
+export default connect(mapStateToProps)(PersonItem);

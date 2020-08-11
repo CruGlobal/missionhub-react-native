@@ -1,50 +1,48 @@
 import React from 'react';
-import { FlatList, View } from 'react-native';
+import { View } from 'react-native';
+import { connect } from 'react-redux-legacy';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux';
-import { useQuery } from '@apollo/react-hooks';
 
+import { getMyPeople } from '../../actions/people';
+import { allAssignedPeopleSelector } from '../../selectors/people';
 import { navigatePush } from '../../actions/navigation';
-import { Button, RefreshControl } from '../../components/common';
+import { Button } from '../../components/common';
+import PeopleList from '../../components/PeopleList';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
-import { PersonItem } from '../PersonItem';
-import { PersonFragment } from '../PersonItem/__generated__/PersonFragment';
 import { ADD_PERSON_THEN_PEOPLE_SCREEN_FLOW } from '../../routes/constants';
+import { useRefreshing } from '../../utils/hooks/useRefreshing';
 import { Organization } from '../../reducers/organizations';
 import {
   useAnalytics,
   ANALYTICS_SCREEN_TYPES,
 } from '../../utils/hooks/useAnalytics';
+import { RootState } from '../../reducers';
 import AddPersonIcon from '../../../assets/images/addPersonIcon.svg';
 import AnnouncementsModal from '../../components/AnnouncementsModal';
 import AvatarMenuButton from '../../components/AvatarMenuButton';
-import { keyExtractorId } from '../../utils/common';
-import { useMyId } from '../../utils/hooks/useIsMe';
 
 import styles from './styles';
-import { GET_PEOPLE } from './queries';
-import { GetPeople } from './__generated__/GetPeople';
 
-export const PeopleScreen = () => {
+interface PeopleScreenProps {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  items: any;
+  hasNoContacts: boolean;
+  personId: string;
+}
+
+export const PeopleScreen = ({
+  items,
+  hasNoContacts,
+  personId,
+}: PeopleScreenProps) => {
   useAnalytics('people', {
     screenType: ANALYTICS_SCREEN_TYPES.screenWithDrawer,
   });
   const { t } = useTranslation('peopleScreen');
-  const myId = useMyId();
 
   const dispatch = useDispatch();
-
-  const {
-    data: { currentUser, people: { nodes: peopleNodes = [] } = {} } = {},
-    refetch,
-    loading,
-  } = useQuery<GetPeople>(GET_PEOPLE, { variables: { myId } });
-
-  const peopleItems: PersonFragment[] = [
-    ...(currentUser ? [currentUser.person] : []),
-    ...peopleNodes,
-  ];
 
   const handleAddContact = (org: Organization) => {
     dispatch(
@@ -54,9 +52,11 @@ export const PeopleScreen = () => {
     );
   };
 
-  const renderItem = () => ({ item }: { item: PersonFragment }) => {
-    return <PersonItem person={item} />;
+  const handleRefresh = () => {
+    return dispatch(getMyPeople());
   };
+
+  const { isRefreshing, refresh } = useRefreshing(handleRefresh);
 
   return (
     <View style={styles.pageContainer}>
@@ -73,16 +73,15 @@ export const PeopleScreen = () => {
         title={t('header')}
         shadow={true}
       />
-      <FlatList
-        data={peopleItems}
-        style={styles.list}
-        keyExtractor={keyExtractorId}
-        renderItem={renderItem()}
-        refreshControl={
-          <RefreshControl refreshing={loading} onRefresh={refetch} />
-        }
+      <PeopleList
+        testID="peopleList"
+        sections={false}
+        items={items}
+        onRefresh={refresh}
+        refreshing={isRefreshing}
+        personId={personId}
       />
-      {peopleNodes.length === 0 ? (
+      {hasNoContacts ? (
         <BottomButton
           text={t('mainTabs:takeAStepWithSomeone')}
           onPress={handleAddContact}
@@ -91,3 +90,22 @@ export const PeopleScreen = () => {
     </View>
   );
 };
+
+const mapStateToProps = ({ auth, people, organizations }: RootState) => {
+  const { person } = auth;
+  const items = allAssignedPeopleSelector({
+    people,
+    organizations,
+    auth,
+  });
+
+  const hasNoContacts = items.length === 1;
+
+  return {
+    items,
+    hasNoContacts,
+    personId: person.id,
+  };
+};
+
+export default connect(mapStateToProps)(PeopleScreen);
