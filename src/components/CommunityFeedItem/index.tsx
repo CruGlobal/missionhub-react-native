@@ -2,9 +2,8 @@ import React from 'react';
 import { View, Alert } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
-import { useMutation, useApolloClient } from '@apollo/react-hooks';
+import { useMutation } from '@apollo/react-hooks';
 import i18n from 'i18next';
-import ApolloClient from 'apollo-client';
 
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
@@ -21,12 +20,7 @@ import {
   CommunityFeedItem_subject_Post,
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
-import {
-  GetCommunityFeed,
-  GetCommunityFeedVariables,
-} from '../../containers/CommunityFeed/__generated__/GetCommunityFeed';
-import { GET_COMMUNITY_FEED } from '../../containers/CommunityFeed/queries';
-import { getFeedItemType, canModifyFeedItemSubject } from '../../utils/common';
+import { canModifyFeedItemSubject } from '../../utils/common';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
@@ -41,80 +35,14 @@ interface CommunityFeedItemProps {
   onEditPost: () => void;
 }
 
-export function useDeleteFeedItem(feedItem?: FeedItemFragment) {
-  const client: ApolloClient<any> = useApolloClient();
-
+export function useDeleteFeedItem(
+  feedItem?: FeedItemFragment,
+  onDelete?: () => void,
+) {
   const [deletePost] = useMutation<DeletePost, DeletePostVariables>(
     DELETE_POST,
     {
-      onCompleted: () => {
-        console.log('here');
-        if (!feedItem || !feedItem.community) {
-          return;
-        }
-        const { subject, community } = feedItem;
-
-        client.query({
-          query: GET_COMMUNITY_FEED,
-          variables: { communityId: community.id },
-        });
-
-        /*try {
-          const originalData = client.readQuery<
-            GetCommunityFeed,
-            GetCommunityFeedVariables
-          >({
-            query: GET_COMMUNITY_FEED,
-            variables: { communityId: community.id },
-          });
-          client.writeQuery({
-            query: GET_COMMUNITY_FEED,
-            variables: { communityId: community.id },
-            data: {
-              ...originalData,
-              community: {
-                ...originalData?.community,
-                feedItems: {
-                  ...originalData?.community.feedItems,
-                  nodes: (originalData?.community.feedItems.nodes || []).filter(
-                    ({ id }) => id !== feedItem.id,
-                  ),
-                },
-              },
-            },
-          });
-
-          const originalFilteredData = client.readQuery<
-            GetCommunityFeed,
-            GetCommunityFeedVariables
-          >({
-            query: GET_COMMUNITY_FEED,
-            variables: {
-              communityId: community.id,
-              subjectType: [getFeedItemType(subject)],
-            },
-          });
-          client.writeQuery({
-            query: GET_COMMUNITY_FEED,
-            variables: {
-              communityId: community.id,
-              subjectType: getFeedItemType(subject),
-            },
-            data: {
-              ...originalFilteredData,
-              community: {
-                ...originalFilteredData?.community,
-                feedItems: {
-                  ...originalFilteredData?.community.feedItems,
-                  nodes: (
-                    originalFilteredData?.community.feedItems.nodes || []
-                  ).filter(({ id }) => id !== feedItem.id),
-                },
-              },
-            },
-          });
-        } catch {}*/
-      },
+      onCompleted: () => onDelete && onDelete(),
     },
   );
 
@@ -187,7 +115,7 @@ export const CommunityFeedItem = ({
       'Subject type of FeedItem must be Post, AcceptedCommunityChallenge, CommunityPermission, or Step',
     );
   }
-  const deleteFeedItem = useDeleteFeedItem(feedItem);
+  const deleteFeedItem = useDeleteFeedItem(feedItem, onEditPost);
   const editFeedItem = useEditFeedItem(
     feedItem.subject,
     community?.id,
