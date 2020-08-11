@@ -22,7 +22,7 @@ exports[`CommunityHeader should render community details 1`] = `
               Object {
                 \\"bottom\\": 0,
                 \\"left\\": 0,
-@@ -271,11 +275,11 @@
+@@ -243,11 +247,11 @@
                   \\"lineHeight\\": 30,
                 },
               ]
@@ -35,7 +35,7 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -351,11 +355,11 @@
+@@ -323,11 +327,11 @@
                         },
                       ],
                     ]
@@ -55,7 +55,7 @@ exports[`CommunityHeader should render global community details 1`] = `
 - First value
 + Second value
 
-@@ -311,11 +311,11 @@
+@@ -283,11 +283,11 @@
                         },
                       ],
                     ]
@@ -179,81 +179,53 @@ exports[`CommunityHeader should render global community loading 1`] = `
             }
           >
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ]
+                Object {
+                  "opacity": 1,
+                }
               }
+              testID="BackButton"
             >
               <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID="IconButton"
-              >
-                <View
-                  style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    null,
                     Array [
                       Object {
-                        "backgroundColor": "transparent",
+                        "alignItems": "flex-start",
+                        "alignSelf": "flex-start",
+                        "justifyContent": "center",
                       },
-                      null,
-                      Object {},
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    allowFontScaling={false}
-                    style={
-                      Array [
-                        Object {
-                          "color": undefined,
-                          "fontSize": 12,
-                        },
-                        Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                          Object {
-                            "fontSize": 18,
-                          },
-                          Array [
-                            Object {
-                              "margin": 10,
-                            },
-                            Object {},
-                          ],
-                        ],
-                        Object {
-                          "fontFamily": "icomoon",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                        Object {},
-                      ]
-                    }
-                  >
-                    
-                  </Text>
-                </View>
+                      undefined,
+                    ],
+                    null,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#ffffff"
+                />
               </View>
             </View>
           </View>
@@ -640,81 +612,53 @@ exports[`CommunityHeader should render loading state 1`] = `
             }
           >
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function]}
+              onResponderGrant={[Function]}
+              onResponderMove={[Function]}
+              onResponderRelease={[Function]}
+              onResponderTerminate={[Function]}
+              onResponderTerminationRequest={[Function]}
+              onStartShouldSetResponder={[Function]}
               style={
-                Array [
-                  Object {
-                    "alignItems": "flex-start",
-                    "alignSelf": "flex-start",
-                    "justifyContent": "center",
-                  },
-                  undefined,
-                ]
+                Object {
+                  "opacity": 1,
+                }
               }
+              testID="BackButton"
             >
               <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function]}
-                onResponderGrant={[Function]}
-                onResponderMove={[Function]}
-                onResponderRelease={[Function]}
-                onResponderTerminate={[Function]}
-                onResponderTerminationRequest={[Function]}
-                onStartShouldSetResponder={[Function]}
                 style={
-                  Object {
-                    "opacity": 1,
-                  }
-                }
-                testID="IconButton"
-              >
-                <View
-                  style={
+                  Array [
+                    Object {
+                      "alignItems": "center",
+                      "backgroundColor": "transparent",
+                      "borderRadius": 0,
+                      "borderWidth": 0,
+                      "height": 60,
+                      "justifyContent": "center",
+                      "margin": 0,
+                      "paddingHorizontal": 20,
+                      "paddingVertical": 10,
+                    },
+                    null,
                     Array [
                       Object {
-                        "backgroundColor": "transparent",
+                        "alignItems": "flex-start",
+                        "alignSelf": "flex-start",
+                        "justifyContent": "center",
                       },
-                      null,
-                      Object {},
-                      null,
-                    ]
-                  }
-                >
-                  <Text
-                    allowFontScaling={false}
-                    style={
-                      Array [
-                        Object {
-                          "color": undefined,
-                          "fontSize": 12,
-                        },
-                        Array [
-                          Object {
-                            "color": "#ffffff",
-                          },
-                          Object {
-                            "fontSize": 18,
-                          },
-                          Array [
-                            Object {
-                              "margin": 10,
-                            },
-                            Object {},
-                          ],
-                        ],
-                        Object {
-                          "fontFamily": "icomoon",
-                          "fontStyle": "normal",
-                          "fontWeight": "normal",
-                        },
-                        Object {},
-                      ]
-                    }
-                  >
-                    
-                  </Text>
-                </View>
+                      undefined,
+                    ],
+                    null,
+                  ]
+                }
+              >
+                <SvgMock
+                  color="#ffffff"
+                />
               </View>
             </View>
           </View>
