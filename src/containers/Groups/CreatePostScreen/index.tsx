@@ -27,7 +27,6 @@ import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
-import VideoPlayer from '../../../components/VideoPlayer';
 import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import BackButton from '../../../components/BackButton';
 import theme from '../../../theme';
@@ -67,6 +66,7 @@ import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
+import { CreatePostVideoPlayer } from './CreatePostVideoPlayer';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
@@ -390,20 +390,6 @@ export const CreatePostScreen = () => {
       )
     ) : null;
 
-  const renderVideoPlayerControls = () => (
-    <View style={styles.deleteWrap}>
-      <Touchable
-        testID="DeleteButton"
-        onPress={handleDeleteVideo}
-        // @ts-ignore
-        type="transparent"
-        style={styles.deleteButton}
-      >
-        <TrashIcon color={theme.white} height={24} width={24} />
-      </Touchable>
-    </View>
-  );
-
   const renderHeader = () => (
     <Header
       left={
@@ -457,11 +443,7 @@ export const CreatePostScreen = () => {
         />
       </ImagePicker>
     ) : mediaData && hasVideo ? (
-      <VideoPlayer
-        uri={mediaData}
-        customControls={renderVideoPlayerControls}
-        width={theme.fullWidth}
-      />
+      <CreatePostVideoPlayer uri={mediaData} onDelete={handleDeleteVideo} />
     ) : (
       renderVideoPhotoButtons()
     );
