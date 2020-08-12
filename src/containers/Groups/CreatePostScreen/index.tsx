@@ -390,6 +390,20 @@ export const CreatePostScreen = () => {
       )
     ) : null;
 
+  const renderVideoPlayerControls = () => (
+    <View style={styles.deleteWrap}>
+      <Touchable
+        testID="DeleteButton"
+        onPress={handleDeleteVideo}
+        // @ts-ignore
+        type="transparent"
+        style={styles.deleteButton}
+      >
+        <TrashIcon color={theme.white} height={24} width={24} />
+      </Touchable>
+    </View>
+  );
+
   const renderHeader = () => (
     <Header
       left={
@@ -445,7 +459,7 @@ export const CreatePostScreen = () => {
     ) : mediaData && hasVideo ? (
       <VideoPlayer
         uri={mediaData}
-        onDelete={handleDeleteVideo}
+        customControls={renderVideoPlayerControls}
         width={theme.fullWidth}
       />
     ) : (

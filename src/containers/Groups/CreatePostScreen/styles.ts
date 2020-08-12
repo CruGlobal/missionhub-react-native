@@ -59,4 +59,17 @@ export default StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 28,
   },
+  deleteWrap: {
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+  },
+  deleteButton: {
+    margin: 16,
+    width: 40,
+    height: 40,
+    borderRadius: 18,
+    backgroundColor: theme.red,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
 });

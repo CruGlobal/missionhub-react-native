@@ -9,18 +9,7 @@ export default StyleSheet.create({
   videoPlayer: {
     ...StyleSheet.absoluteFillObject,
   },
-  deleteWrap: {
+  controlsWrap: {
     width: theme.fullWidth,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-  },
-  deleteButton: {
-    margin: 16,
-    width: 40,
-    height: 40,
-    borderRadius: 18,
-    backgroundColor: theme.red,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
 });
