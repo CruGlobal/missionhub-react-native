@@ -8,7 +8,6 @@ import { useAppState } from 'react-native-hooks';
 import { AnyAction } from 'redux';
 
 import { Text, Button } from '../../components/common';
-import { isAndroid } from '../../utils/common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { requestNativePermissions } from '../../actions/notifications';
 import { navigateBack } from '../../actions/navigation';
@@ -84,17 +83,8 @@ const NotificationOffScreen = ({
     dispatch(trackActionWithoutData(ACTIONS.NO_REMINDERS));
   };
 
-  const goToSettings = async () => {
-    if (!isAndroid) {
-      const APP_SETTINGS_URL = 'app-settings:';
-      const isSupported = await Linking.canOpenURL(APP_SETTINGS_URL);
-
-      if (isSupported) {
-        return Linking.openURL(APP_SETTINGS_URL);
-      }
-    }
-    // If android, use openSettings
-    Linking.openSettings();
+  const goToSettings = () => {
+    return Linking.openSettings();
   };
 
   useEffect(() => {

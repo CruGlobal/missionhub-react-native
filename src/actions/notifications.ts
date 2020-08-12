@@ -1,6 +1,8 @@
 /* eslint-disable max-lines */
 
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import PushNotificationIOS, {
+  PushNotificationPermissions,
+} from '@react-native-community/push-notification-ios';
 import PushNotification, {
   PushNotification as RNPushNotificationPayloadAndConstructor,
 } from 'react-native-push-notification';
@@ -208,20 +210,15 @@ export const checkNotifications = (
 // - return current state of Native Notifications Permissions (we should update app state accordingly)
 // - refreshes Push Device Token (this gets handled by onRegister() callback)
 export const requestNativePermissions = () => async () => {
-  const nativePermissions = await PushNotification.requestPermissions();
+  const nativePermissions = await (isAndroid
+    ? new Promise<PushNotificationPermissions>(resolve =>
+        PushNotification.checkPermissions(permission => resolve(permission)),
+      )
+    : await PushNotification.requestPermissions());
 
   const nativePermissionsEnabled = !!(
     nativePermissions && nativePermissions.alert
   );
-
-  if (isAndroid) {
-    return new Promise<{ nativePermissionsEnabled: boolean }>(resolve =>
-      PushNotification.checkPermissions(permission => {
-        const nativePermissionsEnabled = !!(permission && permission.alert);
-        return resolve({ nativePermissionsEnabled });
-      }),
-    );
-  }
 
   return { nativePermissionsEnabled };
 };

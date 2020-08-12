@@ -119,7 +119,7 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([]);
     });
 
-    it('immediately requests permissions if Android', async () => {
+    it('immediately check permissions if Android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const store = createThunkStore({
         auth: { token: authToken },
@@ -133,7 +133,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(RNPushNotification.checkPermissions).toHaveBeenCalled();
       expect(store.getActions()).toEqual([]);
     });
 
@@ -185,7 +185,6 @@ describe('checkNotifications', () => {
       (RNPushNotification.checkPermissions as jest.Mock).mockImplementation(
         cb => cb({ alert: false }),
       );
-      (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
         auth: { token: authToken },
@@ -206,7 +205,7 @@ describe('checkNotifications', () => {
         notificationType,
         onComplete: undefined,
       });
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(RNPushNotification.checkPermissions).toHaveBeenCalled();
       expect(store.getActions()).toEqual([callApiResult, navigatePushResult]);
     });
 
@@ -276,7 +275,7 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([]);
     });
 
-    it('immediately requests permissions if Android', async () => {
+    it('immediately check permissions if Android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const store = createThunkStore({
         auth: { token: authToken },
@@ -292,7 +291,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(RNPushNotification.checkPermissions).toHaveBeenCalled();
       expect(onComplete).toHaveBeenCalledWith({
         nativePermissionsEnabled: true,
         showedPrompt: false,
