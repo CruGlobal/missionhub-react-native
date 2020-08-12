@@ -8,7 +8,7 @@ interface VideoPlayerProps {
   uri: string;
   style?: StyleProp<ViewStyle>;
   customControls?: ReactElement;
-  onDelete?: () => void;
+  paused?: boolean;
   width?: number;
 }
 
@@ -16,6 +16,7 @@ const VideoPlayer = ({
   uri,
   style,
   customControls,
+  paused = true,
   width,
 }: VideoPlayerProps) => {
   const ratio = 16.0 / 9.0;
@@ -26,7 +27,7 @@ const VideoPlayer = ({
       <Video
         source={{ uri }}
         controls={!customControls}
-        paused={true}
+        paused={paused}
         style={styles.videoPlayer}
       />
       {customControls || null}

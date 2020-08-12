@@ -19,4 +19,14 @@ export default StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  playButton: {
+    margin: 16,
+    paddingLeft: 24,
+    width: 64,
+    height: 64,
+    borderRadius: 32,
+    backgroundColor: '#00000066',
+    alignItems: 'flex-start',
+    justifyContent: 'center',
+  },
 });

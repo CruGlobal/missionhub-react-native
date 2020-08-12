@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View } from 'react-native';
 
 import TrashIcon from '../../../../../assets/images/trashIcon.svg';
+import PlayButton from '../../../../../assets/images/playIcon.svg';
 import { Touchable } from '../../../../components/common';
 import VideoPlayer from '../../../../components/VideoPlayer';
 import theme from '../../../../theme';
@@ -17,6 +18,10 @@ export const CreatePostVideoPlayer = ({
   uri,
   onDelete,
 }: CreatePostVideoPlayerProps) => {
+  const [paused, setPaused] = useState(true);
+
+  const togglePaused = () => setPaused(!paused);
+
   const renderVideoPlayerControls = () => (
     <View
       style={{
@@ -45,9 +50,9 @@ export const CreatePostVideoPlayer = ({
         </Touchable>
       </View>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Touchable
-          style={{ width: 40, height: 40, backgroundColor: theme.iosBlue }}
-        ></Touchable>
+        <Touchable style={styles.playButton} onPress={togglePaused}>
+          <PlayButton />
+        </Touchable>
       </View>
     </View>
   );
@@ -56,6 +61,7 @@ export const CreatePostVideoPlayer = ({
     <VideoPlayer
       uri={uri}
       customControls={renderVideoPlayerControls()}
+      paused={paused}
       width={theme.fullWidth}
     />
   );
