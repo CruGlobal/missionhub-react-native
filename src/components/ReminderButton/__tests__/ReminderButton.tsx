@@ -70,6 +70,21 @@ describe('reminder not passed in', () => {
 describe('handlePressAndroid', () => {
   it('requests notifications and navigates to step reminder screen', () => {
     ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+    (checkNotifications as jest.Mock).mockImplementation(
+      (
+        _,
+        callback: ({
+          nativePermissionsEnabled,
+          showedPrompt,
+        }: {
+          nativePermissionsEnabled: boolean;
+          showedPrompt: boolean;
+        }) => void,
+      ) => {
+        callback({ nativePermissionsEnabled: true, showedPrompt: false });
+        return { type: 'check notifications' };
+      },
+    );
     const { getByTestId } = renderWithContext(
       <ReminderButton {...props} reminder={reminder}>
         <View />
@@ -80,7 +95,10 @@ describe('handlePressAndroid', () => {
       showPicker: jest.fn(),
     });
 
-    expect(requestNativePermissions).toHaveBeenCalled();
+    expect(checkNotifications).toHaveBeenCalledWith(
+      NOTIFICATION_PROMPT_TYPES.SET_REMINDER,
+      expect.any(Function),
+    );
     expect(navigatePush).toHaveBeenCalledWith(STEP_REMINDER_SCREEN, {
       reminder,
       stepId,
