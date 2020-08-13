@@ -7,10 +7,7 @@ import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 
 import { testSnapshotShallow, renderShallow } from '../../../../testUtils';
-import {
-  transferOrgOwnership,
-  removeOrganizationMember,
-} from '../../../actions/organizations';
+import { transferOrgOwnership } from '../../../actions/organizations';
 import {
   makeAdmin,
   removeAsAdmin,
@@ -457,7 +454,6 @@ describe('Leave Community', () => {
 
 describe('Remove from Community', () => {
   const archiveOrgPermissionResult = { type: 'archived permission' };
-  const removePersonResult = { type: 'removed person' };
 
   beforeEach(() => {
     props = {
@@ -480,25 +476,14 @@ describe('Remove from Community', () => {
     // @ts-ignore
     archiveOrgPermission.mockReturnValue(archiveOrgPermissionResult);
     // @ts-ignore
-    removeOrganizationMember.mockReturnValue(removePersonResult);
-    // @ts-ignore
     const screen = renderShallow(<MemberOptionsMenu {...props} />, store);
-
     // @ts-ignore
     await screen.instance().removeFromCommunity();
-
     // @ts-ignore
-    expect(store.getActions()).toEqual([
-      archiveOrgPermissionResult,
-      removePersonResult,
-    ]);
+    expect(store.getActions()).toEqual([archiveOrgPermissionResult]);
     expect(archiveOrgPermission).toHaveBeenCalledWith(
       otherId,
       personOrgPermission.id,
-    );
-    expect(removeOrganizationMember).toHaveBeenCalledWith(
-      otherId,
-      organization.id,
     );
   });
 });
