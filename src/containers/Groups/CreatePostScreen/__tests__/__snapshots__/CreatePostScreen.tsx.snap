@@ -238,7 +238,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -271,77 +271,59 @@
+@@ -271,17 +271,48 @@
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
         />
@@ -248,51 +248,26 @@ exports[`Select video should select a video 1`] = `
 +             Object {
 +               \\"flex\\": 1,
 +             },
-              Object {
--             \\"backgroundColor\\": \\"#ECEEF2\\",
--             \\"height\\": 1,
--             \\"width\\": 750,
++             Object {
 +               \\"height\\": 1333.3333333333333,
 +             },
 +             undefined,
 +           ]
-          }
--         }
--       />
--       <View
--         accessible={true}
--         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
--         style={
++         }
 +       >
 +         <Video
 +           controls={false}
 +           paused={true}
 +           source={
               Object {
--             \\"flex\\": 1,
--             \\"flexDirection\\": \\"row\\",
--             \\"justifyContent\\": \\"flex-start\\",
--             \\"opacity\\": 1,
--             \\"paddingHorizontal\\": 35,
--             \\"paddingVertical\\": 20,
+-             \\"backgroundColor\\": \\"#ECEEF2\\",
+-             \\"height\\": 1,
+-             \\"width\\": 750,
 +               \\"uri\\": \\"file:/video.mov\\",
-              }
-            }
--         testID=\\"VideoButton\\"
--       >
--         <SvgMock
-            style={
-              Object {
--               \\"height\\": 24,
--               \\"width\\": 24,
++             }
++           }
++           style={
++             Object {
 +               \\"bottom\\": 0,
 +               \\"left\\": 0,
 +               \\"position\\": \\"absolute\\",
@@ -301,9 +276,54 @@ exports[`Select video should select a video 1`] = `
               }
             }
           />
--         <Text
 +         <View
-            style={
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"flex\\": 1,
++               \\"justifyContent\\": \\"center\\",
++             }
++           }
++         >
+            <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function bound touchableHandlePress]}
+@@ -291,57 +322,25 @@
+              onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+              onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+              style={
+                Object {
+-             \\"flex\\": 1,
+-             \\"flexDirection\\": \\"row\\",
+-             \\"justifyContent\\": \\"flex-start\\",
++                 \\"alignItems\\": \\"flex-start\\",
++                 \\"backgroundColor\\": \\"#00000066\\",
++                 \\"borderRadius\\": 32,
++                 \\"height\\": 64,
++                 \\"justifyContent\\": \\"center\\",
++                 \\"margin\\": 16,
+                  \\"opacity\\": 1,
+-             \\"paddingHorizontal\\": 35,
+-             \\"paddingVertical\\": 20,
+-           }
+-         }
+-         testID=\\"VideoButton\\"
+-       >
+-         <SvgMock
+-           style={
+-             Object {
+-               \\"height\\": 24,
+-               \\"width\\": 24,
++                 \\"paddingLeft\\": 24,
++                 \\"width\\": 64,
+                }
+              }
+-         />
+-         <Text
+-           style={
 -             Array [
 -               Object {
 -                 \\"color\\": \\"#505256\\",
@@ -311,107 +331,76 @@ exports[`Select video should select a video 1`] = `
 -               Object {
 -                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -               },
-              Object {
+-               Object {
 -                 \\"fontSize\\": 16,
 -                 \\"lineHeight\\": 24,
 -                 \\"paddingHorizontal\\": 10,
 -               },
 -             ]
-+               \\"alignItems\\": \\"center\\",
-+               \\"flex\\": 1,
-+               \\"flexDirection\\": \\"column\\",
-+               \\"justifyContent\\": \\"flex-start\\",
-+             }
-            }
-          >
+-           }
++             testID=\\"PlayButton\\"
+            >
 -           Record a 15-Second Video
 -         </Text>
--       </View>
-            <View
-              style={
-                Object {
++             <SvgMock />
+            </View>
+-       <View
+-         style={
+-           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"flexDirection\\": \\"row\\",
-+                 \\"justifyContent\\": \\"flex-end\\",
-                  \\"width\\": 750,
-                }
-              }
+-             \\"width\\": 750,
+-           }
+-         }
 -       />
-+           >
-              <View
-                accessible={true}
-                focusable={true}
-                isTVSelectable={true}
-                onClick={[Function bound touchableHandlePress]}
-@@ -351,62 +333,67 @@
-                onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-                onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-                onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-                style={
-                  Object {
-+                   \\"alignItems\\": \\"center\\",
-+                   \\"backgroundColor\\": \\"#FF5532\\",
-+                   \\"borderRadius\\": 18,
-+                   \\"height\\": 40,
-+                   \\"justifyContent\\": \\"center\\",
-+                   \\"margin\\": 16,
-                    \\"opacity\\": 1,
-+                   \\"width\\": 40,
-                  }
-                }
--         testID=\\"popupMenuButton\\"
-+               testID=\\"DeleteButton\\"
-              >
-+               <SvgMock
-+                 color=\\"#ffffff\\"
-+                 height={24}
-+                 width={24}
-+               />
-+             </View>
-+           </View>
             <View
+              accessible={true}
+              focusable={true}
+              isTVSelectable={true}
+              onClick={[Function bound touchableHandlePress]}
+@@ -351,62 +350,30 @@
+              onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
+              onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
               style={
                 Object {
 +                 \\"alignItems\\": \\"center\\",
-                  \\"flex\\": 1,
++                 \\"backgroundColor\\": \\"#FF5532\\",
++                 \\"borderRadius\\": 18,
++                 \\"height\\": 40,
++                 \\"justifyContent\\": \\"center\\",
+                  \\"opacity\\": 1,
++                 \\"position\\": \\"absolute\\",
++                 \\"right\\": 16,
++                 \\"top\\": 16,
++                 \\"width\\": 40,
+                }
+              }
+-         testID=\\"popupMenuButton\\"
+-       >
+-         <View
+-           style={
+-             Object {
+-               \\"flex\\": 1,
 -               \\"flexDirection\\": \\"row\\",
 -               \\"justifyContent\\": \\"flex-start\\",
 -               \\"paddingHorizontal\\": 35,
 -               \\"paddingVertical\\": 20,
-+                 \\"justifyContent\\": \\"center\\",
-                }
-              }
+-             }
+-           }
++             testID=\\"DeleteButton\\"
             >
--           <SvgMock
-+             <View
-+               accessible={true}
-+               focusable={true}
-+               isTVSelectable={true}
-+               onClick={[Function bound touchableHandlePress]}
-+               onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+               onResponderMove={[Function bound touchableHandleResponderMove]}
-+               onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-                style={
-                  Object {
+              <SvgMock
+-             style={
+-               Object {
 -                 \\"height\\": 24,
 -                 \\"width\\": 24,
 -               }
-+                   \\"alignItems\\": \\"flex-start\\",
-+                   \\"backgroundColor\\": \\"#00000066\\",
-+                   \\"borderRadius\\": 32,
-+                   \\"height\\": 64,
-+                   \\"justifyContent\\": \\"center\\",
-+                   \\"margin\\": 16,
-+                   \\"opacity\\": 1,
-+                   \\"paddingLeft\\": 24,
-+                   \\"width\\": 64,
-                  }
--           />
+-             }
++               color=\\"#ffffff\\"
++               height={24}
++               width={24}
+              />
 -           <Text
 -             style={
 -               Array [
@@ -427,13 +416,10 @@ exports[`Select video should select a video 1`] = `
 -                   \\"paddingHorizontal\\": 10,
 -                 },
 -               ]
-                }
-+               testID=\\"PlayButton\\"
-              >
+-             }
+-           >
 -             Add a Photo
 -           </Text>
-+               <SvgMock />
-+             </View>
 +           </View>
           </View>
         </View>
@@ -1995,90 +1981,70 @@ exports[`renders correctly for update post with video 1`] = `
             Object {
               "alignItems": "center",
               "flex": 1,
-              "flexDirection": "column",
-              "justifyContent": "flex-start",
+              "justifyContent": "center",
             }
           }
         >
           <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "flexDirection": "row",
-                "justifyContent": "flex-end",
-                "width": 750,
+                "alignItems": "flex-start",
+                "backgroundColor": "#00000066",
+                "borderRadius": 32,
+                "height": 64,
+                "justifyContent": "center",
+                "margin": 16,
+                "opacity": 1,
+                "paddingLeft": 24,
+                "width": 64,
               }
             }
+            testID="PlayButton"
           >
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#FF5532",
-                  "borderRadius": 18,
-                  "height": 40,
-                  "justifyContent": "center",
-                  "margin": 16,
-                  "opacity": 1,
-                  "width": 40,
-                }
-              }
-              testID="DeleteButton"
-            >
-              <SvgMock
-                color="#ffffff"
-                height={24}
-                width={24}
-              />
-            </View>
+            <SvgMock />
           </View>
           <View
+            accessible={true}
+            focusable={true}
+            isTVSelectable={true}
+            onClick={[Function]}
+            onResponderGrant={[Function]}
+            onResponderMove={[Function]}
+            onResponderRelease={[Function]}
+            onResponderTerminate={[Function]}
+            onResponderTerminationRequest={[Function]}
+            onStartShouldSetResponder={[Function]}
             style={
               Object {
                 "alignItems": "center",
-                "flex": 1,
+                "backgroundColor": "#FF5532",
+                "borderRadius": 18,
+                "height": 40,
                 "justifyContent": "center",
+                "opacity": 1,
+                "position": "absolute",
+                "right": 16,
+                "top": 16,
+                "width": 40,
               }
             }
+            testID="DeleteButton"
           >
-            <View
-              accessible={true}
-              focusable={true}
-              isTVSelectable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignItems": "flex-start",
-                  "backgroundColor": "#00000066",
-                  "borderRadius": 32,
-                  "height": 64,
-                  "justifyContent": "center",
-                  "margin": 16,
-                  "opacity": 1,
-                  "paddingLeft": 24,
-                  "width": 64,
-                }
-              }
-              testID="PlayButton"
-            >
-              <SvgMock />
-            </View>
+            <SvgMock
+              color="#ffffff"
+              height={24}
+              width={24}
+            />
           </View>
         </View>
       </View>

@@ -37,90 +37,70 @@ exports[`renders correctly 1`] = `
       Object {
         "alignItems": "center",
         "flex": 1,
-        "flexDirection": "column",
-        "justifyContent": "flex-start",
+        "justifyContent": "center",
       }
     }
   >
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "flexDirection": "row",
-          "justifyContent": "flex-end",
-          "width": 750,
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "opacity": 1,
+          "paddingLeft": 24,
+          "width": 64,
         }
       }
+      testID="PlayButton"
     >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#FF5532",
-            "borderRadius": 18,
-            "height": 40,
-            "justifyContent": "center",
-            "margin": 16,
-            "opacity": 1,
-            "width": 40,
-          }
-        }
-        testID="DeleteButton"
-      >
-        <SvgMock
-          color="#ffffff"
-          height={24}
-          width={24}
-        />
-      </View>
+      <SvgMock />
     </View>
     <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
           "alignItems": "center",
-          "flex": 1,
+          "backgroundColor": "#FF5532",
+          "borderRadius": 18,
+          "height": 40,
           "justifyContent": "center",
+          "opacity": 1,
+          "position": "absolute",
+          "right": 16,
+          "top": 16,
+          "width": 40,
         }
       }
+      testID="DeleteButton"
     >
-      <View
-        accessible={true}
-        focusable={true}
-        isTVSelectable={true}
-        onClick={[Function]}
-        onResponderGrant={[Function]}
-        onResponderMove={[Function]}
-        onResponderRelease={[Function]}
-        onResponderTerminate={[Function]}
-        onResponderTerminationRequest={[Function]}
-        onStartShouldSetResponder={[Function]}
-        style={
-          Object {
-            "alignItems": "flex-start",
-            "backgroundColor": "#00000066",
-            "borderRadius": 32,
-            "height": 64,
-            "justifyContent": "center",
-            "margin": 16,
-            "opacity": 1,
-            "paddingLeft": 24,
-            "width": 64,
-          }
-        }
-        testID="PlayButton"
-      >
-        <SvgMock />
-      </View>
+      <SvgMock
+        color="#ffffff"
+        height={24}
+        width={24}
+      />
     </View>
   </View>
 </View>

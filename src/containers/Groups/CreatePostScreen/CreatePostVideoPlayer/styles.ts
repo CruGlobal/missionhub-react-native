@@ -5,13 +5,19 @@ import theme from '../../../../theme';
 export default StyleSheet.create({
   controlWrap: {
     flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   deleteWrap: {
+    width: theme.fullWidth,
+    flexDirection: 'row',
     justifyContent: 'flex-end',
-    alignItems: 'flex-end',
+    alignItems: 'center',
   },
   deleteButton: {
-    margin: 16,
+    position: 'absolute',
+    top: 16,
+    right: 16,
     width: 40,
     height: 40,
     borderRadius: 18,

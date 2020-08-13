@@ -23,41 +23,21 @@ export const CreatePostVideoPlayer = ({
   const togglePaused = () => setPaused(!paused);
 
   const renderVideoPlayerControls = () => (
-    <View
-      style={{
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        alignItems: 'center',
-      }}
-    >
-      <View
-        style={{
-          width: theme.fullWidth,
-          flexDirection: 'row',
-          justifyContent: 'flex-end',
-          alignItems: 'center',
-        }}
+    <View style={styles.controlWrap}>
+      <Touchable
+        testID="PlayButton"
+        style={styles.playButton}
+        onPress={togglePaused}
       >
-        <Touchable
-          testID="DeleteButton"
-          onPress={onDelete}
-          // @ts-ignore
-          type="transparent"
-          style={styles.deleteButton}
-        >
-          <TrashIcon color={theme.white} height={24} width={24} />
-        </Touchable>
-      </View>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Touchable
-          testID="PlayButton"
-          style={styles.playButton}
-          onPress={togglePaused}
-        >
-          <PlayButton />
-        </Touchable>
-      </View>
+        <PlayButton />
+      </Touchable>
+      <Touchable
+        testID="DeleteButton"
+        onPress={onDelete}
+        style={styles.deleteButton}
+      >
+        <TrashIcon color={theme.white} height={24} width={24} />
+      </Touchable>
     </View>
   );
 
