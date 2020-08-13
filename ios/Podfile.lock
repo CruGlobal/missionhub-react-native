@@ -1,5 +1,10 @@
 PODS:
   - AdobeMobileLibrary (4.13.8)
+  - AppAuth (1.2.0):
+    - AppAuth/Core (= 1.2.0)
+    - AppAuth/ExternalUserAgent (= 1.2.0)
+  - AppAuth/Core (1.2.0)
+  - AppAuth/ExternalUserAgent (1.2.0)
   - AppsFlyerFramework (5.4.1)
   - Base64 (1.1.2)
   - boost-for-react-native (1.63.0)
@@ -308,6 +313,9 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
   - React-jsinspector (0.61.5)
+  - react-native-app-auth (5.1.3):
+    - AppAuth (= 1.2.0)
+    - React
   - react-native-appsflyer (5.4.1):
     - AppsFlyerFramework (~> 5.4.1)
     - React
@@ -377,6 +385,8 @@ PODS:
     - React-cxxreact (= 0.61.5)
     - React-jsi (= 0.61.5)
     - ReactCommon/jscallinvoker (= 0.61.5)
+  - RNAppleAuthentication (1.1.2):
+    - React
   - RNCPushNotificationIOS (1.3.0):
     - React
   - RNDateTimePicker (2.6.1):
@@ -450,6 +460,7 @@ DEPENDENCIES:
   - React-jsi (from `../node_modules/react-native/ReactCommon/jsi`)
   - React-jsiexecutor (from `../node_modules/react-native/ReactCommon/jsiexecutor`)
   - React-jsinspector (from `../node_modules/react-native/ReactCommon/jsinspector`)
+  - react-native-app-auth (from `../node_modules/react-native-app-auth`)
   - react-native-appsflyer (from `../node_modules/react-native-appsflyer`)
   - react-native-camera (from `../node_modules/react-native-camera`)
   - react-native-config (from `../node_modules/react-native-config`)
@@ -467,6 +478,7 @@ DEPENDENCIES:
   - React-RCTVibration (from `../node_modules/react-native/Libraries/Vibration`)
   - ReactCommon/jscallinvoker (from `../node_modules/react-native/ReactCommon`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNAppleAuthentication (from `../node_modules/@invertase/react-native-apple-authentication`)"
   - "RNCPushNotificationIOS (from `../node_modules/@react-native-community/push-notification-ios`)"
   - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNDefaultPreference (from `../node_modules/react-native-default-preference`)
@@ -488,6 +500,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AppAuth
     - AppsFlyerFramework
     - Base64
     - boost-for-react-native
@@ -551,6 +564,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/jsiexecutor"
   React-jsinspector:
     :path: "../node_modules/react-native/ReactCommon/jsinspector"
+  react-native-app-auth:
+    :path: "../node_modules/react-native-app-auth"
   react-native-appsflyer:
     :path: "../node_modules/react-native-appsflyer"
   react-native-camera:
@@ -583,6 +598,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/Libraries/Vibration"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNAppleAuthentication:
+    :path: "../node_modules/@invertase/react-native-apple-authentication"
   RNCPushNotificationIOS:
     :path: "../node_modules/@react-native-community/push-notification-ios"
   RNDateTimePicker:
@@ -622,6 +639,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AdobeMobileLibrary: 067db283616af75ff813711d6e0039a6f4c5a1a9
+  AppAuth: bce82c76043657c99d91e7882e8a9e1a93650cd4
   AppsFlyerFramework: 15ae3f973d0248bc9d3926c2c1ae0bad70b90517
   Base64: cecfb41a004124895a7bcee567a89bae5a89d49b
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
@@ -663,6 +681,7 @@ SPEC CHECKSUMS:
   React-jsi: cb2cd74d7ccf4cffb071a46833613edc79cdf8f7
   React-jsiexecutor: d5525f9ed5f782fdbacb64b9b01a43a9323d2386
   React-jsinspector: fa0ecc501688c3c4c34f28834a76302233e29dc0
+  react-native-app-auth: 4b83339a50548e803db392e6dafa82da9c54c85e
   react-native-appsflyer: a6e25627ac28bcc5c576b9207237996e2c6c69a1
   react-native-camera: 55e1afb6d585314ca96ea5504e6b1ba7583c1d21
   react-native-config: 55548054279d92e0e4566ea15a8b9b81028ec342
@@ -679,6 +698,7 @@ SPEC CHECKSUMS:
   React-RCTText: 9ccc88273e9a3aacff5094d2175a605efa854dbe
   React-RCTVibration: a49a1f42bf8f5acf1c3e297097517c6b3af377ad
   ReactCommon: 198c7c8d3591f975e5431bec1b0b3b581aa1c5dd
+  RNAppleAuthentication: 473b2c076f1a48a537610580a168c1fb6d0a90c6
   RNCPushNotificationIOS: d5fd66aed4e03c6491ca0c6111a03d4f6455ff6c
   RNDateTimePicker: 83540fb5d71f28bd34990d8fabccb8d91e5d957e
   RNDefaultPreference: 2f8d6d54230edbd78708ada8d63bb275e5a8415b

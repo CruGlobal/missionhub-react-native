@@ -6,6 +6,13 @@ import i18n from 'i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
 import { useNavigationParam } from 'react-navigation-hooks';
 import { AnyAction } from 'redux';
+import appleAuth, {
+  AppleButton,
+  AppleAuthRequestOperation,
+  AppleAuthRequestScope,
+  AppleAuthCredentialState,
+} from '@invertase/react-native-apple-authentication';
+import { authorize } from 'react-native-app-auth';
 
 import {
   Button,
@@ -34,6 +41,8 @@ import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { RootState } from '../../../reducers';
 
 import styles from './styles';
+import callApi from '../../../actions/api';
+import { REQUESTS } from '../../../api/routes';
 
 const SignInScreen = ({
   dispatch,
@@ -135,6 +144,70 @@ const SignInScreen = ({
     }
   };
 
+  const onAppleButtonPress = async () => {
+    // performs login request
+    const appleAuthRequestResponse = await appleAuth.performRequest({
+      requestedOperation: AppleAuthRequestOperation.LOGIN,
+      requestedScopes: [
+        AppleAuthRequestScope.EMAIL,
+        AppleAuthRequestScope.FULL_NAME,
+      ],
+    });
+
+    // get current authentication state for user
+    // /!\ This method must be tested on a real device. On the iOS simulator it always throws an error.
+    const credentialState = await appleAuth.getCredentialStateForUser(
+      appleAuthRequestResponse.user,
+    );
+
+    // use credentialState response to ensure the user is authenticated
+    if (credentialState === AppleAuthCredentialState.AUTHORIZED) {
+      // Haven't tested this. I don't have an iPhone and the iOS simulator throws an error before this. https://github.com/invertase/react-native-apple-authentication#troubleshouting I think this endpoint needs an app secret though.
+      dispatch(
+        callApi(REQUESTS.OKTA_TOKEN, {
+          code: appleAuthRequestResponse.authorizationCode,
+          grant_type: 'authorization_code',
+          redirect_uri: 'com.missionhub:/callback',
+          scope: 'openid',
+          idp: '0oaptrvvfA7E6EeNR4x6',
+        }),
+      );
+      // Not sure if/how to tell the token endpoint it's an apple authoriztionCode or specify ?idp=0oaptrvvfA7E6EeNR4x6&
+      debugger;
+    }
+  };
+
+  const appleWebLogin = async () => {
+    const config = {
+      // issuer:
+      //   'https://dev1-signon.okta.com/oauth2/default?idp=0oaptrvvfA7E6EeNR4x6',
+      serviceConfiguration: {
+        authorizationEndpoint:
+          'https://dev1-signon.okta.com/oauth2/v1/authorize?idp=0oaptrvvfA7E6EeNR4x6&client_id=0oapul85kU9w9Dw5R4x6&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=com.missionhub:/callback&state=anyvalue&nonce=anyvalue',
+        tokenEndpoint:
+          'https://dev1-signon.okta.com/oauth2/v1/token?idp=0oaptrvvfA7E6EeNR4x6',
+        revocationEndpoint:
+          'https://dev1-signon.okta.com/oauth2/v1/revoke?idp=0oaptrvvfA7E6EeNR4x6',
+        registrationEndpoint:
+          'https://dev1-signon.okta.com/oauth2/v1/clients?idp=0oaptrvvfA7E6EeNR4x6',
+      },
+      clientId: '0oapul85kU9w9Dw5R4x6',
+      redirectUrl: 'com.missionhub:/callback',
+      scopes: ['openid'],
+    };
+    // https://dev1-signon.okta.com/oauth2/v1/authorize?idp=0oaptrvvfA7E6EeNR4x6&client_id=0oa3bkyab2pbnRpMb4x6&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https://oknqp.csb.app/&state=anyvalue&nonce=anyvalue
+
+    // use the client to make the auth request and receive the authState
+    try {
+      const result = await authorize(config);
+      debugger;
+      // result includes accessToken, accessTokenExpirationDate and refreshToken
+    } catch (error) {
+      console.log(error);
+      debugger;
+    }
+  };
+
   const renderErrorMessage = () => {
     return errorMessage ? (
       <SafeAreaView style={styles.errorBar}>
@@ -219,7 +292,7 @@ const SignInScreen = ({
             testID="facebookButton"
             pill={true}
             onPress={facebookLogin}
-            style={styles.facebookButton}
+            style={[styles.socialButton, styles.facebookButton]}
             buttonTextStyle={styles.buttonText}
           >
             <Flex direction="row">
@@ -234,6 +307,31 @@ const SignInScreen = ({
               </Text>
             </Flex>
           </Button>
+          <Button
+            testID="appleWebButton"
+            pill={true}
+            onPress={appleWebLogin}
+            style={[styles.socialButton, styles.facebookButton]}
+            buttonTextStyle={styles.buttonText}
+          >
+            <Flex direction="row">
+              <Icon
+                name="facebookIcon"
+                size={21}
+                type="MissionHub"
+                style={styles.icon}
+              />
+              <Text style={styles.buttonText}>
+                {t('appleLogin').toUpperCase()}
+              </Text>
+            </Flex>
+          </Button>
+          <AppleButton
+            buttonStyle={AppleButton.Style.WHITE}
+            buttonType={AppleButton.Type.SIGN_IN}
+            style={styles.socialButton}
+            onPress={() => onAppleButtonPress()}
+          />
         </SafeAreaView>
       )}
       {isLoading ? <LoadingWheel /> : null}

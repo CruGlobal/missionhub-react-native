@@ -146,6 +146,10 @@ android {
         vectorDrawables.useSupportLibrary = true
 
         missingDimensionStrategy 'react-native-camera', 'general'
+
+        manifestPlaceholders = [
+            appAuthRedirectScheme: 'com.missionhub'
+        ]
     }
     splits {
         abi {

@@ -35,13 +35,15 @@ export default StyleSheet.create({
     color: theme.white,
     fontSize: 16,
   },
+  socialButton: {
+    width: theme.fullWidth - 80,
+    height: 48,
+    margin: 8,
+  },
   facebookButton: {
     backgroundColor: theme.transparent,
     borderWidth: 1,
     borderColor: theme.secondaryColor,
-    margin: 8,
-    width: theme.fullWidth - 80,
-    height: 48,
   },
   buttonText: {
     color: theme.white,

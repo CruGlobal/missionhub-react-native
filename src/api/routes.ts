@@ -64,6 +64,16 @@ export const REQUESTS /*: ApiRouteConfig*/ = {
   //   Don't use jsonDataApiStore
   //   useJsonDataApiStore: false
   // },
+  OKTA_TOKEN: {
+    name: 'OKTA_TOKEN' as const,
+    FETCH: 'OKTA_TOKEN_FETCH' as const,
+    SUCCESS: 'OKTA_TOKEN_SUCCESS' as const,
+    endpoint: 'https://dev1-signon.okta.com/oauth2/v1/token',
+    method: 'post',
+    stringify: false,
+    anonymous: true,
+    useJsonDataApiStore: false,
+  },
   KEY_LOGIN: {
     name: 'KEY_LOGIN' as const,
     FETCH: 'KEY_LOGIN_FETCH' as const,
