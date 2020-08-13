@@ -1,12 +1,10 @@
 import React from 'react';
-import { fireEvent } from 'react-native-testing-library';
+import { Text } from 'react-native';
 
 import { renderWithContext } from '../../../../testUtils';
 import VideoPlayer from '../';
 
 jest.mock('react-native-video', () => 'Video');
-
-const onDelete = jest.fn();
 
 it('renders correctly', () => {
   renderWithContext(<VideoPlayer uri={'testVideo.mp4'} />).snapshot();
@@ -18,12 +16,14 @@ it('renders with style', () => {
   ).snapshot();
 });
 
-it('renders with delete button', () => {
+it('renders with custom controls', () => {
+  const customControls = <Text>Controls</Text>;
+
   renderWithContext(
     <VideoPlayer
       uri={'testVideo.mp4'}
+      customControls={customControls}
       style={{ height: 1000 }}
-      onDelete={onDelete}
     />,
   ).snapshot();
 });
@@ -34,16 +34,12 @@ it('renders with width', () => {
   ).snapshot();
 });
 
-it('calls onDelete', () => {
-  const { getByTestId } = renderWithContext(
+it('sets paused to false', () => {
+  renderWithContext(
     <VideoPlayer
       uri={'testVideo.mp4'}
       style={{ height: 1000 }}
-      onDelete={onDelete}
+      paused={false}
     />,
-  );
-
-  fireEvent.press(getByTestId('DeleteButton'));
-
-  expect(onDelete).toHaveBeenCalledWith();
+  ).snapshot();
 });

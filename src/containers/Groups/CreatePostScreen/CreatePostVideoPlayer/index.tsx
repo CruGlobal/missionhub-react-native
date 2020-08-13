@@ -50,7 +50,11 @@ export const CreatePostVideoPlayer = ({
         </Touchable>
       </View>
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Touchable style={styles.playButton} onPress={togglePaused}>
+        <Touchable
+          testID="PlayButton"
+          style={styles.playButton}
+          onPress={togglePaused}
+        >
           <PlayButton />
         </Touchable>
       </View>
