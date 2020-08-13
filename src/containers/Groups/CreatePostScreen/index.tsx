@@ -29,6 +29,7 @@ import ImagePicker, {
 import PostTypeLabel from '../../../components/PostTypeLabel';
 import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import BackButton from '../../../components/BackButton';
+import VideoPlayer from '../../../components/VideoPlayer';
 import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
@@ -66,7 +67,6 @@ import { CREATE_POST, UPDATE_POST } from './queries';
 import styles from './styles';
 import { CreatePost, CreatePostVariables } from './__generated__/CreatePost';
 import { UpdatePost, UpdatePostVariables } from './__generated__/UpdatePost';
-import { CreatePostVideoPlayer } from './CreatePostVideoPlayer';
 
 type permissionType = TrackStateContext[typeof ANALYTICS_PERMISSION_TYPE];
 
@@ -443,7 +443,7 @@ export const CreatePostScreen = () => {
         />
       </ImagePicker>
     ) : mediaData && hasVideo ? (
-      <CreatePostVideoPlayer uri={mediaData} onDelete={handleDeleteVideo} />
+      <VideoPlayer uri={mediaData} onDelete={handleDeleteVideo} />
     ) : (
       renderVideoPhotoButtons()
     );
