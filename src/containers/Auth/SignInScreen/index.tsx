@@ -1,6 +1,7 @@
-import React, { useState, useRef } from 'react';
+/* eslint-disable max-lines */
+import React, { useState, useRef, useEffect } from 'react';
 import { connect } from 'react-redux-legacy';
-import { SafeAreaView, Keyboard, View, TextInput } from 'react-native';
+import { SafeAreaView, Keyboard, View, TextInput, Linking } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import i18n from 'i18next';
 import { ThunkDispatch, ThunkAction } from 'redux-thunk';
@@ -177,36 +178,45 @@ const SignInScreen = ({
     }
   };
 
-  const appleWebLogin = async () => {
+  const appleWebPopupLogin = async () => {
     const config = {
-      // issuer:
-      //   'https://dev1-signon.okta.com/oauth2/default?idp=0oaptrvvfA7E6EeNR4x6',
-      serviceConfiguration: {
-        authorizationEndpoint:
-          'https://dev1-signon.okta.com/oauth2/v1/authorize?idp=0oaptrvvfA7E6EeNR4x6&client_id=0oapul85kU9w9Dw5R4x6&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=com.missionhub:/callback&state=anyvalue&nonce=anyvalue',
-        tokenEndpoint:
-          'https://dev1-signon.okta.com/oauth2/v1/token?idp=0oaptrvvfA7E6EeNR4x6',
-        revocationEndpoint:
-          'https://dev1-signon.okta.com/oauth2/v1/revoke?idp=0oaptrvvfA7E6EeNR4x6',
-        registrationEndpoint:
-          'https://dev1-signon.okta.com/oauth2/v1/clients?idp=0oaptrvvfA7E6EeNR4x6',
-      },
+      issuer: 'https://dev1-signon.okta.com',
       clientId: '0oapul85kU9w9Dw5R4x6',
       redirectUrl: 'com.missionhub:/callback',
       scopes: ['openid'],
+      additionalParameters: { idp: '0oaptrvvfA7E6EeNR4x6' },
     };
-    // https://dev1-signon.okta.com/oauth2/v1/authorize?idp=0oaptrvvfA7E6EeNR4x6&client_id=0oa3bkyab2pbnRpMb4x6&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=https://oknqp.csb.app/&state=anyvalue&nonce=anyvalue
 
-    // use the client to make the auth request and receive the authState
     try {
       const result = await authorize(config);
+      const response = await dispatch(
+        callApi(REQUESTS.OKTA_LOGIN, {
+          okta_access_token: result.accessToken,
+        }),
+      );
       debugger;
       // result includes accessToken, accessTokenExpirationDate and refreshToken
     } catch (error) {
       console.log(error);
-      debugger;
     }
   };
+  const appleWebLinkLogin = async () => {
+    const url =
+      'https://dev1-signon.okta.com/oauth2/v1/authorize?idp=0oaptrvvfA7E6EeNR4x6&client_id=0oapul85kU9w9Dw5R4x6&response_type=id_token&response_mode=fragment&scope=openid&redirect_uri=com.missionhub:/callback&state=anyvalue&nonce=anyvalue';
+
+    const result = await Linking.openURL(url);
+    Linking.addEventListener('url', (...args) => {
+      console.log(args);
+      debugger;
+    });
+  };
+
+  useEffect(() => {
+    (async () => {
+      const url = await Linking.getInitialURL('url');
+      console.log(url);
+    })();
+  }, []);
 
   const renderErrorMessage = () => {
     return errorMessage ? (
@@ -238,7 +248,7 @@ const SignInScreen = ({
           )}
         </Flex>
       ) : null}
-      <Flex value={3} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
+      <Flex value={2} style={{ paddingVertical: 10, paddingHorizontal: 30 }}>
         <View>
           <Text style={styles.label}>{t('emailLabel')}</Text>
           <Input
@@ -308,9 +318,9 @@ const SignInScreen = ({
             </Flex>
           </Button>
           <Button
-            testID="appleWebButton"
+            testID="applePopupWebButton"
             pill={true}
-            onPress={appleWebLogin}
+            onPress={appleWebPopupLogin}
             style={[styles.socialButton, styles.facebookButton]}
             buttonTextStyle={styles.buttonText}
           >
@@ -322,7 +332,26 @@ const SignInScreen = ({
                 style={styles.icon}
               />
               <Text style={styles.buttonText}>
-                {t('appleLogin').toUpperCase()}
+                {t('appleLoginPopup').toUpperCase()}
+              </Text>
+            </Flex>
+          </Button>
+          <Button
+            testID="appleLinkWebButton"
+            pill={true}
+            onPress={appleWebLinkLogin}
+            style={[styles.socialButton, styles.facebookButton]}
+            buttonTextStyle={styles.buttonText}
+          >
+            <Flex direction="row">
+              <Icon
+                name="facebookIcon"
+                size={21}
+                type="MissionHub"
+                style={styles.icon}
+              />
+              <Text style={styles.buttonText}>
+                {t('appleLinkLogin').toUpperCase()}
               </Text>
             </Flex>
           </Button>

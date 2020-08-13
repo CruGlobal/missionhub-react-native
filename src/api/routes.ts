@@ -103,6 +103,15 @@ export const REQUESTS /*: ApiRouteConfig*/ = {
     method: 'post',
     useJsonDataApiStore: false,
   },
+  OKTA_LOGIN: {
+    name: 'OKTA_LOGIN' as const,
+    FETCH: 'OKTA_LOGIN_FETCH' as const,
+    SUCCESS: 'OKTA_LOGIN_SUCCESS' as const,
+    endpoint: `${AUTH_URL}/okta`,
+    method: 'post',
+    useJsonDataApiStore: false,
+    anonymous: true,
+  },
   FACEBOOK_LOGIN: {
     name: 'FACEBOOK_LOGIN' as const,
     FETCH: 'FACEBOOK_LOGIN_FETCH' as const,
