@@ -1,6 +1,8 @@
 /* eslint-disable max-lines */
 
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import PushNotificationIOS, {
+  PushNotificationPermissions,
+} from '@react-native-community/push-notification-ios';
 import PushNotification, {
   PushNotification as RNPushNotificationPayloadAndConstructor,
 } from 'react-native-push-notification';
@@ -183,9 +185,9 @@ export const checkNotifications = (
     nativePermissionsEnabled = (await dispatch(requestNativePermissions()))
       .nativePermissionsEnabled;
 
-    //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
+    //if user has previously accepted notifications, but Native Permissions are now off,
     //delete push token from API and Redux, then navigate to NotificationOffScreen
-    if (!isAndroid && !nativePermissionsEnabled && !skipNotificationOff) {
+    if (!nativePermissionsEnabled && !skipNotificationOff) {
       dispatch(deletePushToken());
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
@@ -208,7 +210,11 @@ export const checkNotifications = (
 // - return current state of Native Notifications Permissions (we should update app state accordingly)
 // - refreshes Push Device Token (this gets handled by onRegister() callback)
 export const requestNativePermissions = () => async () => {
-  const nativePermissions = await PushNotification.requestPermissions();
+  const nativePermissions = await (isAndroid
+    ? new Promise<PushNotificationPermissions>(resolve =>
+        PushNotification.checkPermissions(permission => resolve(permission)),
+      )
+    : await PushNotification.requestPermissions());
 
   const nativePermissionsEnabled = !!(
     nativePermissions && nativePermissions.alert
