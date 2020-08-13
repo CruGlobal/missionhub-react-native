@@ -24,20 +24,47 @@ export const CreatePostVideoPlayer = ({
 
   const renderVideoPlayerControls = () => (
     <View style={styles.controlWrap}>
-      <Touchable
-        testID="PlayButton"
-        style={styles.playButton}
-        onPress={togglePaused}
-      >
-        <PlayButton />
-      </Touchable>
-      <Touchable
-        testID="DeleteButton"
-        onPress={onDelete}
-        style={styles.deleteButton}
-      >
-        <TrashIcon color={theme.white} height={24} width={24} />
-      </Touchable>
+      <View style={styles.buttonWrap}>
+        <Touchable
+          testID="FullScreenButton"
+          onPress={onDelete}
+          style={[styles.cornerButton, styles.grayButton]}
+        >
+          <TrashIcon color={theme.white} height={24} width={24} />
+        </Touchable>
+        <Touchable
+          testID="DeleteButton"
+          onPress={onDelete}
+          style={[styles.cornerButton, styles.redButton]}
+        >
+          <TrashIcon color={theme.white} height={24} width={24} />
+        </Touchable>
+      </View>
+      <View style={styles.centerWrap}>
+        <Touchable
+          testID="PlayButton"
+          style={[styles.playButton, styles.grayButton]}
+          onPress={togglePaused}
+        >
+          <PlayButton />
+        </Touchable>
+      </View>
+      <View style={styles.buttonWrap}>
+        <Touchable
+          testID="Button"
+          onPress={onDelete}
+          style={[styles.cornerButton, styles.grayButton]}
+        >
+          <TrashIcon color={theme.white} height={24} width={24} />
+        </Touchable>
+        <Touchable
+          testID="MuteButton"
+          onPress={onDelete}
+          style={[styles.cornerButton, styles.grayButton]}
+        >
+          <TrashIcon color={theme.white} height={24} width={24} />
+        </Touchable>
+      </View>
     </View>
   );
 
