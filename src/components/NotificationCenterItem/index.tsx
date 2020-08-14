@@ -63,20 +63,23 @@ export const NotificationCenterItem = ({
       'original_poster',
     }
     const templateArray = messageTemplate.split(/(<<.*?>>)/).filter(Boolean);
-    return templateArray.map((word: string) => {
+    return templateArray.map((word: string, index: number) => {
       const filteredWord = word.replace(/[^a-zA-Z _]/g, '');
       return word.match(/[<>]+/g) ? (
         Object.values(BoldedMessageVariableEnum).includes(filteredWord) ? (
-          <Text style={styles.boldedItemText}>
+          // eslint-disable-next-line react/no-array-index-key
+          <Text style={styles.boldedItemText} key={`${word}${index}`}>
             {getMessageVariable(filteredWord)}
           </Text>
         ) : (
-          <Text style={styles.itemText}>
+          // eslint-disable-next-line react/no-array-index-key
+          <Text style={styles.itemText} key={`${word}${index}`}>
             {getMessageVariable(filteredWord)}
           </Text>
         )
       ) : (
-        <Text key={word}>{word}</Text>
+        // eslint-disable-next-line react/no-array-index-key
+        <Text key={`${word}${index}`}>{word}</Text>
       );
     });
   };
