@@ -43,8 +43,6 @@ const baseStage: Stage = {
   description: 'description',
   self_followup_description: 'description',
   position: 1,
-  name_i18n: 'en-US',
-  description_i18n: 'description',
   icon_url: 'https://misisonhub.com',
   localized_pathway_stages: [],
 };

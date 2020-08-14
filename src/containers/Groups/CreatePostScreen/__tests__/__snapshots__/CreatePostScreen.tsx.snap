@@ -695,7 +695,7 @@ exports[`renders correctly for new post 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -1110,7 +1110,7 @@ exports[`renders correctly for new post and feature flag false 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -1531,7 +1531,7 @@ exports[`renders correctly for update post with image 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -1909,7 +1909,7 @@ exports[`renders correctly for update post with video 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -2327,7 +2327,7 @@ exports[`renders correctly for update post without media 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -2808,7 +2808,7 @@ exports[`renders correctly for update post without media and feature flag false 
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -3229,7 +3229,7 @@ exports[`renders correctly for update post without video if feature flag is fals
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -3584,7 +3584,7 @@ exports[`renders for post types renders for announcement 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -3999,7 +3999,7 @@ exports[`renders for post types renders for help request 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -4414,7 +4414,7 @@ exports[`renders for post types renders for prayer request 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -4829,7 +4829,7 @@ exports[`renders for post types renders for spiritual question 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -5244,7 +5244,7 @@ exports[`renders for post types renders for story 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,
@@ -5659,7 +5659,7 @@ exports[`renders for post types renders for thought 1`] = `
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#B4B6BA",
+              "color": "#505256",
               "fontSize": 24,
               "fontWeight": "300",
               "lineHeight": 30,

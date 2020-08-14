@@ -53,7 +53,7 @@ export default StyleSheet.create({
     fontSize: 24,
     fontWeight: '300',
     lineHeight: 30,
-    color: theme.lightGrey,
+    color: theme.textColor,
     borderBottomWidth: 0,
     paddingHorizontal: 35,
     paddingTop: 20,
