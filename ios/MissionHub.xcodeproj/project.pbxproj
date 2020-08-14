@@ -14,6 +14,7 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		5CAB4F9E946B4554BF76FDE1 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1E4673F60A704566AD025E5F /* SourceSansPro-Light.ttf */; };
 		7D6468F9225826480064215E /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7D6468C2225826330064215E /* JavaScriptCore.framework */; };
+		7DD7F0FE24E72DA70026A153 /* SupportForSwiftDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD7F0FD24E72DA70026A153 /* SupportForSwiftDependencies.swift */; };
 		93DE339021B196A10057B6A7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 93DE338F21B196A00057B6A7 /* GoogleService-Info.plist */; };
 		A6AC66FDFEB3980C07A49518 /* libPods-MissionHub-MissionHubTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BE64CD90C5C9B1C073BD7C37 /* libPods-MissionHub-MissionHubTests.a */; };
 		AECAC0531FF553550063D8AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AECAC02A1FF553550063D8AE /* LaunchScreen.storyboard */; };
@@ -60,7 +61,8 @@
 		4FC01F05205C574F0079E21F /* Fastfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; fileEncoding = 4; path = Fastfile; sourceTree = "<group>"; };
 		4FC01FA6205C574F0079E21F /* Gemfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Gemfile; sourceTree = "<group>"; };
 		7D6468C2225826330064215E /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		7DC575052461DE1F008602C6 /* MissionHubTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MissionHubTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		7DD7F0FC24E72DA60026A153 /* MissionHub-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MissionHub-Bridging-Header.h"; sourceTree = "<group>"; };
+		7DD7F0FD24E72DA70026A153 /* SupportForSwiftDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportForSwiftDependencies.swift; sourceTree = "<group>"; };
 		937F2BAD1FD9930100915D3A /* MissionHub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = MissionHub.entitlements; path = MissionHub/MissionHub.entitlements; sourceTree = "<group>"; };
 		93DE338F21B196A00057B6A7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		957708BB0A2D4FE523A82CB9 /* Pods-MissionHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MissionHubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MissionHubTests/Pods-MissionHubTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,7 +145,6 @@
 				AECAC02A1FF553550063D8AE /* LaunchScreen.storyboard */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
-				7DC575052461DE1F008602C6 /* MissionHubTests-Bridging-Header.h */,
 			);
 			name = MissionHub;
 			sourceTree = "<group>";
@@ -182,6 +183,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				7DD7F0FD24E72DA70026A153 /* SupportForSwiftDependencies.swift */,
 				FA3BFE2C22288EE200517C52 /* Release.xcconfig */,
 				FA3BFDF522288E0700517C52 /* Debug.xcconfig */,
 				4FC01F02205C574F0079E21F /* fastlane */,
@@ -193,6 +195,7 @@
 				26844841CFBF45D0854E57CC /* Resources */,
 				937F2BAB1FD9928100915D3A /* Frameworks */,
 				F7A69B701C35CDBE00558A66 /* Pods */,
+				7DD7F0FC24E72DA60026A153 /* MissionHub-Bridging-Header.h */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -311,7 +314,7 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = DQ48D9BF2V;
-						LastSwiftMigration = 920;
+						LastSwiftMigration = 1160;
 						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -597,6 +600,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
+				7DD7F0FE24E72DA70026A153 /* SupportForSwiftDependencies.swift in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -628,6 +632,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = FBF1A92BCC1466D35AB9B6E9 /* Pods-MissionHub-MissionHubTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -653,7 +658,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
-				SWIFT_OBJC_BRIDGING_HEADER = "MissionHubTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MissionHub.app/MissionHub";
@@ -708,9 +712,9 @@
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
-				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MissionHub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -780,16 +784,13 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 20327;
-				DEAD_CODE_STRIPPING = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = DQ48D9BF2V;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"$(inherited)",
-					"FB_SONARKIT_ENABLED=1",
-				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -819,9 +820,9 @@
 				PRODUCT_NAME = MissionHub;
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
-				SWIFT_OBJC_BRIDGING_HEADER = "AdobeMobileLibrary/MissionHub-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "MissionHub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -831,6 +832,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E95FEBB1CA13106CEE6F3075 /* Pods-MissionHub-MissionHubTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Manual;
@@ -856,7 +858,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.missionhub";
-				SWIFT_OBJC_BRIDGING_HEADER = "MissionHubTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MissionHub.app/MissionHub";
