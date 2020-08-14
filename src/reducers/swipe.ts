@@ -1,6 +1,5 @@
 import {
   LOGOUT,
-  SWIPE_REMINDER_JOURNEY,
   GROUP_ONBOARDING_CARD,
   GROUP_INVITE_INFO,
   GROUP_TAB_SCROLL_ON_MOUNT,
@@ -30,8 +29,6 @@ const initialState: SwipeState = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function swipeReducer(state: SwipeState = initialState, action: any) {
   switch (action.type) {
-    case SWIPE_REMINDER_JOURNEY:
-      return { ...state, journey: false };
     case GROUP_INVITE_INFO:
       return { ...state, groupInviteInfo: false };
     case GROUP_TAB_SCROLL_ON_MOUNT:

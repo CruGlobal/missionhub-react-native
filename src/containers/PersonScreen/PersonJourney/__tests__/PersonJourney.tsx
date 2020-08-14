@@ -1,5 +1,5 @@
-import 'react-native';
 import React from 'react';
+import { ActionSheetIOS } from 'react-native';
 import { fireEvent } from 'react-native-testing-library';
 
 import { JOURNEY_EDIT_FLOW } from '../../../../routes/constants';
@@ -10,7 +10,6 @@ import {
   ORG_PERMISSIONS,
 } from '../../../../constants';
 import { renderWithContext } from '../../../../../testUtils';
-import RowSwipeable from '../../../../components/RowSwipeable';
 import { PersonCollapsibleHeaderContext } from '../../PersonTabs';
 import { navigatePush } from '../../../../actions/navigation';
 import { useAnalytics } from '../../../../utils/hooks/useAnalytics';
@@ -225,6 +224,8 @@ describe('journey methods', () => {
   });
 
   it('handles edit interaction for step', () => {
+    ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+
     const interactionId = '1';
     const interactionNote = 'note';
 
@@ -234,7 +235,7 @@ describe('journey methods', () => {
       _type: ACCEPTED_STEP,
     };
 
-    const { getByType } = renderWithContext(
+    const { getByTestId } = renderWithContext(
       <PersonJourney
         collapsibleHeaderContext={PersonCollapsibleHeaderContext}
       />,
@@ -250,8 +251,10 @@ describe('journey methods', () => {
         },
       },
     );
-
-    fireEvent(getByType(RowSwipeable), 'onEdit', interaction);
+    fireEvent(getByTestId('popupMenuButton'), 'onLongPress', interaction);
+    (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+      0,
+    );
 
     expect(navigatePush).toHaveBeenCalledWith(JOURNEY_EDIT_FLOW, {
       id: interactionId,
@@ -262,6 +265,8 @@ describe('journey methods', () => {
   });
 
   it('handles edit interaction for other', () => {
+    ActionSheetIOS.showActionSheetWithOptions = jest.fn();
+
     const interactionId = '1';
     const interactionComment = 'comment';
 
@@ -271,7 +276,7 @@ describe('journey methods', () => {
       _type: 'other',
     };
 
-    const { getByType } = renderWithContext(
+    const { getByTestId } = renderWithContext(
       <PersonJourney
         collapsibleHeaderContext={PersonCollapsibleHeaderContext}
       />,
@@ -288,8 +293,10 @@ describe('journey methods', () => {
       },
     );
 
-    fireEvent(getByType(RowSwipeable), 'onEdit', interaction);
-
+    fireEvent(getByTestId('popupMenuButton'), 'onLongPress', interaction);
+    (ActionSheetIOS.showActionSheetWithOptions as jest.Mock).mock.calls[0][1](
+      0,
+    );
     expect(navigatePush).toHaveBeenCalledWith(JOURNEY_EDIT_FLOW, {
       id: interactionId,
       type: EDIT_JOURNEY_ITEM,

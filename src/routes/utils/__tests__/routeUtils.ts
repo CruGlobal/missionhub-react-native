@@ -15,7 +15,7 @@ const myName = 'Me';
 const otherName = 'Other';
 const orgId = '11';
 const stageId = '0';
-const notSureStageId = '1';
+const notSureStageId = '6';
 const assignmentId = '33';
 
 const myPerson = {
@@ -54,10 +54,6 @@ const baseState = {
   people: { people: { [otherId]: otherPerson } },
   stages: {
     stages: [{ id: stageId }, { id: notSureStageId }],
-    stagesObj: {
-      [stageId]: { id: stageId },
-      [notSureStageId]: { id: notSureStageId, name_i18n: 'notsure_name' },
-    },
   },
   steps: { userStepCount: { [myId]: 1, [otherId]: 1 } },
 };
