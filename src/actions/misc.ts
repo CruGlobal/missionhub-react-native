@@ -1,5 +1,7 @@
 import { Linking } from 'react-native';
 import gql from 'graphql-tag';
+import { AnyAction } from 'redux';
+import { ThunkDispatch } from 'redux-thunk';
 
 import {
   SELECT_MY_STAGE_FLOW,
@@ -8,9 +10,8 @@ import {
   ADD_PERSON_STEP_FLOW,
 } from '../routes/constants';
 import { WARN } from '../utils/logging';
-import { buildTrackingObj } from '../utils/common';
-import { Person } from '../reducers/people';
 import { apolloClient } from '../apolloClient';
+import { RootState } from '../reducers';
 
 import { trackActionWithoutData } from './analytics';
 import { navigatePush } from './navigation';
@@ -56,86 +57,42 @@ export function openCommunicationLink(url, action) {
       .catch(err => WARN('An unexpected error happened', err));
 }
 
-// eslint-disable-next-line max-params
-export function navigateToStageScreen(
-  personIsCurrentUser: boolean,
-  person: Person,
-  // @ts-ignore
-  contactAssignment,
-  organization = {},
-  firstItemIndex: number | undefined, //todo find a way to not pass this
+export const navigateToStageScreen = (
+  personId: string,
+  firstItemIndex?: number, //todo find a way to not pass this
   skipSelectSteps = false,
-) {
-  // @ts-ignore
-  return dispatch => {
-    if (personIsCurrentUser) {
-      dispatch(
-        navigatePush(SELECT_MY_STAGE_FLOW, {
-          selectedStageId: firstItemIndex,
-          personId: person.id,
-          section: 'people',
-          subsection: 'self',
-        }),
-      );
-    } else {
-      dispatch(
-        navigatePush(SELECT_PERSON_STAGE_FLOW, {
-          skipSelectSteps,
-          selectedStageId: firstItemIndex,
-          personId: person.id,
-          // @ts-ignore
-          orgId: organization.id,
-          section: 'people',
-          subsection: 'person',
-        }),
-      );
-    }
-  };
-}
+) => (
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
+  getState: () => RootState,
+) => {
+  const isMe = getState().auth.person.id === personId;
 
-export function navigateToAddStepFlow(
-  // @ts-ignore
-  personIsCurrentUser,
-  // @ts-ignore
-  person,
-  // @ts-ignore
-  organization,
-) {
-  // @ts-ignore
-  return dispatch => {
-    const trackingParams = {
-      // @ts-ignore
-      trackingObj: buildTrackingObj(
-        'people : person : steps : add',
-        'people',
-        'person',
-        'steps',
-      ),
-    };
+  if (isMe) {
+    dispatch(
+      navigatePush(SELECT_MY_STAGE_FLOW, {
+        selectedStageId: firstItemIndex,
+        personId,
+      }),
+    );
+  } else {
+    dispatch(
+      navigatePush(SELECT_PERSON_STAGE_FLOW, {
+        skipSelectSteps,
+        selectedStageId: firstItemIndex,
+        personId,
+      }),
+    );
+  }
+};
+export const navigateToAddStepFlow = (personId: string) => (
+  dispatch: ThunkDispatch<RootState, never, AnyAction>,
+  getState: () => RootState,
+) => {
+  const isMe = getState().auth.person.id === personId;
 
-    if (personIsCurrentUser) {
-      dispatch(
-        navigatePush(ADD_MY_STEP_FLOW, {
-          ...trackingParams,
-          personId: person.id,
-          organization,
-        }),
-      );
-    } else {
-      dispatch(
-        navigatePush(ADD_PERSON_STEP_FLOW, {
-          ...trackingParams,
-          personId: person.id,
-          organization,
-          // @ts-ignore
-          createStepTracking: buildTrackingObj(
-            'people : person : steps : create',
-            'people',
-            'person',
-            'steps',
-          ),
-        }),
-      );
-    }
-  };
-}
+  if (isMe) {
+    dispatch(navigatePush(ADD_MY_STEP_FLOW, { personId }));
+  } else {
+    dispatch(navigatePush(ADD_PERSON_STEP_FLOW, { personId }));
+  }
+};
