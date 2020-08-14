@@ -5,17 +5,21 @@ import { useQuery } from '@apollo/react-hooks';
 import { useDispatch } from 'react-redux';
 import { useNavigationParam } from 'react-navigation-hooks';
 
+import { COMMUNITIES_TAB } from '../../../../constants';
 import {
   createCollapsibleViewContext,
   CollapsibleViewHeader,
 } from '../../../../components/CollapsibleView/CollapsibleView';
 import { Text, Flex, Button } from '../../../../components/common';
 import { HeaderTabBar } from '../../../../components/HeaderTabBar/HeaderTabBar';
-import DeprecatedBackButton from '../../../DeprecatedBackButton';
+import BackButton from '../../../../components/BackButton';
 import theme from '../../../../theme';
 import Header from '../../../../components/Header';
 import { ErrorNotice } from '../../../../components/ErrorNotice/ErrorNotice';
-import { navigatePush } from '../../../../actions/navigation';
+import {
+  navigatePush,
+  navigateToMainTabs,
+} from '../../../../actions/navigation';
 import { COMMUNITY_PROFILE } from '../CommunityProfile/CommunityProfile';
 import { COMMUNITY_MEMBERS } from '../CommunityMembers/CommunityMembers';
 import InfoIcon from '../../../../../assets/images/infoIcon.svg';
@@ -75,7 +79,14 @@ export const CommunityHeader = () => {
         <ImageBackground source={communityPhotoSource} style={styles.image}>
           <View style={styles.imageOverlay} />
           <Header
-            left={<DeprecatedBackButton />}
+            left={
+              <BackButton
+                iconColor={theme.white}
+                customNavigate={() =>
+                  dispatch(navigateToMainTabs(COMMUNITIES_TAB))
+                }
+              />
+            }
             right={
               isGlobalCommunity ? null : (
                 <Button
