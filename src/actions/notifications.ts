@@ -1,6 +1,8 @@
 /* eslint-disable max-lines */
 
-import PushNotificationIOS from '@react-native-community/push-notification-ios';
+import PushNotificationIOS, {
+  PushNotificationPermissions,
+} from '@react-native-community/push-notification-ios';
 import PushNotification, {
   PushNotification as RNPushNotificationPayloadAndConstructor,
 } from 'react-native-push-notification';
@@ -79,9 +81,13 @@ export type PushNotificationPayloadIos = RNPushNotificationPayload & {
   };
 };
 
-export type PushNotificationPayloadAndroid = RNPushNotificationPayload & {
-  data: PushNotificationPayloadData;
-};
+export type PushNotificationPayloadAndroid = RNPushNotificationPayload &
+  (
+    | {
+        data: PushNotificationPayloadData;
+      }
+    | PushNotificationPayloadData
+  );
 
 export type PushNotificationPayloadData =
   | { screen: 'home' }
@@ -179,9 +185,9 @@ export const checkNotifications = (
     nativePermissionsEnabled = (await dispatch(requestNativePermissions()))
       .nativePermissionsEnabled;
 
-    //if iOS, and user has previously accepted notifications, but Native Permissions are now off,
+    //if user has previously accepted notifications, but Native Permissions are now off,
     //delete push token from API and Redux, then navigate to NotificationOffScreen
-    if (!isAndroid && !nativePermissionsEnabled && !skipNotificationOff) {
+    if (!nativePermissionsEnabled && !skipNotificationOff) {
       dispatch(deletePushToken());
       return dispatch(
         navigatePush(NOTIFICATION_OFF_SCREEN, {
@@ -204,7 +210,11 @@ export const checkNotifications = (
 // - return current state of Native Notifications Permissions (we should update app state accordingly)
 // - refreshes Push Device Token (this gets handled by onRegister() callback)
 export const requestNativePermissions = () => async () => {
-  const nativePermissions = await PushNotification.requestPermissions();
+  const nativePermissions = await (isAndroid
+    ? new Promise<PushNotificationPermissions>(resolve =>
+        PushNotification.checkPermissions(permission => resolve(permission)),
+      )
+    : await PushNotification.requestPermissions());
 
   const nativePermissionsEnabled = !!(
     nativePermissions && nativePermissions.alert
@@ -260,10 +270,13 @@ function handleNotification(notification: PushNotificationPayloadIosOrAndroid) {
     dispatch: ThunkDispatch<RootState, never, AnyAction>,
     getState: () => { auth: AuthState },
   ) => {
-    if (isAndroid && !notification.userInteraction) {
+    if (
+      isAndroid &&
+      // A notification recieved in the background/app closed will not have a userInteraction, so it will be undefined
+      notification.userInteraction === false
+    ) {
       return;
     }
-
     const { person: me } = getState().auth;
 
     const notificationData = parseNotificationData(notification);
@@ -367,9 +380,21 @@ export function parseNotificationData(
   ): notification is PushNotificationPayloadIos =>
     !!(notification as PushNotificationPayloadIos).data?.link;
 
+  const isUsingDataKey = (
+    notification: PushNotificationPayloadAndroid,
+  ): notification is RNPushNotificationPayload & {
+    data: PushNotificationPayloadData;
+  } =>
+    !!(notification as RNPushNotificationPayload & {
+      data: PushNotificationPayloadData;
+    }).data?.screen;
+
   const payloadData = isIosPayload(notification)
     ? notification.data.link.data
-    : notification.data;
+    : // If a notification is pressed while the app is killed/in the background, the payload will not include the data key and the values need to be accessed directly from the root notification object
+    isUsingDataKey(notification)
+    ? notification.data
+    : notification;
 
   switch (payloadData.screen) {
     case 'celebrate':

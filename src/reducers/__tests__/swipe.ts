@@ -1,22 +1,10 @@
 import swipe from '../swipe';
 import {
-  SWIPE_REMINDER_JOURNEY,
   GROUP_ONBOARDING_CARD,
   GROUP_INVITE_INFO,
   GROUP_TAB_SCROLL_ON_MOUNT,
 } from '../../constants';
 import { GROUP_ONBOARDING_TYPES } from '../../containers/Groups/OnboardingCard';
-
-it('updates swipe steps journey value', () => {
-  const state = swipe(
-    // @ts-ignore
-    {},
-    {
-      type: SWIPE_REMINDER_JOURNEY,
-    },
-  );
-  expect(state.journey).toBe(false);
-});
 
 it('updates group onboarding celebrate value', () => {
   const state = swipe(undefined, {

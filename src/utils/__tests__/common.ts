@@ -584,8 +584,6 @@ describe('getStageIndex', () => {
     description: 'Test Description',
     self_followup_description: 'Test self description',
     position: 1,
-    name_i18n: 'Test Stage',
-    description_i18n: 'Test Description',
     icon_url: '',
     localized_pathway_stages: [],
   };

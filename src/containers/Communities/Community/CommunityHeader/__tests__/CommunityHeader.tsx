@@ -3,14 +3,20 @@ import { flushMicrotasksQueue, fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../../../testUtils';
 import { CommunityHeader } from '../CommunityHeader';
-import { GLOBAL_COMMUNITY_ID } from '../../../../../constants';
+import { GLOBAL_COMMUNITY_ID, COMMUNITIES_TAB } from '../../../../../constants';
 import { COMMUNITY_PROFILE } from '../../CommunityProfile/CommunityProfile';
-import { navigatePush } from '../../../../../actions/navigation';
+import {
+  navigatePush,
+  navigateToMainTabs,
+} from '../../../../../actions/navigation';
 import { COMMUNITY_MEMBERS } from '../../CommunityMembers/CommunityMembers';
 
 jest.mock('../../../../../actions/navigation');
 
 (navigatePush as jest.Mock).mockReturnValue({ type: 'navigatePush' });
+(navigateToMainTabs as jest.Mock).mockReturnValue({
+  type: 'navigateToMainTabs',
+});
 
 const communityId = '1';
 
@@ -88,5 +94,16 @@ describe('CommunityHeader', () => {
 
     fireEvent.press(getByTestId('communityMembersButton'));
     expect(navigatePush).not.toHaveBeenCalled();
+  });
+
+  it('should navigate back to main tabs', () => {
+    const { getByTestId } = renderWithContext(<CommunityHeader />, {
+      initialState,
+      navParams: { communityId },
+    });
+
+    fireEvent.press(getByTestId('BackButton'));
+
+    expect(navigateToMainTabs).toHaveBeenCalledWith(COMMUNITIES_TAB);
   });
 });

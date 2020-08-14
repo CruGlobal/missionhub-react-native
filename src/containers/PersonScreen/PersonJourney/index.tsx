@@ -9,15 +9,14 @@ import { navigatePush } from '../../../actions/navigation';
 import { getJourney } from '../../../actions/journey';
 import { Flex, Separator } from '../../../components/common';
 import JourneyItem from '../../../components/JourneyItem';
-import RowSwipeable from '../../../components/RowSwipeable';
+import PopupMenu from '../../../components/PopupMenu';
 import NULL from '../../../../assets/images/ourJourney.png';
-import { removeSwipeJourney } from '../../../actions/swipe';
 import NullStateComponent from '../../../components/NullStateComponent';
 import { JOURNEY_EDIT_FLOW } from '../../../routes/constants';
 import {
+  ACCEPTED_STEP,
   EDIT_JOURNEY_STEP,
   EDIT_JOURNEY_ITEM,
-  ACCEPTED_STEP,
 } from '../../../constants';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { RootState } from '../../../reducers';
@@ -50,7 +49,6 @@ export const PersonJourney = ({
   const journeyItems = useSelector(
     ({ journey }: RootState) => journey['personal'][personId] || undefined,
   );
-  const showReminder = useSelector(({ swipe }: RootState) => swipe.journey);
 
   useAnalytics(['person', person.id === myId ? 'my journey' : 'our journey'], {
     assignmentType: { personId },
@@ -59,10 +57,6 @@ export const PersonJourney = ({
   useEffect(() => {
     getInteractions();
   }, []);
-
-  const completeBump = () => {
-    dispatch(removeSwipeJourney());
-  };
 
   const getInteractions = () => {
     dispatch(getJourney(person.id));
@@ -102,17 +96,15 @@ export const PersonJourney = ({
       item._type !== 'pathway_progression_audit'
     ) {
       return (
-        <RowSwipeable
+        <PopupMenu
           key={item.id}
-          // @ts-ignore
-          onEdit={() => handleEditInteraction(item)}
-          bump={showReminder && item.isFirstInteraction}
-          onBumpComplete={
-            showReminder && item.isFirstInteraction ? completeBump : undefined
-          }
+          actions={[
+            { text: t('edit'), onPress: () => handleEditInteraction(item) },
+          ]}
+          triggerOnLongPress={true}
         >
           {content}
-        </RowSwipeable>
+        </PopupMenu>
       );
     }
     return content;

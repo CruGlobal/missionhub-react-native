@@ -36,6 +36,7 @@ import {
   isOwner,
   isAdminOrOwner,
   canModifyFeedItemSubject,
+  orgIsGlobal,
 } from '../../../../../utils/common';
 import theme from '../../../../../theme';
 
@@ -79,6 +80,8 @@ const FeedItemDetailScreen = () => {
     permissionType: { communityId },
     triggerTracking: readyToTrack,
   });
+
+  const isGlobal = orgIsGlobal({ id: communityId || GLOBAL_COMMUNITY_ID });
 
   const [editingCommentId, setEditingCommentId] = useState<string>();
 
@@ -157,7 +160,9 @@ const FeedItemDetailScreen = () => {
             onPress={handleCommunityNamePress}
           >
             <Text style={styles.headerText}>
-              {data?.feedItem.community?.name}
+              {isGlobal
+                ? t('communityHeader:globalCommunity')
+                : data?.feedItem.community?.name}
             </Text>
           </Touchable>
         }
@@ -238,7 +243,7 @@ const FeedItemDetailScreen = () => {
     );
 
   const renderCommentBox = () =>
-    data ? (
+    data && !isGlobal ? (
       <FeedCommentBox
         ref={feedCommentBox}
         feedItemId={data.feedItem.id}

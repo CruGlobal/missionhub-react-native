@@ -6,10 +6,7 @@ import { withTranslation } from 'react-i18next';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import {
-  transferOrgOwnership,
-  removeOrganizationMember,
-} from '../../actions/organizations';
+import { transferOrgOwnership } from '../../actions/organizations';
 import PopupMenu from '../PopupMenu';
 import {
   makeAdmin,
@@ -114,16 +111,9 @@ class MemberOptionsMenu extends Component<{
   };
 
   removeFromCommunity = async () => {
-    const {
-      dispatch,
-      person,
-      personOrgPermission,
-      organization,
-      onActionTaken,
-    } = this.props;
+    const { dispatch, person, personOrgPermission, onActionTaken } = this.props;
 
     await dispatch(archiveOrgPermission(person.id, personOrgPermission.id));
-    dispatch(removeOrganizationMember(person.id, organization.id));
     onActionTaken();
   };
 

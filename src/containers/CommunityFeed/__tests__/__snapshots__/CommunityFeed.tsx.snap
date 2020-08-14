@@ -9263,6 +9263,450 @@ exports[`renders with pending post without Today items correctly 1`] = `
 </RCTScrollView>
 `;
 
+exports[`sections does not render New section for community feed 1`] = `
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 52454,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "nulla quam ipsam",
+              "id": "6",
+              "name": "Integrated user-facing intranet",
+            },
+            "createdAt": "2020-05-20 11:00:00 PM GMT+0",
+            "id": "2",
+            "liked": false,
+            "likesCount": 44345,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "4",
+                "title": "ratione ut sunt",
+              },
+              "completedAt": "2010-01-19T12:03:03.064Z",
+              "id": "3",
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Torey",
+              "fullName": "Grace Dibbert",
+              "id": "5",
+              "lastName": "Abbott",
+              "picture": "iure ut libero",
+            },
+            "subjectPersonName": "Torey Abbott",
+          },
+        ],
+        "id": 1,
+        "title": "dates.today",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  scrollEventThrottle={0.0001}
+  scrollIndicatorInsets={
+    Object {
+      "right": 1,
+    }
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <CreatePostButton
+        communityId="456"
+        onComplete={[Function]}
+      />
+      <CommunityFeedPostCards
+        communityId="456"
+        feedRefetch={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "200",
+              "marginLeft": 15,
+            }
+          }
+        >
+          Today
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 52454,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "nulla quam ipsam",
+              "id": "6",
+              "name": "Integrated user-facing intranet",
+            },
+            "createdAt": "2020-05-20 11:00:00 PM GMT+0",
+            "id": "2",
+            "liked": false,
+            "likesCount": 44345,
+            "read": false,
+            "subject": Object {
+              "__typename": "AcceptedCommunityChallenge",
+              "communityChallenge": Object {
+                "__typename": "CommunityChallenge",
+                "id": "4",
+                "title": "ratione ut sunt",
+              },
+              "completedAt": "2010-01-19T12:03:03.064Z",
+              "id": "3",
+            },
+            "subjectEvent": "postCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Torey",
+              "fullName": "Grace Dibbert",
+              "id": "5",
+              "lastName": "Abbott",
+              "picture": "iure ut libero",
+            },
+            "subjectPersonName": "Torey Abbott",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
+exports[`sections does not render New section for global feed 1`] = `
+<RCTScrollView
+  ListEmptyComponent={[Function]}
+  ListHeaderComponent={[Function]}
+  contentContainerStyle={
+    Array [
+      undefined,
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+  data={
+    Array [
+      Object {
+        "data": Array [
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 87811,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "nobis cupiditate sed",
+              "id": "4",
+              "name": "Switchable full-range extranet",
+            },
+            "createdAt": "2020-05-20 11:00:00 PM GMT+0",
+            "id": "1",
+            "liked": false,
+            "likesCount": 2738,
+            "read": false,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "consequuntur corporis repellat",
+              "id": "2",
+              "mediaContentType": "ratione ut sunt",
+              "mediaExpiringUrl": "qui amet iure",
+              "postType": "thought",
+              "stepStatus": "COMPLETED",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Hayden",
+              "fullName": "Ezequiel Ortiz",
+              "id": "3",
+              "lastName": "Zieme",
+              "picture": "qui recusandae ut",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          },
+        ],
+        "id": 1,
+        "title": "dates.today",
+      },
+    ]
+  }
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  onContentSizeChange={[Function]}
+  onEndReached={[Function]}
+  onEndReachedThreshold={0.2}
+  onLayout={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onRefresh={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  refreshControl={
+    <RefreshControlMock
+      onRefresh={[Function]}
+      refreshing={false}
+    />
+  }
+  refreshing={false}
+  renderItem={[Function]}
+  scrollEventThrottle={0.0001}
+  scrollIndicatorInsets={
+    Object {
+      "right": 1,
+    }
+  }
+  stickyHeaderIndices={
+    Array [
+      1,
+    ]
+  }
+  style={
+    Object {
+      "backgroundColor": "#ECEEF2",
+      "flex": 1,
+    }
+  }
+  updateCellsBatchingPeriod={50}
+  windowSize={21}
+>
+  <RCTRefreshControl />
+  <View>
+    <View
+      onLayout={[Function]}
+    >
+      <CreatePostButton
+        communityId="_global_community_id"
+        onComplete={[Function]}
+      />
+      <CommunityFeedPostCards
+        communityId="_global_community_id"
+        feedRefetch={[Function]}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignContent": "center",
+              "backgroundColor": "#ECEEF2",
+              "flex": 1,
+              "paddingVertical": 10,
+            },
+            Object {
+              "paddingTop": 20,
+            },
+          ]
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "200",
+              "marginLeft": 15,
+            }
+          }
+        >
+          Today
+        </Text>
+      </View>
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    >
+      <CommunityFeedItem
+        feedItem={
+          Object {
+            "__typename": "FeedItem",
+            "comments": Object {
+              "__typename": "FeedItemCommentConnection",
+              "pageInfo": Object {
+                "__typename": "BasePageInfo",
+                "totalCount": 87811,
+              },
+            },
+            "community": Object {
+              "__typename": "Community",
+              "communityPhotoUrl": "nobis cupiditate sed",
+              "id": "4",
+              "name": "Switchable full-range extranet",
+            },
+            "createdAt": "2020-05-20 11:00:00 PM GMT+0",
+            "id": "1",
+            "liked": false,
+            "likesCount": 2738,
+            "read": false,
+            "subject": Object {
+              "__typename": "Post",
+              "content": "consequuntur corporis repellat",
+              "id": "2",
+              "mediaContentType": "ratione ut sunt",
+              "mediaExpiringUrl": "qui amet iure",
+              "postType": "thought",
+              "stepStatus": "COMPLETED",
+            },
+            "subjectEvent": "communityCreated",
+            "subjectPerson": Object {
+              "__typename": "Person",
+              "firstName": "Hayden",
+              "fullName": "Ezequiel Ortiz",
+              "id": "3",
+              "lastName": "Zieme",
+              "picture": "qui recusandae ut",
+            },
+            "subjectPersonName": "Hayden Zieme",
+          }
+        }
+        namePressable={true}
+        onEditPost={[Function]}
+        postTypePressable={true}
+      />
+    </View>
+    <View
+      onLayout={[Function]}
+      style={null}
+    />
+    <View
+      style={
+        Object {
+          "height": 0,
+        }
+      }
+    />
+  </View>
+</RCTScrollView>
+`;
+
 exports[`sections renders Earlier section 1`] = `
 <RCTScrollView
   ListEmptyComponent={[Function]}
@@ -9486,7 +9930,7 @@ exports[`sections renders Earlier section 1`] = `
 </RCTScrollView>
 `;
 
-exports[`sections renders New section 1`] = `
+exports[`sections renders New section for filtered feed 1`] = `
 <RCTScrollView
   ListEmptyComponent={[Function]}
   ListHeaderComponent={[Function]}
@@ -9601,10 +10045,7 @@ exports[`sections renders New section 1`] = `
       <CreatePostButton
         communityId="456"
         onComplete={[Function]}
-      />
-      <CommunityFeedPostCards
-        communityId="456"
-        feedRefetch={[Function]}
+        type="STORY"
       />
     </View>
     <View
@@ -9620,9 +10061,7 @@ exports[`sections renders New section 1`] = `
               "flex": 1,
               "paddingVertical": 10,
             },
-            Object {
-              "paddingTop": 20,
-            },
+            null,
           ]
         }
       >
@@ -9691,7 +10130,7 @@ exports[`sections renders New section 1`] = `
         }
         namePressable={true}
         onEditPost={[Function]}
-        postTypePressable={true}
+        postTypePressable={false}
       />
     </View>
     <View

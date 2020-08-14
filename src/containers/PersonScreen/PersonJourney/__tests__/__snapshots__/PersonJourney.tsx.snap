@@ -350,250 +350,139 @@ exports[`PersonJourney renders screen with steps correctly 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
           <View
             style={
               Array [
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "marginTop": 1,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "width": 75,
-                  },
-                ],
                 Object {
+                  "backgroundColor": "#ffffff",
+                  "paddingRight": 24,
+                  "paddingVertical": 19,
+                  "width": 750,
+                },
+                Object {
+                  "alignItems": "center",
                   "flexDirection": "row",
-                  "justifyContent": "flex-end",
                 },
               ]
             }
           >
             <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#A0A2A6",
-                  "flex": 1,
-                  "justifyContent": "center",
-                  "opacity": 1,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                        },
-                        Object {
-                          "fontSize": 30,
-                        },
-                        undefined,
-                      ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 13,
-                      },
-                    ]
-                  }
-                >
-                  Edit
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            onMoveShouldSetResponder={[Function]}
-            onMoveShouldSetResponderCapture={[Function]}
-            onResponderEnd={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderReject={[Function]}
-            onResponderRelease={[Function]}
-            onResponderStart={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            onStartShouldSetResponderCapture={[Function]}
-            style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                ],
-              }
-            }
-          >
-            <View
               style={
                 Array [
+                  Object {},
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "paddingRight": 24,
-                    "paddingVertical": 19,
-                    "width": 750,
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "flex": 1,
                   },
                 ]
               }
             >
-              <View
+              <Text
+                allowFontScaling={false}
                 style={
                   Array [
-                    Object {},
                     Object {
-                      "flex": 1,
+                      "color": undefined,
+                      "fontSize": 12,
                     },
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
                     Array [
                       Object {
-                        "color": undefined,
-                        "fontSize": 12,
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
                       },
                       Array [
                         Object {
-                          "color": "#ffffff",
+                          "alignSelf": "center",
+                          "color": "#007398",
+                          "fontSize": 40,
+                          "textAlign": "center",
                         },
-                        Object {
-                          "fontSize": 32,
-                        },
-                        Array [
-                          Object {
-                            "alignSelf": "center",
-                            "color": "#007398",
-                            "fontSize": 40,
-                            "textAlign": "center",
-                          },
-                          Object {},
-                        ],
+                        Object {},
                       ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-              <View
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingBottom": 5,
+                    "paddingLeft": 20,
+                  },
+                  Object {
+                    "flex": 3.5,
+                    "flexDirection": "column",
+                  },
+                ]
+              }
+            >
+              <Text
                 style={
                   Array [
                     Object {
-                      "borderLeftColor": "#ECEEF2",
-                      "borderLeftWidth": 1,
-                      "paddingBottom": 5,
-                      "paddingLeft": 20,
+                      "color": "#505256",
                     },
                     Object {
-                      "flex": 3.5,
-                      "flexDirection": "column",
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 10,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                January 1, 2010
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
                     },
                   ]
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#A0A2A6",
-                        "fontSize": 10,
-                      },
-                    ]
-                  }
-                  testID="Text"
-                >
-                  January 1, 2010
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                    ]
-                  }
-                >
-                  Completed Step of Faith
-                </Text>
-              </View>
+                Completed Step of Faith
+              </Text>
             </View>
           </View>
         </View>
@@ -683,250 +572,139 @@ exports[`PersonJourney renders screen with steps for me correctly 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
           <View
             style={
               Array [
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "marginTop": 1,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "width": 75,
-                  },
-                ],
                 Object {
+                  "backgroundColor": "#ffffff",
+                  "paddingRight": 24,
+                  "paddingVertical": 19,
+                  "width": 750,
+                },
+                Object {
+                  "alignItems": "center",
                   "flexDirection": "row",
-                  "justifyContent": "flex-end",
                 },
               ]
             }
           >
             <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#A0A2A6",
-                  "flex": 1,
-                  "justifyContent": "center",
-                  "opacity": 1,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                        },
-                        Object {
-                          "fontSize": 30,
-                        },
-                        undefined,
-                      ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 13,
-                      },
-                    ]
-                  }
-                >
-                  Edit
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            onMoveShouldSetResponder={[Function]}
-            onMoveShouldSetResponderCapture={[Function]}
-            onResponderEnd={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderReject={[Function]}
-            onResponderRelease={[Function]}
-            onResponderStart={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            onStartShouldSetResponderCapture={[Function]}
-            style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                ],
-              }
-            }
-          >
-            <View
               style={
                 Array [
+                  Object {},
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "paddingRight": 24,
-                    "paddingVertical": 19,
-                    "width": 750,
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "flex": 1,
                   },
                 ]
               }
             >
-              <View
+              <Text
+                allowFontScaling={false}
                 style={
                   Array [
-                    Object {},
                     Object {
-                      "flex": 1,
+                      "color": undefined,
+                      "fontSize": 12,
                     },
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
                     Array [
                       Object {
-                        "color": undefined,
-                        "fontSize": 12,
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
                       },
                       Array [
                         Object {
-                          "color": "#ffffff",
+                          "alignSelf": "center",
+                          "color": "#007398",
+                          "fontSize": 40,
+                          "textAlign": "center",
                         },
-                        Object {
-                          "fontSize": 32,
-                        },
-                        Array [
-                          Object {
-                            "alignSelf": "center",
-                            "color": "#007398",
-                            "fontSize": 40,
-                            "textAlign": "center",
-                          },
-                          Object {},
-                        ],
+                        Object {},
                       ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-              <View
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingBottom": 5,
+                    "paddingLeft": 20,
+                  },
+                  Object {
+                    "flex": 3.5,
+                    "flexDirection": "column",
+                  },
+                ]
+              }
+            >
+              <Text
                 style={
                   Array [
                     Object {
-                      "borderLeftColor": "#ECEEF2",
-                      "borderLeftWidth": 1,
-                      "paddingBottom": 5,
-                      "paddingLeft": 20,
+                      "color": "#505256",
                     },
                     Object {
-                      "flex": 3.5,
-                      "flexDirection": "column",
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 10,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                January 1, 2010
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
                     },
                   ]
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#A0A2A6",
-                        "fontSize": 10,
-                      },
-                    ]
-                  }
-                  testID="Text"
-                >
-                  January 1, 2010
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                    ]
-                  }
-                >
-                  Completed Step of Faith
-                </Text>
-              </View>
+                Completed Step of Faith
+              </Text>
             </View>
           </View>
         </View>
@@ -1252,269 +1030,158 @@ exports[`journey methods renders a step 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
           <View
             style={
               Array [
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "marginTop": 1,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "width": 75,
-                  },
-                ],
                 Object {
+                  "backgroundColor": "#ffffff",
+                  "paddingRight": 24,
+                  "paddingVertical": 19,
+                  "width": 750,
+                },
+                Object {
+                  "alignItems": "center",
                   "flexDirection": "row",
-                  "justifyContent": "flex-end",
                 },
               ]
             }
           >
             <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#A0A2A6",
-                  "flex": 1,
-                  "justifyContent": "center",
-                  "opacity": 1,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                        },
-                        Object {
-                          "fontSize": 30,
-                        },
-                        undefined,
-                      ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 13,
-                      },
-                    ]
-                  }
-                >
-                  Edit
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            onMoveShouldSetResponder={[Function]}
-            onMoveShouldSetResponderCapture={[Function]}
-            onResponderEnd={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderReject={[Function]}
-            onResponderRelease={[Function]}
-            onResponderStart={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            onStartShouldSetResponderCapture={[Function]}
-            style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                ],
-              }
-            }
-          >
-            <View
               style={
                 Array [
+                  Object {},
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "paddingRight": 24,
-                    "paddingVertical": 19,
-                    "width": 750,
-                  },
-                  Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "flex": 1,
                   },
                 ]
               }
             >
-              <View
+              <Text
+                allowFontScaling={false}
                 style={
                   Array [
-                    Object {},
                     Object {
-                      "flex": 1,
+                      "color": undefined,
+                      "fontSize": 12,
                     },
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
                     Array [
                       Object {
-                        "color": undefined,
-                        "fontSize": 12,
+                        "color": "#ffffff",
+                      },
+                      Object {
+                        "fontSize": 32,
                       },
                       Array [
                         Object {
-                          "color": "#ffffff",
+                          "alignSelf": "center",
+                          "color": "#007398",
+                          "fontSize": 40,
+                          "textAlign": "center",
                         },
-                        Object {
-                          "fontSize": 32,
-                        },
-                        Array [
-                          Object {
-                            "alignSelf": "center",
-                            "color": "#007398",
-                            "fontSize": 40,
-                            "textAlign": "center",
-                          },
-                          Object {},
-                        ],
+                        Object {},
                       ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-              </View>
-              <View
+                    ],
+                    Object {
+                      "fontFamily": "icomoon",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+              >
+                
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
+                  Object {
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingBottom": 5,
+                    "paddingLeft": 20,
+                  },
+                  Object {
+                    "flex": 3.5,
+                    "flexDirection": "column",
+                  },
+                ]
+              }
+            >
+              <Text
                 style={
                   Array [
                     Object {
-                      "borderLeftColor": "#ECEEF2",
-                      "borderLeftWidth": 1,
-                      "paddingBottom": 5,
-                      "paddingLeft": 20,
+                      "color": "#505256",
                     },
                     Object {
-                      "flex": 3.5,
-                      "flexDirection": "column",
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 10,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                January 1, 2010
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#007398",
+                      "fontSize": 16,
                     },
                   ]
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#A0A2A6",
-                        "fontSize": 10,
-                      },
-                    ]
-                  }
-                  testID="Text"
-                >
-                  January 1, 2010
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                    ]
-                  }
-                >
-                  Completed Step of Faith
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                      },
-                    ]
-                  }
-                >
-                  undefined
+                Completed Step of Faith
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "fontSize": 14,
+                    },
+                  ]
+                }
+              >
+                undefined
 
 123
-                </Text>
-              </View>
+              </Text>
             </View>
           </View>
         </View>
@@ -1605,202 +1272,91 @@ exports[`journey methods renders an interaction row 1`] = `
         onLayout={[Function]}
         style={null}
       >
-        <View>
+        <View
+          accessible={true}
+          focusable={true}
+          onClick={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Object {
+              "opacity": 1,
+            }
+          }
+          testID="popupMenuButton"
+        >
           <View
             style={
               Array [
-                Array [
-                  Object {
-                    "bottom": 0,
-                    "marginTop": 1,
-                    "position": "absolute",
-                    "right": 0,
-                    "top": 0,
-                  },
-                  Object {
-                    "width": 75,
-                  },
-                ],
                 Object {
+                  "backgroundColor": "#ffffff",
+                  "paddingRight": 24,
+                  "paddingVertical": 19,
+                  "width": 750,
+                },
+                Object {
+                  "alignItems": "center",
                   "flexDirection": "row",
-                  "justifyContent": "flex-end",
                 },
               ]
             }
           >
             <View
-              accessible={true}
-              focusable={true}
-              onClick={[Function]}
-              onResponderGrant={[Function]}
-              onResponderMove={[Function]}
-              onResponderRelease={[Function]}
-              onResponderTerminate={[Function]}
-              onResponderTerminationRequest={[Function]}
-              onStartShouldSetResponder={[Function]}
-              style={
-                Object {
-                  "alignItems": "center",
-                  "backgroundColor": "#A0A2A6",
-                  "flex": 1,
-                  "justifyContent": "center",
-                  "opacity": 1,
-                }
-              }
-            >
-              <View
-                style={
-                  Array [
-                    Object {},
-                    Object {
-                      "alignItems": "center",
-                      "flexDirection": "column",
-                      "justifyContent": "center",
-                    },
-                  ]
-                }
-              >
-                <Text
-                  allowFontScaling={false}
-                  style={
-                    Array [
-                      Object {
-                        "color": undefined,
-                        "fontSize": 12,
-                      },
-                      Array [
-                        Object {
-                          "color": "#ffffff",
-                        },
-                        Object {
-                          "fontSize": 30,
-                        },
-                        undefined,
-                      ],
-                      Object {
-                        "fontFamily": "icomoon",
-                        "fontStyle": "normal",
-                        "fontWeight": "normal",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
-                  
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 13,
-                      },
-                    ]
-                  }
-                >
-                  Edit
-                </Text>
-              </View>
-            </View>
-          </View>
-          <View
-            onMoveShouldSetResponder={[Function]}
-            onMoveShouldSetResponderCapture={[Function]}
-            onResponderEnd={[Function]}
-            onResponderGrant={[Function]}
-            onResponderMove={[Function]}
-            onResponderReject={[Function]}
-            onResponderRelease={[Function]}
-            onResponderStart={[Function]}
-            onResponderTerminate={[Function]}
-            onResponderTerminationRequest={[Function]}
-            onStartShouldSetResponder={[Function]}
-            onStartShouldSetResponderCapture={[Function]}
-            style={
-              Object {
-                "transform": Array [
-                  Object {
-                    "translateX": 0,
-                  },
-                ],
-              }
-            }
-          >
-            <View
               style={
                 Array [
                   Object {
-                    "backgroundColor": "#ffffff",
-                    "paddingRight": 24,
-                    "paddingVertical": 19,
-                    "width": 750,
+                    "borderLeftColor": "#ECEEF2",
+                    "borderLeftWidth": 1,
+                    "paddingBottom": 5,
+                    "paddingLeft": 20,
                   },
                   Object {
-                    "alignItems": "center",
-                    "flexDirection": "row",
+                    "flex": 3.5,
+                    "flexDirection": "column",
                   },
                 ]
               }
             >
-              <View
+              <Text
                 style={
                   Array [
                     Object {
-                      "borderLeftColor": "#ECEEF2",
-                      "borderLeftWidth": 1,
-                      "paddingBottom": 5,
-                      "paddingLeft": 20,
+                      "color": "#505256",
                     },
                     Object {
-                      "flex": 3.5,
-                      "flexDirection": "column",
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "color": "#A0A2A6",
+                      "fontSize": 10,
+                    },
+                  ]
+                }
+                testID="Text"
+              >
+                January 1, 2010
+              </Text>
+              <Text
+                style={
+                  Array [
+                    Object {
+                      "color": "#505256",
+                    },
+                    Object {
+                      "fontFamily": "SourceSansPro-Regular",
+                    },
+                    Object {
+                      "fontSize": 14,
                     },
                   ]
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#A0A2A6",
-                        "fontSize": 10,
-                      },
-                    ]
-                  }
-                  testID="Text"
-                >
-                  January 1, 2010
-                </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                      },
-                    ]
-                  }
-                >
-                  123
-                </Text>
-              </View>
+                123
+              </Text>
             </View>
           </View>
         </View>

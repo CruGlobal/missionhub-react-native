@@ -1,22 +1,14 @@
 import {
-  removeSwipeJourney,
   removeGroupOnboardingCard,
   removeGroupInviteInfo,
   setScrollGroups,
   resetScrollGroups,
 } from '../swipe';
 import {
-  SWIPE_REMINDER_JOURNEY,
   GROUP_INVITE_INFO,
   GROUP_ONBOARDING_CARD,
   GROUP_TAB_SCROLL_ON_MOUNT,
 } from '../../constants';
-
-describe('removeSwipeJourney', () => {
-  it('should return removeSwipeJourney', () => {
-    expect(removeSwipeJourney()).toEqual({ type: SWIPE_REMINDER_JOURNEY });
-  });
-});
 
 describe('removeGroupInviteInfo', () => {
   it('should return removeGroupInviteInfo', () => {

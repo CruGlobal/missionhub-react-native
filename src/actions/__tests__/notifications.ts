@@ -93,6 +93,9 @@ beforeEach(() => {
   (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue(
     permission,
   );
+  (RNPushNotification.checkPermissions as jest.Mock).mockImplementation(cb =>
+    cb(permission),
+  );
 });
 
 describe('checkNotifications', () => {
@@ -116,7 +119,7 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([]);
     });
 
-    it('immediately requests permissions if Android', async () => {
+    it('immediately check permissions if Android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const store = createThunkStore({
         auth: { token: authToken },
@@ -130,7 +133,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(RNPushNotification.checkPermissions).toHaveBeenCalled();
       expect(store.getActions()).toEqual([]);
     });
 
@@ -151,7 +154,7 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([]);
     });
 
-    it('navigates to NotificationOffScreen if native permissions are disabled', async () => {
+    it('navigates to NotificationOffScreen if native permissions are disabled | IOS', async () => {
       (RNPushNotification.requestPermissions as jest.Mock).mockReturnValue({});
 
       const store = createThunkStore({
@@ -174,6 +177,35 @@ describe('checkNotifications', () => {
         onComplete: undefined,
       });
       expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(store.getActions()).toEqual([callApiResult, navigatePushResult]);
+    });
+
+    it('navigates to NotificationOffScreen if native permissions are disabled | Android', async () => {
+      ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+      (RNPushNotification.checkPermissions as jest.Mock).mockImplementation(
+        cb => cb({ alert: false }),
+      );
+
+      const store = createThunkStore({
+        auth: { token: authToken },
+        notifications: {
+          pushDevice,
+          appHasShownPrompt: true,
+        },
+      });
+
+      await store.dispatch<any>(checkNotifications(notificationType));
+
+      expect(callApi).toHaveBeenCalledWith(
+        REQUESTS.DELETE_PUSH_TOKEN,
+        { deviceId: pushDevice.id },
+        {},
+      );
+      expect(navigatePush).toHaveBeenCalledWith(NOTIFICATION_OFF_SCREEN, {
+        notificationType,
+        onComplete: undefined,
+      });
+      expect(RNPushNotification.checkPermissions).toHaveBeenCalled();
       expect(store.getActions()).toEqual([callApiResult, navigatePushResult]);
     });
 
@@ -243,7 +275,7 @@ describe('checkNotifications', () => {
       expect(store.getActions()).toEqual([]);
     });
 
-    it('immediately requests permissions if Android', async () => {
+    it('immediately check permissions if Android', async () => {
       ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
       const store = createThunkStore({
         auth: { token: authToken },
@@ -259,7 +291,7 @@ describe('checkNotifications', () => {
 
       expect(callApi).not.toHaveBeenCalled();
       expect(navigatePush).not.toHaveBeenCalled();
-      expect(RNPushNotification.requestPermissions).toHaveBeenCalledWith();
+      expect(RNPushNotification.checkPermissions).toHaveBeenCalled();
       expect(onComplete).toHaveBeenCalledWith({
         nativePermissionsEnabled: true,
         showedPrompt: false,
@@ -544,15 +576,25 @@ describe('askNotificationPermissions', () => {
         ]);
       });
 
-      it('on Android, should do nothing', async () => {
+      it('on Android, should not navigate', async () => {
+        ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
+
+        await testNotification({ ...baseNotification, screen: 'home' }, false);
+        expect(store.getActions()).toEqual([]);
+      });
+
+      it('on Android, it should navigate if userInteraction is undefined', async () => {
         ((common as unknown) as { isAndroid: boolean }).isAndroid = true;
 
         await testNotification(
-          { ...baseNotification, data: { screen: 'home' } },
-          false,
+          { ...baseNotification, screen: 'home' },
+          undefined,
         );
 
-        expect(store.getActions()).toEqual([]);
+        expect(store.getActions()).toEqual([
+          { type: SET_NOTIFICATION_ANALYTICS, notificationName: 'home' },
+          navigateToMainTabsResult,
+        ]);
       });
     });
 
