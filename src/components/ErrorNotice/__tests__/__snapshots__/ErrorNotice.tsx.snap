@@ -4,7 +4,6 @@ exports[`ErrorNotice should render a network error 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -55,7 +54,7 @@ exports[`ErrorNotice should render a network error 1`] = `
           Object {
             "fontSize": 18,
           },
-          Object {},
+          undefined,
         ],
         Object {
           "fontFamily": "Material Icons",
@@ -75,7 +74,6 @@ exports[`ErrorNotice should render an a specificError 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -126,7 +124,7 @@ exports[`ErrorNotice should render an a specificError 1`] = `
           Object {
             "fontSize": 18,
           },
-          Object {},
+          undefined,
         ],
         Object {
           "fontFamily": "Material Icons",
@@ -146,7 +144,6 @@ exports[`ErrorNotice should render an error 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -197,7 +194,7 @@ exports[`ErrorNotice should render an error 1`] = `
           Object {
             "fontSize": 18,
           },
-          Object {},
+          undefined,
         ],
         Object {
           "fontFamily": "Material Icons",
@@ -219,7 +216,6 @@ exports[`ErrorNotice should show general error if no specific errors are matched
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -270,7 +266,7 @@ exports[`ErrorNotice should show general error if no specific errors are matched
           Object {
             "fontSize": 18,
           },
-          Object {},
+          undefined,
         ],
         Object {
           "fontFamily": "Material Icons",

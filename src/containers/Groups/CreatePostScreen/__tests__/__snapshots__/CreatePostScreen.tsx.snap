@@ -5,7 +5,7 @@ exports[`Creating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -137,12 +137,56 @@
+@@ -136,12 +136,55 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -15,14 +15,13 @@ exports[`Creating a post user types a post 1`] = `
 +         <View
 +           accessible={true}
 +           focusable={true}
-+           isTVSelectable={true}
-+           onClick={[Function bound touchableHandlePress]}
-+           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+           onResponderMove={[Function bound touchableHandleResponderMove]}
-+           onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
 +             Object {
 +               \\"opacity\\": 1,
@@ -62,7 +61,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -267,11 +311,11 @@
+@@ -266,11 +309,11 @@
               },
             ]
           }
@@ -82,7 +81,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -270,19 +270,10 @@
+@@ -269,19 +269,10 @@
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -99,13 +98,13 @@ exports[`Select image should select an image 1`] = `
 -       <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
-          onClick={[Function bound touchableHandlePress]}
-          onResponderGrant={[Function bound touchableHandleResponderGrant]}
-@@ -291,122 +282,28 @@
-          onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-          onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-          onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+          onClick={[Function onClick]}
+          onResponderGrant={[Function onResponderGrant]}
+          onResponderMove={[Function onResponderMove]}
+@@ -289,121 +280,28 @@
+          onResponderTerminate={[Function onResponderTerminate]}
+          onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+          onStartShouldSetResponder={[Function onStartShouldSetResponder]}
           style={
             Object {
 -             \\"flex\\": 1,
@@ -114,22 +113,27 @@ exports[`Select image should select an image 1`] = `
               \\"opacity\\": 1,
 -             \\"paddingHorizontal\\": 35,
 -             \\"paddingVertical\\": 20,
--           }
             }
+          }
 -         testID=\\"VideoButton\\"
--       >
++         testID=\\"popupMenuButton\\"
+        >
 -         <SvgMock
 -           style={
--             Object {
++         <Image
++           resizeMode=\\"contain\\"
++           source={
+              Object {
 -               \\"height\\": 24,
 -               \\"width\\": 24,
-          }
--           }
++               \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
+              }
+            }
 -         />
 -         <Text
--           style={
+            style={
 -             Array [
--               Object {
+              Object {
 -                 \\"color\\": \\"#505256\\",
 -               },
 -               Object {
@@ -151,55 +155,51 @@ exports[`Select image should select an image 1`] = `
 -           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
--             \\"width\\": 750,
++               \\"aspectRatio\\": 2,
+                \\"width\\": 750,
 -           }
 -         }
 -       />
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
 -           }
 -         }
-          testID=\\"popupMenuButton\\"
-        >
+-         testID=\\"popupMenuButton\\"
+-       >
 -         <View
 -           style={
-+         <Image
-+           resizeMode=\\"contain\\"
-+           source={
-              Object {
+-             Object {
 -               \\"flex\\": 1,
 -               \\"flexDirection\\": \\"row\\",
 -               \\"justifyContent\\": \\"flex-start\\",
 -               \\"paddingHorizontal\\": 35,
 -               \\"paddingVertical\\": 20,
--             }
--           }
+              }
+            }
 -         >
 -           <SvgMock
 -             style={
 -               Object {
 -                 \\"height\\": 24,
 -                 \\"width\\": 24,
-+               \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
-              }
-            }
--           />
+-               }
+-             }
+          />
 -           <Text
-            style={
+-             style={
 -               Array [
-              Object {
+-                 Object {
 -                   \\"color\\": \\"#505256\\",
 -                 },
 -                 Object {
@@ -216,18 +216,16 @@ exports[`Select image should select an image 1`] = `
 -             Add a Photo
 -           </Text>
 -         </View>
--       </View>
+        </View>
 -       <View
 -         style={
 -           Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
-+               \\"aspectRatio\\": 1.3333333333333333,
-                \\"width\\": 750,
-              }
-            }
-          />
-+       </View>
+-             \\"width\\": 750,
+-           }
+-         }
+-       />
       </View>
     </RCTScrollView>
   </View>"
@@ -238,7 +236,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -271,77 +271,48 @@
+@@ -270,76 +270,48 @@
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
         />
@@ -255,14 +253,13 @@ exports[`Select video should select a video 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 +               \\"flex\\": 1,
 +             },
@@ -273,12 +270,12 @@ exports[`Select video should select a video 1`] = `
 -             \\"opacity\\": 1,
 -             \\"paddingHorizontal\\": 35,
 -             \\"paddingVertical\\": 20,
--           }
 +               \\"height\\": 1333.3333333333333,
 +             },
 +             undefined,
 +           ]
           }
+-         }
 -         testID=\\"VideoButton\\"
         >
 -         <SvgMock
@@ -336,12 +333,12 @@ exports[`Select video should select a video 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
-              onClick={[Function bound touchableHandlePress]}
-@@ -351,62 +322,28 @@
-              onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-              onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-              onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+              onClick={[Function onClick]}
+              onResponderGrant={[Function onResponderGrant]}
+@@ -348,62 +320,28 @@
+              onResponderTerminate={[Function onResponderTerminate]}
+              onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+              onStartShouldSetResponder={[Function onStartShouldSetResponder]}
               style={
                 Object {
 +                 \\"alignItems\\": \\"center\\",
@@ -398,9 +395,8 @@ exports[`Select video should select a video 1`] = `
 -           >
 -             Add a Photo
 -           </Text>
-+           </View>
+            </View>
           </View>
-        </View>
 -       <View
 -         style={
 -           Object {
@@ -410,6 +406,7 @@ exports[`Select video should select a video 1`] = `
 -           }
 -         }
 -       />
++       </View>
       </View>
     </RCTScrollView>
   </View>"
@@ -420,7 +417,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -333,11 +333,11 @@
+@@ -331,11 +331,11 @@
               },
             ]
           }
@@ -483,7 +480,6 @@ exports[`renders correctly for new post 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -721,7 +717,6 @@ exports[`renders correctly for new post 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -781,7 +776,6 @@ exports[`renders correctly for new post 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -898,7 +892,6 @@ exports[`renders correctly for new post and feature flag false 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1136,7 +1129,6 @@ exports[`renders correctly for new post and feature flag false 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1253,7 +1245,6 @@ exports[`renders correctly for update post with image 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1351,7 +1342,6 @@ exports[`renders correctly for update post with image 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1548,7 +1538,6 @@ exports[`renders correctly for update post with image 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1631,7 +1620,6 @@ exports[`renders correctly for update post with video 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1729,7 +1717,6 @@ exports[`renders correctly for update post with video 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1966,7 +1953,6 @@ exports[`renders correctly for update post with video 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2049,7 +2035,6 @@ exports[`renders correctly for update post without media 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2147,7 +2132,6 @@ exports[`renders correctly for update post without media 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2353,7 +2337,6 @@ exports[`renders correctly for update post without media 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -2413,7 +2396,6 @@ exports[`renders correctly for update post without media 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -2530,7 +2512,6 @@ exports[`renders correctly for update post without media and feature flag false 
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2628,7 +2609,6 @@ exports[`renders correctly for update post without media and feature flag false 
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2834,7 +2814,6 @@ exports[`renders correctly for update post without media and feature flag false 
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -2951,7 +2930,6 @@ exports[`renders correctly for update post without video if feature flag is fals
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3049,7 +3027,6 @@ exports[`renders correctly for update post without video if feature flag is fals
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3255,7 +3232,6 @@ exports[`renders correctly for update post without video if feature flag is fals
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -3372,7 +3348,6 @@ exports[`renders for post types renders for announcement 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3610,7 +3585,6 @@ exports[`renders for post types renders for announcement 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -3670,7 +3644,6 @@ exports[`renders for post types renders for announcement 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -3787,7 +3760,6 @@ exports[`renders for post types renders for help request 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4025,7 +3997,6 @@ exports[`renders for post types renders for help request 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4085,7 +4056,6 @@ exports[`renders for post types renders for help request 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4202,7 +4172,6 @@ exports[`renders for post types renders for prayer request 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4440,7 +4409,6 @@ exports[`renders for post types renders for prayer request 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4500,7 +4468,6 @@ exports[`renders for post types renders for prayer request 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4617,7 +4584,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4855,7 +4821,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4915,7 +4880,6 @@ exports[`renders for post types renders for spiritual question 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -5032,7 +4996,6 @@ exports[`renders for post types renders for story 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -5270,7 +5233,6 @@ exports[`renders for post types renders for story 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -5330,7 +5292,6 @@ exports[`renders for post types renders for story 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -5447,7 +5408,6 @@ exports[`renders for post types renders for thought 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -5685,7 +5645,6 @@ exports[`renders for post types renders for thought 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -5745,7 +5704,6 @@ exports[`renders for post types renders for thought 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

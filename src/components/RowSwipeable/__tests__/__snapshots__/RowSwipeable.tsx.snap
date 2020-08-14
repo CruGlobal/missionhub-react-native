@@ -79,7 +79,6 @@ exports[`renders edit action correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -124,7 +123,7 @@ exports[`renders edit action correctly 1`] = `
                 Object {
                   "fontSize": 30,
                 },
-                Object {},
+                undefined,
               ],
               Object {
                 "fontFamily": "icomoon",
@@ -265,7 +264,6 @@ exports[`renders remove/complete actions correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -310,7 +308,7 @@ exports[`renders remove/complete actions correctly 1`] = `
                 Object {
                   "fontSize": 26,
                 },
-                Object {},
+                undefined,
               ],
               Object {
                 "fontFamily": "icomoon",
@@ -346,7 +344,6 @@ exports[`renders remove/complete actions correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -391,7 +388,7 @@ exports[`renders remove/complete actions correctly 1`] = `
                 Object {
                   "fontSize": 26,
                 },
-                Object {},
+                undefined,
               ],
               Object {
                 "fontFamily": "icomoon",

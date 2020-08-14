@@ -18,24 +18,24 @@ exports[`should hide edit, delete, and stage for members 1`] = `
         \\"position\\": \\"absolute\\",
         \\"right\\": 0,
         \\"top\\": 0,
-@@ -123,39 +123,11 @@
+@@ -121,39 +121,12 @@
+                  \\"alignItems\\": \\"flex-end\\",
                   \\"flex\\": 1,
                   \\"justifyContent\\": \\"center\\",
                 },
               ]
-            }
+-           }
 -         >
 -           <View
 -             accessible={true}
 -             focusable={true}
--             isTVSelectable={true}
--             onClick={[Function bound touchableHandlePress]}
--             onResponderGrant={[Function bound touchableHandleResponderGrant]}
--             onResponderMove={[Function bound touchableHandleResponderMove]}
--             onResponderRelease={[Function bound touchableHandleResponderRelease]}
--             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-             onClick={[Function onClick]}
+-             onResponderGrant={[Function onResponderGrant]}
+-             onResponderMove={[Function onResponderMove]}
+-             onResponderRelease={[Function onResponderRelease]}
+-             onResponderTerminate={[Function onResponderTerminate]}
+-             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -             style={
 -               Object {
 -                 \\"opacity\\": 1,
@@ -48,7 +48,7 @@ exports[`should hide edit, delete, and stage for members 1`] = `
 -               style={
 -                 Object {
 -                   \\"paddingHorizontal\\": 24,
--                 }
+            }
 -               }
           />
 -           </View>
@@ -58,7 +58,7 @@ exports[`should hide edit, delete, and stage for members 1`] = `
       <View
         style={
           Object {
-@@ -204,31 +176,10 @@
+@@ -202,31 +175,10 @@
               },
             ]
           }
@@ -97,7 +97,7 @@ exports[`should load person data correctly 1`] = `
 - First value
 + Second value
 
-@@ -162,75 +162,53 @@
+@@ -160,75 +160,53 @@
             \\"alignItems\\": \\"center\\",
             \\"marginBottom\\": 24,
           }
@@ -185,7 +185,7 @@ exports[`should load person data correctly 1`] = `
             Array [
               Object {
                 \\"color\\": \\"#505256\\",
-@@ -245,11 +223,13 @@
+@@ -243,11 +221,13 @@
                 \\"letterSpacing\\": 1,
                 \\"marginTop\\": 4,
               },
@@ -269,7 +269,6 @@ exports[`should render loading 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -334,7 +333,6 @@ exports[`should render loading 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -470,7 +468,6 @@ exports[`should render loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -511,7 +508,6 @@ exports[`should render loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -552,7 +548,6 @@ exports[`should render loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -663,7 +658,6 @@ exports[`should render me loading 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -728,7 +722,6 @@ exports[`should render me loading 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -880,7 +873,6 @@ exports[`should render me loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -921,7 +913,6 @@ exports[`should render me loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -962,7 +953,6 @@ exports[`should render me loading 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}

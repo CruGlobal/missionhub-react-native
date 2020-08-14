@@ -4,7 +4,6 @@ exports[`renders touchable 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -28,7 +27,6 @@ exports[`renders touchable highlight 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -36,11 +34,8 @@ exports[`renders touchable highlight 1`] = `
   onResponderTerminate={[Function]}
   onResponderTerminationRequest={[Function]}
   onStartShouldSetResponder={[Function]}
-  style={null}
 >
-  <Text
-    style={null}
-  >
+  <Text>
     Test
   </Text>
 </View>

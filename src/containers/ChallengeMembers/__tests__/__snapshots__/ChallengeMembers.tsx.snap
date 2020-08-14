@@ -77,7 +77,6 @@ exports[`renders correctly for completed members 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -193,7 +192,6 @@ exports[`renders correctly for completed members 1`] = `
           initialNumToRender={10}
           keyExtractor={[Function]}
           maxToRenderPerBatch={10}
-          numColumns={1}
           onContentSizeChange={[Function]}
           onEndReachedThreshold={2}
           onLayout={[Function]}
@@ -223,7 +221,6 @@ exports[`renders correctly for completed members 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -231,7 +228,6 @@ exports[`renders correctly for completed members 1`] = `
                 onResponderTerminate={[Function]}
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
-                style={null}
                 testID="ChallengeMemberItemButton"
               >
                 <View
@@ -431,7 +427,6 @@ exports[`renders correctly for completed members 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -439,7 +434,6 @@ exports[`renders correctly for completed members 1`] = `
                 onResponderTerminate={[Function]}
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
-                style={null}
                 testID="ChallengeMemberItemButton"
               >
                 <View
@@ -717,7 +711,6 @@ exports[`renders correctly for joined members 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -825,7 +818,6 @@ exports[`renders correctly for joined members 1`] = `
           initialNumToRender={10}
           keyExtractor={[Function]}
           maxToRenderPerBatch={10}
-          numColumns={1}
           onContentSizeChange={[Function]}
           onEndReachedThreshold={2}
           onLayout={[Function]}
@@ -855,7 +847,6 @@ exports[`renders correctly for joined members 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -863,7 +854,6 @@ exports[`renders correctly for joined members 1`] = `
                 onResponderTerminate={[Function]}
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
-                style={null}
                 testID="ChallengeMemberItemButton"
               >
                 <View
@@ -1141,7 +1131,6 @@ exports[`renders plural sentence for joined members 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1257,7 +1246,6 @@ exports[`renders plural sentence for joined members 1`] = `
           initialNumToRender={10}
           keyExtractor={[Function]}
           maxToRenderPerBatch={10}
-          numColumns={1}
           onContentSizeChange={[Function]}
           onEndReachedThreshold={2}
           onLayout={[Function]}
@@ -1287,7 +1275,6 @@ exports[`renders plural sentence for joined members 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -1295,7 +1282,6 @@ exports[`renders plural sentence for joined members 1`] = `
                 onResponderTerminate={[Function]}
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
-                style={null}
                 testID="ChallengeMemberItemButton"
               >
                 <View
@@ -1495,7 +1481,6 @@ exports[`renders plural sentence for joined members 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -1503,7 +1488,6 @@ exports[`renders plural sentence for joined members 1`] = `
                 onResponderTerminate={[Function]}
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
-                style={null}
                 testID="ChallengeMemberItemButton"
               >
                 <View
@@ -1781,7 +1765,6 @@ exports[`renders singular sentence for completed members 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1889,7 +1872,6 @@ exports[`renders singular sentence for completed members 1`] = `
           initialNumToRender={10}
           keyExtractor={[Function]}
           maxToRenderPerBatch={10}
-          numColumns={1}
           onContentSizeChange={[Function]}
           onEndReachedThreshold={2}
           onLayout={[Function]}
@@ -1919,7 +1901,6 @@ exports[`renders singular sentence for completed members 1`] = `
               <View
                 accessible={true}
                 focusable={true}
-                isTVSelectable={true}
                 onClick={[Function]}
                 onResponderGrant={[Function]}
                 onResponderMove={[Function]}
@@ -1927,7 +1908,6 @@ exports[`renders singular sentence for completed members 1`] = `
                 onResponderTerminate={[Function]}
                 onResponderTerminationRequest={[Function]}
                 onStartShouldSetResponder={[Function]}
-                style={null}
                 testID="ChallengeMemberItemButton"
               >
                 <View

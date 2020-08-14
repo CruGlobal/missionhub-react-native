@@ -182,7 +182,7 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
   const renderSectionFooter = ({
     section: { key },
   }: {
-    section: SectionListData<{ key: string }>;
+    section: SectionListData<PersonStepsList_person_steps_nodes>;
   }) => (key === 'active' ? renderCompletedStepsButton() : null);
 
   const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);

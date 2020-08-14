@@ -140,7 +140,6 @@ Take a moment and pray. Who do you want to take steps of faith with?
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -274,7 +273,6 @@ exports[`AddStepScreen next renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -476,7 +474,6 @@ exports[`AddStepScreen next renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -651,7 +648,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -697,7 +693,7 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -740,7 +736,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -826,7 +821,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -920,7 +914,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -986,7 +979,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1052,7 +1044,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1119,9 +1110,9 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <SafeAreaView>
+      <ForwardRef(SafeAreaView)>
         <FooterLoading />
-      </SafeAreaView>
+      </ForwardRef(SafeAreaView)>
     }
     ListHeaderComponent={
       <ErrorNotice
@@ -1152,7 +1143,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -1197,7 +1187,6 @@ exports[`PersonSelectStepScreen next renders correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1370,7 +1359,6 @@ exports[`SelectStageScreen renders correctly 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -1416,7 +1404,7 @@ exports[`SelectStageScreen renders correctly 1`] = `
                           Object {
                             "margin": 10,
                           },
-                          Object {},
+                          undefined,
                         ],
                       ],
                       Object {
@@ -1519,6 +1507,7 @@ exports[`SelectStageScreen renders correctly 1`] = `
         enableMomentum={false}
         enableSnap={true}
         firstItem={0}
+        forwardedRef={[Function]}
         getItem={[Function]}
         getItemCount={[Function]}
         hasParallaxImages={false}
@@ -1537,7 +1526,6 @@ exports[`SelectStageScreen renders correctly 1`] = `
         loop={false}
         loopClonesPerSide={3}
         maxToRenderPerBatch={15}
-        numColumns={1}
         onContentSizeChange={[Function]}
         onEndReachedThreshold={2}
         onLayout={[Function]}
@@ -1648,7 +1636,6 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1694,7 +1681,7 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -1886,7 +1873,6 @@ exports[`SetupPersonScreen next renders without skip button correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -2005,7 +1991,6 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2171,7 +2156,6 @@ exports[`SuggestedStepDetailScreen next renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}

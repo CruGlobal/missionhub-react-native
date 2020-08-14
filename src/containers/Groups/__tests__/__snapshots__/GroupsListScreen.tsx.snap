@@ -5,7 +5,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -354,11 +354,11 @@
+@@ -351,11 +351,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
           },
           Object {
-@@ -638,11 +638,291 @@
+@@ -635,11 +635,291 @@
               \\"contactCount\\": 26992,
               \\"memberCount\\": 35653,
               \\"unassignedCount\\": 89588,
@@ -310,7 +310,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -700,11 +980,11 @@
+@@ -696,11 +976,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -323,7 +323,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
               }
             }
-@@ -1055,11 +1335,11 @@
+@@ -1051,11 +1331,11 @@
           />
         </View>
         <View
@@ -395,7 +395,6 @@ exports[`GroupsListScreen renders with communities 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -527,7 +526,6 @@ exports[`GroupsListScreen renders with communities 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -617,7 +615,6 @@ exports[`GroupsListScreen renders with communities 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1002,7 +999,6 @@ exports[`GroupsListScreen renders with communities 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -1464,7 +1460,6 @@ exports[`GroupsListScreen renders with only global community 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1620,7 +1615,6 @@ exports[`GroupsListScreen renders with only global community 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1710,7 +1704,6 @@ exports[`GroupsListScreen renders with only global community 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1815,7 +1808,6 @@ exports[`GroupsListScreen renders with only global community 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}

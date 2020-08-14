@@ -4,12 +4,12 @@ import {
   Keyboard,
   StyleProp,
   ViewStyle,
-  TextStyle,
   ImageSourcePropType,
 } from 'react-native';
 import { AnyAction } from 'redux';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
+import { IconProps } from 'react-native-vector-icons/Icon';
 
 import { navigateBack } from '../../actions/navigation';
 import IconButton from '../../components/IconButton';
@@ -23,7 +23,7 @@ interface DeprecatedBackButtonProps {
   customIcon?: string;
   RenderIcon?: React.ReactNode;
   image?: ImageSourcePropType;
-  iconStyle?: StyleProp<TextStyle>;
+  iconStyle?: IconProps['style'];
   customNavigate?: () => void;
 }
 

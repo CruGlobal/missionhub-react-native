@@ -5,7 +5,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
 - First value
 + Second value
 
-@@ -222,11 +222,13 @@
+@@ -220,11 +220,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -20,7 +20,7 @@ exports[`Edit Person fires onPress and updates person | no relationship_type 1`]
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -268,11 +270,11 @@
+@@ -266,11 +268,11 @@
               }
             >
               Family
@@ -40,7 +40,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
 - First value
 + Second value
 
-@@ -222,13 +222,11 @@
+@@ -220,13 +220,11 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -55,7 +55,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -270,11 +268,11 @@
+@@ -268,11 +266,11 @@
               }
             >
               Family
@@ -68,7 +68,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
         </View>
       </View>
       <View
-@@ -314,12 +312,14 @@
+@@ -311,12 +309,14 @@
                 Object {
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
@@ -84,7 +84,7 @@ exports[`Edit Person fires onPress and updates person | relationship_type 1`] = 
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -361,11 +361,11 @@
+@@ -358,11 +358,11 @@
               }
             >
               Friend
@@ -104,7 +104,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
 - First value
 + Second value
 
-@@ -222,11 +222,13 @@
+@@ -220,11 +220,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -119,7 +119,7 @@ exports[`Edit Person fires onPress and updates person with orgId | no relationsh
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -268,11 +270,11 @@
+@@ -266,11 +268,11 @@
               }
             >
               Family
@@ -139,7 +139,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
 - First value
 + Second value
 
-@@ -222,13 +222,11 @@
+@@ -220,13 +220,11 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -154,7 +154,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -270,11 +268,11 @@
+@@ -268,11 +266,11 @@
               }
             >
               Family
@@ -167,7 +167,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
         </View>
       </View>
       <View
-@@ -314,12 +312,14 @@
+@@ -311,12 +309,14 @@
                 Object {
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
@@ -183,7 +183,7 @@ exports[`Edit Person fires onPress and updates person with orgId | relationship_
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -361,11 +361,11 @@
+@@ -358,11 +358,11 @@
               }
             >
               Friend
@@ -259,7 +259,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -305,7 +304,7 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -393,7 +392,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -484,7 +482,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -575,7 +572,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -666,7 +662,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -757,7 +752,6 @@ exports[`Edit Person renders correctly | no relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -910,7 +904,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -956,7 +949,7 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -1039,7 +1032,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1132,7 +1124,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1223,7 +1214,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1314,7 +1304,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1405,7 +1394,6 @@ exports[`Edit Person renders correctly | relationship_type 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1502,7 +1490,7 @@ exports[`Onboarding fires onPress 1`] = `
 - First value
 + Second value
 
-@@ -227,11 +227,13 @@
+@@ -225,11 +225,13 @@
                   \\"backgroundColor\\": \\"#005A7F\\",
                   \\"height\\": 72,
                   \\"marginVertical\\": 4,
@@ -1517,7 +1505,7 @@ exports[`Onboarding fires onPress 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -273,11 +275,11 @@
+@@ -271,11 +273,11 @@
               }
             >
               Family
@@ -1593,7 +1581,6 @@ exports[`Onboarding renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1639,7 +1626,7 @@ exports[`Onboarding renders correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -1727,7 +1714,6 @@ exports[`Onboarding renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1818,7 +1804,6 @@ exports[`Onboarding renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1909,7 +1894,6 @@ exports[`Onboarding renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -2000,7 +1984,6 @@ exports[`Onboarding renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -2091,7 +2074,6 @@ exports[`Onboarding renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}

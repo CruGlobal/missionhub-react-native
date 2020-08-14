@@ -122,94 +122,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "1",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Read \\"There and Back Again\\"",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person2",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "2",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Invite a neighbor over for mince pie.",
-          },
-        ],
-        "title": "",
-      },
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 0,
-            "creator_id": "person3",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "3",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Invite Smeagol over for fresh fish",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person4",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "4",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Who can wear the ring the longest.",
-          },
-        ],
-        "title": "Past Challenges",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
       5,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -415,7 +334,6 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -687,7 +605,6 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -787,7 +704,6 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1059,7 +975,6 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1223,7 +1138,6 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1529,7 +1443,6 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1930,94 +1843,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "1",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Read \\"There and Back Again\\"",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person2",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "2",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Invite a neighbor over for mince pie.",
-          },
-        ],
-        "title": "",
-      },
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 0,
-            "creator_id": "person3",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "3",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Invite Smeagol over for fresh fish",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person4",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "4",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Who can wear the ring the longest.",
-          },
-        ],
-        "title": "Past Challenges",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
       5,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -2223,7 +2055,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2495,7 +2326,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2595,7 +2425,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2867,7 +2696,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3031,7 +2859,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3337,7 +3164,6 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3740,94 +3566,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "1",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Read \\"There and Back Again\\"",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person2",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "2",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Invite a neighbor over for mince pie.",
-          },
-        ],
-        "title": "",
-      },
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 0,
-            "creator_id": "person3",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "3",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Invite Smeagol over for fresh fish",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person4",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "4",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Who can wear the ring the longest.",
-          },
-        ],
-        "title": "Past Challenges",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
       5,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -4033,7 +3778,6 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4305,7 +4049,6 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4405,7 +4148,6 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4677,7 +4419,6 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4841,7 +4582,6 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -5147,7 +4887,6 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -5477,22 +5216,12 @@ exports[`Challenge Feed rendering renders null component | Admin 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [],
-        "title": "",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -5596,22 +5325,12 @@ exports[`Challenge Feed rendering renders null component | Member 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [],
-        "title": "",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -5715,22 +5434,12 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [],
-        "title": "",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -5962,22 +5671,12 @@ exports[`Challenge Feed rendering renders null without header 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [],
-        "title": "",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -6152,94 +5851,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "1",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Read \\"There and Back Again\\"",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person2",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "2",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Invite a neighbor over for mince pie.",
-          },
-        ],
-        "title": "",
-      },
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 0,
-            "creator_id": "person3",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "3",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Invite Smeagol over for fresh fish",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person4",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "4",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Who can wear the ring the longest.",
-          },
-        ],
-        "title": "Past Challenges",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
       5,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -6445,7 +6063,6 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -6717,7 +6334,6 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -6817,7 +6433,6 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -7089,7 +6704,6 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -7253,7 +6867,6 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -7559,7 +7172,6 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -7962,94 +7574,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
   }
   refreshing={false}
   renderItem={[Function]}
-  renderSectionHeader={[Function]}
   scrollEventThrottle={0.0001}
-  sections={
-    Array [
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person1",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "1",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Read \\"There and Back Again\\"",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person2",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "2",
-            "isPast": false,
-            "organization_id": "456",
-            "title": "Invite a neighbor over for mince pie.",
-          },
-        ],
-        "title": "",
-      },
-      Object {
-        "data": Array [
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 0,
-            "creator_id": "person3",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "3",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Invite Smeagol over for fresh fish",
-          },
-          Object {
-            "accepted_community_challenges": Array [
-              Object {
-                "id": "a1",
-                "person": Object {
-                  "id": "123",
-                },
-              },
-            ],
-            "accepted_count": 5,
-            "completed_count": 3,
-            "creator_id": "person4",
-            "end_date": "2020-03-04T14:13:21Z",
-            "id": "4",
-            "isPast": true,
-            "organization_id": "456",
-            "title": "Who can wear the ring the longest.",
-          },
-        ],
-        "title": "Past Challenges",
-      },
-    ]
-  }
   stickyHeaderIndices={
     Array [
       1,
       5,
     ]
   }
-  stickySectionHeadersEnabled={true}
   testID="ChallengeFeed"
   updateCellsBatchingPeriod={50}
   windowSize={21}
@@ -8255,7 +7786,6 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -8527,7 +8057,6 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -8627,7 +8156,6 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -8899,7 +8427,6 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -9063,7 +8590,6 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -9369,7 +8895,6 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}

@@ -4,7 +4,6 @@ exports[`renders correctly 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -148,7 +147,7 @@ exports[`renders correctly 1`] = `
               Object {
                 "fontSize": 12,
               },
-              Object {},
+              undefined,
             ],
             Object {
               "fontFamily": "icomoon",
@@ -182,7 +181,6 @@ exports[`renders correctly 1`] = `
             "top": 10,
           }
         }
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -228,7 +226,7 @@ exports[`renders correctly 1`] = `
                     Object {
                       "margin": 10,
                     },
-                    Object {},
+                    undefined,
                   ],
                 ],
                 Object {
@@ -253,7 +251,6 @@ exports[`renders correctly singular 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -397,7 +394,7 @@ exports[`renders correctly singular 1`] = `
               Object {
                 "fontSize": 12,
               },
-              Object {},
+              undefined,
             ],
             Object {
               "fontFamily": "icomoon",
@@ -431,7 +428,6 @@ exports[`renders correctly singular 1`] = `
             "top": 10,
           }
         }
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -477,7 +473,7 @@ exports[`renders correctly singular 1`] = `
                     Object {
                       "margin": 10,
                     },
-                    Object {},
+                    undefined,
                   ],
                 ],
                 Object {

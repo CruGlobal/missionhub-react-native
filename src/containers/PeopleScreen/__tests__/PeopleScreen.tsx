@@ -23,6 +23,7 @@ jest.mock('../../../actions/people');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 jest.mock('../../../utils/common');
+jest.mock('react-native/Libraries/LogBox/LogBox');
 
 const myId = '1';
 const initialState = { auth: { person: { id: myId } } };
