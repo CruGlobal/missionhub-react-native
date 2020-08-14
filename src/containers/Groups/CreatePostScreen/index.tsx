@@ -27,9 +27,9 @@ import ImagePicker, {
   SelectImageParams,
 } from '../../../components/ImagePicker';
 import PostTypeLabel from '../../../components/PostTypeLabel';
+import VideoPlayer from '../../../components/VideoPlayer';
 import { RECORD_VIDEO_SCREEN } from '../../RecordVideoScreen';
 import BackButton from '../../../components/BackButton';
-import VideoPlayer from '../../../components/VideoPlayer';
 import theme from '../../../theme';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import {
@@ -443,7 +443,11 @@ export const CreatePostScreen = () => {
         />
       </ImagePicker>
     ) : mediaData && hasVideo ? (
-      <VideoPlayer uri={mediaData} onDelete={handleDeleteVideo} />
+      <VideoPlayer
+        uri={mediaData}
+        onDelete={handleDeleteVideo}
+        width={theme.fullWidth}
+      />
     ) : (
       renderVideoPhotoButtons()
     );

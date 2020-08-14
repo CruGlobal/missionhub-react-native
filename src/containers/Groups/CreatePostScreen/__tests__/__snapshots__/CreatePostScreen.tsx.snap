@@ -290,7 +290,7 @@ exports[`Select video should select a video 1`] = `
               focusable={true}
               isTVSelectable={true}
               onClick={[Function bound touchableHandlePress]}
-@@ -291,57 +322,25 @@
+@@ -291,57 +322,26 @@
               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
@@ -299,12 +299,11 @@ exports[`Select video should select a video 1`] = `
 -             \\"flex\\": 1,
 -             \\"flexDirection\\": \\"row\\",
 -             \\"justifyContent\\": \\"flex-start\\",
-+                 \\"alignItems\\": \\"flex-start\\",
-+                 \\"backgroundColor\\": \\"#00000066\\",
-+                 \\"borderRadius\\": 32,
-+                 \\"height\\": 64,
++                 \\"alignItems\\": \\"center\\",
++                 \\"backgroundColor\\": \\"#FF5532\\",
++                 \\"borderRadius\\": 18,
++                 \\"height\\": 40,
 +                 \\"justifyContent\\": \\"center\\",
-+                 \\"margin\\": 16,
                   \\"opacity\\": 1,
 -             \\"paddingHorizontal\\": 35,
 -             \\"paddingVertical\\": 20,
@@ -317,8 +316,10 @@ exports[`Select video should select a video 1`] = `
 -             Object {
 -               \\"height\\": 24,
 -               \\"width\\": 24,
-+                 \\"paddingLeft\\": 24,
-+                 \\"width\\": 64,
++                 \\"position\\": \\"absolute\\",
++                 \\"right\\": 16,
++                 \\"top\\": 16,
++                 \\"width\\": 40,
                 }
               }
 -         />
@@ -338,7 +339,7 @@ exports[`Select video should select a video 1`] = `
 -               },
 -             ]
 -           }
-+             testID=\\"PlayButton\\"
++             testID=\\"DeleteButton\\"
             >
 -           Record a 15-Second Video
 -         </Text>
@@ -358,26 +359,26 @@ exports[`Select video should select a video 1`] = `
               focusable={true}
               isTVSelectable={true}
               onClick={[Function bound touchableHandlePress]}
-@@ -351,62 +350,30 @@
+@@ -351,62 +351,25 @@
               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
               style={
                 Object {
-+                 \\"alignItems\\": \\"center\\",
-+                 \\"backgroundColor\\": \\"#FF5532\\",
-+                 \\"borderRadius\\": 18,
-+                 \\"height\\": 40,
++                 \\"alignItems\\": \\"flex-start\\",
++                 \\"backgroundColor\\": \\"#00000066\\",
++                 \\"borderRadius\\": 32,
++                 \\"height\\": 64,
 +                 \\"justifyContent\\": \\"center\\",
++                 \\"margin\\": 16,
                   \\"opacity\\": 1,
-+                 \\"position\\": \\"absolute\\",
-+                 \\"right\\": 16,
-+                 \\"top\\": 16,
-+                 \\"width\\": 40,
++                 \\"paddingLeft\\": 24,
++                 \\"width\\": 64,
                 }
               }
 -         testID=\\"popupMenuButton\\"
--       >
++             testID=\\"PlayButton\\"
+            >
 -         <View
 -           style={
 -             Object {
@@ -388,19 +389,15 @@ exports[`Select video should select a video 1`] = `
 -               \\"paddingVertical\\": 20,
 -             }
 -           }
-+             testID=\\"DeleteButton\\"
-            >
-              <SvgMock
+-         >
+-           <SvgMock
 -             style={
 -               Object {
 -                 \\"height\\": 24,
 -                 \\"width\\": 24,
 -               }
 -             }
-+               color=\\"#ffffff\\"
-+               height={24}
-+               width={24}
-              />
+-           />
 -           <Text
 -             style={
 -               Array [
@@ -420,6 +417,7 @@ exports[`Select video should select a video 1`] = `
 -           >
 -             Add a Photo
 -           </Text>
++             <SvgMock />
 +           </View>
           </View>
         </View>
@@ -1998,18 +1996,19 @@ exports[`renders correctly for update post with video 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "flex-start",
-                "backgroundColor": "#00000066",
-                "borderRadius": 32,
-                "height": 64,
+                "alignItems": "center",
+                "backgroundColor": "#FF5532",
+                "borderRadius": 18,
+                "height": 40,
                 "justifyContent": "center",
-                "margin": 16,
                 "opacity": 1,
-                "paddingLeft": 24,
-                "width": 64,
+                "position": "absolute",
+                "right": 16,
+                "top": 16,
+                "width": 40,
               }
             }
-            testID="PlayButton"
+            testID="DeleteButton"
           >
             <SvgMock />
           </View>
@@ -2026,25 +2025,20 @@ exports[`renders correctly for update post with video 1`] = `
             onStartShouldSetResponder={[Function]}
             style={
               Object {
-                "alignItems": "center",
-                "backgroundColor": "#FF5532",
-                "borderRadius": 18,
-                "height": 40,
+                "alignItems": "flex-start",
+                "backgroundColor": "#00000066",
+                "borderRadius": 32,
+                "height": 64,
                 "justifyContent": "center",
+                "margin": 16,
                 "opacity": 1,
-                "position": "absolute",
-                "right": 16,
-                "top": 16,
-                "width": 40,
+                "paddingLeft": 24,
+                "width": 64,
               }
             }
-            testID="DeleteButton"
+            testID="PlayButton"
           >
-            <SvgMock
-              color="#ffffff"
-              height={24}
-              width={24}
-            />
+            <SvgMock />
           </View>
         </View>
       </View>

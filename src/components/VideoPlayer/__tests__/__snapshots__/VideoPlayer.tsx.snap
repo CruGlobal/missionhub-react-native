@@ -15,7 +15,7 @@ exports[`renders correctly 1`] = `
   }
 >
   <Video
-    controls={true}
+    controls={false}
     paused={true}
     source={
       Object {
@@ -32,6 +32,44 @@ exports[`renders correctly 1`] = `
       }
     }
   />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "opacity": 1,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+      testID="PlayButton"
+    >
+      <SvgMock />
+    </View>
+  </View>
 </View>
 `;
 
@@ -69,9 +107,44 @@ exports[`renders with custom controls 1`] = `
       }
     }
   />
-  <Text>
-    Controls
-  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "opacity": 1,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+      testID="PlayButton"
+    >
+      <SvgMock />
+    </View>
+  </View>
 </View>
 `;
 
@@ -92,7 +165,7 @@ exports[`renders with style 1`] = `
   }
 >
   <Video
-    controls={true}
+    controls={false}
     paused={true}
     source={
       Object {
@@ -109,6 +182,44 @@ exports[`renders with style 1`] = `
       }
     }
   />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "opacity": 1,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+      testID="PlayButton"
+    >
+      <SvgMock />
+    </View>
+  </View>
 </View>
 `;
 
@@ -127,7 +238,7 @@ exports[`renders with width 1`] = `
   }
 >
   <Video
-    controls={true}
+    controls={false}
     paused={true}
     source={
       Object {
@@ -144,6 +255,44 @@ exports[`renders with width 1`] = `
       }
     }
   />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "opacity": 1,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+      testID="PlayButton"
+    >
+      <SvgMock />
+    </View>
+  </View>
 </View>
 `;
 
@@ -164,8 +313,8 @@ exports[`sets paused to false 1`] = `
   }
 >
   <Video
-    controls={true}
-    paused={false}
+    controls={false}
+    paused={true}
     source={
       Object {
         "uri": "testVideo.mp4",
@@ -181,5 +330,43 @@ exports[`sets paused to false 1`] = `
       }
     }
   />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      accessible={true}
+      focusable={true}
+      isTVSelectable={true}
+      onClick={[Function]}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "opacity": 1,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+      testID="PlayButton"
+    >
+      <SvgMock />
+    </View>
+  </View>
 </View>
 `;
