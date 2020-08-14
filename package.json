@@ -60,7 +60,7 @@
     "color": "^3.1.2",
     "core-js": "^3.6.5",
     "eslint-import-resolver-typescript": "^2.0.0",
-    "graphql-tag": "^2.10.3",
+    "graphql-tag": "^2.11.0",
     "i18next": "^17.0.11",
     "js-sha256": "^0.9.0",
     "jsan": "^3.1.13",
