@@ -133,16 +133,8 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
 
   const handleCreateStep = () => {
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
-      ? dispatch(navigateToAddStepFlow(isMe, person, undefined))
-      : dispatch(
-          navigateToStageScreen(
-            false,
-            person,
-            contactAssignment,
-            undefined,
-            undefined,
-          ),
-        );
+      ? dispatch(navigateToAddStepFlow(person.id))
+      : dispatch(navigateToStageScreen(person.id));
   };
 
   const toggleCompletedSteps = () => {
