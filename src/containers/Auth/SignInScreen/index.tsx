@@ -183,7 +183,7 @@ const SignInScreen = ({
       issuer: 'https://dev1-signon.okta.com',
       clientId: '0oapul85kU9w9Dw5R4x6',
       redirectUrl: 'com.missionhub:/callback',
-      scopes: ['openid'],
+      scopes: ['openid', 'email', 'profile'],
       additionalParameters: { idp: '0oaptrvvfA7E6EeNR4x6' },
     };
 
