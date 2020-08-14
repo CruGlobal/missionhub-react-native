@@ -9,21 +9,7 @@ export default StyleSheet.create({
   videoPlayer: {
     ...StyleSheet.absoluteFillObject,
   },
-  controlWrap: {
-    flex: 1,
-    flexDirection: 'column',
-  },
-  buttonWrap: {
-    width: theme.fullWidth,
-    padding: 16,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-  },
-  centerWrap: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+  smallScreenWrap: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   deleteButton: {
     position: 'absolute',
     top: 16,
@@ -43,6 +29,7 @@ export default StyleSheet.create({
     borderRadius: 32,
     alignItems: 'flex-start',
     justifyContent: 'center',
+    backgroundColor: '#00000066',
   },
   fullScreenContainer: {
     flex: 1,

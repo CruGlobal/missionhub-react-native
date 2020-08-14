@@ -4,7 +4,11 @@ import Video from 'react-native-video';
 import { SafeAreaView } from 'react-navigation';
 
 import TrashIcon from '../../../assets/images/trashIcon.svg';
-import PlayButton from '../../../assets/images/playIcon.svg';
+import PlayIconFull from '../../../assets/images/playIconFull.svg';
+import PlayIconEmpty from '../../../assets/images/playIconEmpty.svg';
+import PauseIcon from '../../../assets/images/pauseIcon.svg';
+import MutedIcon from '../../../assets/images/mutedIcon.svg';
+import UnmutedIcon from '../../../assets/images/unmutedIcon.svg';
 import CloseButton from '../../../assets/images/closeButton.svg';
 import { Touchable, Text } from '../common';
 import theme from '../../theme';
@@ -25,20 +29,29 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
 
   const togglePaused = () => setPaused(!paused);
 
-  const toggleFullscreen = () => setFullscreen(!fullscreen);
-
   const toggleMuted = () => setMuted(!muted);
+
+  const toggleFullscreen = () => {
+    setFullscreen(!fullscreen);
+    setPaused(fullscreen);
+  };
 
   const ratio = 16.0 / 9.0;
   const height = (width && ratio * width) || 300;
 
   const renderPauseButton = () => (
     <Touchable
-      testID="RecordButton"
+      testID="PausePlayButton"
       style={styles.pausePlayButton}
       onPress={togglePaused}
     >
-      {paused ? <PlayIcon /> : <PauseIcon />}
+      {paused ? <PlayIconEmpty /> : <PauseIcon />}
+    </Touchable>
+  );
+
+  const renderMuteButton = () => (
+    <Touchable testID="MutedButton" onPress={toggleMuted}>
+      {muted ? MutedIcon : UnmutedIcon}
     </Touchable>
   );
 
@@ -59,38 +72,29 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
             <Text style={styles.countdownText}>:15</Text>
           </View>
           {renderPauseButton()}
-          <Touchable testID="FlipCameraButton" onPress={toggleMuted}>
-            <MuteIcon />
-          </Touchable>
+          {renderMuteButton()}
         </View>
       </SafeAreaView>
     </View>
   );
 
   const renderSmallScreen = () => (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Touchable
-        testID="DeleteButton"
-        onPress={onDelete}
-        style={styles.deleteButton}
-      >
-        <TrashIcon />
-      </Touchable>
+    <View style={styles.smallScreenWrap}>
+      {onDelete ? (
+        <Touchable
+          testID="DeleteButton"
+          onPress={onDelete}
+          style={styles.deleteButton}
+        >
+          <TrashIcon />
+        </Touchable>
+      ) : null}
       <Touchable
         testID="PlayButton"
-        style={{
-          margin: 16,
-          paddingLeft: 24,
-          width: 64,
-          height: 64,
-          borderRadius: 32,
-          alignItems: 'flex-start',
-          justifyContent: 'center',
-          backgroundColor: '#00000066',
-        }}
-        onPress={togglePaused}
+        style={styles.playButton}
+        onPress={toggleFullscreen}
       >
-        <PlayButton />
+        <PlayIconFull />
       </Touchable>
     </View>
   );
