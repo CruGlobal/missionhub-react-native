@@ -45,13 +45,21 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
       style={styles.pausePlayButton}
       onPress={togglePaused}
     >
-      {paused ? <PlayIconEmpty /> : <PauseIcon />}
+      {paused ? (
+        <PlayIconEmpty testID="PlayIconEmpty" />
+      ) : (
+        <PauseIcon testID="PauseIcon" />
+      )}
     </Touchable>
   );
 
   const renderMuteButton = () => (
     <Touchable testID="MutedButton" onPress={toggleMuted}>
-      {muted ? MutedIcon : UnmutedIcon}
+      {muted ? (
+        <MutedIcon testID="MutedIcon" />
+      ) : (
+        <UnmutedIcon testID="UnmutedIcon" />
+      )}
     </Touchable>
   );
 
