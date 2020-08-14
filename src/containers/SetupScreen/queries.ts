@@ -7,10 +7,6 @@ export const CREATE_PERSON = gql`
     createPerson(input: $input) {
       person {
         ...PersonFragment
-        firstName
-        lastName
-        relationshipType
-        picture
       }
     }
   }
@@ -22,10 +18,6 @@ export const UPDATE_PERSON = gql`
     updatePerson(input: $input) {
       person {
         ...PersonFragment
-        firstName
-        lastName
-        relationshipType
-        picture
       }
     }
   }
