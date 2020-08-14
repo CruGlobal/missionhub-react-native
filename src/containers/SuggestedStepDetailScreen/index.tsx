@@ -13,6 +13,7 @@ import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { STEPS_QUERY } from '../StepsScreen/queries';
 import { PERSON_STEPS_QUERY } from '../PersonScreen/PersonSteps/queries';
 import { trackStepAdded } from '../../actions/analytics';
+import { updatePersonGQL } from '../../actions/person';
 import { insertName } from '../../utils/steps';
 import { RootState } from '../../reducers';
 
@@ -77,6 +78,7 @@ const SuggestedStepDetailScreen = ({
     await createSuggestedStep({
       variables: { receiverId: personId, stepSuggestionId },
     });
+    updatePersonGQL(personId);
     dispatch(next({ personId, orgId }));
   };
 

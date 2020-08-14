@@ -6,6 +6,7 @@ import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
 import { renderWithContext } from '../../../../testUtils';
 import { getStages } from '../../../actions/stages';
 import { trackAction } from '../../../actions/analytics';
+import { updatePersonGQL } from '../../../actions/person';
 import {
   selectMyStage,
   selectPersonStage,
@@ -21,6 +22,7 @@ jest.mock('../../../actions/stages');
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/selectStage');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/person');
 jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
@@ -405,6 +407,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectMyStage).toHaveBeenCalledWith(stage.id);
+      expect(updatePersonGQL).toHaveBeenCalledWith(myId);
       expect(store.getActions()).toEqual([
         selectMyStageResult,
         nextResult,
@@ -429,6 +432,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectMyStage).not.toHaveBeenCalled();
+      expect(updatePersonGQL).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
   });
@@ -457,6 +461,7 @@ describe('setStage', () => {
         contactAssignmentId,
         stage.id,
       );
+      expect(updatePersonGQL).toHaveBeenCalledWith(assignedPersonId);
       expect(store.getActions()).toEqual([
         updateUserStageResult,
         nextResult,
@@ -481,6 +486,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(updateUserStage).not.toHaveBeenCalled();
+      expect(updatePersonGQL).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
 
@@ -503,6 +509,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(updateUserStage).not.toHaveBeenCalled();
+      expect(updatePersonGQL).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
 
@@ -529,6 +536,7 @@ describe('setStage', () => {
       });
 
       expect(updateUserStage).toHaveBeenCalled();
+      expect(updatePersonGQL).toHaveBeenCalledWith(assignedPersonId);
       expect(store.getActions()).toEqual([
         updateUserStageResult,
         nextResult,
@@ -563,6 +571,7 @@ describe('setStage', () => {
         stage.id,
         orgId,
       );
+      expect(updatePersonGQL).toHaveBeenCalledWith(unassignedPersonId);
       expect(store.getActions()).toEqual([
         selectPersonStageResult,
         nextResult,
@@ -587,6 +596,7 @@ describe('setStage', () => {
       const { store } = await buildAndTestSelect(navParams, nextProps);
 
       expect(selectPersonStage).not.toHaveBeenCalled();
+      expect(updatePersonGQL).not.toHaveBeenCalled();
       expect(store.getActions()).toEqual([nextResult, trackActionResult]);
     });
   });

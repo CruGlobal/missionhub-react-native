@@ -4,6 +4,10 @@ export const PERSON_FRAGMENT = gql`
   fragment PersonFragment on Person {
     id
     fullName
+    firstName
+    lastName
+    relationshipType
+    picture
     stage {
       id
       name
