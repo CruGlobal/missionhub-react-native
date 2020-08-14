@@ -11,100 +11,62 @@ import {
 } from '../../../actions/misc';
 import { navToPersonScreen } from '../../../actions/person';
 import { hasOrgPermissions } from '../../../utils/common';
-import { GetPeopleStepsCount_communities_nodes_people_nodes as PersonStepCount } from '../../../components/PeopleList/__generated__/GetPeopleStepsCount';
-import PersonItem from '..';
+import { PersonFragment } from '../__generated__/PersonFragment';
+import { PERSON_FRAGMENT } from '../queries';
+import { PersonItem } from '..';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
 
 jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/misc');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/common');
 
-const myId = '1';
-const otherId = '2';
-const stageId = '3';
-const mockStepsCount = 4;
+const mePerson = mockFragment<PersonFragment>(PERSON_FRAGMENT, {
+  mocks: { Stage: () => ({ position: 3 }) },
+});
+const person = mockFragment<PersonFragment>(PERSON_FRAGMENT, {
+  mocks: { Stage: () => ({ position: 3 }) },
+});
 
-const mockStages = {
-  [stageId]: {
-    id: stageId,
-    name: 'Stage 1',
-  },
-};
-
-const mockState = {
+const initialState = {
   auth: {
     person: {
-      id: myId,
-      stage: mockStages[stageId],
+      id: mePerson.id,
     },
   },
-  stages: {
-    stagesObj: mockStages,
-  },
 };
 
-const mockPersonalMinistry = { id: 'personal' };
-const mockOrganization = { id: '111' };
-
-const mockOrgPermission = {
-  organization_id: mockOrganization.id,
-  followup_status: 'contacted',
-};
-const mockContactAssignment = {
-  id: '90',
-  assigned_to: { id: myId },
-  pathway_stage_id: stageId,
-};
-const mockContactAssignmentNoStage = {
-  id: '90',
-  assigned_to: { id: myId },
-};
-const mockPerson = {
-  id: otherId,
-  first_name: 'John',
-  last_name: 'Doe',
-  full_name: 'John Doe',
-  organizational_permissions: [mockOrgPermission],
-  reverse_contact_assignments: [mockContactAssignment],
-};
-const mockPersonWithSteps = {
-  id: otherId,
-  first_name: 'Graph',
-  last_name: 'Champion',
-  full_name: 'Graph Champion',
-  organizational_permissions: [mockOrgPermission],
-  reverse_contact_assignments: [mockContactAssignment],
-  totalCount: mockStepsCount,
-};
-const mockPersonWithNoStage = {
-  ...mockPerson,
-  reverse_contact_assignments: [mockContactAssignmentNoStage],
-};
-
-const totalStepCount: PersonStepCount = {
-  __typename: 'Person',
-  id: mockPersonWithSteps.id,
+const mePersonWithoutSteps: PersonFragment = {
+  ...mePerson,
   steps: {
     __typename: 'StepConnection',
-    pageInfo: {
-      __typename: 'BasePageInfo',
-      totalCount: mockStepsCount,
-    },
+    pageInfo: { __typename: 'BasePageInfo', totalCount: 0 },
   },
 };
-
-const noStepsCount: PersonStepCount = {
-  ...totalStepCount,
+const mePersonWithoutStage: PersonFragment = {
+  ...mePerson,
+  stage: null,
+};
+const personWithoutSteps: PersonFragment = {
+  ...person,
   steps: {
     __typename: 'StepConnection',
-    pageInfo: {
-      __typename: 'BasePageInfo',
-      totalCount: 0,
-    },
+    pageInfo: { __typename: 'BasePageInfo', totalCount: 0 },
   },
 };
 
-const mePerson = { ...mockPerson, id: myId, reverse_contact_assignments: [] };
+const personWithoutStage: PersonFragment = {
+  ...person,
+  stage: null,
+};
+const personWithoutStageOrSteps: PersonFragment = {
+  ...person,
+  stage: null,
+  steps: {
+    __typename: 'StepConnection',
+    pageInfo: { __typename: 'BasePageInfo', totalCount: 0 },
+  },
+};
 
 const navToPersonScreenResult = { type: 'nav to person screen' };
 const navigateToStageScreenResult = { type: 'nav to stage screen' };
@@ -123,29 +85,19 @@ beforeEach(() => {
 it('renders me correctly', () => {
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  renderWithContext(
-    <PersonItem
-      person={(mePerson as unknown) as PersonAttributes}
-      organization={mockPersonalMinistry}
-      stepsData={totalStepCount}
-    />,
-    { initialState: mockState },
-  ).snapshot();
+  renderWithContext(<PersonItem person={mePerson} />, {
+    initialState,
+  }).snapshot();
 
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
 
-it('renders personal ministry contact correctly', () => {
+it('renders person correctly', () => {
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
-  renderWithContext(
-    <PersonItem
-      person={(mockPerson as unknown) as PersonAttributes}
-      organization={mockPersonalMinistry}
-      stepsData={totalStepCount}
-    />,
-    { initialState: mockState },
-  ).snapshot();
+  renderWithContext(<PersonItem person={person} />, {
+    initialState,
+  }).snapshot();
 
   expect(hasOrgPermissions).not.toHaveBeenCalled();
 });
@@ -154,14 +106,8 @@ it('renders personal ministry with no steps correctly', () => {
   (hasOrgPermissions as jest.Mock).mockReturnValue(false);
 
   const { getByTestId, snapshot } = renderWithContext(
-    <PersonItem
-      person={(mockPersonWithSteps as unknown) as PersonAttributes}
-      organization={mockPersonalMinistry}
-      stepsData={noStepsCount}
-    />,
-    {
-      initialState: mockState,
-    },
+    <PersonItem person={personWithoutSteps} />,
+    { initialState },
   );
   snapshot();
   expect(getByTestId('stepIcon')).toBeTruthy();
@@ -170,14 +116,8 @@ it('renders personal ministry with no steps correctly', () => {
 
 it('renders person with no stage correctly', () => {
   const { snapshot } = renderWithContext(
-    <PersonItem
-      person={(mockPersonWithNoStage as unknown) as PersonAttributes}
-      organization={mockOrganization}
-      stepsData={noStepsCount}
-    />,
-    {
-      initialState: mockState,
-    },
+    <PersonItem person={personWithoutStage} />,
+    { initialState },
   );
   snapshot();
 });
@@ -186,31 +126,14 @@ describe('handleChangeStage', () => {
   describe('isMe', () => {
     it('navigates to my stage screen without stage', () => {
       const { getByTestId, store } = renderWithContext(
-        <PersonItem
-          person={(mePerson as unknown) as PersonAttributes}
-          organization={mockOrganization}
-          stepsData={totalStepCount}
-        />,
-        {
-          initialState: {
-            ...mockState,
-            auth: {
-              person: {
-                id: myId,
-                stage: undefined,
-              },
-            },
-          },
-        },
+        <PersonItem person={mePersonWithoutStage} />,
+        { initialState },
       );
 
       fireEvent.press(getByTestId('stageText'));
 
       expect(navigateToStageScreen).toHaveBeenCalledWith(
-        true,
-        mePerson,
-        {},
-        mockOrganization,
+        mePerson.id,
         undefined,
         true,
       );
@@ -220,27 +143,15 @@ describe('handleChangeStage', () => {
 
   describe('not isMe', () => {
     it('navigates to person stage screen without stage', () => {
-      const mockPersonNoStage = {
-        ...mockPerson,
-        reverse_contact_assignments: [mockContactAssignmentNoStage],
-      };
-
       const { getByTestId, store } = renderWithContext(
-        <PersonItem
-          person={(mockPersonNoStage as unknown) as PersonAttributes}
-          organization={mockOrganization}
-          stepsData={totalStepCount}
-        />,
-        { initialState: mockState },
+        <PersonItem person={personWithoutStage} />,
+        { initialState },
       );
 
       fireEvent.press(getByTestId('stageText'));
 
       expect(navigateToStageScreen).toHaveBeenCalledWith(
-        false,
-        mockPersonNoStage,
-        mockContactAssignmentNoStage,
-        mockOrganization,
+        personWithoutStage.id,
         undefined,
         true,
       );
@@ -252,12 +163,8 @@ describe('handleChangeStage', () => {
 describe('handleSelect', () => {
   it('navigate to person view for me', () => {
     const { getByTestId, store } = renderWithContext(
-      <PersonItem
-        person={(mePerson as unknown) as PersonAttributes}
-        organization={mockOrganization}
-        stepsData={totalStepCount}
-      />,
-      { initialState: mockState },
+      <PersonItem person={mePerson} />,
+      { initialState },
     );
 
     fireEvent.press(getByTestId('personCard'));
@@ -268,33 +175,25 @@ describe('handleSelect', () => {
 
   it('navigate to person view for other', () => {
     const { getByTestId, store } = renderWithContext(
-      <PersonItem
-        person={(mockPerson as unknown) as PersonAttributes}
-        organization={mockOrganization}
-        stepsData={totalStepCount}
-      />,
-      { initialState: mockState },
+      <PersonItem person={person} />,
+      { initialState },
     );
 
     fireEvent.press(getByTestId('personCard'));
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(mockPerson.id);
+    expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
     expect(store.getActions()).toEqual([navToPersonScreenResult]);
   });
 
   it('navigate to person view with no org if orgId === "personal"', () => {
     const { getByTestId, store } = renderWithContext(
-      <PersonItem
-        person={(mockPerson as unknown) as PersonAttributes}
-        organization={mockPersonalMinistry}
-        stepsData={totalStepCount}
-      />,
-      { initialState: mockState },
+      <PersonItem person={person} />,
+      { initialState },
     );
 
     fireEvent.press(getByTestId('personCard'));
 
-    expect(navToPersonScreen).toHaveBeenCalledWith(mockPerson.id);
+    expect(navToPersonScreen).toHaveBeenCalledWith(person.id);
     expect(store.getActions()).toEqual([navToPersonScreenResult]);
   });
 });
@@ -302,61 +201,38 @@ describe('handleSelect', () => {
 describe('handleAddStep', () => {
   it('navigate to select step for me', () => {
     const { getByTestId, store } = renderWithContext(
-      <PersonItem
-        person={(mePerson as unknown) as PersonAttributes}
-        organization={mockOrganization}
-        stepsData={noStepsCount}
-      />,
-      { initialState: mockState },
+      <PersonItem person={mePersonWithoutSteps} />,
+      { initialState },
     );
 
     fireEvent.press(getByTestId('stepIcon'));
 
-    expect(navigateToAddStepFlow).toHaveBeenCalledWith(
-      true,
-      mePerson,
-      mockOrganization,
-    );
+    expect(navigateToAddStepFlow).toHaveBeenCalledWith(mePerson.id);
     expect(store.getActions()).toEqual([navigateToAddStepFlowResult]);
   });
 
-  it('navigate to person view for other', () => {
+  it('navigate to select step for other', () => {
     const { getByTestId, store } = renderWithContext(
-      <PersonItem
-        person={(mockPerson as unknown) as PersonAttributes}
-        organization={mockOrganization}
-        stepsData={noStepsCount}
-      />,
-      { initialState: mockState },
+      <PersonItem person={personWithoutSteps} />,
+      { initialState },
     );
 
     fireEvent.press(getByTestId('stepIcon'));
 
-    expect(navigateToAddStepFlow).toHaveBeenCalledWith(
-      false,
-      mockPerson,
-      mockOrganization,
-    );
+    expect(navigateToAddStepFlow).toHaveBeenCalledWith(person.id);
     expect(store.getActions()).toEqual([navigateToAddStepFlowResult]);
   });
 
   it('navigate to select stage for other person without stage', () => {
     const { getByTestId, store } = renderWithContext(
-      <PersonItem
-        person={(mockPersonWithNoStage as unknown) as PersonAttributes}
-        organization={mockOrganization}
-        stepsData={noStepsCount}
-      />,
-      { initialState: mockState },
+      <PersonItem person={personWithoutStageOrSteps} />,
+      { initialState },
     );
 
     fireEvent.press(getByTestId('stepIcon'));
 
     expect(navigateToStageScreen).toHaveBeenCalledWith(
-      false,
-      mockPersonWithNoStage,
-      mockContactAssignmentNoStage,
-      mockOrganization,
+      personWithoutStageOrSteps.id,
       undefined,
       true,
     );
