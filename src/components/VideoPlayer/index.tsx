@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { StyleProp, ViewStyle, View } from 'react-native';
 import Video from 'react-native-video';
+import { SafeAreaView } from 'react-navigation';
 
 import TrashIcon from '../../../assets/images/trashIcon.svg';
 import PlayButton from '../../../assets/images/playIcon.svg';
-import { Touchable } from '../common';
+import CloseButton from '../../../assets/images/closeButton.svg';
+import { Touchable, Text } from '../common';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -30,22 +32,47 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
   const ratio = 16.0 / 9.0;
   const height = (width && ratio * width) || 300;
 
+  const renderPauseButton = () => (
+    <Touchable
+      testID="RecordButton"
+      style={styles.pausePlayButton}
+      onPress={togglePaused}
+    >
+      {paused ? <PlayIcon /> : <PauseIcon />}
+    </Touchable>
+  );
+
+  const renderFullScreen = () => (
+    <View style={styles.fullScreenContainer}>
+      <SafeAreaView style={styles.closeWrap}>
+        <Touchable
+          testID="CloseButton"
+          onPress={toggleFullscreen}
+          style={styles.closeButton}
+        >
+          <CloseButton color={theme.white} height={36} width={36} />
+        </Touchable>
+      </SafeAreaView>
+      <SafeAreaView style={styles.controlBarBackground}>
+        <View style={styles.controlBarWrap}>
+          <View style={styles.countdownTextWrap}>
+            <Text style={styles.countdownText}>:15</Text>
+          </View>
+          {renderPauseButton()}
+          <Touchable testID="FlipCameraButton" onPress={toggleMuted}>
+            <MuteIcon />
+          </Touchable>
+        </View>
+      </SafeAreaView>
+    </View>
+  );
+
   const renderSmallScreen = () => (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
       <Touchable
         testID="DeleteButton"
         onPress={onDelete}
-        style={{
-          position: 'absolute',
-          top: 16,
-          right: 16,
-          width: 40,
-          height: 40,
-          borderRadius: 18,
-          alignItems: 'center',
-          justifyContent: 'center',
-          backgroundColor: theme.red,
-        }}
+        style={styles.deleteButton}
       >
         <TrashIcon />
       </Touchable>
@@ -68,11 +95,6 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
     </View>
   );
 
-  const renderFullScreen = () => <View></View>;
-
-  const renderVideoPlayerControls = () =>
-    fullscreen ? renderFullScreen() : renderSmallScreen();
-
   return (
     <View style={[styles.videoContainer, { height }, style]}>
       <Video
@@ -81,7 +103,7 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
         paused={paused}
         style={styles.videoPlayer}
       />
-      {renderVideoPlayerControls()}
+      {fullscreen ? renderFullScreen() : renderSmallScreen()}
     </View>
   );
 };
