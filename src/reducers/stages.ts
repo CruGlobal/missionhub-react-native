@@ -14,8 +14,6 @@ export interface Stage {
   description: string;
   self_followup_description: string;
   position: number;
-  name_i18n: string;
-  description_i18n: string;
   icon_url: string;
   localized_pathway_stages: LocalizedPathwayStage[];
 }
