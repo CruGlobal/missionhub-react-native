@@ -444,6 +444,7 @@ describe('long-press card', () => {
       expect(useMutation).toHaveBeenMutatedWith(DELETE_POST, {
         variables: { id: storyPostItem.subject.id },
       });
+      expect(onEditPost).toHaveBeenCalledWith();
     });
   });
 
