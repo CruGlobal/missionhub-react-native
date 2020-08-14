@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { StyleProp, ViewStyle, View } from 'react-native';
-import Video from 'react-native-video';
+import Video, { OnProgressData } from 'react-native-video';
 import { SafeAreaView } from 'react-navigation';
 
 import TrashIcon from '../../../assets/images/trashIcon.svg';
@@ -9,7 +9,7 @@ import PlayIconEmpty from '../../../assets/images/playIconEmpty.svg';
 import PauseIcon from '../../../assets/images/pauseIcon.svg';
 import MutedIcon from '../../../assets/images/mutedIcon.svg';
 import UnmutedIcon from '../../../assets/images/unmutedIcon.svg';
-import CloseButton from '../../../assets/images/closeButton.svg';
+import CloseButton from '../../../assets/images/closeIcon.svg';
 import { Touchable, Text } from '../common';
 import theme from '../../theme';
 
@@ -23,9 +23,12 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
+  const player = useRef<Video>(null);
+
   const [paused, setPaused] = useState(true);
   const [muted, setMuted] = useState(false);
   const [fullscreen, setFullscreen] = useState(false);
+  const [countdownTime, setCountdownTime] = useState<number>(0);
 
   const togglePaused = () => setPaused(!paused);
 
@@ -34,6 +37,19 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
   const toggleFullscreen = () => {
     setFullscreen(!fullscreen);
     setPaused(fullscreen);
+  };
+
+  const handleEnd = () => {
+    player.current && player.current.seek(0);
+    setPaused(true);
+    setFullscreen(false);
+  };
+
+  const handleProgress = ({
+    currentTime,
+    seekableDuration,
+  }: OnProgressData) => {
+    setCountdownTime(Math.ceil(seekableDuration - currentTime));
   };
 
   const ratio = 16.0 / 9.0;
@@ -65,7 +81,7 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
 
   const renderFullScreen = () => (
     <View style={styles.fullScreenContainer}>
-      <SafeAreaView style={styles.closeWrap}>
+      <SafeAreaView>
         <Touchable
           testID="CloseButton"
           onPress={toggleFullscreen}
@@ -77,7 +93,7 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
       <SafeAreaView style={styles.controlBarBackground}>
         <View style={styles.controlBarWrap}>
           <View style={styles.countdownTextWrap}>
-            <Text style={styles.countdownText}>:15</Text>
+            <Text style={styles.countdownText}>{`:${countdownTime}`}</Text>
           </View>
           {renderPauseButton()}
           {renderMuteButton()}
@@ -110,10 +126,14 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
   return (
     <View style={[styles.videoContainer, { height }, style]}>
       <Video
+        ref={player}
         source={{ uri }}
         controls={false}
         paused={paused}
+        muted={muted}
         style={styles.videoPlayer}
+        onEnd={handleEnd}
+        onProgress={handleProgress}
       />
       {fullscreen ? renderFullScreen() : renderSmallScreen()}
     </View>

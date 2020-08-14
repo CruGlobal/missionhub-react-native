@@ -35,14 +35,15 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'space-between',
   },
-  closeWrap: {
-    width: theme.fullWidth,
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-  },
   closeButton: {
-    margin: 18,
+    position: 'absolute',
+    top: 16,
+    right: 16,
+    width: 40,
+    height: 40,
     borderRadius: 18,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#00000066',
   },
   controlBarBackground: {
@@ -54,7 +55,6 @@ export default StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 24,
     paddingHorizontal: 32,
-    width: theme.fullWidth,
   },
   countdownTextWrap: {
     width: 40,
@@ -70,7 +70,7 @@ export default StyleSheet.create({
   pausePlayButton: {
     height: 48,
     width: 48,
-    borderWidth: 2,
+    borderWidth: 1,
     borderColor: theme.white,
     borderRadius: 24,
     justifyContent: 'center',
