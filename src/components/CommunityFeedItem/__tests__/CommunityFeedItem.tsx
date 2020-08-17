@@ -124,7 +124,7 @@ const newMemberItem = mockFragment<CommunityFeedItemFragment>(
   },
 );
 
-MockDate.set('2019-08-21 12:00:00', 300);
+MockDate.set('2019-08-21 12:00:00');
 
 const onClearNotification = jest.fn();
 const onEditPost = jest.fn();

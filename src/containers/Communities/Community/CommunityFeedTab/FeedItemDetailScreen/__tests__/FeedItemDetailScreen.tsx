@@ -26,7 +26,7 @@ jest.mock('../../../../../CommentItem', () => 'CommentItem');
 jest.mock('../../../../../../utils/hooks/useAnalytics');
 jest.mock('lodash.debounce', () => jest.fn().mockImplementation(fn => fn));
 
-MockDate.set('2019-04-12 12:00:00', 300);
+MockDate.set('2019-04-12 12:00:00');
 
 const myId = 'myId';
 const notMyId = 'notMyId';
