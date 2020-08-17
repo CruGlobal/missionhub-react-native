@@ -47,12 +47,12 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
             onPress={onDelete}
             style={styles.deleteButton}
           >
-            <View style={styles.playButton}>
-              <TrashIcon />
-            </View>
+            <TrashIcon />
           </Touchable>
         ) : null}
-        <PlayIconFull />
+        <View style={styles.playButton}>
+          <PlayIconFull />
+        </View>
       </Touchable>
     </View>
   );
