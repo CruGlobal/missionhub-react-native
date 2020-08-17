@@ -9819,42 +9819,27 @@ Array [
         }
       />
       <View
+        accessible={true}
+        focusable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
             "alignItems": "center",
             "flex": 1,
             "justifyContent": "center",
+            "opacity": 1,
           }
         }
+        testID="ControlsWrap"
       >
-        <View
-          accessible={true}
-          focusable={true}
-          isTVSelectable={true}
-          onClick={[Function]}
-          onResponderGrant={[Function]}
-          onResponderMove={[Function]}
-          onResponderRelease={[Function]}
-          onResponderTerminate={[Function]}
-          onResponderTerminationRequest={[Function]}
-          onStartShouldSetResponder={[Function]}
-          style={
-            Object {
-              "alignItems": "flex-start",
-              "backgroundColor": "#00000066",
-              "borderRadius": 32,
-              "height": 64,
-              "justifyContent": "center",
-              "margin": 16,
-              "opacity": 1,
-              "paddingLeft": 24,
-              "width": 64,
-            }
-          }
-          testID="PlayButton"
-        >
-          <SvgMock />
-        </View>
+        <SvgMock />
       </View>
     </View>
   </View>,

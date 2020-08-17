@@ -16,7 +16,7 @@ import MutedIcon from './mutedIcon.svg';
 import UnmutedIcon from './unmutedIcon.svg';
 import styles from './styles';
 
-interface VideFullScreenNavParams {
+interface VideoFullScreenNavParams {
   uri: string;
 }
 
@@ -38,7 +38,7 @@ export const VideoFullScreen = () => {
     currentTime,
     seekableDuration,
   }: OnProgressData) => {
-    setCountdownTime(Math.ceil(seekableDuration - currentTime));
+    setCountdownTime(Math.ceil((seekableDuration - currentTime) / 1000));
   };
 
   const renderPauseButton = () => (

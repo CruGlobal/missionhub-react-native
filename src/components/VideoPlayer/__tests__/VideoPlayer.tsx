@@ -2,102 +2,55 @@ import React from 'react';
 import { fireEvent } from 'react-native-testing-library';
 
 import { renderWithContext } from '../../../../testUtils';
+import { navigatePush } from '../../../actions/navigation';
+import { VIDEO_FULL_SCREEN } from '../../../containers/VideoFullScreen';
 import VideoPlayer from '../';
 
-jest.mock('react-native-video', () => 'Video');
+jest.mock('../../../actions/navigation');
 
-const onDelete = jest.fn();
-
-describe('small screen', () => {
-  it('renders correctly', () => {
-    renderWithContext(<VideoPlayer uri={'testVideo.mp4'} />).snapshot();
-  });
-
-  it('renders with style', () => {
-    renderWithContext(
-      <VideoPlayer uri={'testVideo.mp4'} style={{ height: 1000 }} />,
-    ).snapshot();
-  });
-
-  it('renders with delete button', () => {
-    renderWithContext(
-      <VideoPlayer
-        uri={'testVideo.mp4'}
-        style={{ height: 1000 }}
-        onDelete={onDelete}
-      />,
-    ).snapshot();
-  });
-
-  it('renders with width', () => {
-    renderWithContext(
-      <VideoPlayer uri={'testVideo.mp4'} width={900} />,
-    ).snapshot();
-  });
-
-  it('calls onDelete', () => {
-    const { getByTestId } = renderWithContext(
-      <VideoPlayer
-        uri={'testVideo.mp4'}
-        style={{ height: 1000 }}
-        onDelete={onDelete}
-      />,
-    );
-
-    fireEvent.press(getByTestId('DeleteButton'));
-
-    expect(onDelete).toHaveBeenCalledWith();
-  });
+beforeEach(() => {
+  (navigatePush as jest.Mock).mockReturnValue(() => Promise.resolve());
 });
 
-describe('fullscreen', () => {
-  it('renders not paused, unmuted', () => {
-    const { getByTestId, snapshot } = renderWithContext(
-      <VideoPlayer uri={'testVideo.mp4'} />,
-    );
+const uri = 'testVideo.mp4';
+const onDelete = jest.fn();
 
-    fireEvent.press(getByTestId('PlayButton'));
+it('renders correctly', () => {
+  renderWithContext(<VideoPlayer uri={'testVideo.mp4'} />).snapshot();
+});
 
-    snapshot();
-  });
+it('renders with style', () => {
+  renderWithContext(
+    <VideoPlayer uri={uri} style={{ height: 1000 }} />,
+  ).snapshot();
+});
 
-  it('renders paused, unmuted', () => {
-    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-      <VideoPlayer uri={'testVideo.mp4'} />,
-    );
+it('renders with delete button', () => {
+  renderWithContext(
+    <VideoPlayer uri={uri} style={{ height: 1000 }} onDelete={onDelete} />,
+  ).snapshot();
+});
 
-    fireEvent.press(getByTestId('PlayButton'));
+it('renders with width', () => {
+  renderWithContext(<VideoPlayer uri={uri} width={900} />).snapshot();
+});
 
-    recordSnapshot();
+it('calls onDelete', () => {
+  const { getByTestId } = renderWithContext(
+    <VideoPlayer uri={uri} style={{ height: 1000 }} onDelete={onDelete} />,
+  );
 
-    fireEvent.press(getByTestId('PausePlayButton'));
+  fireEvent.press(getByTestId('DeleteButton'));
 
-    diffSnapshot();
-  });
+  expect(onDelete).toHaveBeenCalledWith();
+});
 
-  it('renders not paused, muted', () => {
-    const { getByTestId, recordSnapshot, diffSnapshot } = renderWithContext(
-      <VideoPlayer uri={'testVideo.mp4'} />,
-    );
+it('navigates to VideoFullScreen', () => {
+  const { getByTestId } = renderWithContext(
+    <VideoPlayer uri={uri} onDelete={onDelete} />,
+  );
 
-    fireEvent.press(getByTestId('PlayButton'));
+  fireEvent.press(getByTestId('ControlsWrap'));
 
-    recordSnapshot();
-
-    fireEvent.press(getByTestId('MutedButton'));
-
-    diffSnapshot();
-  });
-
-  it('returns to small screen', () => {
-    const { getByTestId, snapshot } = renderWithContext(
-      <VideoPlayer uri={'testVideo.mp4'} />,
-    );
-
-    fireEvent.press(getByTestId('PlayButton'));
-
-    fireEvent.press(getByTestId('CloseButton'));
-
-    snapshot();
-  });
+  expect(navigatePush).toHaveBeenCalledWith(VIDEO_FULL_SCREEN, { uri });
 });

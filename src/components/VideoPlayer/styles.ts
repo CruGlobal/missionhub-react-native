@@ -9,7 +9,7 @@ export default StyleSheet.create({
   videoPlayer: {
     ...StyleSheet.absoluteFillObject,
   },
-  smallScreenWrap: { flex: 1, justifyContent: 'center', alignItems: 'center' },
+  controlsWrap: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   deleteButton: {
     position: 'absolute',
     top: 16,

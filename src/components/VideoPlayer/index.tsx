@@ -3,12 +3,12 @@ import { StyleProp, ViewStyle, View } from 'react-native';
 import Video from 'react-native-video';
 import { useDispatch } from 'react-redux';
 
-import TrashIcon from '../../../assets/images/trashIcon.svg';
-import PlayIconFull from '../../../assets/images/playIconFull.svg';
 import { navigatePush } from '../../actions/navigation';
 import { Touchable } from '../common';
 import { VIDEO_FULL_SCREEN } from '../../containers/VideoFullScreen';
 
+import TrashIcon from './trashIcon.svg';
+import PlayIconFull from './playIconFull.svg';
 import styles from './styles';
 
 interface VideoPlayerProps {
@@ -36,24 +36,24 @@ const VideoPlayer = ({ uri, style, onDelete, width }: VideoPlayerProps) => {
         paused={true}
         style={styles.videoPlayer}
       />
-      <View style={styles.smallScreenWrap}>
+      <Touchable
+        testID="ControlsWrap"
+        style={styles.controlsWrap}
+        onPress={openFullScreen}
+      >
         {onDelete ? (
           <Touchable
             testID="DeleteButton"
             onPress={onDelete}
             style={styles.deleteButton}
           >
-            <TrashIcon />
+            <View style={styles.playButton}>
+              <TrashIcon />
+            </View>
           </Touchable>
         ) : null}
-        <Touchable
-          testID="PlayButton"
-          style={styles.playButton}
-          onPress={openFullScreen}
-        >
-          <PlayIconFull />
-        </Touchable>
-      </View>
+        <PlayIconFull />
+      </Touchable>
     </View>
   );
 };
