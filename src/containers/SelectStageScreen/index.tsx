@@ -30,6 +30,7 @@ import {
   updateUserStage,
 } from '../../actions/selectStage';
 import { trackAction } from '../../actions/analytics';
+import { updatePersonGQL } from '../../actions/person';
 import { ACTIONS } from '../../constants';
 import { useAndroidBackButton } from '../../utils/hooks/useAndroidBackButton';
 import { AuthState } from '../../reducers/auth';
@@ -126,14 +127,17 @@ const SelectStageScreen = ({
     }, [stageIndex]),
   );
   const setStage = async (stage: Stage, isAlreadySelected: boolean) => {
-    !isAlreadySelected &&
-      (await dispatch(
+    if (!isAlreadySelected) {
+      await dispatch(
         isMe
           ? selectMyStage(stage.id)
           : contactAssignmentId
           ? updateUserStage(contactAssignmentId, stage.id)
           : selectPersonStage(personId, myId, stage.id, orgId),
-      ));
+      );
+      updatePersonGQL(personId);
+    }
+
     if (onComplete) {
       onComplete(stage);
     }

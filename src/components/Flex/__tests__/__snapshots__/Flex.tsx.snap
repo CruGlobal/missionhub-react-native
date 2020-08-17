@@ -28,6 +28,7 @@ exports[`renders alignSelf center correctly 1`] = `
 
 exports[`renders animation correctly 1`] = `
 <View
+  forwardedRef={[Function]}
   style={
     Object {
       "transform": Array [

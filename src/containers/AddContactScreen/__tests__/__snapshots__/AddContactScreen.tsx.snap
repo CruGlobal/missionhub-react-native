@@ -101,7 +101,6 @@ exports[`handleUpdateData should update the state 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -416,7 +415,6 @@ exports[`handleUpdateData should update the state 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -487,7 +485,6 @@ exports[`handleUpdateData should update the state 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -606,7 +603,6 @@ exports[`renders correctly | No Person 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -887,7 +883,6 @@ exports[`renders correctly | No Person 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1070,7 +1065,6 @@ exports[`renders correctly | With Person 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1337,7 +1331,6 @@ exports[`renders correctly | With Person 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1466,7 +1459,6 @@ exports[`savePerson add new person with org should add a new person 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1795,7 +1787,6 @@ exports[`savePerson add new person with org should add a new person 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -1866,7 +1857,6 @@ exports[`savePerson add new person with org should add a new person 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1943,7 +1933,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 - First value
 + Second value
 
-@@ -146,66 +146,33 @@
+@@ -145,66 +145,33 @@
                 style={
                   Array [
                     Object {},
@@ -2015,7 +2005,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 autoCorrect={false}
                 autoFocus={true}
                 blurOnSubmit={false}
-@@ -214,11 +181,11 @@
+@@ -213,11 +180,11 @@
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
                 onFocus={[Function onFocus]}
@@ -2028,7 +2018,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -231,18 +198,18 @@
+@@ -230,18 +197,18 @@
                       \\"fontSize\\": 16,
                       \\"letterSpacing\\": 0.25,
                       \\"paddingVertical\\": 5,
@@ -2050,7 +2040,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
             <View
               style={
                 Array [
-@@ -261,11 +228,11 @@
+@@ -260,11 +227,11 @@
                     },
                     Object {
                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
@@ -2063,7 +2053,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                     },
                   ]
                 }
-@@ -279,11 +246,11 @@
+@@ -278,11 +245,11 @@
                 multiline={false}
                 onBlur={[Function onBlur]}
                 onChangeText={[Function onChangeText]}
@@ -2076,7 +2066,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 selectionColor=\\"#3CC8E6\\"
                 style={
                   Array [
-@@ -296,23 +263,175 @@
+@@ -295,19 +262,170 @@
                       \\"fontSize\\": 16,
                       \\"letterSpacing\\": 0.25,
                       \\"paddingVertical\\": 5,
@@ -2092,8 +2082,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 testID=\\"lastNameInput\\"
                 underlineColorAndroid=\\"rgba(0,0,0,0)\\"
                 value=\\"\\"
-              />
-            </View>
++             />
++           </View>
 +           <View
 +             style={
 +               Array [
@@ -2158,8 +2148,8 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +               >
 +                 Choose a stage
 +               </Text>
-              </View>
-            </View>
++             </View>
++           </View>
 +           <View
 +             style={
 +               Array [
@@ -2192,14 +2182,13 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +             <View
 +               accessible={true}
 +               focusable={true}
-+               isTVSelectable={true}
-+               onClick={[Function bound touchableHandlePress]}
-+               onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+               onResponderMove={[Function bound touchableHandleResponderMove]}
-+               onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+               onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+               onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+               onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++               onClick={[Function onClick]}
++               onResponderGrant={[Function onResponderGrant]}
++               onResponderMove={[Function onResponderMove]}
++               onResponderRelease={[Function onResponderRelease]}
++               onResponderTerminate={[Function onResponderTerminate]}
++               onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++               onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +               style={
 +                 Object {
 +                   \\"opacity\\": 1,
@@ -2242,19 +2231,15 @@ exports[`savePerson add new person without org should add a new person 1`] = `
 +                 </Text>
 +                 <SvgMock
 +                   color=\\"#B4B6BA\\"
-+                 />
-                </View>
+                  />
++               </View>
 +             </View>
-+           </View>
-+         </View>
-+       </View>
-+     </View>
+            </View>
+          </View>
+        </View>
+      </View>
     </RCTScrollView>
-    <RCTSafeAreaView
-      emulateUnlessSupported={true}
-      style={
-        Object {
-@@ -347,24 +466,18 @@
+@@ -345,24 +463,18 @@
                 \\"alignItems\\": \\"center\\",
                 \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"height\\": 60,
@@ -2281,7 +2266,7 @@ exports[`savePerson add new person without org should add a new person 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -387,15 +500,11 @@
+@@ -385,15 +497,11 @@
                     \\"fontWeight\\": \\"500\\",
                     \\"letterSpacing\\": 1.5,
                     \\"textAlign\\": \\"center\\",
@@ -2401,7 +2386,6 @@ exports[`savePerson update existing person set last name to null should update p
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2716,7 +2700,6 @@ exports[`savePerson update existing person set last name to null should update p
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -2787,7 +2770,6 @@ exports[`savePerson update existing person set last name to null should update p
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -2960,7 +2942,6 @@ exports[`savePerson update existing person with org should update person and nav
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3275,7 +3256,6 @@ exports[`savePerson update existing person with org should update person and nav
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -3346,7 +3326,6 @@ exports[`savePerson update existing person with org should update person and nav
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -3519,7 +3498,6 @@ exports[`savePerson update existing person without org should update person and 
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3834,7 +3812,6 @@ exports[`savePerson update existing person without org should update person and 
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
               onClick={[Function]}
               onResponderGrant={[Function]}
               onResponderMove={[Function]}
@@ -3905,7 +3882,6 @@ exports[`savePerson update existing person without org should update person and 
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -4078,7 +4054,6 @@ exports[`savePerson update existing person without org updates users profile pic
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4448,7 +4423,6 @@ exports[`savePerson update existing person without org updates users profile pic
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}

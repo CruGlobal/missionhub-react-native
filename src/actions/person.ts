@@ -20,6 +20,7 @@ import {
   PERSON_TABS,
 } from '../containers/PersonScreen/PersonTabs';
 import { personSelector, contactAssignmentSelector } from '../selectors/people';
+import { GET_PERSON } from '../containers/AddContactScreen/queries';
 
 import callApi from './api';
 import { trackActionWithoutData } from './analytics';
@@ -384,3 +385,7 @@ export function navToPersonScreen(personId: string) {
     );
   };
 }
+
+export const updatePersonGQL = (id: string) => {
+  apolloClient.query({ query: GET_PERSON, variables: { id } });
+};

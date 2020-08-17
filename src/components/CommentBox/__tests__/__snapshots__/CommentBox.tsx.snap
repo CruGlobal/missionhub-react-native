@@ -18,7 +18,7 @@ exports[`click submit button calls onSubmit prop 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -120,9 +120,9 @@
+@@ -119,9 +119,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -41,14 +41,17 @@ exports[`handles start edit 1`] = `
 - First value
 + Second value
 
-@@ -9,52 +9,83 @@
+@@ -9,52 +9,82 @@
       }
     }
   >
     <View
       style={
 -       Array [
-+       Object {
+        Object {
+-           \\"alignItems\\": \\"center\\",
+-           \\"justifyContent\\": \\"center\\",
+-         },
 +         \\"backgroundColor\\": \\"#505256\\",
 +         \\"borderRadius\\": 25,
 +       }
@@ -57,19 +60,15 @@ exports[`handles start edit 1`] = `
 +     <View
 +       accessible={true}
 +       focusable={true}
-+       isTVSelectable={true}
-+       onClick={[Function bound touchableHandlePress]}
-+       onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+       onResponderMove={[Function bound touchableHandleResponderMove]}
-+       onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       onClick={[Function onClick]}
++       onResponderGrant={[Function onResponderGrant]}
++       onResponderMove={[Function onResponderMove]}
++       onResponderRelease={[Function onResponderRelease]}
++       onResponderTerminate={[Function onResponderTerminate]}
++       onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +       style={
-          Object {
--           \\"alignItems\\": \\"center\\",
--           \\"justifyContent\\": \\"center\\",
--         },
++         Object {
 +           \\"opacity\\": 1,
 +         }
 +       }
@@ -82,11 +81,11 @@ exports[`handles start edit 1`] = `
 -             \\"borderRadius\\": 18,
 -             \\"height\\": 36,
 -             \\"width\\": 36,
-+               \\"backgroundColor\\": \\"transparent\\",
-              },
+-           },
 -           Object {
 -             \\"backgroundColor\\": \\"#B4B6BA\\",
--           },
++               \\"backgroundColor\\": \\"transparent\\",
+              },
 -           undefined,
 -         ],
 +             null,
@@ -114,21 +113,21 @@ exports[`handles start edit 1`] = `
                   },
                   Array [
                     Object {
+-               \\"color\\": \\"#ffffff\\",
 +                     \\"margin\\": 10,
-+                   },
-+                   Object {
-                      \\"color\\": \\"#ffffff\\",
                     },
-+                 ],
-+               ],
-                Object {
+                    Object {
 -               \\"fontSize\\": 20,
 -               \\"fontWeight\\": \\"300\\",
++                     \\"color\\": \\"#ffffff\\",
+                    },
++                 ],
+                ],
++               Object {
 +                 \\"fontFamily\\": \\"icomoon\\",
 +                 \\"fontStyle\\": \\"normal\\",
 +                 \\"fontWeight\\": \\"normal\\",
-                },
--           ],
++               },
 +               Object {},
               ]
             }
@@ -143,7 +142,7 @@ exports[`handles start edit 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -98,11 +129,11 @@
+@@ -98,11 +128,11 @@
               \\"paddingVertical\\": 6,
             },
           ]
@@ -156,7 +155,7 @@ exports[`handles start edit 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -120,9 +151,9 @@
+@@ -119,9 +149,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -187,7 +186,7 @@ exports[`renders with disabled submit button 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -120,9 +120,9 @@
+@@ -119,9 +119,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -218,7 +217,7 @@ exports[`renders with text entered 1`] = `
     <View
       accessible={true}
       focusable={true}
-@@ -120,9 +120,9 @@
+@@ -119,9 +119,9 @@
         }
       }
       testID=\\"SubmitButton\\"
@@ -340,7 +339,6 @@ exports[`renders without actions 1`] = `
   <View
     accessible={true}
     focusable={true}
-    isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}

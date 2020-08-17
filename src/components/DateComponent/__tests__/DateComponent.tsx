@@ -5,7 +5,7 @@ import moment from 'moment';
 import { testSnapshotShallow, renderWithContext } from '../../../../testUtils';
 import DateComponent from '..';
 
-MockDate.set(moment('2018-06-11 12:00:00').toDate(), 0);
+MockDate.set(moment('2018-06-11 12:00:00').toDate());
 
 it('renders correctly', () => {
   testSnapshotShallow(<DateComponent date="2017-11-20" />);

@@ -49,7 +49,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -149,7 +148,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -273,7 +271,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -373,7 +370,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -497,7 +493,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -597,7 +592,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUCMENTS 
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -721,7 +715,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -821,7 +814,6 @@ exports[`User clicks the Modal Action Button Should fire the HANDLE_ANNOUNCEMENT
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

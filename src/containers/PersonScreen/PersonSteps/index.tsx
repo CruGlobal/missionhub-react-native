@@ -133,16 +133,8 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
 
   const handleCreateStep = () => {
     (contactAssignment && contactAssignment.pathway_stage_id) || isMe
-      ? dispatch(navigateToAddStepFlow(isMe, person, undefined))
-      : dispatch(
-          navigateToStageScreen(
-            false,
-            person,
-            contactAssignment,
-            undefined,
-            undefined,
-          ),
-        );
+      ? dispatch(navigateToAddStepFlow(person.id))
+      : dispatch(navigateToStageScreen(person.id));
   };
 
   const toggleCompletedSteps = () => {
@@ -190,7 +182,7 @@ export const PersonSteps = ({ collapsibleHeaderContext }: PersonStepsProps) => {
   const renderSectionFooter = ({
     section: { key },
   }: {
-    section: SectionListData<{ key: string }>;
+    section: SectionListData<PersonStepsList_person_steps_nodes>;
   }) => (key === 'active' ? renderCompletedStepsButton() : null);
 
   const { collapsibleScrollViewProps } = useContext(collapsibleHeaderContext);

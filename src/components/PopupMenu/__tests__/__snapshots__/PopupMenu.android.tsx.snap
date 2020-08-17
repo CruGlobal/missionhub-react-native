@@ -8,7 +8,6 @@ exports[`PopupMenu Android renders correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -151,7 +150,6 @@ exports[`PopupMenu Android renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -159,7 +157,6 @@ exports[`PopupMenu Android renders correctly 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -197,7 +194,6 @@ exports[`PopupMenu Android renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -205,7 +201,6 @@ exports[`PopupMenu Android renders correctly 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -255,7 +250,6 @@ exports[`PopupMenu Android renders disabled 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -400,7 +394,6 @@ exports[`PopupMenu Android renders disabled 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -408,7 +401,6 @@ exports[`PopupMenu Android renders disabled 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -446,7 +438,6 @@ exports[`PopupMenu Android renders disabled 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -454,7 +445,6 @@ exports[`PopupMenu Android renders disabled 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -504,7 +494,6 @@ exports[`PopupMenu Android renders for long press trigger 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -647,7 +636,6 @@ exports[`PopupMenu Android renders for long press trigger 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -655,7 +643,6 @@ exports[`PopupMenu Android renders for long press trigger 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -693,7 +680,6 @@ exports[`PopupMenu Android renders for long press trigger 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -701,7 +687,6 @@ exports[`PopupMenu Android renders for long press trigger 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -751,7 +736,6 @@ exports[`PopupMenu Android renders with button and icon props 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -898,7 +882,6 @@ exports[`PopupMenu Android renders with button and icon props 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -906,7 +889,6 @@ exports[`PopupMenu Android renders with button and icon props 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -944,7 +926,6 @@ exports[`PopupMenu Android renders with button and icon props 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -952,7 +933,6 @@ exports[`PopupMenu Android renders with button and icon props 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -1002,7 +982,6 @@ exports[`PopupMenu Android renders with children 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1087,7 +1066,6 @@ exports[`PopupMenu Android renders with children 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1095,7 +1073,6 @@ exports[`PopupMenu Android renders with children 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={
@@ -1133,7 +1110,6 @@ exports[`PopupMenu Android renders with children 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1141,7 +1117,6 @@ exports[`PopupMenu Android renders with children 1`] = `
             onResponderTerminate={[Function]}
             onResponderTerminationRequest={[Function]}
             onStartShouldSetResponder={[Function]}
-            style={null}
           >
             <View
               style={

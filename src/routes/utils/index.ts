@@ -23,7 +23,7 @@ export const paramsForStageNavigation = async (
 ) => {
   const {
     auth: { person: authPerson },
-    stages: { stages, stagesObj },
+    stages: { stages },
     people,
   } = getState();
 
@@ -34,7 +34,7 @@ export const paramsForStageNavigation = async (
     : selectContactAssignment(person, authPerson.id);
   const stageId = getStageId(isMe, assignment, authPerson);
   const hasHitCount = await hasHitThreeSteps(personId);
-  const isNotSure = hasNotSureStage(stagesObj, stageId);
+  const isNotSure = hasNotSureStage(stageId);
   const firstItemIndex = getStageIndex(stages, stageId);
   const firstName = isMe ? authPerson.first_name : person.first_name;
   const questionText = getQuestionText(isMe, isNotSure, firstName);
@@ -88,8 +88,8 @@ const hasHitThreeSteps = async (personId: string) => {
   }
 };
 
-function hasNotSureStage(stagesObj: StagesState['stagesObj'], stageId: string) {
-  return ((stagesObj && stagesObj[stageId]) || {}).name_i18n === 'notsure_name';
+function hasNotSureStage(stageId: string) {
+  return stageId === '6';
 }
 
 function getQuestionText(isMe: boolean, isNotSure: boolean, name: string) {

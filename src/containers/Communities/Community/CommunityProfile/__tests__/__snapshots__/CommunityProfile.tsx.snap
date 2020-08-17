@@ -5,7 +5,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 - First value
 + Second value
 
-@@ -180,11 +180,11 @@
+@@ -178,11 +178,11 @@
                         },
                       ],
                     ]
@@ -18,7 +18,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
             </View>
           </View>
         </View>
-@@ -197,10 +197,28 @@
+@@ -195,11 +195,28 @@
           \\"flex\\": 1,
         }
       }
@@ -26,15 +26,14 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
       <View
 +       accessible={true}
 +       focusable={true}
-+       isTVSelectable={true}
-+       onClick={[Function bound touchableHandlePress]}
-+       onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+       onResponderMove={[Function bound touchableHandleResponderMove]}
-+       onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-+       style={
++       onClick={[Function onClick]}
++       onResponderGrant={[Function onResponderGrant]}
++       onResponderMove={[Function onResponderMove]}
++       onResponderRelease={[Function onResponderRelease]}
++       onResponderTerminate={[Function onResponderTerminate]}
++       onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
 +         Object {
 +           \\"opacity\\": 1,
 +         }
@@ -42,17 +41,21 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +       testID=\\"popupMenuButton\\"
 +     >
 +       <View
-          style={
++         style={
             Array [
               Object {
                 \\"backgroundColor\\": \\"#005A7F\\",
                 \\"borderRadius\\": 4,
-@@ -228,10 +246,34 @@
+                \\"height\\": 421.875,
+@@ -223,14 +240,38 @@
+            style={
+              Object {
+                \\"borderRadius\\": 4,
                 \\"height\\": \\"100%\\",
                 \\"width\\": \\"100%\\",
-              }
-            }
-          />
++             }
++           }
++         />
 +         <View
 +           style={
 +             Array [
@@ -66,23 +69,24 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                 \\"justifyContent\\": \\"center\\",
 +               },
 +             ]
-+           }
+            }
 +         >
 +           <Image
 +             source={
 +               Object {
 +                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
 +               }
-+             }
-+           />
+              }
+            />
 +         </View>
-+       </View>
-      </View>
+        </View>
++     </View>
       <RCTScrollView
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -252,30 +294,131 @@
+            \\"flex\\": 1,
+@@ -250,30 +291,130 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -130,14 +134,13 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +           <View
 +             accessible={true}
 +             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
@@ -166,15 +169,14 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 <Text
 +                 allowFontScaling={false}
                   style={
-                    Array [
-                      Object {
--                   \\"color\\": \\"#505256\\",
++                   Array [
++                     Object {
 +                       \\"color\\": undefined,
 +                       \\"fontSize\\": 12,
-                      },
-+                     Array [
++                     },
+                      Array [
                         Object {
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"color\\": \\"#505256\\",
 +                         \\"color\\": \\"#ffffff\\",
 +                       },
 +                       Object {
@@ -183,9 +185,10 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                       Array [
 +                         Object {
 +                           \\"margin\\": 10,
-+                         },
+                          },
 +                         Array [
-+                           Object {
+                            Object {
+-                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                             \\"color\\": \\"#B2B0B2\\",
 +                             \\"margin\\": 0,
 +                             \\"paddingHorizontal\\": 10,
@@ -219,7 +222,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -537,25 +680,30 @@
+@@ -534,25 +675,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -251,7 +254,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 }
               >
                 <Text
-@@ -583,11 +731,11 @@
+@@ -580,11 +726,11 @@
                         },
                       ],
                     ]
@@ -264,7 +267,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
             </View>
           </View>
           <View
-@@ -680,25 +828,30 @@
+@@ -676,25 +822,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -296,7 +299,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                 }
               >
                 <Text
-@@ -726,11 +879,11 @@
+@@ -722,11 +873,11 @@
                         },
                       ],
                     ]
@@ -316,7 +319,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 - First value
 + Second value
 
-@@ -180,11 +180,11 @@
+@@ -178,11 +178,11 @@
                         },
                       ],
                     ]
@@ -329,7 +332,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             </View>
           </View>
         </View>
-@@ -197,28 +197,10 @@
+@@ -195,28 +195,11 @@
           \\"flex\\": 1,
         }
       }
@@ -337,15 +340,14 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
       <View
 -       accessible={true}
 -       focusable={true}
--       isTVSelectable={true}
--       onClick={[Function bound touchableHandlePress]}
--       onResponderGrant={[Function bound touchableHandleResponderGrant]}
--       onResponderMove={[Function bound touchableHandleResponderMove]}
--       onResponderRelease={[Function bound touchableHandleResponderRelease]}
--       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
--       style={
+-       onClick={[Function onClick]}
+-       onResponderGrant={[Function onResponderGrant]}
+-       onResponderMove={[Function onResponderMove]}
+-       onResponderRelease={[Function onResponderRelease]}
+-       onResponderTerminate={[Function onResponderTerminate]}
+-       onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+        style={
 -         Object {
 -           \\"opacity\\": 1,
 -         }
@@ -353,17 +355,21 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -       testID=\\"popupMenuButton\\"
 -     >
 -       <View
-        style={
+-         style={
           Array [
             Object {
               \\"backgroundColor\\": \\"#005A7F\\",
               \\"borderRadius\\": 4,
-@@ -246,34 +228,10 @@
+              \\"height\\": 421.875,
+@@ -240,38 +223,14 @@
+          style={
+            Object {
+              \\"borderRadius\\": 4,
               \\"height\\": \\"100%\\",
               \\"width\\": \\"100%\\",
-            }
-          }
-        />
+-             }
+-           }
+-         />
 -         <View
 -           style={
 -             Array [
@@ -377,23 +383,24 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                 \\"justifyContent\\": \\"center\\",
 -               },
 -             ]
--           }
+            }
 -         >
 -           <Image
 -             source={
 -               Object {
 -                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
 -               }
--             }
--           />
+          }
+        />
 -         </View>
--       </View>
       </View>
+-     </View>
       <RCTScrollView
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-@@ -294,131 +252,30 @@
+            \\"flex\\": 1,
+@@ -291,130 +250,30 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -441,14 +448,13 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -           <View
 -             accessible={true}
 -             focusable={true}
--             isTVSelectable={true}
--             onClick={[Function bound touchableHandlePress]}
--             onResponderGrant={[Function bound touchableHandleResponderGrant]}
--             onResponderMove={[Function bound touchableHandleResponderMove]}
--             onResponderRelease={[Function bound touchableHandleResponderRelease]}
--             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-             onClick={[Function onClick]}
+-             onResponderGrant={[Function onResponderGrant]}
+-             onResponderMove={[Function onResponderMove]}
+-             onResponderRelease={[Function onResponderRelease]}
+-             onResponderTerminate={[Function onResponderTerminate]}
+-             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -             style={
 -               Object {
 -                 \\"opacity\\": 1,
@@ -477,13 +483,12 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             <Text
 -                 allowFontScaling={false}
               style={
-                Array [
-                  Object {
+-                   Array [
+-                     Object {
 -                       \\"color\\": undefined,
 -                       \\"fontSize\\": 12,
-+                   \\"color\\": \\"#505256\\",
-                  },
--                     Array [
+-                     },
+                Array [
                   Object {
 -                         \\"color\\": \\"#ffffff\\",
 -                       },
@@ -493,9 +498,10 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                       Array [
 -                         Object {
 -                           \\"margin\\": 10,
--                         },
++                   \\"color\\": \\"#505256\\",
+                  },
 -                         Array [
--                           Object {
+                  Object {
 -                             \\"color\\": \\"#B2B0B2\\",
 -                             \\"margin\\": 0,
 -                             \\"paddingHorizontal\\": 10,
@@ -530,7 +536,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -680,30 +537,25 @@
+@@ -675,30 +534,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -562,7 +568,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 }
               >
                 <Text
-@@ -731,11 +583,11 @@
+@@ -726,11 +580,11 @@
                         },
                       ],
                     ]
@@ -575,7 +581,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             </View>
           </View>
           <View
-@@ -828,30 +680,25 @@
+@@ -822,30 +676,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -607,7 +613,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                 }
               >
                 <Text
-@@ -879,11 +726,11 @@
+@@ -873,11 +722,11 @@
                         },
                       ],
                     ]
@@ -627,7 +633,7 @@ exports[`CommunityProfile should render correctly 1`] = `
 - First value
 + Second value
 
-@@ -148,11 +148,27 @@
+@@ -147,11 +147,27 @@
               \\"alignItems\\": \\"center\\",
               \\"justifyContent\\": \\"center\\",
             },
@@ -655,7 +661,7 @@ exports[`CommunityProfile should render correctly 1`] = `
         style={
           Object {
             \\"flex\\": 1,
-@@ -188,11 +204,13 @@
+@@ -187,11 +203,13 @@
                     \\"fontSize\\": 32,
                     \\"letterSpacing\\": 0.25,
                   },
@@ -670,7 +676,7 @@ exports[`CommunityProfile should render correctly 1`] = `
             style={
               Array [
                 Object {
-@@ -248,11 +266,13 @@
+@@ -247,11 +265,13 @@
                       \\"color\\": \\"#ffffff\\",
                       \\"fontSize\\": 12,
                     },
@@ -685,7 +691,7 @@ exports[`CommunityProfile should render correctly 1`] = `
               style={
                 Array [
                   Object {},
-@@ -279,10 +299,29 @@
+@@ -278,10 +298,29 @@
                   ]
                 }
               >
@@ -715,7 +721,7 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -338,11 +377,13 @@
+@@ -337,11 +376,13 @@
                       \\"color\\": \\"#ffffff\\",
                       \\"fontSize\\": 12,
                     },
@@ -730,7 +736,7 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -412,11 +453,13 @@
+@@ -411,11 +452,13 @@
                       \\"color\\": \\"#ffffff\\",
                       \\"fontSize\\": 32,
                     },
@@ -744,8 +750,8 @@ exports[`CommunityProfile should render correctly 1`] = `
             <View
               accessible={true}
               focusable={true}
-              isTVSelectable={true}
-@@ -554,11 +597,11 @@
+              onClick={[Function onClick]}
+@@ -552,11 +595,11 @@
                       \\"marginRight\\": 5,
                     },
                   ]
@@ -807,7 +813,6 @@ Array [
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1182,7 +1187,6 @@ Array [
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1325,7 +1329,6 @@ Array [
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}

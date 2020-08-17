@@ -99,6 +99,7 @@ exports[`renders correctly render with Got It Button 1`] = `
       enableMomentum={false}
       enableSnap={true}
       firstItem={0}
+      forwardedRef={[Function]}
       getItem={[Function]}
       getItemCount={[Function]}
       hasParallaxImages={false}
@@ -118,7 +119,6 @@ exports[`renders correctly render with Got It Button 1`] = `
       loop={false}
       loopClonesPerSide={3}
       maxToRenderPerBatch={13}
-      numColumns={1}
       onContentSizeChange={[Function]}
       onEndReachedThreshold={2}
       onLayout={[Function]}
@@ -1446,7 +1446,6 @@ exports[`renders correctly render with Got It Button 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1534,7 +1533,6 @@ exports[`renders correctly render with Got It Button 1`] = `
             "top": 15,
           }
         }
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1706,6 +1704,7 @@ exports[`renders correctly renders correctly 1`] = `
       enableMomentum={false}
       enableSnap={true}
       firstItem={0}
+      forwardedRef={[Function]}
       getItem={[Function]}
       getItemCount={[Function]}
       hasParallaxImages={false}
@@ -1725,7 +1724,6 @@ exports[`renders correctly renders correctly 1`] = `
       loop={false}
       loopClonesPerSide={3}
       maxToRenderPerBatch={13}
-      numColumns={1}
       onContentSizeChange={[Function]}
       onEndReachedThreshold={2}
       onLayout={[Function]}
@@ -3094,7 +3092,6 @@ exports[`renders correctly renders correctly 1`] = `
             "top": 15,
           }
         }
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

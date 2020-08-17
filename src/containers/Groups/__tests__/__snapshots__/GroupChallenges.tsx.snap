@@ -18,10 +18,10 @@ exports[`should refresh items properly 1`] = `
 -     refreshing={false}
 +     refreshing={true}
       renderItem={[Function anonymous]}
-      renderSectionHeader={[Function renderSectionHeader]}
       scrollEventThrottle={0.0001}
-      sections={
-        Array ["
+      stickyHeaderIndices={
+        Array [
+          1,"
 `;
 
 exports[`should render correctly for basic member 1`] = `
@@ -109,49 +109,13 @@ exports[`should render correctly for basic member 1`] = `
     }
     refreshing={false}
     renderItem={[Function]}
-    renderSectionHeader={[Function]}
     scrollEventThrottle={0.0001}
-    sections={
-      Array [
-        Object {
-          "data": Array [
-            Object {
-              "accepted_count": 5,
-              "completed_count": 3,
-              "creator_id": "person1",
-              "end_date": "2018-10-06T14:13:21Z",
-              "id": "1",
-              "isPast": false,
-              "organization_id": "123",
-              "title": "Read \\"There and Back Again\\"",
-            },
-          ],
-          "title": "",
-        },
-        Object {
-          "data": Array [
-            Object {
-              "accepted_count": 5,
-              "completed_count": 3,
-              "creator_id": "person1",
-              "end_date": "2018-07-06T14:13:21Z",
-              "id": "2",
-              "isPast": true,
-              "organization_id": "123",
-              "title": "Past Challenge",
-            },
-          ],
-          "title": "Past Challenges",
-        },
-      ]
-    }
     stickyHeaderIndices={
       Array [
         1,
         4,
       ]
     }
-    stickySectionHeadersEnabled={true}
     testID="ChallengeFeed"
     updateCellsBatchingPeriod={50}
     windowSize={21}
@@ -229,7 +193,6 @@ exports[`should render correctly for basic member 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -509,7 +472,6 @@ exports[`should render correctly for basic member 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -653,7 +615,6 @@ exports[`should render correctly for basic member 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -993,11 +954,8 @@ exports[`should render empty correctly 1`] = `
     }
     refreshing={false}
     renderItem={[Function]}
-    renderSectionHeader={[Function]}
     scrollEventThrottle={0.0001}
-    sections={Array []}
     stickyHeaderIndices={Array []}
-    stickySectionHeadersEnabled={true}
     testID="ChallengeFeed"
     updateCellsBatchingPeriod={50}
     windowSize={21}

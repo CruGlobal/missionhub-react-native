@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">MissionHub</string>
     <string name="facebook_app_id">233292170040365</string>
+    <!-- We're setting the deployment key in JS so this is just a dummy value -->
+    <string moduleConfig="true" name="CodePushDeploymentKey">DeploymentKey</string>
 </resources>

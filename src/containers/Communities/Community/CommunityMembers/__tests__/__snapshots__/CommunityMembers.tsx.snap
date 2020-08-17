@@ -48,7 +48,6 @@ exports[`CommunityMembers renders with content 1`] = `
     initialNumToRender={12}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -107,7 +106,6 @@ exports[`CommunityMembers renders with content 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -270,7 +268,6 @@ exports[`CommunityMembers renders with content 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -373,7 +370,6 @@ exports[`CommunityMembers renders with content 1`] = `
             "top": 10,
           }
         }
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -505,7 +501,7 @@ exports[`CommunityMembers should load next page 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -110,11 +146,11 @@
+@@ -109,11 +145,11 @@
                   \\"marginTop\\": 15,
                 },
               ]
@@ -518,7 +514,7 @@ exports[`CommunityMembers should load next page 1`] = `
         <View
           onLayout={[Function onLayout]}
           style={null}
-@@ -416,10 +452,320 @@
+@@ -413,10 +449,318 @@
                         ]
                       }
                       testID=\\"Text\\"
@@ -538,14 +534,13 @@ exports[`CommunityMembers should load next page 1`] = `
 +         <View
 +           accessible={true}
 +           focusable={true}
-+           isTVSelectable={true}
-+           onClick={[Function bound touchableHandlePress]}
-+           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+           onResponderMove={[Function bound touchableHandleResponderMove]}
-+           onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
 +             Object {
 +               \\"backgroundColor\\": \\"#ffffff\\",
@@ -693,14 +688,13 @@ exports[`CommunityMembers should load next page 1`] = `
 +         <View
 +           accessible={true}
 +           focusable={true}
-+           isTVSelectable={true}
-+           onClick={[Function bound touchableHandlePress]}
-+           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+           onResponderMove={[Function bound touchableHandleResponderMove]}
-+           onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
 +             Object {
 +               \\"backgroundColor\\": \\"#ffffff\\",
@@ -868,7 +862,6 @@ exports[`CommunityMembers should render empty state 1`] = `
     initialNumToRender={12}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -959,7 +952,6 @@ exports[`CommunityMembers should render empty state 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1062,7 +1054,6 @@ exports[`CommunityMembers should render empty state 1`] = `
             "top": 10,
           }
         }
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1169,7 +1160,6 @@ exports[`CommunityMembers should render loading state 1`] = `
     initialNumToRender={12}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -1260,7 +1250,6 @@ exports[`CommunityMembers should render loading state 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1363,7 +1352,6 @@ exports[`CommunityMembers should render loading state 1`] = `
             "top": 10,
           }
         }
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

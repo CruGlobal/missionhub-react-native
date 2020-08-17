@@ -5,7 +5,7 @@ exports[`changes the title of the step and creates a new step 1`] = `
 - First value
 + Second value
 
-@@ -187,11 +187,11 @@
+@@ -186,11 +186,11 @@
               \\"marginVertical\\": 16,
             }
           }
@@ -81,7 +81,6 @@ exports[`should render correctly | Care Step 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -429,7 +428,7 @@ exports[`should render correctly | Care Step 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.3333333333333333,
+              "aspectRatio": 2,
             }
           }
         />
@@ -449,7 +448,6 @@ exports[`should render correctly | Care Step 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -582,7 +580,6 @@ exports[`should render correctly | Pray Step 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -949,7 +946,6 @@ exports[`should render correctly | Pray Step 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -1082,7 +1078,6 @@ exports[`should render correctly | Share Step 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1430,7 +1425,7 @@ exports[`should render correctly | Share Step 1`] = `
           }
           style={
             Object {
-              "aspectRatio": 1.3333333333333333,
+              "aspectRatio": 2,
             }
           }
         />
@@ -1450,7 +1445,6 @@ exports[`should render correctly | Share Step 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}

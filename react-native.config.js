@@ -1,13 +1,6 @@
 module.exports = {
   dependencies: {
-    'react-native-code-push': {
-      platforms: {
-        android: {
-          packageInstance:
-            'new CodePush("", getApplicationContext(), BuildConfig.DEBUG)',
-        },
-      },
-    },
+    // https://github.com/react-native-community/react-native-video/issues/1746#issuecomment-535310510
     'react-native-video': {
       platforms: {
         android: {

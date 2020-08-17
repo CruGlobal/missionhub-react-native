@@ -76,7 +76,7 @@ exports[`WelcomeScreen should render correctly 1`] = `
                       Object {
                         "margin": 10,
                       },
-                      Object {},
+                      undefined,
                     ],
                   ],
                   Object {
@@ -230,7 +230,7 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
                       Object {
                         "margin": 10,
                       },
-                      Object {},
+                      undefined,
                     ],
                   ],
                   Object {

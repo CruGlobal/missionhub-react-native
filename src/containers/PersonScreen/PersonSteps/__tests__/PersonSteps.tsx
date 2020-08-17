@@ -1,4 +1,4 @@
-/* eslint max-lines: 0 */
+/* eslint-disable max-lines */
 
 import { SectionList } from 'react-native';
 import React from 'react';
@@ -236,11 +236,7 @@ describe('handleCreateStep', () => {
 
       fireEvent.press(getByTestId('bottomButton'));
 
-      expect(navigateToAddStepFlow).toHaveBeenCalledWith(
-        true,
-        mePerson,
-        undefined,
-      );
+      expect(navigateToAddStepFlow).toHaveBeenCalledWith(mePerson.id);
     });
   });
 
@@ -260,13 +256,7 @@ describe('handleCreateStep', () => {
 
       fireEvent.press(getByTestId('bottomButton'));
 
-      expect(navigateToStageScreen).toHaveBeenCalledWith(
-        false,
-        assignedPerson,
-        contactAssignment,
-        undefined,
-        undefined,
-      );
+      expect(navigateToStageScreen).toHaveBeenCalledWith(assignedPerson.id);
     });
   });
 
@@ -286,11 +276,7 @@ describe('handleCreateStep', () => {
 
       fireEvent.press(getByTestId('bottomButton'));
 
-      expect(navigateToAddStepFlow).toHaveBeenCalledWith(
-        false,
-        personWithStage,
-        undefined,
-      );
+      expect(navigateToAddStepFlow).toHaveBeenCalledWith(personWithStage.id);
     });
   });
 });

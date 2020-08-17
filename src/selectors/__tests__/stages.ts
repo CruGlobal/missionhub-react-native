@@ -6,8 +6,6 @@ const stage = {
   description: 'Test Stage',
   self_followup_description: 'My Test Stage',
   position: 0,
-  name_i18n: '',
-  description_i18n: '',
   icon_url: '',
   localized_pathway_stages: [
     {
@@ -35,7 +33,6 @@ describe('stageSelector', () => {
     ).toMatchInlineSnapshot(`
       Object {
         "description": "Test Stage",
-        "description_i18n": "",
         "icon_url": "",
         "id": "1",
         "localized_pathway_stages": Array [
@@ -47,7 +44,6 @@ describe('stageSelector', () => {
           },
         ],
         "name": "Test",
-        "name_i18n": "",
         "position": 0,
         "self_followup_description": "My Test Stage",
       }
