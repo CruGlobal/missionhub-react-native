@@ -5,7 +5,7 @@ import { testSnapshotShallow } from '../../../../testUtils';
 import CardTime from '..';
 
 const date = '2017-10-09T13:51:49.888';
-MockDate.set('2017-10-13 12:00:00', 300);
+MockDate.set('2017-10-13 12:00:00');
 
 it('renders correctly', () => {
   testSnapshotShallow(<CardTime date={date} />);

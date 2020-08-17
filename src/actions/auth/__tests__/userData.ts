@@ -73,13 +73,13 @@ describe('updateLocaleAndTimezone', () => {
       },
     });
 
-    MockDate.set('2018-02-06', 300);
+    MockDate.set('2018-02-06');
     i18next.language = 'en-US';
 
     const newUserSettings = {
       data: {
         attributes: {
-          timezone: '-5',
+          timezone: '0',
           mobile_language: 'en-US',
         },
       },
@@ -155,7 +155,7 @@ describe('loadHome', () => {
   const userSettings = {
     data: {
       attributes: {
-        timezone: '-5',
+        timezone: '0',
         mobile_language: 'en-US',
       },
     },

@@ -25,7 +25,7 @@ jest.mock('../../../actions/navigation');
 jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 
-MockDate.set('2020-05-11 12:00:00', 300);
+MockDate.set('2020-05-11 12:00:00');
 
 const trackActionResults = { type: 'track action' };
 const navigateBackResults = { type: 'navigate back' };
