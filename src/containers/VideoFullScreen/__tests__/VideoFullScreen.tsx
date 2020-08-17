@@ -22,9 +22,9 @@ it('renders correctly', () => {
 
 it('sets video progress time', () => {
   const progress: OnProgressData = {
-    currentTime: 3333,
-    seekableDuration: 10000,
-    playableDuration: 10000,
+    currentTime: 3.3,
+    seekableDuration: 10.0,
+    playableDuration: 10.0,
   };
 
   const { getByType, recordSnapshot, diffSnapshot } = renderWithContext(

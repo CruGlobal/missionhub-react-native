@@ -51,7 +51,22 @@ exports[`pauses video 1`] = `
         Object {
           \\"uri\\": \\"file:/video.mov\\",
         }
-@@ -154,11 +154,11 @@
+@@ -141,24 +141,25 @@
+            onResponderTerminate={[Function onResponderTerminate]}
+            onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+            onStartShouldSetResponder={[Function onStartShouldSetResponder]}
+            style={
+              Object {
+-               \\"alignItems\\": \\"center\\",
++               \\"alignItems\\": \\"flex-start\\",
+                \\"borderColor\\": \\"#ffffff\\",
+                \\"borderRadius\\": 24,
+                \\"borderWidth\\": 1,
+                \\"height\\": 48,
+                \\"justifyContent\\": \\"center\\",
+                \\"opacity\\": 1,
++               \\"paddingLeft\\": 17,
+                \\"width\\": 48,
               }
             }
             testID=\\"PausePlayButton\\"

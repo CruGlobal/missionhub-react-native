@@ -38,13 +38,13 @@ export const VideoFullScreen = () => {
     currentTime,
     seekableDuration,
   }: OnProgressData) => {
-    setCountdownTime(Math.ceil((seekableDuration - currentTime) / 1000));
+    setCountdownTime(Math.ceil(seekableDuration - currentTime));
   };
 
   const renderPauseButton = () => (
     <Touchable
       testID="PausePlayButton"
-      style={styles.pausePlayButton}
+      style={[styles.pausePlayButton, paused ? styles.playButtonPadding : {}]}
       onPress={togglePaused}
     >
       {paused ? (

@@ -55,4 +55,9 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  playButtonPadding: {
+    paddingLeft: 17,
+    justifyContent: 'center',
+    alignItems: 'flex-start',
+  },
 });
