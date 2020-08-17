@@ -80,7 +80,6 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -147,7 +146,6 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -282,7 +280,6 @@ exports[`OnboardingAddPhotoScreen renders without image correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -344,7 +341,7 @@ exports[`OnboardingAddPhotoScreen should change an image 1`] = `
 - First value
 + Second value
 
-@@ -119,11 +119,11 @@
+@@ -118,11 +118,11 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -408,7 +405,7 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"transparent\\",
-@@ -138,146 +105,104 @@
+@@ -137,145 +104,103 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -421,14 +418,13 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
     <View
 -           accessible={true}
 -           focusable={true}
--           isTVSelectable={true}
--           onClick={[Function bound touchableHandlePress]}
--           onResponderGrant={[Function bound touchableHandleResponderGrant]}
--           onResponderMove={[Function bound touchableHandleResponderMove]}
--           onResponderRelease={[Function bound touchableHandleResponderRelease]}
--           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-           onClick={[Function onClick]}
+-           onResponderGrant={[Function onResponderGrant]}
+-           onResponderMove={[Function onResponderMove]}
+-           onResponderRelease={[Function onResponderRelease]}
+-           onResponderTerminate={[Function onResponderTerminate]}
+-           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
       style={
         Object {
 -               \\"opacity\\": 1,
@@ -514,14 +510,13 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
       <View
 +       accessible={true}
 +       focusable={true}
-+       isTVSelectable={true}
-+       onClick={[Function bound touchableHandlePress]}
-+       onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+       onResponderMove={[Function bound touchableHandleResponderMove]}
-+       onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+       onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+       onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+       onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++       onClick={[Function onClick]}
++       onResponderGrant={[Function onResponderGrant]}
++       onResponderMove={[Function onResponderMove]}
++       onResponderRelease={[Function onResponderRelease]}
++       onResponderTerminate={[Function onResponderTerminate]}
++       onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
         style={
           Object {
 -         \\"alignItems\\": \\"center\\",
@@ -534,10 +529,10 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
 +       <View
           style={
 -         Array [
--           Object {
+            Object {
 -             \\"color\\": \\"#505256\\",
 -           },
-            Object {
+-           Object {
 -             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -           },
 -           Object {
@@ -594,9 +589,9 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
-        onClick={[Function bound touchableHandlePress]}
-@@ -290,47 +215,70 @@
+        onClick={[Function onClick]}
+        onResponderGrant={[Function onResponderGrant]}
+@@ -287,47 +212,70 @@
         style={
           Object {
             \\"opacity\\": 1,
@@ -608,16 +603,16 @@ exports[`OnboardingAddPhotoScreen should select an image 1`] = `
         <View
           style={
 +           Array [
-+             Object {
-+               \\"alignItems\\": \\"center\\",
-+               \\"backgroundColor\\": \\"#52C5DC\\",
+              Object {
+                \\"alignItems\\": \\"center\\",
+                \\"backgroundColor\\": \\"#52C5DC\\",
 +               \\"height\\": 60,
 +               \\"justifyContent\\": \\"center\\",
 +             },
 +             null,
-              Object {
-                \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#52C5DC\\",
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#52C5DC\\",
                 \\"borderRadius\\": 24,
                 \\"height\\": 48,
                 \\"justifyContent\\": \\"center\\",

@@ -61,7 +61,6 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -107,7 +106,7 @@ exports[`JoinGroupScreen onSearch should set community after entering 6th digit 
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -363,7 +362,6 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -409,7 +407,7 @@ exports[`JoinGroupScreen onSearch should set input without calling serach has < 
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -631,7 +629,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
     }
     title="Join a Community"
   />
-  <ScrollViewMock
+  <ScrollView
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -711,7 +709,7 @@ exports[`JoinGroupScreen renders error correctly 1`] = `
         }
       }
     />
-  </ScrollViewMock>
+  </ScrollView>
 </View>
 `;
 
@@ -742,7 +740,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
     }
     title="Join a Community"
   />
-  <ScrollViewMock
+  <ScrollView
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -821,7 +819,7 @@ exports[`JoinGroupScreen renders group card correctly 1`] = `
         }
       }
     />
-  </ScrollViewMock>
+  </ScrollView>
 </View>
 `;
 
@@ -852,7 +850,7 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
     }
     title="Join a Community"
   />
-  <ScrollViewMock
+  <ScrollView
     keyboardShouldPersistTaps="handled"
     style={
       Object {
@@ -932,6 +930,6 @@ exports[`JoinGroupScreen renders start correctly 1`] = `
         }
       }
     />
-  </ScrollViewMock>
+  </ScrollView>
 </View>
 `;

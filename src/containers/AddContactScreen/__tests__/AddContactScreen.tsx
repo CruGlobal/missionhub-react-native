@@ -24,6 +24,9 @@ import { GET_PERSON } from '../queries';
 import { getPersonDetails } from '../../../actions/person';
 import { RelationshipTypeEnum } from '../../../../__generated__/globalTypes';
 import AddContactScreen from '..';
+import { mockFragment } from '../../../../testUtils/apolloMockClient';
+import { PERSON_FRAGMENT } from '../../../containers/PersonItem/queries';
+import { PersonFragment } from '../../../containers/PersonItem/__generated__/PersonFragment';
 
 jest.mock('../../../actions/analytics');
 jest.mock('../../../actions/navigation');
@@ -60,6 +63,8 @@ const loadPersonResults = {
 const getPersonDetailsResults = { type: 'get person details' };
 const closeDrawerResults = { type: 'drawer closed' };
 const next = jest.fn();
+
+const mockPerson = mockFragment<PersonFragment>(PERSON_FRAGMENT);
 
 const initialState = {
   auth: { person: me },
@@ -540,8 +545,12 @@ describe('savePerson', () => {
                 id: person.id,
                 relationshipType: null,
                 stage: {
+                  ...mockPerson.stage,
                   id: stageId,
                   name: stageName,
+                },
+                steps: {
+                  ...mockPerson.steps,
                 },
                 picture: null,
               }),
@@ -561,9 +570,18 @@ describe('savePerson', () => {
             id: person.id,
             relationshipType: null,
             stage: {
+              ...mockPerson.stage,
               __typename: 'Stage',
               id: stageId,
               name: stageName,
+            },
+            steps: {
+              ...mockPerson.steps,
+              __typename: 'StepConnection',
+              pageInfo: {
+                ...mockPerson.steps.pageInfo,
+                __typename: 'BasePageInfo',
+              },
             },
             picture: null,
           },

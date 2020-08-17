@@ -24,6 +24,7 @@ import {
   savePersonNote,
   getPersonNote,
   navToPersonScreen,
+  updatePersonGQL,
 } from '../person';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
@@ -37,6 +38,8 @@ import {
   ME_PERSON_TABS,
   PERSON_TABS,
 } from '../../containers/PersonScreen/PersonTabs';
+import { apolloClient } from '../../apolloClient';
+import { GET_PERSON } from '../../containers/AddContactScreen/queries';
 
 jest.mock('../api');
 jest.mock('../navigation');
@@ -720,6 +723,20 @@ describe('navToPersonScreen', () => {
       expect(navigatePush).toHaveBeenCalledWith(PERSON_TABS, {
         personId: person.id,
       });
+    });
+  });
+});
+
+describe('updatePersonGQL', () => {
+  it('queries for person updates', () => {
+    apolloClient.query = jest.fn();
+    const id = '2';
+
+    updatePersonGQL(id);
+
+    expect(apolloClient.query).toHaveBeenCalledWith({
+      query: GET_PERSON,
+      variables: { id },
     });
   });
 });

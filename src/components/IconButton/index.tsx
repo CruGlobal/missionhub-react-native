@@ -16,7 +16,7 @@ interface IconButtonProps extends IconProps {
   name: string;
   type?: 'Material' | 'FontAwesome' | 'Ionicons' | 'MissionHub';
   buttonStyle?: StyleProp<TextStyle>;
-  style?: StyleProp<TextStyle>;
+  style?: IconProps['style'];
   image?: ImageSourcePropType;
   onPress?: () => void;
   testID?: string;
@@ -28,7 +28,7 @@ const IconButton = ({
   name,
   type,
   buttonStyle,
-  style = {},
+  style,
   onPress,
   image,
   ...rest

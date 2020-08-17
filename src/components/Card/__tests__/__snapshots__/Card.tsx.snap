@@ -59,7 +59,7 @@ exports[`render card with children 1`] = `
 `;
 
 exports[`render touchable card 1`] = `
-<TouchableOpacity
+<ForwardRef
   accessibilityTraits="button"
   activeOpacity={0.6}
   onPress={[Function]}
@@ -88,7 +88,7 @@ exports[`render touchable card 1`] = `
 `;
 
 exports[`render touchable card with children 1`] = `
-<TouchableOpacity
+<ForwardRef
   accessibilityTraits="button"
   activeOpacity={0.6}
   onPress={[Function]}
@@ -119,5 +119,5 @@ exports[`render touchable card with children 1`] = `
       Testing
     </MyText>
   </View>
-</TouchableOpacity>
+</ForwardRef>
 `;

@@ -63,20 +63,21 @@ export const NotificationCenterItem = ({
       'original_poster',
     }
     const templateArray = messageTemplate.split(/(<<.*?>>)/).filter(Boolean);
-    return templateArray.map((word: string) => {
+    return templateArray.map((word: string, index: number) => {
       const filteredWord = word.replace(/[^a-zA-Z _]/g, '');
+      const key = `${word}${index}`;
       return word.match(/[<>]+/g) ? (
         Object.values(BoldedMessageVariableEnum).includes(filteredWord) ? (
-          <Text style={styles.boldedItemText}>
+          <Text style={styles.boldedItemText} key={key}>
             {getMessageVariable(filteredWord)}
           </Text>
         ) : (
-          <Text style={styles.itemText}>
+          <Text style={styles.itemText} key={key}>
             {getMessageVariable(filteredWord)}
           </Text>
         )
       ) : (
-        <Text key={word}>{word}</Text>
+        <Text key={key}>{word}</Text>
       );
     });
   };

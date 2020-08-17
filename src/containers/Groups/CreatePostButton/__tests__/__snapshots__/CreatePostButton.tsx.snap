@@ -30,7 +30,6 @@ exports[`does render announcement for owner 1`] = `
   <View
     accessible={true}
     focusable={true}
-    isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -128,7 +127,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,634 @@
+@@ -16,10 +16,628 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -181,14 +180,13 @@ exports[`onPress opens modal 1`] = `
 +           <View
 +             accessible={true}
 +             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
@@ -260,14 +258,13 @@ exports[`onPress opens modal 1`] = `
 +           <View
 +             accessible={true}
 +             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
@@ -361,14 +358,13 @@ exports[`onPress opens modal 1`] = `
 +           <View
 +             accessible={true}
 +             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
@@ -462,14 +458,13 @@ exports[`onPress opens modal 1`] = `
 +           <View
 +             accessible={true}
 +             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
@@ -563,14 +558,13 @@ exports[`onPress opens modal 1`] = `
 +           <View
 +             accessible={true}
 +             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
@@ -664,14 +658,13 @@ exports[`onPress opens modal 1`] = `
 +           <View
 +             accessible={true}
 +             focusable={true}
-+             isTVSelectable={true}
-+             onClick={[Function bound touchableHandlePress]}
-+             onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+             onResponderMove={[Function bound touchableHandleResponderMove]}
-+             onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+             onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+             onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+             onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++             onClick={[Function onClick]}
++             onResponderGrant={[Function onResponderGrant]}
++             onResponderMove={[Function onResponderMove]}
++             onResponderRelease={[Function onResponderRelease]}
++             onResponderTerminate={[Function onResponderTerminate]}
++             onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++             onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
@@ -761,8 +754,8 @@ exports[`onPress opens modal 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
-      onClick={[Function bound touchableHandlePress]}"
+      onClick={[Function onClick]}
+      onResponderGrant={[Function onResponderGrant]}"
 `;
 
 exports[`renders correctly 1`] = `
@@ -789,7 +782,6 @@ exports[`renders correctly 1`] = `
   <View
     accessible={true}
     focusable={true}
-    isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -906,7 +898,6 @@ exports[`renders correctly for admin 1`] = `
   <View
     accessible={true}
     focusable={true}
-    isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -1023,7 +1014,6 @@ exports[`renders correctly for owner 1`] = `
   <View
     accessible={true}
     focusable={true}
-    isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}
@@ -1140,7 +1130,6 @@ exports[`renders correctly with type 1`] = `
   <View
     accessible={true}
     focusable={true}
-    isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}

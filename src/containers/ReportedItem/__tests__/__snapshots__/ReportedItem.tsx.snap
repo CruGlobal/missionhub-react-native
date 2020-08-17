@@ -42,11 +42,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
-    }
-  >
+-       }
+-     }
+-   >
 -     <View
 -       style={
 -         Array [
@@ -75,27 +73,22 @@ exports[`Reported Post call handleDelete 1`] = `
 -         Reported By
 -         :
 -       </Text>
-+   <SvgMock />
-    <Text
+-       <Text
 -         numberOfLines={1}
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-          },
-          Object {
-            \\"color\\": \\"#505256\\",
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
-          },
-        ]
-      }
-    >
+-         style={
+-           Array [
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-             Object {
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             },
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-           ]
+-         }
+-       >
 -         Roscoe Johnson
 -       </Text>
 -       <Text
@@ -135,8 +128,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -       testID=\\"openPostButton\\"
 -     >
 -       Open Post
-+     Hurray
-    </Text>
+-     </Text>
 -   </View>
 -   <View
 -     style={
@@ -174,7 +166,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -             },
 -             undefined,
 -           ]
--         }
++       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
+      }
 -       />
 -       <View
 -         style={
@@ -188,35 +182,41 @@ exports[`Reported Post call handleDelete 1`] = `
 -             },
 -             undefined,
 -           ]
--         }
--       >
--         <Text
+    }
+  >
++   <SvgMock />
+    <Text
 -           numberOfLines={2}
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          },
 -               Array [
--                 Object {
+          Object {
 -                   \\"color\\": \\"#007398\\",
 -                   \\"fontSize\\": 16,
 -                 },
 -                 Object {
--                   \\"color\\": \\"#505256\\",
+            \\"color\\": \\"#505256\\",
 -                   \\"fontSize\\": 16,
 -                   \\"fontWeight\\": \\"bold\\",
 -                   \\"lineHeight\\": 20,
--                 },
++           \\"fontSize\\": 24,
++           \\"fontWeight\\": \\"300\\",
++           \\"lineHeight\\": 30,
++           \\"paddingVertical\\": 20,
+          },
 -               ],
--             ]
--           }
--         >
+        ]
+      }
+    >
 -           Keaton Keeling
--         </Text>
++     Hurray
+    </Text>
     <Text
       style={
         Array [
@@ -300,14 +300,13 @@ exports[`Reported Post call handleDelete 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -376,14 +375,13 @@ exports[`Reported Post call handleDelete 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -484,11 +482,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         \\"borderBottomWidth\\": 1,
 -         \\"flexDirection\\": \\"row\\",
 -         \\"padding\\": 15,
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
-    }
-  >
+-       }
+-     }
+-   >
 -     <View
 -       style={
 -         Array [
@@ -517,27 +513,22 @@ exports[`Reported Post call handleIgnore 1`] = `
 -         Reported By
 -         :
 -       </Text>
-+   <SvgMock />
-    <Text
+-       <Text
 -         numberOfLines={1}
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-          },
-          Object {
-            \\"color\\": \\"#505256\\",
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
-          },
-        ]
-      }
-    >
+-         style={
+-           Array [
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-             Object {
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             },
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-             },
+-           ]
+-         }
+-       >
 -         Roscoe Johnson
 -       </Text>
 -       <Text
@@ -577,8 +568,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       testID=\\"openPostButton\\"
 -     >
 -       Open Post
-+     Hurray
-    </Text>
+-     </Text>
 -   </View>
 -   <View
 -     style={
@@ -616,7 +606,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             },
 -             undefined,
 -           ]
--         }
++       \\"justifyContent\\": \\"center\\",
++       \\"marginTop\\": \\"50%\\",
+      }
 -       />
 -       <View
 -         style={
@@ -630,35 +622,41 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             },
 -             undefined,
 -           ]
--         }
--       >
--         <Text
+    }
+  >
++   <SvgMock />
+    <Text
 -           numberOfLines={2}
--           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
+      style={
+        Array [
+          Object {
+            \\"color\\": \\"#505256\\",
+          },
+          Object {
+            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          },
 -               Array [
--                 Object {
+          Object {
 -                   \\"color\\": \\"#007398\\",
 -                   \\"fontSize\\": 16,
 -                 },
 -                 Object {
--                   \\"color\\": \\"#505256\\",
+            \\"color\\": \\"#505256\\",
 -                   \\"fontSize\\": 16,
 -                   \\"fontWeight\\": \\"bold\\",
 -                   \\"lineHeight\\": 20,
--                 },
++           \\"fontSize\\": 24,
++           \\"fontWeight\\": \\"300\\",
++           \\"lineHeight\\": 30,
++           \\"paddingVertical\\": 20,
+          },
 -               ],
--             ]
--           }
--         >
+        ]
+      }
+    >
 -           Keaton Keeling
--         </Text>
++     Hurray
+    </Text>
     <Text
       style={
         Array [
@@ -742,14 +740,13 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -818,14 +815,13 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -1313,7 +1309,6 @@ exports[`renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1389,7 +1384,6 @@ exports[`renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}

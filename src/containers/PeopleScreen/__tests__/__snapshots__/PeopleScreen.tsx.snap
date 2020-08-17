@@ -55,7 +55,6 @@ exports[`renders empty correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -146,7 +145,7 @@ exports[`renders empty correctly 1`] = `
             }
           }
         >
-          iure ut libero
+          recusandae ut nulla
         </Text>
         <Text
           style={
@@ -158,12 +157,11 @@ exports[`renders empty correctly 1`] = `
             }
           }
         >
-          sunt qui amet
+          ut libero qui
         </Text>
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -231,14 +229,13 @@ exports[`renders empty correctly 1`] = `
                 ]
               }
             >
-              QUI RECUSANDAE UT
+              QUAM IPSAM NOBIS
             </Text>
           </View>
         </View>
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -306,7 +303,7 @@ exports[`renders empty correctly 1`] = `
                 ]
               }
             >
-              DIGNISSIMOS DEBITIS INCIDUNT
+              SED LIBERO REPUDIANDAE
             </Text>
           </View>
         </View>
@@ -353,7 +350,6 @@ exports[`renders empty correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -392,7 +388,7 @@ exports[`renders empty correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "eos itaque velit",
+                  "uri": "et porro ut",
                 }
               }
               style={
@@ -403,7 +399,7 @@ exports[`renders empty correctly 1`] = `
                     "width": 42,
                   },
                   Object {
-                    "backgroundColor": "rgb(167, 123, 115)",
+                    "backgroundColor": "rgb(127, 155, 180)",
                   },
                   undefined,
                 ]
@@ -469,7 +465,6 @@ exports[`renders empty correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -515,20 +510,24 @@ exports[`renders empty correctly 1`] = `
       Array [
         Object {
           "__typename": "Person",
-          "fullName": "Keaton Keeling",
+          "firstName": "Hayden",
+          "fullName": "Clotilde Sanford",
           "id": "1",
+          "lastName": "Zieme",
+          "picture": "et porro ut",
+          "relationshipType": "neighbor",
           "stage": Object {
             "__typename": "Stage",
-            "iconUrl": "consequuntur corporis repellat",
+            "iconUrl": "ut sunt qui",
             "id": "2",
-            "name": "quisquam recusandae alias",
-            "position": 14675,
+            "name": "corporis repellat ratione",
+            "position": 18626,
           },
           "steps": Object {
             "__typename": "StepConnection",
             "pageInfo": Object {
               "__typename": "BasePageInfo",
-              "totalCount": 23608,
+              "totalCount": 38791,
             },
           },
         },
@@ -541,7 +540,6 @@ exports[`renders empty correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -580,20 +578,24 @@ exports[`renders empty correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
-              "fullName": "Keaton Keeling",
+              "firstName": "Hayden",
+              "fullName": "Clotilde Sanford",
               "id": "1",
+              "lastName": "Zieme",
+              "picture": "et porro ut",
+              "relationshipType": "neighbor",
               "stage": Object {
                 "__typename": "Stage",
-                "iconUrl": "consequuntur corporis repellat",
+                "iconUrl": "ut sunt qui",
                 "id": "2",
-                "name": "quisquam recusandae alias",
-                "position": 14675,
+                "name": "corporis repellat ratione",
+                "position": 18626,
               },
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 23608,
+                  "totalCount": 38791,
                 },
               },
             }
@@ -615,7 +617,6 @@ exports[`renders empty correctly 1`] = `
     <View
       accessible={true}
       focusable={true}
-      isTVSelectable={true}
       onClick={[Function]}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
@@ -747,7 +748,6 @@ exports[`renders with people correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -838,7 +838,7 @@ exports[`renders with people correctly 1`] = `
             }
           }
         >
-          eos sint autem
+          et dolorum architecto
         </Text>
         <Text
           style={
@@ -850,12 +850,11 @@ exports[`renders with people correctly 1`] = `
             }
           }
         >
-          sed quae nam
+          delectus aut nam
         </Text>
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -923,14 +922,13 @@ exports[`renders with people correctly 1`] = `
                 ]
               }
             >
-              RERUM DOLOREMQUE OFFICIA
+              FUGIT REPELLENDUS HIC
             </Text>
           </View>
         </View>
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -998,7 +996,7 @@ exports[`renders with people correctly 1`] = `
                 ]
               }
             >
-              SAEPE CONSEQUATUR VEL
+              VEL LABORE OMNIS
             </Text>
           </View>
         </View>
@@ -1045,7 +1043,6 @@ exports[`renders with people correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1084,7 +1081,7 @@ exports[`renders with people correctly 1`] = `
               resizeMode="cover"
               source={
                 Object {
-                  "uri": "placeat quidem est",
+                  "uri": "voluptas culpa non",
                 }
               }
               style={
@@ -1095,7 +1092,7 @@ exports[`renders with people correctly 1`] = `
                     "width": 42,
                   },
                   Object {
-                    "backgroundColor": "rgb(123, 167, 115)",
+                    "backgroundColor": "rgb(154, 123, 115)",
                   },
                   undefined,
                 ]
@@ -1161,7 +1158,6 @@ exports[`renders with people correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1207,50 +1203,39 @@ exports[`renders with people correctly 1`] = `
       Array [
         Object {
           "__typename": "Person",
-          "fullName": "Fanny Marks",
+          "firstName": "Hayden",
+          "fullName": "Lexie Cremin",
           "id": "1",
+          "lastName": "Zieme",
+          "picture": "voluptas culpa non",
+          "relationshipType": "neighbor",
           "stage": Object {
             "__typename": "Stage",
-            "iconUrl": "consequuntur corporis repellat",
+            "iconUrl": "ut sunt qui",
             "id": "2",
-            "name": "quisquam recusandae alias",
-            "position": 14675,
+            "name": "corporis repellat ratione",
+            "position": 18626,
           },
           "steps": Object {
             "__typename": "StepConnection",
             "pageInfo": Object {
               "__typename": "BasePageInfo",
-              "totalCount": 23608,
+              "totalCount": 38791,
             },
           },
         },
         Object {
           "__typename": "Person",
-          "fullName": "Audrey Huels",
+          "firstName": "Ezequiel",
+          "fullName": "Ezequiel Ortiz",
           "id": "3",
-          "stage": Object {
-            "__typename": "Stage",
-            "iconUrl": "eum eaque enim",
-            "id": "4",
-            "name": "saepe eum dicta",
-            "position": 16983,
-          },
-          "steps": Object {
-            "__typename": "StepConnection",
-            "pageInfo": Object {
-              "__typename": "BasePageInfo",
-              "totalCount": 5924,
-            },
-          },
-        },
-        Object {
-          "__typename": "Person",
-          "fullName": "Chyna Howe",
-          "id": "5",
+          "lastName": "Ortiz",
+          "picture": "enim ipsum inventore",
+          "relationshipType": "coworker",
           "stage": Object {
             "__typename": "Stage",
             "iconUrl": "deserunt quam tempore",
-            "id": "6",
+            "id": "4",
             "name": "debitis libero aspernatur",
             "position": 95788,
           },
@@ -1264,50 +1249,39 @@ exports[`renders with people correctly 1`] = `
         },
         Object {
           "__typename": "Person",
-          "fullName": "Ezequiel Ortiz",
-          "id": "7",
-          "stage": Object {
-            "__typename": "Stage",
-            "iconUrl": "nostrum ipsam qui",
-            "id": "8",
-            "name": "provident velit eligendi",
-            "position": 68650,
-          },
-          "steps": Object {
-            "__typename": "StepConnection",
-            "pageInfo": Object {
-              "__typename": "BasePageInfo",
-              "totalCount": 78331,
-            },
-          },
-        },
-        Object {
-          "__typename": "Person",
+          "firstName": "Gracie",
           "fullName": "Gracie Weber",
-          "id": "9",
+          "id": "5",
+          "lastName": "Weber",
+          "picture": "velit eligendi nostrum",
+          "relationshipType": "friend",
           "stage": Object {
             "__typename": "Stage",
-            "iconUrl": "aperiam placeat fuga",
-            "id": "10",
-            "name": "fugiat velit sit",
-            "position": 98886,
+            "iconUrl": "repellendus fugiat velit",
+            "id": "6",
+            "name": "ipsam qui nobis",
+            "position": 1828,
           },
           "steps": Object {
             "__typename": "StepConnection",
             "pageInfo": Object {
               "__typename": "BasePageInfo",
-              "totalCount": 66063,
+              "totalCount": 3417,
             },
           },
         },
         Object {
           "__typename": "Person",
+          "firstName": "Kali",
           "fullName": "Kali Stamm",
-          "id": "11",
+          "id": "7",
+          "lastName": "Stamm",
+          "picture": "fuga doloribus distinctio",
+          "relationshipType": "neighbor",
           "stage": Object {
             "__typename": "Stage",
             "iconUrl": "ducimus temporibus modi",
-            "id": "12",
+            "id": "8",
             "name": "placeat ullam minima",
             "position": 10322,
           },
@@ -1321,50 +1295,39 @@ exports[`renders with people correctly 1`] = `
         },
         Object {
           "__typename": "Person",
+          "firstName": "Heather",
           "fullName": "Heather Hahn",
-          "id": "13",
+          "id": "9",
+          "lastName": "Hahn",
+          "picture": "totam voluptates explicabo",
+          "relationshipType": "friend",
           "stage": Object {
             "__typename": "Stage",
-            "iconUrl": "explicabo exercitationem ut",
-            "id": "14",
-            "name": "ducimus totam voluptates",
-            "position": 28777,
+            "iconUrl": "sed magni cupiditate",
+            "id": "10",
+            "name": "exercitationem ut quis",
+            "position": 1936,
           },
           "steps": Object {
             "__typename": "StepConnection",
             "pageInfo": Object {
               "__typename": "BasePageInfo",
-              "totalCount": 11949,
+              "totalCount": 8362,
             },
           },
         },
         Object {
           "__typename": "Person",
+          "firstName": "Marlene",
           "fullName": "Marlene Ledner",
-          "id": "15",
-          "stage": Object {
-            "__typename": "Stage",
-            "iconUrl": "vitae soluta sint",
-            "id": "16",
-            "name": "magni cupiditate sit",
-            "position": 21162,
-          },
-          "steps": Object {
-            "__typename": "StepConnection",
-            "pageInfo": Object {
-              "__typename": "BasePageInfo",
-              "totalCount": 91044,
-            },
-          },
-        },
-        Object {
-          "__typename": "Person",
-          "fullName": "Connor Kihn",
-          "id": "17",
+          "id": "11",
+          "lastName": "Ledner",
+          "picture": "sint non voluptates",
+          "relationshipType": "neighbor",
           "stage": Object {
             "__typename": "Stage",
             "iconUrl": "qui illo error",
-            "id": "18",
+            "id": "12",
             "name": "ut ullam quos",
             "position": 57411,
           },
@@ -1378,39 +1341,116 @@ exports[`renders with people correctly 1`] = `
         },
         Object {
           "__typename": "Person",
-          "fullName": "Shad Farrell",
-          "id": "19",
+          "firstName": "Connor",
+          "fullName": "Connor Kihn",
+          "id": "13",
+          "lastName": "Kihn",
+          "picture": "a officia quaerat",
+          "relationshipType": "coworker",
           "stage": Object {
             "__typename": "Stage",
-            "iconUrl": "quaerat cumque incidunt",
-            "id": "20",
-            "name": "ratione a officia",
-            "position": 10233,
+            "iconUrl": "provident esse hic",
+            "id": "14",
+            "name": "cumque incidunt aut",
+            "position": 69440,
           },
           "steps": Object {
             "__typename": "StepConnection",
             "pageInfo": Object {
               "__typename": "BasePageInfo",
-              "totalCount": 53344,
+              "totalCount": 49305,
             },
           },
         },
         Object {
           "__typename": "Person",
-          "fullName": "Alek Lesch",
-          "id": "21",
+          "firstName": "Shad",
+          "fullName": "Shad Farrell",
+          "id": "15",
+          "lastName": "Farrell",
+          "picture": "ut ab voluptas",
+          "relationshipType": "friend",
           "stage": Object {
             "__typename": "Stage",
-            "iconUrl": "quos esse ut",
-            "id": "22",
-            "name": "esse hic eligendi",
-            "position": 4995,
+            "iconUrl": "eos sint autem",
+            "id": "16",
+            "name": "sed quae nam",
+            "position": 94459,
           },
           "steps": Object {
             "__typename": "StepConnection",
             "pageInfo": Object {
               "__typename": "BasePageInfo",
-              "totalCount": 76548,
+              "totalCount": 2980,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "firstName": "Alek",
+          "fullName": "Alek Lesch",
+          "id": "17",
+          "lastName": "Lesch",
+          "picture": "aut ut ut",
+          "relationshipType": "friend",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "saepe consequatur vel",
+            "id": "18",
+            "name": "eos ducimus eos",
+            "position": 39767,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 53842,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "firstName": "Marco",
+          "fullName": "Marco Volkman",
+          "id": "19",
+          "lastName": "Volkman",
+          "picture": "et molestiae ea",
+          "relationshipType": "coworker",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "quidem est consequuntur",
+            "id": "20",
+            "name": "ut sunt placeat",
+            "position": 88330,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 69020,
+            },
+          },
+        },
+        Object {
+          "__typename": "Person",
+          "firstName": "Haylee",
+          "fullName": "Haylee Klocko",
+          "id": "21",
+          "lastName": "Klocko",
+          "picture": "est placeat ex",
+          "relationshipType": "neighbor",
+          "stage": Object {
+            "__typename": "Stage",
+            "iconUrl": "ex eveniet facere",
+            "id": "22",
+            "name": "ut voluptas enim",
+            "position": 42809,
+          },
+          "steps": Object {
+            "__typename": "StepConnection",
+            "pageInfo": Object {
+              "__typename": "BasePageInfo",
+              "totalCount": 88134,
             },
           },
         },
@@ -1423,7 +1463,6 @@ exports[`renders with people correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReachedThreshold={2}
     onLayout={[Function]}
@@ -1462,20 +1501,24 @@ exports[`renders with people correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
-              "fullName": "Fanny Marks",
+              "firstName": "Hayden",
+              "fullName": "Lexie Cremin",
               "id": "1",
+              "lastName": "Zieme",
+              "picture": "voluptas culpa non",
+              "relationshipType": "neighbor",
               "stage": Object {
                 "__typename": "Stage",
-                "iconUrl": "consequuntur corporis repellat",
+                "iconUrl": "ut sunt qui",
                 "id": "2",
-                "name": "quisquam recusandae alias",
-                "position": 14675,
+                "name": "corporis repellat ratione",
+                "position": 18626,
               },
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 23608,
+                  "totalCount": 38791,
                 },
               },
             }
@@ -1490,40 +1533,16 @@ exports[`renders with people correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
-              "fullName": "Audrey Huels",
+              "firstName": "Ezequiel",
+              "fullName": "Ezequiel Ortiz",
               "id": "3",
-              "stage": Object {
-                "__typename": "Stage",
-                "iconUrl": "eum eaque enim",
-                "id": "4",
-                "name": "saepe eum dicta",
-                "position": 16983,
-              },
-              "steps": Object {
-                "__typename": "StepConnection",
-                "pageInfo": Object {
-                  "__typename": "BasePageInfo",
-                  "totalCount": 5924,
-                },
-              },
-            }
-          }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <PersonItem
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Chyna Howe",
-              "id": "5",
+              "lastName": "Ortiz",
+              "picture": "enim ipsum inventore",
+              "relationshipType": "coworker",
               "stage": Object {
                 "__typename": "Stage",
                 "iconUrl": "deserunt quam tempore",
-                "id": "6",
+                "id": "4",
                 "name": "debitis libero aspernatur",
                 "position": 95788,
               },
@@ -1546,48 +1565,24 @@ exports[`renders with people correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
-              "fullName": "Ezequiel Ortiz",
-              "id": "7",
-              "stage": Object {
-                "__typename": "Stage",
-                "iconUrl": "nostrum ipsam qui",
-                "id": "8",
-                "name": "provident velit eligendi",
-                "position": 68650,
-              },
-              "steps": Object {
-                "__typename": "StepConnection",
-                "pageInfo": Object {
-                  "__typename": "BasePageInfo",
-                  "totalCount": 78331,
-                },
-              },
-            }
-          }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <PersonItem
-          person={
-            Object {
-              "__typename": "Person",
+              "firstName": "Gracie",
               "fullName": "Gracie Weber",
-              "id": "9",
+              "id": "5",
+              "lastName": "Weber",
+              "picture": "velit eligendi nostrum",
+              "relationshipType": "friend",
               "stage": Object {
                 "__typename": "Stage",
-                "iconUrl": "aperiam placeat fuga",
-                "id": "10",
-                "name": "fugiat velit sit",
-                "position": 98886,
+                "iconUrl": "repellendus fugiat velit",
+                "id": "6",
+                "name": "ipsam qui nobis",
+                "position": 1828,
               },
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 66063,
+                  "totalCount": 3417,
                 },
               },
             }
@@ -1602,12 +1597,16 @@ exports[`renders with people correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
+              "firstName": "Kali",
               "fullName": "Kali Stamm",
-              "id": "11",
+              "id": "7",
+              "lastName": "Stamm",
+              "picture": "fuga doloribus distinctio",
+              "relationshipType": "neighbor",
               "stage": Object {
                 "__typename": "Stage",
                 "iconUrl": "ducimus temporibus modi",
-                "id": "12",
+                "id": "8",
                 "name": "placeat ullam minima",
                 "position": 10322,
               },
@@ -1630,20 +1629,24 @@ exports[`renders with people correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
+              "firstName": "Heather",
               "fullName": "Heather Hahn",
-              "id": "13",
+              "id": "9",
+              "lastName": "Hahn",
+              "picture": "totam voluptates explicabo",
+              "relationshipType": "friend",
               "stage": Object {
                 "__typename": "Stage",
-                "iconUrl": "explicabo exercitationem ut",
-                "id": "14",
-                "name": "ducimus totam voluptates",
-                "position": 28777,
+                "iconUrl": "sed magni cupiditate",
+                "id": "10",
+                "name": "exercitationem ut quis",
+                "position": 1936,
               },
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 11949,
+                  "totalCount": 8362,
                 },
               },
             }
@@ -1658,40 +1661,16 @@ exports[`renders with people correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
+              "firstName": "Marlene",
               "fullName": "Marlene Ledner",
-              "id": "15",
-              "stage": Object {
-                "__typename": "Stage",
-                "iconUrl": "vitae soluta sint",
-                "id": "16",
-                "name": "magni cupiditate sit",
-                "position": 21162,
-              },
-              "steps": Object {
-                "__typename": "StepConnection",
-                "pageInfo": Object {
-                  "__typename": "BasePageInfo",
-                  "totalCount": 91044,
-                },
-              },
-            }
-          }
-        />
-      </View>
-      <View
-        onLayout={[Function]}
-        style={null}
-      >
-        <PersonItem
-          person={
-            Object {
-              "__typename": "Person",
-              "fullName": "Connor Kihn",
-              "id": "17",
+              "id": "11",
+              "lastName": "Ledner",
+              "picture": "sint non voluptates",
+              "relationshipType": "neighbor",
               "stage": Object {
                 "__typename": "Stage",
                 "iconUrl": "qui illo error",
-                "id": "18",
+                "id": "12",
                 "name": "ut ullam quos",
                 "position": 57411,
               },
@@ -1714,20 +1693,120 @@ exports[`renders with people correctly 1`] = `
           person={
             Object {
               "__typename": "Person",
-              "fullName": "Shad Farrell",
-              "id": "19",
+              "firstName": "Connor",
+              "fullName": "Connor Kihn",
+              "id": "13",
+              "lastName": "Kihn",
+              "picture": "a officia quaerat",
+              "relationshipType": "coworker",
               "stage": Object {
                 "__typename": "Stage",
-                "iconUrl": "quaerat cumque incidunt",
-                "id": "20",
-                "name": "ratione a officia",
-                "position": 10233,
+                "iconUrl": "provident esse hic",
+                "id": "14",
+                "name": "cumque incidunt aut",
+                "position": 69440,
               },
               "steps": Object {
                 "__typename": "StepConnection",
                 "pageInfo": Object {
                   "__typename": "BasePageInfo",
-                  "totalCount": 53344,
+                  "totalCount": 49305,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "firstName": "Shad",
+              "fullName": "Shad Farrell",
+              "id": "15",
+              "lastName": "Farrell",
+              "picture": "ut ab voluptas",
+              "relationshipType": "friend",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "eos sint autem",
+                "id": "16",
+                "name": "sed quae nam",
+                "position": 94459,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 2980,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "firstName": "Alek",
+              "fullName": "Alek Lesch",
+              "id": "17",
+              "lastName": "Lesch",
+              "picture": "aut ut ut",
+              "relationshipType": "friend",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "saepe consequatur vel",
+                "id": "18",
+                "name": "eos ducimus eos",
+                "position": 39767,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 53842,
+                },
+              },
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={[Function]}
+        style={null}
+      >
+        <PersonItem
+          person={
+            Object {
+              "__typename": "Person",
+              "firstName": "Marco",
+              "fullName": "Marco Volkman",
+              "id": "19",
+              "lastName": "Volkman",
+              "picture": "et molestiae ea",
+              "relationshipType": "coworker",
+              "stage": Object {
+                "__typename": "Stage",
+                "iconUrl": "quidem est consequuntur",
+                "id": "20",
+                "name": "ut sunt placeat",
+                "position": 88330,
+              },
+              "steps": Object {
+                "__typename": "StepConnection",
+                "pageInfo": Object {
+                  "__typename": "BasePageInfo",
+                  "totalCount": 69020,
                 },
               },
             }

@@ -7,10 +7,12 @@ import { renderWithContext } from '../../../../testUtils';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { CREATE_STEP_FROM_SUGGESTION_MUTATION } from '../queries';
 import { trackStepAdded } from '../../../actions/analytics';
+import { updatePersonGQL } from '../../../actions/person';
 import SuggestedStepDetailScreen from '..';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/analytics');
+jest.mock('../../../actions/person');
 jest.mock('../../../utils/hooks/useAnalytics');
 
 const myId = '4444';
@@ -144,6 +146,7 @@ describe('bottomButtonProps', () => {
         },
       },
     );
+    expect(updatePersonGQL).toHaveBeenCalledWith(personId);
     expect(next).toHaveBeenCalledWith({ personId, orgId });
     expect(store.getActions()).toEqual([trackStepAddedResponse, nextResponse]);
     expect(trackStepAdded).toHaveBeenCalledWith({

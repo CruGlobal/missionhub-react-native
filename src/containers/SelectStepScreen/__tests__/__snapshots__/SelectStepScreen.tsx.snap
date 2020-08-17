@@ -69,7 +69,6 @@ exports[`in onboarding renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -115,7 +114,7 @@ exports[`in onboarding renders correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -158,7 +157,6 @@ exports[`in onboarding renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -225,7 +223,6 @@ exports[`in onboarding renders correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -311,7 +308,6 @@ exports[`in onboarding renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -405,7 +401,6 @@ exports[`in onboarding renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -471,7 +466,6 @@ exports[`in onboarding renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -537,7 +531,6 @@ exports[`in onboarding renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -604,9 +597,9 @@ exports[`in onboarding renders correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <SafeAreaView>
+      <ForwardRef(SafeAreaView)>
         <FooterLoading />
-      </SafeAreaView>
+      </ForwardRef(SafeAreaView)>
     }
     ListHeaderComponent={
       <ErrorNotice
@@ -637,7 +630,6 @@ exports[`in onboarding renders correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -682,7 +674,6 @@ exports[`in onboarding renders correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -771,7 +762,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 - First value
 + Second value
 
-@@ -295,311 +295,10 @@
+@@ -292,307 +292,10 @@
           ]
         }
       >
@@ -788,14 +779,13 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -882,14 +872,13 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -948,14 +937,13 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -1014,14 +1002,13 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
 -       <View
 -         accessible={true}
 -         focusable={true}
--         isTVSelectable={true}
--         onClick={[Function bound touchableHandlePress]}
--         onResponderGrant={[Function bound touchableHandleResponderGrant]}
--         onResponderMove={[Function bound touchableHandleResponderMove]}
--         onResponderRelease={[Function bound touchableHandleResponderRelease]}
--         onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
--         onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
--         onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
+-         onClick={[Function onClick]}
+-         onResponderGrant={[Function onResponderGrant]}
+-         onResponderMove={[Function onResponderMove]}
+-         onResponderRelease={[Function onResponderRelease]}
+-         onResponderTerminate={[Function onResponderTerminate]}
+-         onResponderTerminationRequest={[Function onResponderTerminationRequest]}
+-         onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 -         style={
 -           Object {
 -             \\"opacity\\": 1,
@@ -1081,7 +1068,7 @@ exports[`loading should hide tabs when locale is not en or es 1`] = `
     </View>
     <RCTScrollView
       ListFooterComponent={
-        <SafeAreaView>
+        <ForwardRef(SafeAreaView)>
           <FooterLoading />"
 `;
 
@@ -1154,7 +1141,6 @@ exports[`loading should render correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1200,7 +1186,7 @@ exports[`loading should render correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -1243,7 +1229,6 @@ exports[`loading should render correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1329,7 +1314,6 @@ exports[`loading should render correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1423,7 +1407,6 @@ exports[`loading should render correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1489,7 +1472,6 @@ exports[`loading should render correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1555,7 +1537,6 @@ exports[`loading should render correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -1622,9 +1603,9 @@ exports[`loading should render correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <SafeAreaView>
+      <ForwardRef(SafeAreaView)>
         <FooterLoading />
-      </SafeAreaView>
+      </ForwardRef(SafeAreaView)>
     }
     ListHeaderComponent={
       <ErrorNotice
@@ -1655,7 +1636,6 @@ exports[`loading should render correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -1700,7 +1680,6 @@ exports[`loading should render correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -1853,7 +1832,6 @@ exports[`loading should render for self steps correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -1899,7 +1877,7 @@ exports[`loading should render for self steps correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -1976,9 +1954,9 @@ exports[`loading should render for self steps correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <SafeAreaView>
+      <ForwardRef(SafeAreaView)>
         <FooterLoading />
-      </SafeAreaView>
+      </ForwardRef(SafeAreaView)>
     }
     ListHeaderComponent={
       <ErrorNotice
@@ -2009,7 +1987,6 @@ exports[`loading should render for self steps correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -2054,7 +2031,6 @@ exports[`loading should render for self steps correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2207,7 +2183,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2253,7 +2228,7 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -2296,7 +2271,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2363,7 +2337,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -2449,7 +2422,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -2543,7 +2515,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -2609,7 +2580,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -2675,7 +2645,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -2742,9 +2711,9 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <SafeAreaView>
+      <ForwardRef(SafeAreaView)>
         <FooterLoading />
-      </SafeAreaView>
+      </ForwardRef(SafeAreaView)>
     }
     ListHeaderComponent={
       <ErrorNotice
@@ -2775,7 +2744,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -2820,7 +2788,6 @@ exports[`loading should show explainer modal if it's never been shown 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -2986,7 +2953,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3032,7 +2998,7 @@ exports[`loading skip button should render skip button correctly 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -3075,7 +3041,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3142,7 +3107,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3228,7 +3192,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -3322,7 +3285,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -3388,7 +3350,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -3454,7 +3415,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -3521,9 +3481,9 @@ exports[`loading skip button should render skip button correctly 1`] = `
   </View>
   <RCTScrollView
     ListFooterComponent={
-      <SafeAreaView>
+      <ForwardRef(SafeAreaView)>
         <FooterLoading />
-      </SafeAreaView>
+      </ForwardRef(SafeAreaView)>
     }
     ListHeaderComponent={
       <ErrorNotice
@@ -3554,7 +3514,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -3599,7 +3558,6 @@ exports[`loading skip button should render skip button correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -3752,7 +3710,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3798,7 +3755,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
                         Object {
                           "margin": 10,
                         },
-                        Object {},
+                        undefined,
                       ],
                     ],
                     Object {
@@ -3841,7 +3798,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
           <View
             accessible={true}
             focusable={true}
-            isTVSelectable={true}
             onClick={[Function]}
             onResponderGrant={[Function]}
             onResponderMove={[Function]}
@@ -3927,7 +3883,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4021,7 +3976,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4087,7 +4041,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4153,7 +4106,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -4219,7 +4171,7 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
     </View>
   </View>
   <RCTScrollView
-    ListFooterComponent={<SafeAreaView />}
+    ListFooterComponent={<ForwardRef(SafeAreaView) />}
     ListHeaderComponent={
       <ErrorNotice
         message="Error loading step suggestions"
@@ -4261,7 +4213,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
     initialNumToRender={10}
     keyExtractor={[Function]}
     maxToRenderPerBatch={10}
-    numColumns={1}
     onContentSizeChange={[Function]}
     onEndReached={[Function]}
     onEndReachedThreshold={0.2}
@@ -4306,7 +4257,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4364,7 +4314,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4421,7 +4370,6 @@ exports[`should hide step count badges when there are no completed steps 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -4495,7 +4443,7 @@ exports[`should load step suggestions 1`] = `
 - First value
 + Second value
 
-@@ -226,11 +226,11 @@
+@@ -224,11 +224,11 @@
               \\"textAlign\\": \\"center\\",
             },
           ]
@@ -4508,17 +4456,12 @@ exports[`should load step suggestions 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -298,11 +298,50 @@
-                    ],
-                  ]
-                }
-              >
-                Relate
-+             </Text>
-+           </View>
-+           <View
-+             style={
-+               Array [
+@@ -300,11 +300,50 @@
+              </Text>
+            </View>
+            <View
+              style={
+                Array [
 +                 Object {
 +                   \\"alignItems\\": \\"center\\",
 +                   \\"borderRadius\\": 30,
@@ -4527,7 +4470,7 @@ exports[`should load step suggestions 1`] = `
 +                   \\"paddingHorizontal\\": 14,
 +                   \\"paddingVertical\\": 3,
 +                 },
-+                 Object {
+                  Object {
 +                   \\"backgroundColor\\": \\"#ffffff\\",
 +                 },
 +               ]
@@ -4550,23 +4493,26 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             >
 +               0
-              </Text>
++             </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
 +             />
-            </View>
-            <View
-              style={
-                Array [
-                  Object {
-@@ -392,11 +431,50 @@
-                    ],
-                  ]
++           </View>
++           <View
++             style={
++               Array [
++                 Object {
+                    \\"backgroundColor\\": \\"transparent\\",
+                    \\"borderBottomWidth\\": 9,
+                    \\"borderLeftColor\\": \\"transparent\\",
+                    \\"borderLeftWidth\\": 7,
+                    \\"borderRightColor\\": \\"transparent\\",
+@@ -390,10 +429,49 @@
                 }
               >
                 Pray
-+             </Text>
-+           </View>
+              </Text>
+            </View>
 +           <View
 +             style={
 +               Array [
@@ -4601,16 +4547,17 @@ exports[`should load step suggestions 1`] = `
 +               }
 +             >
 +               0
-              </Text>
++             </Text>
 +             <SvgMock
 +               color=\\"#007398\\"
 +             />
-            </View>
++           </View>
           </View>
         </View>
         <View
           accessible={true}
-@@ -460,10 +538,49 @@
+          focusable={true}
+@@ -455,12 +533,51 @@
                 }
               >
                 Care
@@ -4654,13 +4601,15 @@ exports[`should load step suggestions 1`] = `
 +             <SvgMock
 +               color=\\"#007398\\"
 +             />
-+           </View>
+            </View>
           </View>
-        </View>
++       </View>
         <View
           accessible={true}
           focusable={true}
-@@ -524,22 +641,57 @@
+          onClick={[Function onClick]}
+          onResponderGrant={[Function onResponderGrant]}
+@@ -518,22 +635,57 @@
                     ],
                   ]
                 }
@@ -4713,17 +4662,17 @@ exports[`should load step suggestions 1`] = `
     </View>
     <RCTScrollView
 -     ListFooterComponent={
--       <SafeAreaView>
+-       <ForwardRef(SafeAreaView)>
 -         <FooterLoading />
--       </SafeAreaView>
+-       </ForwardRef(SafeAreaView)>
 -     }
-+     ListFooterComponent={<SafeAreaView />}
++     ListFooterComponent={<ForwardRef(SafeAreaView) />}
       ListHeaderComponent={
         <ErrorNotice
           message=\\"Error loading step suggestions\\"
           refetch={[Function anonymous]}
         />
-@@ -555,11 +707,23 @@
+@@ -549,11 +701,23 @@
           Object {
             \\"action\\": [Function action],
             \\"icon\\": true,
@@ -4747,7 +4696,7 @@ exports[`should load step suggestions 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -577,11 +741,11 @@
+@@ -570,11 +734,11 @@
       onScrollBeginDrag={[Function anonymous]}
       onScrollEndDrag={[Function anonymous]}
       refreshControl={
@@ -4760,31 +4709,90 @@ exports[`should load step suggestions 1`] = `
       removeClippedSubviews={false}
       renderItem={[Function anonymous]}
       scrollEventThrottle={50}
-@@ -661,37 +825,137 @@
-              Create your own Relate Step
+@@ -654,36 +818,134 @@
             </Text>
             <SvgMock />
           </View>
         </View>
+        <View
+-         onLayout={[Function anonymous]}
++         onLayout={[Function onLayout]}
++         style={null}
+        >
+-         <RCTSafeAreaView
+-           emulateUnlessSupported={true}
++         <View
++           accessible={true}
++           focusable={true}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
++           style={
++             Object {
++               \\"alignItems\\": \\"center\\",
++               \\"backgroundColor\\": \\"#ffffff\\",
++               \\"borderRadius\\": 8,
++               \\"elevation\\": 4,
++               \\"flexDirection\\": \\"row\\",
++               \\"justifyContent\\": \\"space-between\\",
++               \\"marginHorizontal\\": 20,
++               \\"marginVertical\\": 6,
++               \\"opacity\\": 1,
++               \\"padding\\": 20,
++               \\"shadowColor\\": \\"#000000\\",
++               \\"shadowOffset\\": Object {
++                 \\"height\\": 2,
++                 \\"width\\": 0,
++               },
++               \\"shadowOpacity\\": 0.3,
++               \\"shadowRadius\\": 2,
++             }
++           }
+          >
+-           <View
++           <Text
+              style={
+                Array [
+                  Object {
+-                   \\"padding\\": 10,
++                   \\"color\\": \\"#505256\\",
++                 },
++                 Object {
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 },
++                 Object {
++                   \\"fontSize\\": 16,
++                   \\"lineHeight\\": 22,
+                  },
++               ]
++             }
++           >
++             ut libero qui
++           </Text>
++         </View>
++       </View>
 +       <View
 +         onLayout={[Function onLayout]}
 +         style={null}
 +       >
-          <View
--         onLayout={[Function anonymous]}
++         <View
 +           accessible={true}
 +           focusable={true}
-+           isTVSelectable={true}
-+           onClick={[Function bound touchableHandlePress]}
-+           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+           onResponderMove={[Function bound touchableHandleResponderMove]}
-+           onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
-+             Object {
-+               \\"alignItems\\": \\"center\\",
+              Object {
+                \\"alignItems\\": \\"center\\",
+-                   \\"justifyContent\\": \\"center\\",
 +               \\"backgroundColor\\": \\"#ffffff\\",
 +               \\"borderRadius\\": 8,
 +               \\"elevation\\": 4,
@@ -4816,69 +4824,7 @@ exports[`should load step suggestions 1`] = `
 +                 Object {
 +                   \\"fontSize\\": 16,
 +                   \\"lineHeight\\": 22,
-+                 },
-+               ]
-+             }
-            >
--         <RCTSafeAreaView
--           emulateUnlessSupported={true}
-+             ut libero qui
-+           </Text>
-+         </View>
-+       </View>
-+       <View
-+         onLayout={[Function onLayout]}
-+         style={null}
-        >
-          <View
-+           accessible={true}
-+           focusable={true}
-+           isTVSelectable={true}
-+           onClick={[Function bound touchableHandlePress]}
-+           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+           onResponderMove={[Function bound touchableHandleResponderMove]}
-+           onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
-            style={
-+             Object {
-+               \\"alignItems\\": \\"center\\",
-+               \\"backgroundColor\\": \\"#ffffff\\",
-+               \\"borderRadius\\": 8,
-+               \\"elevation\\": 4,
-+               \\"flexDirection\\": \\"row\\",
-+               \\"justifyContent\\": \\"space-between\\",
-+               \\"marginHorizontal\\": 20,
-+               \\"marginVertical\\": 6,
-+               \\"opacity\\": 1,
-+               \\"padding\\": 20,
-+               \\"shadowColor\\": \\"#000000\\",
-+               \\"shadowOffset\\": Object {
-+                 \\"height\\": 2,
-+                 \\"width\\": 0,
-+               },
-+               \\"shadowOpacity\\": 0.3,
-+               \\"shadowRadius\\": 2,
-+             }
-+           }
-+         >
-+           <Text
-+             style={
-                Array [
-                  Object {
--                   \\"padding\\": 10,
-+                   \\"color\\": \\"#505256\\",
                   },
-                  Object {
--                   \\"alignItems\\": \\"center\\",
--                   \\"justifyContent\\": \\"center\\",
-+                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                  },
-+                 Object {
-+                   \\"fontSize\\": 16,
-+                   \\"lineHeight\\": 22,
-+                 },
                 ]
               }
             >
@@ -4918,7 +4864,7 @@ exports[`should paginate 1`] = `
 - First value
 + Second value
 
-@@ -226,11 +226,11 @@
+@@ -224,11 +224,11 @@
               \\"textAlign\\": \\"center\\",
             },
           ]
@@ -4931,13 +4877,12 @@ exports[`should paginate 1`] = `
         style={
           Object {
             \\"flexDirection\\": \\"row\\",
-@@ -719,10 +719,22 @@
-          Object {
+@@ -714,10 +714,22 @@
             \\"action\\": [Function action],
             \\"icon\\": false,
             \\"key\\": \\"6\\",
             \\"text\\": \\"recusandae ut nulla\\",
-+         },
+          },
 +         Object {
 +           \\"action\\": [Function action],
 +           \\"icon\\": false,
@@ -4949,12 +4894,13 @@ exports[`should paginate 1`] = `
 +           \\"icon\\": false,
 +           \\"key\\": \\"9\\",
 +           \\"text\\": \\"sed libero repudiandae\\",
-          },
++         },
         ]
       }
       disableVirtualization={false}
       getItem={[Function anonymous]}
-@@ -936,10 +948,124 @@
+      getItemCount={[Function anonymous]}
+@@ -926,10 +938,122 @@
                   },
                 ]
               }
@@ -4970,14 +4916,13 @@ exports[`should paginate 1`] = `
 +         <View
 +           accessible={true}
 +           focusable={true}
-+           isTVSelectable={true}
-+           onClick={[Function bound touchableHandlePress]}
-+           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+           onResponderMove={[Function bound touchableHandleResponderMove]}
-+           onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
 +             Object {
 +               \\"alignItems\\": \\"center\\",
@@ -5027,14 +4972,13 @@ exports[`should paginate 1`] = `
 +         <View
 +           accessible={true}
 +           focusable={true}
-+           isTVSelectable={true}
-+           onClick={[Function bound touchableHandlePress]}
-+           onResponderGrant={[Function bound touchableHandleResponderGrant]}
-+           onResponderMove={[Function bound touchableHandleResponderMove]}
-+           onResponderRelease={[Function bound touchableHandleResponderRelease]}
-+           onResponderTerminate={[Function bound touchableHandleResponderTerminate]}
-+           onResponderTerminationRequest={[Function bound touchableHandleResponderTerminationRequest]}
-+           onStartShouldSetResponder={[Function bound touchableHandleStartShouldSetResponder]}
++           onClick={[Function onClick]}
++           onResponderGrant={[Function onResponderGrant]}
++           onResponderMove={[Function onResponderMove]}
++           onResponderRelease={[Function onResponderRelease]}
++           onResponderTerminate={[Function onResponderTerminate]}
++           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
++           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
 +           style={
 +             Object {
 +               \\"alignItems\\": \\"center\\",
@@ -5086,7 +5030,7 @@ exports[`with explainer open opens explainer modal 1`] = `
 - First value
 + Second value
 
-@@ -955,6 +955,9 @@
+@@ -945,6 +945,9 @@
             emulateUnlessSupported={true}
           />
         </View>

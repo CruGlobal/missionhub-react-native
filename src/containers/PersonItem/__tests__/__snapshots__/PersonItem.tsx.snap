@@ -4,7 +4,6 @@ exports[`renders me correctly 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -120,7 +119,7 @@ exports[`renders me correctly 1`] = `
           ]
         }
       >
-        quisquam recusandae alias
+        corporis repellat ratione
       </Text>
     </View>
   </View>
@@ -198,7 +197,7 @@ exports[`renders me correctly 1`] = `
           ]
         }
       >
-        14675
+        18626
       </Text>
     </View>
   </View>
@@ -209,7 +208,6 @@ exports[`renders person correctly 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -298,7 +296,7 @@ exports[`renders person correctly 1`] = `
         ]
       }
     >
-      Darwin Bosco
+      Gideon Heathcote
     </Text>
     <View
       style={
@@ -325,7 +323,7 @@ exports[`renders person correctly 1`] = `
           ]
         }
       >
-        qui amet iure
+        nulla quam ipsam
       </Text>
     </View>
   </View>
@@ -403,7 +401,7 @@ exports[`renders person correctly 1`] = `
           ]
         }
       >
-        93553
+        44345
       </Text>
     </View>
   </View>
@@ -414,7 +412,6 @@ exports[`renders person with no stage correctly 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -490,7 +487,7 @@ exports[`renders person with no stage correctly 1`] = `
         ]
       }
     >
-      Darwin Bosco
+      Gideon Heathcote
     </Text>
     <View
       style={
@@ -502,7 +499,6 @@ exports[`renders person with no stage correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -619,7 +615,7 @@ exports[`renders person with no stage correctly 1`] = `
           ]
         }
       >
-        93553
+        44345
       </Text>
     </View>
   </View>
@@ -630,7 +626,6 @@ exports[`renders personal ministry with no steps correctly 1`] = `
 <View
   accessible={true}
   focusable={true}
-  isTVSelectable={true}
   onClick={[Function]}
   onResponderGrant={[Function]}
   onResponderMove={[Function]}
@@ -719,7 +714,7 @@ exports[`renders personal ministry with no steps correctly 1`] = `
         ]
       }
     >
-      Darwin Bosco
+      Gideon Heathcote
     </Text>
     <View
       style={
@@ -746,14 +741,13 @@ exports[`renders personal ministry with no steps correctly 1`] = `
           ]
         }
       >
-        qui amet iure
+        nulla quam ipsam
       </Text>
     </View>
   </View>
   <View
     accessible={true}
     focusable={true}
-    isTVSelectable={true}
     onClick={[Function]}
     onResponderGrant={[Function]}
     onResponderMove={[Function]}

@@ -10,7 +10,7 @@ it('renders correctly with non-null onClick', () => {
       icon="some icon"
       text="Hello, MissionHub"
       wrapperStyle={{ padding: 10 }}
-      buttonStyle={{ padding: 10 }}
+      iconStyle={{ padding: 10 }}
     />,
   ).snapshot();
 });

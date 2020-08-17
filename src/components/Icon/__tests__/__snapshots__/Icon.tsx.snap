@@ -16,7 +16,7 @@ exports[`renders correctly 1`] = `
         Object {
           "fontSize": 24,
         },
-        Object {},
+        undefined,
       ],
       Object {
         "fontFamily": "icomoon",
