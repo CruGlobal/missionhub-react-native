@@ -18,7 +18,7 @@ exports[`mutes video 1`] = `
       paused={false}
       resizeMode=\\"cover\\"
       source={
-@@ -176,11 +176,11 @@
+@@ -175,11 +175,11 @@
               }
             }
             testID=\\"MutedButton\\"
@@ -103,6 +103,7 @@ exports[`renders correctly 1`] = `
     }
   >
     <View
+      forwardedRef={[Function]}
       onLayout={[Function]}
       pointerEvents="box-none"
       style={
@@ -120,7 +121,6 @@ exports[`renders correctly 1`] = `
       <View
         accessible={true}
         focusable={true}
-        isTVSelectable={true}
         onClick={[Function]}
         onResponderGrant={[Function]}
         onResponderMove={[Function]}
@@ -146,6 +146,7 @@ exports[`renders correctly 1`] = `
       </View>
     </View>
     <View
+      forwardedRef={[Function]}
       onLayout={[Function]}
       pointerEvents="box-none"
       style={
@@ -202,7 +203,6 @@ exports[`renders correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -231,7 +231,6 @@ exports[`renders correctly 1`] = `
         <View
           accessible={true}
           focusable={true}
-          isTVSelectable={true}
           onClick={[Function]}
           onResponderGrant={[Function]}
           onResponderMove={[Function]}
@@ -261,7 +260,7 @@ exports[`sets video progress time 1`] = `
 - First value
 + Second value
 
-@@ -125,11 +125,11 @@
+@@ -126,11 +126,11 @@
                     \\"textAlign\\": \\"center\\",
                   },
                 ]
