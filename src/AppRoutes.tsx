@@ -134,6 +134,10 @@ import AddPostToStepsScreen, {
   ADD_POST_TO_STEPS_SCREEN,
 } from './containers/AddPostToStepsScreen';
 import { PersonTabs } from './containers/PersonScreen/PersonTabs';
+import {
+  VideoFullScreen,
+  VIDEO_FULL_SCREEN,
+} from './containers/VideoFullScreen';
 
 // Do custom animations between pages
 // import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
@@ -311,6 +315,7 @@ const screens = {
   [CHALLENGE_MEMBERS_SCREEN]: ChallengeMembers,
   [COMMUNITY_FEED_WITH_TYPE_SCREEN]: CommunityFeedWithType,
   [ADD_POST_TO_STEPS_SCREEN]: AddPostToStepsScreen,
+  [VIDEO_FULL_SCREEN]: VideoFullScreen,
 };
 
 const MODAL_SCREENS = [ADD_POST_TO_STEPS_SCREEN];
