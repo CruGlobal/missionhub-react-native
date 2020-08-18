@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  View,
   StyleProp,
   ViewStyle,
   TextStyle,
@@ -108,18 +107,15 @@ export default class Button extends Component<ButtonProps, ButtonState> {
         {...rest}
         disabled={isDisabled}
         onPress={this.handlePressDb}
+        {...viewProps}
+        style={[
+          getTypeStyle(type),
+          disabled ? styles.disabled : null,
+          style,
+          pill ? styles.pill : null,
+        ]}
       >
-        <View
-          {...viewProps}
-          style={[
-            getTypeStyle(type),
-            disabled ? styles.disabled : null,
-            style,
-            pill ? styles.pill : null,
-          ]}
-        >
-          {content}
-        </View>
+        {content}
       </Touchable>
     );
   }
