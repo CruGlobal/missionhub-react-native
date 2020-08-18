@@ -154,7 +154,7 @@ matrix:
         - (cd ios && bundler install)
         - (cd android && bundler install)
       script:
-        - (cd ios && fastlane ios release submit:true auto_release:false)
+        - (cd ios && fastlane ios release submit:false auto_release:false)
         - (cd android && fastlane android release)
       cache:
         - bundler
