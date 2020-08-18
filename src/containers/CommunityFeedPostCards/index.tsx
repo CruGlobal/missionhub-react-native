@@ -9,11 +9,15 @@ import { CommunityFeedItem as FeedItemFragment } from '../../components/Communit
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import { COMMUNITY_FEED_WITH_TYPE_SCREEN } from '../CommunityFeedWithType';
 import { navigatePush } from '../../actions/navigation';
-import { PostTypeCardWithPeople } from '../../components/PostTypeLabel';
+import {
+  PostTypeCardWithPeople,
+  PostTypeCardWithoutPeople,
+} from '../../components/PostTypeLabel';
 
 import {
   GET_COMMUNITY_POST_CARDS,
   MARK_COMMUNITY_FEED_ITEMS_READ,
+  GET_GLOBAL_COMMUNITY_POST_CARDS,
 } from './queries';
 import {
   GetCommunityPostCards,
@@ -26,6 +30,7 @@ import {
   MarkCommunityFeedItemsReadVariables,
   MarkCommunityFeedItemsRead,
 } from './__generated__/MarkCommunityFeedItemsRead';
+import { GetGlobalCommunityPostCards } from './__generated__/GetGlobalCommunityPostCards';
 
 interface CommunityFeedPostCardsProps {
   communityId: string;
@@ -87,12 +92,17 @@ export const CommunityFeedPostCards = ({
 }: CommunityFeedPostCardsProps) => {
   const dispatch = useDispatch();
   const isGlobal = orgIsGlobal({ id: communityId });
-
+  console.log(isGlobal);
   const { data } = useQuery<
     GetCommunityPostCards,
     GetCommunityPostCardsVariables
-  >(GET_COMMUNITY_POST_CARDS, { variables: { communityId } });
+  >(GET_COMMUNITY_POST_CARDS, { variables: { communityId }, skip: isGlobal });
 
+  const { data: globalData } = useQuery<GetGlobalCommunityPostCards>(
+    GET_GLOBAL_COMMUNITY_POST_CARDS,
+    { skip: !isGlobal },
+  );
+  console.log(globalData);
   const groups = getGroupPostCards(data?.community.feedItems.nodes || []);
 
   const [markCommunityFeedItemsAsRead] = useMutation<
@@ -120,14 +130,22 @@ export const CommunityFeedPostCards = ({
     feedRefetch();
   };
 
-  const renderCard = (type: LimitedPostCardTypes) => (
-    <PostTypeCardWithPeople
-      testID={`PostCard_${type}`}
-      type={type}
-      onPress={() => navToFeedType(type)}
-      people={groups[type]}
-    />
-  );
+  const renderCard = (type: LimitedPostCardTypes) =>
+    isGlobal ? (
+      <PostTypeCardWithoutPeople
+        testID={`PostCard_${type}`}
+        type={type}
+        onPress={() => navToFeedType(type)}
+        items={globalData?.globalCommunity.feedItems.nodes}
+      />
+    ) : (
+      <PostTypeCardWithPeople
+        testID={`PostCard_${type}`}
+        type={type}
+        onPress={() => navToFeedType(type)}
+        people={groups[type]}
+      />
+    );
 
   return (
     <View>
