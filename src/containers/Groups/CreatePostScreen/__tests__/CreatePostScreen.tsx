@@ -29,7 +29,7 @@ import {
 import { useFeatureFlags } from '../../../../utils/hooks/useFeatureFlags';
 import { CreatePostScreen } from '..';
 
-jest.mock('react-native-video', () => 'Video');
+jest.mock('../../../../components/VideoPlayer', () => 'VideoPlayer');
 jest.mock('../../../../actions/navigation');
 jest.mock('../../../../actions/analytics');
 jest.mock('../../../../utils/hooks/useAnalytics');

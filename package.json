@@ -189,7 +189,8 @@
       "<rootDir>/__mock__/push-notification-ios.ts",
       "<rootDir>/__mock__/init-i18next.js",
       "<rootDir>/__mock__/apolloClient.ts",
-      "<rootDir>/__mock__/react-native-camera.ts"
+      "<rootDir>/__mock__/react-native-camera.ts",
+      "<rootDir>/__mock__/react-native-video.ts"
     ],
     "setupFilesAfterEnv": [
       "<rootDir>/__mock__/hideWarnings.ts",
