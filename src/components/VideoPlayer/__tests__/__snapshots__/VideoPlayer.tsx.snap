@@ -52,7 +52,22 @@ exports[`renders correctly 1`] = `
     }
     testID="ControlsWrap"
   >
-    <SvgMock />
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
   </View>
 </View>
 `;
@@ -137,24 +152,24 @@ exports[`renders with delete button 1`] = `
       }
       testID="DeleteButton"
     >
-      <View
-        style={
-          Object {
-            "alignItems": "flex-start",
-            "backgroundColor": "#00000066",
-            "borderRadius": 32,
-            "height": 64,
-            "justifyContent": "center",
-            "margin": 16,
-            "paddingLeft": 24,
-            "width": 64,
-          }
-        }
-      >
-        <SvgMock />
-      </View>
+      <SvgMock />
     </View>
-    <SvgMock />
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
   </View>
 </View>
 `;
@@ -213,7 +228,22 @@ exports[`renders with style 1`] = `
     }
     testID="ControlsWrap"
   >
-    <SvgMock />
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
   </View>
 </View>
 `;
@@ -270,7 +300,22 @@ exports[`renders with width 1`] = `
     }
     testID="ControlsWrap"
   >
-    <SvgMock />
+    <View
+      style={
+        Object {
+          "alignItems": "flex-start",
+          "backgroundColor": "#00000066",
+          "borderRadius": 32,
+          "height": 64,
+          "justifyContent": "center",
+          "margin": 16,
+          "paddingLeft": 24,
+          "width": 64,
+        }
+      }
+    >
+      <SvgMock />
+    </View>
   </View>
 </View>
 `;

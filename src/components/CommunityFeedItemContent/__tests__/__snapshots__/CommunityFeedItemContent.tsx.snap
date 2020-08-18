@@ -9750,7 +9750,22 @@ Array [
         }
         testID="ControlsWrap"
       >
-        <SvgMock />
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "backgroundColor": "#00000066",
+              "borderRadius": 32,
+              "height": 64,
+              "justifyContent": "center",
+              "margin": 16,
+              "paddingLeft": 24,
+              "width": 64,
+            }
+          }
+        >
+          <SvgMock />
+        </View>
       </View>
     </View>
   </View>,
