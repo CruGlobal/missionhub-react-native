@@ -2322,7 +2322,7 @@ exports[`renders renders correctly without back button 1`] = `
     }
   >
     <Header
-      left={<DeprecatedBackButton />}
+      left={null}
     />
     <View
       style={
