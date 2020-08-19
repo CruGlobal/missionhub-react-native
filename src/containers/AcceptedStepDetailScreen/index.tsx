@@ -3,10 +3,10 @@ import { View } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 import { Button, Icon } from '../../components/common';
-import { completeStep, deleteStepWithTracking } from '../../actions/steps';
+import { completeStep, removeFromStepsList } from '../../actions/steps';
 import { removeStepReminder } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
@@ -14,13 +14,15 @@ import ReminderButton from '../../components/ReminderButton';
 import ReminderDateText from '../../components/ReminderDateText';
 import { ErrorNotice } from '../../components/ErrorNotice/ErrorNotice';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
+import { trackStepDeleted } from '../../actions/analytics';
 
 import styles from './styles';
-import { ACCEPTED_STEP_DETAIL_QUERY } from './queries';
+import { ACCEPTED_STEP_DETAIL_QUERY, DELETE_STEP_MUTATION } from './queries';
 import {
   AcceptedStepDetail,
   AcceptedStepDetailVariables,
 } from './__generated__/AcceptedStepDetail';
+import { DeleteStep, DeleteStepVariables } from './__generated__/DeleteStep';
 
 const AcceptedStepDetailScreen = () => {
   const { t } = useTranslation('acceptedStepDetail');
@@ -38,6 +40,17 @@ const AcceptedStepDetailScreen = () => {
     variables: { id: useNavigationParam('stepId') },
   });
 
+  const [deleteStep] = useMutation<DeleteStep, DeleteStepVariables>(
+    DELETE_STEP_MUTATION,
+    {
+      onCompleted: data => {
+        dispatch(trackStepDeleted('Step Detail'));
+        data.deleteStep?.id &&
+          removeFromStepsList(data.deleteStep.id, personId);
+      },
+    },
+  );
+
   const post = step?.post;
   const handleCompleteStep = () =>
     step &&
@@ -54,7 +67,7 @@ const AcceptedStepDetailScreen = () => {
     );
 
   const handleRemoveStep = () => {
-    step && dispatch(deleteStepWithTracking(step, 'Step Detail'));
+    step && deleteStep({ variables: { input: { id: step.id } } });
     dispatch(navigateBack());
   };
 

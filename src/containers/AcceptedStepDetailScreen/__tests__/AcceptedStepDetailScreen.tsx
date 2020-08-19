@@ -1,17 +1,21 @@
 import React from 'react';
 import { fireEvent, flushMicrotasksQueue } from 'react-native-testing-library';
+import { useMutation } from '@apollo/react-hooks';
 
 import { renderWithContext } from '../../../../testUtils';
-import { completeStep, deleteStepWithTracking } from '../../../actions/steps';
+import { completeStep, removeFromStepsList } from '../../../actions/steps';
 import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
+import { DELETE_STEP_MUTATION } from '../queries';
+import { trackStepDeleted } from '../../../actions/analytics';
 import AcceptedStepDetailScreen from '..';
 
 jest.mock('../../../actions/steps');
 jest.mock('../../../actions/stepReminders');
 jest.mock('../../../actions/navigation');
+jest.mock('../../../actions/analytics');
 jest.mock('../../../components/ReminderButton', () => ({
   __esModule: true,
   // @ts-ignore
@@ -36,7 +40,7 @@ const person: AcceptedStepDetail_step_receiver = {
 const stepId = '234242';
 
 const completeStepResult = { type: 'completed step' };
-const deleteStepResult = { type: 'deleted step' };
+const trackStepDeletedResult = { type: 'track deleted step' };
 const removeReminderResult = { type: 'remove reminder' };
 const navigateBackResult = { type: 'navigate back' };
 
@@ -44,7 +48,7 @@ const initialState = { auth: { person: { id: myId } } };
 
 beforeEach(() => {
   (completeStep as jest.Mock).mockReturnValue(completeStepResult);
-  (deleteStepWithTracking as jest.Mock).mockReturnValue(deleteStepResult);
+  (trackStepDeleted as jest.Mock).mockReturnValue(trackStepDeletedResult);
   (removeStepReminder as jest.Mock).mockReturnValue(removeReminderResult);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
 });
@@ -168,20 +172,34 @@ it('should complete step', async () => {
 });
 
 it('should delete step', async () => {
+  const stepId = '9';
   const { getByTestId, store } = renderWithContext(
     <AcceptedStepDetailScreen />,
     {
       initialState,
       navParams: { stepId, personId: otherId },
+      mocks: {
+        Step: () => ({
+          id: stepId,
+        }),
+      },
     },
   );
 
   await flushMicrotasksQueue();
   fireEvent.press(getByTestId('removeStepButton'));
+  expect(useMutation).toHaveBeenMutatedWith(DELETE_STEP_MUTATION, {
+    variables: { input: { id: stepId } },
+  });
+  await flushMicrotasksQueue();
 
-  expect((deleteStepWithTracking as jest.Mock).mock.calls[0]).toMatchSnapshot();
+  expect(trackStepDeleted).toHaveBeenCalledWith('Step Detail');
+  expect(removeFromStepsList).toHaveBeenCalledWith(stepId, otherId);
   expect(navigateBack).toHaveBeenCalled();
-  expect(store.getActions()).toEqual([deleteStepResult, navigateBackResult]);
+  expect(store.getActions()).toEqual([
+    navigateBackResult,
+    trackStepDeletedResult,
+  ]);
 });
 
 it('should delete reminder', async () => {

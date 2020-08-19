@@ -3,7 +3,7 @@ import thunk from 'redux-thunk';
 
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
-import { completeStep, deleteStepWithTracking } from '../steps';
+import { completeStep } from '../steps';
 import { refreshImpact } from '../impact';
 import { trackAction } from '../analytics';
 import * as navigation from '../navigation';
@@ -168,35 +168,5 @@ describe('completeStep', () => {
       { type: COMPLETED_STEP_COUNT, userId: receiverId },
       impactResponse,
     ]);
-  });
-});
-
-describe('deleteStepWithTracking', () => {
-  const step = { id: '123124', receiver: { id: '3' } };
-  const screen = 'steps';
-  const trackActionResult = { type: 'hello world' };
-
-  it('should delete a step', async () => {
-    // @ts-ignore
-    callApi.mockReturnValue(() => Promise.resolve({ type: 'test' }));
-    // @ts-ignore
-    trackAction.mockReturnValue(trackActionResult);
-
-    // @ts-ignore
-    await store.dispatch(deleteStepWithTracking(step, screen));
-
-    expect(callApi).toHaveBeenCalledWith(
-      REQUESTS.DELETE_CHALLENGE,
-      { challenge_id: step.id },
-      {},
-    );
-    // @ts-ignore
-    expect(store.getActions()).toEqual([trackActionResult]);
-    expect(trackAction).toHaveBeenCalledWith(
-      `${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`,
-      {
-        [ACTIONS.STEP_REMOVED.key]: null,
-      },
-    );
   });
 });

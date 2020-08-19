@@ -157,12 +157,11 @@ export function trackStepAdded(step?: StepAddedAnalytics | null) {
   };
 }
 
-export function trackSearchFilter(label: string) {
+export function trackStepDeleted(screen: string) {
   return (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
     dispatch(
-      trackAction(ACTIONS.FILTER_ENGAGED.name, {
-        [ACTIONS.SEARCH_FILTER.key]: label,
-        [ACTIONS.FILTER_ENGAGED.key]: null,
+      trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
+        [ACTIONS.STEP_REMOVED.key]: null,
       }),
     );
   };

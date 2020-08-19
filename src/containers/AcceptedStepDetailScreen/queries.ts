@@ -34,3 +34,11 @@ export const ACCEPTED_STEP_DETAIL_QUERY = gql`
   ${REMINDER_DATE_TEXT_FRAGMENT}
   ${STEP_DETAIL_POST_FRAGMENT}
 `;
+
+export const DELETE_STEP_MUTATION = gql`
+  mutation DeleteStep($input: DeleteStepInput!) {
+    deleteStep(input: $input) {
+      id
+    }
+  }
+`;

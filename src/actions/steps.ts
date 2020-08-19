@@ -123,29 +123,7 @@ export function completeStep(
   };
 }
 
-export function deleteStepWithTracking(
-  step: { id: string; receiver: { id: string } },
-  screen: string,
-) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    await dispatch(deleteStep(step));
-    dispatch(
-      trackAction(`${ACTIONS.STEP_REMOVED.name} on ${screen} Screen`, {
-        [ACTIONS.STEP_REMOVED.key]: null,
-      }),
-    );
-  };
-}
-
-function deleteStep(step: { id: string; receiver: { id: string } }) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    const query = { challenge_id: step.id };
-    await dispatch(callApi(REQUESTS.DELETE_CHALLENGE, query, {}));
-    removeFromStepsList(step.id, step.receiver.id);
-  };
-}
-
-const removeFromStepsList = (stepId: string, personId: string) => {
+export const removeFromStepsList = (stepId: string, personId: string) => {
   const cachedSteps = apolloClient.readQuery<StepsList>({
     query: STEPS_QUERY,
   });
