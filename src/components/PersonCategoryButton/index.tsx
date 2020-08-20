@@ -1,7 +1,8 @@
 import React from 'react';
+import { Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Button, Flex, Text } from '../../components/common';
+import { Button, Flex } from '../../components/common';
 import FamilyIcon from '../../../assets/images/categoryFamilyIcon.svg';
 import FriendIcon from '../../../assets/images/categoryFriendIcon.svg';
 import NeighborIcon from '../../../assets/images/categoryNeighborIcon.svg';

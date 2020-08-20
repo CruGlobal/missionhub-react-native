@@ -5,7 +5,7 @@ import theme from '../../theme';
 export default StyleSheet.create({
   modalStyle: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.5)',
+    backgroundColor: theme.fadedBlackBackgroundColor,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -29,7 +29,6 @@ export default StyleSheet.create({
     letterSpacing: 1.5,
   },
   closeButton: {
-    color: theme.lightGrey,
     position: 'absolute',
     padding: 25,
     top: -70,
@@ -38,17 +37,12 @@ export default StyleSheet.create({
     justifyContent: 'flex-end',
   },
   titleText: {
-    fontFamily: 'SourceSansPro-Light',
-    fontSize: 24,
-    lineHeight: 30,
+    ...theme.textLight24,
     textAlign: 'center',
-    fontWeight: '300',
     color: '#333333',
   },
   bodyText: {
-    fontSize: 16,
-    lineHeight: 22,
+    ...theme.textRegular16,
     textAlign: 'center',
-    color: theme.textColor,
   },
 });

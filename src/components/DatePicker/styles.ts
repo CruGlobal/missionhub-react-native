@@ -5,12 +5,9 @@ import theme from '../../theme';
 const topHeight = 60;
 
 export default StyleSheet.create({
-  placeholderText: {
-    color: theme.white,
-  },
   datePickerMask: {
     flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    backgroundColor: theme.fadedBlackBackgroundColor,
   },
   datePickerBox: {
     backgroundColor: theme.white,
@@ -30,15 +27,13 @@ export default StyleSheet.create({
     alignSelf: 'stretch',
   },
   titleText: {
+    ...theme.textRegular16,
     flex: 1,
     textAlign: 'center',
-    fontSize: 16,
   },
   btnText: {
-    fontSize: 16,
-    color: theme.iosBlue,
-    fontWeight: 'normal',
-    letterSpacing: 1,
+    ...theme.textRegular16,
+    color: '#007AFF',
   },
   btnTextCancel: {
     textAlign: 'left',

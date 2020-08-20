@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { GestureResponderEvent, View } from 'react-native';
+import { GestureResponderEvent, View, Text } from 'react-native';
 import { useDispatch } from 'react-redux';
 import { useMutation } from '@apollo/react-hooks';
 
-import { Text, Button } from '../common';
+import { Touchable } from '../common';
 import { trackActionWithoutData } from '../../actions/analytics';
 import { ACTIONS } from '../../constants';
 import { useIsMe } from '../../utils/hooks/useIsMe';
@@ -84,14 +84,13 @@ export const CommentLikeComponent = ({
         <Text style={styles.likeCount}>
           {displayCommentCount ? commentsCount : null}
         </Text>
-        <Button
+        <Touchable
           testID="CommentIconButton"
-          type="transparent"
           onPress={onCommentPress || handleCommentPress}
-          viewProps={{ hitSlop: theme.hitSlop(25) }}
+          hitSlop={theme.hitSlop(25)}
         >
           <CommentIcon />
-        </Button>
+        </Touchable>
       </View>
     );
   };
@@ -104,13 +103,12 @@ export const CommentLikeComponent = ({
         <Text style={styles.likeCount}>
           {displayLikeCount ? likesCount : null}
         </Text>
-        <Button
+        <Touchable
           testID="LikeIconButton"
-          type="transparent"
           disabled={isLikeDisabled}
           onPress={onPressLikeIcon}
           style={styles.likeIcon}
-          viewProps={{ hitSlop: theme.hitSlop(25) }}
+          hitSlop={theme.hitSlop(25)}
         >
           {isPrayer ? (
             liked ? (
@@ -120,11 +118,11 @@ export const CommentLikeComponent = ({
             )
           ) : (
             <HeartIcon
-              color={liked ? theme.red : theme.textColor}
-              fill={liked ? theme.red : undefined}
+              color={liked ? theme.orange : theme.textColor}
+              fill={liked ? theme.orange : undefined}
             />
           )}
-        </Button>
+        </Touchable>
       </View>
     );
   };

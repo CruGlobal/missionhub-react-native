@@ -3,8 +3,8 @@ import { Keyboard, StyleProp, ViewStyle } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { navigateBack } from '../../actions/navigation';
-import Button from '../../components/Button';
 import BackArrowIcon from '../../../assets/images/backArrowIcon.svg';
+import { Touchable } from '../common';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -27,13 +27,13 @@ const BackButton = ({
   };
 
   return (
-    <Button
+    <Touchable
       style={[styles.container, style]}
       onPress={onPress}
       testID="BackButton"
     >
       <BackArrowIcon color={iconColor} />
-    </Button>
+    </Touchable>
   );
 };
 

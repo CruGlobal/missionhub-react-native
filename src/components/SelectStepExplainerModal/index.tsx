@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { View, Image, ImageSourcePropType } from 'react-native';
+import { View, Image, ImageSourcePropType, Text } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import { useTranslation } from 'react-i18next';
 import i18next from 'i18next';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import { Text, IconButton, Button } from '../../components/common';
+import CloseButton from '../CloseButton';
+import { Button } from '../../components/common';
 import theme from '../../theme';
 import { StepTypeBadge } from '../StepTypeBadge/StepTypeBadge';
 import { StepTypeEnum } from '../../../__generated__/globalTypes';
@@ -137,7 +138,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
                       iconProps={{
                         height: 56,
                         width: 56,
-                        color: theme.impactBlue,
+                        color: theme.accentColor,
                       }}
                     />
                   </View>
@@ -177,8 +178,8 @@ function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
             activeDotIndex={activeIndex}
             dotsLength={6}
             inactiveDotScale={0.9}
-            dotColor={theme.impactBlue}
-            inactiveDotColor={theme.grey3}
+            dotColor={theme.secondaryColor}
+            inactiveDotColor={theme.extraLightGrey}
             containerStyle={{ marginBottom: 10 }}
             dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
             dotContainerStyle={{ marginHorizontal: 4 }}
@@ -195,15 +196,13 @@ function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
           />
         )}
         <View style={styles.closeButtonWrap}>
-          <IconButton
-            name="close"
-            type="Material"
-            size={22}
-            onPress={onClose}
-            hitSlop={theme.hitSlop(15)}
-            style={styles.closeButtonIcon}
-            buttonStyle={styles.closeButton}
+          <CloseButton
             testID="SelectStepExplainerCloseButton"
+            size={22}
+            iconColor={theme.white}
+            customNavigate={onClose}
+            style={styles.closeButton}
+            hitSlop={theme.hitSlop(15)}
           />
         </View>
       </View>

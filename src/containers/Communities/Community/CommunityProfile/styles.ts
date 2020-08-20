@@ -70,8 +70,7 @@ export default StyleSheet.create({
     paddingVertical: 0,
   },
   menu: {
-    marginLeft: 15,
-    color: theme.white,
+    paddingLeft: 15,
   },
   btn: {
     paddingVertical: 7,

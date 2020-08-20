@@ -4,8 +4,7 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   reminderText: {
+    ...theme.textRegular14,
     color: theme.secondaryColor,
-    fontSize: 14,
-    lineHeight: 18,
   },
 });

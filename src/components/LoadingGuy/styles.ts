@@ -11,8 +11,8 @@ export default StyleSheet.create({
     width: theme.fullWidth,
   },
   loadText: {
+    ...theme.textAmatic48,
     fontSize: 64,
     color: theme.primaryColor,
-    paddingVertical: 0,
   },
 });

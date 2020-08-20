@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { View, Modal, Animated, Keyboard } from 'react-native';
+import { View, Modal, Animated, Keyboard, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { getLocales } from 'react-native-localize';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 
-import { Text, Touchable, Button } from '../common';
+import { Touchable, Button } from '../common';
 import { getDate } from '../../utils/date';
 import { isFunction } from '../../utils/common';
 

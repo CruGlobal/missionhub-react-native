@@ -5,9 +5,10 @@ import {
   StyleProp,
   View,
   SafeAreaView,
+  Text,
 } from 'react-native';
 
-import { Flex, Text } from '../common';
+import { Flex } from '../common';
 
 import styles from './styles';
 
@@ -16,7 +17,6 @@ interface HeaderProps {
   left?: ReactNode | null;
   center?: ReactNode | null;
   title?: string;
-  title2?: string;
   shadow?: boolean;
   style?: StyleProp<ViewStyle>;
   titleStyle?: StyleProp<TextStyle>;
@@ -28,29 +28,11 @@ const Header = ({
   left,
   center,
   title,
-  title2,
   titleStyle,
   style,
   shadow = false,
 }: HeaderProps) => {
   const renderCenter = () => {
-    if (title && title2) {
-      return (
-        <Flex
-          value={4}
-          align="center"
-          justify="center"
-          style={styles.headerTwoLine}
-        >
-          <Text style={styles.headerTwoLine1} numberOfLines={1}>
-            {title2}
-          </Text>
-          <Text style={styles.headerTwoLine2} numberOfLines={1}>
-            {title}
-          </Text>
-        </Flex>
-      );
-    }
     if (title) {
       return (
         <Flex value={4} align="center" justify="center" style={styles.center}>

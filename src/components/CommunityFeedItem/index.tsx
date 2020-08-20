@@ -5,9 +5,10 @@ import { useTranslation } from 'react-i18next';
 import { useMutation } from '@apollo/react-hooks';
 import i18n from 'i18next';
 
+import CloseIcon from '../../../assets/images/closeIcon.svg';
 import { navigatePush } from '../../actions/navigation';
 import PopupMenu from '../PopupMenu';
-import { Card, Touchable, Icon } from '../common';
+import { Card, Touchable } from '../common';
 import { CommunityFeedItemContent } from '../CommunityFeedItemContent';
 import {
   CREATE_POST_SCREEN,
@@ -21,6 +22,7 @@ import {
 } from '../CommunityFeedItem/__generated__/CommunityFeedItem';
 import { FEED_ITEM_DETAIL_SCREEN } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedItemDetailScreen';
 import { canModifyFeedItemSubject } from '../../utils/common';
+import theme from '../../theme';
 
 import styles from './styles';
 import { DeletePost, DeletePostVariables } from './__generated__/DeletePost';
@@ -175,12 +177,7 @@ export const CommunityFeedItem = ({
         onPress={clearNotification}
         style={styles.clearNotificationTouchable}
       >
-        <Icon
-          name="deleteIcon"
-          type="MissionHub"
-          size={10}
-          style={styles.clearNotificationIcon}
-        />
+        <CloseIcon width={10} height={10} color={theme.white} />
       </Touchable>
     </View>
   );

@@ -2,28 +2,14 @@ import { Platform, StyleSheet } from 'react-native';
 
 import theme from './theme';
 
-const textStyle = {
-  color: theme.textColor,
-  fontFamily: 'SourceSansPro-Regular',
-  fontSize: 16,
-  lineHeight: 24,
-};
-const heading1Style = {
-  fontFamily: 'SourceSansPro-Light',
-  fontSize: 32,
-  lineHeight: 38,
-  marginVertical: 10,
-};
-const heading2Style = {
-  ...heading1Style,
-  fontSize: 24,
-  lineHeight: 30,
-};
+const textStyle = theme.textRegular16;
+const heading1Style = { ...theme.textLight32, marginVertical: 10 };
+const heading2Style = { ...theme.textLight24, marginVertical: 10 };
 const heading3Style = {
-  ...heading1Style,
+  ...theme.textBold16,
   fontSize: 20,
-  fontWeight: 'bold',
   lineHeight: 22,
+  lineSpacing: 0,
   marginVertical: 16,
 };
 const strongStyle = {

@@ -22,21 +22,7 @@ export default StyleSheet.create({
     paddingRight: 5,
   },
   title: {
+    ...theme.textRegular14,
     color: 'white',
-    fontSize: 14,
-    fontWeight: '500',
-  },
-  // HeaderTwoLine styles
-  headerTwoLine: {
-    marginTop: 2,
-    paddingHorizontal: 10,
-  },
-  headerTwoLine1: {
-    fontSize: 12,
-    color: theme.white,
-  },
-  headerTwoLine2: {
-    fontSize: 20,
-    color: theme.white,
   },
 });

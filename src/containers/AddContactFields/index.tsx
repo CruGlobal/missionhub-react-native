@@ -221,11 +221,7 @@ const AddContactFields = ({
                 {t('categoryPrompt')}
               </Text>
 
-              <PopupMenu
-                // @ts-ignore
-                actions={categoryOptions}
-                triggerOnLongPress={false}
-              >
+              <PopupMenu actions={categoryOptions}>
                 <View style={styles.buttonContainer}>
                   <Text style={styles.categoryText}>
                     {person.relationshipType

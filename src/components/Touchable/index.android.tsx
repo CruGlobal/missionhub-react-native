@@ -11,7 +11,7 @@ import {
 
 import theme from '../../theme';
 
-interface TouchableAndroidProps extends TouchableHighlightProps {
+export interface TouchableAndroidProps extends TouchableHighlightProps {
   borderless?: boolean;
   withoutFeedback?: boolean;
   isAndroidOpacity?: boolean;

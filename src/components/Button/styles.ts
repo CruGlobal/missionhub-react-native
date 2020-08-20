@@ -10,7 +10,7 @@ const common: StyleProp<ViewStyle> = {
 
 export default StyleSheet.create({
   button: {
-    backgroundColor: theme.buttonBackgroundColor,
+    backgroundColor: theme.transparent,
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 0,
@@ -29,18 +29,14 @@ export default StyleSheet.create({
   secondary: {
     backgroundColor: theme.secondaryColor,
     ...common,
-    height: common.height,
   },
   disabled: {
     opacity: 0.6,
   },
   buttonText: {
-    color: theme.buttonTextColor,
-    fontSize: 14,
+    ...theme.textBold14,
+    color: theme.white,
     textAlign: 'center',
-    fontWeight: '500',
-    letterSpacing: 1.5,
-    backgroundColor: 'rgba(0,0,0,0)',
   },
   pill: {
     borderRadius: 50,

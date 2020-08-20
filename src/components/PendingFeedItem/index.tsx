@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, ActivityIndicator } from 'react-native';
+import { View, ActivityIndicator, Text } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Video from 'react-native-video';
 import { ReactNativeFile } from 'apollo-upload-client';
 
 import CloseIcon from '../../../assets/images/closeIcon.svg';
-import { Card, Touchable, Text } from '../common';
+import { Card, Touchable } from '../common';
 import {
   deletePendingPost,
   useCreatePost,

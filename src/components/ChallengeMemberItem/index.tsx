@@ -1,15 +1,15 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Text } from 'react-native';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 
-import { Flex, Text, Touchable, Card, DateComponent } from '../common';
+import { Flex, Touchable, Card, DateComponent } from '../common';
 import { AuthState } from '../../reducers/auth';
 import Avatar from '../Avatar';
 import { ChallengeItem } from '../ChallengeStats';
-import CHALLENGE_COMPLETE_GREEN from '../../../assets/images/challengeCompleteGreen.png';
 
+import CompleteCheckIcon from './CompleteCheckIconGreen.svg';
 import styles from './styles';
 
 type PersonItem = {
@@ -63,10 +63,9 @@ const ChallengeMemberItem = ({
               />
             </Text>
           </Flex>
-          <Image
-            source={completed_at ? CHALLENGE_COMPLETE_GREEN : null}
-            style={{ marginRight: 25 }}
-          />
+          <Flex style={{ marginRight: 25 }}>
+            {completed_at ? <CompleteCheckIcon /> : null}
+          </Flex>
         </Flex>
       </Flex>
     </Card>

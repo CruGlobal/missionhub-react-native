@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import { ActionSheetIOS, ViewStyle, StyleProp } from 'react-native';
+import { ActionSheetIOS } from 'react-native';
 
-import { IconButton, Touchable } from '../common';
+import KebabIcon from '../../../assets/images/kebabIcon.svg';
+import { Touchable } from '../common';
 import { isFunction } from '../../utils/common';
-import { IconProps } from '../Icon';
-import { ButtonProps } from '../Button';
+import { TouchableIOSProps } from '../Touchable/index.ios';
+import { TouchableAndroidProps } from '../Touchable/index.android';
 
 import styles from './styles';
 
@@ -17,8 +18,7 @@ interface PopupMenuProps {
     onPress: () => void;
     destructive?: boolean;
   }[];
-  iconProps?: Omit<IconProps, 'name' | 'type'> & StyleProp<ViewStyle>;
-  buttonProps?: Partial<ButtonProps> & StyleProp<ViewStyle>;
+  buttonProps?: Partial<TouchableIOSProps> & Partial<TouchableAndroidProps>;
   disabled?: boolean;
   triggerOnLongPress?: boolean;
   testID?: string;
@@ -65,7 +65,6 @@ class PopupMenu extends Component<PopupMenuProps> {
       disabled,
       triggerOnLongPress,
       buttonProps = { style: undefined },
-      iconProps = { style: undefined },
     } = this.props;
 
     return children ? (
@@ -80,20 +79,17 @@ class PopupMenu extends Component<PopupMenuProps> {
         {children}
       </Touchable>
     ) : (
-      <IconButton
-        type="MissionHub"
+      <Touchable
+        testID="popupMenuButton"
         disabled={disabled}
         {...buttonProps}
-        {...iconProps}
         {...(triggerOnLongPress
           ? { onLongPress: this.showMenu }
           : { onPress: this.showMenu })}
-        name="moreIcon"
-        testID="popupMenuButton"
-        buttonStyle={[styles.container, buttonProps.style]}
-        style={[styles.icon, iconProps.style]}
-        onPress={this.showMenu}
-      />
+        style={[styles.container, buttonProps.style]}
+      >
+        <KebabIcon />
+      </Touchable>
     );
   }
 }

@@ -1,8 +1,14 @@
 import React, { useMemo } from 'react';
-import { View, StyleProp, Image, ImageStyle, TextStyle } from 'react-native';
+import {
+  View,
+  StyleProp,
+  Image,
+  ImageStyle,
+  Text,
+  TextStyle,
+} from 'react-native';
 import colorThis from '@eknowles/color-this';
 
-import { Text } from '../common';
 import theme from '../../theme';
 
 import styles from './styles';

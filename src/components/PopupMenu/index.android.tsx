@@ -3,12 +3,29 @@ import PropTypes from 'prop-types';
 // @ts-ignore
 import Menu, { MenuItem } from 'react-native-material-menu';
 
-import { IconButton, Touchable } from '../common';
+import KebabIcon from '../../../assets/images/kebabIcon.svg';
+import { Touchable } from '../common';
+import { TouchableIOSProps } from '../Touchable/index.ios';
+import { TouchableAndroidProps } from '../Touchable/index.android';
 
 import styles from './styles';
 
+interface PopupMenuProps {
+  title?: string;
+  actions: {
+    text: string;
+    onPress: () => void;
+    destructive?: boolean;
+  }[];
+  buttonProps?: Partial<TouchableIOSProps> & Partial<TouchableAndroidProps>;
+  disabled?: boolean;
+  triggerOnLongPress?: boolean;
+  iconColor?: string;
+  testID?: string;
+}
+
 // Android only component
-class PopupMenu extends Component {
+class PopupMenu extends Component<PopupMenuProps> {
   // @ts-ignore
   ref = c => (this.menu = c);
 
@@ -31,14 +48,9 @@ class PopupMenu extends Component {
   renderMenuTrigger = () => {
     const {
       children,
-      // @ts-ignore
       disabled,
-      // @ts-ignore
       triggerOnLongPress,
-      // @ts-ignore
-      buttonProps = {},
-      // @ts-ignore
-      iconProps = {},
+      buttonProps = { style: undefined },
     } = this.props;
 
     return children ? (
@@ -53,20 +65,17 @@ class PopupMenu extends Component {
         {children}
       </Touchable>
     ) : (
-      <IconButton
-        type="MissionHub"
+      <Touchable
+        testID="popupMenuButton"
         disabled={disabled}
         {...buttonProps}
-        {...iconProps}
         {...(triggerOnLongPress
           ? { onLongPress: this.showMenu }
           : { onPress: this.showMenu })}
-        ref={this.ref}
-        testID="popupMenuButton"
-        name="moreIcon"
-        buttonStyle={[styles.container, buttonProps.style]}
-        style={[styles.icon, iconProps.style]}
-      />
+        style={[styles.container, buttonProps.style]}
+      >
+        <KebabIcon />
+      </Touchable>
     );
   };
 

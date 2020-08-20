@@ -1,8 +1,7 @@
 import React from 'react';
 import i18n from 'i18next';
-import { StyleProp, TextStyle } from 'react-native';
+import { StyleProp, TextStyle, Text } from 'react-native';
 
-import { Text } from '../common';
 import { reminderFormat } from '../../utils/date';
 
 import { ReminderDateText as Reminder } from './__generated__/ReminderDateText';

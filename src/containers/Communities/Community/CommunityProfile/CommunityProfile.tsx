@@ -7,6 +7,7 @@ import { useTranslation } from 'react-i18next';
 import { useQuery } from '@apollo/react-hooks';
 import { useNavigationParam } from 'react-navigation-hooks';
 
+import KebabIcon from '../../../../../assets/images/kebabIcon.svg';
 import {
   Flex,
   Input,
@@ -265,8 +266,10 @@ export const CommunityProfile = () => {
                     destructive: true,
                   },
                 ]}
-                iconProps={{ size: 20, style: styles.menu }}
-              />
+                buttonProps={{ style: styles.menu }}
+              >
+                <KebabIcon width={20} height={20} color={theme.white} />
+              </PopupMenu>
             </Flex>
           ) : (
             <Flex direction="row" align="center" style={styles.rowWrap}>

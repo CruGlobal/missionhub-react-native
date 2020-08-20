@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 
-import { Button, Flex } from '../../components/common';
-import IconButton from '../IconButton';
+import { Button, Flex } from '../common';
+import CloseButton from '../CloseButton';
 import { trackAction as analyticsTrackAction } from '../../actions/analytics';
 
 import styles from './styles';
@@ -93,12 +93,9 @@ const AnnouncementsModal = () => {
       <View style={modalStyle}>
         <View style={containerStyle}>
           <Flex direction="row" justify="end" style={{ width: '100%' }}>
-            <IconButton
-              testID="CloseButton"
+            <CloseButton
               style={closeButton}
-              onPress={() => completeAnnouncementAction(id)}
-              name="close"
-              type="Material"
+              customNavigate={() => completeAnnouncementAction(id)}
               size={32}
             />
           </Flex>

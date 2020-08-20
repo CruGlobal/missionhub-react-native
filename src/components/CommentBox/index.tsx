@@ -8,7 +8,8 @@ import React, {
 } from 'react';
 import { Keyboard, View, SafeAreaView, TextInput } from 'react-native';
 
-import { IconButton, Input, Touchable } from '../common';
+import CloseIcon from '../../../assets/images/closeIcon.svg';
+import { Input, Touchable } from '../common';
 import theme from '../../theme';
 import { FeedItemEditingComment } from '../../containers/Communities/Community/CommunityFeedTab/FeedItemDetailScreen/FeedCommentBox/__generated__/FeedItemEditingComment';
 import Avatar, { AvatarPerson } from '../Avatar';
@@ -48,7 +49,7 @@ const CommentBox = forwardRef(
       focus: () => commentInput.current?.focus(),
     }));
 
-    const { inputBox, input, container, cancelWrap, cancelIcon } = styles;
+    const { inputBox, input, container, cancelWrap } = styles;
 
     const startEdit = (comment: FeedItemEditingComment) => {
       setText(comment.content);
@@ -98,16 +99,13 @@ const CommentBox = forwardRef(
     return (
       <SafeAreaView style={container}>
         {editingComment ? (
-          <View style={cancelWrap}>
-            <IconButton
-              testID="CancelButton"
-              name="deleteIcon"
-              type="MissionHub"
-              onPress={handleCancel}
-              style={cancelIcon}
-              size={16}
-            />
-          </View>
+          <Touchable
+            testID="CancelButton"
+            style={cancelWrap}
+            onPress={handleCancel}
+          >
+            <CloseIcon width={16} height={16} color={theme.white} />
+          </Touchable>
         ) : (
           <Avatar size="small" person={avatarPerson} />
         )}
@@ -124,7 +122,7 @@ const CommentBox = forwardRef(
             onSubmitEditing={handleSubmit}
             blurOnSubmit={true}
             placeholder={placeholderText}
-            placeholderTextColor={theme.grey1}
+            placeholderTextColor={theme.lightGrey}
           />
         </View>
         <Touchable
@@ -135,7 +133,7 @@ const CommentBox = forwardRef(
           {!text || isSubmitting ? (
             <SubmitPostArrowDisabled color={theme.extraLightGrey} />
           ) : (
-            <SubmitPostArrowActive color={theme.parakeetBlue} />
+            <SubmitPostArrowActive color={theme.secondaryColor} />
           )}
         </Touchable>
       </SafeAreaView>

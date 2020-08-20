@@ -9,12 +9,13 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 8,
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
   },
   icon: {
     color: theme.white,
   },
   text: {
+    ...theme.textRegular14,
     marginLeft: 15,
     color: theme.white,
   },

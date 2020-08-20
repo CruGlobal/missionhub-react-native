@@ -14,26 +14,24 @@ export default StyleSheet.create({
     padding: 20,
   },
   title: {
-    color: theme.primaryColor,
-    fontSize: 16,
+    ...theme.textRegular16,
+    color: theme.accentColor,
     marginBottom: 3,
   },
   statsSection: {
     paddingTop: 8,
   },
   joinCompleteButton: {
-    backgroundColor: theme.parakeetBlue,
+    backgroundColor: theme.secondaryColor,
     paddingVertical: 8,
-    height: undefined, // Need this to override the normal button styles
     borderBottomLeftRadius: 8,
     borderBottomRightRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
-
   joinCompleteButtonText: {
-    fontSize: 15,
-  },
-  checkIcon: {
-    color: theme.green,
-    fontSize: 20,
+    ...theme.textBold14,
+    color: theme.white,
   },
 });

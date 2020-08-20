@@ -29,11 +29,7 @@ export default StyleSheet.create({
     alignItems: 'center',
     marginBottom: 5,
   },
-  headerTitle: {
-    fontSize: 14,
-    lineHeight: 20,
-    fontWeight: 'normal',
-  },
+  headerTitle: theme.textRegular14,
   headerIcon: {
     opacity: 0.4,
     position: 'absolute',
@@ -41,14 +37,12 @@ export default StyleSheet.create({
     right: -40,
   },
   headerText: {
-    fontSize: 24,
-    fontWeight: '300',
+    ...theme.textLight24,
     color: theme.white,
     textAlign: 'center',
   },
   subheaderText: {
-    fontSize: 14,
-    lineHeight: 20,
+    ...theme.textRegular14,
     color: theme.white,
     textAlign: 'center',
     paddingTop: 10,
@@ -79,9 +73,8 @@ export default StyleSheet.create({
   },
 
   buttonText: {
-    fontSize: 14,
+    ...theme.textRegular14,
     color: theme.white,
-    lineHeight: 20,
   },
   peopleCard: {
     flex: 1,
@@ -103,7 +96,7 @@ export default StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 10,
   },
-  peopleCardText: { fontSize: 14 },
+  peopleCardText: theme.textRegular14,
   nullState: {
     paddingHorizontal: 45,
     marginTop: 100,
@@ -111,13 +104,11 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   nullStateText: {
-    fontSize: 32,
-    fontWeight: '300',
+    ...theme.textLight32,
     color: theme.lightGrey,
     textAlign: 'center',
-    marginBottom: 20,
   },
-  nullStateReferenceText: { fontSize: 16, fontWeight: 'bold' },
+  nullStateReferenceText: theme.textBold16,
   colorSTORY: {
     color: theme.communityGodStoryPurple,
   },
@@ -161,9 +152,9 @@ export default StyleSheet.create({
     backgroundColor: theme.communityAnnouncementGrey,
   },
   colorSTEP: {
-    color: theme.parakeetBlue,
+    color: theme.secondaryColor,
   },
   STEP: {
-    backgroundColor: theme.parakeetBlue,
+    backgroundColor: theme.secondaryColor,
   },
 });

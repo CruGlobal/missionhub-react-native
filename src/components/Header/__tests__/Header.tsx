@@ -24,10 +24,6 @@ it('renders with title', () => {
   renderWithContext(<Header title="Title" />).snapshot();
 });
 
-it('renders with title and subtitle', () => {
-  renderWithContext(<Header title="Title" title2="Subtitle" />).snapshot();
-});
-
 it('renders with shadow', () => {
   renderWithContext(<Header shadow={true} />).snapshot();
 });

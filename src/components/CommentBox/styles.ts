@@ -16,21 +16,16 @@ export default StyleSheet.create({
     marginHorizontal: 8,
   },
   input: {
+    ...theme.textRegular14,
     flex: 1,
     paddingHorizontal: 12,
     paddingVertical: 6,
-    fontSize: 14,
-    color: theme.grey2,
     borderBottomWidth: 0,
   },
-  submitIcon: {
-    color: theme.primaryColor,
-  },
   cancelWrap: {
-    backgroundColor: theme.grey,
-    borderRadius: 25,
-  },
-  cancelIcon: {
-    color: theme.white,
+    backgroundColor: theme.lightGrey,
+    width: 36,
+    height: 36,
+    borderRadius: 18,
   },
 });

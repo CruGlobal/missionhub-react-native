@@ -9,7 +9,7 @@ import {
 
 import theme from '../../theme';
 
-interface TouchableIOSProps extends TouchableHighlightProps {
+export interface TouchableIOSProps extends TouchableHighlightProps {
   highlight?: boolean;
   withoutFeedback?: boolean;
   onPress?: (event: GestureResponderEvent) => void;

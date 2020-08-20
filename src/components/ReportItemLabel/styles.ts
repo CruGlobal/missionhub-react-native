@@ -4,9 +4,9 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   label: {
-    color: theme.inactiveColor,
+    color: theme.extraLightGrey,
   },
   user: {
-    color: theme.grey,
+    color: theme.white,
   },
 });

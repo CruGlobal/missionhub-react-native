@@ -1,12 +1,12 @@
 import React from 'react';
-import { Keyboard, StyleProp, ViewStyle } from 'react-native';
+import { Keyboard, StyleProp, ViewStyle, Insets } from 'react-native';
 import { useDispatch } from 'react-redux';
 
 import { navigateBack } from '../../actions/navigation';
-import Button from '../../components/Button';
 import CloseButtonIcon from '../../../assets/images/closeButton.svg';
 import CloseIcon from '../../../assets/images/closeIcon.svg';
 import ThickCloseIcon from '../../../assets/images/thickCloseIcon.svg';
+import { Touchable } from '../common';
 import theme from '../../theme';
 
 import styles from './styles';
@@ -22,6 +22,9 @@ interface CloseButtonProps {
   type?: CloseButtonTypeEnum;
   iconColor?: string;
   customNavigate?: () => void;
+  size?: number;
+  hitSlop?: Insets;
+  testID?: string;
 }
 
 const CloseButton = ({
@@ -29,6 +32,8 @@ const CloseButton = ({
   customNavigate,
   type = CloseButtonTypeEnum.noCircle,
   iconColor = theme.lightGrey,
+  size,
+  ...rest
 }: CloseButtonProps) => {
   const dispatch = useDispatch();
   const onPress = () => {
@@ -37,24 +42,27 @@ const CloseButton = ({
   };
 
   const getIcon = () => {
+    const extraStyles = size ? { width: size, height: size } : {};
+
     switch (type) {
       case CloseButtonTypeEnum.noCircle:
-        return <CloseIcon color={iconColor} />;
+        return <CloseIcon color={iconColor} {...extraStyles} />;
       case CloseButtonTypeEnum.circle:
-        return <CloseButtonIcon color={iconColor} />;
+        return <CloseButtonIcon color={iconColor} {...extraStyles} />;
       case CloseButtonTypeEnum.thick:
-        return <ThickCloseIcon color={iconColor} />;
+        return <ThickCloseIcon color={iconColor} {...extraStyles} />;
     }
   };
 
   return (
-    <Button
+    <Touchable
       style={[styles.container, style]}
       onPress={onPress}
       testID="CloseButton"
+      {...rest}
     >
       {getIcon()}
-    </Button>
+    </Touchable>
   );
 };
 

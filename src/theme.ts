@@ -73,6 +73,7 @@ export const COLORS = {
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   TRANSPARENT: 'transparent',
+  BLACK_FADE: 'rgba(0,0,0,0.5)',
 };
 
 const baseTextStyle: TextStyle = {
@@ -204,6 +205,18 @@ export default {
   communityThoughtGrey: COLORS.NARWHAL_GREY,
   communityAnnouncementGrey: COLORS.CAVERN_GREY,
   transparent: COLORS.TRANSPARENT,
+  fadedBlackBackgroundColor: COLORS.BLACK_FADE,
+  textLight32: TEXT_STYLES.LIGHT_32,
+  textLight24: TEXT_STYLES.LIGHT_24,
+  textRegular16: TEXT_STYLES.REGULAR_16,
+  textRegular14: TEXT_STYLES.REGULAR_14,
+  textRegular12: TEXT_STYLES.REGULAR_12,
+  textRegular10: TEXT_STYLES.REGULAR_10,
+  textBold16: TEXT_STYLES.BOLD_16,
+  textBold14: TEXT_STYLES.BOLD_14,
+  textAmatic48: TEXT_STYLES.AMATIC_48,
+  textAmatic42: TEXT_STYLES.AMATIC_42,
+  textAmatic36: TEXT_STYLES.AMATIC_36,
   buttonHeight: 60,
   buttonBorderWidth: 1,
   separatorHeight: 1,

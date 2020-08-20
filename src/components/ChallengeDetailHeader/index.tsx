@@ -1,11 +1,12 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Markdown from 'react-native-markdown-display';
 import moment from 'moment';
 
-import { Flex, Text, DateComponent } from '../common';
+import { Flex, DateComponent } from '../common';
 import ChallengeStats, { ChallengeItem } from '../ChallengeStats';
+import Separator from '../Separator';
 import markdownStyles from '../../markdownStyles';
 
 import styles from './styles';
@@ -34,6 +35,7 @@ const ChallengeDetailHeader = ({
           <Flex style={styles.section}>
             <Text style={styles.title}>{title}</Text>
           </Flex>
+          <Separator />
           <ChallengeStats
             challenge={challenge}
             style={styles.section}
@@ -47,6 +49,7 @@ const ChallengeDetailHeader = ({
               style={styles.dateText}
             />
           </Flex>
+          <Separator />
           <Flex style={styles.detailSection}>
             <Text style={styles.subHeader}>{t('details')}</Text>
             <Markdown style={markdownStyles}>

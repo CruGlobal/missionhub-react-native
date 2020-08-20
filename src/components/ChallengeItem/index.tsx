@@ -1,14 +1,14 @@
 import React from 'react';
-import { Image } from 'react-native';
+import { Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
-import { Card, Text, Flex, Button } from '../../components/common';
+import { Card, Flex, Button, Touchable } from '../../components/common';
 import ChallengeStats, {
   ChallengeItem as ChallengeItemType,
 } from '../ChallengeStats';
-import CHALLENGE_COMPLETE from '../../../assets/images/challengeComplete.png';
-import CHALLENGE_COMPLETE_GREEN from '../../../assets/images/challengeCompleteGreen.png';
 
+import CheckIcon from './CheckIcon.svg';
+import CompleteCheckIcon from './CompleteCheckIcon.svg';
 import styles from './styles';
 
 interface ChallengeItemProps {
@@ -54,24 +54,21 @@ const ChallengeItem = ({
             <ChallengeStats challenge={item} style={styles.statsSection} />
           </Flex>
           <Flex value={1} align="end" justify="center">
-            {completed ? (
-              <Flex value={0}>
-                <Image source={CHALLENGE_COMPLETE_GREEN} />
-              </Flex>
-            ) : null}
+            {completed ? <CheckIcon /> : null}
           </Flex>
         </Flex>
       </Button>
       {showButton ? (
-        <Button
-          image={joined ? CHALLENGE_COMPLETE : null}
-          type="primary"
+        <Touchable
           testID="ChallengeItemActionButton"
-          style={styles.joinCompleteButton}
-          buttonTextStyle={styles.joinCompleteButtonText}
-          text={t(joined ? 'iDidIt' : 'join').toUpperCase()}
           onPress={joined ? handleComplete : handleJoin}
-        />
+          style={styles.joinCompleteButton}
+        >
+          {joined ? <CompleteCheckIcon /> : null}
+          <Text style={styles.joinCompleteButtonText}>
+            {t(joined ? 'iDidIt' : 'join').toUpperCase()}
+          </Text>
+        </Touchable>
       ) : null}
     </Card>
   );

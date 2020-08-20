@@ -1,12 +1,10 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux-legacy';
 import { ThunkDispatch } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
-import GREY_CHECKBOX from '../../../assets/images/checkIcon-grey.png';
-import BLUE_CHECKBOX from '../../../assets/images/checkIcon-blue.png';
-import { Text, Card, Button } from '../common';
+import { Card, Touchable } from '../common';
 import ReminderButton from '../ReminderButton';
 import ReminderDateText from '../ReminderDateText';
 import { completeStep } from '../../actions/steps';
@@ -15,10 +13,12 @@ import { ACCEPTED_STEP_DETAIL_SCREEN } from '../../containers/AcceptedStepDetail
 import { reminderSelector } from '../../selectors/stepReminders';
 import { CONTACT_STEPS } from '../../constants';
 import { COMPLETED_STEP_DETAIL_SCREEN } from '../../containers/CompletedStepDetailScreen';
-import Icon from '../Icon';
 import { StepReminderState, ReminderType } from '../../reducers/stepReminders';
 import { RootState } from '../../reducers';
 
+import RingingBellIcon from './RingingBellIcon.svg';
+import CompletedCheckboxIcon from './CompletedCheckboxIcon.svg';
+import ActiveCheckboxIcon from './ActiveCheckboxIcon.svg';
 import styles from './styles';
 
 type AcceptedStepItemProps = {
@@ -69,9 +69,8 @@ const AcceptedStepItem = ({
     stepText,
     stepTextCompleted,
     iconButton,
-    checkIcon,
+    reminderTextPadding,
     reminderButton,
-    bellIcon,
     flex1,
   } = styles;
   return completed_at ? (
@@ -83,7 +82,7 @@ const AcceptedStepItem = ({
       <View style={flex1}>
         <Text style={[stepText, stepTextCompleted]}>{title}</Text>
       </View>
-      <Image source={GREY_CHECKBOX} style={checkIcon} />
+      <CompletedCheckboxIcon />
     </Card>
   ) : (
     <Card
@@ -94,19 +93,19 @@ const AcceptedStepItem = ({
       <View style={flex1}>
         <ReminderButton stepId={id} reminder={reminder}>
           <View style={reminderButton}>
-            <Icon name="bellIcon" type="MissionHub" style={bellIcon} />
-            <ReminderDateText reminder={reminder} />
+            <RingingBellIcon />
+            <ReminderDateText reminder={reminder} style={reminderTextPadding} />
           </View>
         </ReminderButton>
         <Text style={stepText}>{title}</Text>
       </View>
-      <Button
+      <Touchable
         testID="CompleteStepButton"
         onPress={handleCompleteStep}
         style={iconButton}
       >
-        <Image source={BLUE_CHECKBOX} style={checkIcon} />
-      </Button>
+        <ActiveCheckboxIcon />
+      </Touchable>
     </Card>
   );
 };
