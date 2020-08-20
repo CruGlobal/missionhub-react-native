@@ -8,19 +8,14 @@ export default StyleSheet.create({
     backgroundColor: theme.primaryColor,
   },
   title: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '400',
+    ...theme.textRegular16,
   },
   sectionHeader: {
     backgroundColor: theme.extraLightGrey,
     fontSize: 24,
   },
   sectionHeaderText: {
-    fontSize: 24,
-    fontFamily: 'SourceSansPro-Light',
-    fontWeight: '200',
-    color: theme.textColor,
+    ...theme.textLight24,
     padding: 10,
     marginLeft: 10,
   },
@@ -33,14 +28,11 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   nullTitle: {
-    fontSize: 24,
-    fontWeight: '200',
+    ...theme.textLight24,
     paddingVertical: 30,
   },
   nullText: {
-    fontSize: 16,
-    fontWeight: '300',
-    lineHeight: 24,
+    ...theme.textRegular16,
     maxWidth: 300,
     textAlign: 'center',
   },

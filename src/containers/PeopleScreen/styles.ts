@@ -7,7 +7,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: theme.primaryColor,
   },
-  headerTitle: { fontSize: 16, lineHeight: 24, fontWeight: '400' },
+  headerTitle: theme.textRegular16,
   list: {
     flex: 1,
     backgroundColor: theme.white,

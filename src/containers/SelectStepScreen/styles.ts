@@ -8,11 +8,9 @@ export default StyleSheet.create({
     backgroundColor: theme.extraLightGrey,
   },
   headerText: {
+    ...theme.textLight24,
     marginHorizontal: 30,
     marginVertical: 35,
-    fontSize: 24,
-    lineHeight: 30,
-    fontWeight: '300',
     color: theme.white,
     textAlign: 'center',
   },
@@ -30,13 +28,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
-  stepText: {
-    fontSize: 16,
-    lineHeight: 22,
-  },
+  stepText: theme.textRegular16,
   createStepIcon: {
     fontSize: 25,
-    color: theme.backgroundColor,
+    color: theme.secondaryColor,
   },
   completedCountBadge: {
     flexDirection: 'row',

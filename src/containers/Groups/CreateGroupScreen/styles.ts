@@ -30,13 +30,15 @@ export default StyleSheet.create({
     paddingHorizontal: 30,
   },
   label: {
+    ...theme.textAmatic36,
     fontSize: 24,
-    color: theme.backgroundColor,
+    lineHeight: 24,
+    color: theme.secondaryColor,
     textAlign: 'center',
     marginBottom: 5,
   },
   input: {
-    fontSize: 16,
+    ...theme.textRegular16,
     color: theme.white,
     textAlign: 'center',
   },

@@ -10,11 +10,10 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   text: {
+    ...theme.textRegular16,
     paddingTop: 15,
     color: theme.white,
-    fontSize: 16,
     textAlign: 'center',
-    lineHeight: 24,
   },
   allowButton: {
     backgroundColor: theme.secondaryColor,
@@ -34,10 +33,10 @@ export default StyleSheet.create({
     marginBottom: 88,
   },
   stepsNotificationText: {
+    ...theme.textRegular16,
     fontSize: 24,
     color: theme.white,
     textAlign: 'center',
-    fontWeight: '300',
     lineHeight: 30,
   },
   imageContainer: {
@@ -55,9 +54,8 @@ export default StyleSheet.create({
     top: '50%',
   },
   buttonText: {
+    ...theme.textBold14,
     color: theme.white,
-    fontWeight: '500',
-    fontSize: 14,
     letterSpacing: 1.5,
   },
 });

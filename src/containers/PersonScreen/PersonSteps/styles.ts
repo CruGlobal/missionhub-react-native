@@ -18,19 +18,16 @@ export default StyleSheet.create({
   completedStepsButton: {
     backgroundColor: theme.transparent,
     height: 36,
-    borderColor: theme.inactiveColor,
+    borderColor: theme.lightGrey,
     borderWidth: theme.buttonBorderWidth,
     minWidth: 250,
     marginHorizontal: 20,
     marginVertical: 15,
   },
   completedStepsButtonText: {
+    ...theme.textBold14,
     textAlign: 'center',
-    fontWeight: '500',
-    backgroundColor: 'rgba(0,0,0,0)',
-    color: theme.inactiveColor,
-    fontSize: 14,
-    letterSpacing: 1,
-    lineHeight: 18,
+    backgroundColor: theme.transparent,
+    color: theme.lightGrey,
   },
 });

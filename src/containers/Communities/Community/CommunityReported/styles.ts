@@ -4,16 +4,14 @@ import theme from '../../../../theme';
 
 export default StyleSheet.create({
   container: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
   },
   header: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
   },
   title: {
+    ...theme.textRegular16,
     color: theme.white,
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '400',
   },
   contentContainer: {
     backgroundColor: theme.extraLightGrey,

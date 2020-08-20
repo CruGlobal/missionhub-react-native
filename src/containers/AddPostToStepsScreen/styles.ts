@@ -4,10 +4,8 @@ import theme from '../../theme';
 
 export default StyleSheet.create({
   inputStyle: {
-    color: theme.parakeetBlue,
-    fontSize: 32,
-    fontFamily: 'SourceSansPro-Light',
-    fontWeight: '300',
+    ...theme.textLight32,
+    color: theme.secondaryColor,
     marginVertical: 16,
     marginHorizontal: 32,
   },

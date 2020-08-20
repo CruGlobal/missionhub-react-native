@@ -18,7 +18,7 @@ const landscapeHeight = 275;
 export default StyleSheet.create({
   backgroundWrapper: {
     flex: 1,
-    backgroundColor: theme.backgroundColor,
+    backgroundColor: theme.lightBlue,
   },
   container: { flex: 1 },
   content: {
@@ -27,10 +27,10 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   title: {
+    ...theme.textBold16,
     color: theme.primaryColor,
-    fontWeight: '500',
-    fontFamily: 'SourceSansPro-Regular',
     fontSize: 18,
+    lineHeight: 24,
     paddingBottom: 25,
     paddingTop: 45,
     paddingHorizontal: 30,
@@ -38,13 +38,12 @@ export default StyleSheet.create({
     textAlign: 'center',
   },
   cardText: {
-    color: theme.textColor,
+    ...theme.textRegular16,
     textAlign: 'center',
     padding: 5,
-    fontSize: 16,
   },
   cardHeader: {
-    fontSize: 42,
+    ...theme.textAmatic42,
     color: theme.primaryColor,
     textAlign: 'center',
     padding: 5,
