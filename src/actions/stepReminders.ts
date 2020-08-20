@@ -15,7 +15,7 @@ import {
   refreshStepReminderVariables,
 } from './__generated__/refreshStepReminder';
 
-const REFRESH_STEP_REMINDER_QUERY = gql`
+export const REFRESH_STEP_REMINDER_QUERY = gql`
   query refreshStepReminder($stepId: ID!) {
     step(id: $stepId) {
       id
@@ -29,15 +29,10 @@ const REFRESH_STEP_REMINDER_QUERY = gql`
 `;
 
 export function removeStepReminder(stepId: string) {
-  return async (dispatch: ThunkDispatch<RootState, never, AnyAction>) => {
-    await dispatch(
-      callApi(REQUESTS.DELETE_CHALLENGE_REMINDER, { challenge_id: stepId }),
-    );
-    apolloClient.query<refreshStepReminder, refreshStepReminderVariables>({
-      query: REFRESH_STEP_REMINDER_QUERY,
-      variables: { stepId },
-    });
-  };
+  apolloClient.query<refreshStepReminder, refreshStepReminderVariables>({
+    query: REFRESH_STEP_REMINDER_QUERY,
+    variables: { stepId },
+  });
 }
 
 export function createStepReminder(

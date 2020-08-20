@@ -42,3 +42,11 @@ export const DELETE_STEP_MUTATION = gql`
     }
   }
 `;
+
+export const DELETE_STEP_REMINDER_MUTATION = gql`
+  mutation DeleteReminder($input: DeleteReminderInput!) {
+    deleteReminder(input: $input) {
+      id
+    }
+  }
+`;

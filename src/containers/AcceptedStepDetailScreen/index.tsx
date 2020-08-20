@@ -17,12 +17,20 @@ import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { trackStepDeleted } from '../../actions/analytics';
 
 import styles from './styles';
-import { ACCEPTED_STEP_DETAIL_QUERY, DELETE_STEP_MUTATION } from './queries';
+import {
+  ACCEPTED_STEP_DETAIL_QUERY,
+  DELETE_STEP_MUTATION,
+  DELETE_STEP_REMINDER_MUTATION,
+} from './queries';
 import {
   AcceptedStepDetail,
   AcceptedStepDetailVariables,
 } from './__generated__/AcceptedStepDetail';
 import { DeleteStep, DeleteStepVariables } from './__generated__/DeleteStep';
+import {
+  DeleteReminder,
+  DeleteReminderVariables,
+} from './__generated__/DeleteReminder';
 
 const AcceptedStepDetailScreen = () => {
   const { t } = useTranslation('acceptedStepDetail');
@@ -51,6 +59,15 @@ const AcceptedStepDetailScreen = () => {
     },
   );
 
+  const [deleteStepReminder] = useMutation<
+    DeleteReminder,
+    DeleteReminderVariables
+  >(DELETE_STEP_REMINDER_MUTATION, {
+    onCompleted: () => {
+      step && removeStepReminder(step?.id);
+    },
+  });
+
   const post = step?.post;
   const handleCompleteStep = () =>
     step &&
@@ -72,7 +89,8 @@ const AcceptedStepDetailScreen = () => {
   };
 
   const handleRemoveReminder = () =>
-    step && dispatch(removeStepReminder(step.id));
+    step?.reminder &&
+    deleteStepReminder({ variables: { input: { id: step.reminder?.id } } });
 
   const renderReminderButton = () =>
     !step ? null : (

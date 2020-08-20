@@ -8,7 +8,10 @@ import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
-import { DELETE_STEP_MUTATION } from '../queries';
+import {
+  DELETE_STEP_MUTATION,
+  DELETE_STEP_REMINDER_MUTATION,
+} from '../queries';
 import { trackStepDeleted } from '../../../actions/analytics';
 import AcceptedStepDetailScreen from '..';
 
@@ -41,7 +44,6 @@ const stepId = '234242';
 
 const completeStepResult = { type: 'completed step' };
 const trackStepDeletedResult = { type: 'track deleted step' };
-const removeReminderResult = { type: 'remove reminder' };
 const navigateBackResult = { type: 'navigate back' };
 
 const initialState = { auth: { person: { id: myId } } };
@@ -49,7 +51,6 @@ const initialState = { auth: { person: { id: myId } } };
 beforeEach(() => {
   (completeStep as jest.Mock).mockReturnValue(completeStepResult);
   (trackStepDeleted as jest.Mock).mockReturnValue(trackStepDeletedResult);
-  (removeStepReminder as jest.Mock).mockReturnValue(removeReminderResult);
   (navigateBack as jest.Mock).mockReturnValue(navigateBackResult);
 });
 
@@ -203,24 +204,26 @@ it('should delete step', async () => {
 });
 
 it('should delete reminder', async () => {
-  const { getByTestId, store } = renderWithContext(
-    <AcceptedStepDetailScreen />,
-    {
-      initialState,
-      navParams: { stepId, personId: otherId },
-      mocks: {
-        //eslint-disable-next-line @typescript-eslint/no-explicit-any
-        Step: (_: any, context: any) => ({
-          id: context.id,
-          post: null,
+  const reminderId = '1234';
+  const { getByTestId } = renderWithContext(<AcceptedStepDetailScreen />, {
+    initialState,
+    navParams: { stepId, personId: otherId },
+    mocks: {
+      Step: () => ({
+        id: stepId,
+        post: null,
+        reminder: () => ({
+          id: reminderId,
         }),
-      },
+      }),
     },
-  );
+  });
 
   await flushMicrotasksQueue();
   fireEvent.press(getByTestId('removeReminderButton'));
-
-  expect(removeStepReminder).toHaveBeenCalledWith(stepId);
-  expect(store.getActions()).toEqual([removeReminderResult]);
+  expect(useMutation).toHaveBeenMutatedWith(DELETE_STEP_REMINDER_MUTATION, {
+    variables: { input: { id: reminderId } },
+  });
+  await flushMicrotasksQueue();
+  expect(removeStepReminder as jest.Mock).toHaveBeenCalledWith(stepId);
 });
