@@ -14,28 +14,24 @@ export default StyleSheet.create({
     paddingHorizontal: 40,
   },
   label: {
+    ...theme.textRegular12,
     color: theme.secondaryColor,
-    fontSize: 12,
   },
   mfaHeader: {
-    fontSize: 36,
+    ...theme.textAmatic36,
     textAlign: 'center',
     paddingVertical: 10,
-    lineHeight: 32,
     color: theme.secondaryColor,
-    letterSpacing: 2,
   },
   mfaDescription: {
-    fontSize: 16,
+    ...theme.textRegular16,
     textAlign: 'center',
     paddingVertical: 10,
     color: theme.white,
-    lineHeight: 24,
-    letterSpacing: 0.25,
   },
   doneButtonText: {
-    fontSize: 14,
-    letterSpacing: 2,
+    ...theme.textBold14,
+    letterSpacing: 1.5,
   },
   image: {
     width: 80,

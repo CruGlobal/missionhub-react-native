@@ -24,10 +24,8 @@ export default StyleSheet.create({
     backgroundColor: theme.secondaryColor,
   },
   buttonText: {
-    fontSize: 12,
-    lineHeight: 16,
+    ...theme.textRegular12,
     letterSpacing: 1,
-    fontWeight: 'normal',
   },
   buttonTextInactive: {
     color: theme.lightGrey,

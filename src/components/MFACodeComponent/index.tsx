@@ -6,6 +6,7 @@ import { Flex, Text, Input, Button } from '../../components/common';
 import LoadingWheel from '../../components/LoadingWheel';
 import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
 import Header from '../Header';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -59,7 +60,7 @@ export const MFACodeComponent = ({
             value={value}
             returnKeyType="done"
             placeholder={t('mfaLabel')}
-            placeholderTextColor="white"
+            placeholderTextColor={theme.white}
             blurOnSubmit={true}
             keyboardType="numeric"
             onSubmitEditing={onSubmit}

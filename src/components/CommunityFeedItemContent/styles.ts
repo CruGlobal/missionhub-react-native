@@ -23,25 +23,19 @@ export default StyleSheet.create({
   globalHeaderNameWrapper: {
     paddingHorizontal: 0,
   },
-  communityName: {
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
+  communityName: theme.textBold16,
   communityPhotoWrapStyles: {
     width: 48,
     height: 48,
     borderRadius: 24,
   },
   headerTime: {
-    fontSize: 12,
-    lineHeight: 16,
+    ...theme.textRegular12,
     color: theme.lightGrey,
   },
   headerTextOnly: {
-    fontSize: 16,
-    lineHeight: 20,
-    color: theme.parakeetBlue,
-    fontWeight: 'bold',
+    ...theme.textBold16,
+    color: theme.secondaryColor,
   },
   row: {
     flexDirection: 'row',
@@ -51,8 +45,7 @@ export default StyleSheet.create({
     paddingHorizontal: 20,
   },
   messageText: {
-    fontSize: 16,
-    lineHeight: 24,
+    ...theme.textRegular16,
     justifyContent: 'flex-start',
     paddingBottom: 8,
   },
@@ -62,11 +55,9 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   challengeLinkText: {
-    fontSize: 16,
-    lineHeight: 24,
+    ...theme.textBold16,
     textDecorationLine: 'underline',
-    textDecorationColor: theme.parakeetBlue,
-    fontWeight: '400',
+    textDecorationColor: theme.secondaryColor,
     letterSpacing: 0,
     textAlign: 'left',
     marginBottom: 10,
@@ -104,9 +95,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
   },
   addStepText: {
+    ...theme.textRegular14,
     paddingLeft: 12,
-    fontSize: 14,
-    lineHeight: 20,
   },
   commentLikeWrap: {
     flex: 1,

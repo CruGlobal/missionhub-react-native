@@ -24,11 +24,10 @@ export default StyleSheet.create({
     color: theme.secondaryColor,
   },
   stepText: {
+    ...theme.textRegular14,
     flex: 1,
     padding: 4,
     paddingRight: 32,
-    fontSize: 16,
-    lineHeight: 22,
   },
   stepTextCompleted: {
     color: theme.lightGrey,
@@ -40,12 +39,5 @@ export default StyleSheet.create({
   checkIcon: {
     height: 24,
     width: 24,
-  },
-
-  active: {
-    color: theme.secondaryColor,
-  },
-  completed: {
-    color: theme.inactiveColor,
   },
 });

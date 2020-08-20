@@ -137,7 +137,7 @@ function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
                       iconProps={{
                         height: 56,
                         width: 56,
-                        color: theme.impactBlue,
+                        color: theme.secondaryColor,
                       }}
                     />
                   </View>
@@ -177,8 +177,8 @@ function SelectStepExplainerModal({ onClose }: { onClose: () => void }) {
             activeDotIndex={activeIndex}
             dotsLength={6}
             inactiveDotScale={0.9}
-            dotColor={theme.impactBlue}
-            inactiveDotColor={theme.grey3}
+            dotColor={theme.secondaryColor}
+            inactiveDotColor={theme.extraLightGrey}
             containerStyle={{ marginBottom: 10 }}
             dotStyle={{ width: 8, height: 8, borderRadius: 4 }}
             dotContainerStyle={{ marginHorizontal: 4 }}

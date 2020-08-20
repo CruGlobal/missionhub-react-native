@@ -16,13 +16,10 @@ export default StyleSheet.create({
     paddingVertical: 14,
     paddingLeft: 14,
   },
-  name: {
-    color: theme.grey,
-    fontSize: 16,
-  },
+  name: theme.textRegular16,
   info: {
+    ...theme.textRegular12,
     color: theme.lightGrey,
-    fontSize: 12,
   },
   avatar: {
     marginRight: 8,

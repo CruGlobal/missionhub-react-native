@@ -48,9 +48,7 @@ export const HeaderTabBar = ({ tabs }: HeaderTabBarProps) => {
           <Text
             numberOfLines={1}
             style={
-              index === navState.index
-                ? styles.tabTextActiveLight
-                : styles.tabTextLight
+              index === navState.index ? styles.tabTextActive : styles.tabText
             }
           >
             {tab.name}

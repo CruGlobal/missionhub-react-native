@@ -257,7 +257,7 @@ export const CommunityFeedItemContent = ({
                 actions={menuActions}
                 buttonProps={{ style: styles.popupButton }}
               >
-                <KebabIcon color={theme.grey} />
+                <KebabIcon color={theme.lightGrey} />
               </PopupMenu>
             </View>
           ) : null}
@@ -350,7 +350,7 @@ export const CommunityFeedItemContent = ({
       style={styles.challengeLinkButton}
       testID="ChallengeLinkButton"
     >
-      <ChallengesTarget style={styles.challengeIcon} color={theme.grey} />
+      <ChallengesTarget style={styles.challengeIcon} color={theme.darkGrey} />
       <Text style={styles.addStepText}>{t('viewChallenge')}</Text>
     </Touchable>
   );

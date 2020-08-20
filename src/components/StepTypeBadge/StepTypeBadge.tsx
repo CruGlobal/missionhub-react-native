@@ -89,11 +89,9 @@ export const StepTypeBadge = React.memo(
         {hideLabel ? null : (
           <Text
             style={[
+              labelUppercase ? theme.textBold16 : theme.textRegular14,
               {
-                fontSize: labelUppercase ? 16 : 14,
-                fontWeight: labelUppercase ? 'bold' : 'normal',
                 color,
-                ...(labelUppercase ? { letterSpacing: 1 } : {}),
                 paddingLeft: hideIcon ? 0 : 4,
                 ...(displayVertically && !hideIcon ? { marginTop: 7 } : {}),
               },

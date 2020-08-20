@@ -10,13 +10,10 @@ export default StyleSheet.create({
     backgroundColor: theme.accentColor,
   },
   categoryActive: {
-    backgroundColor: theme.parakeetBlue,
+    backgroundColor: theme.secondaryColor,
   },
   categoryButtonText: {
+    ...theme.textLight24,
     color: theme.white,
-    fontFamily: 'SourceSansPro-Light',
-    fontSize: 24,
-    fontWeight: '300',
-    lineHeight: 30,
   },
 });

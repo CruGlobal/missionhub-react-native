@@ -25,19 +25,17 @@ export default StyleSheet.create({
     paddingBottom: 5,
   },
   date: {
-    color: theme.inactiveColor,
-    fontSize: 10,
+    ...theme.textRegular10,
+    color: theme.lightGrey,
   },
   title: {
+    ...theme.textRegular16,
     color: theme.primaryColor,
-    fontSize: 16,
   },
-  text: {
-    fontSize: 14,
-  },
+  text: theme.textRegular14,
   question: {
+    ...theme.textRegular14,
     marginTop: 8,
-    color: theme.inactiveColor,
-    fontSize: 14,
+    color: theme.lightGrey,
   },
 });

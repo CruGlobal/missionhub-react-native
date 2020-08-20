@@ -40,7 +40,7 @@ export default StyleSheet.create({
     color: theme.white,
   },
   joinButton: {
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
     borderRadius: 12,
     paddingVertical: 5,
     paddingHorizontal: 20,
@@ -57,11 +57,11 @@ export default StyleSheet.create({
     position: 'absolute',
     top: 0,
     right: -5,
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
     width: 16,
     height: 16,
     borderRadius: 8,
     borderWidth: 2,
-    borderColor: theme.darkRed,
+    borderColor: '#260C06',
   },
 });

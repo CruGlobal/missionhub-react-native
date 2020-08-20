@@ -16,15 +16,9 @@ export default StyleSheet.create({
     paddingHorizontal: 32,
   },
   stepTitleText: {
-    fontSize: 32,
-    lineHeight: 38,
-    fontFamily: 'SourceSansPro-Light',
-    fontWeight: '300',
+    ...theme.textLight32,
     marginVertical: 16,
     marginHorizontal: 32,
   },
-  personNameStyle: {
-    fontSize: 16,
-    fontWeight: 'bold',
-  },
+  personNameStyle: theme.textBold16,
 });

@@ -87,7 +87,7 @@ const StepDetailScreen = ({
                     onPress={handleOpenPost}
                     style={{
                       paddingLeft: 10,
-                      color: theme.parakeetBlue,
+                      color: theme.secondaryColor,
                       fontSize: 12,
                     }}
                   >
@@ -102,8 +102,6 @@ const StepDetailScreen = ({
                   ...markdownStyles,
                   body: {
                     ...markdownStyles.body,
-                    fontSize: 16,
-                    color: theme.grey,
                     paddingBottom: 20,
                   },
                 }}

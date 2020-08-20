@@ -19,7 +19,7 @@ export default StyleSheet.create({
     borderRadius: 18,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: theme.red,
+    backgroundColor: theme.orange,
   },
   playButton: {
     margin: 16,

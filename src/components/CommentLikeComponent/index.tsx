@@ -120,8 +120,8 @@ export const CommentLikeComponent = ({
             )
           ) : (
             <HeartIcon
-              color={liked ? theme.red : theme.textColor}
-              fill={liked ? theme.red : undefined}
+              color={liked ? theme.orange : theme.textColor}
+              fill={liked ? theme.orange : undefined}
             />
           )}
         </Button>
