@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import { useNavigationParam } from 'react-navigation-hooks';
 
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import Header from '../../components/Header';
 import DatePicker from '../../components/DatePicker';
 import BottomButton from '../../components/BottomButton';
@@ -14,6 +14,7 @@ import { navigateBack } from '../../actions/navigation';
 import { createStepReminder } from '../../actions/stepReminders';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
 import { StepItem_reminder as ReminderType } from '../../components/StepItem/__generated__/StepItem';
+import theme from '../../theme';
 
 import styles from './styles';
 
@@ -62,11 +63,11 @@ const StepReminderScreen = () => {
   };
 
   const renderHeader = () => {
-    const { backButton, headerText } = styles;
+    const { headerText } = styles;
 
     return (
       <Header
-        left={<DeprecatedBackButton iconStyle={backButton} />}
+        left={<BackButton iconColor={theme.lightGrey} />}
         center={<Text style={headerText}>{t('setReminder')}</Text>}
       />
     );

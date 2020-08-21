@@ -15,7 +15,7 @@ import { createMyPerson } from '../../actions/onboarding';
 import TosPrivacy from '../../components/TosPrivacy';
 import { AuthState } from '../../reducers/auth';
 import { PeopleState } from '../../reducers/people';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import Header from '../../components/Header';
 import Skip from '../../components/Skip';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
@@ -166,11 +166,7 @@ const SetupScreen = ({
         refetch={saveAndNavigateNext}
       />
       <Header
-        left={
-          <DeprecatedBackButton
-            customNavigate={isMe ? handleBack : undefined}
-          />
-        }
+        left={<BackButton customNavigate={isMe ? handleBack : undefined} />}
         right={isMe || hideSkipBtn ? null : <Skip onSkip={skip} />}
       />
       <Flex value={2} justify="end" align="center">

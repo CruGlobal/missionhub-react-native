@@ -7,7 +7,7 @@ import { ThunkAction } from 'redux-thunk';
 import { AnyAction } from 'redux';
 
 import { Flex } from '../../components/common';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import BottomButton from '../../components/BottomButton';
 import { useLogoutOnBack } from '../../utils/hooks/useLogoutOnBack';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
@@ -45,9 +45,7 @@ const GetStartedScreen = ({
     <View style={styles.container}>
       <Header
         left={
-          enableBackButton ? (
-            <DeprecatedBackButton customNavigate={handleBack} />
-          ) : null
+          enableBackButton ? <BackButton customNavigate={handleBack} /> : null
         }
       />
       <Flex align="center" justify="center" value={1} style={styles.content}>

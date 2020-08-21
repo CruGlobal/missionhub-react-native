@@ -10,7 +10,7 @@ import { Flex, Button } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import Header from '../../components/Header';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import { RootState } from '../../reducers';
 
 import styles from './styles';
@@ -41,7 +41,7 @@ const WelcomeScreen = ({ next }: WelcomeScreenProps) => {
 
   return (
     <View style={styles.container}>
-      <Header left={<DeprecatedBackButton />} />
+      <Header left={<BackButton />} />
       <Flex align="center" justify="center" value={1} style={styles.content}>
         <Flex value={3} align="start" justify="center">
           <Text style={styles.headerText}>{t('welcome')}</Text>

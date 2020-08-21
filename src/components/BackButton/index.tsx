@@ -12,6 +12,7 @@ import styles from './styles';
 interface BackButtonProps {
   style?: StyleProp<ViewStyle>;
   iconColor?: string;
+  iconSize?: number;
   customNavigate?: () => void;
 }
 
@@ -19,6 +20,7 @@ const BackButton = ({
   style,
   customNavigate,
   iconColor = theme.lightGrey,
+  iconSize = 20,
 }: BackButtonProps) => {
   const dispatch = useDispatch();
   const onPress = () => {
@@ -32,7 +34,7 @@ const BackButton = ({
       onPress={onPress}
       testID="BackButton"
     >
-      <BackArrowIcon color={iconColor} />
+      <BackArrowIcon color={iconColor} width={iconSize} height={iconSize} />
     </Button>
   );
 };

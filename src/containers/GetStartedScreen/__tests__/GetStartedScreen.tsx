@@ -72,7 +72,7 @@ describe('onBack prop', () => {
         },
       );
 
-      fireEvent.press(getByTestId('DeprecatedBackButton'));
+      fireEvent.press(getByTestId('BackButton'));
 
       expect(useLogoutOnBack).toHaveBeenCalledWith(true, false);
       expect(back).toHaveBeenCalledWith();
@@ -88,7 +88,7 @@ describe('onBack prop', () => {
         },
       );
 
-      fireEvent.press(getByTestId('DeprecatedBackButton'));
+      fireEvent.press(getByTestId('BackButton'));
 
       expect(useLogoutOnBack).toHaveBeenCalledWith(true, true);
       expect(back).toHaveBeenCalledWith();

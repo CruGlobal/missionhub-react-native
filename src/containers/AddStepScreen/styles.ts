@@ -18,9 +18,6 @@ export default StyleSheet.create({
     ...theme.textBold14,
     color: theme.lightGrey,
   },
-  backButtonStyle: {
-    color: theme.lightGrey,
-  },
   input: {
     ...theme.textLight32,
     flex: 1,

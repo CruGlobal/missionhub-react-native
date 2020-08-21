@@ -11,10 +11,7 @@ jest.mock('../../../components/common', () => ({
   Button: 'Button',
 }));
 jest.mock('../../../components/LoadingWheel', () => 'LoadingWheel');
-jest.mock(
-  '../../../containers/DeprecatedBackButton',
-  () => 'DeprecatedBackButton',
-);
+jest.mock('../../BackButton', () => 'BackButton');
 
 it('should render correctly', () => {
   renderWithContext(

@@ -17,7 +17,7 @@ import Header from '../../../components/Header';
 import theme from '../../../theme';
 import GROUP_ICON from '../../../../assets/images/MemberContacts_light.png';
 import { lookupOrgCommunityCode } from '../../../actions/organizations';
-import DeprecatedBackButton from '../../DeprecatedBackButton';
+import CloseButton from '../../../components/CloseButton';
 import Analytics from '../../Analytics';
 
 import styles from './styles';
@@ -174,10 +174,7 @@ class JoinGroupScreen extends Component {
     return (
       <View style={styles.container}>
         <Analytics screenName={['communities', 'enter code']} />
-        <Header
-          left={<DeprecatedBackButton customIcon="deleteIcon" />}
-          title={t('joinCommunity')}
-        />
+        <Header left={<CloseButton />} title={t('joinCommunity')} />
         <ScrollView keyboardShouldPersistTaps="handled" style={styles.flex}>
           <Flex align="center" justify="end" style={styles.imageWrap}>
             {errorMessage

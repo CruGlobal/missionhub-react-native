@@ -4,7 +4,7 @@ import { Image, ImageSourcePropType, View, Text } from 'react-native';
 import { Flex } from '../../components/common';
 import BottomButton from '../../components/BottomButton';
 import Skip from '../../components/Skip';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import Header from '../../components/Header';
 
 import styles from './styles';
@@ -29,7 +29,7 @@ const IconMessageScreen = ({
 }: IconMessageScreenProps) => (
   <View style={styles.container}>
     <Header
-      left={onBack ? <DeprecatedBackButton customNavigate={onBack} /> : null}
+      left={onBack ? <BackButton customNavigate={onBack} /> : null}
       right={onSkip ? <Skip onSkip={onSkip} /> : null}
     />
     <Flex align="center" justify="center" value={1} style={styles.content}>

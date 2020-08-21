@@ -7,11 +7,10 @@ import { useNavigationParam } from 'react-navigation-hooks';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { Flex } from '../../components/common';
 import Header from '../../components/Header';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import CloseButton, { CloseButtonTypeEnum } from '../../components/CloseButton';
 import { acceptedChallengesSelector } from '../../selectors/challenges';
 import { keyExtractorId } from '../../utils/common';
 import { Person } from '../../reducers/people';
-import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
 import { ChallengeItem } from '../../components/ChallengeStats';
 import ChallengeMemberItem from '../../components/ChallengeMemberItem';
 import { navigatePush } from '../../actions/navigation';
@@ -62,8 +61,8 @@ const ChallengeMembers = () => {
     <View style={styles.container}>
       <Header
         right={
-          <DeprecatedBackButton
-            image={CLOSE_BUTTON}
+          <CloseButton
+            type={CloseButtonTypeEnum.circle}
             style={{ alignItems: 'flex-end', alignSelf: 'flex-end' }}
           />
         }

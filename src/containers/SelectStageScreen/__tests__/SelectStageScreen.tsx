@@ -27,7 +27,7 @@ jest.mock('../../../components/common', () => ({
   Text: 'Text',
   Button: 'Button',
 }));
-jest.mock('../../DeprecatedBackButton', () => 'DeprecatedBackButton');
+jest.mock('../../BackButton', () => 'BackButton');
 jest.mock('../../../components/Header', () => 'Header');
 jest.mock('../../../utils/hooks/useAnalytics');
 

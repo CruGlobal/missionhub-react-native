@@ -3,8 +3,8 @@ import { View, Text } from 'react-native';
 import { useTranslation } from 'react-i18next';
 
 import { Flex, Input, Button } from '../../components/common';
-import LoadingWheel from '../../components/LoadingWheel';
-import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
+import LoadingWheel from '../LoadingWheel';
+import BackButton from '../BackButton';
 import Header from '../Header';
 import theme from '../../theme';
 
@@ -36,7 +36,7 @@ export const MFACodeComponent = ({
   return (
     <View style={container}>
       <Header
-        left={<DeprecatedBackButton />}
+        left={<BackButton />}
         right={
           <Button
             testID="doneButton"

@@ -16,9 +16,6 @@ export default StyleSheet.create({
     paddingHorizontal: 48,
     paddingBottom: 36,
   },
-  backButton: {
-    color: theme.lightGrey,
-  },
   headerText: theme.textRegular16,
   inputHeaderText: {
     ...theme.textRegular12,

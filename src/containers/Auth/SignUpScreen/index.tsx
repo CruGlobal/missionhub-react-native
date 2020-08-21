@@ -17,7 +17,7 @@ import {
   openKeyURL,
 } from '../../../actions/auth/key';
 import { Button, Flex, Icon, LoadingWheel } from '../../../components/common';
-import DeprecatedBackButton from '../../DeprecatedBackButton';
+import BackButton from '../../../components/BackButton';
 import LOGO from '../../../../assets/images/missionHubLogoWords.png';
 import PEOPLE from '../../../../assets/images/MemberContacts_light.png';
 import {
@@ -121,7 +121,7 @@ const SignUpScreen = ({
 
   return (
     <View style={styles.container}>
-      <Header left={<DeprecatedBackButton />} />
+      <Header left={<BackButton />} />
       <Flex value={1} align="center" justify="center">
         <Flex value={1} align="center" justify="center">
           {headerContent ? renderHeader(headerContent) : renderLogoHeader()}

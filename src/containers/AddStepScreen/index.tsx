@@ -15,7 +15,7 @@ import {
   STEP_NOTE,
   CREATE_STEP,
 } from '../../constants';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import Skip from '../../components/Skip';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
@@ -162,7 +162,7 @@ const AddStepScreen = ({ next }: AddStepScreenProps) => {
   return (
     <View style={styles.container}>
       <Header
-        left={<DeprecatedBackButton iconStyle={styles.backButtonStyle} />}
+        left={<BackButton iconColor={theme.lightGrey} />}
         right={
           isStepNote ? (
             <Skip

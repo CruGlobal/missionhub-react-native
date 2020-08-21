@@ -60,7 +60,7 @@ export default StyleSheet.create({
     bottom: 0,
     right: 0,
   },
-  backButton: {
+  closeButton: {
     alignItems: 'flex-end',
     alignSelf: 'flex-end',
   },

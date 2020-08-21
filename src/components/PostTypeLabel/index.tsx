@@ -19,7 +19,7 @@ import OnYourMindIcon from '../../../assets/images/onYourMindIcon.svg';
 import PrayerRequestIcon from '../../../assets/images/prayerRequestIcon.svg';
 import SpiritualQuestionIcon from '../../../assets/images/spiritualQuestionIcon.svg';
 import StepsOfFaithIcon from '../../../assets/images/stepsOfFaithIcon.svg';
-import DeprecatedBackButton from '../../containers/DeprecatedBackButton';
+import BackButton from '../BackButton';
 import theme from '../../theme';
 import { FeedItemSubjectTypeEnum } from '../../../__generated__/globalTypes';
 import Avatar, { AvatarPerson } from '../Avatar';
@@ -133,7 +133,7 @@ const PostTypeLabel = ({
       <SafeAreaView style={[PostTypeBgStyle[type]]}>
         <Card style={[styles.headerCard, PostTypeBgStyle[type]]}>
           <Header
-            left={<DeprecatedBackButton />}
+            left={<BackButton />}
             title={communityName}
             style={styles.header}
             titleStyle={styles.headerTitle}

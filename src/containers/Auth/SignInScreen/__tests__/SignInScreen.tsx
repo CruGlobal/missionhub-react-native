@@ -47,10 +47,7 @@ jest.mock('../../../../components/common', () => ({
   LoadingWheel: 'LoadingWheel',
   Input: 'Input',
 }));
-jest.mock(
-  '../../../../containers/DeprecatedBackButton',
-  () => 'DeprecatedBackButton',
-);
+jest.mock('../../../../components/BackButton', () => 'BackButton');
 jest.mock('../../../../components/Header', () => 'Header');
 
 const next = jest.fn(() => () => {});

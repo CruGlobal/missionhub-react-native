@@ -17,7 +17,7 @@ import {
 } from '../../actions/challenges';
 import { AuthState } from '../../reducers/auth';
 import { OrganizationsState } from '../../reducers/organizations';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import { Button, Touchable } from '../../components/common';
 import Header from '../../components/Header';
 import BottomButton from '../../components/BottomButton';
@@ -115,7 +115,7 @@ const ChallengeDetailScreen = () => {
     <View style={styles.pageContainer}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={<DeprecatedBackButton iconStyle={{ color: theme.lightGrey }} />}
+        left={<BackButton iconColor={theme.lightGrey} />}
         center={
           !communityName ? (
             undefined

@@ -14,10 +14,10 @@ import moment from 'moment';
 import { Input, Button } from '../../components/common';
 import DatePicker from '../../components/DatePicker';
 import theme from '../../theme';
-import DeprecatedBackButton from '../DeprecatedBackButton';
+import BackButton from '../../components/BackButton';
 import BottomButton from '../../components/BottomButton';
 import Header from '../../components/Header';
-import CLOSE_BUTTON from '../../../assets/images/closeButton.png';
+import CloseButton from '../../components/CloseButton';
 import CHALLENGE_TARGET from '../../../assets/images/challengeDetailsTarget.png';
 import { useAnalytics } from '../../utils/hooks/useAnalytics';
 import { isAndroid } from '../../utils/common';
@@ -182,11 +182,7 @@ const AddChallengeScreen = () => {
     <View style={container}>
       <StatusBar {...theme.statusBar.darkContent} />
       <Header
-        left={
-          isEdit ? (
-            <DeprecatedBackButton iconStyle={{ color: theme.lightGrey }} />
-          ) : null
-        }
+        left={isEdit ? <BackButton iconColor={theme.lightGrey} /> : null}
         right={
           isEdit ? (
             <Button
@@ -198,10 +194,7 @@ const AddChallengeScreen = () => {
               style={{ marginRight: 10 }}
             />
           ) : (
-            <DeprecatedBackButton
-              image={CLOSE_BUTTON}
-              style={styles.backButton}
-            />
+            <CloseButton style={styles.closeButton} />
           )
         }
       />
