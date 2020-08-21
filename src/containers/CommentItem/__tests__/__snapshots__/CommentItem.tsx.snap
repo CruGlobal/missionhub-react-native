@@ -78,17 +78,9 @@ exports[`renders correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "paddingRight": 6,
-                },
-              ]
+              Object {
+                "paddingRight": 6,
+              }
             }
           >
             Branson Gutkowski
@@ -99,18 +91,14 @@ exports[`renders correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
         testID="Text"
@@ -121,20 +109,16 @@ exports[`renders correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "paddingHorizontal": 2,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {
-                "paddingHorizontal": 2,
-              },
-            ],
           ]
         }
       >
@@ -142,18 +126,14 @@ exports[`renders correctly 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         Edited
@@ -191,19 +171,7 @@ exports[`renders correctly 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           esse repellat quisquam
         </Text>
       </View>
@@ -290,17 +258,9 @@ exports[`renders correctly as mine 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "paddingRight": 6,
-                },
-              ]
+              Object {
+                "paddingRight": 6,
+              }
             }
           >
             Branson Gutkowski
@@ -311,18 +271,14 @@ exports[`renders correctly as mine 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
         testID="Text"
@@ -333,20 +289,16 @@ exports[`renders correctly as mine 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "paddingHorizontal": 2,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {
-                "paddingHorizontal": 2,
-              },
-            ],
           ]
         }
       >
@@ -354,18 +306,14 @@ exports[`renders correctly as mine 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         Edited
@@ -403,19 +351,7 @@ exports[`renders correctly as mine 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           esse repellat quisquam
         </Text>
       </View>
@@ -502,17 +438,9 @@ exports[`renders editing correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "paddingRight": 6,
-                },
-              ]
+              Object {
+                "paddingRight": 6,
+              }
             }
           >
             Branson Gutkowski
@@ -523,18 +451,14 @@ exports[`renders editing correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
         testID="Text"
@@ -545,20 +469,16 @@ exports[`renders editing correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "paddingHorizontal": 2,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {
-                "paddingHorizontal": 2,
-              },
-            ],
           ]
         }
       >
@@ -566,18 +486,14 @@ exports[`renders editing correctly 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         Edited
@@ -615,19 +531,7 @@ exports[`renders editing correctly 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           esse repellat quisquam
         </Text>
       </View>
@@ -685,17 +589,9 @@ exports[`renders my reported comment 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "paddingRight": 6,
-            },
-          ]
+          Object {
+            "paddingRight": 6,
+          }
         }
       >
         Branson Gutkowski
@@ -704,18 +600,14 @@ exports[`renders my reported comment 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
         testID="Text"
@@ -726,20 +618,16 @@ exports[`renders my reported comment 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "paddingHorizontal": 2,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {
-                "paddingHorizontal": 2,
-              },
-            ],
           ]
         }
       >
@@ -747,18 +635,14 @@ exports[`renders my reported comment 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         Edited
@@ -796,19 +680,7 @@ exports[`renders my reported comment 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           esse repellat quisquam
         </Text>
       </View>
@@ -866,17 +738,9 @@ exports[`renders reported comment 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "paddingRight": 6,
-            },
-          ]
+          Object {
+            "paddingRight": 6,
+          }
         }
       >
         Branson Gutkowski
@@ -885,18 +749,14 @@ exports[`renders reported comment 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
         testID="Text"
@@ -907,20 +767,16 @@ exports[`renders reported comment 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "paddingHorizontal": 2,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {
-                "paddingHorizontal": 2,
-              },
-            ],
           ]
         }
       >
@@ -928,18 +784,14 @@ exports[`renders reported comment 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         Edited
@@ -977,19 +829,7 @@ exports[`renders reported comment 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           esse repellat quisquam
         </Text>
       </View>
@@ -1047,17 +887,9 @@ exports[`renders reported story 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "paddingRight": 6,
-            },
-          ]
+          Object {
+            "paddingRight": 6,
+          }
         }
       >
         Branson Gutkowski
@@ -1066,18 +898,14 @@ exports[`renders reported story 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
         testID="Text"
@@ -1088,20 +916,16 @@ exports[`renders reported story 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "paddingHorizontal": 2,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {
-                "paddingHorizontal": 2,
-              },
-            ],
           ]
         }
       >
@@ -1109,18 +933,14 @@ exports[`renders reported story 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         Edited
@@ -1158,19 +978,7 @@ exports[`renders reported story 1`] = `
           ]
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           esse repellat quisquam
         </Text>
       </View>
@@ -1257,17 +1065,9 @@ exports[`renders without menu actions 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "paddingRight": 6,
-                },
-              ]
+              Object {
+                "paddingRight": 6,
+              }
             }
           >
             Branson Gutkowski
@@ -1278,18 +1078,14 @@ exports[`renders without menu actions 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
-            },
-            Object {
+              "color": "#B4B6BA",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {},
-            ],
+            Object {},
           ]
         }
         testID="Text"
@@ -1300,20 +1096,16 @@ exports[`renders without menu actions 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
             },
             Object {
-              "fontFamily": "SourceSansPro-Regular",
+              "paddingHorizontal": 2,
             },
-            Array [
-              Object {
-                "color": "#B2B0B2",
-                "fontSize": 12,
-              },
-              Object {
-                "paddingHorizontal": 2,
-              },
-            ],
           ]
         }
       >
@@ -1321,18 +1113,14 @@ exports[`renders without menu actions 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B2B0B2",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         Edited
@@ -1353,19 +1141,7 @@ exports[`renders without menu actions 1`] = `
         ]
       }
     >
-      <Text
-        style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {},
-          ]
-        }
-      >
+      <Text>
         esse repellat quisquam
       </Text>
     </View>

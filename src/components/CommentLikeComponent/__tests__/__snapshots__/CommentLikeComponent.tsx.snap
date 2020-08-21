@@ -22,21 +22,17 @@ exports[`renders nothing with no subject person 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -99,21 +95,17 @@ exports[`renders nothing with no subject person 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       41702
@@ -167,7 +159,7 @@ exports[`with subject person onPress like button like -> unlike renders disabled
 - First value
 + Second value
 
-@@ -67,11 +67,13 @@
+@@ -63,11 +63,13 @@
           style={
             Array [
               Object {
@@ -189,7 +181,7 @@ exports[`with subject person onPress like button unlike -> like renders disabled
 - First value
 + Second value
 
-@@ -67,11 +67,13 @@
+@@ -63,11 +63,13 @@
           style={
             Array [
               Object {
@@ -228,21 +220,17 @@ exports[`with subject person renders 0 comments_count 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -305,21 +293,17 @@ exports[`with subject person renders 0 comments_count 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -388,21 +372,17 @@ exports[`with subject person renders 0 likes_count 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -465,21 +445,17 @@ exports[`with subject person renders 0 likes_count 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       41702
@@ -550,21 +526,17 @@ exports[`with subject person renders for me 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       72032
@@ -629,21 +601,17 @@ exports[`with subject person renders for me 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       41702
@@ -714,21 +682,17 @@ exports[`with subject person renders for someone else 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -791,21 +755,17 @@ exports[`with subject person renders for someone else 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       72032
@@ -876,21 +836,17 @@ exports[`with subject person renders prayer request liked 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -952,21 +908,17 @@ exports[`with subject person renders prayer request liked 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       41702
@@ -1037,21 +989,17 @@ exports[`with subject person renders prayer request not liked 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -1113,21 +1061,17 @@ exports[`with subject person renders prayer request not liked 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       41702
@@ -1198,21 +1142,17 @@ exports[`with subject person renders when not liked 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     />
     <View
@@ -1274,21 +1214,17 @@ exports[`with subject person renders when not liked 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-            "lineHeight": 20,
-            "paddingRight": 10,
-            "textAlign": "right",
-            "width": 30,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "paddingRight": 10,
+          "textAlign": "right",
+          "width": 30,
+        }
       }
     >
       41702

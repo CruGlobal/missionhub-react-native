@@ -5,11 +5,11 @@ exports[`calls methods calls update firstName and changeFocusedField 1`] = `
 - First value
 + Second value
 
-@@ -83,11 +83,13 @@
-                \\"fontSize\\": 13,
-                \\"marginTop\\": 15,
-              },
-            ]
+@@ -72,11 +72,13 @@
+              \\"fontWeight\\": \\"normal\\",
+              \\"lineHeight\\": 16,
+              \\"marginTop\\": 15,
+            }
           }
 -       />
 +       >
@@ -20,7 +20,7 @@ exports[`calls methods calls update firstName and changeFocusedField 1`] = `
           autoCorrect={false}
           autoFocus={true}
           blurOnSubmit={false}
-@@ -95,11 +97,11 @@
+@@ -84,11 +86,11 @@
           multiline={false}
           onBlur={[Function onBlur]}
           onChangeText={[Function onChangeText]}
@@ -40,11 +40,11 @@ exports[`calls methods calls update lastName and changeFocusedField 1`] = `
 - First value
 + Second value
 
-@@ -149,22 +149,24 @@
-                \\"fontSize\\": 13,
-                \\"marginTop\\": 15,
-              },
-            ]
+@@ -137,22 +137,24 @@
+              \\"fontWeight\\": \\"normal\\",
+              \\"lineHeight\\": 16,
+              \\"marginTop\\": 15,
+            }
           }
 -       />
 +       >
@@ -158,20 +158,12 @@ exports[`render correctly | With Person | No Picture 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 64,
+                    "fontWeight": "300",
                   },
-                  Array [
-                    Object {
-                      "color": "#ffffff",
-                    },
-                    Object {
-                      "fontSize": 64,
-                      "fontWeight": "300",
-                    },
-                  ],
                 ]
               }
             >
@@ -201,19 +193,15 @@ exports[`render correctly | With Person | No Picture 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         First Name
@@ -238,12 +226,15 @@ exports[`render correctly | With Person | No Picture 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -269,19 +260,15 @@ exports[`render correctly | With Person | No Picture 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Last Name
@@ -305,12 +292,15 @@ exports[`render correctly | With Person | No Picture 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -336,19 +326,15 @@ exports[`render correctly | With Person | No Picture 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Stage
@@ -368,21 +354,17 @@ exports[`render correctly | With Person | No Picture 1`] = `
         <Text
           onPress={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "alignItems": "flex-start",
-                "color": "#3CC8E6",
-                "fontSize": 16,
-                "marginVertical": 10,
-                "width": "100%",
-              },
-            ]
+            Object {
+              "alignItems": "flex-start",
+              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "marginVertical": 10,
+              "width": "100%",
+            }
           }
           testID="stageSelectButton"
         >
@@ -492,19 +474,15 @@ exports[`render correctly | With Person | No Stage 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         First Name
@@ -529,12 +507,15 @@ exports[`render correctly | With Person | No Stage 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -560,19 +541,15 @@ exports[`render correctly | With Person | No Stage 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Last Name
@@ -596,12 +573,15 @@ exports[`render correctly | With Person | No Stage 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -627,19 +607,15 @@ exports[`render correctly | With Person | No Stage 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Stage
@@ -659,21 +635,17 @@ exports[`render correctly | With Person | No Stage 1`] = `
         <Text
           onPress={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "alignItems": "flex-start",
-                "color": "#3CC8E6",
-                "fontSize": 16,
-                "marginVertical": 10,
-                "width": "100%",
-              },
-            ]
+            Object {
+              "alignItems": "flex-start",
+              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "marginVertical": 10,
+              "width": "100%",
+            }
           }
           testID="stageSelectButton"
         >
@@ -724,19 +696,15 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         First Name
@@ -761,12 +729,15 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -792,19 +763,15 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Last Name
@@ -828,12 +795,15 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -859,19 +829,15 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Stage
@@ -891,21 +857,17 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
         <Text
           onPress={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "alignItems": "flex-start",
-                "color": "#3CC8E6",
-                "fontSize": 16,
-                "marginVertical": 10,
-                "width": "100%",
-              },
-            ]
+            Object {
+              "alignItems": "flex-start",
+              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "marginVertical": 10,
+              "width": "100%",
+            }
           }
           testID="stageSelectButton"
         >
@@ -925,19 +887,15 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         How do you know each other?
@@ -973,21 +931,17 @@ exports[`render correctly | With Person | Not Me | No Person Category 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "alignItems": "flex-start",
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "marginVertical": 10,
-                  "width": "100%",
-                },
-              ]
+              Object {
+                "alignItems": "flex-start",
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginVertical": 10,
+                "width": "100%",
+              }
             }
           >
             Choose a category
@@ -1041,19 +995,15 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         First Name
@@ -1078,12 +1028,15 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -1109,19 +1062,15 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Last Name
@@ -1145,12 +1094,15 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -1176,19 +1128,15 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Stage
@@ -1208,21 +1156,17 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
         <Text
           onPress={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "alignItems": "flex-start",
-                "color": "#3CC8E6",
-                "fontSize": 16,
-                "marginVertical": 10,
-                "width": "100%",
-              },
-            ]
+            Object {
+              "alignItems": "flex-start",
+              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "marginVertical": 10,
+              "width": "100%",
+            }
           }
           testID="stageSelectButton"
         >
@@ -1242,19 +1186,15 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         How do you know each other?
@@ -1290,21 +1230,17 @@ exports[`render correctly | With Person | Not Me | With Person Category 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "alignItems": "flex-start",
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "marginVertical": 10,
-                  "width": "100%",
-                },
-              ]
+              Object {
+                "alignItems": "flex-start",
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginVertical": 10,
+                "width": "100%",
+              }
             }
           >
             Family
@@ -1417,19 +1353,15 @@ exports[`render correctly | With Person | With Picture 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         First Name
@@ -1454,12 +1386,15 @@ exports[`render correctly | With Person | With Picture 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -1485,19 +1420,15 @@ exports[`render correctly | With Person | With Picture 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Last Name
@@ -1521,12 +1452,15 @@ exports[`render correctly | With Person | With Picture 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -1552,19 +1486,15 @@ exports[`render correctly | With Person | With Picture 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       >
         Stage
@@ -1584,21 +1514,17 @@ exports[`render correctly | With Person | With Picture 1`] = `
         <Text
           onPress={[Function]}
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "alignItems": "flex-start",
-                "color": "#3CC8E6",
-                "fontSize": 16,
-                "marginVertical": 10,
-                "width": "100%",
-              },
-            ]
+            Object {
+              "alignItems": "flex-start",
+              "color": "#3CC8E6",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "marginVertical": 10,
+              "width": "100%",
+            }
           }
           testID="stageSelectButton"
         >
@@ -1659,23 +1585,16 @@ exports[`renders correctly | No Person 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontFamily": "SourceSansPro-Light",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "lineHeight": 30,
-                  "maxWidth": 230,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 30,
+                "maxWidth": 230,
+                "textAlign": "center",
+              }
             }
           >
             Who would you like to take steps of faith with this week?
@@ -1684,19 +1603,15 @@ exports[`renders correctly | No Person 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       />
       <TextInput
@@ -1719,12 +1634,15 @@ exports[`renders correctly | No Person 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
@@ -1750,19 +1668,15 @@ exports[`renders correctly | No Person 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 13,
-              "marginTop": 15,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "marginTop": 15,
+          }
         }
       />
       <TextInput
@@ -1784,12 +1698,15 @@ exports[`renders correctly | No Person 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {

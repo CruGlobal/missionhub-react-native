@@ -141,19 +141,15 @@ exports[`should render correctly for basic member 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+              }
             }
           >
             
@@ -256,19 +252,15 @@ exports[`should render correctly for basic member 1`] = `
                 >
                   <Text
                     style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#007398",
-                          "fontSize": 16,
-                          "marginBottom": 3,
-                        },
-                      ]
+                      Object {
+                        "color": "#005A7F",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
+                        "marginBottom": 3,
+                      }
                     }
                   >
                     Read "There and Back Again"
@@ -300,39 +292,28 @@ exports[`should render correctly for basic member 1`] = `
                     >
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#A0A2A6",
-                              "fontSize": 12,
-                              "lineHeight": 16,
-                            },
-                          ]
+                          Object {
+                            "color": "#B4B6BA",
+                            "fontFamily": "SourceSansPro-Regular",
+                            "fontSize": 12,
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "lineHeight": 16,
+                          }
                         }
                       >
                         Days Left
                       </Text>
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                          ]
+                          Object {
+                            "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
+                          }
                         }
                       >
                         35
@@ -352,19 +333,14 @@ exports[`should render correctly for basic member 1`] = `
                     >
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#A0A2A6",
-                              "fontSize": 12,
-                              "lineHeight": 16,
-                            },
-                          ]
+                          Object {
+                            "color": "#B4B6BA",
+                            "fontFamily": "SourceSansPro-Regular",
+                            "fontSize": 12,
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "lineHeight": 16,
+                          }
                         }
                       >
                         Joined
@@ -375,19 +351,13 @@ exports[`should render correctly for basic member 1`] = `
                           Array [
                             Object {
                               "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "fontStyle": "normal",
+                              "fontWeight": "300",
+                              "lineHeight": 30,
                             },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Array [
-                              Object {
-                                "color": "#505256",
-                                "fontFamily": "SourceSansPro-ExtraLight",
-                                "fontSize": 24,
-                                "lineHeight": 30,
-                              },
-                              null,
-                            ],
+                            null,
                           ]
                         }
                         testID="joinedCount"
@@ -409,19 +379,14 @@ exports[`should render correctly for basic member 1`] = `
                     >
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#A0A2A6",
-                              "fontSize": 12,
-                              "lineHeight": 16,
-                            },
-                          ]
+                          Object {
+                            "color": "#B4B6BA",
+                            "fontFamily": "SourceSansPro-Regular",
+                            "fontSize": 12,
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "lineHeight": 16,
+                          }
                         }
                       >
                         Completed
@@ -432,19 +397,13 @@ exports[`should render correctly for basic member 1`] = `
                           Array [
                             Object {
                               "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "fontStyle": "normal",
+                              "fontWeight": "300",
+                              "lineHeight": 30,
                             },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Array [
-                              Object {
-                                "color": "#505256",
-                                "fontFamily": "SourceSansPro-ExtraLight",
-                                "fontSize": 24,
-                                "lineHeight": 30,
-                              },
-                              null,
-                            ],
+                            null,
                           ]
                         }
                         testID="completedCount"
@@ -516,24 +475,26 @@ exports[`should render correctly for basic member 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 15,
-                      },
-                    ],
                   ]
                 }
               >
@@ -563,19 +524,15 @@ exports[`should render correctly for basic member 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "textAlign": "center",
+              }
             }
           >
             Past Challenges
@@ -678,19 +635,15 @@ exports[`should render correctly for basic member 1`] = `
                 >
                   <Text
                     style={
-                      Array [
-                        Object {
-                          "color": "#505256",
-                        },
-                        Object {
-                          "fontFamily": "SourceSansPro-Regular",
-                        },
-                        Object {
-                          "color": "#007398",
-                          "fontSize": 16,
-                          "marginBottom": 3,
-                        },
-                      ]
+                      Object {
+                        "color": "#005A7F",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
+                        "marginBottom": 3,
+                      }
                     }
                   >
                     Past Challenge
@@ -722,39 +675,28 @@ exports[`should render correctly for basic member 1`] = `
                     >
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#A0A2A6",
-                              "fontSize": 12,
-                              "lineHeight": 16,
-                            },
-                          ]
+                          Object {
+                            "color": "#B4B6BA",
+                            "fontFamily": "SourceSansPro-Regular",
+                            "fontSize": 12,
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "lineHeight": 16,
+                          }
                         }
                       >
                         Days
                       </Text>
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                          ]
+                          Object {
+                            "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
+                          }
                         }
                       >
                         -56
@@ -774,19 +716,14 @@ exports[`should render correctly for basic member 1`] = `
                     >
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#A0A2A6",
-                              "fontSize": 12,
-                              "lineHeight": 16,
-                            },
-                          ]
+                          Object {
+                            "color": "#B4B6BA",
+                            "fontFamily": "SourceSansPro-Regular",
+                            "fontSize": 12,
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "lineHeight": 16,
+                          }
                         }
                       >
                         Joined
@@ -797,19 +734,13 @@ exports[`should render correctly for basic member 1`] = `
                           Array [
                             Object {
                               "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "fontStyle": "normal",
+                              "fontWeight": "300",
+                              "lineHeight": 30,
                             },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Array [
-                              Object {
-                                "color": "#505256",
-                                "fontFamily": "SourceSansPro-ExtraLight",
-                                "fontSize": 24,
-                                "lineHeight": 30,
-                              },
-                              null,
-                            ],
+                            null,
                           ]
                         }
                         testID="joinedCount"
@@ -831,19 +762,14 @@ exports[`should render correctly for basic member 1`] = `
                     >
                       <Text
                         style={
-                          Array [
-                            Object {
-                              "color": "#505256",
-                            },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Object {
-                              "color": "#A0A2A6",
-                              "fontSize": 12,
-                              "lineHeight": 16,
-                            },
-                          ]
+                          Object {
+                            "color": "#B4B6BA",
+                            "fontFamily": "SourceSansPro-Regular",
+                            "fontSize": 12,
+                            "fontStyle": "normal",
+                            "fontWeight": "normal",
+                            "lineHeight": 16,
+                          }
                         }
                       >
                         Completed
@@ -854,19 +780,13 @@ exports[`should render correctly for basic member 1`] = `
                           Array [
                             Object {
                               "color": "#505256",
+                              "fontFamily": "SourceSansPro-ExtraLight",
+                              "fontSize": 24,
+                              "fontStyle": "normal",
+                              "fontWeight": "300",
+                              "lineHeight": 30,
                             },
-                            Object {
-                              "fontFamily": "SourceSansPro-Regular",
-                            },
-                            Array [
-                              Object {
-                                "color": "#505256",
-                                "fontFamily": "SourceSansPro-ExtraLight",
-                                "fontSize": 24,
-                                "lineHeight": 30,
-                              },
-                              null,
-                            ],
+                            null,
                           ]
                         }
                         testID="completedCount"
@@ -1000,42 +920,32 @@ exports[`should render empty correctly 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 10,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingTop": 10,
+            }
           }
         >
           Our Challenges
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 80,
-                "paddingVertical": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 80,
+              "paddingVertical": 10,
+              "textAlign": "center",
+            }
           }
         >
           Join each other in a challenge created for your community.

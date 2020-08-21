@@ -181,9 +181,9 @@ const statusBar = {
 
 export default {
   // base theme
-  primaryColor: COLORS.ABYSS_BLUE,
+  primaryColor: COLORS.MACAW_BLUE,
   secondaryColor: COLORS.PARAKEET_BLUE,
-  accentColor: COLORS.MACAW_BLUE,
+  accentColor: COLORS.ABYSS_BLUE,
   lightBlue: COLORS.GLACIER_BLUE,
   white: COLORS.WHITE,
   black: COLORS.BLACK,

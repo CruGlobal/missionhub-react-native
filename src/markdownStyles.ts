@@ -9,7 +9,7 @@ const heading3Style = {
   ...theme.textBold16,
   fontSize: 20,
   lineHeight: 22,
-  lineSpacing: 0,
+  letterSpacing: 0,
   marginVertical: 16,
 };
 const strongStyle = {

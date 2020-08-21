@@ -5,7 +5,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -164,58 +164,57 @@
+@@ -162,58 +162,57 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -89,7 +89,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             ],
             \\"id\\": 0,
             \\"name\\": \\"reportedActivity\\",
-@@ -530,11 +529,321 @@
+@@ -528,11 +527,321 @@
                   \\"id\\": \\"20\\",
                   \\"picture\\": \\"et facere placeat\\",
                 },
@@ -424,22 +424,22 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -724,11 +1033,11 @@
-                          \\"fontWeight\\": \\"bold\\",
-                        },
-                      ]
+@@ -704,11 +1013,11 @@
+                        \\"fontWeight\\": \\"bold\\",
+                        \\"lineHeight\\": 24,
+                      }
                     }
                   >
 -                    Diverse analyzing database 
 +                    Total incremental project 
                   </Text>
+                  <Text>
+                    has been reported.
+                  </Text>
                   <Text
-                    style={
-                      Array [
-                        Object {
-@@ -777,11 +1086,11 @@
-                      },
-                    ]
+@@ -737,11 +1046,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -450,7 +450,7 @@ exports[`handle pagination paginates when close to bottom 1`] = `
             </View>
           </View>
         </View>
-@@ -822,11 +1131,11 @@
+@@ -782,11 +1091,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -463,35 +463,35 @@ exports[`handle pagination paginates when close to bottom 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -884,11 +1193,11 @@
-                        },
-                        Object {},
-                      ]
+@@ -827,11 +1136,11 @@
+                      \\"lineHeight\\": 24,
                     }
-                  >
+                  }
+                >
+                  <Text>
 -                   A post from
 +                   A comment from
                   </Text>
                   <Text
                     style={
-                      Array [
-                        Object {
-@@ -901,11 +1210,11 @@
-                          \\"fontWeight\\": \\"bold\\",
-                        },
-                      ]
+                      Object {
+                        \\"color\\": \\"#505256\\",
+@@ -841,11 +1150,11 @@
+                        \\"fontWeight\\": \\"bold\\",
+                        \\"lineHeight\\": 24,
+                      }
                     }
                   >
 -                    Diverse mobile website 
 +                    Seamless non-volatile adapter 
                   </Text>
+                  <Text>
+                    has been reported.
+                  </Text>
                   <Text
-                    style={
-                      Array [
-                        Object {
-@@ -954,11 +1263,11 @@
-                      },
-                    ]
+@@ -874,11 +1183,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -514,7 +514,7 @@ exports[`handles refresh 1`] = `
 - First value
 + Second value
 
-@@ -164,373 +164,372 @@
+@@ -162,373 +162,372 @@
         Array [
           Object {
             \\"data\\": Array [
@@ -1056,22 +1056,22 @@ exports[`handles refresh 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -724,11 +723,11 @@
-                          \\"fontWeight\\": \\"bold\\",
-                        },
-                      ]
+@@ -704,11 +703,11 @@
+                        \\"fontWeight\\": \\"bold\\",
+                        \\"lineHeight\\": 24,
+                      }
                     }
                   >
 -                    Diverse analyzing database 
 +                    Total incremental project 
                   </Text>
+                  <Text>
+                    has been reported.
+                  </Text>
                   <Text
-                    style={
-                      Array [
-                        Object {
-@@ -777,11 +776,11 @@
-                      },
-                    ]
+@@ -737,11 +736,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -1082,7 +1082,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -822,11 +821,11 @@
+@@ -782,11 +781,11 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1095,35 +1095,35 @@ exports[`handles refresh 1`] = `
                 style={
                   Object {
                     \\"borderRadius\\": 24,
-@@ -884,11 +883,11 @@
-                        },
-                        Object {},
-                      ]
+@@ -827,11 +826,11 @@
+                      \\"lineHeight\\": 24,
                     }
-                  >
+                  }
+                >
+                  <Text>
 -                   A post from
 +                   A comment from
                   </Text>
                   <Text
                     style={
-                      Array [
-                        Object {
-@@ -901,11 +900,11 @@
-                          \\"fontWeight\\": \\"bold\\",
-                        },
-                      ]
+                      Object {
+                        \\"color\\": \\"#505256\\",
+@@ -841,11 +840,11 @@
+                        \\"fontWeight\\": \\"bold\\",
+                        \\"lineHeight\\": 24,
+                      }
                     }
                   >
 -                    Diverse mobile website 
 +                    Seamless non-volatile adapter 
                   </Text>
+                  <Text>
+                    has been reported.
+                  </Text>
                   <Text
-                    style={
-                      Array [
-                        Object {
-@@ -954,11 +953,11 @@
-                      },
-                    ]
+@@ -874,11 +873,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -1134,7 +1134,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1031,22 +1030,22 @@
+@@ -953,22 +952,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1159,22 +1159,22 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1142,11 +1141,11 @@
-                        },
-                        Object {},
-                      ]
+@@ -1047,11 +1046,11 @@
+                      \\"lineHeight\\": 24,
                     }
-                  >
+                  }
+                >
+                  <Text>
 -                   repellat quisquam recusandae
 +                   doloribus aut culpa
                   </Text>
                 </Text>
                 <Text
                   style={
-                    Array [
-@@ -1163,11 +1162,11 @@
-                      },
-                    ]
+                    Object {
+@@ -1063,11 +1062,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -1185,7 +1185,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1208,22 +1207,22 @@
+@@ -1108,22 +1107,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1210,22 +1210,22 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1319,11 +1318,11 @@
-                        },
-                        Object {},
-                      ]
+@@ -1202,11 +1201,11 @@
+                      \\"lineHeight\\": 24,
                     }
-                  >
+                  }
+                >
+                  <Text>
 -                   repudiandae esse blanditiis
 +                   adipisci non rerum
                   </Text>
                 </Text>
                 <Text
                   style={
-                    Array [
-@@ -1340,11 +1339,11 @@
-                      },
-                    ]
+                    Object {
+@@ -1218,11 +1217,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -1236,7 +1236,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1385,22 +1384,22 @@
+@@ -1263,22 +1262,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1261,22 +1261,22 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1496,11 +1495,11 @@
-                        },
-                        Object {},
-                      ]
+@@ -1357,11 +1356,11 @@
+                      \\"lineHeight\\": 24,
                     }
-                  >
+                  }
+                >
+                  <Text>
 -                   deserunt quam tempore
 +                   iste sed repudiandae
                   </Text>
                 </Text>
                 <Text
                   style={
-                    Array [
-@@ -1517,11 +1516,11 @@
-                      },
-                    ]
+                    Object {
+@@ -1373,11 +1372,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -1287,7 +1287,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1562,22 +1561,22 @@
+@@ -1418,22 +1417,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1312,22 +1312,22 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1673,11 +1672,11 @@
-                        },
-                        Object {},
-                      ]
+@@ -1512,11 +1511,11 @@
+                      \\"lineHeight\\": 24,
                     }
-                  >
+                  }
+                >
+                  <Text>
 -                   totam voluptates explicabo
 +                   voluptatem praesentium hic
                   </Text>
                 </Text>
                 <Text
                   style={
-                    Array [
-@@ -1694,11 +1693,11 @@
-                      },
-                    ]
+                    Object {
+@@ -1528,11 +1527,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -1338,7 +1338,7 @@ exports[`handles refresh 1`] = `
             </View>
           </View>
         </View>
-@@ -1739,22 +1738,22 @@
+@@ -1573,22 +1572,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -1363,22 +1363,22 @@ exports[`handles refresh 1`] = `
                   ]
                 }
               />
-@@ -1850,11 +1849,11 @@
-                        },
-                        Object {},
-                      ]
+@@ -1667,11 +1666,11 @@
+                      \\"lineHeight\\": 24,
                     }
-                  >
+                  }
+                >
+                  <Text>
 -                   provident esse hic
 +                   unde ut quibusdam
                   </Text>
                 </Text>
                 <Text
                   style={
-                    Array [
-@@ -1871,11 +1870,11 @@
-                      },
-                    ]
+                    Object {
+@@ -1683,11 +1682,11 @@
+                      \\"lineHeight\\": 16,
+                    }
                   }
                   testID=\\"Text\\"
                 >
@@ -1513,23 +1513,21 @@ exports[`renders Earlier section correctly  1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -1711,7 +1709,9 @@ exports[`renders Earlier section correctly  1`] = `
                 "color": "#505256",
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
-                "fontWeight": "200",
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
               }
@@ -1794,81 +1794,46 @@ exports[`renders Earlier section correctly  1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A comment from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Robust responsive paradigm 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -1876,19 +1841,14 @@ exports[`renders Earlier section correctly  1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -1971,81 +1931,46 @@ exports[`renders Earlier section correctly  1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A comment from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Stand-alone 4th generation definition 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -2053,19 +1978,14 @@ exports[`renders Earlier section correctly  1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -2097,7 +2017,9 @@ exports[`renders Earlier section correctly  1`] = `
                 "color": "#505256",
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
-                "fontWeight": "200",
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
               }
@@ -2229,52 +2151,30 @@ exports[`renders Earlier section correctly  1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   esse repellat quisquam
                 </Text>
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -2422,23 +2322,21 @@ exports[`renders Today section correctly  1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -2620,7 +2518,9 @@ exports[`renders Today section correctly  1`] = `
                 "color": "#505256",
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
-                "fontWeight": "200",
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
               }
@@ -2703,81 +2603,46 @@ exports[`renders Today section correctly  1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A comment from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Robust responsive paradigm 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -2785,19 +2650,14 @@ exports[`renders Today section correctly  1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -2880,81 +2740,46 @@ exports[`renders Today section correctly  1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A comment from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Stand-alone 4th generation definition 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -2962,19 +2787,14 @@ exports[`renders Today section correctly  1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -3006,7 +2826,9 @@ exports[`renders Today section correctly  1`] = `
                 "color": "#505256",
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
-                "fontWeight": "200",
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
               }
@@ -3138,52 +2960,30 @@ exports[`renders Today section correctly  1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   esse repellat quisquam
                 </Text>
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -3331,23 +3131,21 @@ exports[`renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -3810,7 +3608,9 @@ exports[`renders correctly 1`] = `
                 "color": "#505256",
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
-                "fontWeight": "200",
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
               }
@@ -3893,81 +3693,46 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A post from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Diverse analyzing database 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -3975,19 +3740,14 @@ exports[`renders correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -4070,81 +3830,46 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A post from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Diverse mobile website 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -4152,19 +3877,14 @@ exports[`renders correctly 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -4196,7 +3916,9 @@ exports[`renders correctly 1`] = `
                 "color": "#505256",
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
-                "fontWeight": "200",
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
               }
@@ -4328,52 +4050,30 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   repellat quisquam recusandae
                 </Text>
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -4505,52 +4205,30 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   repudiandae esse blanditiis
                 </Text>
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -4682,52 +4360,30 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   deserunt quam tempore
                 </Text>
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -4859,52 +4515,30 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   totam voluptates explicabo
                 </Text>
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -5036,52 +4670,30 @@ exports[`renders correctly 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   provident esse hic
                 </Text>
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -5225,23 +4837,21 @@ exports[`renders null for non-english users 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -5336,8 +4946,12 @@ exports[`renders null for non-english users 1`] = `
         <Text
           style={
             Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "paddingVertical": 30,
             }
           }
@@ -5347,8 +4961,11 @@ exports[`renders null for non-english users 1`] = `
         <Text
           style={
             Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "maxWidth": 300,
               "textAlign": "center",
@@ -5469,20 +5086,12 @@ exports[`renders with no data 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 26,
+                      "fontWeight": "300",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 26,
-                        "fontWeight": "300",
-                      },
-                    ],
                   ]
                 }
               >
@@ -5509,23 +5118,21 @@ exports[`renders with no data 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -5620,8 +5227,12 @@ exports[`renders with no data 1`] = `
         <Text
           style={
             Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "paddingVertical": 30,
             }
           }
@@ -5631,8 +5242,11 @@ exports[`renders with no data 1`] = `
         <Text
           style={
             Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 24,
               "maxWidth": 300,
               "textAlign": "center",
@@ -5769,23 +5383,21 @@ exports[`renders with refresh button 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -5930,7 +5542,9 @@ exports[`renders with refresh button 1`] = `
                 "color": "#505256",
                 "fontFamily": "SourceSansPro-Light",
                 "fontSize": 24,
-                "fontWeight": "200",
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
                 "marginLeft": 10,
                 "padding": 10,
               }
@@ -6013,81 +5627,46 @@ exports[`renders with refresh button 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A post from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Front-line zero tolerance capability 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -6095,19 +5674,14 @@ exports[`renders with refresh button 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >
@@ -6190,81 +5764,46 @@ exports[`renders with refresh button 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontSize": 16,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
+                  }
                 }
               >
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   A comment from
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Enhanced 3rd generation internet solution 
                 </Text>
-                <Text
-                  style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {},
-                    ]
-                  }
-                >
+                <Text>
                   has been reported.
                 </Text>
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontWeight": "bold",
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "lineHeight": 24,
+                    }
                   }
                 >
                    Please Review.
@@ -6272,19 +5811,14 @@ exports[`renders with refresh button 1`] = `
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#B4B6BA",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
                 testID="Text"
               >

@@ -6,8 +6,8 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 + Second value
 
 @@ -178,11 +178,11 @@
-                        },
-                      ],
+                        \\"textTransform\\": \\"uppercase\\",
+                      },
                     ]
                   }
                 >
@@ -18,12 +18,16 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
             </View>
           </View>
         </View>
-@@ -195,11 +195,28 @@
+@@ -191,12 +191,29 @@
+    <View
+      style={
+        Object {
+          \\"backgroundColor\\": \\"#505256\\",
           \\"flex\\": 1,
-        }
-      }
-    >
-      <View
++       }
++     }
++   >
++     <View
 +       accessible={true}
 +       focusable={true}
 +       onClick={[Function onClick]}
@@ -33,21 +37,18 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +       onResponderTerminate={[Function onResponderTerminate]}
 +       onResponderTerminationRequest={[Function onResponderTerminationRequest]}
 +       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
-        style={
++       style={
 +         Object {
 +           \\"opacity\\": 1,
-+         }
-+       }
+          }
+        }
 +       testID=\\"popupMenuButton\\"
-+     >
-+       <View
-+         style={
+      >
+        <View
+          style={
             Array [
               Object {
-                \\"backgroundColor\\": \\"#005A7F\\",
-                \\"borderRadius\\": 4,
-                \\"height\\": 421.875,
-@@ -223,14 +240,38 @@
+@@ -223,13 +240,37 @@
             style={
               Object {
                 \\"borderRadius\\": 4,
@@ -69,29 +70,29 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                 \\"justifyContent\\": \\"center\\",
 +               },
 +             ]
-            }
++           }
 +         >
 +           <Image
 +             source={
 +               Object {
 +                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
-+               }
+                }
               }
             />
 +         </View>
-        </View>
-+     </View>
++       </View>
+      </View>
       <RCTScrollView
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-            \\"flex\\": 1,
-@@ -250,30 +291,130 @@
+@@ -250,25 +291,136 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
             }
           >
+-           <Text
 +           <TextInput
 +             allowFontScaling={true}
 +             autoCorrect={true}
@@ -104,24 +105,30 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +             rejectResponderTermination={true}
 +             returnKeyType=\\"done\\"
 +             selectionColor=\\"#ffffff\\"
-+             style={
+              style={
 +               Array [
-+                 Object {
+                  Object {
 +                   \\"backgroundColor\\": \\"transparent\\",
-+                   \\"borderBottomColor\\": \\"#52C5DC\\",
++                   \\"borderBottomColor\\": \\"#3CC8E6\\",
 +                   \\"borderBottomWidth\\": 1,
-+                   \\"color\\": \\"#ffffff\\",
+                    \\"color\\": \\"#ffffff\\",
 +                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +                   \\"fontSize\\": 16,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
 +                   \\"letterSpacing\\": 0.25,
++                   \\"lineHeight\\": 24,
 +                   \\"paddingVertical\\": 5,
 +                 },
 +                 Object {
 +                   \\"borderBottomWidth\\": 0,
 +                   \\"color\\": \\"#ffffff\\",
 +                   \\"flex\\": 1,
-+                   \\"fontSize\\": 32,
-+                   \\"letterSpacing\\": 0.25,
+                    \\"fontFamily\\": \\"SourceSansPro-Light\\",
+                    \\"fontSize\\": 32,
+                    \\"fontStyle\\": \\"normal\\",
+                    \\"fontWeight\\": \\"300\\",
+                    \\"lineHeight\\": 38,
 +                   \\"paddingVertical\\": 0,
 +                   \\"textAlign\\": \\"left\\",
 +                 },
@@ -144,10 +151,11 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +             style={
 +               Object {
 +                 \\"opacity\\": 1,
-+               }
-+             }
+                }
+              }
 +             testID=\\"IconButton\\"
-+           >
+            >
+-             esse repellat quisquam
 +             <View
 +               style={
 +                 Array [
@@ -166,17 +174,16 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                 ]
 +               }
 +             >
-                <Text
++               <Text
 +                 allowFontScaling={false}
-                  style={
++                 style={
 +                   Array [
 +                     Object {
 +                       \\"color\\": undefined,
 +                       \\"fontSize\\": 12,
 +                     },
-                      Array [
-                        Object {
--                   \\"color\\": \\"#505256\\",
++                     Array [
++                       Object {
 +                         \\"color\\": \\"#ffffff\\",
 +                       },
 +                       Object {
@@ -185,18 +192,15 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                       Array [
 +                         Object {
 +                           \\"margin\\": 10,
-                          },
++                         },
 +                         Array [
-                            Object {
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                             \\"color\\": \\"#B2B0B2\\",
++                           Object {
++                             \\"color\\": \\"#B4B6BA\\",
 +                             \\"margin\\": 0,
 +                             \\"paddingHorizontal\\": 10,
-                            },
-                            Object {
-                              \\"color\\": \\"#ffffff\\",
--                   \\"fontSize\\": 32,
--                   \\"letterSpacing\\": 0.25,
++                           },
++                           Object {
++                             \\"color\\": \\"#ffffff\\",
 +                             \\"marginLeft\\": 15,
 +                           },
 +                         ],
@@ -206,23 +210,22 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
 +                       \\"fontFamily\\": \\"icomoon\\",
 +                       \\"fontStyle\\": \\"normal\\",
 +                       \\"fontWeight\\": \\"normal\\",
-                      },
++                     },
 +                     Object {},
-                    ]
-                  }
-                >
--             esse repellat quisquam
++                   ]
++                 }
++               >
 +                 
                 </Text>
-              </View>
-+           </View>
++             </View>
+            </View>
 +         </View>
           <View
             style={
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -534,25 +675,30 @@
+@@ -497,25 +649,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -240,23 +243,23 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                     null,
 +                   Array [
                       Object {
-                        \\"backgroundColor\\": \\"#52C5DC\\",
+                        \\"backgroundColor\\": \\"#3CC8E6\\",
                         \\"borderRadius\\": 15,
                         \\"paddingHorizontal\\": 20,
                         \\"paddingVertical\\": 7,
-+                     },
+                      },
 +                     Object {
 +                       \\"backgroundColor\\": \\"#FF5532\\",
-                      },
++                     },
 +                   ],
                     null,
                   ]
                 }
               >
                 <Text
-@@ -580,11 +726,11 @@
-                        },
-                      ],
+@@ -543,11 +700,11 @@
+                        \\"textTransform\\": \\"uppercase\\",
+                      },
                     ]
                   }
                 >
@@ -267,7 +270,7 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
             </View>
           </View>
           <View
-@@ -676,25 +822,30 @@
+@@ -631,25 +788,30 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -285,23 +288,23 @@ exports[`CommunityProfile edit screen renders editing state 1`] = `
                     null,
 +                   Array [
                       Object {
-                        \\"backgroundColor\\": \\"#52C5DC\\",
+                        \\"backgroundColor\\": \\"#3CC8E6\\",
                         \\"borderRadius\\": 15,
                         \\"paddingHorizontal\\": 20,
                         \\"paddingVertical\\": 7,
-                      },
++                     },
 +                     Object {
 +                       \\"backgroundColor\\": \\"#FF5532\\",
-+                     },
+                      },
 +                   ],
                     null,
                   ]
                 }
               >
                 <Text
-@@ -722,11 +873,11 @@
-                        },
-                      ],
+@@ -677,11 +839,11 @@
+                        \\"textTransform\\": \\"uppercase\\",
+                      },
                     ]
                   }
                 >
@@ -320,8 +323,8 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 + Second value
 
 @@ -178,11 +178,11 @@
-                        },
-                      ],
+                        \\"textTransform\\": \\"uppercase\\",
+                      },
                     ]
                   }
                 >
@@ -332,12 +335,16 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             </View>
           </View>
         </View>
-@@ -195,28 +195,11 @@
+@@ -191,29 +191,12 @@
+    <View
+      style={
+        Object {
+          \\"backgroundColor\\": \\"#505256\\",
           \\"flex\\": 1,
-        }
-      }
-    >
-      <View
+-       }
+-     }
+-   >
+-     <View
 -       accessible={true}
 -       focusable={true}
 -       onClick={[Function onClick]}
@@ -347,21 +354,18 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -       onResponderTerminate={[Function onResponderTerminate]}
 -       onResponderTerminationRequest={[Function onResponderTerminationRequest]}
 -       onStartShouldSetResponder={[Function onStartShouldSetResponder]}
-        style={
+-       style={
 -         Object {
 -           \\"opacity\\": 1,
--         }
--       }
+        }
+      }
 -       testID=\\"popupMenuButton\\"
--     >
--       <View
--         style={
+    >
+      <View
+        style={
           Array [
             Object {
-              \\"backgroundColor\\": \\"#005A7F\\",
-              \\"borderRadius\\": 4,
-              \\"height\\": 421.875,
-@@ -240,38 +223,14 @@
+@@ -240,37 +223,13 @@
           style={
             Object {
               \\"borderRadius\\": 4,
@@ -383,24 +387,23 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                 \\"justifyContent\\": \\"center\\",
 -               },
 -             ]
-            }
+-           }
 -         >
 -           <Image
 -             source={
 -               Object {
 -                 \\"testUri\\": \\"../../../assets/images/cameraIcon.png\\",
--               }
+            }
           }
         />
 -         </View>
+-       </View>
       </View>
--     </View>
       <RCTScrollView
         keyboardShouldPersistTaps=\\"handled\\"
         style={
           Object {
-            \\"flex\\": 1,
-@@ -291,130 +250,30 @@
+@@ -291,136 +250,25 @@
                   \\"flexDirection\\": \\"row\\",
                 },
               ]
@@ -418,24 +421,31 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -             rejectResponderTermination={true}
 -             returnKeyType=\\"done\\"
 -             selectionColor=\\"#ffffff\\"
--             style={
++           <Text
+              style={
 -               Array [
--                 Object {
+                Object {
 -                   \\"backgroundColor\\": \\"transparent\\",
--                   \\"borderBottomColor\\": \\"#52C5DC\\",
+-                   \\"borderBottomColor\\": \\"#3CC8E6\\",
 -                   \\"borderBottomWidth\\": 1,
--                   \\"color\\": \\"#ffffff\\",
+                  \\"color\\": \\"#ffffff\\",
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -                   \\"fontSize\\": 16,
+-                   \\"fontStyle\\": \\"normal\\",
+-                   \\"fontWeight\\": \\"normal\\",
 -                   \\"letterSpacing\\": 0.25,
+-                   \\"lineHeight\\": 24,
 -                   \\"paddingVertical\\": 5,
 -                 },
 -                 Object {
 -                   \\"borderBottomWidth\\": 0,
 -                   \\"color\\": \\"#ffffff\\",
 -                   \\"flex\\": 1,
--                   \\"fontSize\\": 32,
--                   \\"letterSpacing\\": 0.25,
+                  \\"fontFamily\\": \\"SourceSansPro-Light\\",
+                  \\"fontSize\\": 32,
+                  \\"fontStyle\\": \\"normal\\",
+                  \\"fontWeight\\": \\"300\\",
+                  \\"lineHeight\\": 38,
 -                   \\"paddingVertical\\": 0,
 -                   \\"textAlign\\": \\"left\\",
 -                 },
@@ -458,10 +468,10 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -             style={
 -               Object {
 -                 \\"opacity\\": 1,
--               }
--             }
+                }
+              }
 -             testID=\\"IconButton\\"
--           >
+            >
 -             <View
 -               style={
 -                 Array [
@@ -480,16 +490,16 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                 ]
 -               }
 -             >
-            <Text
+-               <Text
 -                 allowFontScaling={false}
-              style={
+-                 style={
 -                   Array [
 -                     Object {
 -                       \\"color\\": undefined,
 -                       \\"fontSize\\": 12,
 -                     },
-                Array [
-                  Object {
+-                     Array [
+-                       Object {
 -                         \\"color\\": \\"#ffffff\\",
 -                       },
 -                       Object {
@@ -498,17 +508,15 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                       Array [
 -                         Object {
 -                           \\"margin\\": 10,
-+                   \\"color\\": \\"#505256\\",
-                  },
+-                         },
 -                         Array [
-                  Object {
--                             \\"color\\": \\"#B2B0B2\\",
+-                           Object {
+-                             \\"color\\": \\"#B4B6BA\\",
 -                             \\"margin\\": 0,
 -                             \\"paddingHorizontal\\": 10,
-+                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                  },
-                  Object {
-                    \\"color\\": \\"#ffffff\\",
+-                           },
+-                           Object {
+-                             \\"color\\": \\"#ffffff\\",
 -                             \\"marginLeft\\": 15,
 -                           },
 -                         ],
@@ -518,25 +526,23 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
 -                       \\"fontFamily\\": \\"icomoon\\",
 -                       \\"fontStyle\\": \\"normal\\",
 -                       \\"fontWeight\\": \\"normal\\",
-+                   \\"fontSize\\": 32,
-+                   \\"letterSpacing\\": 0.25,
-                  },
+-                     },
 -                     Object {},
-                ]
-              }
-            >
+-                   ]
+-                 }
+-               >
 -                 
 +             esse repellat quisquam
             </Text>
+-             </View>
           </View>
--           </View>
 -         </View>
           <View
             style={
               Array [
                 Object {
                   \\"marginHorizontal\\": 20,
-@@ -675,30 +534,25 @@
+@@ -649,30 +497,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -554,23 +560,23 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                     null,
 -                   Array [
                     Object {
-                      \\"backgroundColor\\": \\"#52C5DC\\",
+                      \\"backgroundColor\\": \\"#3CC8E6\\",
                       \\"borderRadius\\": 15,
                       \\"paddingHorizontal\\": 20,
                       \\"paddingVertical\\": 7,
--                     },
+                    },
 -                     Object {
 -                       \\"backgroundColor\\": \\"#FF5532\\",
-                    },
+-                     },
 -                   ],
                     null,
                   ]
                 }
               >
                 <Text
-@@ -726,11 +580,11 @@
-                        },
-                      ],
+@@ -700,11 +543,11 @@
+                        \\"textTransform\\": \\"uppercase\\",
+                      },
                     ]
                   }
                 >
@@ -581,7 +587,7 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
             </View>
           </View>
           <View
-@@ -822,30 +676,25 @@
+@@ -788,30 +631,25 @@
               style={
                 Object {
                   \\"opacity\\": 1,
@@ -599,23 +605,23 @@ exports[`CommunityProfile edit screen should stop editing 1`] = `
                     null,
 -                   Array [
                     Object {
-                      \\"backgroundColor\\": \\"#52C5DC\\",
+                      \\"backgroundColor\\": \\"#3CC8E6\\",
                       \\"borderRadius\\": 15,
                       \\"paddingHorizontal\\": 20,
                       \\"paddingVertical\\": 7,
-                    },
+-                     },
 -                     Object {
 -                       \\"backgroundColor\\": \\"#FF5532\\",
--                     },
+                    },
 -                   ],
                     null,
                   ]
                 }
               >
                 <Text
-@@ -873,11 +722,11 @@
-                        },
-                      ],
+@@ -839,11 +677,11 @@
+                        \\"textTransform\\": \\"uppercase\\",
+                      },
                     ]
                   }
                 >
@@ -661,11 +667,11 @@ exports[`CommunityProfile should render correctly 1`] = `
         style={
           Object {
             \\"flex\\": 1,
-@@ -187,11 +203,13 @@
-                    \\"fontSize\\": 32,
-                    \\"letterSpacing\\": 0.25,
-                  },
-                ]
+@@ -182,11 +198,13 @@
+                  \\"fontStyle\\": \\"normal\\",
+                  \\"fontWeight\\": \\"300\\",
+                  \\"lineHeight\\": 38,
+                }
               }
 -           />
 +           >
@@ -676,11 +682,11 @@ exports[`CommunityProfile should render correctly 1`] = `
             style={
               Array [
                 Object {
-@@ -247,11 +265,13 @@
-                      \\"color\\": \\"#ffffff\\",
-                      \\"fontSize\\": 12,
-                    },
-                  ]
+@@ -234,11 +252,13 @@
+                    \\"fontStyle\\": \\"normal\\",
+                    \\"fontWeight\\": \\"normal\\",
+                    \\"lineHeight\\": 16,
+                  }
                 }
 -             />
 +             >
@@ -691,26 +697,22 @@ exports[`CommunityProfile should render correctly 1`] = `
               style={
                 Array [
                   Object {},
-@@ -278,10 +298,29 @@
-                  ]
+@@ -261,10 +281,25 @@
+                  }
                 }
               >
                 Created
               </Text>
 +             <Text
 +               style={
-+                 Array [
-+                   Object {
-+                     \\"color\\": \\"#505256\\",
-+                   },
-+                   Object {
-+                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                   },
-+                   Object {
-+                     \\"color\\": \\"#ffffff\\",
-+                     \\"fontSize\\": 12,
-+                   },
-+                 ]
++                 Object {
++                   \\"color\\": \\"#ffffff\\",
++                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                   \\"fontSize\\": 12,
++                   \\"fontStyle\\": \\"normal\\",
++                   \\"fontWeight\\": \\"normal\\",
++                   \\"lineHeight\\": 16,
++                 }
 +               }
 +               testID=\\"Text\\"
 +             >
@@ -721,11 +723,11 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -337,11 +376,13 @@
-                      \\"color\\": \\"#ffffff\\",
-                      \\"fontSize\\": 12,
-                    },
-                  ]
+@@ -312,11 +347,13 @@
+                    \\"fontStyle\\": \\"normal\\",
+                    \\"fontWeight\\": \\"normal\\",
+                    \\"lineHeight\\": 16,
+                  }
                 }
 -             />
 +             >
@@ -736,11 +738,11 @@ exports[`CommunityProfile should render correctly 1`] = `
           <View
             style={
               Array [
-@@ -411,11 +452,13 @@
-                      \\"color\\": \\"#ffffff\\",
-                      \\"fontSize\\": 32,
-                    },
-                  ]
+@@ -378,11 +415,13 @@
+                    \\"fontStyle\\": \\"normal\\",
+                    \\"fontWeight\\": \\"300\\",
+                    \\"lineHeight\\": 38,
+                  }
                 }
 -             />
 +             >
@@ -751,10 +753,10 @@ exports[`CommunityProfile should render correctly 1`] = `
               accessible={true}
               focusable={true}
               onClick={[Function onClick]}
-@@ -552,11 +595,11 @@
-                      \\"marginRight\\": 5,
-                    },
-                  ]
+@@ -511,11 +550,11 @@
+                    \\"lineHeight\\": 20,
+                    \\"marginRight\\": 5,
+                  }
                 }
               >
 -               
@@ -944,19 +946,14 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 32,
-                  "letterSpacing": 0.25,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 32,
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 38,
+              }
             }
           />
         </View>
@@ -987,36 +984,28 @@ Array [
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#ECEEF2",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                }
               }
             >
               Owner
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                }
               }
             />
           </View>
@@ -1033,18 +1022,14 @@ Array [
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#ECEEF2",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                }
               }
             >
               Created
@@ -1077,36 +1062,28 @@ Array [
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#ECEEF2",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                }
               }
             >
               Members
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                }
               }
             />
           </View>
@@ -1151,36 +1128,28 @@ Array [
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#ECEEF2",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                }
               }
             >
               Community Code
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 32,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Light",
+                  "fontSize": 32,
+                  "fontStyle": "normal",
+                  "fontWeight": "300",
+                  "lineHeight": 38,
+                }
               }
             />
           </View>
@@ -1209,7 +1178,7 @@ Array [
                   },
                   null,
                   Object {
-                    "backgroundColor": "#52C5DC",
+                    "backgroundColor": "#3CC8E6",
                     "borderRadius": 15,
                     "paddingHorizontal": 20,
                     "paddingVertical": 7,
@@ -1222,26 +1191,26 @@ Array [
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "bold",
-                      },
-                    ],
                   ]
                 }
               >
@@ -1290,37 +1259,29 @@ Array [
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#A0A2A6",
-                    "fontSize": 12,
-                  },
-                ]
+                Object {
+                  "color": "#ECEEF2",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
+                }
               }
             >
               Community Link
             </Text>
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "marginRight": 5,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "marginRight": 5,
+                }
               }
             >
               
@@ -1351,7 +1312,7 @@ Array [
                   },
                   null,
                   Object {
-                    "backgroundColor": "#52C5DC",
+                    "backgroundColor": "#3CC8E6",
                     "borderRadius": 15,
                     "paddingHorizontal": 20,
                     "paddingVertical": 7,
@@ -1364,26 +1325,26 @@ Array [
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "bold",
-                      },
-                    ],
                   ]
                 }
               >
@@ -1421,18 +1382,15 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#A0A2A6",
-                  "width": "75%",
-                },
-              ]
+              Object {
+                "color": "#ECEEF2",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "width": "75%",
+              }
             }
           >
             Anyone who has this code or link will be able to join your group.

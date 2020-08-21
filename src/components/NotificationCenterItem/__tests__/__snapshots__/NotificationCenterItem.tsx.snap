@@ -70,81 +70,46 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           A comment from
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
            Customizable contextually-based archive 
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           has been reported.
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
            Please Review.
@@ -152,19 +117,14 @@ exports[`ReportedNotificationItem renders correctly | Reported Comment 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -245,81 +205,46 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           A post from
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
            Adaptive bandwidth-monitored encryption 
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           has been reported.
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
            Please Review.
@@ -327,19 +252,14 @@ exports[`ReportedNotificationItem renders correctly | Reported Post 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -406,81 +326,46 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           A post from
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
            Adaptive bandwidth-monitored encryption 
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           has been reported.
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
            Please Review.
@@ -488,19 +373,14 @@ exports[`ReportedNotificationItem renders correctly | without community photo 1`
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -610,69 +490,44 @@ exports[`different notification types Announcement renders correctly | Announcem
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new announcement.
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -796,69 +651,44 @@ exports[`different notification types Announcement renders global community avat
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           MissionHub
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new announcement.
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -968,69 +798,44 @@ exports[`different notification types Announcement renders with default communit
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new announcement.
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -1160,101 +965,61 @@ exports[`different notification types Comunity Challenge renders completed chall
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian Huffman
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            completed a challenge in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           .
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -1364,49 +1129,29 @@ exports[`different notification types Comunity Challenge renders correctly | Com
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           You have a new Challenge in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -1414,19 +1159,14 @@ exports[`different notification types Comunity Challenge renders correctly | Com
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -1550,49 +1290,29 @@ exports[`different notification types Comunity Challenge renders global communit
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           You have a new Challenge in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -1600,19 +1320,14 @@ exports[`different notification types Comunity Challenge renders global communit
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -1722,49 +1437,29 @@ exports[`different notification types Comunity Challenge renders with default co
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           You have a new Challenge in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -1772,19 +1467,14 @@ exports[`different notification types Comunity Challenge renders with default co
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -1914,101 +1604,61 @@ exports[`different notification types Prayed For You Notification renders correc
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian Huffman
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            prayed for you in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           .
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -2092,167 +1742,95 @@ exports[`different notification types renders correctly | Comment 1 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            commented on 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Scotty
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           's 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           prayer request
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           .
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -2382,100 +1960,60 @@ exports[`different notification types renders correctly | Community Need 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian Huffman
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           care request
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -2483,19 +2021,14 @@ exports[`different notification types renders correctly | Community Need 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -2625,100 +2158,60 @@ exports[`different notification types renders correctly | God Story 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian Huffman
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           god story
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -2726,19 +2219,14 @@ exports[`different notification types renders correctly | God Story 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -2868,100 +2356,60 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian Huffman
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           prayer request
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -2969,19 +2417,14 @@ exports[`different notification types renders correctly | Prayer Request 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -3111,100 +2554,60 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian Huffman
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           spiritual question
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -3212,19 +2615,14 @@ exports[`different notification types renders correctly | Spiritual Question 1`]
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -3354,100 +2752,60 @@ exports[`different notification types renders correctly | Thought 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian Huffman
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           thought
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh 2.0
@@ -3455,19 +2813,14 @@ exports[`different notification types renders correctly | Thought 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -3591,100 +2944,60 @@ exports[`different notification types renders global community post 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           MissionHub Team
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            posted a new 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           god story
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           MissionHub
@@ -3692,19 +3005,14 @@ exports[`different notification types renders global community post 1`] = `
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -3788,135 +3096,78 @@ exports[`renders correctly | Comment 2 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            commented on your 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           prayer request
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           .
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -4000,167 +3251,95 @@ exports[`renders correctly | Comment 3 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            also commented on 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Scotty
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           's 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           prayer request
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           .
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -4244,135 +3423,78 @@ exports[`renders correctly | Comment 4 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            commented on your 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           prayer request
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           .
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -4456,135 +3578,78 @@ exports[`renders correctly | Comment 5 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Christian
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            commented on your 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+            }
           }
         >
           step of faith
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
            in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         >
           Bleh
         </Text>
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           .
         </Text>
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >
@@ -4714,67 +3779,42 @@ exports[`renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
-        <Text
-          style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {},
-            ]
-          }
-        >
+        <Text>
           A new story has been added in 
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "lineHeight": 24,
+            }
           }
         />
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#B4B6BA",
-              "fontSize": 12,
-              "lineHeight": 16,
-            },
-          ]
+          Object {
+            "color": "#B4B6BA",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
         testID="Text"
       >

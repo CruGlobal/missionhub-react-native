@@ -5,7 +5,7 @@ exports[`a login button is clicked email signup button is pressed key sign in bu
 - First value
 + Second value
 
-@@ -309,6 +309,7 @@
+@@ -347,6 +347,7 @@
           text=\\"SIGN IN\\"
           type=\\"transparent\\"
         />
@@ -20,7 +20,7 @@ exports[`a login button is clicked facebook signup button is pressed facebook bu
 - First value
 + Second value
 
-@@ -309,6 +309,7 @@
+@@ -347,6 +347,7 @@
           text=\\"SIGN IN\\"
           type=\\"transparent\\"
         />
@@ -35,7 +35,7 @@ exports[`renders correctly for Create Community 1`] = `
 - First value
 + Second value
 
-@@ -60,17 +60,53 @@
+@@ -60,17 +60,60 @@
       <Flex
         align=\\"center\\"
         justify=\\"center\\"
@@ -60,12 +60,16 @@ exports[`renders correctly for Create Community 1`] = `
             }
           />
 +         <Text
-+           header={true}
 +           style={
 +             Object {
-+               \\"color\\": \\"#52C5DC\\",
++               \\"color\\": \\"#3CC8E6\\",
++               \\"fontFamily\\": \\"AmaticSC-Bold\\",
 +               \\"fontSize\\": 36,
++               \\"fontStyle\\": \\"normal\\",
++               \\"fontWeight\\": \\"bold\\",
 +               \\"letterSpacing\\": 2,
++               \\"lineHeight\\": 36,
++               \\"textTransform\\": \\"lowercase\\",
 +             }
 +           }
 +         >
@@ -75,7 +79,10 @@ exports[`renders correctly for Create Community 1`] = `
 +           style={
 +             Object {
 +               \\"color\\": \\"#ffffff\\",
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +               \\"fontSize\\": 16,
++               \\"fontStyle\\": \\"normal\\",
++               \\"fontWeight\\": \\"normal\\",
 +               \\"lineHeight\\": 24,
 +               \\"paddingVertical\\": 10,
 +               \\"textAlign\\": \\"center\\",
@@ -187,10 +194,14 @@ exports[`renders correctly with logo 1`] = `
           buttonTextStyle={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
               "paddingTop": 2,
+              "textTransform": "uppercase",
             }
           }
           onPress={[Function]}
@@ -198,7 +209,7 @@ exports[`renders correctly with logo 1`] = `
           style={
             Object {
               "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
+              "borderColor": "#3CC8E6",
               "borderWidth": 1,
               "height": 48,
               "margin": 8,
@@ -224,10 +235,14 @@ exports[`renders correctly with logo 1`] = `
               style={
                 Object {
                   "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
                   "paddingTop": 2,
+                  "textTransform": "uppercase",
                 }
               }
             >
@@ -239,10 +254,14 @@ exports[`renders correctly with logo 1`] = `
           buttonTextStyle={
             Object {
               "color": "#ffffff",
-              "fontSize": 14,
-              "fontWeight": "500",
-              "letterSpacing": 1.5,
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
               "paddingTop": 2,
+              "textTransform": "uppercase",
             }
           }
           onPress={[Function]}
@@ -250,7 +269,7 @@ exports[`renders correctly with logo 1`] = `
           style={
             Object {
               "backgroundColor": "transparent",
-              "borderColor": "#52C5DC",
+              "borderColor": "#3CC8E6",
               "borderWidth": 1,
               "height": 48,
               "margin": 8,
@@ -276,10 +295,14 @@ exports[`renders correctly with logo 1`] = `
               style={
                 Object {
                   "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
                   "paddingTop": 2,
+                  "textTransform": "uppercase",
                 }
               }
             >
@@ -300,7 +323,11 @@ exports[`renders correctly with logo 1`] = `
             style={
               Object {
                 "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
                 "paddingHorizontal": 3,
                 "textAlign": "center",
               }
@@ -317,9 +344,12 @@ exports[`renders correctly with logo 1`] = `
               buttonTextStyle={
                 Object {
                   "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
+                  "fontStyle": "normal",
                   "fontWeight": "normal",
                   "letterSpacing": 0,
+                  "lineHeight": 16,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                   "textDecorationLine": "underline",
@@ -334,7 +364,11 @@ exports[`renders correctly with logo 1`] = `
               style={
                 Object {
                   "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                 }
@@ -346,9 +380,12 @@ exports[`renders correctly with logo 1`] = `
               buttonTextStyle={
                 Object {
                   "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 12,
+                  "fontStyle": "normal",
                   "fontWeight": "normal",
                   "letterSpacing": 0,
+                  "lineHeight": 16,
                   "paddingHorizontal": 3,
                   "textAlign": "center",
                   "textDecorationLine": "underline",
@@ -376,13 +413,17 @@ exports[`renders correctly with logo 1`] = `
       <Text
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
             "letterSpacing": 1.5,
+            "lineHeight": 18,
             "marginBottom": 20,
             "marginRight": 10,
             "paddingTop": 2,
+            "textTransform": "uppercase",
           }
         }
       >
@@ -392,11 +433,15 @@ exports[`renders correctly with logo 1`] = `
         buttonTextStyle={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
             "letterSpacing": 1.5,
+            "lineHeight": 18,
             "marginBottom": 20,
             "paddingTop": 2,
+            "textTransform": "uppercase",
           }
         }
         onPress={[Function]}

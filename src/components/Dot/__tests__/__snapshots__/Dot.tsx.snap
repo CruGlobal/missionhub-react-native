@@ -6,16 +6,15 @@ exports[`render dot 1`] = `
     Array [
       Object {
         "color": "#505256",
-      },
-      Object {
         "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "letterSpacing": 1,
+        "lineHeight": 18,
+        "textTransform": "uppercase",
       },
-      Array [
-        Object {
-          "fontWeight": "bold",
-        },
-        undefined,
-      ],
+      undefined,
     ]
   }
 >
@@ -29,18 +28,17 @@ exports[`render dot with style 1`] = `
     Array [
       Object {
         "color": "#505256",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "bold",
+        "letterSpacing": 1,
+        "lineHeight": 18,
+        "textTransform": "uppercase",
       },
       Object {
-        "fontFamily": "SourceSansPro-Regular",
+        "color": "blue",
       },
-      Array [
-        Object {
-          "fontWeight": "bold",
-        },
-        Object {
-          "color": "blue",
-        },
-      ],
     ]
   }
 >

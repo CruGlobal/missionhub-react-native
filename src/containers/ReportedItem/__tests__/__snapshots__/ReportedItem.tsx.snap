@@ -27,7 +27,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -       Object {
 -         \\"alignItems\\": \\"flex-start\\",
 -         \\"backgroundColor\\": \\"#ffffff\\",
-        \\"flexDirection\\": \\"column\\",
+-         \\"flexDirection\\": \\"column\\",
 -         \\"marginBottom\\": 8,
 -         \\"marginHorizontal\\": 20,
 -         \\"marginVertical\\": 15,
@@ -57,17 +57,14 @@ exports[`Reported Post call handleDelete 1`] = `
 -     >
 -       <Text
 -         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#A0A2A6\\",
--             },
--           ]
+-           Object {
+-             \\"color\\": \\"#ECEEF2\\",
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             \\"fontSize\\": 14,
+-             \\"fontStyle\\": \\"normal\\",
+-             \\"fontWeight\\": \\"normal\\",
+-             \\"lineHeight\\": 20,
+-           }
 -         }
 -       >
 -         Reported By
@@ -76,17 +73,14 @@ exports[`Reported Post call handleDelete 1`] = `
 -       <Text
 -         numberOfLines={1}
 -         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--           ]
+-           Object {
+-             \\"color\\": \\"#ffffff\\",
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             \\"fontSize\\": 16,
+-             \\"fontStyle\\": \\"normal\\",
+-             \\"fontWeight\\": \\"normal\\",
+-             \\"lineHeight\\": 24,
+-           }
 -         }
 -       >
 -         Roscoe Johnson
@@ -94,17 +88,14 @@ exports[`Reported Post call handleDelete 1`] = `
 -       <Text
 -         numberOfLines={1}
 -         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--           ]
+-           Object {
+-             \\"color\\": \\"#ffffff\\",
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             \\"fontSize\\": 16,
+-             \\"fontStyle\\": \\"normal\\",
+-             \\"fontWeight\\": \\"normal\\",
+-             \\"lineHeight\\": 24,
+-           }
 -         }
 -       >
 -         Synergistic tertiary service-desk
@@ -113,17 +104,9 @@ exports[`Reported Post call handleDelete 1`] = `
 -     <Text
 -       onPress={[Function handleOpenPost]}
 -       style={
--         Array [
--           Object {
--             \\"color\\": \\"#505256\\",
--           },
--           Object {
--             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--           },
--           Object {
--             \\"color\\": \\"#3CC8E6\\",
--           },
--         ]
+-         Object {
+-           \\"color\\": \\"#3CC8E6\\",
+-         }
 -       }
 -       testID=\\"openPostButton\\"
 -     >
@@ -166,9 +149,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -             },
 -             undefined,
 -           ]
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
+-         }
 -       />
 -       <View
 -         style={
@@ -176,100 +157,99 @@ exports[`Reported Post call handleDelete 1`] = `
 -             Object {
 -               \\"alignItems\\": \\"flex-start\\",
 -               \\"flex\\": 1,
--               \\"flexDirection\\": \\"column\\",
--               \\"justifyContent\\": \\"center\\",
+        \\"flexDirection\\": \\"column\\",
+        \\"justifyContent\\": \\"center\\",
 -               \\"paddingHorizontal\\": 8,
 -             },
 -             undefined,
 -           ]
++       \\"marginTop\\": \\"50%\\",
+      }
+-       >
+-         <Text
+-           numberOfLines={2}
+-           style={
+-             Array [
+-               Object {
+-                 \\"color\\": \\"#007398\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 24,
+-               },
+-               Object {
+-                 \\"color\\": \\"#505256\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"bold\\",
+-                 \\"letterSpacing\\": 1,
+-                 \\"lineHeight\\": 20,
+-                 \\"textTransform\\": \\"uppercase\\",
+-               },
+-             ]
     }
   >
+-           Keaton Keeling
+-         </Text>
 +   <SvgMock />
     <Text
--           numberOfLines={2}
       style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-          },
--               Array [
-          Object {
--                   \\"color\\": \\"#007398\\",
--                   \\"fontSize\\": 16,
--                 },
--                 Object {
-            \\"color\\": \\"#505256\\",
--                   \\"fontSize\\": 16,
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"lineHeight\\": 20,
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
-          },
--               ],
-        ]
-      }
+-             Array [
+        Object {
+          \\"color\\": \\"#B4B6BA\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 12,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 16,
+-               },
+-               Object {
+-                 \\"color\\": \\"#B4B6BA\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 12,
++         \\"fontFamily\\": \\"SourceSansPro-Light\\",
++         \\"fontSize\\": 24,
+          \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 16,
+-               },
+-             ]
++         \\"fontWeight\\": \\"300\\",
++         \\"lineHeight\\": 30,
++         \\"paddingVertical\\": 20,
+        }
+-           testID=\\"Text\\"
++     }
     >
--           Keaton Keeling
+-           August 19, 2018 @ 2:06 PM
 +     Hurray
     </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Array [
--                 Object {
--                   \\"color\\": \\"#B2B0B2\\",
--                   \\"fontSize\\": 12,
--                 },
--                 Object {
--                   \\"color\\": \\"#B4B6BA\\",
--                   \\"fontSize\\": 12,
--                   \\"lineHeight\\": 16,
-          },
--               ],
--             ]
--           }
--           testID=\\"Text\\"
--         >
--           August 19, 2018 @ 2:06 PM
--         </Text>
 -       </View>
 -     </View>
 -   </View>
 -   <View
 -     style={
-          Object {
+-       Object {
 -         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <Text
--       style={
--         Array [
--           Object {
-            \\"color\\": \\"#505256\\",
--           },
--           Object {
--             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--           },
--           Object {
-            \\"fontSize\\": 16,
--             \\"justifyContent\\": \\"flex-start\\",
-            \\"lineHeight\\": 24,
--             \\"paddingBottom\\": 8,
-          },
-        ]
+    <Text
+      style={
+        Object {
+-           \\"color\\": \\"#505256\\",
++         \\"color\\": \\"#B4B6BA\\",
+          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          \\"fontSize\\": 16,
+          \\"fontStyle\\": \\"normal\\",
+          \\"fontWeight\\": \\"normal\\",
+-           \\"justifyContent\\": \\"flex-start\\",
+          \\"lineHeight\\": 24,
+-           \\"paddingBottom\\": 8,
+        }
       }
     >
 -       porro ut et
@@ -319,7 +299,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -             Array [
 -               Object {
 -                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#52C5DC\\",
+-                 \\"backgroundColor\\": \\"#3CC8E6\\",
 -                 \\"height\\": 60,
 -                 \\"justifyContent\\": \\"center\\",
 -               },
@@ -338,22 +318,17 @@ exports[`Reported Post call handleDelete 1`] = `
 -             style={
 -               Array [
 -                 Object {
--                   \\"color\\": \\"#505256\\",
--                 },
--                 Object {
+-                   \\"color\\": \\"#ffffff\\",
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontSize\\": 14,
+-                   \\"fontStyle\\": \\"normal\\",
+-                   \\"fontWeight\\": \\"bold\\",
+-                   \\"letterSpacing\\": 1,
+-                   \\"lineHeight\\": 18,
+-                   \\"textAlign\\": \\"center\\",
+-                   \\"textTransform\\": \\"uppercase\\",
 -                 },
--                 Array [
--                   Object {
--                     \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
--                     \\"color\\": \\"#ffffff\\",
--                     \\"fontSize\\": 14,
--                     \\"fontWeight\\": \\"500\\",
--                     \\"letterSpacing\\": 1.5,
--                     \\"textAlign\\": \\"center\\",
--                   },
--                   Object {},
--                 ],
+-                 Object {},
 -               ]
 -             }
 -           >
@@ -394,7 +369,7 @@ exports[`Reported Post call handleDelete 1`] = `
 -             Array [
 -               Object {
 -                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#52C5DC\\",
+-                 \\"backgroundColor\\": \\"#3CC8E6\\",
 -                 \\"height\\": 60,
 -                 \\"justifyContent\\": \\"center\\",
 -               },
@@ -411,22 +386,17 @@ exports[`Reported Post call handleDelete 1`] = `
 -             style={
 -               Array [
 -                 Object {
--                   \\"color\\": \\"#505256\\",
--                 },
--                 Object {
+-                   \\"color\\": \\"#ffffff\\",
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontSize\\": 14,
+-                   \\"fontStyle\\": \\"normal\\",
+-                   \\"fontWeight\\": \\"bold\\",
+-                   \\"letterSpacing\\": 1,
+-                   \\"lineHeight\\": 18,
+-                   \\"textAlign\\": \\"center\\",
+-                   \\"textTransform\\": \\"uppercase\\",
 -                 },
--                 Array [
--                   Object {
--                     \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
--                     \\"color\\": \\"#ffffff\\",
--                     \\"fontSize\\": 14,
--                     \\"fontWeight\\": \\"500\\",
--                     \\"letterSpacing\\": 1.5,
--                     \\"textAlign\\": \\"center\\",
--                   },
--                   Object {},
--                 ],
+-                 Object {},
 -               ]
 -             }
 -           >
@@ -467,7 +437,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       Object {
 -         \\"alignItems\\": \\"flex-start\\",
 -         \\"backgroundColor\\": \\"#ffffff\\",
-        \\"flexDirection\\": \\"column\\",
+-         \\"flexDirection\\": \\"column\\",
 -         \\"marginBottom\\": 8,
 -         \\"marginHorizontal\\": 20,
 -         \\"marginVertical\\": 15,
@@ -497,17 +467,14 @@ exports[`Reported Post call handleIgnore 1`] = `
 -     >
 -       <Text
 -         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#A0A2A6\\",
--             },
--           ]
+-           Object {
+-             \\"color\\": \\"#ECEEF2\\",
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             \\"fontSize\\": 14,
+-             \\"fontStyle\\": \\"normal\\",
+-             \\"fontWeight\\": \\"normal\\",
+-             \\"lineHeight\\": 20,
+-           }
 -         }
 -       >
 -         Reported By
@@ -516,17 +483,14 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       <Text
 -         numberOfLines={1}
 -         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--           ]
+-           Object {
+-             \\"color\\": \\"#ffffff\\",
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             \\"fontSize\\": 16,
+-             \\"fontStyle\\": \\"normal\\",
+-             \\"fontWeight\\": \\"normal\\",
+-             \\"lineHeight\\": 24,
+-           }
 -         }
 -       >
 -         Roscoe Johnson
@@ -534,17 +498,14 @@ exports[`Reported Post call handleIgnore 1`] = `
 -       <Text
 -         numberOfLines={1}
 -         style={
--           Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
--               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--             },
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
--           ]
+-           Object {
+-             \\"color\\": \\"#ffffff\\",
+-             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-             \\"fontSize\\": 16,
+-             \\"fontStyle\\": \\"normal\\",
+-             \\"fontWeight\\": \\"normal\\",
+-             \\"lineHeight\\": 24,
+-           }
 -         }
 -       >
 -         Synergistic tertiary service-desk
@@ -553,17 +514,9 @@ exports[`Reported Post call handleIgnore 1`] = `
 -     <Text
 -       onPress={[Function handleOpenPost]}
 -       style={
--         Array [
--           Object {
--             \\"color\\": \\"#505256\\",
--           },
--           Object {
--             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--           },
--           Object {
--             \\"color\\": \\"#3CC8E6\\",
--           },
--         ]
+-         Object {
+-           \\"color\\": \\"#3CC8E6\\",
+-         }
 -       }
 -       testID=\\"openPostButton\\"
 -     >
@@ -606,9 +559,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             },
 -             undefined,
 -           ]
-+       \\"justifyContent\\": \\"center\\",
-+       \\"marginTop\\": \\"50%\\",
-      }
+-         }
 -       />
 -       <View
 -         style={
@@ -616,100 +567,99 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             Object {
 -               \\"alignItems\\": \\"flex-start\\",
 -               \\"flex\\": 1,
--               \\"flexDirection\\": \\"column\\",
--               \\"justifyContent\\": \\"center\\",
+        \\"flexDirection\\": \\"column\\",
+        \\"justifyContent\\": \\"center\\",
 -               \\"paddingHorizontal\\": 8,
 -             },
 -             undefined,
 -           ]
++       \\"marginTop\\": \\"50%\\",
+      }
+-       >
+-         <Text
+-           numberOfLines={2}
+-           style={
+-             Array [
+-               Object {
+-                 \\"color\\": \\"#007398\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 24,
+-               },
+-               Object {
+-                 \\"color\\": \\"#505256\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"bold\\",
+-                 \\"letterSpacing\\": 1,
+-                 \\"lineHeight\\": 20,
+-                 \\"textTransform\\": \\"uppercase\\",
+-               },
+-             ]
     }
   >
+-           Keaton Keeling
+-         </Text>
 +   <SvgMock />
     <Text
--           numberOfLines={2}
       style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-          },
--               Array [
-          Object {
--                   \\"color\\": \\"#007398\\",
--                   \\"fontSize\\": 16,
--                 },
--                 Object {
-            \\"color\\": \\"#505256\\",
--                   \\"fontSize\\": 16,
--                   \\"fontWeight\\": \\"bold\\",
--                   \\"lineHeight\\": 20,
-+           \\"fontSize\\": 24,
-+           \\"fontWeight\\": \\"300\\",
-+           \\"lineHeight\\": 30,
-+           \\"paddingVertical\\": 20,
-          },
--               ],
-        ]
-      }
+-             Array [
+        Object {
+          \\"color\\": \\"#B4B6BA\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 12,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 16,
+-               },
+-               Object {
+-                 \\"color\\": \\"#B4B6BA\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 12,
++         \\"fontFamily\\": \\"SourceSansPro-Light\\",
++         \\"fontSize\\": 24,
+          \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 16,
+-               },
+-             ]
++         \\"fontWeight\\": \\"300\\",
++         \\"lineHeight\\": 30,
++         \\"paddingVertical\\": 20,
+        }
+-           testID=\\"Text\\"
++     }
     >
--           Keaton Keeling
+-           August 19, 2018 @ 2:06 PM
 +     Hurray
     </Text>
-    <Text
-      style={
-        Array [
-          Object {
-            \\"color\\": \\"#505256\\",
-          },
-          Object {
-            \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Array [
--                 Object {
--                   \\"color\\": \\"#B2B0B2\\",
--                   \\"fontSize\\": 12,
--                 },
--                 Object {
--                   \\"color\\": \\"#B4B6BA\\",
--                   \\"fontSize\\": 12,
--                   \\"lineHeight\\": 16,
-          },
--               ],
--             ]
--           }
--           testID=\\"Text\\"
--         >
--           August 19, 2018 @ 2:06 PM
--         </Text>
 -       </View>
 -     </View>
 -   </View>
 -   <View
 -     style={
-          Object {
+-       Object {
 -         \\"paddingHorizontal\\": 20,
 -         \\"paddingVertical\\": 8,
 -       }
 -     }
 -   >
--     <Text
--       style={
--         Array [
--           Object {
-            \\"color\\": \\"#505256\\",
--           },
--           Object {
--             \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--           },
--           Object {
-            \\"fontSize\\": 16,
--             \\"justifyContent\\": \\"flex-start\\",
-            \\"lineHeight\\": 24,
--             \\"paddingBottom\\": 8,
-          },
-        ]
+    <Text
+      style={
+        Object {
+-           \\"color\\": \\"#505256\\",
++         \\"color\\": \\"#B4B6BA\\",
+          \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+          \\"fontSize\\": 16,
+          \\"fontStyle\\": \\"normal\\",
+          \\"fontWeight\\": \\"normal\\",
+-           \\"justifyContent\\": \\"flex-start\\",
+          \\"lineHeight\\": 24,
+-           \\"paddingBottom\\": 8,
+        }
       }
     >
 -       porro ut et
@@ -759,7 +709,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             Array [
 -               Object {
 -                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#52C5DC\\",
+-                 \\"backgroundColor\\": \\"#3CC8E6\\",
 -                 \\"height\\": 60,
 -                 \\"justifyContent\\": \\"center\\",
 -               },
@@ -778,22 +728,17 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             style={
 -               Array [
 -                 Object {
--                   \\"color\\": \\"#505256\\",
--                 },
--                 Object {
+-                   \\"color\\": \\"#ffffff\\",
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontSize\\": 14,
+-                   \\"fontStyle\\": \\"normal\\",
+-                   \\"fontWeight\\": \\"bold\\",
+-                   \\"letterSpacing\\": 1,
+-                   \\"lineHeight\\": 18,
+-                   \\"textAlign\\": \\"center\\",
+-                   \\"textTransform\\": \\"uppercase\\",
 -                 },
--                 Array [
--                   Object {
--                     \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
--                     \\"color\\": \\"#ffffff\\",
--                     \\"fontSize\\": 14,
--                     \\"fontWeight\\": \\"500\\",
--                     \\"letterSpacing\\": 1.5,
--                     \\"textAlign\\": \\"center\\",
--                   },
--                   Object {},
--                 ],
+-                 Object {},
 -               ]
 -             }
 -           >
@@ -834,7 +779,7 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             Array [
 -               Object {
 -                 \\"alignItems\\": \\"center\\",
--                 \\"backgroundColor\\": \\"#52C5DC\\",
+-                 \\"backgroundColor\\": \\"#3CC8E6\\",
 -                 \\"height\\": 60,
 -                 \\"justifyContent\\": \\"center\\",
 -               },
@@ -851,22 +796,17 @@ exports[`Reported Post call handleIgnore 1`] = `
 -             style={
 -               Array [
 -                 Object {
--                   \\"color\\": \\"#505256\\",
--                 },
--                 Object {
+-                   \\"color\\": \\"#ffffff\\",
 -                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                   \\"fontSize\\": 14,
+-                   \\"fontStyle\\": \\"normal\\",
+-                   \\"fontWeight\\": \\"bold\\",
+-                   \\"letterSpacing\\": 1,
+-                   \\"lineHeight\\": 18,
+-                   \\"textAlign\\": \\"center\\",
+-                   \\"textTransform\\": \\"uppercase\\",
 -                 },
--                 Array [
--                   Object {
--                     \\"backgroundColor\\": \\"rgba(0,0,0,0)\\",
--                     \\"color\\": \\"#ffffff\\",
--                     \\"fontSize\\": 14,
--                     \\"fontWeight\\": \\"500\\",
--                     \\"letterSpacing\\": 1.5,
--                     \\"textAlign\\": \\"center\\",
--                   },
--                   Object {},
--                 ],
+-                 Object {},
 -               ]
 -             }
 -           >
@@ -894,40 +834,29 @@ exports[`Reported comment call handleDelete 1`] = `
   <SvgMock />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "lineHeight": 30,
-          "paddingVertical": 20,
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 24,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 30,
+        "paddingVertical": 20,
+      }
     }
   >
     Hurray
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "lineHeight": 24,
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+      }
     }
   >
     You have successfully deleted the comment.
@@ -949,40 +878,29 @@ exports[`Reported comment call handleIgnore 1`] = `
   <SvgMock />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 24,
-          "fontWeight": "300",
-          "lineHeight": 30,
-          "paddingVertical": 20,
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 24,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 30,
+        "paddingVertical": 20,
+      }
     }
   >
     Hurray
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#505256",
-          "fontSize": 16,
-          "lineHeight": 24,
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+      }
     }
   >
     You have successfully ignored the comment.
@@ -1043,17 +961,14 @@ exports[`renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-            },
-          ]
+          Object {
+            "color": "#ECEEF2",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+          }
         }
       >
         Reported By
@@ -1062,17 +977,14 @@ exports[`renders correctly 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -1080,17 +992,14 @@ exports[`renders correctly 1`] = `
       <Text
         numberOfLines={1}
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Integrated user-facing intranet
@@ -1099,17 +1008,9 @@ exports[`renders correctly 1`] = `
     <Text
       onPress={[Function]}
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#3CC8E6",
-          },
-        ]
+        Object {
+          "color": "#3CC8E6",
+        }
       }
       testID="openPostButton"
     >
@@ -1171,17 +1072,9 @@ exports[`renders correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "paddingRight": 6,
-                },
-              ]
+              Object {
+                "paddingRight": 6,
+              }
             }
           >
             Darwin Bosco
@@ -1190,18 +1083,14 @@ exports[`renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
             testID="Text"
@@ -1212,20 +1101,16 @@ exports[`renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
                 Object {
-                  "fontFamily": "SourceSansPro-Regular",
+                  "paddingHorizontal": 2,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "paddingHorizontal": 2,
-                  },
-                ],
               ]
             }
           >
@@ -1233,18 +1118,14 @@ exports[`renders correctly 1`] = `
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
           >
             Edited
@@ -1265,19 +1146,7 @@ exports[`renders correctly 1`] = `
             ]
           }
         >
-          <Text
-            style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {},
-              ]
-            }
-          >
+          <Text>
             alias consequuntur corporis
           </Text>
         </View>
@@ -1328,7 +1197,7 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
                 "height": 60,
                 "justifyContent": "center",
               },
@@ -1347,22 +1216,17 @@ exports[`renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
           >
@@ -1403,7 +1267,7 @@ exports[`renders correctly 1`] = `
             Array [
               Object {
                 "alignItems": "center",
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
                 "height": 60,
                 "justifyContent": "center",
               },
@@ -1420,22 +1284,17 @@ exports[`renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
           >

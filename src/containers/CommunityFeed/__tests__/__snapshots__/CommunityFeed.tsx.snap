@@ -1417,7 +1417,9 @@ exports[`renders for Global Community renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -2407,7 +2409,9 @@ exports[`renders for Global Community renders with filter correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -3403,7 +3407,9 @@ exports[`renders for Unread Comments renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -4399,7 +4405,9 @@ exports[`renders for member renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -5029,7 +5037,9 @@ exports[`renders for member renders with type 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -5604,7 +5614,9 @@ exports[`renders for member renders without header 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -6600,7 +6612,9 @@ exports[`renders with clear notification renders correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -7605,7 +7619,9 @@ exports[`renders with items correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -8240,7 +8256,9 @@ exports[`renders with pending post correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -8835,7 +8853,9 @@ exports[`renders with pending post without Today items correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -8877,7 +8897,9 @@ exports[`renders with pending post without Today items correctly 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -9409,7 +9431,9 @@ exports[`sections does not render New section for community feed 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -9631,7 +9655,9 @@ exports[`sections does not render New section for global feed 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -9853,7 +9879,9 @@ exports[`sections renders Earlier section 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -10071,7 +10099,9 @@ exports[`sections renders New section for filtered feed 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }
@@ -10294,7 +10324,9 @@ exports[`sections renders Today section 1`] = `
               "color": "#505256",
               "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
-              "fontWeight": "200",
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
               "marginLeft": 15,
             }
           }

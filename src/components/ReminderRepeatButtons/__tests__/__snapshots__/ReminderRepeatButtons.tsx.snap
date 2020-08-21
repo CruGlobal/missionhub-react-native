@@ -13,7 +13,10 @@ exports[`none selected renders with none highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -48,7 +51,10 @@ exports[`none selected renders with none highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -83,7 +89,10 @@ exports[`none selected renders with none highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -130,7 +139,10 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -152,7 +164,7 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
           "width": 70,
         },
         Object {
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
         },
       ]
     }
@@ -163,7 +175,10 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -198,7 +213,10 @@ exports[`starts with daily selected renders with daily highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -245,7 +263,10 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -280,7 +301,10 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -315,7 +339,10 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -337,7 +364,7 @@ exports[`starts with monthly selected renders with monthly highlighted 1`] = `
           "width": 70,
         },
         Object {
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
         },
       ]
     }
@@ -360,7 +387,10 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -395,7 +425,10 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,
@@ -417,7 +450,7 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
           "width": 70,
         },
         Object {
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
         },
       ]
     }
@@ -428,7 +461,10 @@ exports[`starts with weekly selected renders with weekly highlighted 1`] = `
     buttonTextStyle={
       Array [
         Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
           "fontSize": 12,
+          "fontStyle": "normal",
           "fontWeight": "normal",
           "letterSpacing": 1,
           "lineHeight": 16,

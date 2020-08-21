@@ -127,18 +127,14 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Switchable full-range extranet
@@ -307,19 +303,14 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                  }
                 }
               >
                 What's on Your Mind
@@ -355,7 +346,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 testID="popupMenuButton"
               >
                 <SvgMock
-                  color="#505256"
+                  color="#B4B6BA"
                 />
               </View>
             </View>
@@ -409,23 +400,23 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -435,22 +426,21 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -495,6 +485,8 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -567,21 +559,17 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -644,21 +632,17 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   53441
@@ -839,7 +823,7 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -847,19 +831,26 @@ exports[`edit/delete post delete for admin and not my post 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
             },
@@ -1021,18 +1012,14 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Switchable full-range extranet
@@ -1201,19 +1188,14 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                  }
                 }
               >
                 What's on Your Mind
@@ -1249,7 +1231,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 testID="popupMenuButton"
               >
                 <SvgMock
-                  color="#505256"
+                  color="#B4B6BA"
                 />
               </View>
             </View>
@@ -1303,23 +1285,23 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -1329,22 +1311,21 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -1389,6 +1370,8 @@ exports[`edit/delete post edit and delete for my post 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -1461,21 +1444,17 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   82914
@@ -1540,21 +1519,17 @@ exports[`edit/delete post edit and delete for my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   53441
@@ -1735,7 +1710,7 @@ exports[`edit/delete post edit and delete for my post 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -1743,19 +1718,26 @@ exports[`edit/delete post edit and delete for my post 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
             },
@@ -1917,18 +1899,14 @@ exports[`edit/delete post no options for not my post 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Switchable full-range extranet
@@ -2097,19 +2075,14 @@ exports[`edit/delete post no options for not my post 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                  }
                 }
               >
                 What's on Your Mind
@@ -2165,23 +2138,23 @@ exports[`edit/delete post no options for not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -2191,22 +2164,21 @@ exports[`edit/delete post no options for not my post 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -2251,6 +2223,8 @@ exports[`edit/delete post no options for not my post 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -2323,21 +2297,17 @@ exports[`edit/delete post no options for not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -2400,21 +2370,17 @@ exports[`edit/delete post no options for not my post 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   53441
@@ -2595,7 +2561,7 @@ exports[`edit/delete post no options for not my post 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -2603,19 +2569,26 @@ exports[`edit/delete post no options for not my post 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
             },
@@ -2655,10 +2628,10 @@ exports[`refresh calls refreshComments 1`] = `
 - First value
 + Second value
 
-@@ -136,11 +136,11 @@
-                      \\"lineHeight\\": 20,
-                    },
-                  ]
+@@ -132,11 +132,11 @@
+                    \\"fontWeight\\": \\"normal\\",
+                    \\"lineHeight\\": 20,
+                  }
                 }
               >
 -               Programmable foreground task-force
@@ -2668,7 +2641,7 @@ exports[`refresh calls refreshComments 1`] = `
           </View>
           <View
             style={
-@@ -181,32 +181,32 @@
+@@ -177,32 +177,32 @@
       }
       data={
         Array [
@@ -2715,7 +2688,7 @@ exports[`refresh calls refreshComments 1`] = `
         ]
       }
       disableVirtualization={false}
-@@ -268,22 +268,22 @@
+@@ -264,22 +264,22 @@
             >
               <Image
                 resizeMode=\\"cover\\"
@@ -2740,9 +2713,9 @@ exports[`refresh calls refreshComments 1`] = `
                   ]
                 }
               />
-@@ -324,11 +324,11 @@
-                        },
-                      ],
+@@ -320,11 +320,11 @@
+                        \\"textTransform\\": \\"uppercase\\",
+                      },
                     ]
                   }
                 >
@@ -2753,8 +2726,8 @@ exports[`refresh calls refreshComments 1`] = `
                   style={
                     Array [
                       Object {
-@@ -350,11 +350,11 @@
-                      ],
+@@ -345,11 +345,11 @@
+                      },
                     ]
                   }
                   testID=\\"Text\\"
@@ -2766,38 +2739,37 @@ exports[`refresh calls refreshComments 1`] = `
             </View>
           </View>
           <View
-@@ -373,19 +373,39 @@
-                  },
-                  Object {
-                    \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-                  },
-                  Object {
-+                   \\"color\\": \\"#3CC8E6\\",
-                    \\"fontSize\\": 16,
-+                   \\"fontWeight\\": \\"bold\\",
-+                   \\"lineHeight\\": 20,
-+                 },
-+               ]
+@@ -361,10 +361,26 @@
+            }
+          >
+            <Text
+              style={
+                Object {
++                 \\"color\\": \\"#3CC8E6\\",
++                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                 \\"fontSize\\": 16,
++                 \\"fontStyle\\": \\"normal\\",
++                 \\"fontWeight\\": \\"bold\\",
++                 \\"letterSpacing\\": 1,
++                 \\"lineHeight\\": 20,
++                 \\"textTransform\\": \\"uppercase\\",
++               }
 +             }
 +           >
 +             Completed a Challenge!
 +           </Text>
 +           <Text
 +             style={
-+               Array [
-+                 Object {
-+                   \\"color\\": \\"#505256\\",
-+                 },
-+                 Object {
-+                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                 },
-+                 Object {
-+                   \\"fontSize\\": 16,
-                    \\"justifyContent\\": \\"flex-start\\",
-                    \\"lineHeight\\": 24,
-                    \\"paddingBottom\\": 8,
-                  },
-                ]
++               Object {
+                  \\"color\\": \\"#505256\\",
+                  \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                  \\"fontSize\\": 16,
+                  \\"fontStyle\\": \\"normal\\",
+                  \\"fontWeight\\": \\"normal\\",
+@@ -372,11 +388,11 @@
+                  \\"lineHeight\\": 24,
+                  \\"paddingBottom\\": 8,
+                }
               }
             >
 -             repellat ratione ut
@@ -2807,7 +2779,7 @@ exports[`refresh calls refreshComments 1`] = `
           <View
             style={
               Array [
-@@ -553,11 +573,12 @@
+@@ -536,11 +552,12 @@
                           null,
                         ]
                       }
@@ -2821,10 +2793,10 @@ exports[`refresh calls refreshComments 1`] = `
                   </View>
                 </View>
                 <View
-@@ -588,11 +609,11 @@
-                          \\"width\\": 30,
-                        },
-                      ]
+@@ -567,11 +584,11 @@
+                        \\"textAlign\\": \\"right\\",
+                        \\"width\\": 30,
+                      }
                     }
                   >
 -                   52454
@@ -2834,7 +2806,7 @@ exports[`refresh calls refreshComments 1`] = `
                     accessible={true}
                     focusable={true}
                     onClick={[Function onClick]}
-@@ -656,28 +677,29 @@
+@@ -635,28 +652,29 @@
         >
           <CommentItem
             comment={
@@ -2872,7 +2844,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -688,28 +710,29 @@
+@@ -667,28 +685,29 @@
         >
           <CommentItem
             comment={
@@ -2910,7 +2882,7 @@ exports[`refresh calls refreshComments 1`] = `
             }
             testID=\\"CommentItem\\"
           />
-@@ -729,22 +752,22 @@
+@@ -708,22 +727,22 @@
     >
       <Image
         resizeMode=\\"cover\\"
@@ -3064,18 +3036,14 @@ exports[`renders correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Switchable full-range extranet
@@ -3244,19 +3212,14 @@ exports[`renders correctly 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                  }
                 }
               >
                 What's on Your Mind
@@ -3312,23 +3275,23 @@ exports[`renders correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -3338,22 +3301,21 @@ exports[`renders correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -3398,6 +3360,8 @@ exports[`renders correctly 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -3470,21 +3434,17 @@ exports[`renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -3547,21 +3507,17 @@ exports[`renders correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   67046
@@ -3742,7 +3698,7 @@ exports[`renders correctly 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -3750,19 +3706,26 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
             },
@@ -3924,18 +3887,14 @@ exports[`renders correctly with communityId passed in 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Switchable full-range extranet
@@ -4104,19 +4063,14 @@ exports[`renders correctly with communityId passed in 1`] = `
               />
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "lineHeight": 20,
-                    },
-                  ]
+                  Object {
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 20,
+                  }
                 }
               >
                 What's on Your Mind
@@ -4172,23 +4126,23 @@ exports[`renders correctly with communityId passed in 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -4198,22 +4152,21 @@ exports[`renders correctly with communityId passed in 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -4258,6 +4211,8 @@ exports[`renders correctly with communityId passed in 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -4330,21 +4285,17 @@ exports[`renders correctly with communityId passed in 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -4407,21 +4358,17 @@ exports[`renders correctly with communityId passed in 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   67046
@@ -4602,7 +4549,7 @@ exports[`renders correctly with communityId passed in 1`] = `
         onFocus={[Function]}
         onSubmitEditing={[Function]}
         placeholder="Add a comment..."
-        placeholderTextColor="#B2B0B2"
+        placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         returnKeyType="done"
         selectionColor="#005A7F"
@@ -4610,19 +4557,26 @@ exports[`renders correctly with communityId passed in 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#4E4C4E",
+              "color": "#505256",
               "flex": 1,
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
               "paddingHorizontal": 12,
               "paddingVertical": 6,
             },
@@ -4784,18 +4738,14 @@ exports[`renders loading 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               MissionHub

@@ -82,7 +82,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                   "fontSize": 18,
                 },
                 Object {
-                  "color": "#52C5DC",
+                  "color": "#3CC8E6",
                   "fontSize": 18,
                   "paddingRight": 8,
                 },
@@ -102,19 +102,14 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#3CC8E6",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
-              Array [
-                Object {
-                  "color": "#52C5DC",
-                  "fontSize": 14,
-                  "lineHeight": 18,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -150,7 +145,7 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
       <View
         style={
           Object {
-            "backgroundColor": "#ffffff",
+            "backgroundColor": "rgba(0,0,0,0.5)",
             "bottom": 0,
             "left": 0,
             "position": "absolute",
@@ -241,31 +236,29 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Array [
                       Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 12,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                        "lineHeight": 16,
                       },
-                      Array [
-                        Object {
-                          "fontSize": 12,
-                          "fontWeight": "normal",
-                          "letterSpacing": 1,
-                          "lineHeight": 16,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
+                      Object {
+                        "color": "#B4B6BA",
+                      },
                     ],
                   ]
                 }
@@ -329,31 +322,29 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Array [
                       Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 12,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                        "lineHeight": 16,
                       },
-                      Array [
-                        Object {
-                          "fontSize": 12,
-                          "fontWeight": "normal",
-                          "letterSpacing": 1,
-                          "lineHeight": 16,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
+                      Object {
+                        "color": "#B4B6BA",
+                      },
                     ],
                   ]
                 }
@@ -417,31 +408,29 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Array [
                       Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
+                        "color": "#505256",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 12,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "letterSpacing": 1,
+                        "lineHeight": 16,
                       },
-                      Array [
-                        Object {
-                          "fontSize": 12,
-                          "fontWeight": "normal",
-                          "letterSpacing": 1,
-                          "lineHeight": 16,
-                        },
-                        Object {
-                          "color": "#B4B6BA",
-                        },
-                      ],
+                      Object {
+                        "color": "#B4B6BA",
+                      },
                     ],
                   ]
                 }
@@ -498,31 +487,28 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Array [
                       Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
+                        "color": "#007AFF",
+                        "fontFamily": "SourceSansPro-Regular",
+                        "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
+                        "lineHeight": 24,
                       },
-                      Array [
-                        Object {
-                          "color": "#007AFF",
-                          "fontSize": 16,
-                          "fontWeight": "normal",
-                          "letterSpacing": 1,
-                        },
-                        Object {
-                          "textAlign": "left",
-                        },
-                      ],
+                      Object {
+                        "textAlign": "left",
+                      },
                     ],
                   ]
                 }
@@ -533,19 +519,16 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
           </View>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "flex": 1,
-                  "fontSize": 16,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "flex": 1,
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "textAlign": "center",
+              }
             }
           >
             Date
@@ -583,27 +566,24 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#007AFF",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#007AFF",
-                        "fontSize": 16,
-                        "fontWeight": "normal",
-                        "letterSpacing": 1,
-                      },
-                    ],
                   ]
                 }
               >
@@ -616,21 +596,17 @@ exports[`AcceptedStepItem renders accepted correctly 1`] = `
     </Modal>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "flex": 1,
-            "fontSize": 16,
-            "lineHeight": 22,
-            "padding": 4,
-            "paddingRight": 32,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "flex": 1,
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+          "padding": 4,
+          "paddingRight": 32,
+        }
       }
     >
       title
@@ -740,22 +716,18 @@ exports[`AcceptedStepItem renders completed correctly 1`] = `
         Array [
           Object {
             "color": "#505256",
+            "flex": 1,
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "padding": 4,
+            "paddingRight": 32,
           },
           Object {
-            "fontFamily": "SourceSansPro-Regular",
+            "color": "#B4B6BA",
           },
-          Array [
-            Object {
-              "flex": 1,
-              "fontSize": 16,
-              "lineHeight": 22,
-              "padding": 4,
-              "paddingRight": 32,
-            },
-            Object {
-              "color": "#B4B6BA",
-            },
-          ],
         ]
       }
     >

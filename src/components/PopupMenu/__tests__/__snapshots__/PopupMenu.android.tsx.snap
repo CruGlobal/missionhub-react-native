@@ -61,7 +61,7 @@ exports[`PopupMenu Android renders correctly 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -305,7 +305,7 @@ exports[`PopupMenu Android renders disabled 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -547,7 +547,7 @@ exports[`PopupMenu Android renders for long press trigger 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -791,7 +791,7 @@ exports[`PopupMenu Android renders with button and icon props 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },

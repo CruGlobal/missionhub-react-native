@@ -5,7 +5,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
 - First value
 + Second value
 
-@@ -351,11 +351,11 @@
+@@ -349,11 +349,11 @@
               \\"nodes\\": Array [],
             },
             \\"report\\": Object {
@@ -18,7 +18,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
             \\"unreadCommentsCount\\": 0,
           },
           Object {
-@@ -635,11 +635,291 @@
+@@ -633,11 +633,291 @@
               \\"contactCount\\": 26992,
               \\"memberCount\\": 35653,
               \\"unassignedCount\\": 89588,
@@ -310,7 +310,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
       disableVirtualization={false}
       getItem={[Function anonymous]}
       getItemCount={[Function anonymous]}
-@@ -696,11 +976,11 @@
+@@ -694,11 +974,11 @@
                   \\"nodes\\": Array [],
                 },
                 \\"report\\": Object {
@@ -323,7 +323,7 @@ exports[`GroupsListScreen handleScroll paginates when close to bottom 1`] = `
                 \\"unreadCommentsCount\\": 0,
               }
             }
-@@ -1051,11 +1331,11 @@
+@@ -1049,11 +1329,11 @@
           />
         </View>
         <View
@@ -470,23 +470,21 @@ exports[`GroupsListScreen renders with communities 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -577,26 +575,26 @@ exports[`GroupsListScreen renders with communities 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
                 },
                 Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
               ]
             }
           >
@@ -660,26 +658,26 @@ exports[`GroupsListScreen renders with communities 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
                 },
                 Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
               ]
             }
           >
@@ -1519,20 +1517,12 @@ exports[`GroupsListScreen renders with only global community 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 26,
+                      "fontWeight": "300",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 26,
-                        "fontWeight": "300",
-                      },
-                    ],
                   ]
                 }
               >
@@ -1559,23 +1549,21 @@ exports[`GroupsListScreen renders with only global community 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -1666,26 +1654,26 @@ exports[`GroupsListScreen renders with only global community 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
                 },
                 Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
               ]
             }
           >
@@ -1749,26 +1737,26 @@ exports[`GroupsListScreen renders with only global community 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
                 },
                 Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 12,
-                    "fontWeight": "bold",
-                  },
-                ],
               ]
             }
           >

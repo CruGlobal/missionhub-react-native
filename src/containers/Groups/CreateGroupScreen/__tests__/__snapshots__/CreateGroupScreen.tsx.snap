@@ -80,19 +80,24 @@ exports[`CreateGroupScreen renders correctly 1`] = `
           }
         }
       >
-        <MyText
-          header={true}
+        <Text
           style={
             Object {
-              "color": "#66D9F0",
+              "color": "#3CC8E6",
+              "fontFamily": "AmaticSC-Bold",
               "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 2,
+              "lineHeight": 24,
               "marginBottom": 5,
               "textAlign": "center",
+              "textTransform": "lowercase",
             }
           }
         >
           Community Name
-        </MyText>
+        </Text>
         <Input
           autoCorrect={true}
           autoFocus={true}
@@ -105,7 +110,11 @@ exports[`CreateGroupScreen renders correctly 1`] = `
           style={
             Object {
               "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
               "textAlign": "center",
             }
           }
@@ -202,19 +211,24 @@ exports[`CreateGroupScreen should disable the button when creating a community 1
           }
         }
       >
-        <MyText
-          header={true}
+        <Text
           style={
             Object {
-              "color": "#66D9F0",
+              "color": "#3CC8E6",
+              "fontFamily": "AmaticSC-Bold",
               "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 2,
+              "lineHeight": 24,
               "marginBottom": 5,
               "textAlign": "center",
+              "textTransform": "lowercase",
             }
           }
         >
           Community Name
-        </MyText>
+        </Text>
         <Input
           autoCorrect={true}
           autoFocus={true}
@@ -227,7 +241,11 @@ exports[`CreateGroupScreen should disable the button when creating a community 1
           style={
             Object {
               "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
               "textAlign": "center",
             }
           }
@@ -332,19 +350,24 @@ exports[`CreateGroupScreen should update the image 1`] = `
           }
         }
       >
-        <MyText
-          header={true}
+        <Text
           style={
             Object {
-              "color": "#66D9F0",
+              "color": "#3CC8E6",
+              "fontFamily": "AmaticSC-Bold",
               "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 2,
+              "lineHeight": 24,
               "marginBottom": 5,
               "textAlign": "center",
+              "textTransform": "lowercase",
             }
           }
         >
           Community Name
-        </MyText>
+        </Text>
         <Input
           autoCorrect={true}
           autoFocus={true}
@@ -357,7 +380,11 @@ exports[`CreateGroupScreen should update the image 1`] = `
           style={
             Object {
               "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
               "textAlign": "center",
             }
           }

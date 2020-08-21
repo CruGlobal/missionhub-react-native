@@ -154,24 +154,29 @@ exports[`create methods calls onComplete 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -202,37 +207,28 @@ exports[`create methods calls onComplete 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             February 13, 2020
@@ -251,18 +247,14 @@ exports[`create methods calls onComplete 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Details
@@ -279,23 +271,29 @@ exports[`create methods calls onComplete 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -356,7 +354,7 @@ exports[`create methods calls onComplete 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -379,23 +377,18 @@ exports[`create methods calls onComplete 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  null,
-                ],
+                null,
               ],
             ]
           }
@@ -413,7 +406,7 @@ exports[`create methods changes date 1`] = `
 - First value
 + Second value
 
-@@ -178,11 +178,11 @@
+@@ -183,11 +183,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -426,10 +419,10 @@ exports[`create methods changes date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -230,11 +230,11 @@
-                    \\"lineHeight\\": 22,
-                  },
-                ]
+@@ -226,11 +226,11 @@
+                  \\"fontWeight\\": \\"normal\\",
+                  \\"lineHeight\\": 24,
+                }
               }
             >
 -             End Date (Required)
@@ -446,7 +439,7 @@ exports[`create methods changes detail 1`] = `
 - First value
 + Second value
 
-@@ -299,11 +299,11 @@
+@@ -297,11 +297,11 @@
                 },
               ]
             }
@@ -466,7 +459,7 @@ exports[`create methods changes title 1`] = `
 - First value
 + Second value
 
-@@ -175,11 +175,11 @@
+@@ -180,11 +180,11 @@
               },
             ]
           }
@@ -486,7 +479,7 @@ exports[`create methods clears date 1`] = `
 - First value
 + Second value
 
-@@ -178,11 +178,11 @@
+@@ -183,11 +183,11 @@
           testID=\\"titleInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -499,10 +492,10 @@ exports[`create methods clears date 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -230,11 +230,11 @@
-                    \\"lineHeight\\": 22,
-                  },
-                ]
+@@ -226,11 +226,11 @@
+                  \\"fontWeight\\": \\"normal\\",
+                  \\"lineHeight\\": 24,
+                }
               }
             >
 -             February 13, 2020
@@ -519,7 +512,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -271,11 +271,11 @@
+@@ -263,11 +263,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -529,7 +522,7 @@ exports[`create methods fires onBlur | detailInput 1`] = `
 +           placeholderTextColor=\\"#3CC8E6\\"
             rejectResponderTermination={true}
             scrollEnabled={false}
-            selectionColor=\\"#52C5DC\\"
+            selectionColor=\\"#3CC8E6\\"
             style={
               Array ["
 `;
@@ -549,7 +542,7 @@ exports[`create methods fires onBlur | titleInput 1`] = `
 +         placeholderTextColor=\\"#3CC8E6\\"
           rejectResponderTermination={true}
           returnKeyType=\\"done\\"
-          selectionColor=\\"#52C5DC\\"
+          selectionColor=\\"#3CC8E6\\"
           style={
             Array ["
 `;
@@ -559,7 +552,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 - First value
 + Second value
 
-@@ -271,11 +271,11 @@
+@@ -263,11 +263,11 @@
             multiline={true}
             onBlur={[Function onBlur]}
             onChangeText={[Function onChangeText]}
@@ -569,7 +562,7 @@ exports[`create methods focuses on press | detailInput 1`] = `
 +           placeholderTextColor=\\"#B4B6BA\\"
             rejectResponderTermination={true}
             scrollEnabled={false}
-            selectionColor=\\"#52C5DC\\"
+            selectionColor=\\"#3CC8E6\\"
             style={
               Array ["
 `;
@@ -589,7 +582,7 @@ exports[`create methods focuses on press | titleInput 1`] = `
 +         placeholderTextColor=\\"#B4B6BA\\"
           rejectResponderTermination={true}
           returnKeyType=\\"done\\"
-          selectionColor=\\"#52C5DC\\"
+          selectionColor=\\"#3CC8E6\\"
           style={
             Array ["
 `;
@@ -599,7 +592,7 @@ exports[`create methods sets disable false 1`] = `
 - First value
 + Second value
 
-@@ -175,14 +175,14 @@
+@@ -180,14 +180,14 @@
               },
             ]
           }
@@ -616,10 +609,10 @@ exports[`create methods sets disable false 1`] = `
           onDateChange={[Function onChangeDate]}
           testID=\\"datePicker\\"
         >
-@@ -230,11 +230,11 @@
-                    \\"lineHeight\\": 22,
-                  },
-                ]
+@@ -226,11 +226,11 @@
+                  \\"fontWeight\\": \\"normal\\",
+                  \\"lineHeight\\": 24,
+                }
               }
             >
 -             End Date (Required)
@@ -629,9 +622,9 @@ exports[`create methods sets disable false 1`] = `
         </DatePicker>
         <View
           style={
-@@ -355,22 +355,18 @@
+@@ -353,22 +353,18 @@
                 \\"alignItems\\": \\"center\\",
-                \\"backgroundColor\\": \\"#52C5DC\\",
+                \\"backgroundColor\\": \\"#3CC8E6\\",
                 \\"height\\": 60,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -654,21 +647,21 @@ exports[`create methods sets disable false 1`] = `
                 \\"borderRadius\\": 50,
               },
             ]
-@@ -393,13 +389,11 @@
-                    \\"fontWeight\\": \\"500\\",
-                    \\"letterSpacing\\": 1.5,
-                    \\"textAlign\\": \\"center\\",
-                  },
-                  Array [
--                   Object {
--                     \\"backgroundColor\\": \\"#B4B6BA\\",
--                   },
-+                   null,
-                  ],
+@@ -387,13 +383,11 @@
+                  \\"lineHeight\\": 18,
+                  \\"textAlign\\": \\"center\\",
+                  \\"textTransform\\": \\"uppercase\\",
+                },
+                Array [
+-                 Object {
+-                   \\"backgroundColor\\": \\"#B4B6BA\\",
+-                 },
++                 null,
                 ],
               ]
             }
-          >"
+          >
+            CREATE CHALLENGE"
 `;
 
 exports[`edit methods Saves challenge when user updates detail 1`] = `
@@ -676,7 +669,7 @@ exports[`edit methods Saves challenge when user updates detail 1`] = `
 - First value
 + Second value
 
-@@ -381,11 +381,11 @@
+@@ -374,11 +374,11 @@
                 },
               ]
             }
@@ -865,25 +858,20 @@ exports[`edit methods calls onComplete 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -927,24 +915,29 @@ exports[`edit methods calls onComplete 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -975,37 +968,28 @@ exports[`edit methods calls onComplete 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             February 13, 2020
@@ -1024,18 +1008,14 @@ exports[`edit methods calls onComplete 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Details
@@ -1052,23 +1032,29 @@ exports[`edit methods calls onComplete 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -1274,24 +1260,29 @@ exports[`renders correctly 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -1322,37 +1313,28 @@ exports[`renders correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             End Date (Required)
@@ -1371,18 +1353,14 @@ exports[`renders correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Details
@@ -1399,23 +1377,29 @@ exports[`renders correctly 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -1476,7 +1460,7 @@ exports[`renders correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1503,25 +1487,20 @@ exports[`renders correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
+                  "backgroundColor": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                ],
               ],
             ]
           }
@@ -1688,24 +1667,29 @@ exports[`renders correctly on android 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -1736,37 +1720,28 @@ exports[`renders correctly on android 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             End Date (Required)
@@ -1785,18 +1760,14 @@ exports[`renders correctly on android 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Details
@@ -1813,23 +1784,29 @@ exports[`renders correctly on android 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,
@@ -1890,7 +1867,7 @@ exports[`renders correctly on android 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1917,25 +1894,20 @@ exports[`renders correctly on android 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
                 Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
+                  "backgroundColor": "#B4B6BA",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "#B4B6BA",
-                  },
-                ],
               ],
             ]
           }
@@ -2122,25 +2094,20 @@ exports[`renders edit challenge correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
-                    "fontFamily": "SourceSansPro-Regular",
+                    "color": "#3CC8E6",
+                    "fontSize": 14,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 14,
-                    },
-                  ],
                 ]
               }
             >
@@ -2184,24 +2151,29 @@ exports[`renders edit challenge correctly 1`] = `
         placeholderTextColor="#3CC8E6"
         rejectResponderTermination={true}
         returnKeyType="done"
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
               "fontSize": 24,
-              "fontWeight": "300",
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "lineHeight": 30,
               "marginBottom": 16,
               "paddingHorizontal": 32,
@@ -2232,37 +2204,28 @@ exports[`renders edit challenge correctly 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#939393",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#939393",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
           >
             Challenge Ends
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#3CC8E6",
-                  "fontSize": 16,
-                  "lineHeight": 22,
-                },
-              ]
+              Object {
+                "color": "#3CC8E6",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             February 29, 2020
@@ -2281,18 +2244,14 @@ exports[`renders edit challenge correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#939393",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#939393",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Details
@@ -2309,23 +2268,29 @@ exports[`renders edit challenge correctly 1`] = `
           placeholderTextColor="#3CC8E6"
           rejectResponderTermination={true}
           scrollEnabled={false}
-          selectionColor="#52C5DC"
+          selectionColor="#3CC8E6"
           style={
             Array [
               Object {
                 "backgroundColor": "transparent",
-                "borderBottomColor": "#52C5DC",
+                "borderBottomColor": "#3CC8E6",
                 "borderBottomWidth": 1,
                 "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "letterSpacing": 0.25,
+                "lineHeight": 24,
                 "paddingVertical": 5,
               },
               Object {
                 "borderBottomWidth": 0,
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
                 "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
                 "lineHeight": 24,
                 "marginBottom": 26,
                 "paddingBottom": 70,

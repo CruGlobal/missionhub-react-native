@@ -23,18 +23,15 @@ exports[`renders communities 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "blue",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "blue",
-          },
-        ],
       ]
     }
   >
@@ -66,18 +63,15 @@ exports[`renders correctly | Android 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "blue",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "blue",
-          },
-        ],
       ]
     }
   >
@@ -109,18 +103,15 @@ exports[`renders correctly | NonAndroid 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "blue",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "blue",
-          },
-        ],
       ]
     }
   >
@@ -152,18 +143,15 @@ exports[`renders notifications 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "blue",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "blue",
-          },
-        ],
       ]
     }
   >
@@ -224,18 +212,15 @@ exports[`renders notifications with notification dot 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "blue",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "blue",
-          },
-        ],
       ]
     }
   >
@@ -267,18 +252,15 @@ exports[`renders people 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "blue",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "blue",
-          },
-        ],
       ]
     }
   >
@@ -310,18 +292,15 @@ exports[`renders steps 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "blue",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "blue",
-          },
-        ],
       ]
     }
   >
@@ -353,18 +332,15 @@ exports[`renders steps different tint color 1`] = `
       Array [
         Object {
           "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
         },
         Object {
-          "fontFamily": "SourceSansPro-Regular",
+          "color": "grey",
         },
-        Array [
-          Object {
-            "fontSize": 14,
-          },
-          Object {
-            "color": "grey",
-          },
-        ],
       ]
     }
   >

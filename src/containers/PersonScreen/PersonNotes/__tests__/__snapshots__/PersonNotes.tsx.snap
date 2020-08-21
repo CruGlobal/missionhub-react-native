@@ -58,42 +58,32 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 10,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingTop": 10,
+            }
           }
         >
           MY NOTES
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 80,
-                "paddingVertical": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 80,
+              "paddingVertical": 10,
+              "textAlign": "center",
+            }
           }
         >
           Remember important details about Roger, like favorite food, hobbies they love or something interesting they said.
@@ -133,7 +123,7 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -156,23 +146,18 @@ exports[`contact notes icon and prompt are shown if no notes 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -243,42 +228,32 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 10,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingTop": 10,
+            }
           }
         >
           MY NOTES
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 80,
-                "paddingVertical": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 80,
+              "paddingVertical": 10,
+              "textAlign": "center",
+            }
           }
         >
           Remember important details about your life or spiritual journey, like important milestones, influential people, or things you are learning about God.
@@ -318,7 +293,7 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -341,23 +316,18 @@ exports[`contact notes icon and prompt are shown if no notes as me 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -398,22 +368,18 @@ exports[`contact notes notes are shown 1`] = `
         style={
           Array [
             Object {
+              "borderBottomWidth": 0,
               "color": "#505256",
-            },
-            Object {
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "marginTop": 30,
+              "paddingHorizontal": 36,
+              "textAlign": "left",
             },
-            Array [
-              Object {
-                "borderBottomWidth": 0,
-                "color": "#505256",
-                "fontSize": 16,
-                "marginTop": 30,
-                "paddingHorizontal": 36,
-                "textAlign": "left",
-              },
-              null,
-            ],
+            null,
           ]
         }
       >
@@ -453,7 +419,7 @@ exports[`contact notes notes are shown 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -476,23 +442,18 @@ exports[`contact notes notes are shown 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -510,7 +471,7 @@ exports[`contact notes press bottom button saves and switches to not editing sta
 - First value
 + Second value
 
-@@ -19,47 +19,35 @@
+@@ -19,38 +19,14 @@
           \\"marginBottom\\": undefined,
         }
       }
@@ -531,30 +492,32 @@ exports[`contact notes press bottom button saves and switches to not editing sta
 +       <Text
           style={
             Array [
-+             Object {
-+               \\"color\\": \\"#505256\\",
-+             },
               Object {
 -               \\"backgroundColor\\": \\"transparent\\",
--               \\"borderBottomColor\\": \\"#52C5DC\\",
+-               \\"borderBottomColor\\": \\"#3CC8E6\\",
 -               \\"borderBottomWidth\\": 1,
 -               \\"color\\": \\"#ffffff\\",
-                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 -               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"normal\\",
 -               \\"letterSpacing\\": 0.25,
+-               \\"lineHeight\\": 24,
 -               \\"paddingVertical\\": 5,
+-             },
+-             Object {
+                \\"borderBottomWidth\\": 0,
+                \\"color\\": \\"#505256\\",
+                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+                \\"fontSize\\": 16,
+                \\"fontStyle\\": \\"normal\\",
+@@ -58,15 +34,16 @@
+                \\"lineHeight\\": 24,
+                \\"marginTop\\": 30,
+                \\"paddingHorizontal\\": 36,
+                \\"textAlign\\": \\"left\\",
               },
-+             Array [
-                Object {
-                  \\"borderBottomWidth\\": 0,
-                  \\"color\\": \\"#505256\\",
-                  \\"fontSize\\": 16,
-                  \\"marginTop\\": 30,
-                  \\"paddingHorizontal\\": 36,
-                  \\"textAlign\\": \\"left\\",
-                },
-+               null,
-+             ],
++             null,
             ]
           }
 -         underlineColorAndroid=\\"rgba(0,0,0,0)\\"
@@ -568,8 +531,8 @@ exports[`contact notes press bottom button saves and switches to not editing sta
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -134,11 +122,11 @@
-                  ],
+@@ -136,11 +113,11 @@
+                  undefined,
                 ],
               ]
             }
@@ -588,7 +551,7 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
 - First value
 + Second value
 
-@@ -19,35 +19,47 @@
+@@ -19,14 +19,38 @@
           \\"marginBottom\\": undefined,
         }
       }
@@ -609,30 +572,32 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
 +         selectionColor=\\"#005A7F\\"
           style={
             Array [
--             Object {
--               \\"color\\": \\"#505256\\",
--             },
               Object {
 +               \\"backgroundColor\\": \\"transparent\\",
-+               \\"borderBottomColor\\": \\"#52C5DC\\",
++               \\"borderBottomColor\\": \\"#3CC8E6\\",
 +               \\"borderBottomWidth\\": 1,
 +               \\"color\\": \\"#ffffff\\",
-                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +               \\"fontSize\\": 16,
++               \\"fontStyle\\": \\"normal\\",
++               \\"fontWeight\\": \\"normal\\",
 +               \\"letterSpacing\\": 0.25,
++               \\"lineHeight\\": 24,
 +               \\"paddingVertical\\": 5,
-              },
--             Array [
-              Object {
++             },
++             Object {
                 \\"borderBottomWidth\\": 0,
                 \\"color\\": \\"#505256\\",
+                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                 \\"fontSize\\": 16,
+                \\"fontStyle\\": \\"normal\\",
+@@ -34,16 +58,15 @@
+                \\"lineHeight\\": 24,
                 \\"marginTop\\": 30,
                 \\"paddingHorizontal\\": 36,
                 \\"textAlign\\": \\"left\\",
               },
--               null,
--             ],
+-             null,
             ]
           }
 -       >
@@ -646,8 +611,8 @@ exports[`contact notes press bottom button switches to editing state 1`] = `
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -122,11 +134,11 @@
-                  ],
+@@ -113,11 +136,11 @@
+                  undefined,
                 ],
               ]
             }
@@ -666,7 +631,7 @@ exports[`contact notes press bottom button switches to editing state on android 
 - First value
 + Second value
 
-@@ -14,42 +14,52 @@
+@@ -14,19 +14,43 @@
       }
       scrollEventThrottle={0.0001}
       style={
@@ -694,31 +659,33 @@ exports[`contact notes press bottom button switches to editing state on android 
           style={
             Array [
               Object {
--               \\"color\\": \\"#505256\\",
--             },
--             Object {
 +               \\"backgroundColor\\": \\"transparent\\",
-+               \\"borderBottomColor\\": \\"#52C5DC\\",
++               \\"borderBottomColor\\": \\"#3CC8E6\\",
 +               \\"borderBottomWidth\\": 1,
 +               \\"color\\": \\"#ffffff\\",
-                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +               \\"fontSize\\": 16,
++               \\"fontStyle\\": \\"normal\\",
++               \\"fontWeight\\": \\"normal\\",
 +               \\"letterSpacing\\": 0.25,
++               \\"lineHeight\\": 24,
 +               \\"paddingVertical\\": 5,
-              },
--             Array [
-              Object {
++             },
++             Object {
                 \\"borderBottomWidth\\": 0,
                 \\"color\\": \\"#505256\\",
+                \\"fontFamily\\": \\"SourceSansPro-Regular\\",
                 \\"fontSize\\": 16,
+                \\"fontStyle\\": \\"normal\\",
+@@ -34,18 +58,15 @@
+                \\"lineHeight\\": 24,
                 \\"marginTop\\": 30,
                 \\"paddingHorizontal\\": 36,
                 \\"textAlign\\": \\"left\\",
--               },
--               Object {
--                 \\"paddingBottom\\": 80,
               },
--             ],
+-             Object {
+-               \\"paddingBottom\\": 80,
+-             },
             ]
           }
 -       >
@@ -732,8 +699,8 @@ exports[`contact notes press bottom button switches to editing state on android 
     <RCTSafeAreaView
       emulateUnlessSupported={true}
       style={
-@@ -124,11 +134,11 @@
-                  ],
+@@ -115,11 +136,11 @@
+                  undefined,
                 ],
               ]
             }

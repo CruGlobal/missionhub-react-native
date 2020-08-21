@@ -5,7 +5,7 @@ exports[`changes the title of the step and creates a new step 1`] = `
 - First value
 + Second value
 
-@@ -186,11 +186,11 @@
+@@ -187,11 +187,11 @@
               \\"marginVertical\\": 16,
             }
           }
@@ -171,20 +171,19 @@ exports[`should render correctly | Care Step 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -204,7 +203,9 @@ exports[`should render correctly | Care Step 1`] = `
             "color": "#3CC8E6",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "fontStyle": "normal",
             "fontWeight": "300",
+            "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
           }
@@ -283,18 +284,16 @@ exports[`should render correctly | Care Step 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
+                }
               }
             >
               Aaliyah Champlin
@@ -315,18 +314,14 @@ exports[`should render correctly | Care Step 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {},
-                    ],
+                    Object {},
                   ]
                 }
                 testID="Text"
@@ -336,19 +331,11 @@ exports[`should render correctly | Care Step 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 12,
-                      "paddingLeft": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontSize": 12,
+                    "paddingLeft": 10,
+                  }
                 }
                 testID="openPostButton"
               >
@@ -398,6 +385,8 @@ exports[`should render correctly | Care Step 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 24,
                       },
                       Object {},
@@ -467,7 +456,7 @@ exports[`should render correctly | Care Step 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -490,23 +479,18 @@ exports[`should render correctly | Care Step 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -670,20 +654,19 @@ exports[`should render correctly | Pray Step 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -703,7 +686,9 @@ exports[`should render correctly | Pray Step 1`] = `
             "color": "#3CC8E6",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "fontStyle": "normal",
             "fontWeight": "300",
+            "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
           }
@@ -781,18 +766,16 @@ exports[`should render correctly | Pray Step 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
+                }
               }
             >
               Aaliyah Champlin
@@ -813,18 +796,14 @@ exports[`should render correctly | Pray Step 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {},
-                    ],
+                    Object {},
                   ]
                 }
                 testID="Text"
@@ -834,19 +813,11 @@ exports[`should render correctly | Pray Step 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 12,
-                      "paddingLeft": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontSize": 12,
+                    "paddingLeft": 10,
+                  }
                 }
                 testID="openPostButton"
               >
@@ -896,6 +867,8 @@ exports[`should render correctly | Pray Step 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 24,
                       },
                       Object {},
@@ -965,7 +938,7 @@ exports[`should render correctly | Pray Step 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -988,23 +961,18 @@ exports[`should render correctly | Pray Step 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1168,20 +1136,19 @@ exports[`should render correctly | Share Step 1`] = `
             Array [
               Object {
                 "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#B4B6BA",
+                "paddingLeft": 4,
               },
-              Array [
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "letterSpacing": 1,
-                  "paddingLeft": 4,
-                },
-                undefined,
-              ],
+              undefined,
             ]
           }
         >
@@ -1201,7 +1168,9 @@ exports[`should render correctly | Share Step 1`] = `
             "color": "#3CC8E6",
             "fontFamily": "SourceSansPro-Light",
             "fontSize": 32,
+            "fontStyle": "normal",
             "fontWeight": "300",
+            "lineHeight": 38,
             "marginHorizontal": 32,
             "marginVertical": 16,
           }
@@ -1280,18 +1249,16 @@ exports[`should render correctly | Share Step 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
+                }
               }
             >
               Aaliyah Champlin
@@ -1312,18 +1279,14 @@ exports[`should render correctly | Share Step 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
-                    },
-                    Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {},
-                    ],
+                    Object {},
                   ]
                 }
                 testID="Text"
@@ -1333,19 +1296,11 @@ exports[`should render correctly | Share Step 1`] = `
               <Text
                 onPress={[Function]}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 12,
-                      "paddingLeft": 10,
-                    },
-                  ]
+                  Object {
+                    "color": "#3CC8E6",
+                    "fontSize": 12,
+                    "paddingLeft": 10,
+                  }
                 }
                 testID="openPostButton"
               >
@@ -1395,6 +1350,8 @@ exports[`should render correctly | Share Step 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 16,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 24,
                       },
                       Object {},
@@ -1464,7 +1421,7 @@ exports[`should render correctly | Share Step 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1487,23 +1444,18 @@ exports[`should render correctly | Share Step 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }

@@ -100,19 +100,15 @@ exports[`does render announcement for owner 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "height": 18,
-              "paddingLeft": 10,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 10,
+          }
         }
       >
         Make an Announcement
@@ -127,7 +123,7 @@ exports[`onPress opens modal 1`] = `
 - First value
 + Second value
 
-@@ -16,10 +16,628 @@
+@@ -16,10 +16,605 @@
         \\"shadowOpacity\\": 0.3,
         \\"shadowRadius\\": 2,
       }
@@ -240,6 +236,8 @@ exports[`onPress opens modal 1`] = `
 +               \\"color\\": \\"#505256\\",
 +               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
 +               \\"fontSize\\": 14,
++               \\"fontStyle\\": \\"normal\\",
++               \\"fontWeight\\": \\"normal\\",
 +               \\"lineHeight\\": 20,
 +               \\"paddingBottom\\": 20,
 +               \\"textAlign\\": \\"center\\",
@@ -328,19 +326,14 @@ exports[`onPress opens modal 1`] = `
 +               />
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#ffffff\\",
-+                       \\"fontSize\\": 14,
-+                       \\"lineHeight\\": 20,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 14,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 20,
++                   }
 +                 }
 +               >
 +                 God Story
@@ -428,19 +421,14 @@ exports[`onPress opens modal 1`] = `
 +               />
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#ffffff\\",
-+                       \\"fontSize\\": 14,
-+                       \\"lineHeight\\": 20,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 14,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 20,
++                   }
 +                 }
 +               >
 +                 Prayer Request
@@ -528,19 +516,14 @@ exports[`onPress opens modal 1`] = `
 +               />
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#ffffff\\",
-+                       \\"fontSize\\": 14,
-+                       \\"lineHeight\\": 20,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 14,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 20,
++                   }
 +                 }
 +               >
 +                 Spiritual Question
@@ -628,19 +611,14 @@ exports[`onPress opens modal 1`] = `
 +               />
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#ffffff\\",
-+                       \\"fontSize\\": 14,
-+                       \\"lineHeight\\": 20,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 14,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 20,
++                   }
 +                 }
 +               >
 +                 Community Need
@@ -728,19 +706,14 @@ exports[`onPress opens modal 1`] = `
 +               />
 +               <Text
 +                 style={
-+                   Array [
-+                     Object {
-+                       \\"color\\": \\"#505256\\",
-+                     },
-+                     Object {
-+                       \\"fontFamily\\": \\"SourceSansPro-Regular\\",
-+                     },
-+                     Object {
-+                       \\"color\\": \\"#ffffff\\",
-+                       \\"fontSize\\": 14,
-+                       \\"lineHeight\\": 20,
-+                     },
-+                   ]
++                   Object {
++                     \\"color\\": \\"#ffffff\\",
++                     \\"fontFamily\\": \\"SourceSansPro-Regular\\",
++                     \\"fontSize\\": 14,
++                     \\"fontStyle\\": \\"normal\\",
++                     \\"fontWeight\\": \\"normal\\",
++                     \\"lineHeight\\": 20,
++                   }
 +                 }
 +               >
 +                 What's on Your Mind
@@ -852,19 +825,15 @@ exports[`renders correctly 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "height": 18,
-              "paddingLeft": 10,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 10,
+          }
         }
       >
         Post to community...
@@ -968,19 +937,15 @@ exports[`renders correctly for admin 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "height": 18,
-              "paddingLeft": 10,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 10,
+          }
         }
       >
         Post to community...
@@ -1084,19 +1049,15 @@ exports[`renders correctly for owner 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "height": 18,
-              "paddingLeft": 10,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 10,
+          }
         }
       >
         Post to community...
@@ -1202,19 +1163,11 @@ exports[`renders correctly with type 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
             ]
           }
         >
@@ -1223,19 +1176,15 @@ exports[`renders correctly with type 1`] = `
       </View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "height": 18,
-              "paddingLeft": 10,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 10,
+          }
         }
       >
         Share a God Story

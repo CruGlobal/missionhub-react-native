@@ -116,42 +116,32 @@ exports[`renders correctly when me and no steps 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 10,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingTop": 10,
+            }
           }
         >
           STEPS OF FAITH
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 80,
-                "paddingVertical": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 80,
+              "paddingVertical": 10,
+              "textAlign": "center",
+            }
           }
         >
           Your Steps of Faith will appear here.
@@ -191,7 +181,7 @@ exports[`renders correctly when me and no steps 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -214,23 +204,18 @@ exports[`renders correctly when me and no steps 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -359,42 +344,32 @@ exports[`renders correctly when no steps 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontFamily": "SourceSansPro-Regular",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 10,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingTop": 10,
+            }
           }
         >
           STEPS OF FAITH
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 80,
-                "paddingVertical": 10,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 80,
+              "paddingVertical": 10,
+              "textAlign": "center",
+            }
           }
         >
           Your Steps of Faith with ben appear here.
@@ -434,7 +409,7 @@ exports[`renders correctly when no steps 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -457,23 +432,18 @@ exports[`renders correctly when no steps 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -513,7 +483,7 @@ exports[`renders correctly with completed steps 1`] = `
               style={
                 Object {
                   "backgroundColor": "transparent",
-                  "borderColor": "#A0A2A6",
+                  "borderColor": "#B4B6BA",
                   "borderWidth": 1,
                   "height": 36,
                   "marginHorizontal": 20,
@@ -523,22 +493,25 @@ exports[`renders correctly with completed steps 1`] = `
               }
               testID="completedStepsButton"
             >
-              <MyText
+              <Text
                 numberOfLines={1}
                 style={
                   Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#A0A2A6",
+                    "backgroundColor": "transparent",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
-                    "fontWeight": "500",
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
                     "letterSpacing": 1,
                     "lineHeight": 18,
                     "textAlign": "center",
+                    "textTransform": "uppercase",
                   }
                 }
               >
                 HIDE COMPLETED STEPS
-              </MyText>
+              </Text>
             </Button>
           </View>
         }
@@ -757,7 +730,7 @@ exports[`renders correctly with completed steps 1`] = `
                   null,
                   Object {
                     "backgroundColor": "transparent",
-                    "borderColor": "#A0A2A6",
+                    "borderColor": "#B4B6BA",
                     "borderWidth": 1,
                     "height": 36,
                     "marginHorizontal": 20,
@@ -773,23 +746,18 @@ exports[`renders correctly with completed steps 1`] = `
               <Text
                 numberOfLines={1}
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#A0A2A6",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1,
-                      "lineHeight": 18,
-                      "textAlign": "center",
-                    },
-                  ]
+                  Object {
+                    "backgroundColor": "transparent",
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
+                  }
                 }
               >
                 HIDE COMPLETED STEPS
@@ -880,7 +848,7 @@ exports[`renders correctly with completed steps 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -903,23 +871,18 @@ exports[`renders correctly with completed steps 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -1130,7 +1093,7 @@ exports[`renders correctly with steps 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -1153,23 +1116,18 @@ exports[`renders correctly with steps 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }

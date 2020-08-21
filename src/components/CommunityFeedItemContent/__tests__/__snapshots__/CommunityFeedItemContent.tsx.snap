@@ -59,23 +59,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -85,22 +85,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -120,40 +119,32 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#3CC8E6",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "lineHeight": 20,
-          },
-        ]
+        Object {
+          "color": "#3CC8E6",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
+        }
       }
     >
       Joined a Challenge!
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       quisquam recusandae alias
@@ -223,19 +214,15 @@ Array [
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "lineHeight": 20,
-              "paddingLeft": 12,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 12,
+          }
         }
       >
         View Challenge
@@ -270,21 +257,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -346,21 +329,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             84631
@@ -471,23 +450,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -497,22 +476,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -532,40 +510,32 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#3CC8E6",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "lineHeight": 20,
-          },
-        ]
+        Object {
+          "color": "#3CC8E6",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
+        }
       }
     >
       Completed a Challenge!
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       quisquam recusandae alias
@@ -635,19 +605,15 @@ Array [
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "lineHeight": 20,
-              "paddingLeft": 12,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 12,
+          }
         }
       >
         View Challenge
@@ -682,21 +648,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -758,21 +720,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             41919
@@ -862,23 +820,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -888,22 +846,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -923,40 +880,32 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#3CC8E6",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "lineHeight": 20,
-          },
-        ]
+        Object {
+          "color": "#3CC8E6",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
+        }
       }
     >
       Joined a Challenge!
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       quisquam recusandae alias
@@ -1026,19 +975,15 @@ Array [
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "lineHeight": 20,
-              "paddingLeft": 12,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 12,
+          }
         }
       >
         View Challenge
@@ -1073,21 +1018,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -1149,21 +1090,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             18626
@@ -1253,23 +1190,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -1279,22 +1216,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -1314,40 +1250,32 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#3CC8E6",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "lineHeight": 20,
-          },
-        ]
+        Object {
+          "color": "#3CC8E6",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
+        }
       }
     >
       Joined a Challenge!
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       quisquam recusandae alias
@@ -1417,19 +1345,15 @@ Array [
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "lineHeight": 20,
-              "paddingLeft": 12,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 12,
+          }
         }
       >
         View Challenge
@@ -1464,21 +1388,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -1540,21 +1460,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             66974
@@ -1665,23 +1581,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -1691,22 +1607,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -1726,40 +1641,32 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#3CC8E6",
-            "fontSize": 16,
-            "fontWeight": "bold",
-            "lineHeight": 20,
-          },
-        ]
+        Object {
+          "color": "#3CC8E6",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
+        }
       }
     >
       We have a new member!
     </Text>
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Help welcome Torey.
@@ -1825,21 +1732,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -1902,21 +1805,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -2058,19 +1957,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             God Story
@@ -2127,23 +2021,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -2153,22 +2047,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -2213,6 +2106,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -2285,21 +2180,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -2361,21 +2252,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             41919
@@ -2517,19 +2404,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -2586,23 +2468,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -2612,22 +2494,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -2672,6 +2553,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -2760,19 +2643,15 @@ Array [
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 14,
-              "lineHeight": 20,
-              "paddingLeft": 12,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingLeft": 12,
+          }
         }
       >
         Add to My Steps
@@ -2807,21 +2686,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -2883,21 +2758,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             41919
@@ -3039,19 +2910,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -3108,23 +2974,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -3134,22 +3000,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -3194,6 +3059,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -3266,21 +3133,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -3342,21 +3205,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             41919
@@ -3498,19 +3357,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -3567,23 +3421,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -3593,22 +3447,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -3653,6 +3506,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -3758,19 +3613,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -3827,23 +3677,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -3853,22 +3703,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -3888,20 +3737,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with a Uninterested person.
@@ -3967,21 +3812,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -4044,21 +3885,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -4200,19 +4037,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -4269,23 +4101,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -4295,22 +4127,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -4330,20 +4161,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with a Curious person.
@@ -4409,21 +4236,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -4486,21 +4309,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -4642,19 +4461,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -4711,23 +4525,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -4737,22 +4551,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -4772,20 +4585,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with a Forgiven person.
@@ -4851,21 +4660,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -4928,21 +4733,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -5084,19 +4885,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -5153,23 +4949,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -5179,22 +4975,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -5214,20 +5009,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with a Growing person.
@@ -5293,21 +5084,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -5370,21 +5157,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -5526,19 +5309,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -5595,23 +5373,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -5621,22 +5399,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -5656,20 +5433,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with a Guiding person.
@@ -5735,21 +5508,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -5812,21 +5581,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -5968,19 +5733,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -6037,23 +5797,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -6063,22 +5823,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -6098,20 +5857,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith.
@@ -6177,21 +5932,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -6254,21 +6005,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -6410,19 +6157,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -6479,23 +6221,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -6505,22 +6247,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -6540,20 +6281,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with someone.
@@ -6619,21 +6356,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -6696,21 +6429,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -6852,19 +6581,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -6900,23 +6624,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -6926,22 +6650,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -6961,20 +6684,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       A MissionHub user completed a Step of Faith with a Forgiven person.
@@ -7040,21 +6759,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -7116,21 +6831,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             23608
@@ -7272,19 +6983,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -7320,23 +7026,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -7346,22 +7052,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -7381,20 +7086,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       ut sunt qui completed a Step of Faith with a Forgiven person.
@@ -7460,21 +7161,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -7536,21 +7233,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             18626
@@ -7692,19 +7385,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Announcement
@@ -7752,18 +7440,16 @@ Array [
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
+              "textTransform": "uppercase",
+            }
           }
         >
           Integrated client-server functionalities
@@ -7772,22 +7458,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -7832,6 +7517,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -7904,21 +7591,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -7980,21 +7663,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             41919
@@ -8136,19 +7815,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Announcement
@@ -8182,18 +7856,16 @@ Array [
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "fontWeight": "bold",
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 20,
+              "textTransform": "uppercase",
+            }
           }
         >
           Integrated client-server functionalities
@@ -8202,22 +7874,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -8262,6 +7933,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -8334,21 +8007,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -8411,21 +8080,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -8567,19 +8232,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             God Story
@@ -8636,23 +8296,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -8662,22 +8322,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -8722,6 +8381,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -8807,21 +8468,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -8883,21 +8540,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             52454
@@ -9039,19 +8692,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -9088,7 +8736,7 @@ Array [
           testID="popupMenuButton"
         >
           <SvgMock
-            color="#505256"
+            color="#B4B6BA"
           />
         </View>
       </View>
@@ -9142,23 +8790,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -9168,22 +8816,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -9203,20 +8850,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with a Forgiven person.
@@ -9282,21 +8925,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -9359,21 +8998,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -9515,19 +9150,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             God Story
@@ -9584,23 +9214,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -9610,22 +9240,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -9670,6 +9299,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -9829,21 +9460,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -9905,21 +9532,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             52454
@@ -10061,19 +9684,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Step of Faith
@@ -10130,23 +9748,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -10156,22 +9774,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -10191,20 +9808,16 @@ Array [
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 16,
-            "justifyContent": "flex-start",
-            "lineHeight": 24,
-            "paddingBottom": 8,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "justifyContent": "flex-start",
+          "lineHeight": 24,
+          "paddingBottom": 8,
+        }
       }
     >
       Torey A. completed a Step of Faith with a Forgiven person.
@@ -10270,21 +9883,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -10347,21 +9956,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             93553
@@ -10503,19 +10108,14 @@ Array [
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             God Story
@@ -10572,23 +10172,23 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 20,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "fontWeight": "bold",
-                  "lineHeight": 20,
-                },
-              ],
             ]
           }
         >
@@ -10598,22 +10198,21 @@ Array [
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
               Object {
+                "color": "#B4B6BA",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
               },
-              Array [
-                Object {
-                  "color": "#B2B0B2",
-                  "fontSize": 12,
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                  "lineHeight": 16,
-                },
-              ],
             ]
           }
           testID="Text"
@@ -10658,6 +10257,8 @@ Array [
                   "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
                   "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
                   "lineHeight": 18,
                 },
                 Object {},
@@ -10730,21 +10331,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           />
           <View
@@ -10806,21 +10403,17 @@ Array [
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                  "paddingRight": 10,
-                  "textAlign": "right",
-                  "width": 30,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+                "paddingRight": 10,
+                "textAlign": "right",
+                "width": 30,
+              }
             }
           >
             52454

@@ -179,23 +179,21 @@ exports[`label variations render extra large label 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "white",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
                 },
                 Object {
+                  "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
                 },
-                Array [
-                  Object {
-                    "color": "white",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "fontWeight": "normal",
-                    "lineHeight": 20,
-                  },
-                ],
               ]
             }
           >
@@ -250,42 +248,32 @@ exports[`label variations render extra large label 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "textAlign": "center",
+          }
         }
       >
         God Stories
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 14,
-              "lineHeight": 20,
-              "paddingHorizontal": 35,
-              "paddingTop": 10,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
+            "paddingHorizontal": 35,
+            "paddingTop": 10,
+            "textAlign": "center",
+          }
         }
       >
         Share and celebrate when God does something amazing.
@@ -454,19 +442,14 @@ exports[`label variations renders large label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     God Story
@@ -613,17 +596,14 @@ exports[`post types cards renders Announcement Label 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       Announcements
@@ -721,17 +701,14 @@ exports[`post types cards renders Community Need Label 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       Community Needs
@@ -829,17 +806,14 @@ exports[`post types cards renders God Story Label 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       God Stories
@@ -937,17 +911,14 @@ exports[`post types cards renders On Your Mind Label 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       card.THOUGHT
@@ -1045,17 +1016,14 @@ exports[`post types cards renders Prayer Request Label 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       Prayer Requests
@@ -1153,17 +1121,14 @@ exports[`post types cards renders Spiritual Question Label 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       Spiritual Questions
@@ -1261,17 +1226,14 @@ exports[`post types cards renders Step Of Faith Label 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       Steps of Faith
@@ -1464,19 +1426,11 @@ exports[`post types cards renders people 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
             ]
           }
         >
@@ -1498,17 +1452,14 @@ exports[`post types cards renders people 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       Steps of Faith
@@ -1626,19 +1577,11 @@ exports[`post types cards renders people with count only 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
               },
-              Array [
-                Object {
-                  "color": "#ffffff",
-                },
-                Object {
-                  "fontSize": 12,
-                },
-              ],
             ]
           }
         >
@@ -1660,17 +1603,14 @@ exports[`post types cards renders people with count only 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "fontSize": 14,
-          },
-        ]
+        Object {
+          "color": "#505256",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       Steps of Faith
@@ -1692,21 +1632,15 @@ exports[`post types null states renders Announcement Null State 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "marginBottom": 20,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "textAlign": "center",
+      }
     }
   >
     He who abides by announcements will be blessed.
@@ -1718,17 +1652,15 @@ exports[`post types null states renders Announcement Null State 1`] = `
           "color": "#505256",
         },
         Object {
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
         },
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
-        ],
       ]
     }
   >
@@ -1750,21 +1682,15 @@ exports[`post types null states renders Community Need Null State 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "marginBottom": 20,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "textAlign": "center",
+      }
     }
   >
     Share one another's burdens.
@@ -1773,20 +1699,18 @@ exports[`post types null states renders Community Need Null State 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#FD726D",
         },
         Object {
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
         },
-        Array [
-          Object {
-            "color": "#FD726D",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
-        ],
       ]
     }
   >
@@ -1808,21 +1732,15 @@ exports[`post types null states renders God Story Null State 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "marginBottom": 20,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "textAlign": "center",
+      }
     }
   >
     Spur one another on toward love and good deeds.
@@ -1831,20 +1749,18 @@ exports[`post types null states renders God Story Null State 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#7076B5",
         },
         Object {
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
         },
-        Array [
-          Object {
-            "color": "#7076B5",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
-        ],
       ]
     }
   >
@@ -1866,21 +1782,15 @@ exports[`post types null states renders On Your Mind Null State 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "marginBottom": 20,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "textAlign": "center",
+      }
     }
   >
     Where two or three are gathered in my name, there am I among them.
@@ -1889,20 +1799,18 @@ exports[`post types null states renders On Your Mind Null State 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#B4B6BA",
         },
         Object {
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
         },
-        Array [
-          Object {
-            "color": "#B4B6BA",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
-        ],
       ]
     }
   >
@@ -1924,21 +1832,15 @@ exports[`post types null states renders Prayer Request Null State 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "marginBottom": 20,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "textAlign": "center",
+      }
     }
   >
     Let your requests be known to God.
@@ -1947,20 +1849,18 @@ exports[`post types null states renders Prayer Request Null State 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#A97398",
         },
         Object {
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
         },
-        Array [
-          Object {
-            "color": "#A97398",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
-        ],
       ]
     }
   >
@@ -1982,21 +1882,15 @@ exports[`post types null states renders Spiritual Question Null State 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "marginBottom": 20,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "textAlign": "center",
+      }
     }
   >
     Teach and counsel each other with all the wisdom he gives.
@@ -2005,20 +1899,18 @@ exports[`post types null states renders Spiritual Question Null State 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#FFA178",
         },
         Object {
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
         },
-        Array [
-          Object {
-            "color": "#FFA178",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
-        ],
       ]
     }
   >
@@ -2040,21 +1932,15 @@ exports[`post types null states renders Step Of Faith Null State 1`] = `
 >
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#B4B6BA",
-          "fontSize": 32,
-          "fontWeight": "300",
-          "marginBottom": 20,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#B4B6BA",
+        "fontFamily": "SourceSansPro-Light",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "300",
+        "lineHeight": 38,
+        "textAlign": "center",
+      }
     }
   >
     Encourage one another and build each other up.
@@ -2063,20 +1949,18 @@ exports[`post types null states renders Step Of Faith Null State 1`] = `
     style={
       Array [
         Object {
-          "color": "#505256",
+          "color": "#3CC8E6",
         },
         Object {
+          "color": "#505256",
           "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 16,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 1,
+          "lineHeight": 20,
+          "textTransform": "uppercase",
         },
-        Array [
-          Object {
-            "color": "#3CC8E6",
-          },
-          Object {
-            "fontSize": 16,
-            "fontWeight": "bold",
-          },
-        ],
       ]
     }
   >
@@ -2124,19 +2008,14 @@ exports[`post types renders Announcement Label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     Announcement
@@ -2183,19 +2062,14 @@ exports[`post types renders Community Need Label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     Community Need
@@ -2242,19 +2116,14 @@ exports[`post types renders God Story Label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     God Story
@@ -2301,19 +2170,14 @@ exports[`post types renders On Your Mind Label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     What's on Your Mind
@@ -2360,19 +2224,14 @@ exports[`post types renders Prayer Request Label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     Prayer Request
@@ -2419,19 +2278,14 @@ exports[`post types renders Spiritual Question Label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     Spiritual Question
@@ -2478,19 +2332,14 @@ exports[`post types renders Step Of Faith Label 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     Step of Faith
@@ -2537,19 +2386,14 @@ exports[`renders correctly 1`] = `
   />
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 14,
-          "lineHeight": 20,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 14,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 20,
+      }
     }
   >
     God Story
@@ -2629,19 +2473,14 @@ exports[`renders pressable correctly 1`] = `
     />
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 14,
-            "lineHeight": 20,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 14,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 20,
+        }
       }
     >
       God Story

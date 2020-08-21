@@ -81,18 +81,14 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -110,36 +106,28 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
             testID="Text"
           >
@@ -207,7 +195,7 @@ exports[`render MemberOptionsMenu should not render menu if I am member 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -313,18 +301,14 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -342,18 +326,14 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Owner
@@ -362,16 +342,15 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -383,16 +362,15 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -402,18 +380,14 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
             testID="Text"
           >
@@ -481,7 +455,7 @@ exports[`render MemberOptionsMenu should not render menu if person is owner 1`] 
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -587,18 +561,14 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -616,36 +586,28 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
             testID="Text"
           >
@@ -713,7 +675,7 @@ exports[`render MemberOptionsMenu should render menu if I am admin and person is
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -819,18 +781,14 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -848,36 +806,28 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
             testID="Text"
           >
@@ -945,7 +895,7 @@ exports[`render MemberOptionsMenu should render menu if person is me 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -1051,18 +1001,14 @@ exports[`render contacts count should render admin permissions 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -1080,18 +1026,14 @@ exports[`render contacts count should render admin permissions 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Admin
@@ -1100,16 +1042,15 @@ exports[`render contacts count should render admin permissions 1`] = `
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -1119,18 +1060,14 @@ exports[`render contacts count should render admin permissions 1`] = `
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
             testID="Text"
           >
@@ -1198,7 +1135,7 @@ exports[`render contacts count should render admin permissions 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -1304,18 +1241,14 @@ exports[`render contacts count should render member permissions 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -1333,36 +1266,28 @@ exports[`render contacts count should render member permissions 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Member since
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
             testID="Text"
           >
@@ -1430,7 +1355,7 @@ exports[`render contacts count should render member permissions 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },
@@ -1536,18 +1461,14 @@ exports[`render contacts count should render owner permissions 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+          }
         }
       >
         Hayden Zieme
@@ -1565,18 +1486,14 @@ exports[`render contacts count should render owner permissions 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+            }
           }
         >
           Owner
@@ -1585,16 +1502,15 @@ exports[`render contacts count should render owner permissions 1`] = `
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -1606,16 +1522,15 @@ exports[`render contacts count should render owner permissions 1`] = `
               Array [
                 Object {
                   "color": "#505256",
-                },
-                Object {
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "fontWeight": "bold",
-                  },
-                  undefined,
-                ],
+                undefined,
               ]
             }
           >
@@ -1625,18 +1540,14 @@ exports[`render contacts count should render owner permissions 1`] = `
            
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#B4B6BA",
-                  "fontSize": 12,
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+              }
             }
             testID="Text"
           >
@@ -1704,7 +1615,7 @@ exports[`render contacts count should render owner permissions 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#B2B0B2",
+                      "color": "#B4B6BA",
                       "margin": 0,
                       "paddingHorizontal": 10,
                     },

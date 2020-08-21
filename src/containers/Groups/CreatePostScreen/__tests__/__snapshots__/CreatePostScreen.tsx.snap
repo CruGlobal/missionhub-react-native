@@ -5,7 +5,7 @@ exports[`Creating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -136,12 +136,55 @@
+@@ -132,12 +132,55 @@
                 \\"flex\\": 1,
                 \\"justifyContent\\": \\"center\\",
               },
@@ -61,7 +61,7 @@ exports[`Creating a post user types a post 1`] = `
       style={
         Object {
           \\"backgroundColor\\": \\"#ECEEF2\\",
-@@ -266,11 +309,11 @@
+@@ -262,11 +305,11 @@
               },
             ]
           }
@@ -81,7 +81,7 @@ exports[`Select image should select an image 1`] = `
 - First value
 + Second value
 
-@@ -269,19 +269,10 @@
+@@ -265,19 +265,10 @@
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
           value=\\"\\"
@@ -101,7 +101,7 @@ exports[`Select image should select an image 1`] = `
           onClick={[Function onClick]}
           onResponderGrant={[Function onResponderGrant]}
           onResponderMove={[Function onResponderMove]}
-@@ -289,121 +280,28 @@
+@@ -285,113 +276,28 @@
           onResponderTerminate={[Function onResponderTerminate]}
           onResponderTerminationRequest={[Function onResponderTerminationRequest]}
           onStartShouldSetResponder={[Function onStartShouldSetResponder]}
@@ -120,39 +120,35 @@ exports[`Select image should select an image 1`] = `
         >
 -         <SvgMock
 -           style={
+-             Object {
+-               \\"height\\": 24,
+-               \\"width\\": 24,
+-             }
+-           }
+-         />
+-         <Text
+-           style={
 +         <Image
 +           resizeMode=\\"contain\\"
 +           source={
               Object {
--               \\"height\\": 24,
--               \\"width\\": 24,
+-               \\"color\\": \\"#505256\\",
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"normal\\",
+-               \\"lineHeight\\": 24,
+-               \\"paddingHorizontal\\": 10,
 +               \\"uri\\": \\"data:image/jpeg;base64,base64image.jpeg\\",
               }
             }
--         />
--         <Text
-            style={
--             Array [
-              Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Object {
--                 \\"fontSize\\": 16,
--                 \\"lineHeight\\": 24,
--                 \\"paddingHorizontal\\": 10,
--               },
--             ]
--           }
 -         >
 -           Record a 15-Second Video
 -         </Text>
 -       </View>
 -       <View
--         style={
--           Object {
+            style={
+              Object {
 -             \\"backgroundColor\\": \\"#ECEEF2\\",
 -             \\"height\\": 1,
 +               \\"aspectRatio\\": 2,
@@ -185,32 +181,28 @@ exports[`Select image should select an image 1`] = `
 -               \\"justifyContent\\": \\"flex-start\\",
 -               \\"paddingHorizontal\\": 35,
 -               \\"paddingVertical\\": 20,
-              }
-            }
+-             }
+-           }
 -         >
 -           <SvgMock
 -             style={
 -               Object {
 -                 \\"height\\": 24,
 -                 \\"width\\": 24,
--               }
--             }
+              }
+            }
           />
 -           <Text
 -             style={
--               Array [
--                 Object {
--                   \\"color\\": \\"#505256\\",
--                 },
--                 Object {
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                 },
--                 Object {
--                   \\"fontSize\\": 16,
--                   \\"lineHeight\\": 24,
--                   \\"paddingHorizontal\\": 10,
--                 },
--               ]
+-               Object {
+-                 \\"color\\": \\"#505256\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 24,
+-                 \\"paddingHorizontal\\": 10,
+-               }
 -             }
 -           >
 -             Add a Photo
@@ -236,7 +228,7 @@ exports[`Select video should select a video 1`] = `
 - First value
 + Second value
 
-@@ -268,142 +268,13 @@
+@@ -264,134 +264,13 @@
           }
           testID=\\"PostInput\\"
           underlineColorAndroid=\\"rgba(0,0,0,0)\\"
@@ -283,19 +275,15 @@ exports[`Select video should select a video 1`] = `
 -         />
 -         <Text
 -           style={
--             Array [
--               Object {
--                 \\"color\\": \\"#505256\\",
--               },
--               Object {
--                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--               },
--               Object {
--                 \\"fontSize\\": 16,
--                 \\"lineHeight\\": 24,
--                 \\"paddingHorizontal\\": 10,
--               },
--             ]
+-             Object {
+-               \\"color\\": \\"#505256\\",
+-               \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-               \\"fontSize\\": 16,
+-               \\"fontStyle\\": \\"normal\\",
+-               \\"fontWeight\\": \\"normal\\",
+-               \\"lineHeight\\": 24,
+-               \\"paddingHorizontal\\": 10,
+-             }
 -           }
 -         >
 -           Record a 15-Second Video
@@ -348,19 +336,15 @@ exports[`Select video should select a video 1`] = `
 -           />
 -           <Text
 -             style={
--               Array [
--                 Object {
--                   \\"color\\": \\"#505256\\",
--                 },
--                 Object {
--                   \\"fontFamily\\": \\"SourceSansPro-Regular\\",
--                 },
--                 Object {
--                   \\"fontSize\\": 16,
--                   \\"lineHeight\\": 24,
--                   \\"paddingHorizontal\\": 10,
--                 },
--               ]
+-               Object {
+-                 \\"color\\": \\"#505256\\",
+-                 \\"fontFamily\\": \\"SourceSansPro-Regular\\",
+-                 \\"fontSize\\": 16,
+-                 \\"fontStyle\\": \\"normal\\",
+-                 \\"fontWeight\\": \\"normal\\",
+-                 \\"lineHeight\\": 24,
+-                 \\"paddingHorizontal\\": 10,
+-               }
 -             }
 -           >
 -             Add a Photo
@@ -390,7 +374,7 @@ exports[`Updating a post user types a post 1`] = `
 - First value
 + Second value
 
-@@ -331,11 +331,11 @@
+@@ -324,11 +324,11 @@
               },
             ]
           }
@@ -516,18 +500,14 @@ exports[`renders correctly for new post 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -620,19 +600,14 @@ exports[`renders correctly for new post 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -649,23 +624,28 @@ exports[`renders correctly for new post 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -719,19 +699,15 @@ exports[`renders correctly for new post 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -784,19 +760,15 @@ exports[`renders correctly for new post 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -928,18 +900,14 @@ exports[`renders correctly for new post and feature flag false 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -1032,19 +1000,14 @@ exports[`renders correctly for new post and feature flag false 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -1061,23 +1024,28 @@ exports[`renders correctly for new post and feature flag false 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -1137,19 +1105,15 @@ exports[`renders correctly for new post and feature flag false 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -1281,18 +1245,14 @@ exports[`renders correctly for update post with image 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -1348,27 +1308,24 @@ exports[`renders correctly for update post with image 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#3CC8E6",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                    },
-                  ],
                 ]
               }
             >
@@ -1450,19 +1407,14 @@ exports[`renders correctly for update post with image 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -1479,23 +1431,28 @@ exports[`renders correctly for update post with image 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -1656,18 +1613,14 @@ exports[`renders correctly for update post with video 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -1723,27 +1676,24 @@ exports[`renders correctly for update post with video 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#3CC8E6",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                    },
-                  ],
                 ]
               }
             >
@@ -1825,19 +1775,14 @@ exports[`renders correctly for update post with video 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -1854,23 +1799,28 @@ exports[`renders correctly for update post with video 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -2004,18 +1954,14 @@ exports[`renders correctly for update post without media 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -2071,27 +2017,24 @@ exports[`renders correctly for update post without media 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#3CC8E6",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                    },
-                  ],
                 ]
               }
             >
@@ -2173,19 +2116,14 @@ exports[`renders correctly for update post without media 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -2202,23 +2140,28 @@ exports[`renders correctly for update post without media 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -2272,19 +2215,15 @@ exports[`renders correctly for update post without media 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -2337,19 +2276,15 @@ exports[`renders correctly for update post without media 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -2481,18 +2416,14 @@ exports[`renders correctly for update post without media and feature flag false 
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -2548,27 +2479,24 @@ exports[`renders correctly for update post without media and feature flag false 
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#3CC8E6",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                    },
-                  ],
                 ]
               }
             >
@@ -2650,19 +2578,14 @@ exports[`renders correctly for update post without media and feature flag false 
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -2679,23 +2602,28 @@ exports[`renders correctly for update post without media and feature flag false 
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -2755,19 +2683,15 @@ exports[`renders correctly for update post without media and feature flag false 
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -2899,18 +2823,14 @@ exports[`renders correctly for update post without video if feature flag is fals
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -2966,27 +2886,24 @@ exports[`renders correctly for update post without video if feature flag is fals
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#3CC8E6",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 16,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 24,
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#3CC8E6",
-                      "fontSize": 16,
-                      "fontWeight": "normal",
-                      "lineHeight": 24,
-                    },
-                  ],
                 ]
               }
             >
@@ -3068,19 +2985,14 @@ exports[`renders correctly for update post without video if feature flag is fals
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -3097,23 +3009,28 @@ exports[`renders correctly for update post without video if feature flag is fals
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -3173,19 +3090,15 @@ exports[`renders correctly for update post without video if feature flag is fals
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -3317,18 +3230,14 @@ exports[`renders for post types renders for announcement 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Announcement
@@ -3421,19 +3330,14 @@ exports[`renders for post types renders for announcement 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Announcement
@@ -3450,23 +3354,28 @@ exports[`renders for post types renders for announcement 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -3520,19 +3429,15 @@ exports[`renders for post types renders for announcement 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -3585,19 +3490,15 @@ exports[`renders for post types renders for announcement 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -3729,18 +3630,14 @@ exports[`renders for post types renders for help request 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Community Need
@@ -3833,19 +3730,14 @@ exports[`renders for post types renders for help request 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Community Need
@@ -3862,23 +3754,28 @@ exports[`renders for post types renders for help request 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -3932,19 +3829,15 @@ exports[`renders for post types renders for help request 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -3997,19 +3890,15 @@ exports[`renders for post types renders for help request 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -4141,18 +4030,14 @@ exports[`renders for post types renders for prayer request 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Prayer Request
@@ -4245,19 +4130,14 @@ exports[`renders for post types renders for prayer request 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Prayer Request
@@ -4274,23 +4154,28 @@ exports[`renders for post types renders for prayer request 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -4344,19 +4229,15 @@ exports[`renders for post types renders for prayer request 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -4409,19 +4290,15 @@ exports[`renders for post types renders for prayer request 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -4553,18 +4430,14 @@ exports[`renders for post types renders for spiritual question 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           Spiritual Question
@@ -4657,19 +4530,14 @@ exports[`renders for post types renders for spiritual question 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             Spiritual Question
@@ -4686,23 +4554,28 @@ exports[`renders for post types renders for spiritual question 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -4756,19 +4629,15 @@ exports[`renders for post types renders for spiritual question 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -4821,19 +4690,15 @@ exports[`renders for post types renders for spiritual question 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -4965,18 +4830,14 @@ exports[`renders for post types renders for story 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           God Story
@@ -5069,19 +4930,14 @@ exports[`renders for post types renders for story 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             God Story
@@ -5098,23 +4954,28 @@ exports[`renders for post types renders for story 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -5168,19 +5029,15 @@ exports[`renders for post types renders for story 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -5233,19 +5090,15 @@ exports[`renders for post types renders for story 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo
@@ -5377,18 +5230,14 @@ exports[`renders for post types renders for thought 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+            }
           }
         >
           What's on Your Mind
@@ -5481,19 +5330,14 @@ exports[`renders for post types renders for thought 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "lineHeight": 20,
-                },
-              ]
+              Object {
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
+              }
             }
           >
             What's on Your Mind
@@ -5510,23 +5354,28 @@ exports[`renders for post types renders for thought 1`] = `
         placeholderTextColor="#B4B6BA"
         rejectResponderTermination={true}
         scrollEnabled={false}
-        selectionColor="#52C5DC"
+        selectionColor="#3CC8E6"
         style={
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {
               "borderBottomWidth": 0,
-              "color": "#505256",
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Light",
               "fontSize": 24,
+              "fontStyle": "normal",
               "fontWeight": "300",
               "lineHeight": 30,
               "paddingBottom": 28,
@@ -5580,19 +5429,15 @@ exports[`renders for post types renders for thought 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 16,
-                "lineHeight": 24,
-                "paddingHorizontal": 10,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 10,
+            }
           }
         >
           Record a 15-Second Video
@@ -5645,19 +5490,15 @@ exports[`renders for post types renders for thought 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "fontSize": 16,
-                  "lineHeight": 24,
-                  "paddingHorizontal": 10,
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 10,
+              }
             }
           >
             Add a Photo

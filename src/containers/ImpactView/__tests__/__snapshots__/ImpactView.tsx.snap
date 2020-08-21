@@ -4,7 +4,7 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -13,7 +13,7 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -23,19 +23,15 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps you have taken.
@@ -49,7 +45,7 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -60,7 +56,7 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -69,19 +65,15 @@ exports[`ImpactView ME person impact view for org renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       You will see the steps other users have taken here shortly.
@@ -96,7 +88,7 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -105,7 +97,7 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -115,19 +107,15 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 10 steps of faith with 5 people.
@@ -143,7 +131,7 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -154,7 +142,7 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -163,19 +151,15 @@ exports[`ImpactView ME person impact view for org renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 10 steps of faith with 5 people.
@@ -190,7 +174,7 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -199,7 +183,7 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -209,19 +193,15 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 1 step of faith with 1 person.
@@ -237,7 +217,7 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -248,7 +228,7 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -257,19 +237,15 @@ exports[`ImpactView ME person impact view for org renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 1 users have taken 1 step of faith with 1 person.
@@ -284,7 +260,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -293,7 +269,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -303,19 +279,15 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps you have taken.
@@ -329,7 +301,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -340,7 +312,7 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -349,19 +321,15 @@ exports[`ImpactView ME person personal impact view renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       You will see the steps other users have taken here shortly.
@@ -376,7 +344,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -385,7 +353,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -395,19 +363,15 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 10 steps of faith with 5 people.
@@ -423,7 +387,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -434,7 +398,7 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -443,19 +407,15 @@ exports[`ImpactView ME person personal impact view renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 10 steps of faith with 5 people.
@@ -470,7 +430,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -479,7 +439,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -489,19 +449,15 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 1 step of faith with 1 person.
@@ -517,7 +473,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -528,7 +484,7 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -537,19 +493,15 @@ exports[`ImpactView ME person personal impact view renders singular state 1`] = 
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 1 users have taken 1 step of faith with 1 person.
@@ -564,7 +516,7 @@ exports[`ImpactView global community impact renders empty state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -573,7 +525,7 @@ exports[`ImpactView global community impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -583,19 +535,15 @@ exports[`ImpactView global community impact renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps you have taken.
@@ -609,7 +557,7 @@ exports[`ImpactView global community impact renders empty state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -620,7 +568,7 @@ exports[`ImpactView global community impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -629,19 +577,15 @@ exports[`ImpactView global community impact renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       You will see the steps other users have taken here shortly.
@@ -656,7 +600,7 @@ exports[`ImpactView global community impact renders plural state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -665,7 +609,7 @@ exports[`ImpactView global community impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -675,19 +619,15 @@ exports[`ImpactView global community impact renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 10 steps of faith with 5 people.
@@ -703,7 +643,7 @@ exports[`ImpactView global community impact renders plural state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -714,7 +654,7 @@ exports[`ImpactView global community impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -723,19 +663,15 @@ exports[`ImpactView global community impact renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 10 steps of faith with 5 people.
@@ -750,7 +686,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -759,7 +695,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -769,19 +705,15 @@ exports[`ImpactView global community impact renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, you have taken 1 step of faith with 1 person.
@@ -797,7 +729,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -808,7 +740,7 @@ exports[`ImpactView global community impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -817,19 +749,15 @@ exports[`ImpactView global community impact renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 1 users have taken 1 step of faith with 1 person.
@@ -844,7 +772,7 @@ exports[`ImpactView member impact renders empty state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -853,7 +781,7 @@ exports[`ImpactView member impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -863,19 +791,15 @@ exports[`ImpactView member impact renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps Hayden has taken.
@@ -889,7 +813,7 @@ exports[`ImpactView member impact renders empty state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -900,7 +824,7 @@ exports[`ImpactView member impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -909,19 +833,15 @@ exports[`ImpactView member impact renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       You will see the steps other users have taken here shortly.
@@ -936,7 +856,7 @@ exports[`ImpactView member impact renders plural state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -945,7 +865,7 @@ exports[`ImpactView member impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -955,19 +875,15 @@ exports[`ImpactView member impact renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, Hayden has taken 11 steps of faith with 6 people in their life.
@@ -983,7 +899,7 @@ exports[`ImpactView member impact renders plural state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -994,7 +910,7 @@ exports[`ImpactView member impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -1003,19 +919,15 @@ exports[`ImpactView member impact renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 10 steps of faith with 5 people.
@@ -1030,7 +942,7 @@ exports[`ImpactView member impact renders singular state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -1039,7 +951,7 @@ exports[`ImpactView member impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -1049,19 +961,15 @@ exports[`ImpactView member impact renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, Hayden has taken 1 step of faith with 1 person in their life.
@@ -1077,7 +985,7 @@ exports[`ImpactView member impact renders singular state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -1088,7 +996,7 @@ exports[`ImpactView member impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -1097,19 +1005,15 @@ exports[`ImpactView member impact renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 1 users have taken 1 step of faith with 1 person.
@@ -1124,7 +1028,7 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -1133,7 +1037,7 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -1143,19 +1047,15 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       Here you will see all the steps we have taken.
@@ -1169,7 +1069,7 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -1180,7 +1080,7 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -1189,19 +1089,15 @@ exports[`ImpactView user-created community impact renders empty state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       You will see the steps other users have taken here shortly.
@@ -1216,7 +1112,7 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -1225,7 +1121,7 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -1235,19 +1131,15 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       Together we have taken 13 steps of faith with 8 people in 2018.
@@ -1263,7 +1155,7 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -1274,7 +1166,7 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -1283,19 +1175,15 @@ exports[`ImpactView user-created community impact renders plural state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 200 users have taken 10 steps of faith with 5 people.
@@ -1310,7 +1198,7 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
 <View
   style={
     Object {
-      "backgroundColor": "#3EB1C8",
+      "backgroundColor": "#3CC8E6",
     }
   }
 >
@@ -1319,7 +1207,7 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#52C5DC",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 10,
           "paddingTop": 30,
         },
@@ -1329,19 +1217,15 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       Together we have taken 1 step of faith with 1 person in 2018.
@@ -1357,7 +1241,7 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
     }
     style={
       Object {
-        "backgroundColor": "#52C5DC",
+        "backgroundColor": "#3CC8E6",
         "height": 410,
         "width": 750,
       }
@@ -1368,7 +1252,7 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
       Array [
         Object {
           "alignItems": "center",
-          "backgroundColor": "#3EB1C8",
+          "backgroundColor": "#3CC8E6",
           "paddingBottom": 40,
         },
         Object {},
@@ -1377,19 +1261,15 @@ exports[`ImpactView user-created community impact renders singular state 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "SourceSansPro-Regular",
-          },
-          Object {
-            "color": "#ffffff",
-            "fontSize": 28,
-            "width": 270,
-          },
-        ]
+        Object {
+          "color": "#ffffff",
+          "fontFamily": "SourceSansPro-Regular",
+          "fontSize": 28,
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+          "lineHeight": 24,
+          "width": 270,
+        }
       }
     >
       In 2018, 1 users have taken 1 step of faith with 1 person.

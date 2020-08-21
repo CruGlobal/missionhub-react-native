@@ -121,11 +121,16 @@ exports[`WelcomeScreen should render correctly 1`] = `
       value={3}
     >
       <Text
-        header={true}
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "AmaticSC-Bold",
             "fontSize": 48,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 2,
+            "lineHeight": 48,
+            "textTransform": "lowercase",
           }
         }
       >
@@ -135,8 +140,11 @@ exports[`WelcomeScreen should render correctly 1`] = `
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
-            "lineHeight": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
             "paddingVertical": 10,
             "textAlign": "left",
           }
@@ -275,11 +283,16 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
       value={3}
     >
       <Text
-        header={true}
         style={
           Object {
-            "color": "#52C5DC",
+            "color": "#3CC8E6",
+            "fontFamily": "AmaticSC-Bold",
             "fontSize": 48,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 2,
+            "lineHeight": 48,
+            "textTransform": "lowercase",
           }
         }
       >
@@ -289,8 +302,11 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
         style={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
             "fontSize": 24,
-            "lineHeight": 32,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
             "paddingVertical": 10,
             "textAlign": "left",
           }
@@ -308,17 +324,21 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
         buttonTextStyle={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
             "letterSpacing": 1.5,
+            "lineHeight": 18,
             "paddingTop": 2,
+            "textTransform": "uppercase",
           }
         }
         onPress={[Function]}
         pill={true}
         style={
           Object {
-            "backgroundColor": "#52C5DC",
+            "backgroundColor": "#3CC8E6",
             "height": 48,
             "margin": 8,
             "width": 670,
@@ -331,10 +351,14 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
         buttonTextStyle={
           Object {
             "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
-            "fontWeight": "500",
+            "fontStyle": "normal",
+            "fontWeight": "bold",
             "letterSpacing": 1.5,
+            "lineHeight": 18,
             "paddingTop": 2,
+            "textTransform": "uppercase",
           }
         }
         onPress={[Function]}
@@ -342,7 +366,7 @@ exports[`WelcomeScreen should render correctly with sign in button 1`] = `
         style={
           Object {
             "backgroundColor": "transparent",
-            "borderColor": "#52C5DC",
+            "borderColor": "#3CC8E6",
             "borderWidth": 1,
             "height": 48,
             "margin": 8,

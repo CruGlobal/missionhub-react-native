@@ -85,19 +85,15 @@ exports[`render active and joined and completed challenge item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "marginBottom": 3,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginBottom": 3,
+              }
             }
           >
             Read "There and Back Again"
@@ -129,39 +125,28 @@ exports[`render active and joined and completed challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Days Left
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 24,
-                      "lineHeight": 30,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "300",
+                    "lineHeight": 30,
+                  }
                 }
               >
                 -337
@@ -181,19 +166,14 @@ exports[`render active and joined and completed challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Joined
@@ -204,19 +184,13 @@ exports[`render active and joined and completed challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="joinedCount"
@@ -238,19 +212,14 @@ exports[`render active and joined and completed challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Completed
@@ -261,19 +230,13 @@ exports[`render active and joined and completed challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="completedCount"
@@ -403,19 +366,15 @@ exports[`render active and joined challenge item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "marginBottom": 3,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginBottom": 3,
+              }
             }
           >
             Read "There and Back Again"
@@ -447,39 +406,28 @@ exports[`render active and joined challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Days Left
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 24,
-                      "lineHeight": 30,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "300",
+                    "lineHeight": 30,
+                  }
                 }
               >
                 -337
@@ -499,19 +447,14 @@ exports[`render active and joined challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Joined
@@ -522,19 +465,13 @@ exports[`render active and joined challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="joinedCount"
@@ -556,19 +493,14 @@ exports[`render active and joined challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Completed
@@ -579,19 +511,13 @@ exports[`render active and joined challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="completedCount"
@@ -682,24 +608,26 @@ exports[`render active and joined challenge item 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "fontSize": 15,
-                },
-              ],
             ]
           }
         >
@@ -796,19 +724,15 @@ exports[`render active challenge item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "marginBottom": 3,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginBottom": 3,
+              }
             }
           >
             Read "There and Back Again"
@@ -840,39 +764,28 @@ exports[`render active challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Days Left
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 24,
-                      "lineHeight": 30,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "300",
+                    "lineHeight": 30,
+                  }
                 }
               >
                 -337
@@ -892,19 +805,14 @@ exports[`render active challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Joined
@@ -915,19 +823,13 @@ exports[`render active challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="joinedCount"
@@ -949,19 +851,14 @@ exports[`render active challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Completed
@@ -972,19 +869,13 @@ exports[`render active challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="completedCount"
@@ -1051,24 +942,26 @@ exports[`render active challenge item 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textAlign": "center",
+              "textTransform": "uppercase",
             },
             Object {
+              "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 1,
+              "lineHeight": 18,
+              "textTransform": "uppercase",
             },
-            Array [
-              Object {
-                "backgroundColor": "rgba(0,0,0,0)",
-                "color": "#ffffff",
-                "fontSize": 14,
-                "fontWeight": "500",
-                "letterSpacing": 1.5,
-                "textAlign": "center",
-              },
-              Object {
-                "fontSize": 15,
-              },
-            ],
           ]
         }
       >
@@ -1164,19 +1057,15 @@ exports[`render past and joined and completed challenge item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "marginBottom": 3,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginBottom": 3,
+              }
             }
           >
             Read "There and Back Again"
@@ -1208,39 +1097,28 @@ exports[`render past and joined and completed challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Days
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 24,
-                      "lineHeight": 30,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "300",
+                    "lineHeight": 30,
+                  }
                 }
               >
                 22
@@ -1260,19 +1138,14 @@ exports[`render past and joined and completed challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Joined
@@ -1283,19 +1156,13 @@ exports[`render past and joined and completed challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="joinedCount"
@@ -1317,19 +1184,14 @@ exports[`render past and joined and completed challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Completed
@@ -1340,19 +1202,13 @@ exports[`render past and joined and completed challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="completedCount"
@@ -1482,19 +1338,15 @@ exports[`render past and joined challenge item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "marginBottom": 3,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginBottom": 3,
+              }
             }
           >
             Read "There and Back Again"
@@ -1526,39 +1378,28 @@ exports[`render past and joined challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Days
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 24,
-                      "lineHeight": 30,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "300",
+                    "lineHeight": 30,
+                  }
                 }
               >
                 22
@@ -1578,19 +1419,14 @@ exports[`render past and joined challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Joined
@@ -1601,19 +1437,13 @@ exports[`render past and joined challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="joinedCount"
@@ -1635,19 +1465,14 @@ exports[`render past and joined challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Completed
@@ -1658,19 +1483,13 @@ exports[`render past and joined challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="completedCount"
@@ -1783,19 +1602,15 @@ exports[`render past challenge item 1`] = `
         >
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 16,
-                  "marginBottom": 3,
-                },
-              ]
+              Object {
+                "color": "#005A7F",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "marginBottom": 3,
+              }
             }
           >
             Read "There and Back Again"
@@ -1827,39 +1642,28 @@ exports[`render past challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Days
               </Text>
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#505256",
-                      "fontFamily": "SourceSansPro-ExtraLight",
-                      "fontSize": 24,
-                      "lineHeight": 30,
-                    },
-                  ]
+                  Object {
+                    "color": "#505256",
+                    "fontFamily": "SourceSansPro-ExtraLight",
+                    "fontSize": 24,
+                    "fontStyle": "normal",
+                    "fontWeight": "300",
+                    "lineHeight": 30,
+                  }
                 }
               >
                 10
@@ -1879,19 +1683,14 @@ exports[`render past challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Joined
@@ -1902,19 +1701,13 @@ exports[`render past challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="joinedCount"
@@ -1936,19 +1729,14 @@ exports[`render past challenge item 1`] = `
             >
               <Text
                 style={
-                  Array [
-                    Object {
-                      "color": "#505256",
-                    },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Object {
-                      "color": "#A0A2A6",
-                      "fontSize": 12,
-                      "lineHeight": 16,
-                    },
-                  ]
+                  Object {
+                    "color": "#B4B6BA",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "lineHeight": 16,
+                  }
                 }
               >
                 Completed
@@ -1959,19 +1747,13 @@ exports[`render past challenge item 1`] = `
                   Array [
                     Object {
                       "color": "#505256",
+                      "fontFamily": "SourceSansPro-ExtraLight",
+                      "fontSize": 24,
+                      "fontStyle": "normal",
+                      "fontWeight": "300",
+                      "lineHeight": 30,
                     },
-                    Object {
-                      "fontFamily": "SourceSansPro-Regular",
-                    },
-                    Array [
-                      Object {
-                        "color": "#505256",
-                        "fontFamily": "SourceSansPro-ExtraLight",
-                        "fontSize": 24,
-                        "lineHeight": 30,
-                      },
-                      null,
-                    ],
+                    null,
                   ]
                 }
                 testID="completedCount"

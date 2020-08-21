@@ -29,39 +29,31 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
     }
   >
     To receive updates about community challenges, please turn notifications on.
@@ -107,7 +99,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
                 "width": 680,
               },
               Object {
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
               },
             ],
             Object {
@@ -120,27 +112,26 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -188,7 +179,7 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
               },
               Object {
                 "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
+                "borderColor": "#3CC8E6",
                 "borderWidth": 1,
               },
             ],
@@ -202,27 +193,26 @@ exports[`notification types renders for JOIN_CHALLENGE 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -263,39 +253,31 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
     }
   >
     To receive updates from your MissionHub community, please turn notifications on.
@@ -341,7 +323,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
                 "width": 680,
               },
               Object {
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
               },
             ],
             Object {
@@ -354,27 +336,26 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -422,7 +403,7 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
               },
               Object {
                 "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
+                "borderColor": "#3CC8E6",
                 "borderWidth": 1,
               },
             ],
@@ -436,27 +417,26 @@ exports[`notification types renders for JOIN_COMMUNITY 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -497,39 +477,31 @@ exports[`notification types renders for LOGIN 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
@@ -575,7 +547,7 @@ exports[`notification types renders for LOGIN 1`] = `
                 "width": 680,
               },
               Object {
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
               },
             ],
             Object {
@@ -588,27 +560,26 @@ exports[`notification types renders for LOGIN 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -656,7 +627,7 @@ exports[`notification types renders for LOGIN 1`] = `
               },
               Object {
                 "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
+                "borderColor": "#3CC8E6",
                 "borderWidth": 1,
               },
             ],
@@ -670,27 +641,26 @@ exports[`notification types renders for LOGIN 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -731,39 +701,31 @@ exports[`notification types renders for ONBOARDING 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
@@ -809,7 +771,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
                 "width": 680,
               },
               Object {
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
               },
             ],
             Object {
@@ -822,27 +784,26 @@ exports[`notification types renders for ONBOARDING 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -890,7 +851,7 @@ exports[`notification types renders for ONBOARDING 1`] = `
               },
               Object {
                 "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
+                "borderColor": "#3CC8E6",
                 "borderWidth": 1,
               },
             ],
@@ -904,27 +865,26 @@ exports[`notification types renders for ONBOARDING 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -965,39 +925,31 @@ exports[`notification types renders for SET_REMINDER 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#52C5DC",
-          "fontSize": 32,
-          "paddingBottom": 10,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#3CC8E6",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 32,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 32,
+        "paddingBottom": 10,
+        "textAlign": "center",
+      }
     }
   >
     Notifications are off
   </Text>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 16,
-          "textAlign": "center",
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontFamily": "SourceSansPro-Regular",
+        "fontSize": 16,
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+        "lineHeight": 24,
+        "textAlign": "center",
+      }
     }
   >
     To receive reminders to take steps of faith, please turn notifications on.
@@ -1043,7 +995,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
                 "width": 680,
               },
               Object {
-                "backgroundColor": "#52C5DC",
+                "backgroundColor": "#3CC8E6",
               },
             ],
             Object {
@@ -1056,27 +1008,26 @@ exports[`notification types renders for SET_REMINDER 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >
@@ -1124,7 +1075,7 @@ exports[`notification types renders for SET_REMINDER 1`] = `
               },
               Object {
                 "backgroundColor": "transparent",
-                "borderColor": "#52C5DC",
+                "borderColor": "#3CC8E6",
                 "borderWidth": 1,
               },
             ],
@@ -1138,27 +1089,26 @@ exports[`notification types renders for SET_REMINDER 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ffffff",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1.5,
+                "lineHeight": 18,
+                "textTransform": "uppercase",
               },
-              Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Object {
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                },
-              ],
             ]
           }
         >

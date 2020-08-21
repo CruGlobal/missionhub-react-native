@@ -60,23 +60,23 @@ exports[`Community renders challenge correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#007398",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
                 },
                 Object {
+                  "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                    "lineHeight": 20,
-                  },
-                ],
               ]
             }
           >
@@ -86,22 +86,21 @@ exports[`Community renders challenge correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
                 Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                    "lineHeight": 16,
-                  },
-                ],
               ]
             }
             testID="Text"
@@ -121,40 +120,32 @@ exports[`Community renders challenge correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 20,
+            "textTransform": "uppercase",
+          }
         }
       >
         Joined a Challenge!
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "justifyContent": "flex-start",
-              "lineHeight": 24,
-              "paddingBottom": 8,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          }
         }
       >
         qui illo error
@@ -224,19 +215,15 @@ exports[`Community renders challenge correctly 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "fontSize": 14,
-                "lineHeight": 20,
-                "paddingLeft": 12,
-              },
-            ]
+            Object {
+              "color": "#505256",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 14,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 20,
+              "paddingLeft": 12,
+            }
           }
         >
           View Challenge
@@ -271,21 +258,17 @@ exports[`Community renders challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             />
             <View
@@ -347,21 +330,17 @@ exports[`Community renders challenge correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             >
               54060
@@ -474,23 +453,23 @@ exports[`Community renders new member item correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#007398",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
                 },
                 Object {
+                  "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                    "lineHeight": 20,
-                  },
-                ],
               ]
             }
           >
@@ -500,22 +479,21 @@ exports[`Community renders new member item correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
                 Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                    "lineHeight": 16,
-                  },
-                ],
               ]
             }
             testID="Text"
@@ -535,40 +513,32 @@ exports[`Community renders new member item correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#3CC8E6",
-              "fontSize": 16,
-              "fontWeight": "bold",
-              "lineHeight": 20,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 20,
+            "textTransform": "uppercase",
+          }
         }
       >
         We have a new member!
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "justifyContent": "flex-start",
-              "lineHeight": 24,
-              "paddingBottom": 8,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          }
         }
       >
         Help welcome Malcolm.
@@ -634,21 +604,17 @@ exports[`Community renders new member item correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             />
             <View
@@ -710,21 +676,17 @@ exports[`Community renders new member item correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             >
               37758
@@ -899,19 +861,14 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                    }
                   }
                 >
                   Prayer Request
@@ -959,23 +916,23 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -985,22 +942,21 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -1045,6 +1001,8 @@ exports[`Community renders post correctly with add to steps button 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -1133,19 +1091,15 @@ exports[`Community renders post correctly with add to steps button 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingLeft": 12,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingLeft": 12,
+                }
               }
             >
               Add to My Steps
@@ -1180,21 +1134,17 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -1256,21 +1206,17 @@ exports[`Community renders post correctly with add to steps button 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   87811
@@ -1447,19 +1393,14 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                    }
                   }
                 >
                   God Story
@@ -1507,23 +1448,23 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -1533,22 +1474,21 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -1593,6 +1533,8 @@ exports[`Community renders post correctly without add to steps button  1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -1665,21 +1607,17 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -1741,21 +1679,17 @@ exports[`Community renders post correctly without add to steps button  1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   28044
@@ -1932,19 +1866,14 @@ exports[`Community renders post correctly without image 1`] = `
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                    }
                   }
                 >
                   God Story
@@ -1992,23 +1921,23 @@ exports[`Community renders post correctly without image 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -2018,22 +1947,21 @@ exports[`Community renders post correctly without image 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -2078,6 +2006,8 @@ exports[`Community renders post correctly without image 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -2150,21 +2080,17 @@ exports[`Community renders post correctly without image 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -2226,21 +2152,17 @@ exports[`Community renders post correctly without image 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   28044
@@ -2417,19 +2339,14 @@ exports[`Community renders post created by me correctly without add to steps but
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                    }
                   }
                 >
                   Prayer Request
@@ -2506,23 +2423,23 @@ exports[`Community renders post created by me correctly without add to steps but
                     style={
                       Array [
                         Object {
-                          "color": "#505256",
+                          "color": "#007398",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 24,
                         },
                         Object {
+                          "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "lineHeight": 20,
+                          "textTransform": "uppercase",
                         },
-                        Array [
-                          Object {
-                            "color": "#007398",
-                            "fontSize": 16,
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontSize": 16,
-                            "fontWeight": "bold",
-                            "lineHeight": 20,
-                          },
-                        ],
                       ]
                     }
                   >
@@ -2534,22 +2451,21 @@ exports[`Community renders post created by me correctly without add to steps but
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -2594,6 +2510,8 @@ exports[`Community renders post created by me correctly without add to steps but
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -2666,21 +2584,17 @@ exports[`Community renders post created by me correctly without add to steps but
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   5924
@@ -2744,21 +2658,17 @@ exports[`Community renders post created by me correctly without add to steps but
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   27304
@@ -2913,19 +2823,14 @@ exports[`Community renders step correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Step of Faith
@@ -2973,23 +2878,23 @@ exports[`Community renders step correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#007398",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
                 },
                 Object {
+                  "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                    "lineHeight": 20,
-                  },
-                ],
               ]
             }
           >
@@ -2999,22 +2904,21 @@ exports[`Community renders step correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
                 Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                    "lineHeight": 16,
-                  },
-                ],
               ]
             }
             testID="Text"
@@ -3034,20 +2938,16 @@ exports[`Community renders step correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "justifyContent": "flex-start",
-              "lineHeight": 24,
-              "paddingBottom": 8,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          }
         }
       >
         Antwon K. completed a Step of Faith with a  person.
@@ -3113,21 +3013,17 @@ exports[`Community renders step correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             />
             <View
@@ -3190,21 +3086,17 @@ exports[`Community renders step correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             >
               21162
@@ -3379,19 +3271,14 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                    }
                   }
                 >
                   God Story
@@ -3439,23 +3326,23 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#007398",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
                     },
                     Object {
+                      "color": "#505256",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 20,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                      },
-                      Object {
-                        "color": "#505256",
-                        "fontSize": 16,
-                        "fontWeight": "bold",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -3465,22 +3352,21 @@ exports[`Community renders with clear notification button correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -3525,6 +3411,8 @@ exports[`Community renders with clear notification button correctly 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -3597,21 +3485,17 @@ exports[`Community renders with clear notification button correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -3673,21 +3557,17 @@ exports[`Community renders with clear notification button correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   28044
@@ -3910,19 +3790,14 @@ exports[`global community renders correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Step of Faith
@@ -3960,23 +3835,23 @@ exports[`global community renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#007398",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
                 },
                 Object {
+                  "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                    "lineHeight": 20,
-                  },
-                ],
               ]
             }
           >
@@ -3986,22 +3861,21 @@ exports[`global community renders correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
                 Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                    "lineHeight": 16,
-                  },
-                ],
               ]
             }
             testID="Text"
@@ -4021,20 +3895,16 @@ exports[`global community renders correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "justifyContent": "flex-start",
-              "lineHeight": 24,
-              "paddingBottom": 8,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          }
         }
       >
         Antwon K. completed a Step of Faith with a  person.
@@ -4100,21 +3970,17 @@ exports[`global community renders correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             />
             <View
@@ -4270,19 +4136,14 @@ exports[`global community renders post item correctly 1`] = `
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               God Story
@@ -4320,23 +4181,23 @@ exports[`global community renders post item correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#007398",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
                 },
                 Object {
+                  "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                    "lineHeight": 20,
-                  },
-                ],
               ]
             }
           >
@@ -4346,22 +4207,21 @@ exports[`global community renders post item correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
                 Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                    "lineHeight": 16,
-                  },
-                ],
               ]
             }
             testID="Text"
@@ -4406,6 +4266,8 @@ exports[`global community renders post item correctly 1`] = `
                     "color": "#505256",
                     "fontFamily": "SourceSansPro-Regular",
                     "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
                     "lineHeight": 18,
                   },
                   Object {},
@@ -4478,21 +4340,17 @@ exports[`global community renders post item correctly 1`] = `
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             />
             <View
@@ -4647,19 +4505,14 @@ exports[`global community renders with clear notification button correctly 1`] =
             />
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                  },
-                ]
+                Object {
+                  "color": "#ffffff",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                }
               }
             >
               Step of Faith
@@ -4697,23 +4550,23 @@ exports[`global community renders with clear notification button correctly 1`] =
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#007398",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 24,
                 },
                 Object {
+                  "color": "#505256",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 16,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 20,
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "color": "#007398",
-                    "fontSize": 16,
-                  },
-                  Object {
-                    "color": "#505256",
-                    "fontSize": 16,
-                    "fontWeight": "bold",
-                    "lineHeight": 20,
-                  },
-                ],
               ]
             }
           >
@@ -4723,22 +4576,21 @@ exports[`global community renders with clear notification button correctly 1`] =
             style={
               Array [
                 Object {
-                  "color": "#505256",
+                  "color": "#B4B6BA",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
                 Object {
+                  "color": "#B4B6BA",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 12,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 16,
                 },
-                Array [
-                  Object {
-                    "color": "#B2B0B2",
-                    "fontSize": 12,
-                  },
-                  Object {
-                    "color": "#B4B6BA",
-                    "fontSize": 12,
-                    "lineHeight": 16,
-                  },
-                ],
               ]
             }
             testID="Text"
@@ -4758,20 +4610,16 @@ exports[`global community renders with clear notification button correctly 1`] =
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "fontSize": 16,
-              "justifyContent": "flex-start",
-              "lineHeight": 24,
-              "paddingBottom": 8,
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "justifyContent": "flex-start",
+            "lineHeight": 24,
+            "paddingBottom": 8,
+          }
         }
       >
         Antwon K. completed a Step of Faith with a  person.
@@ -4837,21 +4685,17 @@ exports[`global community renders with clear notification button correctly 1`] =
           >
             <Text
               style={
-                Array [
-                  Object {
-                    "color": "#505256",
-                  },
-                  Object {
-                    "fontFamily": "SourceSansPro-Regular",
-                  },
-                  Object {
-                    "fontSize": 14,
-                    "lineHeight": 20,
-                    "paddingRight": 10,
-                    "textAlign": "right",
-                    "width": 30,
-                  },
-                ]
+                Object {
+                  "color": "#505256",
+                  "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "normal",
+                  "lineHeight": 20,
+                  "paddingRight": 10,
+                  "textAlign": "right",
+                  "width": 30,
+                }
               }
             />
             <View
@@ -5099,19 +4943,14 @@ exports[`renders with name pressable correctly 1`] = `
                 />
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                      },
-                    ]
+                    Object {
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                    }
                   }
                 >
                   God Story
@@ -5188,23 +5027,23 @@ exports[`renders with name pressable correctly 1`] = `
                     style={
                       Array [
                         Object {
-                          "color": "#505256",
+                          "color": "#007398",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 24,
                         },
                         Object {
+                          "color": "#505256",
                           "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 16,
+                          "fontStyle": "normal",
+                          "fontWeight": "bold",
+                          "letterSpacing": 1,
+                          "lineHeight": 20,
+                          "textTransform": "uppercase",
                         },
-                        Array [
-                          Object {
-                            "color": "#007398",
-                            "fontSize": 16,
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontSize": 16,
-                            "fontWeight": "bold",
-                            "lineHeight": 20,
-                          },
-                        ],
                       ]
                     }
                   >
@@ -5216,22 +5055,21 @@ exports[`renders with name pressable correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#B4B6BA",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
                     Object {
+                      "color": "#B4B6BA",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 12,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 16,
                     },
-                    Array [
-                      Object {
-                        "color": "#B2B0B2",
-                        "fontSize": 12,
-                      },
-                      Object {
-                        "color": "#B4B6BA",
-                        "fontSize": 12,
-                        "lineHeight": 16,
-                      },
-                    ],
                   ]
                 }
                 testID="Text"
@@ -5276,6 +5114,8 @@ exports[`renders with name pressable correctly 1`] = `
                         "color": "#505256",
                         "fontFamily": "SourceSansPro-Regular",
                         "fontSize": 14,
+                        "fontStyle": "normal",
+                        "fontWeight": "normal",
                         "lineHeight": 18,
                       },
                       Object {},
@@ -5348,21 +5188,17 @@ exports[`renders with name pressable correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 />
                 <View
@@ -5424,21 +5260,17 @@ exports[`renders with name pressable correctly 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "fontSize": 14,
-                        "lineHeight": 20,
-                        "paddingRight": 10,
-                        "textAlign": "right",
-                        "width": 30,
-                      },
-                    ]
+                    Object {
+                      "color": "#505256",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
+                      "paddingRight": 10,
+                      "textAlign": "right",
+                      "width": 30,
+                    }
                   }
                 >
                   28044

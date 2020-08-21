@@ -118,22 +118,14 @@ exports[`should render correctly 1`] = `
         style={
           Array [
             Object {
-              "color": "#505256",
+              "color": "#333333",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "textAlign": "center",
             },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Array [
-              Object {
-                "color": "#333333",
-                "fontFamily": "SourceSansPro-Light",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-                "textAlign": "center",
-              },
-              undefined,
-            ],
+            undefined,
           ]
         }
       >
@@ -190,22 +182,17 @@ exports[`should render correctly 1`] = `
             style={
               Array [
                 Object {
-                  "color": "#505256",
-                },
-                Object {
+                  "color": "#ffffff",
                   "fontFamily": "SourceSansPro-Regular",
+                  "fontSize": 14,
+                  "fontStyle": "normal",
+                  "fontWeight": "bold",
+                  "letterSpacing": 1,
+                  "lineHeight": 18,
+                  "textAlign": "center",
+                  "textTransform": "uppercase",
                 },
-                Array [
-                  Object {
-                    "backgroundColor": "rgba(0,0,0,0)",
-                    "color": "#ffffff",
-                    "fontSize": 14,
-                    "fontWeight": "500",
-                    "letterSpacing": 1.5,
-                    "textAlign": "center",
-                  },
-                  Object {},
-                ],
+                Object {},
               ]
             }
           >

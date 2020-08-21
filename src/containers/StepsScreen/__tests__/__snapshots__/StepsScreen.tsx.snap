@@ -5,7 +5,7 @@ exports[`handleRefresh refetches steps and checks for unread comments 1`] = `
 - First value
 + Second value
 
-@@ -365,14 +365,14 @@
+@@ -354,14 +354,14 @@
         onScrollBeginDrag={[Function anonymous]}
         onScrollEndDrag={[Function anonymous]}
         refreshControl={
@@ -146,23 +146,21 @@ exports[`renders empty screen correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -211,57 +209,47 @@ exports[`renders empty screen correctly 1`] = `
       />
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "AmaticSC-Bold",
-            },
-            Object {
-              "color": "#007398",
-              "fontSize": 42,
-              "paddingTop": 10,
-            },
-          ]
+          Object {
+            "color": "#007398",
+            "fontFamily": "AmaticSC-Bold",
+            "fontSize": 42,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 2,
+            "lineHeight": 42,
+            "paddingTop": 10,
+            "textTransform": "lowercase",
+          }
         }
       >
-        steps of faith
+        STEPS OF FAITH
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlign": "center",
+          }
         }
       >
         You don't have any Steps of Faith.
       </Text>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#505256",
-              "fontSize": 16,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#505256",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
+            "textAlign": "center",
+          }
         }
       >
         Choose a person and add some new steps.
@@ -326,23 +314,18 @@ exports[`renders empty screen correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Array [
-                      undefined,
-                    ],
+                    undefined,
                   ],
                 ]
               }
@@ -463,20 +446,12 @@ exports[`renders loading screen correctly 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
                     },
                     Object {
-                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 26,
+                      "fontWeight": "300",
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      Object {
-                        "fontSize": 26,
-                        "fontWeight": "300",
-                      },
-                    ],
                   ]
                 }
               >
@@ -503,23 +478,21 @@ exports[`renders loading screen correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -610,22 +583,20 @@ exports[`renders loading screen correctly 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "AmaticSC-Bold",
-              },
-              Object {
-                "color": "#007398",
-                "fontSize": 64,
-                "paddingVertical": 0,
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "AmaticSC-Bold",
+              "fontSize": 64,
+              "fontStyle": "normal",
+              "fontWeight": "bold",
+              "letterSpacing": 2,
+              "lineHeight": 48,
+              "paddingVertical": 0,
+              "textTransform": "lowercase",
+            }
           }
         >
-          loading
+          LOADING
         </Text>
       </View>
       <View
@@ -765,23 +736,21 @@ exports[`renders screen with steps correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "white",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 20,
               },
               Object {
+                "color": "#505256",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
               },
-              Array [
-                Object {
-                  "color": "white",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                },
-                Object {
-                  "fontSize": 16,
-                  "fontWeight": "400",
-                  "lineHeight": 24,
-                },
-              ],
             ]
           }
         >
@@ -879,42 +848,33 @@ exports[`renders screen with steps correctly 1`] = `
         />
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#007398",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "paddingTop": 5,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#007398",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+              "paddingTop": 5,
+              "textAlign": "center",
+            }
           }
         >
           Steps of Faith
         </Text>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#505256",
-                "fontSize": 16,
-                "paddingHorizontal": 50,
-                "paddingVertical": 5,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 24,
+              "paddingHorizontal": 50,
+              "paddingVertical": 5,
+              "textAlign": "center",
+            }
           }
         >
           Choose a person in People view to add a new step
@@ -1106,7 +1066,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
 - First value
 + Second value
 
-@@ -344,10 +344,54 @@
+@@ -333,10 +333,54 @@
                 \\"reminderType\\": \\"once\\",
               },
               \\"stepType\\": \\"bond\\",
@@ -1161,7 +1121,7 @@ exports[`stepsList onEndReached should paginate when the end of the scroll list 
         disableVirtualization={false}
         getItem={[Function anonymous]}
         getItemCount={[Function anonymous]}
-@@ -447,9 +491,82 @@
+@@ -436,9 +480,82 @@
                 }
               }
               testID=\\"stepItem\\"

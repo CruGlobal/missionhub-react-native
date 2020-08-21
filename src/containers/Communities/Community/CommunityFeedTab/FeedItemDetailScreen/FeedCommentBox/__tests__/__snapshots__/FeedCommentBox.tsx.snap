@@ -52,7 +52,7 @@ exports[`renders correctly 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Add a comment..."
-      placeholderTextColor="#B2B0B2"
+      placeholderTextColor="#B4B6BA"
       rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
@@ -60,19 +60,26 @@ exports[`renders correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
+            "borderBottomColor": "#3CC8E6",
             "borderBottomWidth": 1,
             "color": "#ffffff",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "letterSpacing": 0.25,
+            "lineHeight": 24,
             "paddingVertical": 5,
           },
           Object {
             "borderBottomWidth": 0,
-            "color": "#4E4C4E",
+            "color": "#505256",
             "flex": 1,
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
             "paddingHorizontal": 12,
             "paddingVertical": 6,
           },
@@ -121,7 +128,7 @@ exports[`renders editing correctly 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#505256",
+        "backgroundColor": "#B4B6BA",
         "borderRadius": 25,
       }
     }
@@ -212,7 +219,7 @@ exports[`renders editing correctly 1`] = `
       onChangeText={[Function]}
       onSubmitEditing={[Function]}
       placeholder="Add a comment..."
-      placeholderTextColor="#B2B0B2"
+      placeholderTextColor="#B4B6BA"
       rejectResponderTermination={true}
       returnKeyType="done"
       selectionColor="#005A7F"
@@ -220,19 +227,26 @@ exports[`renders editing correctly 1`] = `
         Array [
           Object {
             "backgroundColor": "transparent",
-            "borderBottomColor": "#52C5DC",
+            "borderBottomColor": "#3CC8E6",
             "borderBottomWidth": 1,
             "color": "#ffffff",
             "fontFamily": "SourceSansPro-Regular",
             "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
             "letterSpacing": 0.25,
+            "lineHeight": 24,
             "paddingVertical": 5,
           },
           Object {
             "borderBottomWidth": 0,
-            "color": "#4E4C4E",
+            "color": "#505256",
             "flex": 1,
+            "fontFamily": "SourceSansPro-Regular",
             "fontSize": 14,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 20,
             "paddingHorizontal": 12,
             "paddingVertical": 6,
           },

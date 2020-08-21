@@ -205,42 +205,33 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "paddingTop": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "paddingTop": 5,
+                "textAlign": "center",
+              }
             }
           >
             Our Challenges
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingHorizontal": 50,
-                  "paddingVertical": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 50,
+                "paddingVertical": 5,
+                "textAlign": "center",
+              }
             }
           >
             Create a community challenge everyone can join.
@@ -282,19 +273,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -389,19 +376,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Read "There and Back Again"
@@ -433,39 +416,28 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -485,19 +457,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -508,19 +475,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -542,19 +503,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -565,19 +521,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -644,24 +594,26 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textTransform": "uppercase",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "fontSize": 15,
-                    },
-                  ],
                 ]
               }
             >
@@ -759,19 +711,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite a neighbor over for mince pie.
@@ -803,39 +751,28 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -855,19 +792,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -878,19 +810,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -912,19 +838,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -935,19 +856,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -1038,24 +953,26 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 15,
-                      },
-                    ],
                   ]
                 }
               >
@@ -1086,19 +1003,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           Past Challenges
@@ -1193,19 +1106,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite Smeagol over for fresh fish
@@ -1237,39 +1146,28 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -1289,19 +1187,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -1312,19 +1205,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -1346,19 +1233,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -1369,21 +1251,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
                           Object {
-                            "fontFamily": "SourceSansPro-Regular",
+                            "color": "#B4B6BA",
                           },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            Object {
-                              "color": "#B4B6BA",
-                            },
-                          ],
                         ]
                       }
                       testID="completedCount"
@@ -1498,19 +1374,15 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Who can wear the ring the longest.
@@ -1542,39 +1414,28 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -1594,19 +1455,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -1617,19 +1473,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -1651,19 +1501,14 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -1674,19 +1519,13 @@ exports[`Challenge Feed rendering renders challenges without header 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -1926,42 +1765,33 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "paddingTop": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "paddingTop": 5,
+                "textAlign": "center",
+              }
             }
           >
             Our Challenges
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingHorizontal": 50,
-                  "paddingVertical": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 50,
+                "paddingVertical": 5,
+                "textAlign": "center",
+              }
             }
           >
             Join each other in a challenge created for your community.
@@ -2003,19 +1833,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -2110,19 +1936,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Read "There and Back Again"
@@ -2154,39 +1976,28 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -2206,19 +2017,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -2229,19 +2035,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -2263,19 +2063,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -2286,19 +2081,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -2365,24 +2154,26 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textTransform": "uppercase",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "fontSize": 15,
-                    },
-                  ],
                 ]
               }
             >
@@ -2480,19 +2271,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite a neighbor over for mince pie.
@@ -2524,39 +2311,28 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -2576,19 +2352,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -2599,19 +2370,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -2633,19 +2398,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -2656,19 +2416,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -2759,24 +2513,26 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 15,
-                      },
-                    ],
                   ]
                 }
               >
@@ -2807,19 +2563,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           Past Challenges
@@ -2914,19 +2666,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite Smeagol over for fresh fish
@@ -2958,39 +2706,28 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -3010,19 +2747,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -3033,19 +2765,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -3067,19 +2793,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -3090,21 +2811,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
                           Object {
-                            "fontFamily": "SourceSansPro-Regular",
+                            "color": "#B4B6BA",
                           },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            Object {
-                              "color": "#B4B6BA",
-                            },
-                          ],
                         ]
                       }
                       testID="completedCount"
@@ -3219,19 +2934,15 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Who can wear the ring the longest.
@@ -3263,39 +2974,28 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -3315,19 +3015,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -3338,19 +3033,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -3372,19 +3061,14 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -3395,19 +3079,13 @@ exports[`Challenge Feed rendering renders correctly for challenge feed 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -3649,42 +3327,33 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "paddingTop": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "paddingTop": 5,
+                "textAlign": "center",
+              }
             }
           >
             Our Challenges
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingHorizontal": 50,
-                  "paddingVertical": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 50,
+                "paddingVertical": 5,
+                "textAlign": "center",
+              }
             }
           >
             Join each other in a challenge created for your community.
@@ -3726,19 +3395,15 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -3833,19 +3498,15 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Read "There and Back Again"
@@ -3877,39 +3538,28 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -3929,19 +3579,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -3952,19 +3597,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -3986,19 +3625,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -4009,19 +3643,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -4088,24 +3716,26 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textTransform": "uppercase",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "fontSize": 15,
-                    },
-                  ],
                 ]
               }
             >
@@ -4203,19 +3833,15 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite a neighbor over for mince pie.
@@ -4247,39 +3873,28 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -4299,19 +3914,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -4322,19 +3932,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -4356,19 +3960,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -4379,19 +3978,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -4482,24 +4075,26 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 15,
-                      },
-                    ],
                   ]
                 }
               >
@@ -4530,19 +4125,15 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           Past Challenges
@@ -4637,19 +4228,15 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite Smeagol over for fresh fish
@@ -4681,39 +4268,28 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -4733,19 +4309,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -4756,19 +4327,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -4790,19 +4355,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -4813,21 +4373,15 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
                           Object {
-                            "fontFamily": "SourceSansPro-Regular",
+                            "color": "#B4B6BA",
                           },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            Object {
-                              "color": "#B4B6BA",
-                            },
-                          ],
                         ]
                       }
                       testID="completedCount"
@@ -4942,19 +4496,15 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Who can wear the ring the longest.
@@ -4986,39 +4536,28 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -5038,19 +4577,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -5061,19 +4595,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -5095,19 +4623,14 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -5118,19 +4641,13 @@ exports[`Challenge Feed rendering renders correctly on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -5247,19 +4764,15 @@ exports[`Challenge Feed rendering renders null component | Admin 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -5356,19 +4869,15 @@ exports[`Challenge Feed rendering renders null component | Member 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -5516,42 +5025,33 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "paddingTop": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "paddingTop": 5,
+                "textAlign": "center",
+              }
             }
           >
             Our Challenges
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingHorizontal": 50,
-                  "paddingVertical": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 50,
+                "paddingVertical": 5,
+                "textAlign": "center",
+              }
             }
           >
             Create a community challenge everyone can join.
@@ -5593,19 +5093,15 @@ exports[`Challenge Feed rendering renders null with header 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -5702,19 +5198,15 @@ exports[`Challenge Feed rendering renders null without header 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -5934,42 +5426,33 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "paddingTop": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "paddingTop": 5,
+                "textAlign": "center",
+              }
             }
           >
             Our Challenges
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingHorizontal": 50,
-                  "paddingVertical": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 50,
+                "paddingVertical": 5,
+                "textAlign": "center",
+              }
             }
           >
             Join each other in a challenge created for your community.
@@ -6011,19 +5494,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -6118,19 +5597,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Read "There and Back Again"
@@ -6162,39 +5637,28 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -6214,19 +5678,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -6237,19 +5696,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -6271,19 +5724,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -6294,19 +5742,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -6373,24 +5815,26 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textTransform": "uppercase",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "fontSize": 15,
-                    },
-                  ],
                 ]
               }
             >
@@ -6488,19 +5932,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite a neighbor over for mince pie.
@@ -6532,39 +5972,28 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -6584,19 +6013,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -6607,19 +6031,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -6641,19 +6059,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -6664,19 +6077,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -6767,24 +6174,26 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 15,
-                      },
-                    ],
                   ]
                 }
               >
@@ -6815,19 +6224,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           Past Challenges
@@ -6922,19 +6327,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite Smeagol over for fresh fish
@@ -6966,39 +6367,28 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -7018,19 +6408,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -7041,19 +6426,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -7075,19 +6454,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -7098,21 +6472,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
                           Object {
-                            "fontFamily": "SourceSansPro-Regular",
+                            "color": "#B4B6BA",
                           },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            Object {
-                              "color": "#B4B6BA",
-                            },
-                          ],
                         ]
                       }
                       testID="completedCount"
@@ -7227,19 +6595,15 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Who can wear the ring the longest.
@@ -7271,39 +6635,28 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -7323,19 +6676,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -7346,19 +6694,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -7380,19 +6722,14 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -7403,19 +6740,13 @@ exports[`Challenge Feed rendering renders with extra padding 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -7657,42 +6988,33 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
           />
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#007398",
-                  "fontSize": 24,
-                  "fontWeight": "300",
-                  "paddingTop": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#007398",
+                "fontFamily": "SourceSansPro-Light",
+                "fontSize": 24,
+                "fontStyle": "normal",
+                "fontWeight": "300",
+                "lineHeight": 30,
+                "paddingTop": 5,
+                "textAlign": "center",
+              }
             }
           >
             Our Challenges
           </Text>
           <Text
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#505256",
-                  "fontSize": 16,
-                  "paddingHorizontal": 50,
-                  "paddingVertical": 5,
-                  "textAlign": "center",
-                },
-              ]
+              Object {
+                "color": "#B4B6BA",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+                "paddingHorizontal": 50,
+                "paddingVertical": 5,
+                "textAlign": "center",
+              }
             }
           >
             Join each other in a challenge created for your community.
@@ -7734,19 +7056,15 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           
@@ -7841,19 +7159,15 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Read "There and Back Again"
@@ -7885,39 +7199,28 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -7937,19 +7240,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -7960,19 +7258,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -7994,19 +7286,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -8017,19 +7304,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -8096,24 +7377,26 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textTransform": "uppercase",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "fontSize": 15,
-                    },
-                  ],
                 ]
               }
             >
@@ -8211,19 +7494,15 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite a neighbor over for mince pie.
@@ -8255,39 +7534,28 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days Left
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       1
@@ -8307,19 +7575,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -8330,19 +7593,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -8364,19 +7621,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -8387,19 +7639,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"
@@ -8490,24 +7736,26 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textTransform": "uppercase",
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "fontSize": 15,
-                      },
-                    ],
                   ]
                 }
               >
@@ -8538,19 +7786,15 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
       >
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#B4B6BA",
-                "fontSize": 12,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#B4B6BA",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "textAlign": "center",
+            }
           }
         >
           Past Challenges
@@ -8645,19 +7889,15 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Invite Smeagol over for fresh fish
@@ -8689,39 +7929,28 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -8741,19 +7970,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -8764,19 +7988,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -8798,19 +8016,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -8821,21 +8034,15 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
                           Object {
-                            "fontFamily": "SourceSansPro-Regular",
+                            "color": "#B4B6BA",
                           },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            Object {
-                              "color": "#B4B6BA",
-                            },
-                          ],
                         ]
                       }
                       testID="completedCount"
@@ -8950,19 +8157,15 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
               >
                 <Text
                   style={
-                    Array [
-                      Object {
-                        "color": "#505256",
-                      },
-                      Object {
-                        "fontFamily": "SourceSansPro-Regular",
-                      },
-                      Object {
-                        "color": "#007398",
-                        "fontSize": 16,
-                        "marginBottom": 3,
-                      },
-                    ]
+                    Object {
+                      "color": "#005A7F",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 16,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 24,
+                      "marginBottom": 3,
+                    }
                   }
                 >
                   Who can wear the ring the longest.
@@ -8994,39 +8197,28 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Days
                     </Text>
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#505256",
-                            "fontFamily": "SourceSansPro-ExtraLight",
-                            "fontSize": 24,
-                            "lineHeight": 30,
-                          },
-                        ]
+                        Object {
+                          "color": "#505256",
+                          "fontFamily": "SourceSansPro-ExtraLight",
+                          "fontSize": 24,
+                          "fontStyle": "normal",
+                          "fontWeight": "300",
+                          "lineHeight": 30,
+                        }
                       }
                     >
                       2
@@ -9046,19 +8238,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Joined
@@ -9069,19 +8256,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="joinedCount"
@@ -9103,19 +8284,14 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                   >
                     <Text
                       style={
-                        Array [
-                          Object {
-                            "color": "#505256",
-                          },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Object {
-                            "color": "#A0A2A6",
-                            "fontSize": 12,
-                            "lineHeight": 16,
-                          },
-                        ]
+                        Object {
+                          "color": "#B4B6BA",
+                          "fontFamily": "SourceSansPro-Regular",
+                          "fontSize": 12,
+                          "fontStyle": "normal",
+                          "fontWeight": "normal",
+                          "lineHeight": 16,
+                        }
                       }
                     >
                       Completed
@@ -9126,19 +8302,13 @@ exports[`Challenge Feed rendering renders with extra padding on android 1`] = `
                         Array [
                           Object {
                             "color": "#505256",
+                            "fontFamily": "SourceSansPro-ExtraLight",
+                            "fontSize": 24,
+                            "fontStyle": "normal",
+                            "fontWeight": "300",
+                            "lineHeight": 30,
                           },
-                          Object {
-                            "fontFamily": "SourceSansPro-Regular",
-                          },
-                          Array [
-                            Object {
-                              "color": "#505256",
-                              "fontFamily": "SourceSansPro-ExtraLight",
-                              "fontSize": 24,
-                              "lineHeight": 30,
-                            },
-                            null,
-                          ],
+                          null,
                         ]
                       }
                       testID="completedCount"

@@ -77,18 +77,14 @@ exports[`renders me correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
-          },
-          Object {
+            "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
           },
-          Array [
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-            },
-            undefined,
-          ],
+          undefined,
         ]
       }
     >
@@ -103,20 +99,15 @@ exports[`renders me correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 12,
-              "lineHeight": 14,
-              "paddingTop": 6,
-            },
-          ]
+          Object {
+            "color": "#ECEEF2",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "paddingTop": 6,
+          }
         }
       >
         corporis repellat ratione
@@ -150,7 +141,7 @@ exports[`renders me correctly 1`] = `
               "fontSize": 30,
             },
             Object {
-              "color": "#52C5DC",
+              "color": "#3CC8E6",
             },
           ],
           Object {
@@ -182,19 +173,16 @@ exports[`renders me correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 13,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 13,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textTransform": "uppercase",
+          }
         }
       >
         18626
@@ -281,18 +269,14 @@ exports[`renders person correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
-          },
-          Object {
+            "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
           },
-          Array [
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-            },
-            undefined,
-          ],
+          undefined,
         ]
       }
     >
@@ -307,20 +291,15 @@ exports[`renders person correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 12,
-              "lineHeight": 14,
-              "paddingTop": 6,
-            },
-          ]
+          Object {
+            "color": "#ECEEF2",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "paddingTop": 6,
+          }
         }
       >
         nulla quam ipsam
@@ -354,7 +333,7 @@ exports[`renders person correctly 1`] = `
               "fontSize": 30,
             },
             Object {
-              "color": "#52C5DC",
+              "color": "#3CC8E6",
             },
           ],
           Object {
@@ -386,19 +365,16 @@ exports[`renders person correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 13,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 13,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textTransform": "uppercase",
+          }
         }
       >
         44345
@@ -472,18 +448,14 @@ exports[`renders person with no stage correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
-          },
-          Object {
+            "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
           },
-          Array [
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-            },
-            undefined,
-          ],
+          undefined,
         ]
       }
     >
@@ -517,22 +489,17 @@ exports[`renders person with no stage correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
+                "color": "#ECEEF2",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 12,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 16,
+                "paddingTop": 6,
               },
               Object {
-                "fontFamily": "SourceSansPro-Regular",
+                "color": "#3CC8E6",
               },
-              Array [
-                Object {
-                  "color": "#A0A2A6",
-                  "fontSize": 12,
-                  "lineHeight": 14,
-                  "paddingTop": 6,
-                },
-                Object {
-                  "color": "#52C5DC",
-                },
-              ],
             ]
           }
         >
@@ -568,7 +535,7 @@ exports[`renders person with no stage correctly 1`] = `
               "fontSize": 30,
             },
             Object {
-              "color": "#52C5DC",
+              "color": "#3CC8E6",
             },
           ],
           Object {
@@ -600,19 +567,16 @@ exports[`renders person with no stage correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 13,
-              "fontWeight": "bold",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 13,
+            "fontStyle": "normal",
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "lineHeight": 18,
+            "textTransform": "uppercase",
+          }
         }
       >
         44345
@@ -699,18 +663,14 @@ exports[`renders personal ministry with no steps correctly 1`] = `
       style={
         Array [
           Object {
-            "color": "#505256",
-          },
-          Object {
+            "color": "#007398",
             "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 16,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 24,
           },
-          Array [
-            Object {
-              "color": "#007398",
-              "fontSize": 16,
-            },
-            undefined,
-          ],
+          undefined,
         ]
       }
     >
@@ -725,20 +685,15 @@ exports[`renders personal ministry with no steps correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#A0A2A6",
-              "fontSize": 12,
-              "lineHeight": 14,
-              "paddingTop": 6,
-            },
-          ]
+          Object {
+            "color": "#ECEEF2",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "paddingTop": 6,
+          }
         }
       >
         nulla quam ipsam
@@ -783,7 +738,7 @@ exports[`renders personal ministry with no steps correctly 1`] = `
               "fontSize": 30,
             },
             Object {
-              "color": "#52C5DC",
+              "color": "#3CC8E6",
             },
           ],
           Object {
@@ -814,7 +769,7 @@ exports[`renders personal ministry with no steps correctly 1`] = `
             },
             Object {
               "bottom": 16,
-              "color": "#52C5DC",
+              "color": "#3CC8E6",
               "left": 24,
               "position": "absolute",
             },

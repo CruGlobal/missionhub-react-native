@@ -154,19 +154,17 @@ exports[`renders isMe version correctly 1`] = `
   >
     <Text
       style={
-        Array [
-          Object {
-            "color": "#505256",
-          },
-          Object {
-            "fontFamily": "AmaticSC-Bold",
-          },
-          Object {
-            "color": "#52C5DC",
-            "fontSize": 36,
-            "marginBottom": 10,
-          },
-        ]
+        Object {
+          "color": "#3CC8E6",
+          "fontFamily": "AmaticSC-Bold",
+          "fontSize": 36,
+          "fontStyle": "normal",
+          "fontWeight": "bold",
+          "letterSpacing": 2,
+          "lineHeight": 36,
+          "marginBottom": 10,
+          "textTransform": "lowercase",
+        }
       }
     >
       what is your name?
@@ -183,18 +181,14 @@ exports[`renders isMe version correctly 1`] = `
     <View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         First Name (Required)
@@ -216,12 +210,15 @@ exports[`renders isMe version correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {},
@@ -256,12 +253,15 @@ exports[`renders isMe version correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {},
@@ -287,20 +287,16 @@ exports[`renders isMe version correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 12,
-              "paddingHorizontal": 3,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+            "paddingHorizontal": 3,
+            "textAlign": "center",
+          }
         }
       >
         By creating your MissionHub trial account you agree to our
@@ -350,30 +346,28 @@ exports[`renders isMe version correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0,
+                    "lineHeight": 16,
+                    "paddingHorizontal": 3,
+                    "textAlign": "center",
+                    "textDecorationLine": "underline",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 0,
-                      "paddingHorizontal": 3,
-                      "textAlign": "center",
-                      "textDecorationLine": "underline",
-                    },
-                  ],
                 ]
               }
             >
@@ -383,20 +377,16 @@ exports[`renders isMe version correctly 1`] = `
         </View>
         <Text
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 12,
-                "paddingHorizontal": 3,
-                "textAlign": "center",
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Regular",
+              "fontSize": 12,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
+              "lineHeight": 16,
+              "paddingHorizontal": 3,
+              "textAlign": "center",
+            }
           }
         >
           and
@@ -434,30 +424,28 @@ exports[`renders isMe version correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
+                    "color": "#ffffff",
+                    "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 12,
+                    "fontStyle": "normal",
+                    "fontWeight": "normal",
+                    "letterSpacing": 0,
+                    "lineHeight": 16,
+                    "paddingHorizontal": 3,
+                    "textAlign": "center",
+                    "textDecorationLine": "underline",
                   },
-                  Array [
-                    Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
-                      "color": "#ffffff",
-                      "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
-                    },
-                    Object {
-                      "color": "#ffffff",
-                      "fontSize": 12,
-                      "fontWeight": "normal",
-                      "letterSpacing": 0,
-                      "paddingHorizontal": 3,
-                      "textAlign": "center",
-                      "textDecorationLine": "underline",
-                    },
-                  ],
                 ]
               }
             >
@@ -500,7 +488,7 @@ exports[`renders isMe version correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -523,23 +511,18 @@ exports[`renders isMe version correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -728,26 +711,26 @@ exports[`renders other person version correctly 1`] = `
               style={
                 Array [
                   Object {
-                    "color": "#505256",
-                  },
-                  Object {
+                    "color": "#ffffff",
                     "fontFamily": "SourceSansPro-Regular",
+                    "fontSize": 14,
+                    "fontStyle": "normal",
+                    "fontWeight": "bold",
+                    "letterSpacing": 1,
+                    "lineHeight": 18,
+                    "textAlign": "center",
+                    "textTransform": "uppercase",
                   },
                   Array [
                     Object {
-                      "backgroundColor": "rgba(0,0,0,0)",
                       "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
                       "fontSize": 14,
-                      "fontWeight": "500",
-                      "letterSpacing": 1.5,
-                      "textAlign": "center",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
                     },
-                    Array [
-                      Object {
-                        "color": "#ffffff",
-                      },
-                      undefined,
-                    ],
+                    undefined,
                   ],
                 ]
               }
@@ -781,22 +764,16 @@ exports[`renders other person version correctly 1`] = `
     >
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#ffffff",
-              "fontSize": 24,
-              "fontWeight": "300",
-              "lineHeight": 30,
-              "maxWidth": 230,
-              "textAlign": "center",
-            },
-          ]
+          Object {
+            "color": "#ffffff",
+            "fontFamily": "SourceSansPro-Light",
+            "fontSize": 24,
+            "fontStyle": "normal",
+            "fontWeight": "300",
+            "lineHeight": 30,
+            "maxWidth": 230,
+            "textAlign": "center",
+          }
         }
       >
         Who would you like to take steps of faith with this week?
@@ -814,18 +791,14 @@ exports[`renders other person version correctly 1`] = `
     <View>
       <Text
         style={
-          Array [
-            Object {
-              "color": "#505256",
-            },
-            Object {
-              "fontFamily": "SourceSansPro-Regular",
-            },
-            Object {
-              "color": "#52C5DC",
-              "fontSize": 12,
-            },
-          ]
+          Object {
+            "color": "#3CC8E6",
+            "fontFamily": "SourceSansPro-Regular",
+            "fontSize": 12,
+            "fontStyle": "normal",
+            "fontWeight": "normal",
+            "lineHeight": 16,
+          }
         }
       >
         First Name or Nickname
@@ -847,12 +820,15 @@ exports[`renders other person version correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {},
@@ -887,12 +863,15 @@ exports[`renders other person version correctly 1`] = `
           Array [
             Object {
               "backgroundColor": "transparent",
-              "borderBottomColor": "#52C5DC",
+              "borderBottomColor": "#3CC8E6",
               "borderBottomWidth": 1,
               "color": "#ffffff",
               "fontFamily": "SourceSansPro-Regular",
               "fontSize": 16,
+              "fontStyle": "normal",
+              "fontWeight": "normal",
               "letterSpacing": 0.25,
+              "lineHeight": 24,
               "paddingVertical": 5,
             },
             Object {},
@@ -936,7 +915,7 @@ exports[`renders other person version correctly 1`] = `
           Array [
             Object {
               "alignItems": "center",
-              "backgroundColor": "#52C5DC",
+              "backgroundColor": "#3CC8E6",
               "height": 60,
               "justifyContent": "center",
             },
@@ -959,23 +938,18 @@ exports[`renders other person version correctly 1`] = `
           style={
             Array [
               Object {
-                "color": "#505256",
-              },
-              Object {
+                "color": "#ffffff",
                 "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 14,
+                "fontStyle": "normal",
+                "fontWeight": "bold",
+                "letterSpacing": 1,
+                "lineHeight": 18,
+                "textAlign": "center",
+                "textTransform": "uppercase",
               },
               Array [
-                Object {
-                  "backgroundColor": "rgba(0,0,0,0)",
-                  "color": "#ffffff",
-                  "fontSize": 14,
-                  "fontWeight": "500",
-                  "letterSpacing": 1.5,
-                  "textAlign": "center",
-                },
-                Array [
-                  undefined,
-                ],
+                undefined,
               ],
             ]
           }
@@ -993,7 +967,7 @@ exports[`setup screen methods should update first name 1`] = `
 - First value
 + Second value
 
-@@ -303,11 +303,11 @@
+@@ -296,11 +296,11 @@
               Object {},
             ]
           }
@@ -1013,7 +987,7 @@ exports[`setup screen methods should update last name 1`] = `
 - First value
 + Second value
 
-@@ -343,11 +343,11 @@
+@@ -339,11 +339,11 @@
               Object {},
             ]
           }

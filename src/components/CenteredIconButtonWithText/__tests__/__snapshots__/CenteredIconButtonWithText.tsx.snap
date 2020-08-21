@@ -84,7 +84,7 @@ exports[`renders correctly with non-null onClick 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#52C5DC",
+                      "color": "#3CC8E6",
                       "fontSize": 24,
                     },
                     Object {},
@@ -110,18 +110,10 @@ exports[`renders correctly with non-null onClick 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontSize": 11,
+      }
     }
   >
     Hello, MissionHub
@@ -213,7 +205,7 @@ exports[`renders correctly with undefined onClick 1`] = `
                   },
                   Array [
                     Object {
-                      "color": "#52C5DC",
+                      "color": "#3CC8E6",
                       "fontSize": 24,
                     },
                     Object {
@@ -239,18 +231,10 @@ exports[`renders correctly with undefined onClick 1`] = `
   </View>
   <Text
     style={
-      Array [
-        Object {
-          "color": "#505256",
-        },
-        Object {
-          "fontFamily": "SourceSansPro-Regular",
-        },
-        Object {
-          "color": "#ffffff",
-          "fontSize": 11,
-        },
-      ]
+      Object {
+        "color": "#ffffff",
+        "fontSize": 11,
+      }
     }
   >
     Hello, MissionHub

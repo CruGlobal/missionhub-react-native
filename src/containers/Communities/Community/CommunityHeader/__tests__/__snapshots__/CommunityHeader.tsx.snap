@@ -22,10 +22,10 @@ exports[`CommunityHeader should render community details 1`] = `
               Object {
                 \\"bottom\\": 0,
                 \\"left\\": 0,
-@@ -241,11 +245,11 @@
-                  \\"lineHeight\\": 30,
-                },
-              ]
+@@ -235,11 +239,11 @@
+                \\"fontWeight\\": \\"300\\",
+                \\"lineHeight\\": 30,
+              }
             }
           >
 -           -
@@ -35,9 +35,9 @@ exports[`CommunityHeader should render community details 1`] = `
             style={
               Array [
                 Object {},
-@@ -320,11 +324,11 @@
-                        },
-                      ],
+@@ -311,11 +315,11 @@
+                        \\"lineHeight\\": 20,
+                      },
                     ]
                   }
                 >
@@ -55,9 +55,9 @@ exports[`CommunityHeader should render global community details 1`] = `
 - First value
 + Second value
 
-@@ -281,11 +281,11 @@
-                        },
-                      ],
+@@ -272,11 +272,11 @@
+                        \\"lineHeight\\": 20,
+                      },
                     ]
                   }
                 >
@@ -95,7 +95,7 @@ exports[`CommunityHeader should render global community loading 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#C5C7CB",
+        "backgroundColor": "#ECEEF2",
       }
     }
   >
@@ -261,20 +261,14 @@ exports[`CommunityHeader should render global community loading 1`] = `
         <Text
           numberOfLines={2}
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+            }
           }
         >
           MissionHub
@@ -332,27 +326,24 @@ exports[`CommunityHeader should render global community loading 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "normal",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -400,17 +391,14 @@ exports[`CommunityHeader should render global community loading 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#A0A2A6",
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             Feed
@@ -440,17 +428,14 @@ exports[`CommunityHeader should render global community loading 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#A0A2A6",
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             Challenges
@@ -480,17 +465,14 @@ exports[`CommunityHeader should render global community loading 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#A0A2A6",
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             Impact
@@ -527,7 +509,7 @@ exports[`CommunityHeader should render loading state 1`] = `
   <View
     style={
       Object {
-        "backgroundColor": "#C5C7CB",
+        "backgroundColor": "#ECEEF2",
       }
     }
   >
@@ -732,20 +714,14 @@ exports[`CommunityHeader should render loading state 1`] = `
         <Text
           numberOfLines={2}
           style={
-            Array [
-              Object {
-                "color": "#505256",
-              },
-              Object {
-                "fontFamily": "SourceSansPro-Regular",
-              },
-              Object {
-                "color": "#ffffff",
-                "fontSize": 24,
-                "fontWeight": "300",
-                "lineHeight": 30,
-              },
-            ]
+            Object {
+              "color": "#ffffff",
+              "fontFamily": "SourceSansPro-Light",
+              "fontSize": 24,
+              "fontStyle": "normal",
+              "fontWeight": "300",
+              "lineHeight": 30,
+            }
           }
         >
           -
@@ -803,27 +779,24 @@ exports[`CommunityHeader should render loading state 1`] = `
                 style={
                   Array [
                     Object {
-                      "color": "#505256",
+                      "color": "#ffffff",
+                      "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "bold",
+                      "letterSpacing": 1,
+                      "lineHeight": 18,
+                      "textAlign": "center",
+                      "textTransform": "uppercase",
                     },
                     Object {
+                      "color": "#ffffff",
                       "fontFamily": "SourceSansPro-Regular",
+                      "fontSize": 14,
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                      "lineHeight": 20,
                     },
-                    Array [
-                      Object {
-                        "backgroundColor": "rgba(0,0,0,0)",
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "500",
-                        "letterSpacing": 1.5,
-                        "textAlign": "center",
-                      },
-                      Object {
-                        "color": "#ffffff",
-                        "fontSize": 14,
-                        "fontWeight": "normal",
-                        "lineHeight": 20,
-                      },
-                    ],
                   ]
                 }
               >
@@ -871,17 +844,14 @@ exports[`CommunityHeader should render loading state 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#A0A2A6",
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             Feed
@@ -911,17 +881,14 @@ exports[`CommunityHeader should render loading state 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#A0A2A6",
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             Challenges
@@ -951,17 +918,14 @@ exports[`CommunityHeader should render loading state 1`] = `
           <Text
             numberOfLines={1}
             style={
-              Array [
-                Object {
-                  "color": "#505256",
-                },
-                Object {
-                  "fontFamily": "SourceSansPro-Regular",
-                },
-                Object {
-                  "color": "#A0A2A6",
-                },
-              ]
+              Object {
+                "color": "#505256",
+                "fontFamily": "SourceSansPro-Regular",
+                "fontSize": 16,
+                "fontStyle": "normal",
+                "fontWeight": "normal",
+                "lineHeight": 24,
+              }
             }
           >
             Impact
