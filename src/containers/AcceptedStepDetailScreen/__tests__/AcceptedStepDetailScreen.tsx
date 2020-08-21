@@ -7,7 +7,6 @@ import {
   handleAfterCompleteStep,
   removeFromStepsList,
 } from '../../../actions/steps';
-import { removeStepReminder } from '../../../actions/stepReminders';
 import { navigateBack } from '../../../actions/navigation';
 import { useAnalytics } from '../../../utils/hooks/useAnalytics';
 import { AcceptedStepDetail_step_receiver } from '../__generated__/AcceptedStepDetail';
@@ -256,6 +255,4 @@ it('should delete reminder', async () => {
   expect(useMutation).toHaveBeenMutatedWith(DELETE_STEP_REMINDER_MUTATION, {
     variables: { input: { id: reminderId } },
   });
-  await flushMicrotasksQueue();
-  expect(removeStepReminder as jest.Mock).toHaveBeenCalledWith(stepId);
 });

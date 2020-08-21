@@ -28,13 +28,6 @@ export const REFRESH_STEP_REMINDER_QUERY = gql`
   }
 `;
 
-export function removeStepReminder(stepId: string) {
-  apolloClient.query<refreshStepReminder, refreshStepReminderVariables>({
-    query: REFRESH_STEP_REMINDER_QUERY,
-    variables: { stepId },
-  });
-}
-
 export function createStepReminder(
   stepId: string,
   reminder_at: Date,

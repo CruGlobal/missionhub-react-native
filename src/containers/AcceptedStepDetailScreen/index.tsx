@@ -10,7 +10,7 @@ import {
   handleAfterCompleteStep,
   removeFromStepsList,
 } from '../../actions/steps';
-import { removeStepReminder } from '../../actions/stepReminders';
+import { REFRESH_STEP_REMINDER_QUERY } from '../../actions/stepReminders';
 import StepDetailScreen from '../../components/StepDetailScreen';
 import { navigateBack } from '../../actions/navigation';
 import ReminderButton from '../../components/ReminderButton';
@@ -91,9 +91,12 @@ const AcceptedStepDetailScreen = () => {
     DeleteReminder,
     DeleteReminderVariables
   >(DELETE_STEP_REMINDER_MUTATION, {
-    onCompleted: () => {
-      step && removeStepReminder(step?.id);
-    },
+    refetchQueries: [
+      {
+        query: REFRESH_STEP_REMINDER_QUERY,
+        variables: { stepId: step && step.id },
+      },
+    ],
   });
 
   const post = step?.post;

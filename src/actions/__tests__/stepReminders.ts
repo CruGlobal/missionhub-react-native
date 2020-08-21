@@ -3,11 +3,7 @@ import thunk from 'redux-thunk';
 
 import { apolloClient } from '../../apolloClient';
 import { DAYS_OF_THE_WEEK } from '../../constants';
-import {
-  removeStepReminder,
-  createStepReminder,
-  REFRESH_STEP_REMINDER_QUERY,
-} from '../stepReminders';
+import { createStepReminder } from '../stepReminders';
 import callApi from '../api';
 import { REQUESTS } from '../../api/routes';
 import { ReminderTypeEnum } from '../../../__generated__/globalTypes';
@@ -31,18 +27,6 @@ callApi.mockReturnValue(callApiResponse);
 
 beforeEach(() => {
   store = mockStore();
-});
-
-describe('removeStepReminder', () => {
-  it('should remove reminder from step', async () => {
-    await removeStepReminder(challenge_id);
-    expect(apolloClient.query).toHaveBeenCalledWith({
-      query: REFRESH_STEP_REMINDER_QUERY,
-      variables: {
-        stepId: challenge_id,
-      },
-    });
-  });
 });
 
 // @ts-ignore
